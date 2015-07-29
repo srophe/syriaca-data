@@ -2,7 +2,7 @@
 <collection xmlns="http://exist-db.org/collection-config/1.0">
     <index xmlns:tei="http://www.tei-c.org/ns/1.0">
         <fulltext default="none" attributes="no"/>
-        <!-- Full text search configuration -->
+        <!-- Full text search configuration  -->
         <lucene diacritics="no">
             <!-- Does not currently search tei header info, other then title -->
             <!-- Should maybe not index placeName, location, state or event?-->
@@ -10,6 +10,7 @@
             <text qname="tei:div"/>
             <text qname="tei:persName" boost="2.0"/>
             <text qname="tei:placeName" boost="2.0"/>
+            <text qname="tei:title" boost="2.0"/>
             <text qname="tei:location" boost=".5"/>
             <text qname="tei:desc" boost="1.5"/>
             <text qname="tei:event"/>
@@ -30,8 +31,20 @@
         <create qname="@active" type="xs:string"/>
         <create qname="@passive" type="xs:string"/>
         <create qname="@name" type="xs:string"/>
+        <create qname="tei:person" type="xs:string"/>
+        <create qname="tei:place" type="xs:string"/>
+        <create qname="tei:persName" type="xs:string"/>
+        <create qname="tei:placeName" type="xs:string"/>
+        <create qname="tei:title" type="xs:string"/>
+        <create qname="tei:bibl" type="xs:string"/>
         <create qname="tei:geo" type="xs:string"/>
         <create qname="tei:relation" type="xs:string"/>
         <create qname="tei:idno" type="xs:string"/>
     </index>
+    <triggers>
+        <!-- Trigger dates and name additions --> 
+        <trigger class="org.exist.collections.triggers.XQueryTrigger">
+            <parameter name="url" value="xmldb:exist:///db/apps/srophe-data/modules/trigger.xql"/>
+        </trigger>
+    </triggers>
 </collection>
