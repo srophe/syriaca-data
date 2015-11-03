@@ -4,7 +4,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title level="a" xml:lang="en">Mechelen</title>
+                <title level="a" xml:lang="en">Urmia</title>
                 <title level="m" xml:lang="en">The Syriac Gazetteer</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The National Endowment for the Humanities</funder>
@@ -14,8 +14,12 @@
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <respStmt>
-                    <resp>Wikipedia linking and XML by</resp>
+                    <resp>XML by</resp>
                     <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Data submission review by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#aschmidt">Andrea Schmidt</name>
                 </respStmt>
             </titleStmt>
             <editionStmt>
@@ -23,13 +27,13 @@
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/place/2577/tei</idno>
+                <idno type="URI">http://syriaca.org/place/2558/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
                     </licence>
                 </availability>
-                <date>2015-06-29</date>
+                <date>2015-07-10</date>
             </publicationStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -38,9 +42,6 @@
         <encodingDesc>
             <editorialDecl>
                 <p>This record created following the Syriaca.org guidelines. Documentation available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
-                <p>The capitalization of names from GEDSH (<idno type="URI">http://syriaca.org/bibl/1</idno>) was normalized (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
-                <p>The unchanging parts of alternate names from Barsoum (<idno type="URI">http://syriaca.org/bibl/2</idno>, <idno type="URI">http://syriaca.org/bibl/3</idno>, or <idno type="URI">http://syriaca.org/bibl/4</idno>) have been supplied to each alternate.</p>
-                <p>Names from the English translation of Barsoum (<idno type="URI">http://syriaca.org/bibl/4</idno>) were put in sentence word order rather than fronting a dictionary headword.  Any commas in the Barsoum name in English were removed.</p>
                 <p>The <gi>state</gi> element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  Natural features always in existence have no <gi>state</gi> element of @type="existence".</p>
             </editorialDecl>
             <classDecl>
@@ -61,19 +62,28 @@
             </langUsage>
         </profileDesc>
         <revisionDesc>
-            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson" when="2015-06-29">CREATED: place</change>
+            <change who="http://syriaca.org/documentation/editors.xml#tcarlson" when="2015-07-10">CREATED: place</change>
         </revisionDesc>
     </teiHeader>
     <text>
         <body>
             <listPlace>
-                <place xml:id="place-2577" type="settlement">
-                    <placeName xml:id="name2577-1" xml:lang="en" syriaca-tags="#syriaca-headword">Mechelen</placeName>
-                    <desc xml:id="abstract-en-2577" xml:lang="en">A city in Belgium</desc>
-                    <state type="existence"/>
-                    <idno type="URI">http://syriaca.org/place/2577</idno>
-                    <idno type="URI">http://en.wikipedia.org/wiki/Mechelen</idno>
-                    <idno type="URI">http://dbpedia.org/resource/Mechelen</idno>
+                <place xml:id="place-2558" type="settlement">
+                    <placeName xml:id="name2558-1" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib2558-1">Urmia</placeName>
+					<placeName xml:id="name2558-2" xml:lang="en" source="#bib2558-1">Arazdayan</placeName>
+                    <desc xml:id="abstract-en-2558" xml:lang="en">An Assyrian settlement in <placeName ref="http://syriaca.org/place/576">Armenia</placeName></desc>
+                    <location type="nested" source="#bib2558-1">
+                        <region ref="http://syriaca.org/place/576">Armenia</region>
+                    </location>
+                    <state type="existence" from="1877" to="1924" syriaca-computed-end="1924-01-01" syriaca-computed-start="1877-01-01">
+                        <precision match="@to" notBefore="1923" notAfter="1924" syriaca-computed-end="1924-01-01" syriaca-computed-start="1923-01-01"/>
+                    </state>
+                    <idno type="URI">http://syriaca.org/place/2558</idno>
+                    <bibl xml:id="bib2558-1">
+                        <title xml:lang="en">Assyrians in Armenia: An Interdisciplinary Study</title>
+						<citedRange unit="pp">343</citedRange>
+						<ptr target="http://syriaca.org/bibl/656"/>
+                    </bibl>
                 </place>
             </listPlace>
         </body>

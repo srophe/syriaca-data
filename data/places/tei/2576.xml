@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML" xml:lang="en">
+<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
+<TEI xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title level="a" xml:lang="en">Test</title>
+                <title level="a" xml:lang="en">Leipzig</title>
                 <title level="m" xml:lang="en">The Syriac Gazetteer</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The National Endowment for the Humanities</funder>
@@ -12,18 +13,26 @@
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
-                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <respStmt>
+                    <resp>Wikipedia linking and XML by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+                </respStmt>
             </titleStmt>
             <editionStmt>
                 <edition n="1.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/place/2576</idno>
-                <date/>
+                <idno type="URI">http://syriaca.org/place/2576/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
+                    </licence>
+                </availability>
+                <date>2015-06-29</date>
             </publicationStmt>
             <sourceDesc>
-                <bibl/>
+                <p>Born digital.</p>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -51,18 +60,21 @@
                 <language ident="ar">Arabic</language>
             </langUsage>
         </profileDesc>
+        <revisionDesc>
+            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson" when="2015-06-29">CREATED: place</change>
+        </revisionDesc>
     </teiHeader>
     <text>
         <body>
             <listPlace>
-                <place xml:id="place-XXX" type="TYPE">
-                    <!--Must include 1 english name place type -->
-                    <placeName xml:id="name2576-1" xml:lang="">Test</placeName>
+                <place xml:id="place-2576" type="settlement">
+                    <placeName xml:id="name2576-1" xml:lang="en" syriaca-tags="#syriaca-headword">Leipzig</placeName>
+                    <desc xml:id="abstract-en-2576" xml:lang="en">A city in Germany</desc>
+                    <state type="existence"/>
                     <idno type="URI">http://syriaca.org/place/2576</idno>
+                    <idno type="URI">http://en.wikipedia.org/wiki/Leipzig</idno>
+                    <idno type="URI">http://dbpedia.org/resource/Leipzig</idno>
                 </place>
-                <!-- relations?
-                <relation name="contained" active="http://syriaca.org/place/145 http://syriaca.org/place/166" passive="#place-78" source="#bib78-1" to="0363"/>
-                -->
             </listPlace>
         </body>
     </text>
