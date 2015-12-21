@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<collection xmlns="http://exist-db.org/collection-config/1.0">
+<collection xmlns="http://exist-db.org/collection-config/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <index xmlns:tei="http://www.tei-c.org/ns/1.0">
         <fulltext default="none" attributes="no"/>
         <!-- Full text search configuration  -->
@@ -19,30 +19,16 @@
             <text qname="tei:location"/>
             <text qname="tei:desc" boost="1.0"/>
             <text qname="tei:event"/>
+            <text qname="tei:note"/>
         </lucene>
+        
         <!-- Range indexes -->
-        <create qname="@xml:lang" type="xs:string"/>
         <range>
-            <create qname="tei:place">
-                <field name="name-type" match="@type" type="xs:string"/>
-            </create>
-            <create qname="tei:person">
-                <field name="person-type" match="@ana" type="xs:string"/>
-            </create>
-            <create qname="tei:placeName">
-                <field name="name-headwords" match="@syriaca-tags" type="xs:string"/>
-            </create>
-            <create qname="tei:persName">
-                <field name="person-headwords" match="@syriaca-tags" type="xs:string"/>
-            </create>
-            <create qname="tei:idno">
-                <field name="uri" match="@type" type="xs:string"/>
-            </create>
+            <create qname="@syriaca-computed-start" type="xs:date"/>
+            <create qname="@syriaca-computed-end" type="xs:date"/>
             <create qname="@type" type="xs:string"/>
             <create qname="@ana" type="xs:string"/>
             <create qname="@syriaca-tags" type="xs:string"/>
-            <create qname="@syriaca-computed-start" type="xs:date"/>
-            <create qname="@syriaca-computed-end" type="xs:date"/>
             <create qname="@when" type="xs:string"/>
             <create qname="@target" type="xs:string"/>
             <create qname="@who" type="xs:string"/>
@@ -51,27 +37,22 @@
             <create qname="@where" type="xs:string"/>
             <create qname="@active" type="xs:string"/>
             <create qname="@passive" type="xs:string"/>
+            <create qname="@mutual" type="xs:string"/>
             <create qname="@name" type="xs:string"/>
-            <create qname="tei:person" type="xs:string"/>
-            <create qname="tei:place" type="xs:string"/>
-            <create qname="tei:persName" type="xs:string"/>
-            <create qname="tei:placeName" type="xs:string"/>
+            <create qname="@xml:lang" type="xs:string"/>
+            <create qname="tei:idno" type="xs:string"/>
             <create qname="tei:title" type="xs:string"/>
             <create qname="tei:bibl" type="xs:string"/>
             <create qname="tei:geo" type="xs:string"/>
             <create qname="tei:relation" type="xs:string"/>
-            <create qname="tei:idno" type="xs:string"/>
+            <create qname="tei:persName">
+                <field name="name-lang" match="@xml:lang" type="xs:string"/>
+                <field name="name-type" match="@syriaca-tags" type="xs:string"/>
+            </create>
+            <create qname="tei:placeName" type="xs:string">
+                <field name="place-lang" match="@xml:lang" type="xs:string"/>
+                <field name="place-type" match="@syriaca-tags" type="xs:string"/>
+            </create>
         </range>
     </index>
-    <!-- Trigger dates and name additions 
-    <triggers>
-
-        <trigger event="create" class="org.exist.collections.triggers.XQueryTrigger">
-            <trigger class="org.exist.collections.triggers.XQueryTrigger">
-                <parameter name="url" value="xmldb:exist:///db/apps/srophe-data/modules/run-util.xql"/>
-            </trigger>
-        </trigger>
-        
-    </triggers>
-    -->
 </collection>
