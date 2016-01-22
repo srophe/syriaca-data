@@ -7,12 +7,14 @@
             <!-- Does not currently search tei header info, other then title -->
             <!-- Should maybe not index placeName, location, state or event?-->
             <text qname="tei:body">
+                <ignore qname="tei:author"/>
                 <ignore qname="tei:persName"/>
                 <ignore qname="tei:placeName"/>
                 <ignore qname="tei:title"/>
                 <ignore qname="tei:desc"/>
             </text>
             <text qname="tei:div"/>
+            <text qname="tei:author" boost="2.0"/>
             <text qname="tei:persName" boost="2.0"/>
             <text qname="tei:placeName" boost="2.0"/>
             <text qname="tei:title" boost="2.5"/>
@@ -45,14 +47,9 @@
             <create qname="tei:bibl" type="xs:string"/>
             <create qname="tei:geo" type="xs:string"/>
             <create qname="tei:relation" type="xs:string"/>
-            <create qname="tei:persName">
-                <field name="name-lang" match="@xml:lang" type="xs:string"/>
-                <field name="name-type" match="@syriaca-tags" type="xs:string"/>
-            </create>
-            <create qname="tei:placeName" type="xs:string">
-                <field name="place-lang" match="@xml:lang" type="xs:string"/>
-                <field name="place-type" match="@syriaca-tags" type="xs:string"/>
-            </create>
+            <create qname="tei:persName" type="xs:string"/>
+            <create qname="tei:placeName" type="xs:string"/>
+            <create qname="tei:author" type="xs:string"/>
         </range>
     </index>
 </collection>
