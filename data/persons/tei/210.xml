@@ -153,6 +153,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-01-01">ADDED: Prototype info from LAH.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: syriaca-computed-end for elements with date attributes</change>
             <change who="http://syriaca.org/documentation/editors.xml#tcarlson" n="1.0" when="2014-07-31-05:00"> CREATED: person </change>
@@ -162,6 +163,7 @@
         <body>
             <listPerson>
                 <person xml:id="person-210" ana="#syriaca-author">
+                    <!-- The following includes prototype information from the Late Antique Historiography project at University of Ghent -->
                     <persName xml:id="name210-1" corresp="#name210-2 #name210-3 #name210-4" xml:lang="en" source="#bib210-1">
                         <forename sort="1">Basilius</forename>
                         <addName type="family" sort="2">Bar Shumanna</addName>
@@ -186,10 +188,21 @@
                         <forename sort="1">Basil</forename>
                         <addName type="family" sort="2">bar Shumone</addName>
                     </persName>
+                    <persName xml:lang="en" xml:id="name210-7" source="#bib210-4">Basilius, bishop of Edessa</persName>
+                    <persName xml:lang="syr" xml:id="name210-8" corresp="#name210-9" source="#bib210-4">ܚܣܝܐ ܒܐܣܝܠܝܘܣ ܕܐܘܪܗܝ</persName>
+                    <persName xml:lang="en-x-lah" xml:id="name210-9" corresp="#name210-8" source="#bib210-4">Ḥasyā Bāsīlyūs d-’ūrhāy</persName>
                     <note type="abstract" xml:id="abstract-en-210"/>
                     <idno type="URI">http://syriaca.org/person/210</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_210</idno>
-                    <death when="1169" source="#bib210-1" syriaca-computed-start="1169-01-01">1169</death>
+                    <idno type="URI">http://www.late-antique-historiography.ugent.be/database/authors/269</idno>
+                    <birth notBefore="1075" source="#bib210-4">Beginning 12th cent.</birth>
+                    <state type="office" role="bishop" from="1129" source="#bib210-4">
+                        <desc>bishop (ordained in 1129 A.D.)</desc>
+                    </state>
+                    <state type="confession" ref="http://syriaca.org/documentation/confessions.xml#syrian-orthodox" source="#bib210-4">
+                        <label>Syrian Orthodox</label>
+                    </state>
+                    <death when="1169" source="#bib210-1 #bib210-4" syriaca-computed-start="1169-01-01">1169</death>
                     <bibl xml:id="bib210-1">
                         <title level="m" xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
                         <ptr target="http://syriaca.org/bibl/4"/>
@@ -205,6 +218,11 @@
                         <title level="m" xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
                         <ptr target="http://syriaca.org/bibl/3"/>
                         <citedRange unit="pp">411</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib210-4">
+                        <title level="m" xml:lang="en">Memory of empire: the post-imperial historiography of late Antiquity</title>
+                        <ptr target="http://syriaca.org/bibl/1601"/>
+                        <citedRange unit="entry" target="http://www.late-antique-historiography.ugent.be/database/authors/269">Basilius, bishop of Edessa</citedRange>
                     </bibl>
                 </person>
                 <relation name="born-at" active="#person-210" passive="http://syriaca.org/place/78" source="#bib210-2">
