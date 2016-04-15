@@ -1,37 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<collection xmlns="http://exist-db.org/collection-config/1.0">
+<collection xmlns="http://exist-db.org/collection-config/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <index xmlns:tei="http://www.tei-c.org/ns/1.0">
         <fulltext default="none" attributes="no"/>
-        <!-- Full text search configuration -->
+        <!-- Full text search configuration  -->
         <lucene diacritics="no">
             <!-- Does not currently search tei header info, other then title -->
             <!-- Should maybe not index placeName, location, state or event?-->
-            <text qname="tei:body"/>
+            <text qname="tei:body">
+                <ignore qname="tei:author"/>
+                <ignore qname="tei:persName"/>
+                <ignore qname="tei:placeName"/>
+                <ignore qname="tei:title"/>
+                <ignore qname="tei:desc"/>
+            </text>
             <text qname="tei:div"/>
+            <text qname="tei:author" boost="2.0"/>
             <text qname="tei:persName" boost="2.0"/>
             <text qname="tei:placeName" boost="2.0"/>
-            <text qname="tei:location" boost=".5"/>
-            <text qname="tei:desc" boost="1.5"/>
+            <text qname="tei:title" boost="2.5"/>
+            <text qname="tei:location"/>
+            <text qname="tei:desc" boost="1.0"/>
             <text qname="tei:event"/>
+            <text qname="tei:note"/>
         </lucene>
+        
         <!-- Range indexes -->
-        <create qname="@xml:lang" type="xs:string"/>
-        <create qname="@type" type="xs:string"/>
-        <create qname="@ana" type="xs:string"/>
-        <create qname="@syriaca-tags" type="xs:string"/>
-        <create qname="@syriaca-computed-start" type="xs:date"/>
-        <create qname="@syriaca-computed-end" type="xs:date"/>
-        <create qname="@when" type="xs:string"/>
-        <create qname="@target" type="xs:string"/>
-        <create qname="@who" type="xs:string"/>
-        <create qname="@ref" type="xs:string"/>
-        <create qname="@uri" type="xs:string"/>
-        <create qname="@where" type="xs:string"/>
-        <create qname="@active" type="xs:string"/>
-        <create qname="@passive" type="xs:string"/>
-        <create qname="@name" type="xs:string"/>
-        <create qname="tei:geo" type="xs:string"/>
-        <create qname="tei:relation" type="xs:string"/>
-        <create qname="tei:idno" type="xs:string"/>
+        <range>
+            <create qname="@syriaca-computed-start" type="xs:date"/>
+            <create qname="@syriaca-computed-end" type="xs:date"/>
+            <create qname="@type" type="xs:string"/>
+            <create qname="@ana" type="xs:string"/>
+            <create qname="@syriaca-tags" type="xs:string"/>
+            <create qname="@when" type="xs:string"/>
+            <create qname="@target" type="xs:string"/>
+            <create qname="@who" type="xs:string"/>
+            <create qname="@ref" type="xs:string"/>
+            <create qname="@uri" type="xs:string"/>
+            <create qname="@where" type="xs:string"/>
+            <create qname="@active" type="xs:string"/>
+            <create qname="@passive" type="xs:string"/>
+            <create qname="@mutual" type="xs:string"/>
+            <create qname="@name" type="xs:string"/>
+            <create qname="@xml:lang" type="xs:string"/>
+            <create qname="tei:idno" type="xs:string"/>
+            <create qname="tei:title" type="xs:string"/>
+            <create qname="tei:bibl" type="xs:string"/>
+            <create qname="tei:geo" type="xs:string"/>
+            <create qname="tei:relation" type="xs:string"/>
+            <create qname="tei:persName" type="xs:string"/>
+            <create qname="tei:placeName" type="xs:string"/>
+            <create qname="tei:author" type="xs:string"/>
+        </range>
     </index>
 </collection>
