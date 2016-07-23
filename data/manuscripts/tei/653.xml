@@ -1,4 +1,4 @@
-<?oxygen RNGSchema="enrich-syriaca.rnc" type="compact"?>
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/srophe-app/documentation/enrich-syriaca.rnc" type="application/relax-ng-compact-syntax"?>
 <?xml-stylesheet type="text/css" href="SRPEnrichCSS.css"?>
 <TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader xmlns="http://www.tei-c.org/ns/1.0">
@@ -85,8 +85,7 @@
               <textLang mainLang="syr">Syriac</textLang>
               <msItem n="1" xml:id="a1" defective="true">
                <locus from="50" to="51">Foll. 50-51</locus>
-                <author /><!-- This will be a URI look up from our Author spreadsheet, there may be URIs for some anonymous works (the book of steps for example)-->
-                <title  type="supplied">Metrical Discourse of <listPerson><person ><persName>Jacob of <place>Batnea</place></persName></person></listPerson> on the End of the World</title>
+                <title  type="supplied">Metrical Discourse of <persName>Jacob of <placeName>Batnea</placeName></persName> on the End of the World</title>
                 <rubric xml:lang="syr"/>
                 <incipit xml:lang="syr"/>
                 <quote xml:lang="syr"/>
@@ -102,12 +101,11 @@
                   </support>
                   <extent>
                     <measure type="composition" unit="leaf" quantity="2">2 ff.</measure>
-                    <dimensions type="" unit="in">
-                      </height>
+                     <dimensions>
                       <width>
-                        <measure type="width" quantity="" unit="in"></measure>
+                        <measure type="width" unit="in"></measure>
                       </width>
-                    </dimensions>
+                     </dimensions>
                     </extent>
                   <foliation type="ancient">foll. 50, 51.</foliation>
                   <collation>
@@ -121,11 +119,6 @@
                     </list>
                   </condition>
                 </supportDesc>
-                <layoutDesc>
-                  <layout columns="" writtenLines="">
-                    <p></p>
-                  </layout>
-                </layoutDesc>
               </objectDesc>
               <handDesc hands="1">
                 <handNote xml:id="handNote1" scope="sole" script="syr-Syre" medium="unknown">
@@ -140,9 +133,8 @@
             </physDesc>
             <history>
               <origin>
-                <origDate notBefore="0700" notAfter="0900"></origDate>
-                <!-- not sure how to state origDate "viiith or ixth cent". -->
-                </origPlace>
+                <origDate notBefore="0700" notAfter="0900">viiith or ixth cent</origDate>
+                <origPlace/>
               </origin>
               <provenance/>
               <acquisition/>
@@ -266,7 +258,7 @@
       </textClass>
       </profileDesc>
     <revisionDesc status="draft">
-      <change when="2014-0216" who="http://syriaca.org/documentation/editors.xml#emjohnson">Created: file</change>
+      <change when="2014-02-16" who="http://syriaca.org/documentation/editors.xml#emjohnson">Created: file</change>
       <change type="planned" subtype="uri">Needs Addition of work URIs.</change>
       <change when="2016-07-06" who="http://syriaca.org/documentation/editors.xml#pgmiller">Changed: Files moved to srophe-app-data/data/manuscripts/tei repository.</change></revisionDesc>
   </teiHeader>
