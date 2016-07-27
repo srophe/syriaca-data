@@ -23,7 +23,7 @@
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/spear/3004/tei</idno> <!-- REPLACE THE #### WITH THE URI NUMBER OF THE ASSIGNED LETTER -->
+                <idno type="URI">http://syriaca.org/spear/3004/tei</idno> 
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -96,7 +96,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="epistolary" name="syriaca:RecipientOfLetterFrom" active="http://syriaca.org/person/2513" passive="http://syriaca.org/person/51"/>
+                    <relation type="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/2513" passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -105,7 +105,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="epistolary" name="syriaca:RecipientOfLetterFrom" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2513"/>
+                    <relation type="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2513"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -171,7 +171,7 @@
                             <persName ref="http://syriaca.org/person/2528">
                                 Asterias
                             </persName>
-                            when he joined 
+                            when he met with 
                             <persName ref="http://syriaca.org/person/51">
                                 Severus
                             </persName>
@@ -230,9 +230,9 @@
                                 <persName ref="http://syriaca.org/person/2530"> 
                                     Flavian 
                                 </persName> 
-                                was prelate of the city of
+                                was bishop of 
                                 <placeName>
-                                    Antiochus 
+                                    Antioch 
                                 </placeName>
                             </desc>
                         </state>
@@ -257,40 +257,8 @@
                 </bibl>
             </div>
             <div>
-                <listPerson>
-                    <person>
-                        <persName ref="http://syriaca.org/person/2265"/>
-                        <sex value="M">
-                            Male
-                        </sex>
-                    </person>
-                </listPerson>
-                <bibl type="primary">
-                    <biblScope type="pp">
-                        <ptr target="#bibl3004-1"/>4</biblScope>
-                </bibl>
-            </div>
-            <div>
-                <listPerson>
-                    <person>
-                        <state type="occupation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2265"> 
-                                    The pious king, Anastasius 
-                                </persName> 
-                                was emperor
-                            </desc>
-                        </state>
-                    </person>
-                </listPerson>
-                <bibl type="primary">
-                    <biblScope type="pp">
-                        <ptr target="#bib3004-1"/>4</biblScope>
-                </bibl>
-            </div>
-            <div>
                 <listRelation>
-                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/2265 http://syriaca.org/person/2281"/> 
+                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/2265 http://syriaca.org/person/2530"/> 
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -335,7 +303,7 @@
                                 <persName ref="http://syriaca.org/person/2529"> 
                                     John 
                                 </persName> 
-                                was the Bishop of
+                                was Bishop of
                                 <placeName>
                                     Claudiopolis 
                                 </placeName>
@@ -514,15 +482,11 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/anonymi2">
-                            Those who met together at 
+                            Those who met together at the Council of
                             <placeName>
                                 Chalcedon
                             </placeName>
-                            in
-                            <date notBefore="0451-10-08" notAfter="0451-11-01">
-                                A.D. 451
-                            </date>
-                        </persName>
+                         </persName>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -578,10 +542,6 @@
                             <placeName>
                                 Pamphylia
                             </placeName>
-                            was a citizen of <!-- This is more than we can fit into a name variant factoid. We could encode this information in a nationality element, sadly TEI chooses a term that suggests nation instead of city. -->
-                            <placeName>
-                                Perga
-                            </placeName>
                         </persName>
                     </person>
                 </listPerson>
@@ -611,7 +571,7 @@
                             <desc>
                                 <persName ref="http://syriaca.org/person/2562"> 
                                     Epiphanius of
-                                    <placeName> 
+                                    <placeName ref="http://syriaca.org/place/1469"> 
                                         Perga
                                     </placeName>
                                 </persName> 
@@ -635,16 +595,46 @@
             <div>
                 <listPerson>
                     <person>
-                        <state type="vocation">
+                        <state type="citizenship">
+                            <desc>
+                                <persName ref="http://syriaca.org/person/2562"> 
+                                    Epiphanius
+                                </persName> 
+                                was a citizen of 
+                                <placeName ref="http://syriaca.org/place/1469">
+                                    Perga
+                                </placeName>.
+                            </desc>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3004-1"/>7</biblScope>
+                </bibl>
+            </div>
+            <div>
+                <listPerson>
+                    <person>
+                        <state type="socialRank">
                             <desc>
                                 <persName ref="http://syriaca.org/person/2562"> 
                                     Epiphanius 
                                 </persName> 
-                                was a monk 
+                                was of noble birth. 
                                 </desc>
                         </state>
                     </person>
                 </listPerson>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3004-1"/>7</biblScope>
+                </bibl>
+            </div>
+            <div>
+                <listRelation>
+                    <relation type="clerical" name="syriaca:Ordination" active="http://syriaca.org/person/2562" passive="http://syriaca.org/person/51"/>
+                </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
                         <ptr target="#bibl3004-1"/>7</biblScope>
@@ -703,7 +693,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/2562 http://syriaca.org/person/2281 http://syriaca.org/person/792"/> 
+                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/2562 http://syriaca.org/person/792"/> 
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -718,11 +708,7 @@
                             <placeName>
                                 Iberia 
                             </placeName>
-                            who was Bishop of one of the cities in
-                            <placeName>
-                                Palestine
-                            </placeName>
-                            </persName>
+                         </persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -762,7 +748,7 @@
                     <person>
                         <state type="vocation">
                             <desc>
-                                <persName ref="http://syriaca.org/person/680"> <!-- I need to double check something here. -->
+                                <persName ref="http://syriaca.org/person/680">
                                     Peter of
                                     <placeName> 
                                         Iberia
@@ -784,29 +770,20 @@
             <div> 
                 <listPerson>
                     <personGrp>
-                        <persName ref="http://syriaca.org/person/anonymi3"><!-- Ideally, we hope to be able to identify individuals who were part of our anonymous groups. In order to do so we need to be more specific. -->
-                            The holy fathers of
+                        <persName ref="http://syriaca.org/person/anonymi3">
+                            The holy fathers and orthodox persons of
                             <placeName>
                                 Palestine
                             </placeName>
-                            when 
+                            who, along with 
                             <persName ref="http://syriaca.org/person/680">
                                 Peter the Iberian
                             </persName>
-                            <persName></persName>
+                            , persuaded 
+                            <persName>
+                                Epiphanius
                             </persName>
-                    </personGrp>
-                </listPerson>
-                <bibl type="primary">
-                    <biblScope type="pp">
-                        <ptr target="#bib3004-1"/>8</biblScope>
-                </bibl>
-            </div>
-            <div>
-                <listPerson>
-                    <personGrp>
-                        <persName ref="http://syriaca.org/person/anonymi4">
-                            The orthodox people of
+                            to perform ordinations in 
                             <placeName>
                                 Palestine
                             </placeName>
@@ -820,7 +797,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/2562 http://syriaca.org/person/680 http://syriaca.org/person/anonymi3 http://syriaca.org/person/anonymi4"/> 
+                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/2562 http://syriaca.org/person/680 http://syriaca.org/person/anonymi3"/> 
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -878,7 +855,36 @@
                         <ptr target="#bib3004-1"/>9</biblScope>
                 </bibl>
             </div>
-           <div>
+            <div>
+                <listPerson>
+                    <person>
+                        <persName ref="syriaca.org/person/anonymi4">
+                            Priests ordained by 
+                            <persName ref="http://syriaca.org/person/958">
+                                Eusebius, the Bishop of 
+                                <placeName>
+                                    Samosata
+                                </placeName>
+                            </persName>
+                            outside his jurisdiction during a time of persecution.
+                        </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bib3004-1"/>9</biblScope>
+                </bibl>
+            </div>
+            <div>
+                <listRelation>
+                    <relation type="clerical" name="syriaca:Ordination" active="http://syriaca.org/person/958" passive="http://syriaca.org/person/anonymi4"/> 
+                </listRelation>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3004-1"/>9</biblScope>
+                </bibl>
+            </div>
+            <div>
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/781">
@@ -965,19 +971,6 @@
             <div>
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/376">
-                            The sure foundation
-                        </persName>
-                    </person>
-                </listPerson>
-                <bibl type="primary">
-                    <biblScope type="pp">
-                        <ptr target="#bib3004-1"/>9</biblScope>
-                </bibl>
-            </div>
-            <div>
-                <listPerson>
-                    <person>
                         <persName ref="http://syriaca.org/person/376"/>
                         <sex value="M">
                             Male
@@ -1016,7 +1009,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="intellectual" name="syriaca:FollowerOf" ana="alleged" active="51" passive="376"/>
+                    <relation type="intellectual" name="syriaca:FollowerOf" active="51" passive="376"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -1045,7 +1038,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/376 http://syriaca.org/person/anonymi5"/> 
+                    <relation type="clerical" name="syriaca:Ordination" active="http://syriaca.org/person/anonymi5" passive="http://syriaca.org/person/376"/> 
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -1081,7 +1074,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="intellectual" name="syriaca:FollowerOf" ana="alleged" active="51" passive="511"/>
+                    <relation type="intellectual" name="syriaca:FollowerOf" active="51" passive="511"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -1135,7 +1128,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2409" passive="http://syriaca.org/person/2513"/>
+                    <relation type="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/2409" passive="http://syriaca.org/person/2513"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
