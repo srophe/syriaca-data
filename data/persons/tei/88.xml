@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -88,7 +98,6 @@
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
                 <idno type="URI" change="#change88-1">http://syriaca.org/person/88/tei</idno>
-                <idno change="#change88-1" type="deprecated">http://syriaca.org/person/1139/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -182,6 +191,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change88-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-07-04+02:00" xml:id="change88-1">Merged in data from [http://syriaca.org/person/1139].</change>
             <change who="http://syriaca.org/documentation/editors.xml#dmichelson" n="2.0" when="2016-06-24-09:00">Change: tagged abstract for persons, places, titles and edited the "en" persNames [http://syriaca.org/person/1139]</change>
@@ -227,8 +238,10 @@
                     <persName xml:id="name88-6" xml:lang="en" source="#bib88-5">Athanasius Gammala</persName>
                     <persName xml:lang="en" xml:id="name88-7">Athanasius</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name88-8" source="#bib88-6">ATHANASE, patriarche</persName>
+                    <persName xml:lang="en" xml:id="name88-9">Athanasios I Gamala</persName>
+                    <persName xml:lang="en" xml:id="name88-10">Gammala</persName>
+                    <persName xml:lang="la" xml:id="name88-11" source="#bib88-10">Athanasius I Patriarcha</persName>
                     <idno type="URI" change="#change88-1">http://syriaca.org/person/88</idno>
-                    <idno change="#change88-1" type="deprecated">http://syriaca.org/person/1139</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_88</idno>
                     <idno type="URI">http://viaf.org/viaf/100910340</idno>
                     <idno type="URI">http://viaf.org/viaf/205249471</idno>
@@ -241,15 +254,15 @@
                     <note type="abstract" xml:id="abstract-en-88">
                         <quote source="#bib88-1">Long-serving Patr. of the Syr. Orth. Church in the late 6th and early 7th cent.</quote>
                     </note>
-                    <note type="description">In hagiography: In hagiography: Athanasius the Cameldriver
-          was Patriarch of <placeName ref="http://syriaca.org/place/10">Antioch</placeName> who
-          benefited from the actions of Emperor Heraclius.</note>
                     <sex value="M" source="#bib88-6">male</sex>
                     <floruit>
                         <date when="0595" syriaca-computed-start="0630" from="0630" source="#bib88-6">0595 0630</date>
                         <date when="0631" syriaca-computed-start="0631-01-01" source="#bib88-2">631</date>
                     </floruit>
                     <death when="0631" syriaca-computed-start="0631-01-01" source="#bib88-1">631</death>
+                    <note type="description">In hagiography: In hagiography: Athanasius the Cameldriver
+          was Patriarch of <placeName ref="http://syriaca.org/place/10">Antioch</placeName> who
+          benefited from the actions of Emperor Heraclius.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib88-6">Sur ses positions theologiques, cf. DHGE, IV, col. 1363- 64, s.v. 28.Athanase I
 (F. Nau) .
 BSO, I, 287 (J.M. Fiey).</quote>
@@ -297,10 +310,10 @@ BSO, I, 287 (J.M. Fiey).</quote>
                         <citedRange unit="entry">54</citedRange>
                     </bibl>
                     <bibl xml:id="bib88-7">
-                        <note>On his theological positions, cf.</note>
                         <title>DHGE</title>
                         <citedRange>IV, col. 1363-64, s.v. 28.Athanase
                I; Nau</citedRange>
+                        <note>On his theological positions, cf.</note>
                     </bibl>
                     <bibl xml:id="bib88-8">
                         <author>
@@ -312,14 +325,24 @@ BSO, I, 287 (J.M. Fiey).</quote>
                         <title>BSO</title>
                         <citedRange>I, 287</citedRange>
                     </bibl>
+                    <bibl xml:id="bib88-9">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">185-186</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib88-10">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">118</citedRange>
+                    </bibl>
                 </person>
-                <relation name="born-at" active="#person-88" passive="http://syriaca.org/place/178" source="#bib88-2">
+                <relation name="born-at" active="http://syriaca.org/person/88" passive="http://syriaca.org/place/178" source="#bib88-2">
                     <desc xml:lang="en">This author was born at a known location.</desc>
                 </relation>
-                <relation name="has-literary-connection-to-place" active="#person-88" passive="http://syriaca.org/place/8 http://syriaca.org/place/572 http://syriaca.org/place/227" source="#bib88-2">
+                <relation name="has-literary-connection-to-place" active="http://syriaca.org/person/88" passive="http://syriaca.org/place/8 http://syriaca.org/place/572 http://syriaca.org/place/227" source="#bib88-2">
                     <desc xml:lang="en">This author has a literary connection to places.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-88" passive="http://syriaca.org/place/230 http://syriaca.org/place/320" source="#bib88-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/88" passive="http://syriaca.org/place/230 http://syriaca.org/place/320" source="#bib88-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

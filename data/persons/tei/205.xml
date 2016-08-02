@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Timothy of Garkar —
                     <foreign xml:lang="syr">ܛܝܡܬܐܘܣ ܕܓܪܓܪ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -101,7 +109,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -154,6 +161,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change205-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-08-05:00">Create English headword from Gedesh headword.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-22+02:00">Added French names from BHSE.</change>
@@ -199,10 +208,11 @@
                         <forename>Timothée</forename>
                         <addName type="untagged-title">de Karkar</addName>
                     </persName>
-                    <note type="abstract" xml:id="abstract-en-205"/>
+                    <persName xml:lang="en" xml:id="name205-9">Timothy of Gargar</persName>
                     <idno type="URI">http://syriaca.org/person/205</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_205</idno>
-                    <death when="1143" source="#bib205-1" syriaca-computed-start="1143-01-01">1143</death>
+                    <note type="abstract" xml:id="abstract-en-205"/>
+                    <death when="1143" syriaca-computed-start="1143-01-01" source="#bib205-1">1143</death>
                     <state type="office" role="metropolitan" source="#bib205-1">
                         <desc xml:lang="en">Metropolitan of Karkar</desc>
                     </state>
@@ -228,8 +238,13 @@
                         <citedRange unit="entry">1797</citedRange>
                         <citedRange unit="entry">2019</citedRange>
                     </bibl>
+                    <bibl xml:id="bib205-5">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">191</citedRange>
+                    </bibl>
                 </person>
-                <relation name="has-relation-to-place" active="#person-205" passive="http://syriaca.org/place/359 http://syriaca.org/place/86 http://syriaca.org/place/104" source="#bib205-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/205" passive="http://syriaca.org/place/359 http://syriaca.org/place/86 http://syriaca.org/place/104" source="#bib205-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

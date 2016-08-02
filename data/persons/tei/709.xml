@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -193,6 +203,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change709-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
@@ -219,7 +231,7 @@
                         <forename sort="1">ܣܒܪܝܫܘܥ</forename>
                         <addName type="family" sort="2">ܒܪ ܦܘܠܘܣ</addName>
                     </persName>
-                    <persName xml:id="name709-3" xml:lang="en" source="#bib709-2" syriaca-tags="#syriaca-headword">Sabrisho bar Paulos</persName>
+                    <persName xml:id="name709-3" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib709-2">Sabrisho bar Paulos</persName>
                     <persName xml:id="name709-4" xml:lang="en" source="#bib709-1">Sabrishoʿ of Mosul</persName>
                     <persName xml:id="name709-5" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Sabrisho bar Pawlos</persName>
                     <persName xml:id="name709-6" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Sabrisho‘ bar Pawlos</persName>
@@ -232,6 +244,7 @@
                     <persName xml:lang="fr-x-zanetti" xml:id="name709-13" source="#bib709-3">Saḇrīšōʾ</persName>
                     <persName xml:lang="fr" xml:id="name709-14" source="#bib709-3">Sabrisho I</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name709-15" source="#bib709-4">SAWRĪŠŌ'</persName>
+                    <persName xml:lang="en" xml:id="name709-16">Sabrišoʿ bar Paulos</persName>
                     <idno type="URI">http://syriaca.org/person/709</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_709</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=S&amp;sK=Sabrisho bar Paulos&amp;sT=keywords</idno>
@@ -240,12 +253,12 @@
                     <note type="abstract" xml:id="abstract-en-709">
                         <quote source="#bib709-1">Author of a hymn for Mid-Lent, preserved in the <title rend="italic" xml:lang="en-x-gedsh">Ktābā d-Wardā</title> (see Gewargis Warda) and published by Cardahi.</quote>
                     </note>
-                    <note type="description">In hagiography: Sawrisho, Metropolitan</note>
                     <sex value="M" source="#bib709-4">male</sex>
                     <floruit>
                         <date notBefore="1150" notAfter="1200" syriaca-computed-end="1200-01-01" syriaca-computed-start="1150-01-01" source="#bib709-1">late 12th cent.</date>
                         <date notBefore="0500" syriaca-computed-start="0500" notAfter="0700" syriaca-computed-end="0700" source="#bib709-4">0500-0700</date>
                     </floruit>
+                    <note type="description">In hagiography: Sawrisho, Metropolitan</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib709-4">Fiey, Assyrie chretienne, III, 20-21.
 BSO, II, 917-18 (J.M. Fiey) .</quote>
                     </note>
@@ -300,6 +313,11 @@ BSO, II, 917-18 (J.M. Fiey) .</quote>
                         <title>BSO</title>
                         <citedRange>II,
                917-18</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib709-7">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">290</citedRange>
                     </bibl>
                 </person>
             </listPerson>

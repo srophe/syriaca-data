@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Anba John the disciple of Marun —
                     <foreign xml:lang="syr">ܝܘܚܢܢ ܬܠܡܝܕ ܡܐܪܘܢ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -101,7 +109,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -154,6 +161,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change187-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: syriaca-computed-end for elements with date attributes</change>
@@ -164,7 +173,7 @@
         <body>
             <listPerson>
                 <person xml:id="person-187" ana="#syriaca-author">
-                    <persName xml:id="name187-1" corresp="#name187-2 #name187-3 #name187-4" xml:lang="en" source="#bib187-1" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name187-1" corresp="#name187-2 #name187-3 #name187-4" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib187-1">
                         <addName type="untagged-title" sort="2">Anba</addName>
                         <forename sort="1">John</forename>, <addName type="untagged-title" sort="2">the disciple of Marun</addName>
                     </persName>
@@ -195,10 +204,13 @@
                         <forename sort="1">John</forename>
                         <addName type="untagged-title" sort="2">the disciple of Marun</addName>
                     </persName>
-                    <note type="abstract" xml:id="abstract-en-187"/>
+                    <persName xml:lang="en" xml:id="name187-8">John of Marun</persName>
+                    <persName xml:lang="en" xml:id="name187-9">Ocean of Wisdom</persName>
+                    
                     <idno type="URI">http://syriaca.org/person/187</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_187</idno>
-                    <death when="1003-06-24" source="#bib187-1" syriaca-computed-start="1003-06-24">6/24/1003</death>
+                    <note type="abstract" xml:id="abstract-en-187"/>
+                    <death when="1003-06-24" syriaca-computed-start="1003-06-24" source="#bib187-1">6/24/1003</death>
                     <bibl xml:id="bib187-1">
                         <title level="m" xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
                         <ptr target="http://syriaca.org/bibl/4"/>
@@ -215,11 +227,27 @@
                         <ptr target="http://syriaca.org/bibl/3"/>
                         <citedRange unit="pp">391</citedRange>
                     </bibl>
+                    <bibl xml:id="bib187-4">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">291</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib187-5">
+                        <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
+                        <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
+                        <ptr target="http://syriaca.org/bibl/709"/>
+                        <citedRange unit="pp">496</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib187-6">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">115</citedRange>
+                    </bibl>
                 </person>
-                <relation name="died-at" active="#person-187" passive="http://syriaca.org/place/394" source="#bib187-2">
+                <relation name="died-at" active="http://syriaca.org/person/187" passive="http://syriaca.org/place/394" source="#bib187-2">
                     <desc xml:lang="en">This author died at a known location.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-187" passive="http://syriaca.org/place/319 http://syriaca.org/place/359 http://syriaca.org/place/336 http://syriaca.org/place/318" source="#bib187-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/187" passive="http://syriaca.org/place/319 http://syriaca.org/place/359 http://syriaca.org/place/336 http://syriaca.org/place/318" source="#bib187-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

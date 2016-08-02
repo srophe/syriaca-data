@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Barhadbeshabba of Halwan —
                     <foreign xml:lang="syr">ܒܪܚܕܒܫܒܐ ܕܚܠܘܢ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -20,6 +18,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -72,7 +80,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -125,6 +132,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change976-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: syriaca-computed-end for elements with date attributes</change>
@@ -143,11 +152,19 @@
                         <forename sort="1">ܒܪܚܕܒܫܒܐ</forename>
                         <addName type="untagged-title" sort="2">ܕܚܠܘܢ</addName>
                     </persName>
-                    <persName xml:id="name976-3" xml:lang="en" source="#bib976-2" syriaca-tags="#syriaca-headword">Barhadbeshabba of Halwan</persName>
-                    <note type="abstract" xml:id="abstract-en-976"/>
+                    <persName xml:id="name976-3" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib976-2">Barhadbeshabba of Halwan</persName>
+                    <persName xml:lang="en" xml:id="name976-4">Barḥadbshabba of Ḥalwān</persName>
+                    
+                    <persName xml:lang="de-x-baumstrk" xml:id="name976-6" source="#bib976-3">
+                        <addName type="untagged-title">Bischof</addName>
+                        <forename>Barḥad(h)bĕšabbā</forename>
+                        <addName type="untagged-title">von Ḥalwàn</addName>
+                    </persName>
+                    <persName xml:lang="la" xml:id="name976-7" source="#bib976-4">Barhadbeshabba Halwanensis</persName>
                     <idno type="URI">http://syriaca.org/person/976</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_976</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=B&amp;sK=Barhadbeshabba of Halwan&amp;sT=keywords</idno>
+                    <note type="abstract" xml:id="abstract-en-976"/>
                     <bibl xml:id="bib976-1">
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/1"/>
@@ -158,11 +175,31 @@
                         <ptr target="http://syriaca.org/bibl/5"/>
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=B&amp;sK=Barhadbeshabba of Halwan&amp;sT=keywords">Barhadbeshabba of Halwan</citedRange>
                     </bibl>
+                    <bibl xml:id="bib976-3">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">136</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib976-4">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">67</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib976-5">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">59</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib976-6">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">40</citedRange>
+                    </bibl>
                 </person>
-                <relation type="disambiguation" name="different-from" mutual="#person-976 http://syriaca.org/person/159">
+                <relation type="disambiguation" name="different-from" mutual="http://syriaca.org/person/976 http://syriaca.org/person/159">
                     <desc>Not the same as Barḥadbshabo of Mor Matay (http://syriaca.org/person/159).</desc>
                 </relation>
-                <relation name="possibly-identical" mutual="#person-976 http://syriaca.org/person/367" source="#bib976-1">
+                <relation name="possibly-identical" mutual="http://syriaca.org/person/976 http://syriaca.org/person/367" source="#bib976-1">
                     <desc xml:lang="en">This author is possibly identical with the author represented in another record</desc>
                 </relation>
             </listPerson>

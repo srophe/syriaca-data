@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Simon Qurdalḥnaya —
                     <foreign xml:lang="syr">ܫܡܥܘܢ ܩܘܪܕܠܚܢܝܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -20,6 +18,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -68,7 +76,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -121,6 +128,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change910-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Add alternate names for search functionality.</change>
@@ -132,7 +141,7 @@
         <body>
             <listPerson>
                 <person xml:id="person-910" ana="#syriaca-author">
-                    <persName xml:id="name910-1" corresp="#name910-2 #name910-3 #name910-4" xml:lang="syr" source="#bib910-1" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name910-1" corresp="#name910-2 #name910-3 #name910-4" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib910-1">
                         <forename sort="1">ܫܡܥܘܢ</forename>
                         <addName type="untagged-title" sort="2">ܩܘܪܕܠܚܢܝܐ</addName>
                     </persName>
@@ -158,9 +167,10 @@
                     </persName>
                     <persName xml:id="name910-7" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Shemon Qurdalḥnaya</persName>
                     <persName xml:id="name910-8" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Shem‘on Qurdalḥnaya</persName>
-                    <note type="abstract" xml:id="abstract-en-910"/>
+                    <persName xml:lang="en" xml:id="name910-9">Simeon Qurdlainaya</persName>
                     <idno type="URI">http://syriaca.org/person/910</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_910</idno>
+                    <note type="abstract" xml:id="abstract-en-910"/>
                     <bibl xml:id="bib910-1">
                         <title level="m" xml:lang="syr-Syrn">ܟܬ̣ܵܒ̣ܵܐ ܕܡܸܬ̣ܩܪܸܐ ܡܪܓܢܝܬ̣ܐ ܕܥܲܠ ܫܪܵܪܵܐ ܕܲܟ̣ܪܸܣܛܝܵܢܘܼܬ̣ܵܐ</title>
                         <ptr target="http://syriaca.org/bibl/6"/>
@@ -170,6 +180,11 @@
                         <title level="m" xml:lang="la">Bibliotheca Orientalis Clementino-Vaticana</title>
                         <ptr target="http://syriaca.org/bibl/7"/>
                         <citedRange unit="pp">III:225</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib910-3">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">210</citedRange>
                     </bibl>
                 </person>
             </listPerson>

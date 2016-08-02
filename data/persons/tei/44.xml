@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -84,7 +94,6 @@
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
                 <idno type="URI">http://syriaca.org/person/44/tei</idno>
-                <idno change="#change44-2" type="deprecated">http://syriaca.org/person/2001/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -206,6 +215,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change44-3">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
@@ -232,7 +243,7 @@
                         <forename sort="1">Philoxenos</forename>
                         <addName type="untagged-title" sort="2">of Mabbug</addName>
                     </persName>
-                    <persName xml:id="name44-2" corresp="#name44-3 #name44-4 #name44-5" xml:lang="en" source="#bib44-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name44-2" corresp="#name44-3 #name44-4 #name44-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib44-2">
                         <addName type="untagged-title" sort="2">Mar</addName>
                         <forename sort="1">Philoxenus</forename>
                         <addName type="untagged-title" sort="2">of <placeName ref="http://syriaca.org/place/122">Mabug</placeName>
@@ -271,8 +282,10 @@
                     <persName xml:lang="en-x-gedsh" xml:id="name44-12">Pīlōksīnōs d-Mabōgh</persName>
                     <persName xml:lang="fr-x-zanetti" xml:id="name44-13" source="#bib44-6">Pīlāksīnōs d-Mabōg</persName>
                     <persName xml:lang="fr" xml:id="name44-14" source="#bib44-6">Philoxène de Mabbog</persName>
+                    <persName xml:lang="en" xml:id="name44-15">Aksenoyo; Xenos</persName>
+                    
+                    <persName xml:lang="la" xml:id="name44-17" source="#bib44-15">Philoxenus Mabbugensis</persName>
                     <idno type="URI" change="#change44-2">http://syriaca.org/person/44</idno>
-                    <idno change="#change44-2" type="deprecated">http://syriaca.org/person/2001</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_44</idno>
                     <idno type="URI">http://viaf.org/viaf/54187001</idno>
                     <idno type="URI">http://worldcat.org/identities/lccn-n79-8221</idno>
@@ -428,17 +441,48 @@ OLP 6- 7 (1975- 76) , 253-66.</quote>
                         <title>OLP </title>
                         <citedRange>6-7 (1975-76) , 253-66</citedRange>
                     </bibl>
+                    <bibl xml:id="bib44-14">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">141-144</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib44-15">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">107</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib44-16">
+                        <title level="m" xml:lang="la">De Scriptoribus Syris Monophysitis</title>
+                        <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
+                        <ptr target="http://syriaca.org/bibl/1700"/>
+                        <citedRange unit="pp">10-46</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib44-17">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">64-66</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib44-18">
+                        <title xml:lang="en">Wright, A Short History of Syriac Literature</title>
+                        <ptr target="http://syriaca.org/bibl/639"/>
+                        <citedRange unit="pp">72-76</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib44-19">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">31-34</citedRange>
+                    </bibl>
                 </person>
-                <relation name="born-at" active="#person-44" passive="http://syriaca.org/place/309" source="#bib44-2">
+                <relation name="born-at" active="http://syriaca.org/person/44" passive="http://syriaca.org/place/309" source="#bib44-2">
                     <desc xml:lang="en">This author was born at a known location.</desc>
                 </relation>
-                <relation name="died-at" active="#person-44" passive="http://syriaca.org/place/624" source="#bib44-2">
+                <relation name="died-at" active="http://syriaca.org/person/44" passive="http://syriaca.org/place/624" source="#bib44-2">
                     <desc xml:lang="en">This author died at a known location.</desc>
                 </relation>
-                <relation name="has-literary-connection-to-place" active="#person-44" passive="http://syriaca.org/place/78 http://syriaca.org/place/285 http://syriaca.org/place/384 http://syriaca.org/place/8 http://syriaca.org/place/233 http://syriaca.org/place/362 http://syriaca.org/place/9 http://syriaca.org/place/526 http://syriaca.org/place/351 http://syriaca.org/place/219 http://syriaca.org/place/572" source="#bib44-2">
+                <relation name="has-literary-connection-to-place" active="http://syriaca.org/person/44" passive="http://syriaca.org/place/78 http://syriaca.org/place/285 http://syriaca.org/place/384 http://syriaca.org/place/8 http://syriaca.org/place/233 http://syriaca.org/place/362 http://syriaca.org/place/9 http://syriaca.org/place/526 http://syriaca.org/place/351 http://syriaca.org/place/219 http://syriaca.org/place/572" source="#bib44-2">
                     <desc xml:lang="en">This author has a literary connection to places.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-44" passive="http://syriaca.org/place/1458 http://syriaca.org/place/1459 http://syriaca.org/place/1460 http://syriaca.org/place/33 http://syriaca.org/place/98 http://syriaca.org/place/221 http://syriaca.org/place/226 http://syriaca.org/place/78 http://syriaca.org/place/233 http://syriaca.org/place/995 http://syriaca.org/place/586" source="#bib44-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/44" passive="http://syriaca.org/place/1458 http://syriaca.org/place/1459 http://syriaca.org/place/1460 http://syriaca.org/place/33 http://syriaca.org/place/98 http://syriaca.org/place/221 http://syriaca.org/place/226 http://syriaca.org/place/78 http://syriaca.org/place/233 http://syriaca.org/place/995 http://syriaca.org/place/586" source="#bib44-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

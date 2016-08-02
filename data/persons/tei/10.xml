@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -20,6 +20,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -138,7 +148,7 @@
                 <title level="s">Gateway to the Syriac Saints</title>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                    Michelson</editor>
+                Michelson</editor>
                 <respStmt>
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -146,7 +156,7 @@
                 <respStmt>
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</name>
+                    Michelson</name>
                 </respStmt>
                 <idno type="URI">http://syriaca.org/saints</idno>
                 <biblScope unit="vol" from="2" to="2">
@@ -204,6 +214,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change10-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2016-05-19+02:00">Manual edit of merged data including standardizing header and abstracts.</change>
@@ -222,7 +234,7 @@
                     <persName xml:id="name10-1" xml:lang="en-x-gedsh" source="#bib10-1">
                         <forename sort="1">Aphrahaṭ</forename>
                     </persName>
-                    <persName xml:id="name10-2" corresp="#name10-3 #name10-4 #name10-5" xml:lang="en" source="#bib10-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name10-2" corresp="#name10-3 #name10-4 #name10-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib10-2">
                         <forename sort="1">Aphrahat</forename>
                         <addName type="untagged-title" sort="2">the Persian</addName>
                     </persName>
@@ -248,6 +260,11 @@
                     <persName xml:lang="en" xml:id="name10-9">Aphrahaat the Persian Anchorite</persName>
                     <persName xml:lang="en" xml:id="name10-10">Aphrahat the Persian</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name10-11" source="#bib10-8">APHRAAT LE PERSE</persName>
+                    
+                    <persName xml:lang="de-x-baumstrk" xml:id="name10-13" source="#bib10-12">
+                        <forename>Ap(h)rahaṭ</forename>
+                    </persName>
+                    <persName xml:lang="la" xml:id="name10-14" source="#bib10-13">Aphrahates</persName>
                     <idno type="URI">http://syriaca.org/person/10</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_10</idno>
                     <idno type="URI">http://viaf.org/viaf/37707408</idno>
@@ -257,11 +274,11 @@
                     <note type="abstract" xml:id="abstract-en-10">
                         <quote source="#bib10-1">Syriac author of 23 ‘Demonstrations’, known as ‘the Persian Sage’.</quote>
                     </note>
-                    <note type="description">
-                        In hagiography: <persName ref="http://syriaca.org/person/10">Aphrahaat the Persian</persName>was known as an anchorite who converted from Zoroastrianism to Christianity and fought Arianism in <placeName ref="http://syriaca.org/place/10">Antioch</placeName>.</note>
                     <sex value="M" source="#bib10-8">male</sex>
                     <floruit notBefore="0250" notAfter="0400" syriaca-computed-end="0400-01-01" syriaca-computed-start="0250-01-01" source="#bib10-1">first half of 4th cent.</floruit>
                     <death when="0364" syriaca-computed-start="0364-01-01" source="#bib10-2">364</death>
+                    <note type="description">
+                        In hagiography: <persName ref="http://syriaca.org/person/10">Aphrahaat the Persian</persName>was known as an anchorite who converted from Zoroastrianism to Christianity and fought Arianism in <placeName ref="http://syriaca.org/place/10">Antioch</placeName>.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib10-8">DHGE, III, col. 935-36, s.v. l.Aphraate (A. Aigrain).
 Vies des saints, IV, 7 avril, 164- 68.
 BS, I, 287- 88 (P. Burchi).</quote>
@@ -345,8 +362,33 @@ BS, I, 287- 88 (P. Burchi).</quote>
                         <citedRange>I,
                287-88</citedRange>
                     </bibl>
+                    <bibl xml:id="bib10-12">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">30-31</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib10-13">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">13</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib10-14">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">23-25</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib10-15">
+                        <title xml:lang="en">Wright, A Short History of Syriac Literature</title>
+                        <ptr target="http://syriaca.org/bibl/639"/>
+                        <citedRange unit="pp">31-32</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib10-16">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">13-16</citedRange>
+                    </bibl>
                 </person>
-                <relation name="born-at" active="#person-10" passive="http://syriaca.org/place/526" source="#bib10-2">
+                <relation name="born-at" active="http://syriaca.org/person/10" passive="http://syriaca.org/place/526" source="#bib10-2">
                     <desc xml:lang="en">This author was born at a known location.</desc>
                 </relation>
             </listPerson>

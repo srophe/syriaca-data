@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">George Warda —
                     <foreign xml:lang="syr"/>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -89,7 +97,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -142,6 +149,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change504-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-22+02:00">Added French names from BHSE.</change>
@@ -159,7 +168,7 @@
                         <forename sort="1">Gewargis</forename>
                         <addName type="family" sort="2">Warda</addName>
                     </persName>
-                    <persName xml:id="name504-2" xml:lang="en" source="#bib504-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name504-2" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib504-2">
                         <forename sort="1">George</forename>
                         <addName type="family" sort="2">Warda</addName>
                     </persName>
@@ -167,13 +176,15 @@
                         <forename>Georges</forename>
                         <addName type="family">Warda</addName>
                     </persName>
-                    <note type="abstract" xml:id="abstract-en-504" source="#bib504-1">Gewargis Warda is known as the medieval author who wrote the <title rend="italic" xml:lang="en-x-gedsh">Kthābhā d-wardā, or 'Book of the Rose'</title>, a collection of hymns for the liturgical year.
-                    </note>
+                    <persName xml:lang="en" xml:id="name504-4">George Warda</persName>
+                    
                     <idno type="URI">http://syriaca.org/person/504</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_504</idno>
                     <idno type="URI">http://viaf.org/viaf/89433414</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=G&amp;sK=George Warda&amp;sT=keywords</idno>
-                    <floruit notBefore="1150" notAfter="1350" source="#bib504-1" syriaca-computed-end="1350-01-01" syriaca-computed-start="1150-01-01">13th cent.?</floruit>
+                    <note type="abstract" xml:id="abstract-en-504" source="#bib504-1">Gewargis Warda is known as the medieval author who wrote the <title rend="italic" xml:lang="en-x-gedsh">Kthābhā d-wardā, or 'Book of the Rose'</title>, a collection of hymns for the liturgical year.
+                    </note>
+                    <floruit notBefore="1150" notAfter="1350" syriaca-computed-end="1350-01-01" syriaca-computed-start="1150-01-01" source="#bib504-1">13th cent.?</floruit>
                     <state type="confession" source="#bib504-1">
                         <desc>Ch. of E.</desc>
                     </state>
@@ -187,7 +198,6 @@
                         <title level="a" xml:lang="en">Gewargis Warda</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/236"/>
-                        <citedRange unit="pp">176-177</citedRange>
                         <citedRange unit="pp">176-177</citedRange>
                     </bibl>
                     <bibl xml:id="bib504-2">
@@ -242,6 +252,21 @@
                         <citedRange unit="entry">1628</citedRange>
                         <citedRange unit="entry">1882</citedRange>
                         <citedRange unit="entry">1895</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib504-4">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">34-306</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib504-5">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">137-138</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib504-6">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">63</citedRange>
                     </bibl>
                 </person>
             </listPerson>
