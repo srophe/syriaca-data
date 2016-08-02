@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Yeshu‛ Saftana —
                     <foreign xml:lang="syr">ܡܝܟܐܝܠ ܬܪܝܢܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -109,7 +117,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -162,6 +169,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change223-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-22+02:00">Added French names from BHSE.</change>
@@ -180,7 +189,7 @@
                         <addName type="untagged-title" sort="2">II</addName>
                         <addName type="untagged-title" sort="2">the Younger</addName>
                     </persName>
-                    <persName xml:id="name223-2" corresp="#name223-3 #name223-4 #name223-5" xml:lang="en" source="#bib223-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name223-2" corresp="#name223-3 #name223-4 #name223-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib223-2">
                         <forename sort="1">Yeshu‛</forename>
                         <addName type="untagged-title" sort="2">Saftana</addName>
                     </persName>
@@ -203,13 +212,14 @@
                         <forename>Josué</forename>
                         <addName type="untagged-title">de Militène</addName> (<forename>Michel</forename>
                         <addName type="untagged-title">II</addName>)</persName>
+                    <persName xml:lang="en" xml:id="name223-8">Michael II, Isho Sephtana [Anti Pat]</persName>
+                    <idno type="URI">http://syriaca.org/person/223</idno>
+                    <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_223</idno>
                     <note type="abstract" xml:id="abstract-en-223">
                         <quote source="#bib223-1">Patr. of the Syr. Orth. Church (1199–1215).</quote>
                     </note>
-                    <idno type="URI">http://syriaca.org/person/223</idno>
-                    <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_223</idno>
-                    <death when="1215" source="#bib223-1" syriaca-computed-start="1215-01-01">1215</death>
-                    <state type="office" from="1199" to="1215" source="#bib223-1" syriaca-computed-end="1215-01-01" syriaca-computed-start="1199-01-01">
+                    <death when="1215" syriaca-computed-start="1215-01-01" source="#bib223-1">1215</death>
+                    <state type="office" from="1199" to="1215" syriaca-computed-end="1215-01-01" syriaca-computed-start="1199-01-01" source="#bib223-1">
                         <desc xml:lang="en-x-gedsh">1199-1215</desc>
                     </state>
                     <state type="confession" source="#bib223-1">
@@ -225,7 +235,6 @@
                         <title level="a" xml:lang="en">Michael II the Younger</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/383"/>
-                        <citedRange unit="pp">290</citedRange>
                         <citedRange unit="pp">290</citedRange>
                     </bibl>
                     <bibl xml:id="bib223-2">
@@ -249,11 +258,16 @@
                         <ptr target="http://syriaca.org/bibl/649"/>
                         <citedRange unit="entry">1545</citedRange>
                     </bibl>
+                    <bibl xml:id="bib223-6">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">302</citedRange>
+                    </bibl>
                 </person>
-                <relation type="disambiguation" name="different-from" mutual="#person-223 http://syriaca.org/person/247">
+                <relation type="disambiguation" name="different-from" mutual="http://syriaca.org/person/223 http://syriaca.org/person/247">
                     <desc>Not the same as Michael I (III) (http://syriaca.org/person/247)</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-223" passive="http://syriaca.org/place/224" source="#bib223-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/223" passive="http://syriaca.org/place/224" source="#bib223-2">
                     <desc xml:lang="en">This author has an unspecified connection to a place.</desc>
                 </relation>
             </listPerson>

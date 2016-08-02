@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -193,6 +203,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change326-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2016-06-20-04:00">Checked the merge data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
@@ -217,11 +229,16 @@
                     <persName xml:id="name326-2" xml:lang="syr" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">
                         <forename sort="1">ܐܝܬܐܠܗܐ</forename>
                     </persName>
-                    <persName xml:id="name326-3" xml:lang="en" source="#bib326-2">Aithallah</persName>
+                    <persName xml:id="name326-3" xml:lang="en" source="#bib326-2 #bib326-5">Aithallah</persName>
                     <persName xml:lang="syr" xml:id="name326-4" source="#bib326-3">ܐܝܬܝܠܗܐ</persName>
                     <persName xml:lang="en-x-gedsh" xml:id="name326-5">Ithʾalāhā</persName>
                     <persName xml:lang="fr-x-zanetti" xml:id="name326-6" source="#bib326-3">ʾAytaylāhā</persName>
                     <persName xml:lang="fr" xml:id="name326-7" source="#bib326-3">Aytaylaha</persName>
+                    <persName xml:lang="en" xml:id="name326-9">Aitallaha</persName>
+                    <persName xml:lang="de-x-baumstrk" xml:id="name326-10" source="#bib326-4">
+                        <addName type="untagged-title">Bischof</addName>
+                        <forename>Ait(h)allàhā</forename>
+                    </persName>
                     <idno type="URI">http://syriaca.org/person/326</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_326</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=A&amp;sK=Aithallah&amp;sT=keywords</idno>
@@ -255,8 +272,18 @@
                         <ptr target="http://syriaca.org/bibl/649"/>
                         <citedRange unit="entry">106</citedRange>
                     </bibl>
+                    <bibl xml:id="bib326-4">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">31</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib326-5">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">21</citedRange>
+                    </bibl>
                 </person>
-                <relation type="disambiguation" name="different-from" mutual="#person-326 http://syriaca.org/person/100 http://syriaca.org/person/1016 http://syriaca.org/person/1057">
+                <relation type="disambiguation" name="different-from" mutual="http://syriaca.org/person/326 http://syriaca.org/person/100 http://syriaca.org/person/1016 http://syriaca.org/person/1057">
                     <desc>Not the same as Aitalaha the monk (http://syriaca.org/person/100), Aitalaha (http://syriaca.org/person/1016), or Aitalaha of Nineveh (http://syriaca.org/person/1057).</desc>
                 </relation>
             </listPerson>

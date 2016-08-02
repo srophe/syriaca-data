@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -88,7 +98,6 @@
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
                 <idno type="URI" change="#change84-1">http://syriaca.org/person/84/tei</idno>
-                <idno change="#change84-1" type="deprecated">http://syriaca.org/person/1403/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -182,6 +191,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change84-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-07-04+02:00" xml:id="change84-1">Merged in data from [http://syriaca.org/person/1403].</change>
@@ -231,8 +242,9 @@
                         </addName>
                     </persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name84-8" source="#bib84-6">PAUL, évêque d'Edesse</persName>
+                    <persName xml:lang="en" xml:id="name84-9">Paul of Edessa</persName>
+                    <persName xml:lang="la" xml:id="name84-10" source="#bib84-12">Paulus ep. Edessae</persName>
                     <idno type="URI" change="#change84-1">http://syriaca.org/person/84</idno>
-                    <idno change="#change84-1" type="deprecated">http://syriaca.org/person/1403</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_84</idno>
                     <idno type="URI">http://viaf.org/viaf/227712673/</idno>
                     <idno type="URI">http://www.worldcat.org/oclc/1196066</idno>
@@ -241,15 +253,15 @@
                     <note type="abstract" xml:id="abstract-en-84">
                         <quote source="#bib84-1">Metropolitan of <placeName ref="#tempName-13">Edessa</placeName> and translator.</quote>
                     </note>
-                    <note type="description">In hagiography: In hagiography: Paul was bishop of <placeName ref="http://syriaca.org/place/78">Edessa</placeName>. He translated the hymns
-            of <persName ref="http://syriaca.org/person/51">Severus</persName> and revised a Syriac
-          translation of Gregory.</note>
                     <sex value="M" source="#bib84-6">male</sex>
                     <floruit>
                         <date when="0594" syriaca-computed-start="0594" source="#bib84-6">0594</date>
                         <date notBefore="0600" notAfter="0650" syriaca-computed-end="0650-01-01" syriaca-computed-start="0600-01-01" source="#bib84-1">early 7th cent.</date>
                     </floruit>
                     <death when="0624" syriaca-computed-start="0624-01-01" source="#bib84-6">0624</death>
+                    <note type="description">In hagiography: In hagiography: Paul was bishop of <placeName ref="http://syriaca.org/place/78">Edessa</placeName>. He translated the hymns
+            of <persName ref="http://syriaca.org/person/51">Severus</persName> and revised a Syriac
+          translation of Gregory.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib84-6">Barsaum, Lu 'lu '2
 , 432- 33.
 Honigmann, Eveques et eveches, 50.
@@ -343,11 +355,21 @@ BSO, II, 766 (J .M. Fiey).</quote>
                         <citedRange>II,
                766</citedRange>
                     </bibl>
+                    <bibl xml:id="bib84-11">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">190</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib84-12">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">121</citedRange>
+                    </bibl>
                 </person>
-                <relation name="has-relation-to-place" active="#person-84" passive="http://syriaca.org/place/78 http://syriaca.org/place/59 http://syriaca.org/place/714 http://syriaca.org/place/7 http://syriaca.org/place/715" source="#bib84-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/84" passive="http://syriaca.org/place/78 http://syriaca.org/place/59 http://syriaca.org/place/714 http://syriaca.org/place/7 http://syriaca.org/place/715" source="#bib84-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
-                <relation name="possibly-identical" mutual="#person-84 http://syriaca.org/person/86" source="#bib84-1">
+                <relation name="possibly-identical" mutual="http://syriaca.org/person/84 http://syriaca.org/person/86" source="#bib84-1">
                     <desc xml:lang="en">This author is possibly identical with the author represented in another record</desc>
                 </relation>
             </listPerson>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -209,6 +219,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change53-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-06-14+02:00" xml:id="change53-1">Merged in data from [http://syriaca.org/person/2096].</change>
@@ -233,7 +245,7 @@
                         <addName type="family" sort="2">of <placeName ref="http://syriaca.org/place/305">Beth Arsham</placeName>
                         </addName>
                     </persName>
-                    <persName xml:id="name53-2" corresp="#name53-3 #name53-4 #name53-5" xml:lang="en" source="#bib53-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name53-2" corresp="#name53-3 #name53-4 #name53-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib53-2">
                         <forename sort="1">Simon</forename>
                         <addName type="family" sort="2">of <placeName ref="http://syriaca.org/place/305">Beth Arsham</placeName>
                         </addName>
@@ -266,8 +278,8 @@
                     <persName xml:lang="en" xml:id="name53-13">Symeon the Bishop</persName>
                     <persName xml:lang="fr-x-zanetti" xml:id="name53-14" source="#bib53-6">Šemʾōn</persName>
                     <persName xml:lang="fr" xml:id="name53-15" source="#bib53-6">Syméon l’évêque</persName>
+                    <persName xml:lang="fr" xml:id="name53-16" source="#bib53-8">Simeon de Beit Arscham</persName>
                     <idno type="URI" change="#change53-1">http://syriaca.org/person/53</idno>
-                    <idno change="#change53-1" type="deprecated">http://syriaca.org/person/2096</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_53</idno>
                     <idno type="URI">http://viaf.org/viaf/19922258</idno>
                     <idno type="URI">http://viaf.org/viaf/227380869</idno>
@@ -277,12 +289,12 @@
                     <note type="abstract" xml:id="abstract-en-53">
                         <quote source="#bib53-1">Polemical writer and bp.</quote>
                     </note>
+                    <death notAfter="0548" syriaca-computed-end="0548-01-01" source="#bib53-1">before 548</death>
                     <note type="description">In hagiography: <quote source="#bib53-6">
                             <persName ref="http://syriaca.org/person/856">Shemʿōn</persName> features in
                             <persName ref="http://syriaca.org/person/74">John of Ephesus'</persName>
                             Lives of the Eastern Saints.</quote>
                     </note>
-                    <death notAfter="0548" syriaca-computed-end="0548-01-01" source="#bib53-1">before 548</death>
                     <note type="disambiguation">from John of Ephesus, LES</note>
                     <state type="confession" source="#bib53-1">
                         <desc>Syr. Orth.</desc>
@@ -333,14 +345,29 @@
                         <citedRange unit="entry">2003</citedRange>
                         <citedRange unit="entry">592</citedRange>
                     </bibl>
+                    <bibl xml:id="bib53-7">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">145-146</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib53-8">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">69-70</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib53-9">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">36</citedRange>
+                    </bibl>
                 </person>
-                <relation name="died-at" active="#person-53" passive="http://syriaca.org/place/586" source="#bib53-2">
+                <relation name="died-at" active="http://syriaca.org/person/53" passive="http://syriaca.org/place/586" source="#bib53-2">
                     <desc xml:lang="en">This author died at a known location.</desc>
                 </relation>
-                <relation name="has-literary-connection-to-place" active="#person-53" passive="http://syriaca.org/place/1457 http://syriaca.org/place/464" source="#bib53-2">
+                <relation name="has-literary-connection-to-place" active="http://syriaca.org/person/53" passive="http://syriaca.org/place/1457 http://syriaca.org/place/464" source="#bib53-2">
                     <desc xml:lang="en">This author has a literary connection to places.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-53" passive="http://syriaca.org/place/219 http://syriaca.org/place/526 http://syriaca.org/place/202 http://syriaca.org/place/182 http://syriaca.org/place/142 http://syriaca.org/place/640" source="#bib53-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/53" passive="http://syriaca.org/place/219 http://syriaca.org/place/526 http://syriaca.org/place/202 http://syriaca.org/place/182 http://syriaca.org/place/142 http://syriaca.org/place/640" source="#bib53-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

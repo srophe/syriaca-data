@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -193,6 +203,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change721-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-05-23+02:00" xml:id="change721-1">Merged in data from [duplicate record with same URI].</change>
@@ -214,12 +226,13 @@
                         <addName type="untagged-title" sort="2">ܪܒܢ</addName>
                         <forename sort="1">ܨܘܡܐ</forename>
                     </persName>
-                    <persName xml:id="name721-3" xml:lang="en" source="#bib721-2" syriaca-tags="#syriaca-headword">Rabban Sauma</persName>
+                    <persName xml:id="name721-3" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib721-2">Rabban Sauma</persName>
                     <persName xml:lang="syr" xml:id="name721-4" source="#bib721-3">ܝܗܒܐܠܗܐ ܘܨܘܡܐ</persName>
                     <persName xml:lang="en-x-gedsh" xml:id="name721-5">Ya(h)balāhā w-ṣawmā</persName>
                     <persName xml:lang="en" xml:id="name721-6">Yahballah and Sauma</persName>
                     <persName xml:lang="fr-x-zanetti" xml:id="name721-7" source="#bib721-3">Ya(h)ḇallāhā w-Ṣaumā</persName>
                     <persName xml:lang="fr" xml:id="name721-8" source="#bib721-3">Yahballaha et Sauma</persName>
+                    <persName xml:lang="en" xml:id="name721-9">Ṣawma, Rabban</persName>
                     <idno type="URI">http://syriaca.org/person/721</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_721</idno>
                     <idno type="URI">http://worldcat.org/identities/lccn-n91-127261</idno>
@@ -237,8 +250,8 @@
                         <quote source="#bib721-1">Ṣawma was a monk of the Ch. of E. who, sometime around 1275, set out from Dadu
 (also known as Khān Bālīq, i.e. modern Beijing) in his native China with a youngerdisciple, Markos, on a pilgrimage to <placeName ref="http://syriaca.org/place/104">Jerusalem</placeName>.</quote>
                     </note>
-                    <note type="description">In hagiography: </note>
                     <floruit notBefore="1200" notAfter="1300" syriaca-computed-end="1300-01-01" syriaca-computed-start="1200-01-01" source="#bib721-1">13th cent.</floruit>
+                    <note type="description">In hagiography: </note>
                     <state type="confession" source="#bib721-1">
                         <desc>Ch. of E.</desc>
                     </state>
@@ -263,6 +276,11 @@
                         <title level="m" xml:lang="la">Bibliotheca Hagiographica Syriaca</title>
                         <ptr target="http://syriaca.org/bibl/649"/>
                         <citedRange unit="entry">689</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib721-4">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">325-326</citedRange>
                     </bibl>
                 </person>
             </listPerson>

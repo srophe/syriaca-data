@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -20,6 +20,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -208,6 +218,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change122-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-05-23+02:00" xml:id="change122-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-22+02:00">Added French names from BHSE.</change>
@@ -251,12 +263,15 @@
                     <persName xml:id="name122-7" xml:lang="en" resp="http://syriaca.org" syriaca-tags="#syriaca-anglicized">
                         <forename sort="1">George</forename>, <roleName type="office" sort="2">bp. of the Arab tribes</roleName>
                     </persName>
-                    <persName xml:id="name122-8" xml:lang="en" source="#bib122-5" syriaca-tags="#syriaca-headword">George, bishop of the Arabs</persName>
+                    <persName xml:id="name122-8" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib122-5">George, bishop of the Arabs</persName>
                     <persName xml:lang="fr" xml:id="name122-9" source="#bib122-6">
                         <forename>Georges</forename>
                         <addName type="untagged-title">des Arabes</addName>
                     </persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name122-10" source="#bib122-7">GEORGES, ÉVÊQUE DES ARABES</persName>
+                    <persName xml:lang="en" xml:id="name122-11">George, Bishop of the Arab Tribes</persName>
+                    <persName xml:lang="fr" xml:id="name122-12" source="#bib122-12">Geroges des Arabes</persName>
+                    <persName xml:lang="la" xml:id="name122-13" source="#bib122-10">Georgius ep. Arabum</persName>
                     <idno type="URI">http://syriaca.org/person/122</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_122</idno>
                     <idno type="URI">http://worldcat.org/identities/np-georgios$al hira</idno>
@@ -267,12 +282,12 @@
                     <note type="abstract" xml:id="abstract-en-122">
                         <quote source="#bib122-1">Bp. and learned author.</quote>
                     </note>
-                    <note type="description">In hagiography: George of the Arabs is commemorated as a student of <persName ref="http://syriaca.org/person/99">Severus of Sebokht</persName> at <placeName ref="http://syriaca.org/place/230">Qenneshre</placeName>, who was versed in all the branches of knowledge of his time. George became Bishop of the Arab tribes in 686. His seat was in <placeName ref="http://syriaca.org/place/452">Aqula</placeName>.</note>
                     <sex value="M" source="#bib122-7">male</sex>
                     <death>
                         <date when="0724" syriaca-computed-start="0724-01-01" source="#bib122-1">724</date>
                         <date when="0726" syriaca-computed-start="0726-01-01" source="#bib122-7">0726</date>
                     </death>
+                    <note type="description">In hagiography: George of the Arabs is commemorated as a student of <persName ref="http://syriaca.org/person/99">Severus of Sebokht</persName> at <placeName ref="http://syriaca.org/place/230">Qenneshre</placeName>, who was versed in all the branches of knowledge of his time. George became Bishop of the Arab tribes in 686. His seat was in <placeName ref="http://syriaca.org/place/452">Aqula</placeName>.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib122-7">BSO, I, 1081-82 (J. Rabbi).</quote>
                     </note>
                     <state type="office" role="bishop" source="#bib122-1">
@@ -341,11 +356,37 @@
                         <citedRange>I,
                1081-82</citedRange>
                     </bibl>
+                    <bibl xml:id="bib122-9">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">257-258</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib122-10">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">131</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib122-11">
+                        <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
+                        <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
+                        <ptr target="http://syriaca.org/bibl/709"/>
+                        <citedRange unit="pp">494-95</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib122-12">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">88</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib122-13">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">50-51</citedRange>
+                    </bibl>
                 </person>
-                <relation name="has-literary-connection-to-place" active="#person-122" passive="http://syriaca.org/place/1513 http://syriaca.org/place/233 http://syriaca.org/place/1514 http://syriaca.org/place/1515" source="#bib122-2">
+                <relation name="has-literary-connection-to-place" active="http://syriaca.org/person/122" passive="http://syriaca.org/place/1513 http://syriaca.org/place/233 http://syriaca.org/place/1514 http://syriaca.org/place/1515" source="#bib122-2">
                     <desc xml:lang="en">This author has a literary connection to places.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-122" passive="http://syriaca.org/place/230 http://syriaca.org/place/452" source="#bib122-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/122" passive="http://syriaca.org/place/230 http://syriaca.org/place/452" source="#bib122-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

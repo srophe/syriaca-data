@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Catholicos Timothy I —
                     <foreign xml:lang="syr">ܛܝܡܬܐܘܣ ܩܕܡܝܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -101,7 +109,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -154,6 +161,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change790-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
@@ -170,7 +179,7 @@
                         <forename sort="1">Timotheos</forename>
                         <addName type="untagged-title" sort="2">I</addName>
                     </persName>
-                    <persName xml:id="name790-2" corresp="#name790-3 #name790-4 #name790-5" xml:lang="en" source="#bib790-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name790-2" corresp="#name790-3 #name790-4 #name790-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib790-2">
                         <roleName type="office" sort="2">Catholicos</roleName>
                         <forename sort="1">Timothy</forename>
                         <addName type="untagged-title" sort="2">I</addName>
@@ -208,10 +217,9 @@
                         <forename sort="1">Timothy</forename>
                         <addName type="untagged-title" sort="2">I</addName>
                     </persName>
-                    <note type="abstract" xml:id="abstract-en-790">
-                        <quote source="#bib790-1">Cath. of the Ch. of E. Timotheos was born in the village of Ḥazza (near Arbela in
-            <placeName ref="#tempName-15">Iraq</placeName>).</quote>
-                    </note>
+                    <persName xml:lang="en" xml:id="name790-12">Timothy I</persName>
+                    <persName xml:lang="fr" xml:id="name790-13" source="#bib790-10">Timothee 1er</persName>
+                    <persName xml:lang="la" xml:id="name790-14" source="#bib790-9">Timotheus I Katholikos</persName>
                     <idno type="URI">http://syriaca.org/person/790</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_790</idno>
                     <idno type="URI">http://viaf.org/viaf/9370634</idno>
@@ -230,8 +238,12 @@
                     <idno type="URI">http://viaf.org/viaf/45036504</idno>
                     <idno type="URI">http://viaf.org/viaf/185491906</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=T&amp;sK=Timothy I&amp;sT=keywords</idno>
-                    <birth notBefore="0727" notAfter="0728" source="#bib790-1" syriaca-computed-end="0728-01-01" syriaca-computed-start="0727-01-01">727/8</birth>
-                    <death when="0823" source="#bib790-1" syriaca-computed-start="0823-01-01">823</death>
+                    <note type="abstract" xml:id="abstract-en-790">
+                        <quote source="#bib790-1">Cath. of the Ch. of E. Timotheos was born in the village of Ḥazza (near Arbela in
+            <placeName ref="#tempName-15">Iraq</placeName>).</quote>
+                    </note>
+                    <birth notBefore="0727" notAfter="0728" syriaca-computed-end="0728-01-01" syriaca-computed-start="0727-01-01" source="#bib790-1">727/8</birth>
+                    <death when="0823" syriaca-computed-start="0823-01-01" source="#bib790-1">823</death>
                     <state type="office" role="catholicos" source="#bib790-2">
                         <desc xml:lang="en">Catholicos</desc>
                     </state>
@@ -248,7 +260,6 @@
                         <title level="a" xml:lang="en">Timotheos I</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/565"/>
-                        <citedRange unit="pp">414-415</citedRange>
                         <citedRange unit="pp">414-415</citedRange>
                     </bibl>
                     <bibl xml:id="bib790-2">
@@ -280,6 +291,26 @@
                         <title level="m" xml:lang="en">A Comprehensive Bibliography on Syriac Christianity</title>
                         <ptr target="http://syriaca.org/bibl/5"/>
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=T&amp;sK=Timothy I&amp;sT=keywords">Timothy I</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib790-8">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">217-218</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib790-9">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">153</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib790-10">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">108-109</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib790-11">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">53-55</citedRange>
                     </bibl>
                 </person>
             </listPerson>

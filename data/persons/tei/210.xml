@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Basilius Bar Shumanna —
                     <foreign xml:lang="syr">ܒܣܝܠܝܘܣ ܒܪ ܫܘܡܢܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -101,7 +109,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -154,6 +161,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change210-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-01-01">ADDED: Prototype info from LAH.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
@@ -165,8 +174,7 @@
         <body>
             <listPerson>
                 <person xml:id="person-210" ana="#syriaca-author">
-                    <!-- The following includes prototype information from the Late Antique Historiography project at University of Ghent -->
-                    <persName xml:id="name210-1" corresp="#name210-2 #name210-3 #name210-4" xml:lang="en" source="#bib210-1" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name210-1" corresp="#name210-2 #name210-3 #name210-4" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib210-1">
                         <forename sort="1">Basilius</forename>
                         <addName type="family" sort="2">Bar Shumanna</addName>
                     </persName>
@@ -174,7 +182,7 @@
                         <forename sort="1">باسيليوس</forename>
                         <addName type="family" sort="2">ابن شومنة</addName>
                     </persName>
-                    <persName xml:id="name210-3" corresp="#name210-1 #name210-2 #name210-4" xml:lang="syr" source="#bib210-3" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name210-3" corresp="#name210-1 #name210-2 #name210-4" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib210-3">
                         <forename sort="1">ܒܣܝܠܝܘܣ</forename>
                         <addName type="family" sort="2">ܒܪ ܫܘܡܢܐ</addName>
                     </persName>
@@ -193,18 +201,19 @@
                     <persName xml:lang="en" xml:id="name210-7" source="#bib210-4">Basilius, bishop of Edessa</persName>
                     <persName xml:lang="syr" xml:id="name210-8" corresp="#name210-9" source="#bib210-4">ܚܣܝܐ ܒܐܣܝܠܝܘܣ ܕܐܘܪܗܝ</persName>
                     <persName xml:lang="en-x-lah" xml:id="name210-9" corresp="#name210-8" source="#bib210-4">Ḥasyā Bāsīlyūs d-’ūrhāy</persName>
-                    <note type="abstract" xml:id="abstract-en-210"/>
+                    <persName xml:lang="en" xml:id="name210-10">Basilios Abu-l-Faraj bar Shummana</persName>
                     <idno type="URI">http://syriaca.org/person/210</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_210</idno>
                     <idno type="URI">http://www.late-antique-historiography.ugent.be/database/authors/269</idno>
+                    <note type="abstract" xml:id="abstract-en-210"/>
                     <birth notBefore="1075" source="#bib210-4">Beginning 12th cent.</birth>
+                    <death when="1169" syriaca-computed-start="1169-01-01" source="#bib210-1 #bib210-4">1169</death>
                     <state type="office" role="bishop" from="1129" source="#bib210-4">
                         <desc>bishop (ordained in 1129 A.D.)</desc>
                     </state>
                     <state type="confession" ref="http://syriaca.org/documentation/confessions.xml#syrian-orthodox" source="#bib210-4">
                         <label>Syrian Orthodox</label>
                     </state>
-                    <death when="1169" source="#bib210-1 #bib210-4" syriaca-computed-start="1169-01-01">1169</death>
                     <bibl xml:id="bib210-1">
                         <title level="m" xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
                         <ptr target="http://syriaca.org/bibl/4"/>
@@ -226,11 +235,21 @@
                         <ptr target="http://syriaca.org/bibl/1601"/>
                         <citedRange unit="entry" target="http://www.late-antique-historiography.ugent.be/database/authors/269">Basilius, bishop of Edessa</citedRange>
                     </bibl>
+                    <bibl xml:id="bib210-5">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">293</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib210-6">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">122</citedRange>
+                    </bibl>
                 </person>
-                <relation name="born-at" active="#person-210" passive="http://syriaca.org/place/78" source="#bib210-2">
+                <relation name="born-at" active="http://syriaca.org/person/210" passive="http://syriaca.org/place/78" source="#bib210-2">
                     <desc xml:lang="en">This author was born at a known location.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-210" passive="http://syriaca.org/place/586 http://syriaca.org/place/112 http://syriaca.org/place/416" source="#bib210-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/210" passive="http://syriaca.org/place/586 http://syriaca.org/place/112 http://syriaca.org/place/416" source="#bib210-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

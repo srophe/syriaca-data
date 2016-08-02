@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -205,6 +215,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change744-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
@@ -226,7 +238,7 @@
                         <forename sort="1">Shemʿun</forename>
                         <roleName type="office" sort="2">the Stylite</roleName>
                     </persName>
-                    <persName xml:id="name744-2" corresp="#name744-3 #name744-4 #name744-5" xml:lang="en" source="#bib744-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name744-2" corresp="#name744-3 #name744-4 #name744-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib744-2">
                         <forename sort="1">Simon</forename>
                         <roleName type="office" sort="2">the Stylite</roleName>
                     </persName>
@@ -256,6 +268,10 @@
                     <persName xml:lang="fr-x-zanetti" xml:id="name744-14" source="#bib744-6">Šemʾōn d-ʾEsṭōnēh</persName>
                     <persName xml:lang="fr" xml:id="name744-15" source="#bib744-6">Syméon le Stylite</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name744-16" source="#bib744-7">SIMÉON LE STYLITE</persName>
+                    <persName xml:lang="de-x-baumstrk" xml:id="name744-17" source="#bib744-13">
+                        <forename>Šemʿôn</forename>
+                        <addName type="untagged-title">der Stylite</addName>
+                    </persName>
                     <idno type="URI">http://syriaca.org/person/744</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_744</idno>
                     <idno type="URI">http://viaf.org/viaf/75503404</idno>
@@ -282,13 +298,13 @@
                         <quote source="#bib744-1">Saint. Born in the village of Sisa near Nicopolis, Shemʿun was the child of
             Christian parents.</quote>
                     </note>
-                    <note type="description">In hagiography: Simeon the Stylite was a shepherd who became a monk. He lived first in a cistern, but then later he built a column on which he lived at Telanesios. His pillar and extreme asceticism attracted pilgrims and converts.</note>
                     <sex value="M" source="#bib744-7">male</sex>
                     <birth notBefore="0355" notAfter="0405" syriaca-computed-end="0405-01-01" syriaca-computed-start="0355-01-01" source="#bib744-1">ca. 380</birth>
                     <death>
                         <date when="0459" syriaca-computed-start="0459-01-01" source="#bib744-1">459</date>
                         <date when="0459" syriaca-computed-start="0459-01-01" source="#bib744-7">0459</date>
                     </death>
+                    <note type="description">In hagiography: Simeon the Stylite was a shepherd who became a monk. He lived first in a cistern, but then later he built a column on which he lived at Telanesios. His pillar and extreme asceticism attracted pilgrims and converts.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib744-7">AMS, IV, 507-665 ; BHO, 1121- 26.
 S. Ashbrook Harvey, dans VC 42 (1988), 376-94.
 Thad. anglaise des vies grecques et syriaque : R. Doran, The Lives of Simeon Stylites
@@ -388,6 +404,21 @@ BS, XI, 1116- 38 (D . Stiernon).</quote>
                         <title>BS</title>
                         <citedRange>XI,
                1116-38</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib744-13">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">60-61</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib744-14">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">36</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib744-15">
+                        <title xml:lang="en">Wright, A Short History of Syriac Literature</title>
+                        <ptr target="http://syriaca.org/bibl/639"/>
+                        <citedRange unit="pp">55-56</citedRange>
                     </bibl>
                 </person>
             </listPerson>

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Deacon Simon the Potter —
                     <foreign xml:lang="syr">ܫܡܥܘܢ ܩܘܩܝܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -109,7 +117,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -162,6 +169,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change37-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
@@ -179,7 +188,7 @@
                         <forename sort="1">Shemʿun</forename>
                         <addName type="untagged-title" sort="2">Quqoyo</addName>
                     </persName>
-                    <persName xml:id="name37-2" corresp="#name37-3 #name37-4 #name37-5" xml:lang="en" source="#bib37-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name37-2" corresp="#name37-3 #name37-4 #name37-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib37-2">
                         <roleName type="office" sort="2">Deacon</roleName>
                         <forename sort="1">Simon</forename>
                         <addName type="untagged-title" sort="2">the Potter</addName>
@@ -211,15 +220,17 @@
                     <persName xml:id="name37-9" xml:lang="en" source="#bib37-1">Simeon the Potter</persName>
                     <persName xml:id="name37-10" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Shemun Quqoyo</persName>
                     <persName xml:id="name37-11" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Shem‘un Quqoyo</persName>
-                    <note type="abstract" xml:id="abstract-en-37">
-                        <quote source="#bib37-1">Author of nine short poems on the Nativity.</quote>
-                    </note>
+                    <persName xml:lang="fr" xml:id="name37-12" source="#bib37-8">Simeon</persName>
+                    <persName xml:lang="la" xml:id="name37-13" source="#bib37-7">Simeon Quqaja (Aigulus)</persName>
                     <idno type="URI">http://syriaca.org/person/37</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_37</idno>
                     <idno type="URI">http://roger-pearse.com/wiki/index.php?title=Simeon_the_Potter</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=S&amp;sK=Simeon the Potter&amp;sT=keywords</idno>
-                    <death when="0514" source="#bib37-2" syriaca-computed-start="0514-01-01">514</death>
-                    <floruit notBefore="0400" notAfter="0600" source="#bib37-1" syriaca-computed-end="0600-01-01" syriaca-computed-start="0400-01-01">5th/6th cent.</floruit>
+                    <note type="abstract" xml:id="abstract-en-37">
+                        <quote source="#bib37-1">Author of nine short poems on the Nativity.</quote>
+                    </note>
+                    <floruit notBefore="0400" notAfter="0600" syriaca-computed-end="0600-01-01" syriaca-computed-start="0400-01-01" source="#bib37-1">5th/6th cent.</floruit>
+                    <death when="0514" syriaca-computed-start="0514-01-01" source="#bib37-2">514</death>
                     <state type="office" role="deacon" source="#bib37-2">
                         <desc xml:lang="en">Deacon</desc>
                     </state>
@@ -259,11 +270,36 @@
                         <ptr target="http://syriaca.org/bibl/5"/>
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=S&amp;sK=Simeon the Potter&amp;sT=keywords">Simeon the Potter</citedRange>
                     </bibl>
+                    <bibl xml:id="bib37-6">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">158-159</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib37-7">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">40</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib37-8">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">64</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib37-9">
+                        <title xml:lang="en">Wright, A Short History of Syriac Literature</title>
+                        <ptr target="http://syriaca.org/bibl/639"/>
+                        <citedRange unit="pp">78-79</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib37-10">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">31</citedRange>
+                    </bibl>
                 </person>
-                <relation name="born-at" active="#person-37" passive="http://syriaca.org/place/454" source="#bib37-2">
+                <relation name="born-at" active="http://syriaca.org/person/37" passive="http://syriaca.org/place/454" source="#bib37-2">
                     <desc xml:lang="en">This author was born at a known location.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-37" passive="http://syriaca.org/place/995" source="#bib37-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/37" passive="http://syriaca.org/place/995" source="#bib37-2">
                     <desc xml:lang="en">This author has an unspecified connection to a place.</desc>
                 </relation>
             </listPerson>

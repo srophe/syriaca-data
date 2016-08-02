@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -88,7 +98,6 @@
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
                 <idno type="URI" change="#change85-1">http://syriaca.org/person/85/tei</idno>
-                <idno change="#change85-1" type="deprecated">http://syriaca.org/person/1190/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -182,6 +191,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change85-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-07-08+02:00" xml:id="change85-1">Merged in data from [http://syriaca.org/person/1190].</change>
             <change who="http://syriaca.org/documentation/editors.xml#dmichelson" n="2.0" when="2016-06-24-09:00">Change: tagged abstract for persons, places, titles and edited the "en" persNames [http://syriaca.org/person/1190]</change>
@@ -232,22 +243,22 @@
                     <persName xml:lang="en" xml:id="name85-9">Cyriacus</persName>
                     <persName xml:lang="fr" xml:id="name85-10" source="#bib85-5">Cyriaque de Mardé (translation de Mâr Jacques)</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name85-11" source="#bib85-6">CYRIAQUE</persName>
+                    <persName xml:lang="en" xml:id="name85-12">Kyriakos of Amida</persName>
                     <idno type="URI" change="#change85-1">http://syriaca.org/person/85</idno>
-                    <idno change="#change85-1" type="deprecated">http://syriaca.org/person/1190</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_85</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=Q&amp;sK=Qyriaqos of Amid&amp;sT=keywords</idno>
                     <idno type="FIEY">107</idno>
                     <idno type="BHS">1851</idno>
                     <note type="abstract" xml:id="abstract-en-85"/>
-                    <note type="description">In hagiography: In hagiography: Cyriacus was bishop
-            of <placeName ref="http://syriaca.org/place/8">Amida</placeName> and came from the
-          monastery of Mar Zakka near <placeName ref="http://syriaca.org/place/78">Edessa</placeName>. His church was seized by the Chalcedonians, but he restored his
-          churches under Khusro II. He was the author of 30 ecclesiastical canons.</note>
                     <sex value="M" source="#bib85-6">male</sex>
                     <death>
                         <date when="0623" syriaca-computed-start="0623-01-01" source="#bib85-1">623</date>
                         <date when="0623" syriaca-computed-start="0623-01-01" source="#bib85-6">0623</date>
                     </death>
+                    <note type="description">In hagiography: In hagiography: Cyriacus was bishop
+            of <placeName ref="http://syriaca.org/place/8">Amida</placeName> and came from the
+          monastery of Mar Zakka near <placeName ref="http://syriaca.org/place/78">Edessa</placeName>. His church was seized by the Chalcedonians, but he restored his
+          churches under Khusro II. He was the author of 30 ecclesiastical canons.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib85-6">BSO, I, 486 (J .M. Fiey).</quote>
                     </note>
                     <state type="office" role="metropolitan" source="#bib85-1">
@@ -297,11 +308,16 @@
                         <citedRange>I,
                486</citedRange>
                     </bibl>
+                    <bibl xml:id="bib85-8">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">181</citedRange>
+                    </bibl>
                 </person>
-                <relation type="disambiguation" name="different-from" mutual="#person-85 http://syriaca.org/person/145">
+                <relation type="disambiguation" name="different-from" mutual="http://syriaca.org/person/85 http://syriaca.org/person/145">
                     <desc>Not the same as Quryaqos (http://syriaca.org/person/145).</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-85" passive="http://syriaca.org/place/8 http://syriaca.org/place/356" source="#bib85-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/85" passive="http://syriaca.org/place/8 http://syriaca.org/place/356" source="#bib85-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

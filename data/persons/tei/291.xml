@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Maphryono Simon —
                     <foreign xml:lang="syr">ܒܣܝܠܝܘܣ ܫܡܥܘܢ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -109,7 +117,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -162,6 +169,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change291-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2014-10-15-04:00">ADDED: Name from Graf, GCAL</change>
@@ -180,7 +189,7 @@
                         <forename sort="2">Shemʿun </forename>
                         <addName type="untagged-title" sort="2">II</addName>, <forename sort="2">Basileios</forename>
                     </persName>
-                    <persName xml:id="name291-2" corresp="#name291-3 #name291-4 #name291-5" xml:lang="en" source="#bib291-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name291-2" corresp="#name291-3 #name291-4 #name291-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib291-2">
                         <roleName type="office" sort="2">Maphryono</roleName>
                         <forename sort="2">Simon</forename>
                     </persName>
@@ -205,14 +214,15 @@
                     </persName>
                     <persName xml:id="name291-8" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Shemun  II Basileios</persName>
                     <persName xml:id="name291-9" xml:lang="en-xsrp1" syriaca-tags="#syriaca-simplified-script">Shem‘un  II Basileios</persName>
+                    <persName xml:lang="en" xml:id="name291-10">Basilios Shem'un of Tur Abdin</persName>
+                    <idno type="URI">http://syriaca.org/person/291</idno>
+                    <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_291</idno>
                     <note type="abstract" xml:id="abstract-en-291">
                         <quote source="#bib291-1">Writer, maph. of Ṭur ʿAbdin (1710–40), and martyr.</quote>
                     </note>
-                    <idno type="URI">http://syriaca.org/person/291</idno>
-                    <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_291</idno>
-                    <birth notBefore="1655" notAfter="1685" source="#bib291-1" syriaca-computed-end="1685-01-01" syriaca-computed-start="1655-01-01">ca. 1670</birth>
-                    <death when="1740" source="#bib291-1" syriaca-computed-start="1740-01-01">1740</death>
-                    <state type="office" role="maphrian" from="1710" to="1740" source="#bib291-1 #bib291-2" syriaca-computed-end="1740-01-01" syriaca-computed-start="1710-01-01">
+                    <birth notBefore="1655" notAfter="1685" syriaca-computed-end="1685-01-01" syriaca-computed-start="1655-01-01" source="#bib291-1">ca. 1670</birth>
+                    <death when="1740" syriaca-computed-start="1740-01-01" source="#bib291-1">1740</death>
+                    <state type="office" role="maphrian" from="1710" to="1740" syriaca-computed-end="1740-01-01" syriaca-computed-start="1710-01-01" source="#bib291-1 #bib291-2">
                         <desc xml:lang="en">Maphryono</desc>
                     </state>
                     <state type="confession" source="#bib291-1">
@@ -251,6 +261,16 @@
                         <title xml:lang="de" level="m">Geschichte der christlichen arabischen Literatur</title>
                         <ptr target="http://syriaca.org/bibl/686"/>
                         <citedRange unit="pp">23</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib291-6">
+                        <title xml:lang="la">Macuch, Geschichte der spät- und neusyrischen Literatur</title>
+                        <ptr target="http://syriaca.org/bibl/642"/>
+                        <citedRange unit="pp">26</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib291-7">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">71</citedRange>
                     </bibl>
                 </person>
             </listPerson>

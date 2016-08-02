@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Metropolitan Joseph Sim‛an al-Sim‛ani —
                     <foreign xml:lang="syr">ܫܡܥܘܢ ܫܡܥܘܢܝܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -101,7 +109,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -154,6 +161,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change349-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
@@ -169,7 +178,7 @@
                     <persName xml:id="name349-1" xml:lang="en-x-gedsh" source="#bib349-1">
                         <addName type="family" sort="1">Assemani</addName>, <forename sort="2">Josephus Simonius</forename>
                     </persName>
-                    <persName xml:id="name349-2" corresp="#name349-3 #name349-4 #name349-5" xml:lang="en" source="#bib349-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name349-2" corresp="#name349-3 #name349-4 #name349-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib349-2">
                         <roleName type="office" sort="2">Metropolitan</roleName>
                         <forename sort="2">Joseph Sim‛an</forename>
                         <addName type="family" sort="1">al-Sim‛ani</addName>
@@ -194,17 +203,22 @@
                         <addName type="family" sort="1">ܫܡܥܘܢܝܐ</addName>
                     </persName>
                     <persName xml:id="name349-7" xml:lang="en" source="#bib349-1">Giuseppe Simone Assemani</persName>
-                    <note type="abstract" xml:id="abstract-en-349">
-                        <quote source="#bib349-1">Maronite polymath, Custodian of the Vatican Library, and titular bp. of Tyre.</quote>
-                    </note>
+                    <persName xml:lang="en" xml:id="name349-8">Assemani, Joseph Simon</persName>
+                    <persName xml:lang="de-x-baumstrk" xml:id="name349-9" source="#bib349-5">
+                        <forename>J S</forename>
+                        <addName type="family">Assemani</addName>
+                    </persName>
                     <idno type="URI">http://syriaca.org/person/349</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_349</idno>
                     <idno type="URI">http://viaf.org/viaf/9927564</idno>
                     <idno type="URI">http://worldcat.org/identities/lccn-n88-20882</idno>
                     <idno type="URI">http://viaf.org/viaf/238028405</idno>
                     <idno type="URI">http://viaf.org/viaf/216968498</idno>
-                    <birth when="1687" source="#bib349-1" syriaca-computed-start="1687-01-01">1687</birth>
-                    <death when="1768" source="#bib349-1" syriaca-computed-start="1768-01-01">1768</death>
+                    <note type="abstract" xml:id="abstract-en-349">
+                        <quote source="#bib349-1">Maronite polymath, Custodian of the Vatican Library, and titular bp. of Tyre.</quote>
+                    </note>
+                    <birth when="1687" syriaca-computed-start="1687-01-01" source="#bib349-1">1687</birth>
+                    <death when="1768" syriaca-computed-start="1768-01-01" source="#bib349-1">1768</death>
                     <state type="office" role="metropolitan" source="#bib349-2">
                         <desc xml:lang="en">Metropolitan</desc>
                     </state>
@@ -222,7 +236,6 @@
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/63"/>
                         <citedRange unit="pp">43-44</citedRange>
-                        <citedRange unit="pp">43-44</citedRange>
                     </bibl>
                     <bibl xml:id="bib349-2">
                         <title level="m" xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
@@ -238,6 +251,23 @@
                         <title level="m" xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
                         <ptr target="http://syriaca.org/bibl/3"/>
                         <citedRange unit="pp">505</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib349-5">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">32, 343</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib349-6">
+                        <title xml:lang="la">Macuch, Geschichte der spät- und neusyrischen Literatur</title>
+                        <ptr target="http://syriaca.org/bibl/642"/>
+                        <citedRange unit="pp">61-63</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib349-7">
+                        <title xml:lang="ar">أدب اللغة الآرامية</title>
+                        <title xml:lang="syr" level="m">ܣܦܪܢܘܬܐ ܕܠܫܢܐ ܐܪܡܝܐ</title>
+                        <title xml:lang="en-x-gedsh" level="m">Adab al-Lugha al-Ārāmiyya</title>
+                        <ptr target="http://syriaca.org/bibl/643"/>
+                        <citedRange unit="pp">656-658</citedRange>
                     </bibl>
                 </person>
             </listPerson>

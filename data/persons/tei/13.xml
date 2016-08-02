@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -20,6 +20,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -138,7 +148,7 @@
                 <title level="s">Gateway to the Syriac Saints</title>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                    Michelson</editor>
+                Michelson</editor>
                 <respStmt>
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -146,7 +156,7 @@
                 <respStmt>
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</name>
+                    Michelson</name>
                 </respStmt>
                 <idno type="URI">http://syriaca.org/saints</idno>
                 <biblScope unit="vol" from="2" to="2">
@@ -204,6 +214,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change13-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2016-05-19+02:00">Manual edit of merged data including standardizing header and abstracts.</change>
@@ -262,10 +274,13 @@
                         <forename>Ephrem</forename>
                     </persName>
                     <persName xml:lang="en" xml:id="name13-12">Ephrem of Edessa</persName>
-                    <persName xml:lang="en" xml:id="name13-13">Saint Ephrem</persName>
+                    <persName xml:lang="en" xml:id="name13-13" source="#bib13-20">Saint Ephrem</persName>
                     <persName xml:lang="fr-x-zanetti" xml:id="name13-14" source="#bib13-8">ʾAfrēm</persName>
                     <persName xml:lang="fr" xml:id="name13-16" source="#bib13-8">Éphrem d’Édesse</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name13-17" source="#bib13-9">SAINT ÉPHREM</persName>
+                    <persName xml:lang="de-x-baumstrk" xml:id="name13-19" source="#bib13-16">
+                        <forename>Ap(h)rem</forename>
+                    </persName>
                     <idno type="URI">http://syriaca.org/person/13</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_13</idno>
                     <idno type="URI">http://viaf.org/viaf/100177778</idno>
@@ -287,9 +302,9 @@
                     <note type="abstract" xml:id="abstract-en-13">
                         <quote source="#bib13-1">Deacon, poet, and theologian.</quote>
                     </note>
-                    <note type="description">In hagiography: <persName ref="http://syriaca.org/person/13">Ephrem the Syrian</persName> is commemorated as a doctor of the church and theologian. Ephrem's ecclesiastical career was based mainly in <placeName ref="http://syriaca.org/place/142">Nisibis</placeName> and <placeName ref="http://syriaca.org/place/78">Edessa</placeName>. He was the author of hymns, homilies, and prose. His fourth-century writings are remembered as a "golden age" of Syriac literature. His vita as recounted in hagiography differs greatly from historical accounts. One vita transforms him into a Byzantine monk, which is nevertheless a tribute to his importance in both the Syriac and Byzantine Greek churches.</note>
                     <sex value="M" source="#bib13-9">male</sex>
                     <death when="0373" syriaca-computed-start="0373-01-01" source="#bib13-1">373</death>
+                    <note type="description">In hagiography: <persName ref="http://syriaca.org/person/13">Ephrem the Syrian</persName> is commemorated as a doctor of the church and theologian. Ephrem's ecclesiastical career was based mainly in <placeName ref="http://syriaca.org/place/142">Nisibis</placeName> and <placeName ref="http://syriaca.org/place/78">Edessa</placeName>. He was the author of hymns, homilies, and prose. His fourth-century writings are remembered as a "golden age" of Syriac literature. His vita as recounted in hagiography differs greatly from historical accounts. One vita transforms him into a Byzantine monk, which is nevertheless a tribute to his importance in both the Syriac and Byzantine Greek churches.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib13-9">Saint Ephrem est celebre par les Syriaques le 28 janvier.
 La bibliographie sur Ephrem est immense; v. K. den Biesen, Bibliography of Ephrem
 the Syrian (Giove in Umbria, 2002). La meilleure etude sur "Saint Ephrem d'apres
@@ -561,11 +576,47 @@ BS, IV, 944-49 (J.-M. Sauget).</quote>
                         <citedRange>IV,
                944-49</citedRange>
                     </bibl>
+                    <bibl xml:id="bib13-16">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">31-52</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib13-17">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">18</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib13-18">
+                        <title xml:lang="fr">Duval, La littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/644"/>
+                        <citedRange unit="pp">329-335</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib13-19">
+                        <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
+                        <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
+                        <ptr target="http://syriaca.org/bibl/709"/>
+                        <citedRange unit="pp">24-164</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib13-20">
+                        <title xml:lang="fr">Chabot, Littérature syriaque</title>
+                        <ptr target="http://syriaca.org/bibl/640"/>
+                        <citedRange unit="pp">25-30</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib13-21">
+                        <title xml:lang="en">Wright, A Short History of Syriac Literature</title>
+                        <ptr target="http://syriaca.org/bibl/639"/>
+                        <citedRange unit="pp">33-37</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib13-22">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">16-22</citedRange>
+                    </bibl>
                 </person>
-                <relation name="has-literary-connection-to-place" active="#person-13" passive="http://syriaca.org/place/502 http://syriaca.org/place/216 http://syriaca.org/place/1450 http://syriaca.org/place/1451" source="#bib13-2">
+                <relation name="has-literary-connection-to-place" active="http://syriaca.org/person/13" passive="http://syriaca.org/place/502 http://syriaca.org/place/216 http://syriaca.org/place/1450 http://syriaca.org/place/1451" source="#bib13-2">
                     <desc xml:lang="en">This author has a literary connection to places.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-13" passive="http://syriaca.org/place/142 http://syriaca.org/place/78 http://syriaca.org/place/319 http://syriaca.org/place/8" source="#bib13-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/13" passive="http://syriaca.org/place/142 http://syriaca.org/place/78 http://syriaca.org/place/319 http://syriaca.org/place/8" source="#bib13-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

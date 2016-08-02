@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Elijah —
                     <foreign xml:lang="syr">ܐܠܝܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -20,6 +18,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -76,7 +84,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -129,6 +136,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change945-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
@@ -150,13 +159,15 @@
                     <persName xml:id="name945-3" xml:lang="en" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">
                         <forename sort="1">Elijah</forename>
                     </persName>
-                    <note type="abstract" xml:id="abstract-en-945">
-                        <quote source="#bib945-1">Author of a long letter, in twelve sections addressed to his friend Leon of Ḥarran, <foreign rend="italic" xml:lang="en-x-gedsh">synkellos</foreign> of the Chalcedonian bp. of Ḥarran, in which he gives reason why he left the Melkite Church for the Syr. Orth.</quote>
-                    </note>
+                    <persName xml:lang="en" xml:id="name945-4">Elijah of Antioch</persName>
+                    <persName xml:lang="la" xml:id="name945-5" source="#bib945-3">Elias Episcopus</persName>
                     <idno type="URI">http://syriaca.org/person/945</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_945</idno>
                     <idno type="URI">http://viaf.org/viaf/44309384</idno>
-                    <floruit notBefore="0750" notAfter="0850" source="#bib945-1" syriaca-computed-end="0850-01-01" syriaca-computed-start="0750-01-01">late 8th/early 9th cent.</floruit>
+                    <note type="abstract" xml:id="abstract-en-945">
+                        <quote source="#bib945-1">Author of a long letter, in twelve sections addressed to his friend Leon of Ḥarran, <foreign rend="italic" xml:lang="en-x-gedsh">synkellos</foreign> of the Chalcedonian bp. of Ḥarran, in which he gives reason why he left the Melkite Church for the Syr. Orth.</quote>
+                    </note>
+                    <floruit notBefore="0750" notAfter="0850" syriaca-computed-end="0850-01-01" syriaca-computed-start="0750-01-01" source="#bib945-1">late 8th/early 9th cent.</floruit>
                     <state type="confession" source="#bib945-1">
                         <desc>Syr. Orth.</desc>
                     </state>
@@ -172,8 +183,23 @@
                         <ptr target="http://syriaca.org/bibl/200"/>
                         <citedRange unit="pp">142</citedRange>
                     </bibl>
+                    <bibl xml:id="bib945-2">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">269</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib945-3">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">137</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib945-4">
+                        <title xml:lang="en">Brock, A brief outline of Syriac literature</title>
+                        <ptr target="http://syriaca.org/bibl/645"/>
+                        <citedRange unit="pp">51</citedRange>
+                    </bibl>
                 </person>
-                <relation type="disambiguation" name="different-from" mutual="#person-945 http://syriaca.org/person/63 http://syriaca.org/person/700 http://syriaca.org/person/119">
+                <relation type="disambiguation" name="different-from" mutual="http://syriaca.org/person/945 http://syriaca.org/person/63 http://syriaca.org/person/700 http://syriaca.org/person/119">
                     <desc>Not the same as Eliya (http://syriaca.org/person/63), al-Rāhib, Elias (http://syriaca.org/person/700), or Eliya I (http://syriaca.org/person/119).</desc>
                 </relation>
             </listPerson>

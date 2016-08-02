@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Patriarch Michael II —
                     <foreign xml:lang="syr">ܡܝܟܐܝܠ ܩܕܡܝܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -101,7 +109,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -154,6 +161,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change247-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: syriaca-computed-end for elements with date attributes</change>
@@ -164,7 +173,7 @@
         <body>
             <listPerson>
                 <person xml:id="person-247" ana="#syriaca-author">
-                    <persName xml:id="name247-1" corresp="#name247-2 #name247-3 #name247-4" xml:lang="en" source="#bib247-1" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name247-1" corresp="#name247-2 #name247-3 #name247-4" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib247-1">
                         <roleName type="office" sort="2">Patriarch</roleName>
                         <forename sort="1">Michael</forename>
                         <addName type="untagged-title" sort="2">II</addName>
@@ -192,11 +201,12 @@
                         <forename sort="1">Michael</forename>
                         <addName type="untagged-title" sort="2">I (III)</addName>
                     </persName>
-                    <note type="abstract" xml:id="abstract-en-247"/>
+                    <persName xml:lang="en" xml:id="name247-7">Michael II, Barsawma</persName>
                     <idno type="URI">http://syriaca.org/person/247</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_247</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Patriarch_Michael_II_of_Antioch</idno>
-                    <death when="1312" source="#bib247-1" syriaca-computed-start="1312-01-01">1312</death>
+                    <note type="abstract" xml:id="abstract-en-247"/>
+                    <death when="1312" syriaca-computed-start="1312-01-01" source="#bib247-1">1312</death>
                     <state type="office" role="patriarch" source="#bib247-1">
                         <desc xml:lang="en">Patriarch</desc>
                     </state>
@@ -216,14 +226,19 @@
                         <ptr target="http://syriaca.org/bibl/3"/>
                         <citedRange unit="pp">469</citedRange>
                     </bibl>
+                    <bibl xml:id="bib247-4">
+                        <title xml:lang="la">Macuch, Geschichte der spät- und neusyrischen Literatur</title>
+                        <ptr target="http://syriaca.org/bibl/642"/>
+                        <citedRange unit="pp">11</citedRange>
+                    </bibl>
                 </person>
-                <relation type="disambiguation" name="different-from" mutual="#person-247 http://syriaca.org/person/223">
+                <relation type="disambiguation" name="different-from" mutual="http://syriaca.org/person/247 http://syriaca.org/person/223">
                     <desc>Not the same as Michael II the Younger (http://syriaca.org/person/223)</desc>
                 </relation>
-                <relation name="has-literary-connection-to-place" active="#person-247" passive="http://syriaca.org/place/440 http://syriaca.org/place/181 http://syriaca.org/place/60 http://syriaca.org/place/290 http://syriaca.org/place/421 http://syriaca.org/place/292 http://syriaca.org/place/466 http://syriaca.org/place/413 http://syriaca.org/place/453 http://syriaca.org/place/334" source="#bib247-2">
+                <relation name="has-literary-connection-to-place" active="http://syriaca.org/person/247" passive="http://syriaca.org/place/440 http://syriaca.org/place/181 http://syriaca.org/place/60 http://syriaca.org/place/290 http://syriaca.org/place/421 http://syriaca.org/place/292 http://syriaca.org/place/466 http://syriaca.org/place/413 http://syriaca.org/place/453 http://syriaca.org/place/334" source="#bib247-2">
                     <desc xml:lang="en">This author has a literary connection to places.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-247" passive="http://syriaca.org/place/385" source="#bib247-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/247" passive="http://syriaca.org/place/385" source="#bib247-2">
                     <desc xml:lang="en">This author has an unspecified connection to a place.</desc>
                 </relation>
             </listPerson>

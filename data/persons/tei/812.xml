@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Joseph I of Seleucia-Ctesiphon —
                     <foreign xml:lang="syr">ܝܘܣܦ ܩܕܡܝܐ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -89,7 +97,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -142,13 +149,15 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change812-1">Merged in Baumstark data</change>
+            <change type="planned">Fuller documentation needed for Syriac headword.</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Abstracts, citation, additional names and confessions from GEDSH.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: syriaca-computed-end for elements with date attributes</change>
             <change who="http://syriaca.org/documentation/editors.xml#tcarlson" n="1.0" when="2014-07-31-05:00"> CREATED: person </change>
-            <change type="planned">Fuller documentation needed for Syriac headword.</change>
         </revisionDesc>
     </teiHeader>
     <text>
@@ -175,14 +184,16 @@
                         <addName type="untagged-title" sort="2">I</addName>
                         <addName type="untagged-title" sort="2">of Seleucia-Ctesiphon</addName>
                     </persName>
+                    <persName xml:lang="en" xml:id="name812-6">Joseph the Catholicos</persName>
+                    <persName xml:lang="la" xml:id="name812-7" source="#bib812-5">Ioseph (Jauseph) Katholikos</persName>
+                    <idno type="URI">http://syriaca.org/person/812</idno>
+                    <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_812</idno>
                     <note type="abstract" xml:id="abstract-en-812">
                         <quote source="#bib812-1">Cath. (552-67), successor of Mar Aba I, in a period of tension between the Church
             and the Persian authorities.</quote>
                     </note>
-                    <idno type="URI">http://syriaca.org/person/812</idno>
-                    <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_812</idno>
-                    <death when="0570" source="#bib812-1" syriaca-computed-start="0570-01-01">570</death>
-                    <state type="office" from="0552" to="0567" source="#bib812-1" syriaca-computed-end="0567-01-01" syriaca-computed-start="0552-01-01">
+                    <death when="0570" syriaca-computed-start="0570-01-01" source="#bib812-1">570</death>
+                    <state type="office" from="0552" to="0567" syriaca-computed-end="0567-01-01" syriaca-computed-start="0552-01-01" source="#bib812-1">
                         <desc xml:lang="en-x-gedsh">552-567</desc>
                     </state>
                     <state type="confession" source="#bib812-1">
@@ -199,7 +210,6 @@
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/594"/>
                         <citedRange unit="pp">435</citedRange>
-                        <citedRange unit="pp">435</citedRange>
                     </bibl>
                     <bibl xml:id="bib812-2">
                         <title level="m" xml:lang="syr-Syrn">ܟܬ̣ܵܒ̣ܵܐ ܕܡܸܬ̣ܩܪܸܐ ܡܪܓܢܝܬ̣ܐ ܕܥܲܠ ܫܪܵܪܵܐ ܕܲܟ̣ܪܸܣܛܝܵܢܘܼܬ̣ܵܐ</title>
@@ -210,6 +220,16 @@
                         <title level="m" xml:lang="la">Bibliotheca Orientalis Clementino-Vaticana</title>
                         <ptr target="http://syriaca.org/bibl/7"/>
                         <citedRange unit="pp">III:279</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib812-4">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">124</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib812-5">
+                        <title xml:lang="la">Ortiz de Urbina, Patrologia Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/641"/>
+                        <citedRange unit="section">62</citedRange>
                     </bibl>
                 </person>
             </listPerson>

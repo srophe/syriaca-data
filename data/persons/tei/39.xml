@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">John Rufus the Antiochian bishop of Mayoma —
                     <foreign xml:lang="syr">ܝܘܚܢܢ ܪܘܦܘܣ</foreign>
                 </title>
-                <title level="m">A Guide to Syriac Authors</title>
-                <title level="s">The Syriac Biographical Dictionary</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -21,6 +19,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, document design, proofreading, data entry by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
@@ -109,7 +117,6 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
                 </respStmt>
-                <biblScope unit="vol">2</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -162,6 +169,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change39-1">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
@@ -178,7 +187,7 @@
                         <forename sort="1">John</forename>
                         <addName type="family" sort="2">Rufus</addName>
                     </persName>
-                    <persName xml:id="name39-2" corresp="#name39-3 #name39-4 #name39-5" xml:lang="en" source="#bib39-2" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name39-2" corresp="#name39-3 #name39-4 #name39-5" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib39-2">
                         <forename sort="1">John Rufus</forename>
                         <addName type="untagged-title" sort="2">the Antiochian</addName>, <roleName type="office" sort="2">bishop of Mayoma</roleName>
                     </persName>
@@ -200,16 +209,21 @@
                     <persName xml:id="name39-6" xml:lang="syr" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">
                         <forename sort="1">ܝܘܚܢܢ ܪܘܦܘܣ</forename>
                     </persName>
-                    <note type="abstract" xml:id="abstract-en-39">
-                        <quote source="#bib39-1">Also known as John of Beth Ruphina and John of Maiuma. An anti-Chalcedonian presbyter, monk, and hagiographer of the 5th and 6th cent.; dates of birth and death unknown.</quote>
-                    </note>
+                    <persName xml:lang="en" xml:id="name39-7">John Rufus</persName>
+                    <persName xml:lang="de-x-baumstrk" xml:id="name39-8" source="#bib39-6">
+                        <forename>Joannes</forename>
+                        <addName type="untagged-title">Ruphos</addName>
+                    </persName>
                     <idno type="URI">http://syriaca.org/person/39</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_39</idno>
                     <idno type="URI">http://viaf.org/viaf/49367734</idno>
                     <idno type="URI">http://worldcat.org/identities/lccn-nr2003-23260</idno>
                     <idno type="URI">http://worldcat.org/identities/np-johannes rufus$gazaeus</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=J&amp;sK=John Rufus&amp;sT=keywords</idno>
-                    <floruit notBefore="0425" notAfter="0525" source="#bib39-1" syriaca-computed-end="0525-01-01" syriaca-computed-start="0425-01-01">ca. 475</floruit>
+                    <note type="abstract" xml:id="abstract-en-39">
+                        <quote source="#bib39-1">Also known as John of Beth Ruphina and John of Maiuma. An anti-Chalcedonian presbyter, monk, and hagiographer of the 5th and 6th cent.; dates of birth and death unknown.</quote>
+                    </note>
+                    <floruit notBefore="0425" notAfter="0525" syriaca-computed-end="0525-01-01" syriaca-computed-start="0425-01-01" source="#bib39-1">ca. 475</floruit>
                     <state type="office" role="bishop" source="#bib39-2">
                         <desc xml:lang="en">bishop of Mayoma</desc>
                     </state>
@@ -246,11 +260,16 @@
                         <ptr target="http://syriaca.org/bibl/5"/>
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=J&amp;sK=John Rufus&amp;sT=keywords">John Rufus</citedRange>
                     </bibl>
+                    <bibl xml:id="bib39-6">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">184</citedRange>
+                    </bibl>
                 </person>
-                <relation name="born-at" active="#person-39" passive="http://syriaca.org/place/674" source="#bib39-2">
+                <relation name="born-at" active="http://syriaca.org/person/39" passive="http://syriaca.org/place/674" source="#bib39-2">
                     <desc xml:lang="en">This author was born at a known location.</desc>
                 </relation>
-                <relation name="has-relation-to-place" active="#person-39" passive="http://syriaca.org/place/46 http://syriaca.org/place/456" source="#bib39-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/39" passive="http://syriaca.org/place/46 http://syriaca.org/place/456" source="#bib39-2">
                     <desc xml:lang="en">This author has an unspecified connection to places.</desc>
                 </relation>
             </listPerson>

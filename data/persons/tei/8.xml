@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -21,6 +21,16 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</editor>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#kheal">Kristian Heal</name>
+                </respStmt>
+                <respStmt>
+                    <resp>German data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#skhader">Samer Khader</name>
+                </respStmt>
+                
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -209,6 +219,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-02+02:00" xml:id="change8-2">Merged in Baumstark data</change>
+            
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
@@ -226,7 +238,7 @@
         <body>
             <listPerson>
                 <person xml:id="person-8" ana="#syriaca-author">
-                    <persName xml:id="name8-1" corresp="#name8-2 #name8-3 #name8-4" xml:lang="en" source="#bib8-1" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name8-1" corresp="#name8-2 #name8-3 #name8-4" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib8-1">
                         <forename sort="1">Miles</forename>, <roleName type="office" sort="2">bishop of <placeName ref="http://syriaca.org/place/415">Sus</placeName>
                         </roleName>
                     </persName>
@@ -257,15 +269,19 @@
                     <persName xml:lang="fr-x-zanetti" xml:id="name8-10" source="#bib8-6">Sīnay</persName>
                     <persName xml:lang="fr" xml:id="name8-11" source="#bib8-6">Sinay</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name8-12" source="#bib8-7">MĪLÉS, ÉVÈQUE DE SUSE</persName>
+                    <persName xml:lang="en" xml:id="name8-13">Mîles von Sûš (Susa)</persName>
+                    <persName xml:lang="de-x-baumstrk" xml:id="name8-14" source="#bib8-16">
+                        <forename>Mîles</forename>
+                        <addName type="untagged-title">von Sûš (Susa)</addName>
+                    </persName>
                     <idno type="URI" change="#change8-1">http://syriaca.org/person/8</idno>
-                    <idno change="#change8-1" type="deprecated">http://syriaca.org/person/1383</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_8</idno>
                     <idno type="FIEY">316</idno>
                     <note type="abstract" xml:id="abstract-en-8"/>
-                    <note type="description">In hagiography: Miles was a Bishop of <placeName ref="http://syriaca.org/place/415">Susa</placeName>. He was born near <placeName ref="http://syriaca.org/place/875">Tehran</placeName> and converted from Zoroastrianism. He went on a long pilgrimage and opposed the manner of leadership of Catholicos <persName ref="http://syriaca.org/person/669">Papa</persName>. He was imprisoned with his son Narsai and beaten by the governor Hormizd. The priest <persName ref="http://syriaca.org/person/1544">Aboursam</persName> and the deacon Sinai died with him.</note>
                     <sex value="M" source="#bib8-7">male</sex>
                     <floruit notAfter="0341" syriaca-computed-end="0341" source="#bib8-7">0341</floruit>
                     <death when="0341" syriaca-computed-start="0341-01-01" source="#bib8-1">341</death>
+                    <note type="description">In hagiography: Miles was a Bishop of <placeName ref="http://syriaca.org/place/415">Susa</placeName>. He was born near <placeName ref="http://syriaca.org/place/875">Tehran</placeName> and converted from Zoroastrianism. He went on a long pilgrimage and opposed the manner of leadership of Catholicos <persName ref="http://syriaca.org/person/669">Papa</persName>. He was imprisoned with his son Narsai and beaten by the governor Hormizd. The priest <persName ref="http://syriaca.org/person/1544">Aboursam</persName> and the deacon Sinai died with him.</note>
                     <note>Fiey provides the following bibliographic citations: <quote source="#bib8-7">AMS, II, 260- 75 ; BHO, 772.
 ASMO, 66- 79 ; Lagrange, 65-73 ; Leclercq, III, 169-75.
 Suhadii', I, 26D-68.
@@ -379,8 +395,13 @@ BSCO, IX, 482- 84 (J.-M. Sauget).</quote>
                         <citedRange>IX,
                   482-84</citedRange>
                     </bibl>
+                    <bibl xml:id="bib8-16">
+                        <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                        <ptr target="http://syriaca.org/bibl/638"/>
+                        <citedRange unit="pp">30</citedRange>
+                    </bibl>
                 </person>
-                <relation name="has-relation-to-place" active="#person-8" passive="http://syriaca.org/place/34" source="#bib8-2">
+                <relation name="has-relation-to-place" active="http://syriaca.org/person/8" passive="http://syriaca.org/place/34" source="#bib8-2">
                     <desc xml:lang="en">This author has an unspecified connection to a place.</desc>
                 </relation>
             </listPerson>
