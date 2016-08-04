@@ -23,7 +23,7 @@
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/spear/3013/tei</idno> <!-- REPLACE THE #### WITH THE URI NUMBER OF THE ASSIGNED LETTER -->
+                <idno type="URI">http://syriaca.org/spear/3013/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -114,7 +114,7 @@
             </div>
             <div>
                   <listRelation>
-                        <relation type="epistolary" name="syriaca:RecipientOfLetterFrom" active="http://syriaca.org/person/2669" passive="http://syriaca.org/person/51"/>
+                      <relation type="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2669"/>
                     </listRelation>
                     <bibl type="primary">
                         <biblScope type="pp">
@@ -125,7 +125,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2767">
-                            the religious deacon, father Theodore 
+                            The religious deacon, father Theodore 
                         </persName>
                     </person>
                 </listPerson>
@@ -168,7 +168,7 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="professional" name="snap:ProfessionalRelationship" active="http://syriaca.org/person/2669" passive="http://syriaca.org/person/2767"/>
+                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/2669 http://syriaca.org/person/2767 http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -179,7 +179,10 @@
                 <listPerson>
                         <person>
                             <persName ref="http://syriaca.org/person/anonymous1">
-                                a religious sister in the monastery
+                                A nun under the authority of the archimandritess
+                                <persName ref="http://syriaca.org/person/2669"> 
+                                    Jannia 
+                                </persName>
                             </persName>
                         </person>
                     </listPerson>
@@ -208,9 +211,9 @@
                             <state type="vocation">
                                 <desc>
                                     <persName ref="http://syriaca.org/person/anonymous1"> 
-                                        This woman is a  
+                                        This woman
                                     </persName> 
-                                    religious sister in the monastery 
+                                    was a nun. 
                                 </desc>
                             </state>
                         </person>
@@ -222,15 +225,25 @@
                 </div>
                 <div>
                     <listRelation>
-                        <relation type="monastic" name="syriaca:MonasticUnderHead" active="http://syriaca.org/person/anonymous1" passive="http://syriaca.org/person/2669"/>
+                        <relation type="monastic" name="syriaca:MonasticHeadOver" active="http://syriaca.org/person/2669" passive="http://syriaca.org/person/anonymous1"/>
                     </listRelation>
                     <bibl type="primary">
                         <biblScope type="pp">
                             <ptr target="#bibl3013-1"/>369</biblScope>
                     </bibl>
                 </div>
-                </body>
-        <back>                      
+            <div>
+                <listRelation>
+                    <relation type="epistolary" name="syriaca:EpistolaryReferenceTo" active="http://syriaca.org/person/anonymous1" passive="http://syriaca.org/person/51 http://syriaca.org/person/2669"/>
+                </listRelation>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3013-1"/>369</biblScope>
+                </bibl>
+            </div>
+            
+        </body>
+        <back>
             <div>
                 <bibl xml:id="bib3013-1">
                     <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
