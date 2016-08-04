@@ -23,7 +23,7 @@
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/spear/####/tei</idno> <!-- REPLACE THE #### WITH THE URI NUMBER OF THE ASSIGNED LETTER -->
+                <idno type="URI">http://syriaca.org/spear/3104/tei</idno> 
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -49,13 +49,13 @@
     </teiHeader>
     <text>
         <body>
-            <div><!-- Could not find URI --> 
+            <div>
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/anonymous1">
+                        <persName ref="http://syriaca.org/person/2754 ">
                             Simeon, presbyter and archmandrite of 
-                            <placeName>
-                                Teleda
+                            <placeName ref="http://syriaca.org/place/233">
+                                the monastery at Teleda
                             </placeName>
                         </persName>
                     </person>
@@ -68,7 +68,7 @@
             <div>
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/anonymous1"/>
+                        <persName ref="http://syriaca.org/person/2754 "/>
                         <sex value="M">
                             Male
                         </sex>
@@ -84,7 +84,7 @@
                     <person>
                         <state type="vocation">
                             <desc>
-                                <persName ref="http://syriaca.org/person/anonymous1">
+                                <persName ref="http://syriaca.org/person/2754 ">
                                     Simeon
                                 </persName>
                                 was a presbyter
@@ -102,10 +102,13 @@
                     <person>
                         <state type="vocation">
                             <desc>
-                                <persName ref="http://syriaca.org/person/anonymous1">
+                                <persName ref="http://syriaca.org/person/2754 ">
                                     Simeon
                                 </persName>
-                                was an archmandrite
+                                was the archmandrite of 
+                                <placeName ref="http://syriaca.org/place/233">
+                                    the monastery at Teleda
+                                </placeName>
                             </desc>
                         </state>
                     </person>
@@ -117,7 +120,16 @@
             </div>
             <div>
                 <listRelation>
-                    <relation type="epistolary" name="syriaca:RecipientOfLetterFrom" active="http://syriaca.org/person/anonymous1" passive="http://syriaca.org/person/51"/>
+                    <relation type="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51 " passive="http://syriaca.org/person/2754"/>
+                </listRelation>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3104-1"/>323</biblScope>
+                </bibl>
+            </div>
+            <div>
+                <listRelation>
+                    <relation type="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2754 " passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -128,11 +140,35 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/anonymi1">
-                            the flock of Simeon in
-                            <date notBefore="0513" notAfter="0518">
-                                A.D. 513-518
-                            </date>  
-                        </persName>                
+                            The monks of 
+                            <placeName ref="http://syriaca.org/place/635">
+                                the monastery of 
+                                <persName ref="http://syriaca.org/person/744">
+                                St. Simeon
+                                </persName>
+                            </placeName>
+                            during the banishment of 
+                            <date notBefore="0521" notAfter="0531">
+                                the 520s
+                            </date>
+                        </persName>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bib3104-1"/>323</biblScope>
+                </bibl>
+            </div>
+            
+            <div>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/anonymi1">
+                            The flock of 
+                            <persName ref="http://syriaca.org/person/744">
+                                Simeon
+                            </persName>
+                        </persName>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -142,7 +178,7 @@
             </div>
             <div> 
                 <listRelation>
-                    <relation type="intellectual" name="syriaca:FollowerOf" ana="alleged" active="http://syriaca.org/person/anonymi1" passive="http://syriaca.org/person/anonymous1"/><!-- is this the correct relationship? Severus is praising Simeon because those who are around him have followed the excellent example he has set -->
+                    <relation type="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/anonymi1 http://syriaca.org/person/2754 "/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
