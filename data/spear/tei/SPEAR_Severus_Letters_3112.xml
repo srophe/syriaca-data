@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-n="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg">
     <teiHeader>
@@ -24,7 +23,7 @@ n="1.0" encoding="UTF-8"?>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/spear/3112/tei</idno> <!-- REPLACE THE #### WITH THE URI NUMBER OF THE ASSIGNED LETTER -->
+                <idno type="URI">http://syriaca.org/spear/3112/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -54,7 +53,10 @@ n="1.0" encoding="UTF-8"?>
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2455">
-                            Theodore, presbyter and archimandrite of the monastery of Father Romanus among the saints
+                            Theodore, presbyter and archimandrite of 
+                            <placeName ref="http://syriaca.org/place/1466">
+                                the monastery of Father Romanus among the saints
+                            </placeName>
                         </persName>
                     </person>
                 </listPerson>
@@ -83,19 +85,22 @@ n="1.0" encoding="UTF-8"?>
                                 <persName ref="http://syriaca.org/person/2455"> 
                                     Theodore 
                                 </persName>
-                                was an archimandrite  
+                                was an archimandrite of 
+                                <placeName ref="http://syriaca.org/place/1466"><!-- There was another Mor Romanos in Syria [Ps.-Zach. Rhetor viii.5.c] but this one seems to be in Palestine. -->
+                                    the monastery of Romanus
+                                </placeName>.
                             </desc>
                         </state>
                     </person>
                 </listPerson>
                 <bibl type="primary">
                     <biblScope type="pp">
-                        <ptr target="#bibl3112-1"/>164</biblScope>
+                        <ptr target="#bibl3112-1"/>164-65</biblScope>
                 </bibl>
             </div>
             <div>
                 <listRelation>
-                    <relation type="epistolary" name="syriaca:RecipientOfLetterFrom" active="http://syriaca.org/person/2455" passive="http://syriaca.org/person/51"/>
+                    <relation type="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2455"/>
                 </listRelation>
                 <bibl type="primary">
                     <biblScope type="pp">
@@ -106,7 +111,7 @@ n="1.0" encoding="UTF-8"?>
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2515">
-                            the religious presbyter Thomas
+                            The religious presbyter Thomas
                         </persName>
                     </person>
                 </listPerson>
@@ -135,7 +140,7 @@ n="1.0" encoding="UTF-8"?>
                                 <persName ref="http://syriaca.org/person/2515"> 
                                     Thomas  
                                 </persName>
-                                was a presbyter
+                                was a presbyter.
                             </desc>
                         </state>
                     </person>
@@ -158,8 +163,14 @@ n="1.0" encoding="UTF-8"?>
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/anonymi1">
-                            religious archimandrites of the holy cloisters that have been banished from Palestine in
-                         <date notBefore="0525" notAfter="0531">A.D. 525-531</date> 
+                            The clergy banished from 
+                            <placeName>
+                                the East
+                            </placeName>
+                         during
+                            <date notBefore="0525" notAfter="0531">
+                                the late 520s
+                            </date>
                         </persName>   
                     </personGrp>
                 </listPerson>
@@ -172,9 +183,68 @@ n="1.0" encoding="UTF-8"?>
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/anonymi2">
-                            God-loving bishops in Egypt in
-                         <date notBefore="0525" notAfter="0531">A.D. 525-531</date>    
+                            God-loving bishops in 
+                            <placeName>
+                                Egypt
+                            </placeName>
+                            in
+                         <date notBefore="0525" notAfter="0531">
+                             the late 520s
+                         </date>    
                         </persName>   
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3112-1"/>165</biblScope>
+                </bibl>
+            </div>
+            <div> 
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/anonymi4">
+                            The archimandrites banished from
+                            <placeName ref="http://syriaca.org/place/149">
+                                Palestine
+                            </placeName>
+                            during
+                            <date notBefore="0525" notAfter="0531">
+                                the late 520s
+                            </date>
+                        </persName>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3112-1"/>165</biblScope>
+                </bibl>
+            </div>
+            <div>
+                <listRelation>
+                    <relation type="general" name="syriaca:MemberOfGroup" active="http://syriaca.org/person/2455" passive="http://syriaca.org/person/anonymi4"/>
+                </listRelation>
+                <bibl type="primary">
+                    <biblScope type="pp">
+                        <ptr target="#bibl3112-1"/>165</biblScope>
+                </bibl>
+            </div>
+            <div> 
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/anonymi5">
+                            Those who created divisions between the non-Chalcedonian churches of 
+                            <placeName>
+                                Egypt
+                            </placeName>
+                            and
+                            <placeName>
+                                the East
+                            </placeName>
+                            during
+                            <date notBefore="0525" notAfter="0531">
+                                the late 520s
+                            </date>
+                        </persName>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -215,31 +285,13 @@ n="1.0" encoding="UTF-8"?>
                                 <persName ref="http://syriaca.org/person/2440"> 
                                     Timothy  
                                 </persName>
-                                was Bishop of
+                                was bishop of
                                 <placeName>
                                     Alexandria
                                 </placeName>
                             </desc>
                         </state>
                     </person>
-                </listPerson>
-                <bibl type="primary">
-                    <biblScope type="pp">
-                        <ptr target="#bibl3112-1"/>166</biblScope>
-                </bibl>
-            </div>
-            <div> 
-                <listPerson>
-                    <personGrp>
-                        <persName ref="http://syriaca.org/person/anonymi3">
-                            God-loving bishops under
-                            <persName ref="http://syriaca.org/person/2440"> 
-                                Timothy  
-                            </persName>
-                            in
-                            <date notBefore="0525" notAfter="0531">A.D. 525-531</date>    
-                        </persName>   
-                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <biblScope type="pp">
