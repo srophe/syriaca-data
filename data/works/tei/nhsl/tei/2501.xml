@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -130,7 +130,7 @@
             <bibl xml:id="work-2501" type="lawd:ConceptualWork" ana="http://syriaca.org/documentation/work-subject-classifications.xml#history-universal">
                 <!-- Start working up the decision tree for choosing headword - see meeting notes. 
                 Possibly use a headword that has the Latin in parentheses when it's common parlance -->
-                <title xml:id="name2501-1" xml:lang="en" syriaca-tags="#syriaca-headword #syriaca-anglicized">Chronicle, Part 1</title>
+                <title xml:id="name2501-1" xml:lang="en" syriaca-tags="#syriaca-headword #syriaca-anglicized">Chronicle, Part 1 (Chronicon Syriacum)</title>
                 <title xml:id="name2500-2" xml:lang="syr" source="#bib2501-2 #bib2501-9" syriaca-tags="#syriaca-headword">ܦܠܓܘܬܐ ܩܕܡܝܬܐ ܕܟܪܘܢܘܓܪܦܝܐ</title>
                 <title xml:id="name2501-3" xml:lang="la" source="#bib2501-8">Chronicon Syriacum</title>
                 <title xml:id="name2501-4" xml:lang="en" source="#bib2501-8">Syriac Chronicle</title>
@@ -188,40 +188,60 @@
                 
                 
                 
-                
-                <bibl type="lawd:Edition" n="1" xml:id="bib2501-1">
+                <!-- Eliminate @n attribute. -->
+                <bibl type="lawd:Edition" xml:id="bib2501-1">
                     <title level="m" xml:lang="la">Chronicon Syriacum</title>
                     <!-- Should we put a lawd class on ptr in the @type attribute? -->
                     <idno type="zotero">735</idno>
                     <citedRange unit="vol" from="2" to="2">2</citedRange>
                     <note>Includes continuation to the year 1297.</note>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-1" ref="dct:source" passive="#bib2501-15 #bib2501-14" source="#bib2501-7 #bib2501-16"/>
+                    </listRelation>
+                    <!-- Change BHSE to match edition-MSS relations in this format. -->
                 </bibl>
-                <bibl type="lawd:Edition" n="2" xml:id="bib2501-2">
+                <bibl type="lawd:Edition" xml:id="bib2501-2">
                     <title level="m" xml:lang="la">Chronicon Syriacum</title>
                     <idno type="zotero">736</idno>
                     <note>Includes continuation to the year 1297.</note>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-2" ref="dct:source" passive="#bib2501-1" source="#bib2501-7">
+                            <!-- How should we handle one edition using another? -->
+                            <desc>With corrections from unspecified manuscripts.</desc>
+                        </relation>
+                    </listRelation>
                 </bibl>
-                <bibl type="lawd:Edition" n="3" xml:id="bib2501-3">
+                <bibl type="lawd:Edition" xml:id="bib2501-3">
                     <title level="m" xml:lang="en">The Chronography of Bar Hebraeus</title>
                     <idno type="zotero">737</idno>
                     <citedRange unit="vol" from="2" to="2">2</citedRange>
                     <note>A facsimile of Oxford, Bodleian Library, MS Huntingdon 52</note>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-3" ref="dct:source" passive="#bib2501-15" source="#bib2501-3 #bib2501-7">
+                            <!-- Is there a more specific @ref we can use for facsimile? -->
+                            <desc>Facsimile.</desc>
+                        </relation>
+                    </listRelation>
                 </bibl>
-                <bibl type="lawd:Edition" n="4" xml:id="bib2501-9">
+                <bibl type="lawd:Edition" xml:id="bib2501-9">
                     <title level="m" xml:lang="de">Ankuendigung und Probe einer neuen kritischen Ausgabe und neuen Uebersetzung der Syrischen Chronik des Gregor Bar-Hebraeus</title>
                     <idno type="zotero">738</idno>
                     <citedRange unit="pp" from="1" to="4">1-4 (Syr.)</citedRange>
                     <note>Contains only the first few pages of the Chronicle.</note>
                 </bibl>
-                <bibl type="lawd:Edition" n="5" xml:id="bib2501-11">
+                <bibl type="lawd:Edition" xml:id="bib2501-11">
                     <title level="m" xml:lang="la">De rebus gestis Richardi Angliæ regis in Palæstina: Excerptum ex Gregorii Abulpharagii chronico syriaco</title>
                     <idno type="zotero">739</idno>
                     <citedRange unit="pp">I-XI (Syr.)</citedRange>
                     <note>Contains a short excerpt from the Chronicle.</note>
                 </bibl>
-                <bibl type="lawd:Edition" n="6" xml:id="bib2501-13">
+                <bibl type="lawd:Edition" xml:id="bib2501-13">
                     <title level="m" xml:lang="syr-Syrj">ܡܰܟܬܒܢܽܘܬ ܙܰܒܢ̈ܶܐ ܕܥܠܡܐ</title>
                     <idno type="zotero">740</idno>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-13" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
+                        <!-- How should we handle one edition using another? -->
+                    </listRelation>
                 </bibl>
                 <!-- To what extent should we include excerpts? Perhaps only to the extent that we know they contribute something specific? -->
                 
@@ -231,6 +251,7 @@
                 <!-- I don't see a general lawd class for manuscripts - only lawd:AssembledWork or lawd:Hand
                     Only in some cases will we be able to specify @type more specifically as one of these -->
                 <!-- We should mint mss URIs -->
+                <!-- For demo, could just put in raw text of MS info. -->
                 <bibl type="lawd:WrittenWork" xml:id="bib2501-14">
                     <msIdentifier>
                         <country ref="http://syriaca.org/place/700">United Kingdom</country>
@@ -448,6 +469,9 @@
                     <title level="m" xml:lang="la">Chronicon Syriacum</title>
                     <idno type="zotero">735</idno>
                     <citedRange unit="vol" from="1" to="1">1</citedRange>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-4" ref="dct:source" passive="#bib2501-1" source="#bib2501-7"/>
+                    </listRelation>
                 </bibl>
                 <bibl type="lawd:Translation" xml:id="bib2501-5">
                     <lang>en</lang>
@@ -456,6 +480,9 @@
                     <citedRange unit="vol" from="1" to="1">1</citedRange>
                     <note source="#bib2501-8">Wilmshurst calls this <quote>a clotted English translation ... which has not yet been replaced by anything better.</quote></note>
                     <!-- Should we handle Bedrosian as link or separate bibl? -->
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-5" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
+                    </listRelation>
                 </bibl>
                 <bibl type="lawd:Translation" xml:id="bib2501-10">
                     <lang>la</lang>
@@ -476,6 +503,9 @@
                     <title level="m" xml:lang="ar">تاريخ الدول السرياني‮ ‬تاليف ابي‮ ‬الفرج الملطي</title>
                     <idno type="zotero">742</idno>
                     <note>An excerpt beginning at Bejdan 95.4 (Dynasty 10) and continuing to the end.</note>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-17" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
+                    </listRelation>
                 </bibl>
                 <bibl type="lawd:Translation" xml:id="bib2501-18" source="#bib2501-7">
                     <lang>ar</lang>
@@ -483,12 +513,18 @@
                     <idno type="zotero">743</idno>
                     <note>A republication of Ishaq Armalet's translation in al-Mashriq, but starting at Bedjan, page 122 
                     regarding Abū al-ʿAbbās and with an added introduction by Fiey.</note>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-18" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
+                    </listRelation>
                 </bibl>
                 <bibl type="lawd:Translation" xml:id="bib2501-19" source="#bib2501-7">
                     <lang>tr</lang>
                     <title level="m" xml:lang="tr">Abûʼl Farac tarı̇hı̇</title>
                     <idno type="zotero">744</idno>
                     <note>A translation of Budge's translation.</note>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-19" ref="dct:source" passive="#bib2501-5" source="#bib2501-7"/>
+                    </listRelation>
                 </bibl>
                 <bibl type="lawd:Translation" xml:id="bib2501-20" source="#bib2501-7">
                     <lang>ru</lang>
@@ -563,19 +599,12 @@
                 
                 <listRelation>
                     <relation type="part" active="http://syriaca.org/work/2501" ref="dct:isPartOf" passive="http://syriaca.org/work/2500"/>
-                    <relation type="mssWitnesses" active="#bib2501-1" ref="dct:source" passive="#bib2501-15 #bib2501-14" source="#bib2501-7 #bib2501-16"/>
-                    <relation type="mssWitnesses" active="#bib2501-2" ref="dct:source" passive="#bib2501-1" source="#bib2501-7">
-                        <!-- How should we handle one edition using another? -->
-                        <desc>With corrections from unspecified manuscripts.</desc>
-                    </relation>
-                    <relation type="mssWitnesses" active="#bib2501-3" ref="dct:source" passive="#bib2501-15" source="#bib2501-3 #bib2501-7">
-                        <!-- Is there a more specific @ref we can use for facsimile? -->
-                        <desc>Facsimile.</desc>
-                    </relation>
-                    <relation type="mssWitnesses" active="#bib2501-13" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/><!-- How should we handle one edition using another? -->
-                    <relation type="translationSource" active="#bib2501-4" ref="dct:source" passive="#bib2501-1" source="#bib2501-7"/>
-                    <relation type="translationSource" active="#bib2501-5 #bib2501-17 #bib2501-18" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
-                    <relation type="translationSource" active="#bib2501-19" ref="dct:source" passive="#bib2501-5" source="#bib2501-7"/>
+                    
+                    
+                    
+                    
+                    
+                    
                     <!--<relation type="editions" active="#bib2501-4 #bib2501-5" ref="lawd:embodies" passive="http://syriaca.org/work/2501" source="#bib2501-1"/>
                     <relation type="ancientVersion" active="#bib2501-14" ref="lawd:embodies" passive="http://syriaca.org/work/2501" source="#bib2501-1"/>
                     <relation type="mss" active="http://syriaca.org/manuscript/20001#a1 http://syriaca.org/manuscript/20002#b1" ref="lawd:embodies" passive="http://syriaca.org/work/2501" source="#bib2501-1"/>
