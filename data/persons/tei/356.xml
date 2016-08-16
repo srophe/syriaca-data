@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" xml:lang="en">Awgin —
+                    <foreign xml:lang="syr">ܡܪܝ ܐܘܓܝܢ</foreign>
+                </title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The Andrew W. Mellon Foundation</funder>
+                <funder>The National Endowment for the Humanities</funder>
+                <funder>The International Balzan Prize Foundation</funder>
+                <principal>David A. Michelson</principal>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <respStmt>
+                    <resp>Editing, proofreading, data entry and revision by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, document design, data architecture, encoding, proofreading, data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Proofreading of GEDSH abstracts, addition of confessions and alternate names from GEDSH, matching with viaf.org records, data entry, data transformation, data merging, conversion to XML by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>GEDSH and Barsoum English name entry, matching with viaf.org records by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, Syriac name entry, disambiguation research, conversion to XML by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, Syriac data conversion, data entry, and reconciling by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#akane">Adam P. Kane</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing and Syriac data proofreading by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#abarschabo">Aram Bar Schabo</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Syriac name entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#raydin">Robert Aydin</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, Syriac name entry, Arabic name entry, disambiguation research, conversion to XML by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Normalization of GEDSH dates and entry matching with viaf.org records by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#avawter">Alex Vawter</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial oversight for GEDSH and Barsoum English text entry, and proofreading by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#cjohnson">Christopher Johnson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>GEDSH and Barsoum English text entry and proofreading by</resp>
+                    <name type="org" ref="http://syriaca.org/documentation/editors.xml#uasyriacresearchgroup">the Syriac Research Group, University of Alabama</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Entries adapted from the work of</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jmfiey">Jean Maurice Fiey</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Entries adapted from the work of</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#uzanetti">Ugo Zanetti</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Entries adapted from the work of</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#cdetienne">Claude Detienne</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="1.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/person/356/tei</idno>
+                <idno type="deprecated">http://syriaca.org/person/1145/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
+                        <p>This entry incorporates copyrighted material from the following work(s):
+                                    <listBibl>
+                                <bibl>
+                                    <ptr target="#bib356-4"/>
+                                </bibl>
+                                <bibl>
+                                    <ptr target="#bib356-3"/>
+                                </bibl>
+                            </listBibl>
+                            <note>used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                            </note>
+                        </p>
+                    </licence>
+                </availability>
+                <date>2016-08-12-05:00</date>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="s">The Syriac Biographical Dictionary</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.  Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
+                </respStmt>
+                <idno type="URI">http://syriaca.org/persons</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Qadishe: A Guide to the Syriac Saints</title>
+                    <idno type="URI">http://syriaca.org/q</idno>
+                </biblScope>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">A Guide to Syriac Authors</title>
+                    <idno type="URI">http://syriaca.org/authors</idno>
+                </biblScope>
+            </seriesStmt>
+            <seriesStmt>
+                <title level="s">Gateway to the Syriac Saints</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                Michelson</editor>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                    Michelson</name>
+                </respStmt>
+                <idno type="URI">http://syriaca.org/saints</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Qadishe: A Guide to the Syriac Saints</title>
+                    <idno type="URI">http://syriaca.org/q</idno>
+                </biblScope>
+            </seriesStmt>
+            <sourceDesc>
+                <p>Born digital.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>This record created following the Syriaca.org guidelines. 
+                        Documentation available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
+                <interpretation>
+                    <p>Approximate dates described in terms of centuries or partial centuries
+                            have been interpreted as documented in 
+                            <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org Dates</ref>.</p>
+                </interpretation>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="syriaca-headword">
+                        <catDesc>The name used by Syriaca.org for document titles, citation, and disambiguation. 
+                                These names have been created according to the Syriac.org guidelines for headwords: 
+                                <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+                    </category>
+                    <category xml:id="syriaca-anglicized">
+                        <catDesc>An anglicized version of a name, included to facilitate searching.</catDesc>
+                    </category>
+                </taxonomy>
+                <taxonomy>
+                    <category xml:id="syriaca-author">
+                        <catDesc>A person who is relevant to the Guide to Syriac Authors</catDesc>
+                    </category>
+                    <category xml:id="syriaca-saint">
+                        <catDesc>A person who is relevant to the Bibliotheca Hagiographica Syriaca.</catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="syr">Unvocalized Syriac of any variety or period</language>
+                <language ident="syr-Syrj">Vocalized West Syriac</language>
+                <language ident="syr-Syrn">Vocalized East Syriac</language>
+                <language ident="en">English</language>
+                <language ident="en-x-gedsh">Names or terms Romanized into English according to the standards 
+                        adopted by the Gorgias Encyclopedic Dictionary of the Syriac Heritage</language>
+                <language ident="ar">Arabic</language>
+                <language ident="fr">French</language>
+                <language ident="de">German</language>
+                <language ident="la">Latin</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2016-06-20-04:00">Checked the merge data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-06-14+02:00" xml:id="change356-2">Merged in data from [http://syriaca.org/person/1145].</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-05-23+02:00" xml:id="change356-1">Merged in data from [duplicate record with same URI].</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-05-13+02:00">CHANGED: Corrected swapped source attributes for data from Fiey and Zanetti [http://syriaca.org/person/1145]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-05-04-04:00">Move headword attribute from Gedesh to first English name.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#dmichelson" n="1.0" when="2015-11-02-05:00">CREATED: person [duplicate record with same URI]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-10-20-04:00">Added attestation for with related works [http://syriaca.org/person/1145]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#dmichelson" n="1.0" when="2015-10-19-04:00">CREATED: person [http://syriaca.org/person/1145]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Abstracts, citation, additional names and confessions from GEDSH.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: syriaca-computed-end for elements with date attributes</change>
+            <change who="http://syriaca.org/documentation/editors.xml#tcarlson" n="1.0" when="2014-07-31-05:00"> CREATED: person </change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listPerson>
+                <person xml:id="person-356" ana="#syriaca-saint">
+                    <persName xml:id="name356-1" xml:lang="en-x-gedsh" source="#bib356-1">
+                        <forename sort="1">Awgen</forename>, <addName type="untagged-title" sort="2">Mar</addName>
+                    </persName>
+                    <persName xml:id="name356-2" corresp="#name356-3 #name356-4 #name356-5" xml:lang="en" source="#bib356-2">
+                        <forename sort="1">Eugene</forename>
+                        <addName type="untagged-title" sort="2">the Copt</addName>
+                    </persName>
+                    <persName xml:id="name356-3" corresp="#name356-2 #name356-4 #name356-5" xml:lang="ar" source="#bib356-3">
+                        <forename sort="1">اوجين</forename>
+                        <addName type="untagged-title" sort="2">القبطي</addName>
+                    </persName>
+                    <persName xml:id="name356-4" corresp="#name356-2 #name356-3 #name356-5" xml:lang="syr" source="#bib356-4">
+                        <forename sort="1">ܐܘܓܝܢ</forename>
+                        <addName type="untagged-title" sort="2">ܐܝܓܘܦܛܝ</addName>
+                    </persName>
+                    <persName xml:id="name356-5" corresp="#name356-2 #name356-3 #name356-4" xml:lang="syr-Syrj" source="#bib356-4">
+                        <forename sort="1">ܐܰܘܓܺܝܢ</forename>
+                        <addName type="untagged-title" sort="2">ܐܺܝܓܘܽܦܛܳܝ</addName>
+                    </persName>
+                    <persName xml:id="name356-6" xml:lang="syr" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">
+                        <addName type="untagged-title" sort="2">ܡܪܝ</addName>
+                        <forename sort="1">ܐܘܓܝܢ</forename>
+                    </persName>
+                    <persName xml:id="name356-7" xml:lang="en" resp="http://syriaca.org" syriaca-tags="#syriaca-anglicized">
+                        <forename sort="1">Eugene</forename>, <addName type="untagged-title" sort="2">Mar</addName>
+                    </persName>
+                    <persName xml:id="name356-8" xml:lang="en" source="#bib356-5">Mar Awgen</persName>
+                    <persName xml:lang="syr" xml:id="name356-9" source="#bib356-6">ܐܘܓܝܢ</persName>
+                    <persName xml:lang="en-x-gedsh" xml:id="name356-10">Awgēn</persName>
+                    <persName xml:lang="en" xml:id="name356-11" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">Awgin</persName>
+                    <persName xml:lang="fr" xml:id="name356-12" source="#bib356-6">Eugène</persName>
+                    <persName xml:lang="fr-x-zanetti" xml:id="name356-13" source="#bib356-6">ʾAwgēn</persName>
+                    <persName xml:lang="fr" xml:id="name356-14" source="#bib356-6">Eugène (Awgen)</persName>
+                    <persName xml:lang="fr-x-fiey" xml:id="name356-15" source="#bib356-7">AWGIN (EUGÈNE)</persName>
+                    <idno type="URI" change="#change356-2">http://syriaca.org/person/356</idno>
+                    <idno change="#change356-2" type="deprecated">http://syriaca.org/person/1145</idno>
+                    <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_356</idno>
+                    <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=M&amp;sK=Mar Awgen&amp;sT=keywords</idno>
+                    <idno type="BHS">1585</idno>
+                    <idno type="BHS">1586</idno>
+                    <idno type="FIEY">60</idno>
+                    <note type="abstract" xml:id="abstract-en-356">
+                        <quote source="#bib356-1">Mar Awgen is the traditional founder of monasticism in <placeName ref="http://syriaca.org/place/1452">Mesopotamia</placeName>.</quote>
+                    </note>
+                    <note type="description">In hagiography: Awgin (Eugene) was the father of the monks of <placeName ref="http://syriaca.org/place/1452">Mesopotamia</placeName> who came from <placeName ref="http://syriaca.org/place/715">Egypt</placeName> in the fourth century with a group of disciples, including  <persName ref="http://syriaca.org/person/1123">Aha</persName> and <persName ref="http://syriaca.org/person/1803">John</persName>, that established monasteries in Mesopotamia.</note>
+                    <floruit>
+                        <date notBefore="0300" notAfter="0450" syriaca-computed-end="0450-01-01" syriaca-computed-start="0300-01-01" source="#bib356-1">4th - early 5th cent.</date>
+                        <date from="0300" syriaca-computed-start="0300" to="0400" syriaca-computed-end="0400" source="#bib356-7">300-400</date>
+                    </floruit>
+                    <note type="description">In hagiography: </note>
+                    <note>Fiey provides the following bibliographic citations: <quote source="#bib356-7">AMS, III, 376- 480 ; BHO, 120- 23.
+Liste de ses disciples, dont certains, comme Jean bar Kaldiln, sont en fait du x•
+siecle, dans Budge, Governors, I, cxxx-cxxx1.
+DHGE, XV, col. 1359- 60, s.v. Eugene (A. van Roey) .
+J.M. Fiey, "Aones, Awua et Awgia (Eugene)" , AB 80 (1962) , 52- 81.
+Fiey, Jalons , 100- 11.
+Fiey, Nisibe, 134-41, 194- 204.
+BSO, I, 325- 26 (J. Rabbi).
+N. Sims-Williams, in Elr , IX (1999), 64.</quote>
+                    </note>
+                    <event type="attestation" xml:id="attestation356-1" source="#bib356-7">
+                        <p xml:lang="en">Awgin is commemorated in <title ref="http://syriaca.org/work/308">Awgin (text)</title>.</p>
+                    </event>
+                    <event type="attestation" xml:id="attestation356-2" source="#bib356-7">
+                        <p xml:lang="en">Awgin is commemorated in <title ref="http://syriaca.org/work/1457">Awgin (text)</title>.</p>
+                    </event>
+                    <event type="attestation" xml:id="attestation356-3" source="#bib356-7">
+                        <p xml:lang="en">Awgin is commemorated in <title ref="http://syriaca.org/work/309">Awgin (text)</title>.</p>
+                    </event>
+                    <event type="attestation" xml:id="attestation356-4" source="#bib356-7">
+                        <p xml:lang="en">
+                            Awgin is commemorated in
+                            <title ref="http://syriaca.org/work/1204">Eugene, John, and Aḥa (text)</title>
+                            .
+                        </p>
+                    </event>
+                    <bibl xml:id="bib356-1">
+                        <author>
+                            <persName>
+                                <forename>E. G.</forename>
+                                <surname>Mathews, Jr</surname>
+                            </persName>
+                        </author>
+                        <title level="a" xml:lang="en">Awgen, Mar</title>
+                        <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
+                        <ptr target="http://syriaca.org/bibl/72"/>
+                        <citedRange unit="pp">48</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-2">
+                        <title level="m" xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
+                        <ptr target="http://syriaca.org/bibl/4"/>
+                        <citedRange unit="pp">169</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-3">
+                        <title level="m" xml:lang="ar">كتاب اللؤلؤ المنثور في تاريخ العلوم والأداب السريانية</title>
+                        <ptr target="http://syriaca.org/bibl/2"/>
+                        <citedRange unit="pp">147</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-4">
+                        <title level="m" xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
+                        <ptr target="http://syriaca.org/bibl/3"/>
+                        <citedRange unit="pp">168</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-5">
+                        <title level="m" xml:lang="en">A Comprehensive Bibliography on Syriac Christianity</title>
+                        <ptr target="http://syriaca.org/bibl/5"/>
+                        <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=M&amp;sK=Mar Awgen&amp;sT=keywords">Mar Awgen</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-6">
+                        <title level="m" xml:lang="la">Bibliotheca Hagiographica Syriaca</title>
+                        <ptr target="http://syriaca.org/bibl/649"/>
+                        <citedRange unit="entry">1585</citedRange>
+                        <citedRange unit="entry">1586</citedRange>
+                        <citedRange unit="entry">87</citedRange>
+                        <citedRange unit="entry">1336</citedRange>
+                        <citedRange unit="entry">89</citedRange>
+                        <citedRange unit="entry">1044</citedRange>
+                        <citedRange unit="entry">1585</citedRange>
+                        <citedRange unit="entry">1586</citedRange>
+                        <citedRange unit="entry">87</citedRange>
+                        <citedRange unit="entry">1336</citedRange>
+                        <citedRange unit="entry">89</citedRange>
+                        <citedRange unit="entry">1044</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-7">
+                        <title level="m" xml:lang="fr">Saints Syriaques</title>
+                        <title level="a" xml:lang="fr">AWGIN (EUGÈNE)</title>
+                        <ptr target="http://syriaca.org/bibl/650"/>
+                        <citedRange unit="entry">60</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-8">
+                        <title>AMS</title>
+                        <ptr target="http://syriaca.org/bibl/1697"/>
+                        <citedRange>III, 376-480</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-9">
+                        <title>BHO</title>
+                        <ptr target="http://syriaca.org/bibl/1314"/>
+                        <citedRange>120-23</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-10">
+                        <note>List of his disciples (of which some of them, like John bar Kaldūn, were made in the tenth century) in</note>
+                        <author>
+                            <persName>
+                                <surname>Budge</surname>
+                            </persName>
+                        </author>
+                        <title>Governors </title>
+                        <ptr target="http://syriaca.org/bibl/1602"/>
+                        <citedRange>I, cxxx-cxxxi</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-11">
+                        <author>
+                            <persName>
+                                <forename>A.</forename>
+                                <surname>van Roey</surname>
+                            </persName>
+                        </author>
+                        <title>DHGE</title>
+                        <ptr target="http://syriaca.org/bibl/1381"/>
+                        <citedRange>XV, col. 1359-60, s.v.
+                  Eugene</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-12">
+                        <author>
+                            <persName>
+                                <forename>J.M.</forename>
+                                <surname>Fiey</surname>
+                            </persName>
+                        </author>
+                        <title>Aones, Awua et Awgia (Eugene)</title>
+                        <ptr target="http://syriaca.org/bibl/916"/>
+                        <citedRange>52-81</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-13">
+                        <author>
+                            <persName>
+                                <surname>Fiey</surname>
+                            </persName>
+                        </author>
+                        <title>Jalons</title>
+                        <ptr target="http://syriaca.org/bibl/1307"/>
+                        <citedRange>100-11</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-14">
+                        <author>
+                            <persName>
+                                <surname>Fiey</surname>
+                            </persName>
+                        </author>
+                        <title> Nisibe</title>
+                        <ptr target="http://syriaca.org/bibl/1309"/>
+                        <citedRange>134-41, 194-204</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-15">
+                        <author>
+                            <persName>
+                                <forename>J.</forename>
+                                <surname>Habbi</surname>
+                            </persName>
+                        </author>
+                        <title>BSO</title>
+                        <ptr target="http://syriaca.org/bibl/1426"/>
+                        <citedRange>I,
+               325-26</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-16">
+                        <author>
+                            <persName>
+                                <forename>N.</forename>
+                                <surname>Sims-Williams</surname>
+                            </persName>
+                        </author>
+                        <title>Eugenius</title>
+                        <title>Encyclopaedia Iranica</title>
+                        <ptr target="http://syriaca.org/bibl/2218"/>
+                        <citedRange>IX (1999), 64</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib356-17">
+                        <title level="a">Aux sources du monachisme oriental: Abraham de Kashkar et le
+                            développement de la légende de Mar Awgin</title>
+                        <title level="j">Revue de l’histoire des religions</title>
+                        <ptr target="http://syriaca.org/bibl/2128"/>
+                    </bibl>
+                    <bibl xml:id="bib356-18">
+                        <title level="a">Tales about Sennacherib: The Contribution of the Syriac Sources</title>
+                        <title level="m">The world of the Aramaeans. III. III.</title>
+                        <title level="s">Journal for the Study of the Old Testament</title>
+                        <ptr target="http://syriaca.org/bibl/2131"/>
+                    </bibl>
+                    <bibl xml:id="bib356-19">
+                        <title level="a">Dādišo‘ Qatrāyā’s Commentary on the Paradise of the Fathers</title>
+                        <title level="m">Dadišoʻ Qaṭrāyā's commentary on the Paradise of the fathers</title>
+                        <title level="s">Analecta Bollandiana</title>
+                        <ptr target="http://syriaca.org/bibl/2132"/>
+                    </bibl>
+                    <bibl xml:id="bib356-20">
+                        <title level="a">Polishing the Mirror: Some Thoughts on Syriac Sources and Early
+                            Judaism</title>
+                        <title level="m">Envisioning Judaism: studies in honor of Peter Schäfer on the occasion
+                            of his seventieth birthday</title>
+                        <ptr target="http://syriaca.org/bibl/2133"/>
+                    </bibl>
+                    <bibl xml:id="bib356-21">
+                        <title level="a">Ein soghdisches Fragment der Mār Eugen-Legende</title>
+                        <title level="m">Splitter aus der Gegend von Turfan. Festschrift für Peter Zieme
+                            anlässlich seines 60. Geburtstags</title>
+                        <ptr target="http://syriaca.org/bibl/2137"/>
+                    </bibl>
+                </person>
+            </listPerson>
+        </body>
+    </text>
+</TEI>
