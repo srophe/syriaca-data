@@ -4,8 +4,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title level="a" xml:lang="en">Paul the Persian —
-                    <foreign xml:lang="syr">ܦܘܠܘܣ ܦܪܣܝܐ</foreign>
+                <title level="a" xml:lang="en">Paul the Persian — <foreign xml:lang="syr">ܦܘܠܘܣ ܦܪܣܝܐ</foreign>
                 </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The Andrew W. Mellon Foundation</funder>
@@ -62,7 +61,7 @@
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
                     </licence>
                 </availability>
-                <date>2016-07-27-04:00</date>
+                <date>2016-08-17-04:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">The Syriac Biographical Dictionary</title>
@@ -142,6 +141,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-17+02:00">Added CBSC link, bibl, and name.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Split names in authors into forename and surname.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-06-20-04:00">Move headword attribute from Gedesh to first English name.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-10-15-04:00">ADDED: Renumbered bibl xml:id attributes and source references to be sequential.</change>
@@ -166,12 +167,14 @@
                         <forename sort="1">Paul</forename>
                         <addName type="untagged-title" sort="2">the Persian</addName>
                     </persName>
+                    <persName xml:lang="en" xml:id="name674-4" source="#bib674-2">Paul the Persian</persName>
                     <note type="abstract" xml:id="abstract-en-674">
                         <quote source="#bib674-1">Itinerant E-Syr. scholar.</quote>
                     </note>
                     <idno type="URI">http://syriaca.org/person/674</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_674</idno>
                     <idno type="URI">http://viaf.org/viaf/2170586</idno>
+                    <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=P&amp;sK=Paul%20the%20Persian&amp;sT=keywords</idno>
                     <floruit notBefore="0500" notAfter="0550" source="#bib674-1" syriaca-computed-end="0550-01-01" syriaca-computed-start="0500-01-01">first half of 6th cent.</floruit>
                     <state type="confession" source="#bib674-1">
                         <desc>Ch. of E.</desc>
@@ -189,14 +192,21 @@
                         <citedRange unit="pp">324-325</citedRange>
                         <citedRange unit="pp">324-325</citedRange>
                     </bibl>
+                    <bibl xml:id="bib674-2">
+                        <title level="m" xml:lang="en">A Comprehensive Bibliography on Syriac Christianity</title>
+                        <ptr target="http://syriaca.org/bibl/5"/>
+                        <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=P&amp;sK=Paul%20the%20Persian&amp;sT=keywords">Paul the Persian</citedRange>
+                    </bibl>
                 </person>
             <!-- Two separate relation elements, because the veracity of one is independent of the veracity of the other. -->
-                <relation name="possibly-identical" mutual="#person-674 http://syriaca.org/person/673" source="#bib674-1">
-                    <desc xml:lang="en">This author is possibly identical with the author represented in another record</desc>
-                </relation>
-                <relation name="possibly-identical" mutual="#person-674 http://syriaca.org/person/675" source="#bib674-1">
-                    <desc xml:lang="en">This author is possibly identical with the author represented in another record</desc>
-                </relation>
+                <listRelation>
+                    <relation name="possibly-identical" mutual="#person-674 http://syriaca.org/person/673" source="#bib674-1">
+                        <desc xml:lang="en">This author is possibly identical with the author represented in another record</desc>
+                    </relation>
+                    <relation name="possibly-identical" mutual="#person-674 http://syriaca.org/person/675" source="#bib674-1">
+                        <desc xml:lang="en">This author is possibly identical with the author represented in another record</desc>
+                    </relation>
+                </listRelation>
             </listPerson>
         </body>
     </text>
