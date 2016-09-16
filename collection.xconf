@@ -45,7 +45,9 @@
             <create qname="@mutual" type="xs:string"/>
             <create qname="@name" type="xs:string"/>
             <create qname="@xml:lang" type="xs:string"/>
+            <!--
             <create qname="tei:idno" type="xs:string"/>
+            -->
             <create qname="tei:title" type="xs:string"/>
             <create qname="tei:bibl" type="xs:string"/>
             <create qname="tei:geo" type="xs:string"/>
@@ -53,6 +55,15 @@
             <create qname="tei:persName" type="xs:string"/>
             <create qname="tei:placeName" type="xs:string"/>
             <create qname="tei:author" type="xs:string"/>
+            <create qname="tei:TEI">
+                <field name="uri" match="//tei:publicationStmt/tei:idno" type="xs:string">
+                    <field name="type" match="@type" type="xs:string"/>
+                </field>
+                <field name="title" match="//tei:titleStmt/tei:title" type="xs:string"/>
+            </create>
+            <create qname="tei:idno">
+                <field name="type" match="@type" type="xs:string"/>
+            </create>
         </range>
     </index>
 </collection>
