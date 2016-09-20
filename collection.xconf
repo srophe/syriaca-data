@@ -45,9 +45,8 @@
             <create qname="@mutual" type="xs:string"/>
             <create qname="@name" type="xs:string"/>
             <create qname="@xml:lang" type="xs:string"/>
-            <!--
+            <create qname="@status" type="xs:string"/>
             <create qname="tei:idno" type="xs:string"/>
-            -->
             <create qname="tei:title" type="xs:string"/>
             <create qname="tei:bibl" type="xs:string"/>
             <create qname="tei:geo" type="xs:string"/>
@@ -57,12 +56,17 @@
             <create qname="tei:author" type="xs:string"/>
             <create qname="tei:TEI">
                 <field name="uri" match="//tei:publicationStmt/tei:idno" type="xs:string">
-                    <field name="type" match="@type" type="xs:string"/>
+                    <field name="uriType" match="@type" type="xs:string"/>
                 </field>
                 <field name="title" match="//tei:titleStmt/tei:title" type="xs:string"/>
             </create>
-            <create qname="tei:idno">
-                <field name="type" match="@type" type="xs:string"/>
+            <create qname="tei:revisionDesc">
+                <field name="status" match="@status" type="xs:string"/>
+            </create>
+            <create qname="tei:div">
+                <field name="divID" match="//tei:idno" type="xs:string">
+                    <field name="divIDType" match="@type" type="xs:string"/>
+                </field>
             </create>
         </range>
     </index>
