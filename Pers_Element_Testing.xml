@@ -61,176 +61,358 @@
             <change/>
         </revisionDesc>
     </teiHeader>
-    <text>
+    <text><!-- MAKE RELEVANT SAMPLES FOR PERSONGRPs AS WELL AS PERSONS -->
         <body>
-            <div>
+            <div><!-- NAME VARIANT -->
                 <listPerson>
-                    <person ref="http://syriaca.org/keyword"><!-- This is the form for name variants -->
-                        <persName ref="">
-                            Text and all kinds of stuff can go here
+                    <person>
+                        <persName ref="http://syriaca.org/keyword">
+                            Text and all kinds of stuff can go here. <!-- Make list of elements used so far and anticipate what else encoders may need. -->
                         </persName>
+                        <ptr target=""/>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- SEX -->
                 <listPerson>
-                    <person><!-- No keyword -->
+                    <person><!-- No ptr target with keyword-->
+                        <persName ref="http://syriaca.org/keyword"/>
+                        <sex value="M">
+                            <note type="desc">John was male.</note>
+                        </sex>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- BIRTH DATE -->
+                <listPerson>
+                    <person><!-- No ptr target with keyword-->
                         <persName ref="http://syriaca.org/person/0001"/>
                         <birth>
-                            <date></date><!-- Could also be choice>reg-orig. -->
-                            <placeName ref=""></placeName>
+                            <date/><!-- Could also be choice>reg-orig. -->
+                            <note type="desc">John was born in A.D. 487</note>
                         </birth>
-                        <note type="desc">John was born in A.D. 487</note>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- BIRTH PLACE -->
                 <listPerson>
-                    <person> <!-- No keyword -->
+                    <person><!-- No ptr target with keyword-->
+                        <persName ref="http://syriaca.org/person/0001"/>
+                        <birth>
+                            <placeName ref="http://syriaca.org/keyword"/>
+                            <note type="desc">John was born in Edessa.</note>
+                        </birth>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- DEATH DATE -->
+                <listPerson>
+                    <person> <!-- No ptr target with keyword-->
                         <persName ref="http://syriaca.org/person/0001"/>
                         <death>
-                            <date></date><!-- Could also be choice>reg-orig. -->
-                            <placeName ref=""></placeName>
+                            <date/><!-- Could also be choice>reg-orig. -->
+                            <note type="desc">John died in A.D. 525.</note>
                         </death>
-                        <note type="desc">Descriptive note</note>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- DEATH PLACE -->
                 <listPerson>
-                    <person> <!-- No Keyword -->
+                    <person> <!-- No no ptr target -->
+                        <persName ref="http://syriaca.org/person/0001"/>
+                        <death>
+                            <placeName ref="http://syriaca.org/keyword"/>
+                            <note type="desc">John died in Antioch.</note>
+                        </death>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- EDUCATION -->
+                <listPerson>
+                    <person> <!-- No ptr target with keyword-->
                         <persName ref="http://syriaca.org/person0001"/>
                         <education ref="http://syriaca.org/keyword">
-                            <persName ref="">
-                                Libanius
-                            </persName>
-                            <placeName ref="">
-                                Antioch
-                            </placeName>
-                            <orgName>
-                                School of Edessa
-                            </orgName>
+                            <note type="desc">
+                                Text including the following elements only: 
+                                <date/><!-- Could also be choice followed by reg&orig. -->
+                                <persName ref="http://syriaca.org/keyword">
+                                    Libanius
+                                </persName>
+                                <placeName ref="http://syriaca.org/keyword">
+                                    Antioch
+                                </placeName>
+                                <orgName>
+                                    School of Edessa
+                                </orgName>
+                            </note>
                         </education>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- CITIZENSHIP -->
                 <listPerson>
-                    <person><!-- No keyword -->
+                    <person><!-- No ptr target with keyword-->
                         <persName ref="http://syriaca.org/person0001"/>
                         <nationality>
-                            <placeName ref="">
-                                Antioch
-                            </placeName>
+                            <placeName ref="http://syriaca.org/keyword"/>
+                            <note type="desc">
+                                John was a citizen of Antioch.
+                            </note>
                         </nationality>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- PLACE OF RESIDENCE -->
                 <listPerson>
                     <person> <!-- No keyword -->
                         <persName ref="http://syriaca.org/person0001"/>
                         <residence>
-                            <placeName ref="">
-                                Antioch
-                            </placeName>
+                            <placeName ref="http://syriaca.org/keyword"/>
+                            <note type="desc">
+                                John resided in Jerusalem.
+                            </note>
                         </residence>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- OCCUPATION -->
                 <listPerson>
-                    <person> <!-- No keyword -->
+                    <person>
                         <persName ref="http://syriaca.org/person0001"/>
-                        <occupation ref="http://syriaca.org/keyword"/>
+                        <occupation ref="http://syriaca.org/keyword">
+                            <note type="desc">John was a cooper</note>
+                        </occupation>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- Language -->
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person0001"/>
                         <langKnowledge>
-                            <langKnown tag="eng">
-                                English
-                            </langKnown>
+                            <langKnown tag="ar"/>
+                            <note type="desc">John spoke Arabic.</note>
                         </langKnowledge>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
-                <listPerson>
-                    <person>
-                        <persName ref="http://syriaca.org/person0001"/>
-                        <state type="sanctity" ref="http://syriac.org/keyword/saints/martrys/confessors">
-                            <note type="desc">saint</note>
-                        </state>
-                    </person>
-                </listPerson>
-                <bibl></bibl>
-            </div>
-            <div>
+            <div><!-- Social Rank -->
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person0001"/>
                         <socecStatus ref="http://syriaca.org/keyword">
-                            <note type="desc">patrician</note>
+                            <note type="desc">John was a patrician</note>
                         </socecStatus>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
-            <div>
+            <div><!-- Physical Trait -->
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person0001"/>
                         <trait type="physical">
-                            <note type="desc">green eyes</note>
+                            <note type="desc">John had green eyes.</note>
                         </trait>
                     </person>
                 </listPerson>
-                <bibl></bibl>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Gender -->
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <trait type="gender" ref="http://syriaca.org/keyword">
+                            <note type="desc">John was a eunuch.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Ethnic Label -->
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <trait type="ethnicLabel" ref="http://syriaca.org/keyword">
+                            <note type="desc">John was Ethiopian.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Mental State -->
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <state type="mental" ref="http://syriaca.org/keyword">
+                            <note type="desc">John was mad.</note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Sanctity -->
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <state type="sanctity" ref="http://syriaca.org/keyword">
+                            <note type="desc">John was a confessor.</note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- EDUCATION -->
+                <listPerson>
+                    <personGrp> <!-- No ptr target with keyword-->
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <education ref="http://syriaca.org/keyword">
+                            <note type="desc">
+                                Text including the following elements only: 
+                                <date/><!-- Could also be choice followed by reg&orig. -->
+                                <persName ref="http://syriaca.org/keyword">
+                                    Libanius
+                                </persName>
+                                <placeName ref="http://syriaca.org/keyword">
+                                    Antioch
+                                </placeName>
+                                <orgName>
+                                    School of Edessa
+                                </orgName>
+                            </note>
+                        </education>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- CITIZENSHIP -->
+                <listPerson>
+                    <personGrp><!-- No ptr target with keyword-->
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <nationality>
+                            <placeName ref="http://syriaca.org/keyword"/>
+                            <note type="desc">
+                                These monks were citizens of Antioch.
+                            </note>
+                        </nationality>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- PLACE OF RESIDENCE -->
+                <listPerson>
+                    <personGrp> <!-- No keyword -->
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <residence>
+                            <placeName ref="http://syriaca.org/keyword"/>
+                            <note type="desc">
+                                These women resided in the monastery.
+                            </note>
+                        </residence>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- OCCUPATION -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <occupation ref="http://syriaca.org/keyword">
+                            <note type="desc">This was a crowd of masons</note>
+                        </occupation>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Language -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <langKnowledge>
+                            <langKnown tag="ar"/>
+                            <note type="desc">The soldiers spoke Arabic.</note>
+                        </langKnowledge>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Social Rank -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <socecStatus ref="http://syriaca.org/keyword">
+                            <note type="desc">The men were patricians</note>
+                        </socecStatus>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Physical Trait -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <trait type="physical">
+                            <note type="desc">The women were blind.</note>
+                        </trait>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Gender -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <trait type="gender" ref="http://syriaca.org/keyword">
+                            <note type="desc">The court attendants were eunuchs.</note>
+                        </trait>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Ethnic Label -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <trait type="ethnicLabel" ref="http://syriaca.org/keyword">
+                            <note type="desc">The merchants was Ethiopians.</note>
+                        </trait>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Mental State -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <state type="mental" ref="http://syriaca.org/keyword">
+                            <note type="desc">The wise men were wise.</note>
+                        </state>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
+            </div>
+            <div><!-- Sanctity -->
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person0001"/>
+                        <state type="sanctity" ref="http://syriaca.org/keyword">
+                            <note type="desc">Those put do death were martyrs.</note>
+                        </state>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca"/><citedRange unit="pp">1</citedRange></bibl>
             </div>
         </body>
-        <back>
-            <div>
-                <bibl xml:id="bibl633-1">
-                    <title xml:lang="la">Chronica minora</title>
-                    <editor>Ignatius Guidi</editor>
-                    <ptr target="http://syriaca.org/bibl/633"/>
-          <!-- <citedRange unit="pp"/> Do we need this here now that we are citing pages/sections in each factoid? -->
-                </bibl>
-                <bibl xml:id="bibl633-2">
-                    <title xml:lang="en" level="a">The Chronicle of Edessa</title>
-                    <title level="j">The Journal of Sacred Literature, New Series [=Series 4]</title>
-                    <editor role="translator">B. Cowper</editor>
-                    <date when="1865" syriaca-computed-start="1865-01-01">1865</date>
-                    <biblScope unit="vol">5</biblScope>
-                    <biblScope unit="pp">28-45</biblScope>
-                </bibl>
-                <bibl xml:id="bibl633-3">
-                    <title xml:lang="de">Untersuchungen über die Edessenische Chronik. Texte und Untersuchungen zur Geschichte der altchristlichen Literatur 9.1</title>
-                    <author>Ludwig Hallier</author>
-                    <pubPlace>Leipzig</pubPlace>
-                    <publisher>J.C. Hinrichs</publisher>
-                    <date>1892</date>
-                </bibl>
-                <bibl xml:id="bibl633-4">
-                    <title xml:lang="en">Stewards of the Poor: The Man of God, Rabbula, and Hiba in Fifth-Century Edessa</title>
-                    <editor role="translator">Robert Doran</editor>
-                    <pubPlace>Kalamazoo, MI</pubPlace>
-                    <publisher>Cistercian Publications</publisher>
-                    <date>2006</date>
-                </bibl>
-            </div>
-        </back>
     </text>
 </TEI>
