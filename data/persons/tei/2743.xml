@@ -34,6 +34,10 @@
                     <resp>Syriac data conversion and reconciling by</resp>
                     <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
                 </respStmt>
+                <respStmt>
+                    <resp>Hagiographic information by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
+                </respStmt>
             </titleStmt>
             <editionStmt>
                 <edition n="1.0"/>
@@ -75,7 +79,11 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
                 </respStmt>
-                <biblScope unit="vol">3</biblScope>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Qadishe: A Guide to the Syriac Saints</title>
+                    <idno type="URI">http://syriaca.org/q</idno>
+                </biblScope>
+                <biblScope unit="vol" from="3" to="3">3</biblScope>
                 <idno type="URI">http://syriaca.org/persons</idno>
             </seriesStmt>
             <sourceDesc>
@@ -132,6 +140,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-10-31+01:00">Added abstract, attestation, bibl, and Q series info</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-10-31+01:00">Removed duplicate bibls</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-03-03+01:00">CREATED: person</change>
         </revisionDesc>
@@ -140,12 +150,18 @@
         <body>
             <listPerson>
                 <person xml:id="person-2743">
-                    <persName xml:lang="en" syriaca-tags="#syriaca-headword" xml:id="name2743-1">Romanus</persName>
+                    <persName xml:lang="en" syriaca-tags="#syriaca-headword" xml:id="name2743-1" source="#bib2743-3">Romanus</persName>
                     <persName xml:lang="syr" source="#bib2743-1" syriaca-tags="#syriaca-headword" xml:id="name2743-2">ܪܘܡܢܐ</persName>
-                    <note xml:lang="en" type="abstract" source="#bib2743-2">An archimandrite in Palestine</note>
+                    <persName xml:lang="en" xml:id="name2743-3" source="#bib2743-3"><addName type="untagged-title" sort="2">The Monk</addName> <forename sort="1">Romanus</forename></persName>
+                    <note xml:lang="en" type="abstract" source="#bib2743-3 #bib2743-2">An archimandrite in <placeName ref="http://syriaca.org/place/149">Palestine</placeName> who <quote source="#bib2743-3">founded 
+                        <placeName>an Anti-Chalcedonian monastery at Eleutheropolis</placeName></quote> with the patronage of the <persName>Empress Eudocia</persName>.</note>
                     <idno type="URI">http://syriaca.org/person/2743</idno>
                     <floruit xml:lang="en" notBefore="0500" syriaca-computed-start="0500-01-01" notAfter="0525" syriaca-computed-end="0525-01-01" source="#bib2743-2">first 1/4 6th century</floruit>
                     <sex xml:lang="en" source="#bib2743-2" value="M">male</sex>
+                    <event type="attestation" xml:id="attestation2743-1">
+                        <p xml:lang="en">
+                            <persName ref="http://syriaca.org/person/2743">Romanus</persName> is commemorated in <title ref="http://syriaca.org/work/557">Theodosius of Jerusalem (text)</title>.</p>
+                    </event>
                     <bibl xml:id="bib2743-1">
                         <ptr target="http://syriaca.org/bibl/667"/>
                         <citedRange unit="pp">356</citedRange>
@@ -155,14 +171,10 @@
                         <citedRange unit="pp">315</citedRange>
                     </bibl>
                     <bibl xml:id="bib2743-3">
-                        <ptr target="http://syriaca.org/bibl/669"/>
-                        <citedRange unit="pp">315</citedRange>
-                    </bibl>
-                    <bibl xml:id="bib2743-4">
-                        <ptr target="http://syriaca.org/bibl/669"/>
-                        <citedRange unit="pp">315</citedRange>
-                        <citedRange unit="section"/>
-                        <citedRange unit="URL"/>
+                        <title level="m">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
+                        <ptr target="http://syriaca.org/bibl/1703"/>
+                        <citedRange unit="pp">liv</citedRange>
+                        <citedRange unit="pp" from="295" to="301">295-301</citedRange>
                     </bibl>
                 </person>
             </listPerson>
