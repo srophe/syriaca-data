@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/out/odd_SPEAR_draft.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -36,7 +36,7 @@
                 <date><!-- INPUT ONCE WE HAVE SOMETHING APPROXIMATING A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>Information about the source</p>
+                <p>Information about the source.</p>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -100,14 +100,10 @@
             <div uri="http://syriaca.org/spear/119-3">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/emperor"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2302"> Severus </persName>
-                                was <ref target="http://syriaca.org/keyword/emperor"> emperor </ref>
-                                <placeName ref="http://syriaca.org/place/166"> Rome </placeName>.
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2302"/>
+                        <occupation ref="http://syriaca.org/keyword/emperor">
+                            <note>Severus was emperor of <placeName ref="http://syriaca.org/place/166"> Rome </placeName>.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -156,14 +152,11 @@
             <div uri="http://syriaca.org/spear/119-6">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/king"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2201"> Abgar </persName>
-                                was <ref target="http://syriaca.org/keyword/king"> King </ref> of
-                                    <placeName ref="http://syriaca.org/place/78"> Edessa
-                                </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2201"/>
+                        <occupation ref="http://syriaca.org/keyword/king">
+                            <note>Abgar was king of <placeName ref="http://syriaca.org/place/78"> Edessa
+                            </placeName>.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -187,7 +180,6 @@
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/119-8">
-                <!-- Encoding description: In cases where it is necessary to add a factoid into an ongoing list, it is permissible to number factoids in this fashion. -->
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2291"><!-- Encoding description: For differences of name spelling or transliteration, give each variant a separate factoid and include only the bibliography that contains that variant. -->
@@ -202,14 +194,10 @@
             <div uri="http://syriaca.org/spear/119-9">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/king"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2291"> Maʿnu </persName>
-                                was <ref target="http://syriaca.org/keyword/king"> King </ref> of
-                                    <placeName ref="http://syriaca.org/place/78"> Edessa
-                                </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2291"/>
+                        <occupation ref="http://syriaca.org/keyword/king">
+                            <note>Maʿnu was king of Edessa.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -223,7 +211,7 @@
             </div>
             <div uri="http://syriaca.org/spear/119-10">
                 <listRelation>
-                    <relation name="snap:ChildOf" active="http://syriaca.org/person/2201" passive="http://syriaca.org/person/2291"/>
+                    <relation ana="family" name="snap:ChildOf" active="http://syriaca.org/person/2201" passive="http://syriaca.org/person/2291"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/633"/>
@@ -311,14 +299,10 @@
             <div uri="http://syriaca.org/spear/119-14">
                 <listPerson>
                     <personGrp>
-                        <ptr target="http://syriaca.org/keyword/bureaucrat"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2210"> The workers
-                                </persName> were <ref target="http://syriaca.org/keyword/bureaucrat">
-                                    <!-- SHOULD WE USE KEYWORDS IN PERSON FACTOIDS OR SHOULD WE RESERVE THEM FOR EVENT FACTOIDS? -->
-                                    government officials </ref> in <placeName ref="http://syriaca.org/place/78"> Edessa </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2210"/>
+                        <occupation ref="http://syriaca.org/keyword/bureaucrat">
+                            <note>These people were government officials in <placeName ref="http://syriaca.org/place/78"> Edessa </placeName>.</note>
+                        </occupation>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -459,14 +443,12 @@
             <div uri="http://syriaca.org/spear/119-20">
                 <listPerson>
                     <personGrp>
-                        <ptr target="http://syriaca.org/keyword/skilledLaborer"/>
-                        <state type="occupation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2229"> The craftsmen
-                                </persName> were <ref target="http://syriaca.org/keyword/skilledLaborer"> artisans
-                                </ref> in <placeName ref="http://syriaca.org/place/78"> Edessa
-                                </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2229"/>
+                        <occupation ref="http://syriaca.org/keyword/skilledLaborer">
+                            <note>These people were craftsmen in <placeName ref="http://syriaca.org/place/78"> Edessa
+                            </placeName>.
+                            </note>
+                        </occupation>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -534,14 +516,12 @@
             <div uri="http://syriaca.org/spear/119-23">
                 <listPerson>
                     <personGrp>
-                        <ptr target="http://syriaca.org/keyword/skilledLaborer"/>
-                        <state type="occupation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2230"> The measurers and
-                                    men of skill </persName> were <ref target="http://syriaca.org/keyword/skilledLaborer"> artisans
-                                </ref> in <placeName ref="http://syriaca.org/place/78"> Edessa
-                                </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2230"/>
+                        <occupation ref="http://syriaca.org/keyword/skilledLaborer">
+                            <note>These people were skilled laborers in <placeName ref="http://syriaca.org/place/78"> Edessa
+                            </placeName>.
+                            </note>
+                        </occupation>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -605,14 +585,12 @@
             <div uri="http://syriaca.org/spear/119-26">
                 <listPerson>
                     <personGrp>
-                        <ptr target="http://syriaca.org/keyword/watchman"/>
-                        <state type="occupation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2232"> The islanders
-                                </persName> were the <ref target="http://syriaca.org/keyword/watchman"> watchmen </ref> of
-                                the city of <placeName ref="http://syriaca.org/place/78"> Edessa
-                                </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2232"/>
+                        <occupation ref="http://syriaca.org/keyword/watchman">
+                            <note>The islanders were watchmen in <placeName ref="http://syriaca.org/place/78"> Edessa
+                            </placeName>.
+                            </note>
+                        </occupation>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -705,15 +683,13 @@
             <div uri="http://syriaca.org/spear/119-30">
                 <listPerson>
                     <personGrp>
-                        <ptr target="http://syriaca.org/keyword/nobles"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2233"/> These men were the
-                                    <ref target="http://syriaca.org/keyword/nobles"> nobles </ref>
-                                of <persName ref="http://syriaca.org/person/2201"> Abgar </persName>
-                                of <placeName ref="http://syriaca.org/place/78"> Edessa
-                                </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2233"/>
+                        <occupation ref="http://syriaca.org/keyword/nobles">
+                            <note>These men were the nobles of <persName ref="http://syriaca.org/person/2201"> Abgar </persName>
+                                in <placeName ref="http://syriaca.org/place/78"> Edessa
+                                </placeName>.
+                            </note>
+                        </occupation>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -787,14 +763,12 @@
             <div uri="http://syriaca.org/spear/119-34">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/Scribe"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2313"> Mar Yahab Bar
-                                    Shemesh </persName> was a <ref target="http://syriaca.org/keyword/Scribe"> scribe </ref> of
-                                    <placeName ref="http://syriaca.org/place/78"> Edessa
-                                </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2313"/>
+                        <occupation ref="http://syriaca.org/keyword/Scribe">
+                            <note>Mar Yahab Bar Shemesh was a scribe of <placeName ref="http://syriaca.org/place/78">Edessa
+                            </placeName>.
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -841,14 +815,11 @@
             <div uri="http://syriaca.org/spear/119-37">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/Scribe"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2285"> Kaiuma Bar Magartat
-                                </persName> was a <ref target="http://syriaca.org/keyword/Scribe">
-                                    scribe </ref> of <placeName ref="http://syriaca.org/place/78">
-                                    Edessa </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2285"/>
+                        <occupation>
+                            <note>Kaiuma Bar Magartat was a scribe  of <placeName ref="http://syriaca.org/place/78">
+                                    Edessa </placeName>. </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -907,13 +878,10 @@
             <div uri="http://syriaca.org/spear/119-41">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/Archivist"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2239"> Bar Din </persName>
-                                was a <ref target="http://syriaca.org/keyword/Archivist"> prefect
-                                    over the archives </ref> of <placeName ref="http://syriaca.org/place/78"> Edessa </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2239"/>
+                        <occupation>
+                            <note>Bar Din was a prefect over the archives of <placeName ref="http://syriaca.org/place/78"> Edessa </placeName>. </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -959,13 +927,10 @@
             <div uri="http://syriaca.org/spear/119-44">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/Archivist"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2243"> Bulid </persName>
-                                was a <ref target="http://syriaca.org/keyword/Archivist"> prefect
-                                    over the archives </ref> of <placeName ref="http://syriaca.org/place/78"> Edessa </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2243"/>
+                        <occupation ref="http://syriaca.org/keyword/archivist">
+                            <note>Bulid was prefect over the archives of <placeName ref="http://syriaca.org/place/78"> Edessa </placeName>. </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1102,14 +1067,12 @@
             <div uri="http://syriaca.org/spear/119-51">
                 <listPerson>
                     <person>
-                        <ptr target="http://syriaca.org/keyword/emperor"/>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2238"> Augustus Caesar
-                                </persName> was <ref target="http://syriaca.org/keyword/emperor">
-                                    King </ref> of <placeName ref="http://syriaca.org/place/166">
-                                    Rome </placeName>. </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2238"/>
+                        <occupation ref="http://syriaca.org/keyword/emperor">
+                            <note>Augustus Caesar was king of <placeName ref="http://syriaca.org/place/166">
+                                Rome </placeName>. 
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1199,8 +1162,8 @@
                                         309</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Jesus was born in 3/2 B.C. </note>
                         </birth>
-                        <note type="desc"> Jesus was born in 3/2 B.C. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1275,6 +1238,7 @@
             <div uri="http://syriaca.org/spear/119-59">
                 <listPerson>
                     <person>
+                        
                         <ptr target="http://syriaca.org/keyword/king"/>
                         <state type="office">
                             <desc>
@@ -1423,8 +1387,8 @@
                                         465</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Bardaisan was born on 11 July A. D. 154. </note>
                         </birth>
-                        <note type="desc"> Bardaisan was born on 11 July A. D. 154. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1648,8 +1612,8 @@
                                     <date when-custom="0551" calendar="Seleucid">A. Gr. 551</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Mani was born in A. D. 239 </note>
                         </birth>
-                        <note type="desc"> Mani was born in A. D. 239 </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -2213,8 +2177,8 @@
                                         649</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Jacob of Nisibis died in A. D. 337/8. </note>
                         </death>
-                        <note type="desc"> Jacob of Nisibis died in A. D. 337/8. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -2618,8 +2582,8 @@
                                         672</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Abraham died in A. D. 360/1. </note>
                         </death>
-                        <note type="desc"> Abraham died in A. D. 360/1. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -2705,8 +2669,8 @@
                                         672</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Vologesh died in A. D. 360/1. </note>
                         </death>
-                        <note type="desc"> Vologesh died in A. D. 360/1. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -2957,8 +2921,8 @@
                                     <date when-custom="0674-09" datingMethod="Seleucid-SyriacMonths">Ḥazirān A. Gr. 674</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Julian died in June A. D. 363. </note>
                         </death>
-                        <note type="desc"> Julian died in June A. D. 363. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -3177,8 +3141,8 @@
                                         678</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Julian Saba died in A. D. 366/7. </note>
                         </death>
-                        <note type="desc"> Julian Saba died in A. D. 366/7. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -3288,8 +3252,8 @@
                                         A. Gr. 684</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Ephrem died on 9 June A. D. 373. </note>
                         </death>
-                        <note type="desc"> Ephrem died on 9 June A. D. 373. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -3503,8 +3467,8 @@
                                     <date when-custom="0689-06" datingMethod="Seleucid-SyriacMonths">Ādar A. Gr. 689</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Barsā died in March A. D. 378. </note>
                         </death>
-                        <note type="desc"> Barsā died in March A. D. 378. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -4326,8 +4290,8 @@
                                     <date when-custom="0707-10" datingMethod="Seleucid-SyriacMonths">Tammuz A. Gr. 707</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Cyrus died in July A. D. 396 </note>
                         </death>
-                        <note type="desc"> Cyrus died in July A. D. 396 </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -4495,8 +4459,8 @@
                                         710</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Silwo died on 17 October A. D. 398. </note>
                         </death>
-                        <note type="desc"> Silwo died on 17 October A. D. 398. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -5120,8 +5084,8 @@
                                     <date when-custom="0720-11-01" datingMethod="Seleucid-SyriacMonths">1 Āb A. Gr. 720</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Pakidā died on 1 August A. D. 409. </note>
                         </death>
-                        <note type="desc"> Pakidā died on 1 August A. D. 409. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -5603,9 +5567,9 @@
                                         732</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Jacob the Mutilated suffered martyrdom in A. D. 420/1.
+                            </note>
                         </death>
-                        <note type="desc"> Jacob the Mutilated suffered martyrdom in A. D. 420/1.
-                        </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -5817,8 +5781,8 @@
                                     <date when-custom="0746-11-08" datingMethod="Seleucid-SyriacMonths">8 Āb A. Gr. 746</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Rabbula died on 8 August A. D. 435. </note>
                         </death>
-                        <note type="desc"> Rabbula died on 8 August A. D. 435. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -6894,8 +6858,8 @@
                                         769</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Hiba died on 28 October A. D. 457. </note>
                         </death>
-                        <note type="desc"> Hiba died on 28 October A. D. 457. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -7314,9 +7278,8 @@
                                         771</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Simeon the Stylite died on 28 October A. D. 460. </note><!-- Should this be the incorrect date contained in the mss? -->
                         </death>
-                        <note type="desc"> Simeon the Stylite died on 28 October A. D. 460. </note>
-                        <!-- Should this be the incorrect date contained in the mss? -->
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -7462,8 +7425,8 @@
                                         782</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Nonos died in A. D. 470/1. </note>
                         </death>
-                        <note type="desc"> Nonos died in A. D. 470/1. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -7869,8 +7832,8 @@
                                         809</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Cyrus died on 6 June A. D. 435. </note>
                         </death>
-                        <note type="desc"> Cyrus died on 6 June A. D. 435. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -8876,8 +8839,8 @@
                                         Resurrection A. Gr. 821</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Peter died on 10 April A. D. 510. </note>
                         </death>
-                        <note type="desc"> Peter died on 10 April A. D. 510. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -9292,8 +9255,8 @@
                                         829</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Anastasios died on 9 July A. D. 518. </note>
                         </death>
-                        <note type="desc"> Anastasios died on 9 July A. D. 518. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -9959,8 +9922,8 @@
                                         836</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Asclepius died on 27 June A. D. 525. </note>
                         </death>
-                        <note type="desc"> Asclepius died on 27 June A. D. 525. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -10279,8 +10242,8 @@
                                         838</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Pawlā died on 30 October A. D. 526. </note>
                         </death>
-                        <note type="desc"> Pawlā died on 30 October A. D. 526. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -10543,8 +10506,8 @@
                                         837</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Euphrasius died on 29 May A. D. 526. </note>
                         </death>
-                        <note type="desc"> Euphrasius died on 29 May A. D. 526. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -10711,8 +10674,8 @@
                                     <date when-custom="0844-03" datingMethod="Seleucid-SyriacMonths">Kānun I A. Gr. 844</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Andreos died in December, A. D. 532. </note>
                         </death>
-                        <note type="desc"> Andreos died in December, A. D. 532. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -10984,8 +10947,8 @@
                                     <date when-custom="0838-11-10" datingMethod="Seleucid-SyriacMonths">10 Āb A. Gr. 838</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Justin died on 10 August A. D. 527. </note>
                         </death>
-                        <note type="desc"> Justin died on 10 August A. D. 527. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -11183,8 +11146,8 @@
                                         843</date>
                                 </orig>
                             </choice>
+                            <note type="desc"> Demosthenes died on 10 January A. D. 532. </note>
                         </death>
-                        <note type="desc"> Demosthenes died on 10 January A. D. 532. </note>
                     </person>
                 </listPerson>
                 <bibl type="primary">

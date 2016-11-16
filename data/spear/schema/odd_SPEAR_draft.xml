@@ -596,24 +596,15 @@
         
         <elementSpec ident="event" module="namesdates" mode="replace">
           <content>
+            <elementRef key="ptr" maxOccurs="1"/>
             <elementRef key="desc" minOccurs="1" maxOccurs="1"/>
           </content>
           <attList>
             <attDef ident="where" mode="delete"/>
-            <attDef ident="ref" mode="add" usage="rec" >
-              <datatype minOccurs="1" maxOccurs="unbounded">
-                <dataRef key="teidata.enumerated"/>
-              </datatype>
-              <valList type="semi"><!-- I need to edit this to a closed list with links out to a list maintained in one spot for all keyword tagging. -->
-                <valItem ident="http://syriaca.org/keyword/emperor"/><!-- Look into whether or not I can make use of the xml:base attribute to input the "http://syriaca.org/keyword/" protion of the URI here. -->
-                <valItem ident="http://syriaca.org/keyword/king"/>
-                <valItem ident="http://syriaca.org/keyword/naturalDisaster"/>
-                
-              </valList>
-            </attDef>
+            
           </attList>
           <remarks>
-            <p>This customization is incomplete. Right now, it removes the event element from all model and attribute classes. It removes the where attribute  and makes the desc element the only acceptable child element. It makes the ref attribute the only attribue available to the event element BUT it only provides suggestions for a couple of the ca. 700+ keywords from CBSC and SPEAR. I need to create a list to maintain in one place that will be used for all keyword tagging in SPEAR. </p>
+            <p>This customization removes the event element from all model and attribute classes. It removes the where attribute  and makes the desc element the only acceptable child element.</p>
           </remarks>
         </elementSpec>
          
@@ -719,7 +710,7 @@
           <attList>
             <attDef ident="target" usage="req">
               <datatype>
-                <dataRef key="teidata.pointer"/><!-- I need to figure out a way to require that the attribute value be a valid xml:id. -->
+                <dataRef key="teidata.pointer"/><!-- I need to figure out a way to require that the attribute value be a valid xml:id. I expect that I'll be able to limit this to syriaca.org keywords as well.--> <!-- Look into whether or not I can make use of the xml:base attribute to input the "http://syriaca.org/keyword/" portion of the URI here. -->
               </datatype>
             </attDef>
           </attList>
@@ -937,9 +928,6 @@
           <classes mode="replace">
             <memberOf key="model.persStateLike"/>
           </classes>
-          <content>
-            <elementRef key="note" minOccurs="1" maxOccurs="1"/>
-          </content>
           <attList>
             <attDef ident="value" mode="change" usage="req">
               <datatype>
