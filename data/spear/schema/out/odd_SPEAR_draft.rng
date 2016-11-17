@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2016-11-17T17:59:30Z. .
+Schema generated from ODD source 2016-11-17T19:18:48Z. .
 TEI Edition: Version 3.0.0. Last updated on
 	29th March 2016, revision 89ba24e
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.0.0/
@@ -1883,10 +1883,26 @@ Suggested values include: 1] page; 2] column; 3] line; 4] book; 5] poem; 6] cant
    <define name="desc">
       <element name="desc">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-         <ref name="choice"/>
-         <ref name="date"/>
-         <ref name="persName"/>
-         <ref name="placeName"/>
+         <zeroOrMore>
+            <group>
+               <text/>
+               <zeroOrMore>
+                  <ref name="choice"/>
+               </zeroOrMore>
+               <zeroOrMore>
+                  <ref name="date"/>
+               </zeroOrMore>
+               <zeroOrMore>
+                  <ref name="persName"/>
+               </zeroOrMore>
+               <zeroOrMore>
+                  <ref name="placeName"/>
+               </zeroOrMore>
+               <zeroOrMore>
+                  <ref name="orgName"/>
+               </zeroOrMore>
+            </group>
+         </zeroOrMore>
       </element>
    </define>
    <define name="sic">

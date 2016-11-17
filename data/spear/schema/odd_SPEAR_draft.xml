@@ -322,10 +322,14 @@
         
         <elementSpec ident="desc" module="core" mode="replace">
           <content>
-            <elementRef key="choice"/>
-            <elementRef key="date"/>
-            <elementRef key="persName"/>
-            <elementRef key="placeName"/>
+            <sequence minOccurs="0" maxOccurs="unbounded" preserveOrder="false">
+              <textNode/>
+              <elementRef key="choice" minOccurs="0" maxOccurs="unbounded"/>
+              <elementRef key="date" minOccurs="0" maxOccurs="unbounded"/>
+              <elementRef key="persName" minOccurs="0" maxOccurs="unbounded"/>
+              <elementRef key="placeName" minOccurs="0" maxOccurs="unbounded"/>
+              <elementRef key="orgName" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
           </content>
           <remarks>
             <p>This customization does not allow attributes on the desc element. It also restricts child elements to choice, date, persName, and placeName.</p>
