@@ -320,13 +320,15 @@
           </remarks>
         </elementSpec>
         
-        <elementSpec ident="desc" module="core" mode="change">
-          <classes mode="replace">
-            <memberOf key="model.descLike"/>
-            <memberOf key="model.labelLike"/>
-          </classes>
+        <elementSpec ident="desc" module="core" mode="replace">
+          <content>
+            <elementRef key="choice"/>
+            <elementRef key="date"/>
+            <elementRef key="persName"/>
+            <elementRef key="placeName"/>
+          </content>
           <remarks>
-            <p>This customization does not allow attributes on the desc element.</p>
+            <p>This customization does not allow attributes on the desc element. It also restricts child elements to choice, date, persName, and placeName.</p>
           </remarks>
         </elementSpec>
         
@@ -420,9 +422,10 @@
         <elementSpec ident="listEvent" module="namesdates" mode="replace">
           <content>
             <elementRef key="event" minOccurs="1" maxOccurs="1"/>
+            <elementRef key="listRelation" minOccurs="0" maxOccurs="1"/>
           </content>
           <remarks>
-            <p>This customization removes listEvent from all attribute and model classes and makes the event element the only acceptable child of listEvent.</p>
+            <p>This customization removes listEvent from all attribute and model classes. It requires listEvent to have a child event element. It also makes the listRelation element available as a child element of listEvent which SPEAR uses when the event factoid has a relationship to another event factoid in SPEAR.</p>
           </remarks>
         </elementSpec>
         
@@ -769,6 +772,8 @@
                 <valItem ident="syriaca:CommuneTogether"/>
                 <valItem ident="syriaca:EpistolaryReferenceTo"/>
                 <valItem ident="syriaca:FellowClergy"/>
+                <valItem ident="syriaca:CloseConnection"></valItem>
+                <valItem ident="syriaca:SameAs"></valItem>
               </valList>
             </attDef>
             <attDef ident="type" mode="add" usage="opt">
@@ -806,6 +811,7 @@
                 <valItem ident="professional"></valItem>
                 <valItem ident="religious"></valItem>
                 <valItem ident="slavery"></valItem>
+                <valItem ident="event"></valItem>
               </valList>
             </attDef>
             <attDef ident="mutual" mode="change" usage="opt">
