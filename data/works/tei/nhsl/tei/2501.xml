@@ -160,10 +160,15 @@
                     The text content of the date element should be a human-readable date.
                     @type specifies the stage in the text's production that the date refers to. Currently accepted values include "original-composition", 
                     "revision", and "translation" but may be expanded in the future. -->
-                <date notBefore="1240" notAfter="1286" type="original-composition">13th century</date>
+                <date notBefore="1240" notAfter="1286" type="original-composition">mid-late 13th century</date>
                 <!-- If the work has internal divisions or some kind of statistics are available about the number of words, and so on, 
                     these can be included in one or more <measure> elements inside a single <extent>, using whatever units are avaiable.  -->
-                <extent><measure quantity="2" unit="part">2 parts</measure></extent>
+                <extent>
+                    <measure quantity="2" unit="part">2 parts</measure>
+                    <measure quantity="11" unit="chapter">11 chapters</measure>
+                    <measure quantity="200" unit="ff">approximately 200 folios</measure>
+                    <measure quantity="550" unit="pp">approximately 550 pages</measure>
+                </extent>
                 <!-- The abstract provides the most general brief (1-3 sentence) description of the work. 
                     It can contain links to other entities using persName/@ref, placeName/@ref, and bibl/ptr/@target -->
                 <note type="abstract" xml:lang="en" source="#bib2501-8 #bib2501-14">The first part of <persName ref="http://syriaca.org/person/239">Bar Hebraeus</persName>' 
@@ -202,7 +207,7 @@
                     <title level="m" xml:lang="la">Chronicon Syriacum</title>
                     <ptr target="http://syriaca.org/bibl/2279"/>
                     <citedRange unit="vol" from="2" to="2">2</citedRange>
-                    <note>Includes continuation to the year 1297.</note>
+                    <note type="content">Includes continuation to the year 1297.</note>
                     <!-- One or more relations are included to show, e.g., which manuscripts were the basis for the edition. 
                     URIs in @passive | @active | @mutual refer to bibliographic references in this document. 
                     @type is for categorizing the relation for display, while @ref should contain an RDF property. 
@@ -215,7 +220,7 @@
                 <bibl type="lawd:Edition" xml:id="bib2501-2">
                     <title level="m" xml:lang="la">Chronicon Syriacum</title>
                     <ptr target="http://syriaca.org/bibl/2280"/>
-                    <note>Includes continuation to the year 1297.</note>
+                    <note type="content">Includes continuation to the year 1297.</note>
                     <listRelation>
                         <relation type="mssWitnesses" active="#bib2501-2" ref="dct:source" passive="#bib2501-1" source="#bib2501-7">
                             <desc>With corrections from unspecified manuscripts</desc>
@@ -227,7 +232,6 @@
                     <title level="m" xml:lang="en">The Chronography of Bar Hebraeus</title>
                     <ptr target="http://syriaca.org/bibl/2281"/>
                     <citedRange unit="vol" from="2" to="2">2</citedRange>
-                    <note>A facsimile of Oxford, Bodleian Library, MS Huntingdon 52</note>
                     <listRelation>
                         <relation type="mssWitnesses" active="#bib2501-3" ref="dct:source" passive="#bib2501-15" source="#bib2501-3 #bib2501-7">
                             <desc>Facsimile</desc>
@@ -239,13 +243,13 @@
                     <title level="m" xml:lang="de">Ankuendigung und Probe einer neuen kritischen Ausgabe und neuen Uebersetzung der Syrischen Chronik des Gregor Bar-Hebraeus</title>
                     <ptr target="http://syriaca.org/bibl/2282"/>
                     <citedRange unit="pp" from="1" to="4">1-4 (Syr.)</citedRange>
-                    <note>Contains only the first few pages of the Chronicle.</note>
+                    <note type="content">Contains only the first few pages of the Chronicle.</note>
                 </bibl>
                 <bibl type="lawd:Edition" xml:id="bib2501-11">
                     <title level="m" xml:lang="la">De rebus gestis Richardi Angliæ regis in Palæstina: Excerptum ex Gregorii Abulpharagii chronico syriaco</title>
                     <ptr target="http://syriaca.org/bibl/2283"/>
                     <citedRange unit="pp">I-XI (Syr.)</citedRange>
-                    <note>Contains a short excerpt from the Chronicle.</note>
+                    <note type="content">Contains a short excerpt from the Chronicle.</note>
                 </bibl>
                 <bibl type="lawd:Edition" xml:id="bib2501-13">
                     <title level="m" xml:lang="syr-Syrj">ܡܰܟܬܒܢܽܘܬ ܙܰܒܢ̈ܶܐ ܕܥܠܡܐ</title>
@@ -290,7 +294,7 @@
                 <bibl type="syriaca:Manuscript" xml:id="bib2501-26" source="#bib2501-27">
                     <idno type="shelfmark">Vatican, Sir. 383</idno>
                     <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
-                    <note>This manuscript contains the beginning of the chronicle through the year A.D. 1034 (A.G. 1346).</note>
+                    <note type="content">This manuscript contains the beginning of the chronicle through the year A.D. 1034 (A.G. 1346).</note>
                     <listRelation>
                         <relation active="#bib2501-26" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -298,7 +302,7 @@
                 <bibl type="syriaca:Manuscript" xml:id="bib2501-28" source="#bib2501-27">
                     <idno type="shelfmark">Vatican, Sir. 384</idno>
                     <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
-                    <note>This manuscript is a continuation of Vat. sir. 383, from the years A.D. 1035 (A.G. 1347) to A.D. 1201 (A.G. 1513).</note>
+                    <note type="content">This manuscript is a continuation of Vat. sir. 383, from the years A.D. 1035 (A.G. 1347) to A.D. 1201 (A.G. 1513).</note>
                     <listRelation>
                         <relation active="#bib2501-28" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -306,7 +310,7 @@
                 <bibl type="syriaca:Manuscript" xml:id="bib2501-30" source="#bib2501-27">
                     <idno type="shelfmark">Vatican, Sir. 385</idno>
                     <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
-                    <note>This manuscript is a continuation of Vat. sir. 384, from the years A.D. 1202 (A.G. 1514) to A.D. 1288 (A.G. 1600).</note>
+                    <note type="content">This manuscript is a continuation of Vat. sir. 384, from the years A.D. 1202 (A.G. 1514) to A.D. 1288 (A.G. 1600).</note>
                     <listRelation>
                         <relation active="#bib2501-30" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -314,7 +318,7 @@
                 <bibl type="syriaca:Manuscript" xml:id="bib2501-32" source="#bib2501-33">
                     <idno type="shelfmark">Firenze BML Or. 366</idno>
                     <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
-                    <note>Assemani does not mention which folios part 1 comprises.</note>
+                    <note type="content">Assemani does not mention which folios part 1 comprises.</note>
                     <listRelation>
                         <relation active="#bib2501-32" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -359,7 +363,7 @@
                     <title level="m" xml:lang="en">The Chronography of Bar Hebraeus</title>
                     <ptr target="http://syriaca.org/bibl/2281"/>
                     <citedRange unit="vol" from="1" to="1">1</citedRange>
-                    <note source="#bib2501-8">Wilmshurst calls this <quote>a clotted English translation ... which has not yet been replaced by anything better.</quote></note>
+                    <note type="misc" source="#bib2501-8">Wilmshurst calls this <quote>a clotted English translation ... which has not yet been replaced by anything better.</quote></note>
                     <listRelation>
                         <relation type="translationSource" active="#bib2501-5" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
                         <relation active="#bib2501-5" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
@@ -370,7 +374,7 @@
                     <title level="m" xml:lang="de">Ankuendigung und Probe einer neuen kritischen Ausgabe und neuen Uebersetzung der Syrischen Chronik des Gregor Bar-Hebraeus</title>
                     <ptr target="http://syriaca.org/bibl/2282"/>
                     <citedRange unit="pp" from="1" to="4">1-4 (Lat.)</citedRange>
-                    <note>Contains only the first few pages of the Chronicle.</note>
+                    <note type="content">Contains only the first few pages of the Chronicle.</note>
                     <listRelation>
                         <relation active="#bib2501-10" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -380,7 +384,7 @@
                     <title level="m" xml:lang="la">De rebus gestis Richardi Angliæ regis in Palæstina: Excerptum ex Gregorii Abulpharagii chronico syriaco</title>
                     <ptr target="http://syriaca.org/bibl/2283"/>
                     <citedRange unit="pp" from="5" to="11">5-11 (Lat.)</citedRange>
-                    <note>Contains a short excerpt from the Chronicle.</note>
+                    <note type="content">Contains a short excerpt from the Chronicle.</note>
                     <listRelation>
                         <relation active="#bib2501-12" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -389,7 +393,7 @@
                     <lang>ar</lang>
                     <title level="m" xml:lang="ar">تاريخ الدول السرياني‮ ‬تاليف ابي‮ ‬الفرج الملطي</title>
                     <ptr target="http://syriaca.org/bibl/2285"/>
-                    <note>An excerpt beginning at Bejdan 95.4 (Dynasty 10) and continuing to the end.</note>
+                    <note type="content">An excerpt beginning at Bejdan 95.4 (Dynasty 10) and continuing to the end.</note>
                     <listRelation>
                         <relation type="translationSource" active="#bib2501-17" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
                         <relation active="#bib2501-17" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
@@ -399,7 +403,7 @@
                     <lang>ar</lang>
                     <title level="m" xml:lang="ar">تاريخ الزمان</title>
                     <ptr target="http://syriaca.org/bibl/2286"/>
-                    <note>This is a republication of Ishaq Armalet's translation in al-Mashriq, but starts at Bedjan, page 122 
+                    <note type="content">This is a republication of Ishaq Armalet's translation in al-Mashriq, but starts at Bedjan, page 122 
                     regarding Abū al-ʿAbbās and has an added introduction by Fiey.</note>
                     <listRelation>
                         <relation type="translationSource" active="#bib2501-18" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
@@ -410,7 +414,6 @@
                     <lang>tr</lang>
                     <title level="m" xml:lang="tr">Abûʼl Farac tarı̇hı̇</title>
                     <ptr target="http://syriaca.org/bibl/2287"/>
-                    <note>A translation of Budge's translation.</note>
                     <listRelation>
                         <relation type="translationSource" active="#bib2501-19" ref="dct:source" passive="#bib2501-5" source="#bib2501-7"/>
                         <relation active="#bib2501-19" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
@@ -421,7 +424,7 @@
                     <title level="m" xml:lang="ru">Сирийские источники XII-XIII вв. об Азербайджане</title>
                     <ptr target="http://syriaca.org/bibl/2288"/>
                     <citedRange unit="pp" from="61" to="83">61-83</citedRange>
-                    <note>Excerpts</note>
+                    <note type="content">Excerpts</note>
                     <listRelation>
                         <relation active="#bib2501-20" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -431,7 +434,7 @@
                     <title level="m" xml:lang="it">Confronto tra il Taʾrīḫ muḫtaṣar ad-duwal e il Chonicon Syriacum di Abū l-Farağ Ibn al-ʿIbrī (Barebreo)</title>
                     <ptr target="http://syriaca.org/bibl/2289"/>
                     <citedRange unit="pp" from="53" to="166">53-166</citedRange>
-                    <note>Excerpts of parts corresponding to Bedjan 263.25-408.2 (the period of 1097-1203)</note>
+                    <note type="content">Excerpts of parts corresponding to Bedjan 263.25-408.2 (the period of 1097-1203)</note>
                     <listRelation>
                         <relation active="#bib2501-21" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
                     </listRelation>
@@ -450,7 +453,7 @@
                     <ptr target="http://syriaca.org/bibl/2278"/>
                     <citedRange unit="pp" from="74" to="76">74-76</citedRange>
                     <citedRange unit="pp" from="277" to="288">277-288</citedRange>
-                    <note>See here for additional secondary literature on the Chronicle and other editions/translations.</note>
+                    <note type="misc">See here for additional secondary literature on the Chronicle and other editions/translations.</note>
                 </bibl>
                 <bibl type="lawd:Citation" xml:id="bib2501-8">
                     <title level="m" xml:lang="en">The Ecclesiastical Chronicle: An English translation</title>
@@ -511,7 +514,7 @@
                         <!-- If the placement of this work within a larger work follows a certain order, use a label with human-readable text content plus 
                             @type="order", @subtype with the unit, and @n with the machine-readable number. If there are multiple orders that differ by source 
                             (e.g., a different arrangement in manuscripts or editions), use multiple labels and include @source attributes. -->
-                        <desc><label type="order" subtype="part" n="1">part 1</label><label></label></desc>
+                        <desc><label type="order" subtype="part" n="1">part 1</label></desc>
                     </relation>
                 </listRelation>
             </bibl>
