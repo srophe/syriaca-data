@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Miles, Aboursam and Sinay (text) — <foreign xml:lang="syr">ܡܝܠܣ ܘܐܒܘܪܣܡ ܘܣܝܢܝ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-11-25+01:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -193,6 +197,10 @@
                 <title xml:id="name270-2" xml:lang="fr-x-bhs" source="#bib270-1">Mīles w-ʾĀbūrsām w-Sīnay</title>
                 <title xml:id="name270-3" xml:lang="fr" source="#bib270-1">Milès, Aboursam et Sinay (texte)</title>
                 <title xml:id="name270-4" xml:lang="en" source="#bib270-1" syriaca-tags="#syriaca-headword">Miles, Aboursam and Sinay (text)</title>
+                <idno type="URI">http://syriaca.org/work/270</idno>
+                <idno type="BHS">49</idno>
+                <idno type="BHO">772</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib270-1">
                     <quote>Malgré mon insuffisance je dirai, malgré mon incapacité je raconterai.</quote>
                 </note>
@@ -211,79 +219,100 @@
                 <note xml:lang="fr" type="explicit" source="#bib270-1">
                     <quote>Et ses habitants crurent que, du fait de la bénédiction des os des justes qui y étaient placés, ils n’avaient pas réussi à entrer. Les saints furent couronnés le treize du mois lunaire de Teshrî II.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib270-1" corresp="#bib270-6" n="1" xml:id="bib270-4">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 2</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange unit="pp">260-275</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib270-1" corresp="#bib270-7" n="2" xml:id="bib270-5">
-                        <author>Assemani, S. E.</author>
-                        <title>ASMOO 1</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">66-79</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-6">ms Berlin, Königliche Bibliothek, or. oct. 1257 (Assfalg 27, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 1-23 + d’un ms de Guidi</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-7">ms undetermined. (Assemani used a ms from the Vatican)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-8">ms Vatican, Syr. 160, f. 99-102v (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-9">ms Vatican, Syr. 161, f. 61-64v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-10">ms Londres, British Library, Add. 17204, f. 8-14v (mutilé)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-11">ms Londres, British Library, Add. 14654, f. 3-5</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-12">ms Londres, British Library, Rich. 7200, f. 63-67v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-13">ms Cambridge, University Library, Add. 2020, f. 61-66</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib270-1">
-                    <bibl xml:id="bib270-14">ms Dawra, Monstère chaldéen, cod. 631 (olim Alqosh, Monastère N.-D. des Semences, cod. 218 Vosté)</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib270-1">
-                    <bibl xml:id="bib270-15" xml:lang="hy">
-                        <editor>Լ. Հ .Տեր-Պետրոսյան</editor>
-                        <title>Աբրահամ Խոստովանողի «Վկայք Արեւելիցը» Երևան, 1976</title>
-                        <ptr target="http://syriaca.org/bibl/2078"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib270-1">
-                    <bibl xml:id="bib270-16">
-                        <editor>S. E. Assemani</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">66-79</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/270</idno>
-                <idno type="BHS">49</idno>
-                <idno type="BHO">772</idno>
-                <bibl xml:id="bib270-1">
+                <bibl type="lawd:Edition" source="#bib270-1" xml:id="bib270-4">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 2</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange unit="pp">260-275</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib270-4" ref="dct:source" passive="#bib270-6" source="#bib270-1"/>
+                        <relation active="#bib270-4" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl type='lawd:Edition' source="#bib270-1" xml:id="bib270-5">
+                    <author>Assemani, S. E.</author>
+                    <title>ASMOO 1</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="pp">66-79</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib270-5" ref="dct:source" passive="#bib270-7" source="#bib270-1"/>
+                        <relation active="#bib270-5" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-6" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Berlin, Königliche Bibliothek, or. oct. 1257 (Assfalg 27, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 1-23 + d’un ms de Guidi
+                    <listRelation>
+                        <relation active="#bib270-6" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-7" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms undetermined. (Assemani used a ms from the Vatican)
+                    <listRelation>
+                        <relation active="#bib270-7" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-8" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Vatican, Syr. 160, f. 99-102v (mutilé de la fin)
+                    <listRelation>
+                        <relation active="#bib270-8" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-9" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Vatican, Syr. 161, f. 61-64v
+                    <listRelation>
+                        <relation active="#bib270-9" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-10" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Londres, British Library, Add. 17204, f. 8-14v (mutilé)
+                    <listRelation>
+                        <relation active="#bib270-10" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-11" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Londres, British Library, Add. 14654, f. 3-5
+                    <listRelation>
+                        <relation active="#bib270-11" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-12" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Londres, British Library, Rich. 7200, f. 63-67v
+                    <listRelation>
+                        <relation active="#bib270-12" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-13" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Cambridge, University Library, Add. 2020, f. 61-66
+                    <listRelation>
+                        <relation active="#bib270-13" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-14" xml:lang="en" type="syriaca:Manuscript" source="#bib270-1">ms Dawra, Monstère chaldéen, cod. 631 (olim Alqosh, Monastère N.-D. des Semences, cod. 218 Vosté)
+                    <listRelation>
+                        <relation active="#bib270-14" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-15" xml:lang="hy" type="syriaca:AncientVersion" source="#bib270-1">
+                    <lang>hy</lang>
+                    <editor>Լ. Հ .Տեր-Պետրոսյան</editor>
+                    <title>Աբրահամ Խոստովանողի «Վկայք Արեւելիցը» Երևան, 1976</title>
+                    <ptr target="http://syriaca.org/bibl/2078"/>
+                    <listRelation>
+                        <relation active="#bib270-15" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-16" type="syriaca:ModernTranslation" source="#bib270-1">
+                    <lang>la</lang>
+                    <editor>S. E. Assemani</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="pp">66-79</citedRange>
+                    <listRelation>
+                        <relation active="#bib270-16" ref="lawd:embodies" passive="http://syriaca.org/work/270"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib270-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">49</citedRange>
                 </bibl>
-                <bibl xml:id="bib270-2">
+                <bibl xml:id="bib270-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
                      syriaques</title>
                     <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
@@ -292,7 +321,7 @@
                     <ptr target="http://syriaca.org/bibl/781"/>
                     <citedRange from="213" to="225" unit="pp">213-225</citedRange>
                 </bibl>
-                <bibl xml:id="bib270-3">
+                <bibl xml:id="bib270-3" type="lawd:Citation">
                     <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
                     <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
                     <ptr target="http://syriaca.org/bibl/709"/>
@@ -300,7 +329,7 @@
                     <citedRange from="186" to="187" unit="pp">186-187</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/270" passive="http://syriaca.org/person/1544 http://syriaca.org/person/8" source="#bib270-1"/>
+                    <relation active="http://syriaca.org/work/270" ref="syriaca:commemorated" passive="http://syriaca.org/person/1544 http://syriaca.org/person/8" source="#bib270-1"/>
                 </listRelation>
             </bibl>
         </body>
