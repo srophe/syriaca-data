@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Polycarp of Smyrna (text) — <foreign xml:lang="syr">ܦܘܠܝܩܪܦܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-373" ana="#hagiographic">
+            <bibl xml:id="work-373" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name373-1" xml:lang="syr" source="#bib373-1" syriaca-tags="#syriaca-headword">ܦܘܠܝܩܪܦܘܣ</title>
                 <title xml:id="name373-2" xml:lang="fr-x-bhs" source="#bib373-1">Pōlīqarpōs</title>
                 <title xml:id="name373-3" xml:lang="fr" source="#bib373-1">Polycarpe de Smyrne (texte)</title>
@@ -195,6 +199,11 @@
                 <author xml:lang="fr" source="#bib373-1" ref=""> —   (<persName xml:lang="fr">cité dans <forename>Eusèbe</forename>
                         <addName type="untagged-title">de Césarée</addName>, Hist.
                         Eccl.</persName>)</author>
+                <idno type="URI">http://syriaca.org/work/373</idno>
+                <idno type="BHS">153</idno>
+                <idno type="BHO">998</idno>
+                <idno type="CPG">1045</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib373-1">
                     <quote>ܐܢܛܘܢܝܢܘܣ ܗܘܿ ܕܐܬܩܪܝ ܐܘܣܒܝܣ: ܟܕ ܕܒܪ ܡܠܟܘܬܐ ܥܣܪܝܢ ܘܬܪܬܝܢ ܫܢܝ̈ܢ: ܡܪܩܘܣ ܐܘܪܠܝܘܣ ܘܐܪܘܣ ܐܛܢܘܢܝܢܘܣ ܒܪܗ ܥܡ ܠܘܩܝܣ ܐܚܘܗܝ ܩܒܠ ܒܬܪܗ... ܥܕܬܐ ܕܐܠܗܐ ܕܒܙܡܘܪܢܐ: ܠܐܝܠܝܢ ܕܐܝܬ ܒܦܝܠܘܡܐܠܐ ܘܠܟܠܗܝܢ ܟܢܘ̈ܫܬܐ ܕܐܝܬ ܒܥ̈ܕܬܐ ܩܕܝ̈ܫܬܐ ܕܒܟܠ ܐܬܪ...</quote>
                 </note>
@@ -207,64 +216,70 @@
                 <note xml:lang="fr" type="explicit" source="#bib373-1">
                     <quote>Et sa mémoire est beaucoup plus vive que celle de tous les autres, à tel point que même les païens en parlent.» Telle fut la fin de l’illustre et admirable Polycarpe, disciple des saints apôtres. Les frères de l’Église de Smyrne ont écrit cette histoire.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib373-1" corresp="#bib373-5" n="1" xml:id="bib373-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 6</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">6</citedRange>
-                        <citedRange>p. 56-67</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib373-1" corresp="#bib373-6" n="2" xml:id="bib373-4">
-                        <author>Wright, W., McLean, N.</author>
-                        <title>The Ecclesiastical History of Eusebius in Syriac</title>
-                        <ptr target="http://syriaca.org/bibl/1952"/>
-                        <citedRange>Cambridge, 1898, p. 205-218</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib373-1">
-                    <bibl xml:id="bib373-5">mss Londres, British Library, Add. 14650, f. 73-76v + Add. 14641, f. 146-150 + Add. 14639</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib373-1">
-                    <bibl xml:id="bib373-6">ms Saint-Pétersbourg, Bibliothèque publique Saltykov-Shchedrine, syr. nouv. sér. 1 (Pigulevskaja 24) + ms Londres, British Library, Add. 14639</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib373-1">
-                    <bibl xml:id="bib373-7">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib373-1">
-                    <bibl xml:id="bib373-8">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib373-1">
-                    <bibl xml:id="bib373-9">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib373-1">
-                    <bibl xml:id="bib373-10">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/373</idno>
-                <idno type="BHS">153</idno>
-                <idno type="BHO">998</idno>
-                <idno type="CPG">1045</idno>
-                <bibl xml:id="bib373-1">
+                <bibl type="lawd:Edition" source="#bib373-1" xml:id="bib373-3">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 6</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">6</citedRange>
+                    <citedRange>p. 56-67</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib373-3" ref="dct:source" passive="#bib373-5" source="#bib373-1"/>
+                        <relation active="#bib373-3" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib373-1" xml:id="bib373-4">
+                    <author>Wright, W., McLean, N.</author>
+                    <title>The Ecclesiastical History of Eusebius in Syriac</title>
+                    <ptr target="http://syriaca.org/bibl/1952"/>
+                    <citedRange>Cambridge, 1898, p. 205-218</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib373-4" ref="dct:source" passive="#bib373-6" source="#bib373-1"/>
+                        <relation active="#bib373-4" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib373-5">mss Londres, British Library, Add. 14650, f. 73-76v + Add. 14641, f. 146-150 + Add. 14639<listRelation>
+                        <relation active="#bib373-5" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib373-6">ms Saint-Pétersbourg, Bibliothèque publique Saltykov-Shchedrine, syr. nouv. sér. 1 (Pigulevskaja 24) + ms Londres, British Library, Add. 14639<listRelation>
+                        <relation active="#bib373-6" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib373-7">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib373-7" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib373-8">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib373-8" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib373-9">
+                    <lang>cu</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib373-9" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib373-10">
+                    <lang>cop</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib373-10" ref="lawd:embodies" passive="http://syriaca.org/work/373"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib373-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">153</citedRange>
                 </bibl>
-                <bibl xml:id="bib373-2">
+                <bibl xml:id="bib373-2" type="lawd:Citation">
                     <title xml:lang="nl" level="m">Martyrium Polycarpi. Een literair-kritische
                      studie</title>
                     <title level="s" xml:lang="la">Bibliotheca Ephemeridum theologicarum Lovaniensium</title>
@@ -272,7 +287,7 @@
                     <citedRange from="54" to="54" unit="pp">54</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/373" passive="http://syriaca.org/person/2020" source="#bib373-1"/>
+                    <relation active="http://syriaca.org/work/373" passive="http://syriaca.org/person/2020" source="#bib373-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

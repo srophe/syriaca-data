@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mamas (text) — <foreign xml:lang="syr">ܡܡܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,11 +188,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-388" ana="#hagiographic">
+            <bibl xml:id="work-388" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name388-1" xml:lang="syr" source="#bib388-1" syriaca-tags="#syriaca-headword">ܡܡܐ</title>
                 <title xml:id="name388-2" xml:lang="fr-x-bhs" source="#bib388-1">Māmā</title>
                 <title xml:id="name388-3" xml:lang="fr" source="#bib388-1">Mamas (texte)</title>
                 <title xml:id="name388-4" xml:lang="en" source="#bib388-1" syriaca-tags="#syriaca-headword">Mamas (text)</title>
+                <idno type="URI">http://syriaca.org/work/388</idno>
+                <idno type="BHS">168</idno>
+                <idno type="BHO">589</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="incipit" source="#bib388-1">
                     <quote>Quand sur l’ordre de Dieu le bienheureux Mamas fut monté sur le mont Soulbanos, il regarda vers le ciel et dit: «Seigneur, pourquoi m’as-tu appelé?»</quote>
                 </note>
@@ -198,44 +206,49 @@
                 <note xml:lang="fr" type="explicit" source="#bib388-1">
                     <quote>À ces mots le bienheureux s’endormit dans la paix et pareillement il quitta ce monde-ci pour le monde à venir. Gloire au Père créateur… Amen et amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib388-1" xml:id="bib388-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 6</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">6</citedRange>
-                        <citedRange>p. 445-458</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib388-1">
-                    <bibl xml:id="bib388-3">ms Vatican, Syr. 160, f. 215v-219v (mutilé de la fin avec inversion 218-219)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib388-1">
-                    <bibl xml:id="bib388-4">ms Londres, British Library, Add. 25875, f. 253v-258v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib388-1">
-                    <bibl xml:id="bib388-5">ms Londres, British Library, Add. 14645, f. 364v-370v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib388-1">
-                    <bibl xml:id="bib388-6">ms Paris, Bibliothèque nationale, syr. 234, f. 261-266</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib388-1">
-                    <bibl xml:id="bib388-7">ms Siirt, Évêché chaldéen, cod. 63</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib388-1">
-                    <bibl xml:id="bib388-8">ms Ourmia, Sarau-Shedd 224</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/388</idno>
-                <idno type="BHS">168</idno>
-                <idno type="BHO">589</idno>
-                <bibl xml:id="bib388-1">
+                <bibl type="lawd:Edition" source="#bib388-1" xml:id="bib388-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 6</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">6</citedRange>
+                    <citedRange>p. 445-458</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib388-2" ref="dct:source" passive="" source="#bib388-1"/>
+                        <relation active="#bib388-2" ref="lawd:embodies" passive="http://syriaca.org/work/388"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib388-3">ms Vatican, Syr. 160, f. 215v-219v (mutilé de la fin avec inversion 218-219)<listRelation>
+                        <relation active="#bib388-3" ref="lawd:embodies" passive="http://syriaca.org/work/388"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib388-4">ms Londres, British Library, Add. 25875, f. 253v-258v<listRelation>
+                        <relation active="#bib388-4" ref="lawd:embodies" passive="http://syriaca.org/work/388"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib388-5">ms Londres, British Library, Add. 14645, f. 364v-370v<listRelation>
+                        <relation active="#bib388-5" ref="lawd:embodies" passive="http://syriaca.org/work/388"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib388-6">ms Paris, Bibliothèque nationale, syr. 234, f. 261-266<listRelation>
+                        <relation active="#bib388-6" ref="lawd:embodies" passive="http://syriaca.org/work/388"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib388-7">ms Siirt, Évêché chaldéen, cod. 63<listRelation>
+                        <relation active="#bib388-7" ref="lawd:embodies" passive="http://syriaca.org/work/388"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib388-8">ms Ourmia, Sarau-Shedd 224<listRelation>
+                        <relation active="#bib388-8" ref="lawd:embodies" passive="http://syriaca.org/work/388"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib388-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">168</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/388" passive="http://syriaca.org/person/1352" source="#bib388-1"/>
+                    <relation active="http://syriaca.org/work/388" passive="http://syriaca.org/person/1352" source="#bib388-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

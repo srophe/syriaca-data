@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Ḥimyarite Martyrs (text) — <foreign xml:lang="syr">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-27+02:00">CHANGED: Corrected multiple author and author role info</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-977" ana="#hagiographic">
+            <bibl xml:id="work-977" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name977-1" xml:lang="syr" source="#bib977-1" syriaca-tags="#syriaca-headword">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</title>
                 <title xml:id="name977-2" xml:lang="fr-x-bhs" source="#bib977-1">Sāhdē Ḥmīrāyē</title>
                 <title xml:id="name977-3" xml:lang="fr" source="#bib977-1">Martyrs Himyarites (texte)</title>
@@ -216,6 +220,10 @@
                         <forename>Zacharie</forename>
                         <addName type="untagged-title">le Rhéteur</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/977</idno>
+                <idno type="BHS">787</idno>
+                <idno type="BHO">103</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib977-1">
                     <quote>ܕܒܥܣܪܝܢ ܒܟܢܘܢ ܐܚܪܝ. ܕܗܕܐ ܡܘܕܥܝܢ ܐܢܚܢܢ ܠܚܘܒܟܘܢ ܫܢܬܐ ܕܬܡܢܡܐܐ ܘܬܠܬܝܢ ܘܚܡܫ ܕܝ̈ܘܢܝܐ. ܢܦܩܢܢ ܡܢ ܚܝܪܬܐ ܕܢܥܡܢ. ܥܡ ܐܒܪܗܡ ܩܫܝܫܐ ܒܪ ܐܘܦܪܣ. ܗܢܐ ܕܐܫܬܕܪ ܡܢ ܝܘܣܛܝܢܐ ܡܠܟܐ ܠܘܬ ܡܢܕܪ ܕܢܥܒܕ ܫܝܢܐ.</quote>
                 </note>
@@ -228,77 +236,87 @@
                 <note xml:lang="fr" type="explicit" source="#bib977-1">
                     <quote>Et que les chefs des prêtres de Tibériade soient tenus et obligés d’envoyer un ordre à ce roi juif apparu pour qu’il fasse cesser le combat et la persécution du pays des Himyarites.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib977-1" corresp="#bib977-5" n="1" xml:id="bib977-2">
-                        <author>Brooks, E. W.</author>
-                        <title>Historia ecclesiastica Zachariae rhetori vulgo adscripta 2</title>
-                        <ptr target="http://syriaca.org/bibl/2089"/>
-                        <citedRange>Louvain, 1953, p. 64-74</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib977-1" corresp="#bib977-6" n="2" xml:id="bib977-3">
-                        <author>Mai, A.</author>
-                        <title>Scriptorum veterum nova collectio 10</title>
-                        <ptr target="http://syriaca.org/bibl/1868"/>
-                        <citedRange unit="vol">10</citedRange>
-                        <citedRange>p. 348-353</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib977-1" corresp="#bib977-7" n="3" xml:id="bib977-4">
-                        <author>Land, J. P. N.</author>
-                        <title>Zachariae episcopi Mitylenes aliorumque scripta historica Graece plerumque deperdita (Anecdota Syriaca 3)</title>
-                        <ptr target="http://syriaca.org/bibl/1840"/>
-                        <citedRange>Leiden, 1870, p.235-243</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib977-1">
-                    <bibl xml:id="bib977-5">mss Londres, British Library, Add. 17202, f. 134-138v + Add. 14641, f. 157-160 + ms Vatican, Syr. 145, f. 91v-95v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib977-1">
-                    <bibl xml:id="bib977-6">ms Vatican, Syr. ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib977-1">
-                    <bibl xml:id="bib977-7">ms Londres, British Library, Add. 17202, f. 134-138v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib977-1">
-                    <bibl xml:id="bib977-8">ms Vatican, Syr. 380, f. 136v-145</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib977-1">
-                    <bibl xml:id="bib977-9">ms Leiden, Rijksuniversiteit, or. 2356 (cod. 1640)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib977-1">
-                    <bibl xml:id="bib977-10">
-                        <editor>A. Mai</editor>
-                        <note>= Assemani</note>
-                        <ptr target="http://syriaca.org/bibl/1868"/>
-                        <citedRange unit="vol">10</citedRange>
-                        <citedRange unit="pp">376-382</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib977-1">
-                    <bibl xml:id="bib977-11">
-                        <editor>F.J. Hamilton et E.W. Brooks</editor>
-                        <title>The Syriac
+                <bibl type="lawd:Edition" source="#bib977-1" xml:id="bib977-2">
+                    <author>Brooks, E. W.</author>
+                    <title>Historia ecclesiastica Zachariae rhetori vulgo adscripta 2</title>
+                    <ptr target="http://syriaca.org/bibl/2089"/>
+                    <citedRange>Louvain, 1953, p. 64-74</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib977-2" ref="dct:source" passive="#bib977-5" source="#bib977-1"/>
+                        <relation active="#bib977-2" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib977-1" xml:id="bib977-3">
+                    <author>Mai, A.</author>
+                    <title>Scriptorum veterum nova collectio 10</title>
+                    <ptr target="http://syriaca.org/bibl/1868"/>
+                    <citedRange unit="vol">10</citedRange>
+                    <citedRange>p. 348-353</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib977-3" ref="dct:source" passive="#bib977-6" source="#bib977-1"/>
+                        <relation active="#bib977-3" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib977-1" xml:id="bib977-4">
+                    <author>Land, J. P. N.</author>
+                    <title>Zachariae episcopi Mitylenes aliorumque scripta historica Graece plerumque deperdita (Anecdota Syriaca 3)</title>
+                    <ptr target="http://syriaca.org/bibl/1840"/>
+                    <citedRange>Leiden, 1870, p.235-243</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib977-4" ref="dct:source" passive="#bib977-7" source="#bib977-1"/>
+                        <relation active="#bib977-4" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib977-5">mss Londres, British Library, Add. 17202, f. 134-138v + Add. 14641, f. 157-160 + ms Vatican, Syr. 145, f. 91v-95v<listRelation>
+                        <relation active="#bib977-5" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib977-6">ms Vatican, Syr. ?<listRelation>
+                        <relation active="#bib977-6" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib977-7">ms Londres, British Library, Add. 17202, f. 134-138v<listRelation>
+                        <relation active="#bib977-7" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib977-8">ms Vatican, Syr. 380, f. 136v-145<listRelation>
+                        <relation active="#bib977-8" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib977-9">ms Leiden, Rijksuniversiteit, or. 2356 (cod. 1640)<listRelation>
+                        <relation active="#bib977-9" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib977-10">
+                    <lang>la</lang>
+                    <editor>A. Mai</editor>
+                    <note>= Assemani</note>
+                    <ptr target="http://syriaca.org/bibl/1868"/>
+                    <citedRange unit="vol">10</citedRange>
+                    <citedRange unit="pp">376-382</citedRange>
+                    <listRelation>
+                        <relation active="#bib977-10" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib977-11">
+                    <lang>en</lang>
+                    <editor>F.J. Hamilton et E.W. Brooks</editor>
+                    <title>The Syriac
                 Chronicle Known as that of Zachariah of Mitylene, Londres, 1899</title>
-                        <ptr target="http://syriaca.org/bibl/1986"/>
-                        <citedRange unit="pp">192-202</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/977</idno>
-                <idno type="BHS">787</idno>
-                <idno type="BHO">103</idno>
-                <bibl xml:id="bib977-1">
+                    <ptr target="http://syriaca.org/bibl/1986"/>
+                    <citedRange unit="pp">192-202</citedRange>
+                    <listRelation>
+                        <relation active="#bib977-11" ref="lawd:embodies" passive="http://syriaca.org/work/977"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib977-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">787</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/977" passive="http://syriaca.org/person/1907" source="#bib977-1"/>
+                    <relation active="http://syriaca.org/work/977" passive="http://syriaca.org/person/1907" source="#bib977-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

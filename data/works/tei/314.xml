@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Bishoi (text) — <foreign xml:lang="syr">ܒܝܫܘܝ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-314" ana="#hagiographic">
+            <bibl xml:id="work-314" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name314-1" xml:lang="syr" source="#bib314-1" syriaca-tags="#syriaca-headword">ܒܝܫܘܝ</title>
                 <title xml:id="name314-2" xml:lang="fr-x-bhs" source="#bib314-1">Bīšōy</title>
                 <title xml:id="name314-3" xml:lang="fr" source="#bib314-1">Bishoï (texte)</title>
                 <title xml:id="name314-4" xml:lang="en" source="#bib314-1" syriaca-tags="#syriaca-headword">Bishoi (text)</title>
+                <idno type="URI">http://syriaca.org/work/314</idno>
+                <idno type="BHS">94</idno>
+                <idno type="BHO">182</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib314-1">
                     <quote>Mes frères dans le Christ et mes bien-aimés en Dieu, écoutez-moi commencer le récit des hauts faits vertueux de la vie du notre saint Père Abba Bîshôy</quote>
                 </note>
@@ -208,47 +216,50 @@
                 <note xml:lang="fr" type="explicit" source="#bib314-1">
                     <quote>Il accomplit la plus grande partie de ses actions en cachette pour qu’elles ne soient pas connues; mais celles qui furent connues et dont il sera fait mémoire à jamais sont peu nombreuses, que les ascètes ou moines vertueux ont atteintes, eux qui se sont approchés de Dieu grâce à lui dans ce désert.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib314-1" corresp="#bib314-6" n="1" xml:id="bib314-4">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>p. 572-619</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib314-1" corresp="#bib314-7" n="2" xml:id="bib314-5">
-                        <author>Scheil, V.</author>
-                        <title>Restitution de deux textes dans le récit syriaque de la vie de Mar Bischoï (ed. Bedjan)</title>
-                        <ptr target="http://syriaca.org/bibl/1900"/>
-                        <citedRange>p. 103-106</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib314-1">
-                    <bibl xml:id="bib314-6">ms de Perse</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib314-1">
-                    <bibl xml:id="bib314-7">ms Karakosch ?</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/314</idno>
-                <idno type="BHS">94</idno>
-                <idno type="BHO">182</idno>
-                <bibl xml:id="bib314-1">
+                <bibl type="lawd:Edition" source="#bib314-1" xml:id="bib314-4">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>p. 572-619</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib314-4" ref="dct:source" passive="#bib314-6" source="#bib314-1"/>
+                        <relation active="#bib314-4" ref="lawd:embodies" passive="http://syriaca.org/work/314"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib314-1" xml:id="bib314-5">
+                    <author>Scheil, V.</author>
+                    <title>Restitution de deux textes dans le récit syriaque de la vie de Mar Bischoï (ed. Bedjan)</title>
+                    <ptr target="http://syriaca.org/bibl/1900"/>
+                    <citedRange>p. 103-106</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib314-5" ref="dct:source" passive="#bib314-7" source="#bib314-1"/>
+                        <relation active="#bib314-5" ref="lawd:embodies" passive="http://syriaca.org/work/314"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib314-6">ms de Perse<listRelation>
+                        <relation active="#bib314-6" ref="lawd:embodies" passive="http://syriaca.org/work/314"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib314-7">ms Karakosch ?<listRelation>
+                        <relation active="#bib314-7" ref="lawd:embodies" passive="http://syriaca.org/work/314"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib314-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">94</citedRange>
                 </bibl>
-                <bibl xml:id="bib314-2">
+                <bibl xml:id="bib314-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Pishay, anachorète. Une commémoraison peu connue du calendrier de l’Eglise syrienne d’Antioche</title>
                     <title xml:lang="fr" level="j">L’Orient Syrien</title>
                     <ptr target="http://syriaca.org/bibl/914"/>
                     <citedRange unit="pp" from="255" to="259">255-258</citedRange>
                 </bibl>
-                <bibl xml:id="bib314-3">Une commémoraison peu connue du calendrier de l’Église syrienne d’Antioche, dans OS, 7 (1962), p. 255-258</bibl>
+                <bibl xml:id="bib314-3" type="lawd:Citation">Une commémoraison peu connue du calendrier de l’Église syrienne d’Antioche, dans OS, 7 (1962), p. 255-258</bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/314" passive="http://syriaca.org/person/1175" source="#bib314-1"/>
+                    <relation active="http://syriaca.org/work/314" passive="http://syriaca.org/person/1175" source="#bib314-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

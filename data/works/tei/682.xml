@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Severus of Antioch (text) — <foreign xml:lang="syr">ܣܐܘܝܪܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-682" ana="#hagiographic">
+            <bibl xml:id="work-682" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name682-1" xml:lang="syr" source="#bib682-1" syriaca-tags="#syriaca-headword">ܣܐܘܝܪܐ</title>
                 <title xml:id="name682-2" xml:lang="fr-x-bhs" source="#bib682-1">Sēwērā</title>
                 <title xml:id="name682-3" xml:lang="fr" source="#bib682-1">Sévère d’Antioche (texte)</title>
@@ -203,6 +207,10 @@
                         <forename>Zacharie</forename>
                         <addName type="untagged-title">le Rhéteur</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/682</idno>
+                <idno type="BHS">466</idno>
+                <idno type="BHO">1060</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib682-1">
                     <quote>D’où viens-tu vers nous, âmi et compagnon? De la stoa royale, homme admirable, je suis venu jusqu’à toi en désirant m’instruire à propos de ce que je veux te demander.</quote>
                 </note>
@@ -221,66 +229,70 @@
                 <note xml:lang="fr" type="explicit" source="#bib682-1">
                     <quote>Je mettrai un terme à ce récit que j’ai fait, exhorté par toi, pour la gloire de notre grand Dieu et de notre Sauveur Jésus-Christ, qui est la matière, le début et la fin de toute crainte de Dieu et de toute histoire vraie.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib682-1" corresp="#bib682-7" n="1" xml:id="bib682-5">
-                        <author>Kugener, M.-A.</author>
-                        <title>Vie de Sévère par Zacharie le Scholastique</title>
-                        <ptr target="http://syriaca.org/bibl/1855"/>
-                        <citedRange>Paris, 1903, p. 7-115</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib682-1" corresp="#bib682-9" n="2" xml:id="bib682-6">
-                        <author>Spanuth, J.</author>
-                        <title>Zacharias Rhetor: das Leben des Severus von Antiochien in syrischer Uebersetzung</title>
-                        <ptr target="http://syriaca.org/bibl/1934"/>
-                        <citedRange>Göttingen, 1893, p. 1-31</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib682-1">
-                    <bibl xml:id="bib682-7"> et (2): ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 109-135</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib682-1">
-                    <bibl xml:id="bib682-8">
-                        <editor>M.-A. Kugener</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1855"/>
-                        <citedRange>Paris, 1903, p. 7-115</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib682-9">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/682</idno>
-                <idno type="BHS">466</idno>
-                <idno type="BHO">1060</idno>
-                <bibl xml:id="bib682-1">
+                <bibl type="lawd:Edition" source="#bib682-1" xml:id="bib682-5">
+                    <author>Kugener, M.-A.</author>
+                    <title>Vie de Sévère par Zacharie le Scholastique</title>
+                    <ptr target="http://syriaca.org/bibl/1855"/>
+                    <citedRange>Paris, 1903, p. 7-115</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib682-5" ref="dct:source" passive="#bib682-7" source="#bib682-1"/>
+                        <relation active="#bib682-5" ref="lawd:embodies" passive="http://syriaca.org/work/682"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib682-1" xml:id="bib682-6">
+                    <author>Spanuth, J.</author>
+                    <title>Zacharias Rhetor: das Leben des Severus von Antiochien in syrischer Uebersetzung</title>
+                    <ptr target="http://syriaca.org/bibl/1934"/>
+                    <citedRange>Göttingen, 1893, p. 1-31</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib682-6" ref="dct:source" passive="#bib682-9" source="#bib682-1"/>
+                        <relation active="#bib682-6" ref="lawd:embodies" passive="http://syriaca.org/work/682"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib682-7"> et (2): ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 109-135<listRelation>
+                        <relation active="#bib682-7" ref="lawd:embodies" passive="http://syriaca.org/work/682"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib682-8">
+                    <lang>fr</lang>
+                    <editor>M.-A. Kugener</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1855"/>
+                    <citedRange>Paris, 1903, p. 7-115</citedRange>
+                    <listRelation>
+                        <relation active="#bib682-8" ref="lawd:embodies" passive="http://syriaca.org/work/682"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib682-9">The manuscript witnesses for edition 2 are undetermined.<listRelation>
+                        <relation active="#bib682-9" ref="lawd:embodies" passive="http://syriaca.org/work/682"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib682-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">466</citedRange>
                 </bibl>
-                <bibl xml:id="bib682-2">
+                <bibl xml:id="bib682-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">CR de l’éd. de Kugener</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/833"/>
                     <citedRange from="151" to="152" unit="pp">151-152</citedRange>
                 </bibl>
-                <bibl xml:id="bib682-3">
+                <bibl xml:id="bib682-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">Peter the Iberian and his Biographers</title>
                     <title xml:lang="en" level="j">Journal of Ecclesiastical History</title>
                     <ptr target="http://syriaca.org/bibl/750"/>
                     <citedRange from="158" to="168" unit="pp">158-168</citedRange>
                 </bibl>
-                <bibl xml:id="bib682-4">
+                <bibl xml:id="bib682-4" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de Lang</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/751"/>
                     <citedRange from="385" to="388" unit="pp">385-388</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/682" passive="http://syriaca.org/person/51" source="#bib682-1"/>
+                    <relation active="http://syriaca.org/work/682" passive="http://syriaca.org/person/51" source="#bib682-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

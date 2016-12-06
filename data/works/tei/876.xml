@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Flavian (text) — <foreign xml:lang="syr">ܦܠܘܝܢܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-876" ana="#hagiographic">
+            <bibl xml:id="work-876" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name876-1" xml:lang="syr" source="#bib876-1" syriaca-tags="#syriaca-headword">ܦܠܘܝܢܘܣ</title>
                 <title xml:id="name876-2" xml:lang="fr-x-bhs" source="#bib876-1">Plawīyanōs</title>
                 <title xml:id="name876-3" xml:lang="fr" source="#bib876-1">Flavien (texte)</title>
@@ -203,6 +207,9 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Barhadbechabba Arbaya</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/876</idno>
+                <idno type="BHS">670</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib876-1">
                     <quote>Bien que nous ne puissions pas dire les exploits de saint Flavien, évêque d’Antioche, et sa vertu de choix tels qu’ils sont — premièrement à cause de notre faiblesse, deuxièmement à cause de sa grandeur, et troisièmement parce que nous n’avons même pas trouvé en un recueil l’histoire de sa vie et des ses exploits — cependant, confiants dans les prières des hommes vaillants, nous essayerons de les montrer brièvement.</quote>
                 </note>
@@ -221,36 +228,38 @@
                 <note xml:lang="fr" type="explicit" source="#bib876-1">
                     <quote>Par la suite il administra son Église dans la paix et la tranquillité, sans qu’il y eût de satan ni d’événement malheureux. Cex exemples de la vertu du bienheureux Flavien suffisent car nous ne pouvons pas les rassembler tous.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib876-1" xml:id="bib876-2">
-                        <author>Nau, F.</author>
-                        <title>Barhadbe¯abba æArbaïa, Histoire ecclésiastique (Ière partie)</title>
-                        <ptr target="http://syriaca.org/bibl/1935"/>
-                        <citedRange>Turnhout, 1977, p. 305 [129] - 314 [138]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib876-1">
-                    <bibl xml:id="bib876-3">ms Londres, British Library, Or. 6714, f. 136v-139</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib876-1">
-                    <bibl xml:id="bib876-4">
-                        <editor>F. Nau</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1935"/>
-                        <citedRange>Turnhout, 1977, p. 305 [129] - 314 [138]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/876</idno>
-                <idno type="BHS">670</idno>
-                <bibl xml:id="bib876-1">
+                <bibl type="lawd:Edition" source="#bib876-1" xml:id="bib876-2">
+                    <author>Nau, F.</author>
+                    <title>Barhadbe¯abba æArbaïa, Histoire ecclésiastique (Ière partie)</title>
+                    <ptr target="http://syriaca.org/bibl/1935"/>
+                    <citedRange>Turnhout, 1977, p. 305 [129] - 314 [138]</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib876-2" ref="dct:source" passive="" source="#bib876-1"/>
+                        <relation active="#bib876-2" ref="lawd:embodies" passive="http://syriaca.org/work/876"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib876-3">ms Londres, British Library, Or. 6714, f. 136v-139<listRelation>
+                        <relation active="#bib876-3" ref="lawd:embodies" passive="http://syriaca.org/work/876"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib876-4">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1935"/>
+                    <citedRange>Turnhout, 1977, p. 305 [129] - 314 [138]</citedRange>
+                    <listRelation>
+                        <relation active="#bib876-4" ref="lawd:embodies" passive="http://syriaca.org/work/876"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib876-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">670</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/876" passive="http://syriaca.org/person/1737" source="#bib876-1"/>
+                    <relation active="http://syriaca.org/work/876" passive="http://syriaca.org/person/1737" source="#bib876-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

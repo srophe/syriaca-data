@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Maccabees (text) — <foreign xml:lang="syr">ܡܩܒ̈ܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,11 +190,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-968" ana="#hagiographic">
+            <bibl xml:id="work-968" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name968-1" xml:lang="syr" source="#bib968-1" syriaca-tags="#syriaca-headword">ܡܩܒ̈ܝܐ</title>
                 <title xml:id="name968-2" xml:lang="fr-x-bhs" source="#bib968-1">Maqbāyē</title>
                 <title xml:id="name968-3" xml:lang="fr" source="#bib968-1">Macchabées (texte)</title>
                 <title xml:id="name968-4" xml:lang="en" source="#bib968-1" syriaca-tags="#syriaca-headword">The Maccabees (text)</title>
+                <idno type="URI">http://syriaca.org/work/968</idno>
+                <idno type="BHS">775</idno>
+                <idno type="BHO">app</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib968-1">
                     <quote>ܚܒ̈ܝܒܝ̣. ܐܝܬ ܗܘܐ ܒܐܢܛܝܘܟܝܐ ܕܣܘܪܝܐ. ܐܢܬܬܐ ܚܕܐ ܡܢ ܒܢ̈ܝ ܐܝܣܪܐܝܠ. ܕܫܡܗܿ ܡܪܝܡ ܘܫܒ̈ܥܐ ܒܢ̈ܝܗܿ. ܒܝܘ̈ܡܝ ܐܢܛܝܟܘܣ ܚܢܦܐ ܘܪܫܝܥܐ.</quote>
                 </note>
@@ -203,39 +211,40 @@
                 <note xml:lang="fr" type="explicit" source="#bib968-1">
                     <quote>Les trois n’étaient pas plus justes que les sept qui furent sauvés; leur justice fut digne comme leur confession fut digne; mais Dieu détourna les yeux de leurs actes pour que soit proclamée leur vérité. Et les saints furent couronnés le premier jour du mois d’Ab; que par leurs prières nous soyons tous jugés dignes de devenir leurs associés. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib968-1" xml:id="bib968-3">
-                        <author>Bensly, R. L.</author>
-                        <title>The Fourth Book of Maccabees and Kindred Documents in Syriac</title>
-                        <ptr target="http://syriaca.org/bibl/1782"/>
-                        <citedRange>Cambridge, 1895, p. 104-115 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib968-1">
-                    <bibl xml:id="bib968-4">ms Paris, Bibliothèque nationale, syr. 234, f. 274-280v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib968-1">
-                    <bibl xml:id="bib968-5">
-                        <editor>W. E. Barnes</editor>
-                        <title>The Fourth Book of Maccabees and
+                <bibl type="lawd:Edition" source="#bib968-1" xml:id="bib968-3">
+                    <author>Bensly, R. L.</author>
+                    <title>The Fourth Book of Maccabees and Kindred Documents in Syriac</title>
+                    <ptr target="http://syriaca.org/bibl/1782"/>
+                    <citedRange>Cambridge, 1895, p. 104-115 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib968-3" ref="dct:source" passive="" source="#bib968-1"/>
+                        <relation active="#bib968-3" ref="lawd:embodies" passive="http://syriaca.org/work/968"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib968-4">ms Paris, Bibliothèque nationale, syr. 234, f. 274-280v<listRelation>
+                        <relation active="#bib968-4" ref="lawd:embodies" passive="http://syriaca.org/work/968"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib968-5">
+                    <lang>en</lang>
+                    <editor>W. E. Barnes</editor>
+                    <title>The Fourth Book of Maccabees and
                             Kindred Documents in Syriac</title>
-                        <ptr target="http://syriaca.org/bibl/1782"/>
-                        <pubPlace>Cambridge</pubPlace>
-                        <date>1895</date>
-                        <citedRange unit="pp">xxxv-xliv</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/968</idno>
-                <idno type="BHS">775</idno>
-                <idno type="BHO">app</idno>
-                <bibl xml:id="bib968-1">
+                    <ptr target="http://syriaca.org/bibl/1782"/>
+                    <pubPlace>Cambridge</pubPlace>
+                    <date>1895</date>
+                    <citedRange unit="pp">xxxv-xliv</citedRange>
+                    <listRelation>
+                        <relation active="#bib968-5" ref="lawd:embodies" passive="http://syriaca.org/work/968"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib968-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">775</citedRange>
                 </bibl>
-                <bibl xml:id="bib968-2">
+                <bibl xml:id="bib968-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">Mart(y) Shmuni, the Mother of the Maccabean
                      Martyrs, in Syriac Tradition</title>
                     <title level="m" xml:lang="la">VI Symposium Syriacum 1992</title>
@@ -244,10 +253,10 @@
                     <citedRange from="153" to="168" unit="pp">153-168</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/968" passive="http://syriaca.org/person/1858 http://syriaca.org/person/2080" source="#bib968-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/968" passive="http://syriaca.org/person/2080" source="#bib968-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/968" passive="http://syriaca.org/person/1858" source="#bib968-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/968" passive="http://syriaca.org/person/2080" source="#bib968-1"/>
+                    <relation active="http://syriaca.org/work/968" passive="http://syriaca.org/person/1858 http://syriaca.org/person/2080" source="#bib968-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/968" passive="http://syriaca.org/person/2080" source="#bib968-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/968" passive="http://syriaca.org/person/1858" source="#bib968-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/968" passive="http://syriaca.org/person/2080" source="#bib968-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

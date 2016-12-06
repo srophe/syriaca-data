@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Narsai, Son of the Covenant (text) — <foreign xml:lang="syr">ܢܪܣܝ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-332" ana="#hagiographic">
+            <bibl xml:id="work-332" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name332-1" xml:lang="syr" source="#bib332-1" syriaca-tags="#syriaca-headword">ܢܪܣܝ</title>
                 <title xml:id="name332-2" xml:lang="fr-x-bhs" source="#bib332-1">Narsay</title>
                 <title xml:id="name332-3" xml:lang="fr" source="#bib332-1">Narsaï de Séleucie (texte)</title>
                 <title xml:id="name332-4" xml:lang="en" source="#bib332-1" syriaca-tags="#syriaca-headword">Narsai, Son of the Covenant (text)</title>
+                <idno type="URI">http://syriaca.org/work/332</idno>
+                <idno type="BHS">112</idno>
+                <idno type="BHO">786</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib332-1">
                     <quote>ܗܘ ܗܢܐ ܢܪܣܝ ܛܘܒܢܐ: ܩܕܡ ܣܗܕܘܬܗ: ܓܒܪܐ ܗܘ̣ܐ ܢܩܕܐ ܘܩܕܝܫܐ: ܘܓܡܝܪ ܗܘ̣ܐ ܒܐܘܪܚܗ ܘܒܦܘܠܚܢܗ ܕܠܘܬ ܡܫܝܚܐ.</quote>
                 </note>
@@ -204,50 +212,51 @@
                 <note xml:lang="fr" type="explicit" source="#bib332-1">
                     <quote>Et nous apportâmes des ossements de l’illustre athlète trésor de vie et nous les plaçâmes dans le martyrion de Lawarné pour le bienfait et la guérison des hommes. Et nous demandons au Christ… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib332-1" xml:id="bib332-6">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 4</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>p. 170-180</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib332-1">
-                    <bibl xml:id="bib332-7">ms Berlin, Königliche Bibliothek, or. oct. 1257 (Assfalg 27, olim Abbeloos, dein Bedjan copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 158-174 + collation du ms Londres, British Library, Rich. 7200, f. 90-92v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib332-1">
-                    <bibl xml:id="bib332-8">
-                        <editor>O. Braun</editor>
-                        <title>AAPM</title>
-                        <ptr target="http://syriaca.org/bibl/1747"/>
-                        <citedRange unit="pp">142-149</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/332</idno>
-                <idno type="BHS">112</idno>
-                <idno type="BHO">786</idno>
-                <bibl xml:id="bib332-1">
+                <bibl type="lawd:Edition" source="#bib332-1" xml:id="bib332-6">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 4</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange>p. 170-180</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib332-6" ref="dct:source" passive="" source="#bib332-1"/>
+                        <relation active="#bib332-6" ref="lawd:embodies" passive="http://syriaca.org/work/332"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib332-7">ms Berlin, Königliche Bibliothek, or. oct. 1257 (Assfalg 27, olim Abbeloos, dein Bedjan copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 158-174 + collation du ms Londres, British Library, Rich. 7200, f. 90-92v<listRelation>
+                        <relation active="#bib332-7" ref="lawd:embodies" passive="http://syriaca.org/work/332"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib332-8">
+                    <lang>de</lang>
+                    <editor>O. Braun</editor>
+                    <title>AAPM</title>
+                    <ptr target="http://syriaca.org/bibl/1747"/>
+                    <citedRange unit="pp">142-149</citedRange>
+                    <listRelation>
+                        <relation active="#bib332-8" ref="lawd:embodies" passive="http://syriaca.org/work/332"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib332-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">112</citedRange>
                 </bibl>
-                <bibl xml:id="bib332-2">
+                <bibl xml:id="bib332-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Auszüge aus syrischen Akten persischer Märtyrer</title>
                     <title xml:lang="de" level="s">Abhandlungen für die Kunde des Morgenlandes</title>
                     <ptr target="http://syriaca.org/bibl/779"/>
                     <citedRange from="281" to="293" unit="pp">281-293</citedRange>
                 </bibl>
-                <bibl xml:id="bib332-3">
+                <bibl xml:id="bib332-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Abgar hagiographe perse méconnu (début du Ve
                      siècle)</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/908"/>
                     <citedRange from="303" to="328" unit="pp">303-328</citedRange>
                 </bibl>
-                <bibl xml:id="bib332-4">
+                <bibl xml:id="bib332-4" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
                      syriaques</title>
                     <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
@@ -256,7 +265,7 @@
                     <ptr target="http://syriaca.org/bibl/781"/>
                     <citedRange from="213" to="225" unit="pp">213-225</citedRange>
                 </bibl>
-                <bibl xml:id="bib332-5">
+                <bibl xml:id="bib332-5" type="lawd:Citation">
                     <title xml:lang="en" level="a">Impetuous Martyrs ? The Situation of the Persian
                      Christians in the Last Years of Yazdgard I (419-420)</title>
                     <title level="m" xml:lang="fr">Martyrium in Multidisciplinary Perspective. Memorial L.
@@ -266,7 +275,7 @@
                     <citedRange from="363" to="375" unit="pp">363-375</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/332" passive="http://syriaca.org/person/1393" source="#bib332-1"/>
+                    <relation active="http://syriaca.org/work/332" passive="http://syriaca.org/person/1393" source="#bib332-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

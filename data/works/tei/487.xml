@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Malcha the Solitary (text) — <foreign xml:lang="syr">ܡܪܩܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-27+02:00">CHANGED: Corrected multiple author and author role info</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-487" ana="#hagiographic">
+            <bibl xml:id="work-487" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name487-1" xml:lang="syr" source="#bib487-1" syriaca-tags="#syriaca-headword">ܡܪܩܘܣ</title>
                 <title xml:id="name487-2" xml:lang="fr-x-bhs" source="#bib487-1">Marqōs</title>
                 <title xml:id="name487-3" xml:lang="fr" source="#bib487-1">Marc (texte)</title>
@@ -210,6 +214,11 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Jérôme</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/487</idno>
+                <idno type="BHS">267</idno>
+                <idno type="BHO">854</idno>
+                <idno type="BHO">585</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib487-1">
                     <quote>ܥܠ ܬܠܬܐ ܡܝ̈ܠܝܢ ܡܢ ܐܢܛܝܟܝܐ ܕܣܘܪܝܐ ܐܝܬ ܩܪܝܬܐ ܚܕܐ ܕܡܬܩܪܝܐ ܡܪܘܢܝܐ.</quote>
                 </note>
@@ -222,82 +231,94 @@
                 <note xml:lang="fr" type="explicit" source="#bib487-1">
                     <quote>Mais ils deviendront de saints temples, et l’Esprit de Dieu demeurera en eux. Et avec toutes les paroles du Calomniateur, il leur donnera la victoire pour les siècles des siècles. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib487-1" corresp="#bib487-14" n="1" xml:id="bib487-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 7</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">7</citedRange>
-                        <citedRange>p. 236-251</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib487-1" corresp="#bib487-7" n="2" xml:id="bib487-4">
-                        <author>Budge, E. A. W.</author>
-                        <title>BP 2</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 279-290 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib487-1" corresp="#bib487-8" n="3" ana="partialTranslation" xml:id="bib487-5">
-                        <author>Van den Ven, P. </author>
-                        <title>S. Jérôme et la Vie du moine Malchus le Captif</title>
-                        <ptr target="http://syriaca.org/bibl/1949"/>
-                        <citedRange>19 (1900), p. 450-455</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib487-1" corresp="#bib487-9 bib487-10" n="4" xml:id="bib487-6">
-                        <author>Sachau, E.</author>
-                        <title>Verzeichnis der syrischen Handschriften der Königlichen Bibliothek zu Berlin</title>
-                        <ptr target="http://syriaca.org/bibl/1394"/>
-                        <citedRange>Berlin, 1899, p. 105-109</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib487-1">
-                    <bibl xml:id="bib487-7">ms Lady Meux 6 (?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib487-1">
-                    <bibl xml:id="bib487-8">ms Londres, British Library, Add. 12175, f. 28v-35</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib487-1">
-                    <bibl xml:id="bib487-9">ms Berlin, Königliche Bibliothek, syr. 27 (Sachau 302), f. 9-11v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib487-1">
-                    <bibl xml:id="bib487-10">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 107-109</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib487-1">
-                    <bibl xml:id="bib487-11">ms Londres, British Library, Or. 4528, f. 138-144v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib487-1">
-                    <bibl xml:id="bib487-12">ms Londres, British Library, Add. 12174, f. 185v-188v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib487-1">
-                    <bibl xml:id="bib487-13">
-                        <editor>E.A.W. Budge</editor>
-                        <title>BP 1</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">344-357</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib487-14">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/487</idno>
-                <idno type="BHS">267</idno>
-                <idno type="BHO">854</idno>
-                <idno type="BHO">585</idno>
-                <bibl xml:id="bib487-1">
+                <bibl type="lawd:Edition" source="#bib487-1" xml:id="bib487-3">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 7</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">7</citedRange>
+                    <citedRange>p. 236-251</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib487-3" ref="dct:source" passive="#bib487-14" source="#bib487-1"/>
+                        <relation active="#bib487-3" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib487-1" xml:id="bib487-4">
+                    <author>Budge, E. A. W.</author>
+                    <title>BP 2</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 279-290 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib487-4" ref="dct:source" passive="#bib487-7" source="#bib487-1"/>
+                        <relation active="#bib487-4" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib487-1" ana="partialTranslation" xml:id="bib487-5">
+                    <author>Van den Ven, P. </author>
+                    <title>S. Jérôme et la Vie du moine Malchus le Captif</title>
+                    <ptr target="http://syriaca.org/bibl/1949"/>
+                    <citedRange>19 (1900), p. 450-455</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib487-5" ref="dct:source" passive="#bib487-8" source="#bib487-1"/>
+                        <relation active="#bib487-5" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib487-1" xml:id="bib487-6">
+                    <author>Sachau, E.</author>
+                    <title>Verzeichnis der syrischen Handschriften der Königlichen Bibliothek zu Berlin</title>
+                    <ptr target="http://syriaca.org/bibl/1394"/>
+                    <citedRange>Berlin, 1899, p. 105-109</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib487-6" ref="dct:source" passive="#bib487-9 bib487-10" source="#bib487-1"/>
+                        <relation active="#bib487-6" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib487-7">ms Lady Meux 6 (?)<listRelation>
+                        <relation active="#bib487-7" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib487-8">ms Londres, British Library, Add. 12175, f. 28v-35<listRelation>
+                        <relation active="#bib487-8" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib487-9">ms Berlin, Königliche Bibliothek, syr. 27 (Sachau 302), f. 9-11v<listRelation>
+                        <relation active="#bib487-9" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib487-10">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 107-109<listRelation>
+                        <relation active="#bib487-10" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib487-11">ms Londres, British Library, Or. 4528, f. 138-144v<listRelation>
+                        <relation active="#bib487-11" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib487-12">ms Londres, British Library, Add. 12174, f. 185v-188v<listRelation>
+                        <relation active="#bib487-12" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib487-13">
+                    <lang>en</lang>
+                    <editor>E.A.W. Budge</editor>
+                    <title>BP 1</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="pp">344-357</citedRange>
+                    <listRelation>
+                        <relation active="#bib487-13" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib487-14">The manuscript witnesses for edition 1 are undetermined.<listRelation>
+                        <relation active="#bib487-14" ref="lawd:embodies" passive="http://syriaca.org/work/487"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib487-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">267</citedRange>
                 </bibl>
-                <bibl xml:id="bib487-2">
+                <bibl xml:id="bib487-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">S. Jérôme et la Vie du moine Malchus</title>
                     <title level="j" xml:lang="fr">Le Muséon</title>
                     <title level="j" xml:lang="fr">Le Muséon</title>
@@ -306,7 +327,7 @@
                   208-326</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/487" passive="http://syriaca.org/person/1870" source="#bib487-1"/>
+                    <relation active="http://syriaca.org/work/487" passive="http://syriaca.org/person/1870" source="#bib487-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

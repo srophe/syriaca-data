@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Victorinus, Victor, Nicephorus, Diodore, Serapion, Papias (text) — <foreign xml:lang="syr">ܒܝܩܛܘܪܝܢܘܣ ܘܒܝܩܛܘܪ ܘܢܝܩܦܘܪܘܣ ܘܩܠܘܕܝܢܘܣ ܘܕܝܕܘܪܘܣ ܘܣܪܦܝܘܢ ܘܦܦܝܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-318" ana="#hagiographic">
+            <bibl xml:id="work-318" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name318-1" xml:lang="syr" source="#bib318-1" syriaca-tags="#syriaca-headword">ܒܝܩܛܘܪܝܢܘܣ ܘܒܝܩܛܘܪ ܘܢܝܩܦܘܪܘܣ ܘܩܠܘܕܝܢܘܣ ܘܕܝܕܘܪܘܣ ܘܣܪܦܝܘܢ ܘܦܦܝܘܣ</title>
                 <title xml:id="name318-2" xml:lang="fr-x-bhs" source="#bib318-1">Vīqṭōrīnōs w-Vīqṭōr w-Nīqāpōrōs wa-Qlawdyānōs w-Dīyādōrōs wa-Srāpīyōn w-Pāpīyōs</title>
                 <title xml:id="name318-3" xml:lang="fr" source="#bib318-1">Victorin, Victor, Nicéphore, Claudien, Diodore, Sérapion et Papius (texte)</title>
                 <title xml:id="name318-4" xml:lang="en" source="#bib318-1" syriaca-tags="#syriaca-headword">Victorinus, Victor, Nicephorus, Diodore, Serapion, Papias (text)</title>
+                <idno type="URI">http://syriaca.org/work/318</idno>
+                <idno type="BHS">98</idno>
+                <idno type="BHO">1245</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib318-1">
                     <quote>Qui n’admirerait pas la vaillance et l’endurance de ces glorieux martyrs, mes frères, et qui n’oublierait pas sa nature en entendant l’histoire de leurs souffrances?</quote>
                 </note>
@@ -211,54 +219,59 @@
                 <note xml:lang="fr" type="explicit" source="#bib318-1">
                     <quote>Et alors qu’ils subissaient ainsi divers tourments, les justes ne furent pas vaincus dans leur foi en Dieu; mais dans la joie de leur coeur ils accueillirent leurs morts variées et terribles comme son commandement.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib318-1" corresp="#bib318-7" n="1" xml:id="bib318-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 4</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>p. 8-14</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib318-1" corresp="#bib318-4 bib318-5" n="2" xml:id="bib318-3">
-                        <author>Assemani, S. E.</author>
-                        <title>ASMOO 2</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 60-64</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib318-1">
-                    <bibl xml:id="bib318-4">ms Vatican ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib318-1">
-                    <bibl xml:id="bib318-5">ms Vatican, Syr. 160, f. 175-178v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib318-1">
-                    <bibl xml:id="bib318-6">
-                        <editor>S. E. Assemani</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 60-64</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib318-7">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/318</idno>
-                <idno type="BHS">98</idno>
-                <idno type="BHO">1245</idno>
-                <bibl xml:id="bib318-1">
+                <bibl type="lawd:Edition" source="#bib318-1" xml:id="bib318-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 4</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange>p. 8-14</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib318-2" ref="dct:source" passive="#bib318-7" source="#bib318-1"/>
+                        <relation active="#bib318-2" ref="lawd:embodies" passive="http://syriaca.org/work/318"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib318-1" xml:id="bib318-3">
+                    <author>Assemani, S. E.</author>
+                    <title>ASMOO 2</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 60-64</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib318-3" ref="dct:source" passive="#bib318-4 bib318-5" source="#bib318-1"/>
+                        <relation active="#bib318-3" ref="lawd:embodies" passive="http://syriaca.org/work/318"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib318-4">ms Vatican ?<listRelation>
+                        <relation active="#bib318-4" ref="lawd:embodies" passive="http://syriaca.org/work/318"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib318-5">ms Vatican, Syr. 160, f. 175-178v<listRelation>
+                        <relation active="#bib318-5" ref="lawd:embodies" passive="http://syriaca.org/work/318"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib318-6">
+                    <lang>la</lang>
+                    <editor>S. E. Assemani</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 60-64</citedRange>
+                    <listRelation>
+                        <relation active="#bib318-6" ref="lawd:embodies" passive="http://syriaca.org/work/318"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib318-7">The manuscript witnesses for edition 1 are undetermined.<listRelation>
+                        <relation active="#bib318-7" ref="lawd:embodies" passive="http://syriaca.org/work/318"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib318-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">98</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/318" passive="http://syriaca.org/person/2136 http://syriaca.org/person/2135 http://syriaca.org/person/2066 http://syriaca.org/person/1964 http://syriaca.org/person/1945 http://syriaca.org/person/1681 http://syriaca.org/person/1647" source="#bib318-1"/>
+                    <relation active="http://syriaca.org/work/318" passive="http://syriaca.org/person/2136 http://syriaca.org/person/2135 http://syriaca.org/person/2066 http://syriaca.org/person/1964 http://syriaca.org/person/1945 http://syriaca.org/person/1681 http://syriaca.org/person/1647" source="#bib318-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Jacob Baradaeus (Translation of His Body) (text) — <foreign xml:lang="syr">ܝܥܩܘܒ ܒܘܪܕܥܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-850" ana="#hagiographic">
+            <bibl xml:id="work-850" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name850-1" xml:lang="syr" source="#bib850-1" syriaca-tags="#syriaca-headword">ܝܥܩܘܒ ܒܘܪܕܥܝܐ</title>
                 <title xml:id="name850-2" xml:lang="fr-x-bhs" source="#bib850-1">Yaʿqōḇ Būrdʿāyā</title>
                 <title xml:id="name850-3" xml:lang="fr" source="#bib850-1">Jacques Baradée (translation) (texte)</title>
@@ -203,6 +207,10 @@
                         <forename>Cyriaque</forename>
                         <addName type="untagged-title">d’Amid</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/850</idno>
+                <idno type="BHS">642</idno>
+                <idno type="BHO">393</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib850-1">
                     <quote>ܟܕ ܗܟܝܠ ܡܪܝ ܝܥܩܘܒ ܐܦܝܣܩܘܦܐ ܡܢ ܥܘܡܪܐ ܩܕܝܫܐ ܕܦܣܝܠܬܐ ܫܢܝ ܠܘܬ ܡܪܢ ܡܢ ܩܕܡ ܙܒܢܐ ܝܕܝܥܐ: ܘܦܛܪܝܪܟܐ ܡܪܝ ܐܬܐܢܣܝܘܣ ܥܠ ܟܘܪܣܝܐ ܕܦܛܪܘܣ ܗܿܘ ܪܒܐ ܐܬܚܙܝ...</quote>
                 </note>
@@ -215,82 +223,91 @@
                 <note xml:lang="fr" type="explicit" source="#bib850-1">
                     <quote>Et alors ils l’enterrèrent et le placèrent dans son couvent, le monastère de Psîltâ dans le temple qu’il avait construit lui-même pendant sa vie et il fut là pour le secours et la guérison de tous les hommes et pour l’honneur et la gloire du Christ son Dieu; à lui… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib850-1" corresp="#bib850-6" n="1" xml:id="bib850-3">
-                        <author>Brooks, E. W.</author>
-                        <title>LES 3</title>
-                        <ptr target="http://syriaca.org/bibl/2033"/>
-                        <citedRange>p. 268 [614] - 273 [619]</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib850-1" corresp="#bib850-7" n="2" xml:id="bib850-4">
-                        <author>Kugener, M.A.</author>
-                        <title>Récit de Mar Cyriaque racontant comment le corps de Jacques Baradée fut enlevé du couvent de Casion et transporté au couvent de Phesiltha</title>
-                        <ptr target="http://syriaca.org/bibl/1848"/>
-                        <citedRange>7 (1902), p. 198-201</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib850-1" corresp="#bib850-10" n="3" xml:id="bib850-5">
-                        <author>Kugener, M.A.</author>
-                        <title>Comment le corps de Jacques Baradée fut enlevée du couvent de Casion par les moines de Phesiltha. Récit de Mar Cyriaque</title>
-                        <ptr target="http://syriaca.org/bibl/1848"/>
-                        <citedRange>Paris, 1902, p. 7-10</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib850-1">
-                    <bibl xml:id="bib850-6">ms Londres, British Library, Add. 12174, f. 291r-v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib850-1">
-                    <bibl xml:id="bib850-7">ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 173r-v + ms Londres, British Library, Add. 12174, f. 291r-v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib850-1">
-                    <bibl xml:id="bib850-8">
-                        <editor>Kugener, M.A.</editor>
-                        <title>Récit de Mar Cyriaque racontant comment le corps de Jacques Baradée fut enlevé du couvent de Casion et transporté au couvent de Phesiltha</title>
-                        <note>= <bibl>
-                                <editor>Kugener, M.A.</editor>
-                                <title>Comment le corps de Jacques Baradée fut enlevée du couvent de Casion par les moines de Phesiltha. Récit de Mar Cyriaque</title>
-                                <citedRange unit="pp">11-17</citedRange>
-                            </bibl>
-                        </note>
-                        <ptr target="http://syriaca.org/bibl/1848"/>
-                        <citedRange unit="pp">202-208</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib850-1">
-                    <bibl xml:id="bib850-11">
-                        <editor>Kugener, M.A.</editor>
-                        <title>Comment le corps de Jacques Baradée fut enlevée du couvent de Casion par les moines de Phesiltha. Récit de Mar Cyriaque</title>
-                        <ptr target="http://syriaca.org/bibl/1848"/>
-                        <citedRange unit="pp">11-17</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib850-1">
-                    <bibl xml:id="bib850-9">
-                        <editor>E. W. Brooks</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/2033"/>
-                        <citedRange>p. 268 [614] - 273 [619]</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib850-10">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/850</idno>
-                <idno type="BHS">642</idno>
-                <idno type="BHO">393</idno>
-                <bibl xml:id="bib850-1">
+                <bibl type="lawd:Edition" source="#bib850-1" xml:id="bib850-3">
+                    <author>Brooks, E. W.</author>
+                    <title>LES 3</title>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
+                    <citedRange>p. 268 [614] - 273 [619]</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib850-3" ref="dct:source" passive="#bib850-6" source="#bib850-1"/>
+                        <relation active="#bib850-3" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib850-1" xml:id="bib850-4">
+                    <author>Kugener, M.A.</author>
+                    <title>Récit de Mar Cyriaque racontant comment le corps de Jacques Baradée fut enlevé du couvent de Casion et transporté au couvent de Phesiltha</title>
+                    <ptr target="http://syriaca.org/bibl/1848"/>
+                    <citedRange>7 (1902), p. 198-201</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib850-4" ref="dct:source" passive="#bib850-7" source="#bib850-1"/>
+                        <relation active="#bib850-4" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib850-1" xml:id="bib850-5">
+                    <author>Kugener, M.A.</author>
+                    <title>Comment le corps de Jacques Baradée fut enlevée du couvent de Casion par les moines de Phesiltha. Récit de Mar Cyriaque</title>
+                    <ptr target="http://syriaca.org/bibl/1848"/>
+                    <citedRange>Paris, 1902, p. 7-10</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib850-5" ref="dct:source" passive="#bib850-10" source="#bib850-1"/>
+                        <relation active="#bib850-5" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib850-6">ms Londres, British Library, Add. 12174, f. 291r-v<listRelation>
+                        <relation active="#bib850-6" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib850-7">ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 173r-v + ms Londres, British Library, Add. 12174, f. 291r-v<listRelation>
+                        <relation active="#bib850-7" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib850-8">
+                    <lang>fr</lang>
+                    <editor>Kugener, M.A.</editor>
+                    <title>Récit de Mar Cyriaque racontant comment le corps de Jacques Baradée fut enlevé du couvent de Casion et transporté au couvent de Phesiltha</title>
+                    <note>= <bibl type="lawd:Citation">
+                            <editor>Kugener, M.A.</editor>
+                            <title>Comment le corps de Jacques Baradée fut enlevée du couvent de Casion par les moines de Phesiltha. Récit de Mar Cyriaque</title>
+                            <citedRange unit="pp">11-17</citedRange>
+                        </bibl>
+                    </note>
+                    <ptr target="http://syriaca.org/bibl/1848"/>
+                    <citedRange unit="pp">202-208</citedRange>
+                    <listRelation>
+                        <relation active="#bib850-8" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib850-11">
+                    <lang>fr</lang>
+                    <editor>Kugener, M.A.</editor>
+                    <title>Comment le corps de Jacques Baradée fut enlevée du couvent de Casion par les moines de Phesiltha. Récit de Mar Cyriaque</title>
+                    <ptr target="http://syriaca.org/bibl/1848"/>
+                    <citedRange unit="pp">11-17</citedRange>
+                    <listRelation>
+                        <relation active="#bib850-11" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib850-9">
+                    <lang>en</lang>
+                    <editor>E. W. Brooks</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
+                    <citedRange>p. 268 [614] - 273 [619]</citedRange>
+                    <listRelation>
+                        <relation active="#bib850-9" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib850-10">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib850-10" ref="lawd:embodies" passive="http://syriaca.org/work/850"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib850-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">642</citedRange>
                 </bibl>
-                <bibl xml:id="bib850-2">
+                <bibl xml:id="bib850-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">Jacob Baradaeus. The State of Research, a Review of
                      Sources and a New Approach</title>
                     <title xml:lang="fr" level="j">Le Muséon</title>
@@ -298,7 +315,7 @@
                     <citedRange from="45" to="86" unit="pp">45-86</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/850" passive="http://syriaca.org/person/69" source="#bib850-1"/>
+                    <relation active="http://syriaca.org/work/850" passive="http://syriaca.org/person/69" source="#bib850-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

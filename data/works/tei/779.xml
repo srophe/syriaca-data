@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Martyrs (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-27+02:00">CHANGED: Corrected multiple author and author role info</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-779" ana="#hagiographic">
+            <bibl xml:id="work-779" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name779-3" xml:lang="fr" source="#bib779-1">Martyrs (texte)</title>
                 <title xml:id="name779-4" xml:lang="en" source="#bib779-1" syriaca-tags="#syriaca-headword">Martyrs (text)</title>
                 <author source="#bib779-1" ref="http://syriaca.org/person/51">
@@ -213,6 +217,10 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">d’Édesse</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/779</idno>
+                <idno type="BHS">568</idno>
+                <idno type="CPG">7072</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib779-1">
                     <quote>ܠܕܘܟܪܢܐ ܕܐܬܠܝ̈ܛܐ ܕܕܚܠܬ ܐܠܗܐ ܟܕ ܡܝܩܪܝܢܢ̣. ܦܓܪܐ ܘܕܡܐ ܡܥܒܕ ܚ̈ܝܐ ܕܐܠܗܐ ܡܠܬܐ ܕܐܬܒܣܪ ܢܣܒܝܢܢ.</quote>
                 </note>
@@ -225,45 +233,48 @@
                 <note xml:lang="fr" type="explicit" source="#bib779-1">
                     <quote>Avec eux glorifions le Christ en disant: “Alleluia!”</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib779-1" xml:id="bib779-2">
-                        <author>Brooks, E. W.</author>
-                        <title>JEHSA 2</title>
-                        <ptr target="http://syriaca.org/bibl/1727"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 686 [274]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib779-1">
-                    <bibl xml:id="bib779-3">mss Londres, British Library, Add. 17134, f. 56r-v + add. 18816, f. 79v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib779-1">
-                    <bibl xml:id="bib779-4">ms Paris, Bibliothèque nationale, syr. 337</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib779-1">
-                    <bibl xml:id="bib779-5">ms Cambridge, University Library, Add. 1993</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib779-1">
-                    <bibl xml:id="bib779-6">
-                        <editor>E. W. Brooks</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1727"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 686 [274]</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/779</idno>
-                <idno type="BHS">568</idno>
-                <idno type="CPG">7072</idno>
-                <bibl xml:id="bib779-1">
+                <bibl type="lawd:Edition" source="#bib779-1" xml:id="bib779-2">
+                    <author>Brooks, E. W.</author>
+                    <title>JEHSA 2</title>
+                    <ptr target="http://syriaca.org/bibl/1727"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 686 [274]</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib779-2" ref="dct:source" passive="" source="#bib779-1"/>
+                        <relation active="#bib779-2" ref="lawd:embodies" passive="http://syriaca.org/work/779"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib779-3">mss Londres, British Library, Add. 17134, f. 56r-v + add. 18816, f. 79v<listRelation>
+                        <relation active="#bib779-3" ref="lawd:embodies" passive="http://syriaca.org/work/779"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib779-4">ms Paris, Bibliothèque nationale, syr. 337<listRelation>
+                        <relation active="#bib779-4" ref="lawd:embodies" passive="http://syriaca.org/work/779"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib779-5">ms Cambridge, University Library, Add. 1993<listRelation>
+                        <relation active="#bib779-5" ref="lawd:embodies" passive="http://syriaca.org/work/779"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib779-6">
+                    <lang>en</lang>
+                    <editor>E. W. Brooks</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1727"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 686 [274]</citedRange>
+                    <listRelation>
+                        <relation active="#bib779-6" ref="lawd:embodies" passive="http://syriaca.org/work/779"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib779-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">568</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/779" passive="" source="#bib779-1"/>
+                    <relation active="http://syriaca.org/work/779" passive="" source="#bib779-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

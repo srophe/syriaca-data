@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Theodosia (text) — <foreign xml:lang="syr">ܬܐܕܣܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-914" ana="#hagiographic">
+            <bibl xml:id="work-914" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name914-1" xml:lang="syr" source="#bib914-1" syriaca-tags="#syriaca-headword">ܬܐܕܣܝܐ</title>
                 <title xml:id="name914-2" xml:lang="fr-x-bhs" source="#bib914-1">Tēʾōdāsyā</title>
                 <title xml:id="name914-3" xml:lang="fr" source="#bib914-1">Théodosie (texte)</title>
@@ -200,6 +204,11 @@
                         <forename>Eusèbe</forename>
                         <addName type="untagged-title">de Césarée</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/914</idno>
+                <idno type="BHS">710</idno>
+                <idno type="BHO">1177</idno>
+                <idno type="CPG">3490</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib914-1">
                     <quote>ܒܫܢܬ ܚ̈ܡܫ ܕܪܕܘܦܝܐ ܕܒܝܘ̈ܡܬܢ ܐܬܡܬܚ ܗܘܐ: ܘܝܪܚܐ ܐܝܬܘܗܝ ܢܝܣܢ ܘܒܬܪܝܢ ܒܗ ܒܝܪܚܐ ܗܢܐ.</quote>
                 </note>
@@ -212,61 +221,64 @@
                 <note xml:lang="fr" type="explicit" source="#bib914-1">
                     <quote>Ce fut un dimanche que cela se passa dans notre ville de Césarée</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib914-1" xml:id="bib914-2">
-                        <author>Assemani, S. E.</author>
-                        <title>ASMOO 2</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 204-206</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib914-1">
-                    <bibl xml:id="bib914-3">ms Vatican, Syr. 160, f. 222v-223v</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib914-1">
-                    <bibl xml:id="bib914-4">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib914-1">
-                    <bibl xml:id="bib914-5">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib914-1">
-                    <bibl xml:id="bib914-6">
-                        <editor>S. E. Assemani</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 204-206</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib914-1">
-                    <bibl xml:id="bib914-7">
-                        <editor>B. Violet</editor>
-                        <title>PMEC</title>
-                        <ptr target="http://syriaca.org/bibl/1990"/>
-                        <citedRange unit="pp">52-57</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/914</idno>
-                <idno type="BHS">710</idno>
-                <idno type="BHO">1177</idno>
-                <idno type="CPG">3490</idno>
-                <bibl xml:id="bib914-1">
+                <bibl type="lawd:Edition" source="#bib914-1" xml:id="bib914-2">
+                    <author>Assemani, S. E.</author>
+                    <title>ASMOO 2</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 204-206</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib914-2" ref="dct:source" passive="" source="#bib914-1"/>
+                        <relation active="#bib914-2" ref="lawd:embodies" passive="http://syriaca.org/work/914"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib914-3">ms Vatican, Syr. 160, f. 222v-223v<listRelation>
+                        <relation active="#bib914-3" ref="lawd:embodies" passive="http://syriaca.org/work/914"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib914-4">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib914-4" ref="lawd:embodies" passive="http://syriaca.org/work/914"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib914-5">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib914-5" ref="lawd:embodies" passive="http://syriaca.org/work/914"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib914-6">
+                    <lang>la</lang>
+                    <editor>S. E. Assemani</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 204-206</citedRange>
+                    <listRelation>
+                        <relation active="#bib914-6" ref="lawd:embodies" passive="http://syriaca.org/work/914"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib914-7">
+                    <lang>de</lang>
+                    <editor>B. Violet</editor>
+                    <title>PMEC</title>
+                    <ptr target="http://syriaca.org/bibl/1990"/>
+                    <citedRange unit="pp">52-57</citedRange>
+                    <listRelation>
+                        <relation active="#bib914-7" ref="lawd:embodies" passive="http://syriaca.org/work/914"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib914-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">710</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/914" passive="http://syriaca.org/person/2112" source="#bib914-1"/>
+                    <relation active="http://syriaca.org/work/914" passive="http://syriaca.org/person/2112" source="#bib914-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

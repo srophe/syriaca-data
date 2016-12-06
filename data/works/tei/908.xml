@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Abraham Qidounaya (text) — <foreign xml:lang="syr">ܐܒܪܗܡ ܩܝܕܘܢܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,33 +191,37 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-908" ana="#hagiographic">
+            <bibl xml:id="work-908" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name908-1" xml:lang="syr" source="#bib908-1" syriaca-tags="#syriaca-headword">ܐܒܪܗܡ ܩܝܕܘܢܝܐ</title>
                 <title xml:id="name908-2" xml:lang="fr-x-bhs" source="#bib908-1">ʾAḇrāhām Qīdūnāyā</title>
                 <title xml:id="name908-3" xml:lang="fr" source="#bib908-1">Abraham Qidounaya (texte)</title>
                 <title xml:id="name908-4" xml:lang="en" source="#bib908-1" syriaca-tags="#syriaca-headword">Abraham Qidounaya (text)</title>
-                <note type="editions">
-                    <bibl source="#bib908-1" xml:id="bib908-3">
-                        <author>Duensing, H.</author>
-                        <title>Christlich-palästinisch-aramäische Texte und Fragmente nebst einer Abhandlung über den Wert der palästinischen Septuaginta</title>
-                        <ptr target="http://syriaca.org/bibl/1832"/>
-                        <citedRange>Göttingen, 1906 (réimpression, Jérusalem, 1971), p. 9-12</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib908-1">
-                    <bibl xml:id="bib908-4">ms coll. privée</bibl>
-                </note>
                 <idno type="URI">http://syriaca.org/work/908</idno>
                 <idno type="BHS">704</idno>
                 <idno type="BHO">16</idno>
                 <idno type="BHO">17</idno>
-                <bibl xml:id="bib908-1">
+                <textLang mainLang="syr"/>
+                <bibl type="lawd:Edition" source="#bib908-1" xml:id="bib908-3">
+                    <author>Duensing, H.</author>
+                    <title>Christlich-palästinisch-aramäische Texte und Fragmente nebst einer Abhandlung über den Wert der palästinischen Septuaginta</title>
+                    <ptr target="http://syriaca.org/bibl/1832"/>
+                    <citedRange>Göttingen, 1906 (réimpression, Jérusalem, 1971), p. 9-12</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib908-3" ref="dct:source" passive="" source="#bib908-1"/>
+                        <relation active="#bib908-3" ref="lawd:embodies" passive="http://syriaca.org/work/908"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib908-4">ms coll. privée<listRelation>
+                        <relation active="#bib908-4" ref="lawd:embodies" passive="http://syriaca.org/work/908"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib908-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">704</citedRange>
                 </bibl>
-                <bibl xml:id="bib908-2">
+                <bibl xml:id="bib908-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">Theological progress and artistic regress in the
                      hymns on Abraham Kidunaya attributed to St Ephrem</title>
                     <title level="j" xml:lang="la">Acta Patristica et Byzantina</title>
@@ -221,7 +229,7 @@
                     <citedRange from="77" to="98" unit="pp">77-98</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/908" passive="http://syriaca.org/person/1113" source="#bib908-1"/>
+                    <relation active="http://syriaca.org/work/908" passive="http://syriaca.org/person/1113" source="#bib908-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Simeon the Stylite (text) — <foreign xml:lang="syr">ܫܡܥܘܢ ܕܐܣܛܘܢܗ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-352" ana="#hagiographic">
+            <bibl xml:id="work-352" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name352-1" xml:lang="syr" source="#bib352-1" syriaca-tags="#syriaca-headword">ܫܡܥܘܢ ܕܐܣܛܘܢܗ</title>
                 <title xml:id="name352-2" xml:lang="fr-x-bhs" source="#bib352-1">Šemʿōn d-ʾEsṭōnēh</title>
                 <title xml:id="name352-3" xml:lang="fr" source="#bib352-1">Syméon le Stylite (texte)</title>
@@ -202,6 +206,10 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">de Serugh</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/352</idno>
+                <idno type="BHS">132</idno>
+                <idno type="BHO">1126</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib352-1">
                     <quote>ܗܒ ܠܝ ܡܪܢ ܕܐܨܘܪ ܨܠܡܐ ܕܡܠܐ ܫܘܦܪܐ: ܠܫܡܥܘܢ ܓܒܝܐ ܕܪܡܝܢ ܫܘܦܪ̈ܘܗܝ ܡܢ ܠܫܢܐ܀</quote>
                 </note>
@@ -214,120 +222,137 @@
                 <note xml:lang="fr" type="explicit" source="#bib352-1">
                     <quote>Que le Fils de Dieu que tu as aimé dès ton plus jeune âge nous juge dignes de sa miséricorde et que nous obtenions miséricorde par tes prières.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib352-1" corresp="#bib352-8" n="1" xml:id="bib352-4">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 4</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>p. 650-665</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib352-1" corresp="#bib352-9" n="2" xml:id="bib352-5">
-                        <author>Assemani, S. E.</author>
-                        <title>ASMOO 2</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 230-244</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib352-1" corresp="#bib352-10 bib352-18" n="3" ana="partialTranslation" xml:id="bib352-6">
-                        <author>Zingerle, P. </author>
-                        <title>Proben syrischer Poesie aus Jakob von Sarug</title>
-                        <ptr target="http://syriaca.org/bibl/1936"/>
-                        <citedRange>14 (1860), p. 682-690</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib352-1" corresp="#bib352-11 bib352-19" n="4" xml:id="bib352-7">
-                        <author>Brockelmann, C.</author>
-                        <title>Syrische Grammatik mit Paradigmen, Literatur, Chrestomathie und Glossar, Berlin, 21905, p. 102*-122*</title>
-                        <ptr target="http://syriaca.org/bibl/1805"/>
-                        <citedRange/>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib352-1">
-                    <bibl xml:id="bib352-8">= ed (2) + collation du ms Vatican, Syr. 117, f. 548v-550v par Guidi</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib352-1">
-                    <bibl xml:id="bib352-9">ms Vatican ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib352-1">
-                    <bibl xml:id="bib352-10">ms Vatican, Borg. Syr. 128, f. 152-158v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib352-1">
-                    <bibl xml:id="bib352-11">ms Londres, British Library, Add. 17159, f. 69-93v (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib352-1">
-                    <bibl xml:id="bib352-12">ms Londres, British Library, Add. 17242, f. 105-127v (fgts)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib352-1">
-                    <bibl xml:id="bib352-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 156 (Baumstark Litur. 43)), f. 79v-84</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib352-1">
-                    <bibl xml:id="bib352-14">
-                        <editor>S. E. Assemani</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 230-244</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib352-1">
-                    <bibl xml:id="bib352-15">
-                        <editor>P. Zingerle</editor>
-                        <note xml:lang="fr">partielle</note>
-                        <ptr target="http://syriaca.org/bibl/1936"/>
-                        <citedRange unit="pp">682-691</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib352-1">
-                    <bibl xml:id="bib352-16">
-                        <editor>S. A. Harvey</editor>
-                        <title>Jacob of Serug, Homily on
+                <bibl type="lawd:Edition" source="#bib352-1" xml:id="bib352-4">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 4</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange>p. 650-665</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib352-4" ref="dct:source" passive="#bib352-8" source="#bib352-1"/>
+                        <relation active="#bib352-4" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib352-1" xml:id="bib352-5">
+                    <author>Assemani, S. E.</author>
+                    <title>ASMOO 2</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 230-244</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib352-5" ref="dct:source" passive="#bib352-9" source="#bib352-1"/>
+                        <relation active="#bib352-5" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib352-1" ana="partialTranslation" xml:id="bib352-6">
+                    <author>Zingerle, P. </author>
+                    <title>Proben syrischer Poesie aus Jakob von Sarug</title>
+                    <ptr target="http://syriaca.org/bibl/1936"/>
+                    <citedRange>14 (1860), p. 682-690</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib352-6" ref="dct:source" passive="#bib352-10 bib352-18" source="#bib352-1"/>
+                        <relation active="#bib352-6" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib352-1" xml:id="bib352-7">
+                    <author>Brockelmann, C.</author>
+                    <title>Syrische Grammatik mit Paradigmen, Literatur, Chrestomathie und Glossar, Berlin, 21905, p. 102*-122*</title>
+                    <ptr target="http://syriaca.org/bibl/1805"/>
+                    <citedRange/>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib352-7" ref="dct:source" passive="#bib352-11 bib352-19" source="#bib352-1"/>
+                        <relation active="#bib352-7" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-8">= ed (2) + collation du ms Vatican, Syr. 117, f. 548v-550v par Guidi<listRelation>
+                        <relation active="#bib352-8" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-9">ms Vatican ?<listRelation>
+                        <relation active="#bib352-9" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-10">ms Vatican, Borg. Syr. 128, f. 152-158v<listRelation>
+                        <relation active="#bib352-10" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-11">ms Londres, British Library, Add. 17159, f. 69-93v (mutilé de la fin)<listRelation>
+                        <relation active="#bib352-11" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-12">ms Londres, British Library, Add. 17242, f. 105-127v (fgts)<listRelation>
+                        <relation active="#bib352-12" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 156 (Baumstark Litur. 43)), f. 79v-84<listRelation>
+                        <relation active="#bib352-13" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib352-14">
+                    <lang>la</lang>
+                    <editor>S. E. Assemani</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 230-244</citedRange>
+                    <listRelation>
+                        <relation active="#bib352-14" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib352-15">
+                    <lang>de</lang>
+                    <editor>P. Zingerle</editor>
+                    <note xml:lang="fr">partielle</note>
+                    <ptr target="http://syriaca.org/bibl/1936"/>
+                    <citedRange unit="pp">682-691</citedRange>
+                    <listRelation>
+                        <relation active="#bib352-15" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib352-16">
+                    <lang>en</lang>
+                    <editor>S. A. Harvey</editor>
+                    <title>Jacob of Serug, Homily on
                 Simeon the Stylite, dans V. Wimbush (ed.), Asceticism in the Graeco-Roman World: A
                 Sourcebook, Minneapolis, 1990</title>
-                        <ptr target="http://syriaca.org/bibl/2031"/>
-                        <citedRange unit="pp">15-28</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib352-1">
-                    <bibl xml:id="bib352-17">
-                        <editor>I. Pizzi</editor>
-                        <title>Omelia di San Giacomo di Sarugh in
+                    <ptr target="http://syriaca.org/bibl/2031"/>
+                    <citedRange unit="pp">15-28</citedRange>
+                    <listRelation>
+                        <relation active="#bib352-16" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib352-17">
+                    <lang>it</lang>
+                    <editor>I. Pizzi</editor>
+                    <title>Omelia di San Giacomo di Sarugh in
                 lode di San Simone Stilita, dans Bessarione, 3e série, 4 (1908)</title>
-                        <ptr target="http://syriaca.org/bibl/2012"/>
-                        <citedRange unit="pp">18-29</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib352-18">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib352-19">The manuscript witnesses for edition 4 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/352</idno>
-                <idno type="BHS">132</idno>
-                <idno type="BHO">1126</idno>
-                <bibl xml:id="bib352-1">
+                    <ptr target="http://syriaca.org/bibl/2012"/>
+                    <citedRange unit="pp">18-29</citedRange>
+                    <listRelation>
+                        <relation active="#bib352-17" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-18">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib352-18" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib352-19">The manuscript witnesses for edition 4 are undetermined.<listRelation>
+                        <relation active="#bib352-19" ref="lawd:embodies" passive="http://syriaca.org/work/352"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib352-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">132</citedRange>
                 </bibl>
-                <bibl xml:id="bib352-2">
+                <bibl xml:id="bib352-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Die Säule im Weltgeviert. Der Aufstieg Simeons, des
                      ersten Säulenheiligen</title>
                     <title level="s">Sophia</title>
                     <ptr target="http://syriaca.org/bibl/886"/>
                 </bibl>
-                <bibl xml:id="bib352-3">
+                <bibl xml:id="bib352-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Memory and Meaning of a Saint: Two Homilies on
                      Simeon Stylites</title>
                     <title level="j">Aram</title>
@@ -335,7 +360,7 @@
                     <citedRange from="219" to="241" unit="pp">219-241</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/352" passive="http://syriaca.org/person/744" source="#bib352-1"/>
+                    <relation active="http://syriaca.org/work/352" passive="http://syriaca.org/person/744" source="#bib352-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

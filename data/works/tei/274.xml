@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Martyrs of Karka d-Beth Slokh and of different places (text) — <foreign xml:lang="syr">ܣܗ̈ܕܐ ܕܟܪܟܐ ܕܒܝܬ ܣܠܘܟ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-274" ana="#hagiographic">
+            <bibl xml:id="work-274" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name274-1" xml:lang="syr" source="#bib274-1" syriaca-tags="#syriaca-headword">ܣܗ̈ܕܐ ܕܟܪܟܐ ܕܒܝܬ ܣܠܘܟ</title>
                 <title xml:id="name274-2" xml:lang="fr-x-bhs" source="#bib274-1">Sāhdē d-Karkā d-Bēṯ Slōk</title>
                 <title xml:id="name274-3" xml:lang="fr" source="#bib274-1">Martyrs de Karka de Bet-Selok et de divers lieux (texte)</title>
                 <title xml:id="name274-4" xml:lang="en" source="#bib274-1" syriaca-tags="#syriaca-headword">Martyrs of Karka d-Beth Slokh and of different places (text)</title>
+                <idno type="URI">http://syriaca.org/work/274</idno>
+                <idno type="BHS">53</idno>
+                <idno type="BHO">807</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib274-1">
                     <quote>ܝܘܚܢܢ: ܐܦܣܩܘܦܐ ܕܟܪܟܐ ܕܒܝܬ ܣܠܘܟ: ܐܬܩܛܠ ܒܚܨܝܢ ܩܪܝܬܐ: ܒܦܘܩܕܢܐ ܕܐܪܕܫܝܪ ܡܠܟܐ ܕܚܕܝܒ.</quote>
                 </note>
@@ -204,67 +212,70 @@
                 <note xml:lang="fr" type="explicit" source="#bib274-1">
                     <quote>Ainsi avons-nous écrit sur ces choses, comme l’histoire nous l’a permis.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib274-1" xml:id="bib274-4">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 2</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 286-289</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib274-1">
-                    <bibl xml:id="bib274-5">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 516-520</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib274-1">
-                    <bibl xml:id="bib274-6">ms Vatican, Syr. 160, f. 105v-106v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib274-1">
-                    <bibl xml:id="bib274-7">
-                        <editor>O. Braun</editor>
-                        <title>AAPM</title>
-                        <ptr target="http://syriaca.org/bibl/1747"/>
-                        <citedRange unit="pp">76-82</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib274-1">
-                    <bibl xml:id="bib274-8">
-                        <editor>S.P. Brock</editor>
-                        <editor>S.A. Harvey</editor>
-                        <title>Holy Women of
+                <bibl type="lawd:Edition" source="#bib274-1" xml:id="bib274-4">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 2</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 286-289</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib274-4" ref="dct:source" passive="" source="#bib274-1"/>
+                        <relation active="#bib274-4" ref="lawd:embodies" passive="http://syriaca.org/work/274"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib274-5">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 516-520<listRelation>
+                        <relation active="#bib274-5" ref="lawd:embodies" passive="http://syriaca.org/work/274"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib274-6">ms Vatican, Syr. 160, f. 105v-106v<listRelation>
+                        <relation active="#bib274-6" ref="lawd:embodies" passive="http://syriaca.org/work/274"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib274-7">
+                    <lang>de</lang>
+                    <editor>O. Braun</editor>
+                    <title>AAPM</title>
+                    <ptr target="http://syriaca.org/bibl/1747"/>
+                    <citedRange unit="pp">76-82</citedRange>
+                    <listRelation>
+                        <relation active="#bib274-7" ref="lawd:embodies" passive="http://syriaca.org/work/274"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib274-8">
+                    <lang>en</lang>
+                    <editor>S.P. Brock</editor>
+                    <editor>S.A. Harvey</editor>
+                    <title>Holy Women of
             the Syrian Orient (The Transformation of the Classical Heritage, 13), Berkeley-Los
             Angeles-Londres, 1987</title>
-                        <ptr target="http://syriaca.org/bibl/1702"/>
-                        <citedRange unit="pp">77</citedRange>
-                        <note xml:lang="fr">partielle</note>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/274</idno>
-                <idno type="BHS">53</idno>
-                <idno type="BHO">807</idno>
-                <bibl xml:id="bib274-1">
+                    <ptr target="http://syriaca.org/bibl/1702"/>
+                    <citedRange unit="pp">77</citedRange>
+                    <note xml:lang="fr">partielle</note>
+                    <listRelation>
+                        <relation active="#bib274-8" ref="lawd:embodies" passive="http://syriaca.org/work/274"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib274-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">53</citedRange>
                 </bibl>
-                <bibl xml:id="bib274-2">
+                <bibl xml:id="bib274-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Auszüge aus syrischen Akten persischer Märtyrer</title>
                     <title xml:lang="de" level="s">Abhandlungen für die Kunde des Morgenlandes</title>
                     <ptr target="http://syriaca.org/bibl/779"/>
                     <citedRange from="130" to="161" unit="pp">130-161</citedRange>
                     <citedRange from="267" to="281" unit="pp">267-281</citedRange>
                 </bibl>
-                <bibl xml:id="bib274-3">
+                <bibl xml:id="bib274-3" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Notes d’hagiographie perse</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/910"/>
                     <citedRange from="229" to="248" unit="pp">229-248</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/274" passive="http://syriaca.org/person/1897" source="#bib274-1"/>
+                    <relation active="http://syriaca.org/work/274" passive="http://syriaca.org/person/1897" source="#bib274-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

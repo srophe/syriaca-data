@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Severus of Antioch (text) — <foreign xml:lang="syr">ܣܐܘܝܪܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-683" ana="#hagiographic">
+            <bibl xml:id="work-683" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name683-1" xml:lang="syr" source="#bib683-1" syriaca-tags="#syriaca-headword">ܣܐܘܝܪܐ</title>
                 <title xml:id="name683-2" xml:lang="fr-x-bhs" source="#bib683-1">Sēwērā</title>
                 <title xml:id="name683-3" xml:lang="fr" source="#bib683-1">Sévère d’Antioche (texte)</title>
@@ -203,6 +207,10 @@
                         <forename>Jean</forename>
                         <addName type="family">bar Aphtonya</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/683</idno>
+                <idno type="BHS">467</idno>
+                <idno type="BHO">1061</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib683-1">
                     <quote>Je loue ton amour de la science et ton désir de vertus, homme de Dieu, car pas même une fois tu n’es rassasié des choses divines, mais chaque fois que tu en as pris, tu as eu le désir d’en reprendre.</quote>
                 </note>
@@ -221,65 +229,69 @@
                 <note xml:lang="fr" type="explicit" source="#bib683-1">
                     <quote>Car maintenant surtout la grâce de l’Esprit couvre ses os vénérables pour que soient guéries toute maladie et toute faiblesse et que les démons soient chassés, seulement quand ceux qui son atteints de quelque chose s’approchent de son tombeau. Cela, en obéissant à ton exhortation… pour que soit prête pour moi la sortie du corps et la comparution sans condamnation devant le tribunal du Christ, avec qui et au Père avec l’Esprit Saint… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib683-1" xml:id="bib683-5">
-                        <author>Kugener, M.-A.</author>
-                        <title>Vie de Sévère par Jean supérieur du monastère de Beith-Aphthonia</title>
-                        <ptr target="http://syriaca.org/bibl/1838"/>
-                        <citedRange>Paris, 1904, p. 207 [123] - 264 [180]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib683-1">
-                    <bibl xml:id="bib683-6">Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 135-147v + mss Londres, British Library, Add. 17203, f. 1-16v + Add. 14731, f. 31r (extrait)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib683-1">
-                    <bibl xml:id="bib683-7">ms Damas, Patriarcat syrien orthodoxe, cod. 12/20 (olim ms Dayr az-Za‘faran, cod. parch. 11 (Dolabany)), f. 140v-155</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib683-1">
-                    <bibl xml:id="bib683-8">ms Damas, Patriarcat syrien orthodoxe, cod. 12/19 (olim ms Dayr az-Za‘faran, cod. parch. 12 (Dolabany)), f. 119-130</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib683-1">
-                    <bibl xml:id="bib683-9">ms Damas, Patriarcat syrien orthodoxe, 3/1</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib683-1">
-                    <bibl xml:id="bib683-10">
-                        <editor>M.-A. Kugener</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1838"/>
-                        <citedRange>Paris, 1904, p. 207 [123] - 264 [180]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/683</idno>
-                <idno type="BHS">467</idno>
-                <idno type="BHO">1061</idno>
-                <bibl xml:id="bib683-1">
+                <bibl type="lawd:Edition" source="#bib683-1" xml:id="bib683-5">
+                    <author>Kugener, M.-A.</author>
+                    <title>Vie de Sévère par Jean supérieur du monastère de Beith-Aphthonia</title>
+                    <ptr target="http://syriaca.org/bibl/1838"/>
+                    <citedRange>Paris, 1904, p. 207 [123] - 264 [180]</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib683-5" ref="dct:source" passive="" source="#bib683-1"/>
+                        <relation active="#bib683-5" ref="lawd:embodies" passive="http://syriaca.org/work/683"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib683-6">Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 135-147v + mss Londres, British Library, Add. 17203, f. 1-16v + Add. 14731, f. 31r (extrait)<listRelation>
+                        <relation active="#bib683-6" ref="lawd:embodies" passive="http://syriaca.org/work/683"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib683-7">ms Damas, Patriarcat syrien orthodoxe, cod. 12/20 (olim ms Dayr az-Za‘faran, cod. parch. 11 (Dolabany)), f. 140v-155<listRelation>
+                        <relation active="#bib683-7" ref="lawd:embodies" passive="http://syriaca.org/work/683"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib683-8">ms Damas, Patriarcat syrien orthodoxe, cod. 12/19 (olim ms Dayr az-Za‘faran, cod. parch. 12 (Dolabany)), f. 119-130<listRelation>
+                        <relation active="#bib683-8" ref="lawd:embodies" passive="http://syriaca.org/work/683"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib683-9">ms Damas, Patriarcat syrien orthodoxe, 3/1<listRelation>
+                        <relation active="#bib683-9" ref="lawd:embodies" passive="http://syriaca.org/work/683"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib683-10">
+                    <lang>fr</lang>
+                    <editor>M.-A. Kugener</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1838"/>
+                    <citedRange>Paris, 1904, p. 207 [123] - 264 [180]</citedRange>
+                    <listRelation>
+                        <relation active="#bib683-10" ref="lawd:embodies" passive="http://syriaca.org/work/683"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib683-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">467</citedRange>
                 </bibl>
-                <bibl xml:id="bib683-2">
+                <bibl xml:id="bib683-2" type="lawd:Citation">
                     <title xml:lang="de" level="a">Neue Entdeckungen für die Biographie des Severus
                      von Antiochien von Jōḥannān von Bēt Aphtōnjā</title>
                     <title xml:lang="de" level="j">Ostkirchliche Studien</title>
                     <ptr target="http://syriaca.org/bibl/831"/>
                     <citedRange from="333" to="337" unit="pp">333-337</citedRange>
                 </bibl>
-                <bibl xml:id="bib683-3">
+                <bibl xml:id="bib683-3" type="lawd:Citation">
                     <title xml:lang="de" level="m">Severus von Antiochien. Ein kritischer
                      Quellenbeitrag zur Geschichte des Monophysitismus</title>
                     <ptr target="http://syriaca.org/bibl/748"/>
                     <citedRange from="8" to="17" unit="pp">8-17</citedRange>
                 </bibl>
-                <bibl xml:id="bib683-4">
+                <bibl xml:id="bib683-4" type="lawd:Citation">
                     <title level="m" xml:lang="fr">CR</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/832"/>
                     <citedRange from="115" to="116" unit="pp">115-116</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/683" passive="http://syriaca.org/person/51" source="#bib683-1"/>
+                    <relation active="http://syriaca.org/work/683" passive="http://syriaca.org/person/51" source="#bib683-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

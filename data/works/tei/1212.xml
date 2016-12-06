@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ishoʿsabran (text) — <foreign xml:lang="syr">ܝܫܘܥܣܒܪܢ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1212" ana="#hagiographic">
+            <bibl xml:id="work-1212" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1212-1" xml:lang="syr" source="#bib1212-1" syriaca-tags="#syriaca-headword">ܝܫܘܥܣܒܪܢ</title>
                 <title xml:id="name1212-2" xml:lang="fr-x-bhs" source="#bib1212-1">Īšōʿsabran</title>
                 <title xml:id="name1212-3" xml:lang="fr" source="#bib1212-1">Isho‘sabran (texte)</title>
@@ -200,6 +204,9 @@
                         <forename>Kamis</forename>
                         <addName type="family">bar Qardahé</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1212</idno>
+                <idno type="BHS">1052</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1212-1">
                     <quote>ܛܘܒܝܟ ܣܗܕܐ ܢܨܝܚܐ. ܐܓܘܢܣܛܗ ܕܡܫܝܚܐ. ܕܐܬܟܫܪܬ ܒܟܪܡ ܪܘܚܐ. ܘܗܘܝܬ ܦܠܚܐ ܘܦܠܚܐ.</quote>
                 </note>
@@ -212,52 +219,62 @@
                 <note xml:lang="fr" type="explicit" source="#bib1212-1">
                     <quote>Et que ses enfants soient dans la concorde, que ses pasteurs soient en paix, que ses rois observent la justice; pour l’auteur de cet hymne et celui qui la récite à cette heure, vivez dans la miséricorde de la grâce.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-2">Vatican, Syr. 186, f. 61v-66 + Borg. Syr. 33, f. 133v-138 + Borg. Syr. 35, f. 78-81v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-3">ms Berlin, Königliche Bibliothek, syr. 66 (Sachau 178), f. 103-108</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-4">mss Siirt, Évêché chaldéen, cod. 54 + cod. 55 + cod; 56</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-5">ms Cambridge, University Library, Add. 1991, f. 95-99</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-6">ms Dawra, Monastère chaldéen, cod. 328 (olim Alqosh, Monastère N.-D. des Semences, cod. 131 Vosté), cah. 12, p. 15 - cah. 16, p. 18</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-7">ms Diyarbakir, Archevêché chaldéen, cod. 91 (nunc Mardin, Évêché chaldéen, y vu en 1969)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-8">ms Jérusalem, Patriarcat grec orthodoxe, syr. 2, f. 86v-90 + syr. 31, f. 147-153v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-9">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 130, f. 170-177 + Syr. 149, f. 72-75v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-10">ms Manchester, Joh, Rylands Library, Syr. 24, f. 79-84v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-11">ms Mardin, Évêché chaldéen, syr. 44</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-12">ms Londres, British Library, Or. 4062, f. 108-113</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1212-1">
-                    <bibl xml:id="bib1212-13">ms Londres, British Library, Or. 4063, f. 117-121v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1212</idno>
-                <idno type="BHS">1052</idno>
-                <bibl xml:id="bib1212-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-2">Vatican, Syr. 186, f. 61v-66 + Borg. Syr. 33, f. 133v-138 + Borg. Syr. 35, f. 78-81v<listRelation>
+                        <relation active="#bib1212-2" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-3">ms Berlin, Königliche Bibliothek, syr. 66 (Sachau 178), f. 103-108<listRelation>
+                        <relation active="#bib1212-3" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-4">mss Siirt, Évêché chaldéen, cod. 54 + cod. 55 + cod; 56<listRelation>
+                        <relation active="#bib1212-4" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-5">ms Cambridge, University Library, Add. 1991, f. 95-99<listRelation>
+                        <relation active="#bib1212-5" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-6">ms Dawra, Monastère chaldéen, cod. 328 (olim Alqosh, Monastère N.-D. des Semences, cod. 131 Vosté), cah. 12, p. 15 - cah. 16, p. 18<listRelation>
+                        <relation active="#bib1212-6" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-7">ms Diyarbakir, Archevêché chaldéen, cod. 91 (nunc Mardin, Évêché chaldéen, y vu en 1969)<listRelation>
+                        <relation active="#bib1212-7" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-8">ms Jérusalem, Patriarcat grec orthodoxe, syr. 2, f. 86v-90 + syr. 31, f. 147-153v<listRelation>
+                        <relation active="#bib1212-8" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-9">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 130, f. 170-177 + Syr. 149, f. 72-75v<listRelation>
+                        <relation active="#bib1212-9" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-10">ms Manchester, Joh, Rylands Library, Syr. 24, f. 79-84v<listRelation>
+                        <relation active="#bib1212-10" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-11">ms Mardin, Évêché chaldéen, syr. 44<listRelation>
+                        <relation active="#bib1212-11" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-12">ms Londres, British Library, Or. 4062, f. 108-113<listRelation>
+                        <relation active="#bib1212-12" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1212-13">ms Londres, British Library, Or. 4063, f. 117-121v<listRelation>
+                        <relation active="#bib1212-13" ref="lawd:embodies" passive="http://syriaca.org/work/1212"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1212-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1052</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1212" passive="http://syriaca.org/person/1284" source="#bib1212-1"/>
+                    <relation active="http://syriaca.org/work/1212" passive="http://syriaca.org/person/1284" source="#bib1212-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

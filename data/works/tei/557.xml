@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Theodosius of Jerusalem (text) — <foreign xml:lang="syr">ܬܐܘܕܘܣܝܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-10-28+02:00">Added edition/translation</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
@@ -189,11 +193,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-557" ana="#hagiographic">
+            <bibl xml:id="work-557" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name557-1" xml:lang="syr" source="#bib557-1" syriaca-tags="#syriaca-headword">ܬܐܘܕܘܣܝܘܣ</title>
                 <title xml:id="name557-2" xml:lang="fr-x-bhs" source="#bib557-1">Tēʾōḏōsīyōs</title>
                 <title xml:id="name557-3" xml:lang="fr" source="#bib557-1">Théodose de Jérusalem (texte)</title>
                 <title xml:id="name557-4" xml:lang="en" source="#bib557-1" syriaca-tags="#syriaca-headword">Theodosius of Jerusalem (text)</title>
+                <idno type="URI">http://syriaca.org/work/557</idno>
+                <idno type="BHS">337</idno>
+                <idno type="BHO">1178</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib557-1">
                     <quote>Puisque je me rappelle avoir promis plus haut de raconter comment le bienheureux Théodose évêque de Jérusalem, confesseur et martyr, est mort…</quote>
                 </note>
@@ -212,71 +220,76 @@
                 <note xml:lang="fr" type="explicit" source="#bib557-1">
                     <quote>Car il faut aussi, alors qu’ils ont acquis des vertus fraternelles et égales en honneur, qu’ils aient des commémorations fraternelles et voisines. Le même jour est la commémoration du bienheureux prêtre Pésarion,… qui construisit aussi une célèbre maison pour les pauvres devant les portes de la ville sainte du côté de l’Orient. Qu’avec eux nous juge dignes… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib557-1" xml:id="bib557-3">
-                        <author>Brooks, E. W.</author>
-                        <title>Vitae Virorum apud monophysitas celeberrimorum I</title>
-                        <ptr target="http://syriaca.org/bibl/2088"/>
-                        <citedRange>Paris-Leipzig, 1907, p. 21-27</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl xml:id="bib557-7">
-                        <title level="m">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
-                        <ptr target="http://syriaca.org/bibl/1703"/>
-                        <citedRange unit="pp" from="282" to="301">282-301</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib557-1">
-                    <bibl xml:id="bib557-4">ms Londres, British Library, Add. 12174, f. 141-142v + ms Berlin, Königliche Bibliothek, syr 26 (Sachau 321), f. 103r-104v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib557-1">
-                    <bibl xml:id="bib557-5">
-                        <editor>E. W. Brooks</editor>
-                        <title>CSCO 8 Script. Syri
+                <bibl type="lawd:Edition" source="#bib557-1" xml:id="bib557-3">
+                    <author>Brooks, E. W.</author>
+                    <title>Vitae Virorum apud monophysitas celeberrimorum I</title>
+                    <ptr target="http://syriaca.org/bibl/2088"/>
+                    <citedRange>Paris-Leipzig, 1907, p. 21-27</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib557-3" ref="dct:source" passive="" source="#bib557-1"/>
+                        <relation active="#bib557-3" ref="lawd:embodies" passive="http://syriaca.org/work/557"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib557-7">
+                    <title level="m">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
+                    <ptr target="http://syriaca.org/bibl/1703"/>
+                    <citedRange unit="pp" from="282" to="301">282-301</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib557-7" ref="dct:source" passive="" source=""/>
+                        <relation active="#bib557-7" ref="lawd:embodies" passive="http://syriaca.org/work/557"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib557-4">ms Londres, British Library, Add. 12174, f. 141-142v + ms Berlin, Königliche Bibliothek, syr 26 (Sachau 321), f. 103r-104v<listRelation>
+                        <relation active="#bib557-4" ref="lawd:embodies" passive="http://syriaca.org/work/557"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib557-5">
+                    <lang>la</lang>
+                    <editor>E. W. Brooks</editor>
+                    <title>CSCO 8 Script. Syri
                 8</title>
-                        <ptr target="http://syriaca.org/bibl/1706"/>
-                        <citedRange unit="pp">15-19</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib557-1">
-                    <bibl xml:id="bib557-6">
-                        <editor>K. Ahrens</editor>
-                        <editor>G. Krüger</editor>
-                        <title>Die sogenannte Kirchengeschichte des
+                    <ptr target="http://syriaca.org/bibl/1706"/>
+                    <citedRange unit="pp">15-19</citedRange>
+                    <listRelation>
+                        <relation active="#bib557-5" ref="lawd:embodies" passive="http://syriaca.org/work/557"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib557-6">
+                    <lang>de</lang>
+                    <editor>K. Ahrens</editor>
+                    <editor>G. Krüger</editor>
+                    <title>Die sogenannte Kirchengeschichte des
             Zacharias Rhetor, Leipzig, 1899</title>
-                        <ptr target="http://syriaca.org/bibl/852"/>
-                        <citedRange unit="pp">257-263</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation">
-                    <bibl xml:id="bib557-8">
-                        <title level="m">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
-                        <ptr target="http://syriaca.org/bibl/1703"/>
-                        <citedRange unit="pp" from="282" to="301">282-301</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/557</idno>
-                <idno type="BHS">337</idno>
-                <idno type="BHO">1178</idno>
-                <bibl xml:id="bib557-1">
+                    <ptr target="http://syriaca.org/bibl/852"/>
+                    <citedRange unit="pp">257-263</citedRange>
+                    <listRelation>
+                        <relation active="#bib557-6" ref="lawd:embodies" passive="http://syriaca.org/work/557"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib557-8">
+                    <lang>en</lang>
+                    <title level="m">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
+                    <ptr target="http://syriaca.org/bibl/1703"/>
+                    <citedRange unit="pp" from="282" to="301">282-301</citedRange>
+                    <listRelation>
+                        <relation active="#bib557-8" ref="lawd:embodies" passive="http://syriaca.org/work/557"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib557-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">337</citedRange>
                 </bibl>
-                <bibl xml:id="bib557-2">
+                <bibl xml:id="bib557-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Die sogenannte Kirchengeschichte des Zacharias
                      Rhetor in deutscher Übersetzung herausgegeben</title>
                     <ptr target="http://syriaca.org/bibl/852"/>
                     <citedRange from="384" to="384" unit="pp">384, 385</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/557" passive="http://syriaca.org/person/2111" source="#bib557-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/2743" passive="http://syriaca.org/person/2111"/>
+                    <relation active="http://syriaca.org/work/557" passive="http://syriaca.org/person/2111" source="#bib557-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/2743" passive="http://syriaca.org/person/2111" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

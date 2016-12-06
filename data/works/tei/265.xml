@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Posi (text) — <foreign xml:lang="syr">ܦܘܣܝ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-265" ana="#hagiographic">
+            <bibl xml:id="work-265" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name265-1" xml:lang="syr" source="#bib265-1" syriaca-tags="#syriaca-headword">ܦܘܣܝ</title>
                 <title xml:id="name265-2" xml:lang="fr-x-bhs" source="#bib265-1">Pōsī</title>
                 <title xml:id="name265-3" xml:lang="fr" source="#bib265-1">Posi (texte)</title>
                 <title xml:id="name265-4" xml:lang="en" source="#bib265-1" syriaca-tags="#syriaca-headword">Posi (text)</title>
+                <idno type="URI">http://syriaca.org/work/265</idno>
+                <idno type="BHS">44</idno>
+                <idno type="BHO">993</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib265-1">
                     <quote>Occupons-nous donc de l’histoire de la confession du glorieux parmi les martyrs, illustre et vaillant Pôsî.</quote>
                 </note>
@@ -211,37 +219,38 @@
                 <note xml:lang="fr" type="explicit" source="#bib265-1">
                     <quote>Mais la bienheureuse et son frère, avec grand zèle comme il convient, embaumèrent le cadavre de l’illustre Pôsî et le placèrent avec honneur pour qu’il soit un trésor de bénédiction pour ses concitoyens. Cela fut réalisé par l’économie divine; à lui… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib265-1" xml:id="bib265-7">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 2</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 208-232</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib265-1">
-                    <bibl xml:id="bib265-8">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 330-376</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib265-1">
-                    <bibl xml:id="bib265-9">
-                        <editor>O. Braun</editor>
-                        <title>AAPM</title>
-                        <ptr target="http://syriaca.org/bibl/1747"/>
-                        <citedRange unit="pp">58-75</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/265</idno>
-                <idno type="BHS">44</idno>
-                <idno type="BHO">993</idno>
-                <bibl xml:id="bib265-1">
+                <bibl type="lawd:Edition" source="#bib265-1" xml:id="bib265-7">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 2</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 208-232</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib265-7" ref="dct:source" passive="" source="#bib265-1"/>
+                        <relation active="#bib265-7" ref="lawd:embodies" passive="http://syriaca.org/work/265"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib265-8">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 330-376<listRelation>
+                        <relation active="#bib265-8" ref="lawd:embodies" passive="http://syriaca.org/work/265"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib265-9">
+                    <lang>de</lang>
+                    <editor>O. Braun</editor>
+                    <title>AAPM</title>
+                    <ptr target="http://syriaca.org/bibl/1747"/>
+                    <citedRange unit="pp">58-75</citedRange>
+                    <listRelation>
+                        <relation active="#bib265-9" ref="lawd:embodies" passive="http://syriaca.org/work/265"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib265-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">44</citedRange>
                 </bibl>
-                <bibl xml:id="bib265-2">
+                <bibl xml:id="bib265-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Zur Märtyrerüberlieferung aus der
                      Christenverfolgung Schapurs II</title>
                     <title xml:lang="de" level="s">Abhandlungen der Akademie der Wissenschaften in
@@ -249,20 +258,20 @@
                     <ptr target="http://syriaca.org/bibl/909"/>
                     <citedRange from="94" to="105" unit="pp">94-105</citedRange>
                 </bibl>
-                <bibl xml:id="bib265-3">
+                <bibl xml:id="bib265-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La Date du martyre de S. Syméon archevêque de
                      Séleucie-Ctésiphon</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/1006"/>
                     <citedRange from="118" to="143" unit="pp">118-143</citedRange>
                 </bibl>
-                <bibl xml:id="bib265-4">
+                <bibl xml:id="bib265-4" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Notes d’hagiographie perse</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/910"/>
                     <citedRange from="229" to="248" unit="pp">229-248</citedRange>
                 </bibl>
-                <bibl xml:id="bib265-5">
+                <bibl xml:id="bib265-5" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
                      syriaques</title>
                     <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
@@ -271,7 +280,7 @@
                     <ptr target="http://syriaca.org/bibl/781"/>
                     <citedRange from="213" to="225" unit="pp">213-225</citedRange>
                 </bibl>
-                <bibl xml:id="bib265-6">
+                <bibl xml:id="bib265-6" type="lawd:Citation">
                     <title xml:lang="de" level="a">Zum Problem der zeitlichen und örtlichen Festlegung
                      der erhaltenen syro-persischen Märtyrerakten</title>
                     <title xml:lang="de" level="m">Paul de Lagarde un die syrische
@@ -280,7 +289,7 @@
                     <citedRange from="231" to="251" unit="pp">231-251</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/265" passive="http://syriaca.org/person/1418" source="#bib265-1"/>
+                    <relation active="http://syriaca.org/work/265" passive="http://syriaca.org/person/1418" source="#bib265-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

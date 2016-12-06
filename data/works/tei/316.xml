@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ephrem (text) — <foreign xml:lang="syr">ܐܦܪܝܡ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-316" ana="#hagiographic">
+            <bibl xml:id="work-316" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name316-1" xml:lang="syr" source="#bib316-1" syriaca-tags="#syriaca-headword">ܐܦܪܝܡ</title>
                 <title xml:id="name316-2" xml:lang="fr-x-bhs" source="#bib316-1">ʾAfrēm</title>
                 <title xml:id="name316-3" xml:lang="fr" source="#bib316-1">Éphrem (texte)</title>
@@ -202,6 +206,10 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">de Serugh</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/316</idno>
+                <idno type="BHS">96</idno>
+                <idno type="BHO">273</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib316-1">
                     <quote>ܐܝܟܢ ܐܩܪܘܒ ܨܝܕ ܢܨܚܢܟ ܐܘ ܫܦܝܪܐ: ܘܒܐܝܠܝܢ ܩ̈ܠܐ ܐܙܡܪ ܫܪܒܟ ܡܪܐ ܫܘܦܪܐ܀</quote>
                 </note>
@@ -214,72 +222,84 @@
                 <note xml:lang="fr" type="explicit" source="#bib316-1">
                     <quote>Protégeant des loups par ses paroles spirituelles le troupeau racheté par le sang du Fils de Dieu.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib316-1" corresp="#bib316-5" n="1" xml:id="bib316-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>p. 665-679</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib316-1" corresp="#bib316-6" n="2" xml:id="bib316-4">
-                        <author>Amar, J.P.</author>
-                        <title>A Metrical Homily of Holy Mar Ephrem by Mar Jacob of Sarug</title>
-                        <ptr target="http://syriaca.org/bibl/1816"/>
-                        <citedRange>p. 24-70</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-5">ms Paris, Bibliothèque nationale, syr. 195, f. 109v-119v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-6">mss Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany)), n° 42 + 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany)), f. 259v-262 + ms Chicago, University Library, Oriental Institute, A 12.008, n° 48 + mss Paris, Bibliothèque nationale, syr. 195, f. 109v-119v + syr. 196, f. 86v-89 + ms Cambridge (Mass.), Harvard University Library, Semitic Museum, Houghton Library, Syr. 100, f. 328-334</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-7">ms Pampakuda, Coll. Konat, cod. 52</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-8">ms Alep, Église Mâr Giwargis, cod. 112</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-9">ms Diyarbakir, Église Mar Ya‘qub, cod. 1/3</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-10">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-11">ms Mardin, Évêché syrien orthodoxe, cod. 132 (olim ms Dayr az-Za‘faran, cod. pap. 59 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-12">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-13">ms Mardin, Évêché syrien orthodoxe, cod. 134 (olim ms Dayr az-Za‘faran, cod. pap. 61 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib316-1">
-                    <bibl xml:id="bib316-14">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Fonds Rahmani, cod. 218, 160-163</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib316-1">
-                    <bibl xml:id="bib316-15">
-                        <editor>J.P. Amar</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1816"/>
-                        <citedRange>p. 24-70</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/316</idno>
-                <idno type="BHS">96</idno>
-                <idno type="BHO">273</idno>
-                <bibl xml:id="bib316-1">
+                <bibl type="lawd:Edition" source="#bib316-1" xml:id="bib316-3">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>p. 665-679</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib316-3" ref="dct:source" passive="#bib316-5" source="#bib316-1"/>
+                        <relation active="#bib316-3" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib316-1" xml:id="bib316-4">
+                    <author>Amar, J.P.</author>
+                    <title>A Metrical Homily of Holy Mar Ephrem by Mar Jacob of Sarug</title>
+                    <ptr target="http://syriaca.org/bibl/1816"/>
+                    <citedRange>p. 24-70</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib316-4" ref="dct:source" passive="#bib316-6" source="#bib316-1"/>
+                        <relation active="#bib316-4" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-5">ms Paris, Bibliothèque nationale, syr. 195, f. 109v-119v<listRelation>
+                        <relation active="#bib316-5" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-6">mss Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany)), n° 42 + 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany)), f. 259v-262 + ms Chicago, University Library, Oriental Institute, A 12.008, n° 48 + mss Paris, Bibliothèque nationale, syr. 195, f. 109v-119v + syr. 196, f. 86v-89 + ms Cambridge (Mass.), Harvard University Library, Semitic Museum, Houghton Library, Syr. 100, f. 328-334<listRelation>
+                        <relation active="#bib316-6" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-7">ms Pampakuda, Coll. Konat, cod. 52<listRelation>
+                        <relation active="#bib316-7" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-8">ms Alep, Église Mâr Giwargis, cod. 112<listRelation>
+                        <relation active="#bib316-8" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-9">ms Diyarbakir, Église Mar Ya‘qub, cod. 1/3<listRelation>
+                        <relation active="#bib316-9" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-10">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))<listRelation>
+                        <relation active="#bib316-10" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-11">ms Mardin, Évêché syrien orthodoxe, cod. 132 (olim ms Dayr az-Za‘faran, cod. pap. 59 (Dolabany))<listRelation>
+                        <relation active="#bib316-11" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-12">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))<listRelation>
+                        <relation active="#bib316-12" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-13">ms Mardin, Évêché syrien orthodoxe, cod. 134 (olim ms Dayr az-Za‘faran, cod. pap. 61 (Dolabany))<listRelation>
+                        <relation active="#bib316-13" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib316-14">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Fonds Rahmani, cod. 218, 160-163<listRelation>
+                        <relation active="#bib316-14" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib316-15">
+                    <lang>en</lang>
+                    <editor>J.P. Amar</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1816"/>
+                    <citedRange>p. 24-70</citedRange>
+                    <listRelation>
+                        <relation active="#bib316-15" ref="lawd:embodies" passive="http://syriaca.org/work/316"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib316-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">96</citedRange>
                 </bibl>
-                <bibl xml:id="bib316-2">
+                <bibl xml:id="bib316-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Vita Tradition of Ephrem the Syrian, the Deacon
                      of Edessa</title>
                     <title level="m">Diakonia</title>
@@ -287,7 +307,7 @@
                     <citedRange from="15" to="42" unit="pp">15-42</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/316" passive="http://syriaca.org/person/13" source="#bib316-1"/>
+                    <relation active="http://syriaca.org/work/316" passive="http://syriaca.org/person/13" source="#bib316-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

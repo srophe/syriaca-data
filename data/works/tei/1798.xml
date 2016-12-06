@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mary Mother of God (Annunciation) (text) — <foreign xml:lang="syr">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1798" ana="#hagiographic">
+            <bibl xml:id="work-1798" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1798-1" xml:lang="syr" source="#bib1798-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</title>
                 <title xml:id="name1798-2" xml:lang="fr-x-bhs" source="#bib1798-1">Maryam yāldaṯ Alāhā</title>
                 <title xml:id="name1798-3" xml:lang="fr" source="#bib1798-1">Marie Mère de Dieu (Annonciation) (texte)</title>
@@ -203,6 +207,10 @@
                         <forename>Sévère</forename>
                         <addName type="untagged-title">d’Antioche</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1798</idno>
+                <idno type="BHS">1739</idno>
+                <idno type="CPG">7035</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="incipit" source="#bib1798-1">
                     <quote>Quant à vous, peut-être pensez-vous que je me réjouis et que je déborde de plaisir parce que vous vous réjouissez de mes paroles insuffisantes et que vous courez avec trop d’empressement pour les écouter.</quote>
                 </note>
@@ -212,36 +220,37 @@
                 <note xml:lang="fr" type="explicit" source="#bib1798-1">
                     <quote>Et le nom de Dieu serait blasphémé à cause de nous parmi les nations, selon la parole du prophète; qu’il n’en soit rien, par la grâce et l’amour pour les hommes de notre grand Dieu et Sauveur Jésus-Christ, avec qui sied au Père… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1798-1" xml:id="bib1798-3">
-                        <author>Brière, M.; Graffin, F.</author>
-                        <title>Les Homiliae cathedrales de Sévère d’Antioche, traduction syriaque de Jacques d’Édesse. Homélies I à XVII</title>
-                        <ptr target="http://syriaca.org/bibl/1397"/>
-                        <citedRange>Turnhout, 1976, p. 272 [28] - 290 [46]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1798-1">
-                    <bibl xml:id="bib1798-4">ms Damas, Patriarcat syrien orthodoxe, cod. 12/19, f. 7-10v (mutilé de la fin) + 12/20, f. 2-7v (olim ms Dayr az-Za‘faran, cod. parch. 11 (Dolabany)) + ms Berlin, Königliche Bibliothek, syr. 28 (Sachau 220), f. 15r-v et 2-3 (mutilé du début et de la fin)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1798-1">
-                    <bibl xml:id="bib1798-5">
-                        <editor>M. Brière et F. Graffin</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1397"/>
-                        <citedRange>Turnhout, 1976, p. 272 [28] - 290 [46]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1798</idno>
-                <idno type="BHS">1739</idno>
-                <idno type="CPG">7035</idno>
-                <bibl xml:id="bib1798-1">
+                <bibl type="lawd:Edition" source="#bib1798-1" xml:id="bib1798-3">
+                    <author>Brière, M.; Graffin, F.</author>
+                    <title>Les Homiliae cathedrales de Sévère d’Antioche, traduction syriaque de Jacques d’Édesse. Homélies I à XVII</title>
+                    <ptr target="http://syriaca.org/bibl/1397"/>
+                    <citedRange>Turnhout, 1976, p. 272 [28] - 290 [46]</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1798-3" ref="dct:source" passive="" source="#bib1798-1"/>
+                        <relation active="#bib1798-3" ref="lawd:embodies" passive="http://syriaca.org/work/1798"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1798-4">ms Damas, Patriarcat syrien orthodoxe, cod. 12/19, f. 7-10v (mutilé de la fin) + 12/20, f. 2-7v (olim ms Dayr az-Za‘faran, cod. parch. 11 (Dolabany)) + ms Berlin, Königliche Bibliothek, syr. 28 (Sachau 220), f. 15r-v et 2-3 (mutilé du début et de la fin)<listRelation>
+                        <relation active="#bib1798-4" ref="lawd:embodies" passive="http://syriaca.org/work/1798"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1798-5">
+                    <lang>fr</lang>
+                    <editor>M. Brière et F. Graffin</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1397"/>
+                    <citedRange>Turnhout, 1976, p. 272 [28] - 290 [46]</citedRange>
+                    <listRelation>
+                        <relation active="#bib1798-5" ref="lawd:embodies" passive="http://syriaca.org/work/1798"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1798-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1739</citedRange>
                 </bibl>
-                <bibl xml:id="bib1798-2">
+                <bibl xml:id="bib1798-2" type="lawd:Citation">
                     <title level="m" xml:lang="fr">S.C., Dormition et Assomption de Marie. Histoire des traditions
                      anciennes</title>
                     <title xml:lang="fr" level="s">Théologie historique</title>
@@ -249,7 +258,7 @@
                     <citedRange from="423" to="424" unit="pp">423-424</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1798" passive="http://syriaca.org/person/624" source="#bib1798-1"/>
+                    <relation active="http://syriaca.org/work/1798" passive="http://syriaca.org/person/624" source="#bib1798-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

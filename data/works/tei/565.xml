@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Jonah (text) — <foreign xml:lang="syr">ܝܘܢܢ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-565" ana="#hagiographic">
+            <bibl xml:id="work-565" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name565-1" xml:lang="syr" source="#bib565-1" syriaca-tags="#syriaca-headword">ܝܘܢܢ</title>
                 <title xml:id="name565-2" xml:lang="fr-x-bhs" source="#bib565-1">Yawnān</title>
                 <title xml:id="name565-3" xml:lang="fr" source="#bib565-1">Jonas (texte)</title>
@@ -200,6 +204,10 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Éphrem</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/565</idno>
+                <idno type="BHS">345</idno>
+                <idno type="CPG">4082</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib565-1">
                     <quote>ܗܐ ܒܢܝܢܘܐ ܝܘܢܢ ܐܟܪܙ ܝܘܕܝܐ ܒܝܢܬ ܥܘܪ̈ܠܐ ܠܟܪܟܐ ܥܠ ܗܘܐ ܥܙܝܙܐ ܘܒܩ̈ܠܐ ܕܚܝ̈ܠܐ ܕܠܚܗܿ.</quote>
                 </note>
@@ -212,126 +220,145 @@
                 <note xml:lang="fr" type="explicit" source="#bib565-1">
                     <quote>Des incirconcis qui ont réjoui le le Père et des circoncis qui ont fait souffrir le Fils, gloire au Père et au Fils et au Saint Esprit amen et amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib565-1" corresp="#bib565-9" n="1" xml:id="bib565-4">
-                        <author>Beck, E.</author>
-                        <title>Des heiligen Ephraem des Syrers Sermones II</title>
-                        <ptr target="http://syriaca.org/bibl/1815"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>Louvain, 1970, p. 1-40</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib565-1" corresp="#bib565-10" n="2" xml:id="bib565-5">
-                        <author>Assemani, S.E.</author>
-                        <title>Sancti Patris nostri Ephraem Syri opera omnia quae exstant Graece, Syriace, Latine.... t. II Graece et Latine</title>
-                        <ptr target="http://syriaca.org/bibl/1810"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>Rome, 1743, p. 359-387</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib565-1" corresp="#bib565-11 bib565-19" n="3" xml:id="bib565-6">
-                        <author>Bedjan, P.</author>
-                        <title>Breviarium Chaldaicum 1</title>
-                        <ptr target="http://syriaca.org/bibl/1923"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>Paris, 1886, p. 438*-450* et 453*-466*</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib565-1" corresp="#bib565-12 bib565-20" n="4" xml:id="bib565-7">
-                        <author>Darmo, T.</author>
-                        <title>Bréviaire 1</title>
-                        <ptr target="http://syriaca.org/bibl/1746"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 344-357 et 374-388</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib565-1" xml:id="bib565-8">
-                        <author>-5</author>
-                        <title>(5) ¢eás‹ da-≠l≈‡‹… d-b‹æº‡‹ d-Ninw‹ye</title>
-                        <ptr target="http://syriaca.org/bibl/2037"/>
-                        <citedRange>215-231, 269-286</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib565-1">
-                    <bibl xml:id="bib565-9">ms Londres, British Library, Add. 14573, f. 3v-20v (mutilé du début) + ms Vatican, Syr. 117, f. 132v-139v + ms Dublin, Trinity College Library, B 5.18 (1506)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib565-1">
-                    <bibl xml:id="bib565-10">ms Vatican, Syr. 117, f. 132v-139v (?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib565-1">
-                    <bibl xml:id="bib565-11">ms Sinai, Monastère Sainte-Catherine, Sparagma 31 (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib565-1">
-                    <bibl xml:id="bib565-12">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 545, f. 170-186</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib565-1">
-                    <bibl xml:id="bib565-13">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib565-1">
-                    <bibl xml:id="bib565-14">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib565-1">
-                    <bibl xml:id="bib565-15">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib565-1">
-                    <bibl xml:id="bib565-16">
-                        <editor>V. Arras</editor>
-                        <title>Asceticon (CSCO 458 Scr. Aeth. 77),
+                <bibl type="lawd:Edition" source="#bib565-1" xml:id="bib565-4">
+                    <author>Beck, E.</author>
+                    <title>Des heiligen Ephraem des Syrers Sermones II</title>
+                    <ptr target="http://syriaca.org/bibl/1815"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>Louvain, 1970, p. 1-40</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib565-4" ref="dct:source" passive="#bib565-9" source="#bib565-1"/>
+                        <relation active="#bib565-4" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib565-1" xml:id="bib565-5">
+                    <author>Assemani, S.E.</author>
+                    <title>Sancti Patris nostri Ephraem Syri opera omnia quae exstant Graece, Syriace, Latine.... t. II Graece et Latine</title>
+                    <ptr target="http://syriaca.org/bibl/1810"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>Rome, 1743, p. 359-387</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib565-5" ref="dct:source" passive="#bib565-10" source="#bib565-1"/>
+                        <relation active="#bib565-5" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib565-1" xml:id="bib565-6">
+                    <author>Bedjan, P.</author>
+                    <title>Breviarium Chaldaicum 1</title>
+                    <ptr target="http://syriaca.org/bibl/1923"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>Paris, 1886, p. 438*-450* et 453*-466*</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib565-6" ref="dct:source" passive="#bib565-11 bib565-19" source="#bib565-1"/>
+                        <relation active="#bib565-6" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib565-1" xml:id="bib565-7">
+                    <author>Darmo, T.</author>
+                    <title>Bréviaire 1</title>
+                    <ptr target="http://syriaca.org/bibl/1746"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 344-357 et 374-388</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib565-7" ref="dct:source" passive="#bib565-12 bib565-20" source="#bib565-1"/>
+                        <relation active="#bib565-7" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib565-1" xml:id="bib565-8">
+                    <author>-5</author>
+                    <title>(5) ¢eás‹ da-≠l≈‡‹… d-b‹æº‡‹ d-Ninw‹ye</title>
+                    <ptr target="http://syriaca.org/bibl/2037"/>
+                    <citedRange>215-231, 269-286</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib565-8" ref="dct:source" passive="" source="#bib565-1"/>
+                        <relation active="#bib565-8" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib565-9">ms Londres, British Library, Add. 14573, f. 3v-20v (mutilé du début) + ms Vatican, Syr. 117, f. 132v-139v + ms Dublin, Trinity College Library, B 5.18 (1506)<listRelation>
+                        <relation active="#bib565-9" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib565-10">ms Vatican, Syr. 117, f. 132v-139v (?)<listRelation>
+                        <relation active="#bib565-10" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib565-11">ms Sinai, Monastère Sainte-Catherine, Sparagma 31 (fgt)<listRelation>
+                        <relation active="#bib565-11" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib565-12">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 545, f. 170-186<listRelation>
+                        <relation active="#bib565-12" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib565-13">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib565-13" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib565-14">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib565-14" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib565-15">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib565-15" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib565-16">
+                    <lang>gez</lang>
+                    <editor>V. Arras</editor>
+                    <title>Asceticon (CSCO 458 Scr. Aeth. 77),
                 Louvain, 1984</title>
-                        <ptr target="http://syriaca.org/bibl/2077"/>
-                        <citedRange unit="pp">111-141</citedRange>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib565-1">
-                    <bibl xml:id="bib565-17">
-                        <editor>S.E. Assemani</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1810"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>Rome, 1743, p. 359-387</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib565-1">
-                    <bibl xml:id="bib565-18">
-                        <editor>E. Beck</editor>
-                        <ptr target="http://syriaca.org/bibl/2085"/>
-                        <title>CSCO 312 Script. Syri
+                    <ptr target="http://syriaca.org/bibl/2077"/>
+                    <citedRange unit="pp">111-141</citedRange>
+                    <listRelation>
+                        <relation active="#bib565-16" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib565-17">
+                    <lang>la</lang>
+                    <editor>S.E. Assemani</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1810"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>Rome, 1743, p. 359-387</citedRange>
+                    <listRelation>
+                        <relation active="#bib565-17" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib565-18">
+                    <lang>de</lang>
+                    <editor>E. Beck</editor>
+                    <ptr target="http://syriaca.org/bibl/2085"/>
+                    <title>CSCO 312 Script. Syri
                 135</title>
-                        <citedRange unit="pp">1-53</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib565-19">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib565-20">The manuscript witnesses for edition 4 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/565</idno>
-                <idno type="BHS">345</idno>
-                <idno type="CPG">4082</idno>
-                <bibl xml:id="bib565-1">
+                    <citedRange unit="pp">1-53</citedRange>
+                    <listRelation>
+                        <relation active="#bib565-18" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib565-19">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib565-19" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib565-20">The manuscript witnesses for edition 4 are undetermined.<listRelation>
+                        <relation active="#bib565-20" ref="lawd:embodies" passive="http://syriaca.org/work/565"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib565-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">345</citedRange>
                 </bibl>
-                <bibl xml:id="bib565-2">
+                <bibl xml:id="bib565-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">À propos du sermon éphrémien sur Jonas et la
                      pénitence des Ninivites</title>
                     <title xml:lang="de" level="m">Lingua restituta orientalis. Festgabe für Julius
@@ -340,7 +367,7 @@
                     <ptr target="http://syriaca.org/bibl/839"/>
                     <citedRange from="155" to="160" unit="pp">155-160</citedRange>
                 </bibl>
-                <bibl xml:id="bib565-3">
+                <bibl xml:id="bib565-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">Ephrem’s Verse Homily on Jonah and the Repentance
                      of Nineveh: Notes on the Textual Tradition</title>
                     <title level="m" xml:lang="la">Philohistôr. Miscellanea in honorem Caroli Laga
@@ -350,7 +377,7 @@
                     <citedRange from="71" to="86" unit="pp">71-86</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/565" passive="http://syriaca.org/person/1830" source="#bib565-1"/>
+                    <relation active="http://syriaca.org/work/565" passive="http://syriaca.org/person/1830" source="#bib565-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">George (text) — <foreign xml:lang="syr">ܓܝܘܪܓܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1195" ana="#hagiographic">
+            <bibl xml:id="work-1195" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1195-1" xml:lang="syr" source="#bib1195-1" syriaca-tags="#syriaca-headword">ܓܝܘܪܓܝܣ</title>
                 <title xml:id="name1195-2" xml:lang="fr-x-bhs" source="#bib1195-1">Gīwargīs</title>
                 <title xml:id="name1195-3" xml:lang="fr" source="#bib1195-1">Georges (texte)</title>
@@ -200,6 +204,9 @@
                         <forename>Georges</forename>
                         <addName type="family">Warda</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1195</idno>
+                <idno type="BHS">1035</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1195-1">
                     <quote>ܠܐܓܘܢܐ ܕܣܗ̈ܕܐ ܥܠܬ ܘܒܦܘܪܬܟܐ ܪܒܐ ܩܡܬ ܘܡܢ ܫܢܕ̈ܝܗܘܢ ܐܬܡܚܠܬ ܘܒܩ̈ܠܝܗܘܢ ܐܬܚܝܠܬ.</quote>
                 </note>
@@ -212,72 +219,88 @@
                 <note xml:lang="fr" type="explicit" source="#bib1195-1">
                     <quote>Pour toutes les foules rassemblées aujourd’hui et qui célèbrent sa mémoire, éloigne d’eux tout dommage; à toi la louange de toutes les bouches pour les siècles des siècles. Amen et amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1195-1" xml:id="bib1195-2">
-                        <author>Folkmann, I.</author>
-                        <title>Ausgewählte nestorianische Kirchenlieder über das Martyrium des heil. Georg von Giwargis Warda</title>
-                        <ptr target="http://syriaca.org/bibl/1858"/>
-                        <citedRange>Kirchhain N.L., 1896, p. 42-50 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-3">ms Berlin, Königliche Bibliothek, Syr. 65 (= orient. fol. 619), f. 152v-154v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-4">ms Vatican, Syr. 184, f. 160v-162v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-5">ms Vatican, Syr. 499, f. 131-132v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-6">ms Vatican, Syr. 567, f. 163v-165v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-7">ms Vatican, Borg. Syr. 40, f. 151-153</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-8">ms Vatican, Borg. Syr. 60, f. 345v-346v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-9">ms Berlin, Königliche Bibliothek, syr. 43 (orient. fol. 620), f. 320-</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-10">ms Berlin, Königliche Bibliothek, syr. 63 (Sachau 188), f. 138v-140</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-11">ms Berlin, Königliche Bibliothek, syr. 64 (Sachau 330), f. 144-146</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-12">mss Cambridge, University Library, Add. 1980, f. 348-353</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-13">mss Cambridge, University Library, Add. 1982, f. 153-154v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-14">ms Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales, fonds oriental ancien 3 (Pigulevskaya 68), f. 135-136v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-15">ms Oxford, Bodleian Library, Syr.d.19, f. 144-146</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-16">ms Londres, British Library, Or. 8678, f. 165v-167v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-17">ms Londres, British Library, Or. 7460, f. 157-159</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1195-1">
-                    <bibl xml:id="bib1195-18">ms Londres, British Library, Or. 9357, f. 129v-131</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1195</idno>
-                <idno type="BHS">1035</idno>
-                <bibl xml:id="bib1195-1">
+                <bibl type="lawd:Edition" source="#bib1195-1" xml:id="bib1195-2">
+                    <author>Folkmann, I.</author>
+                    <title>Ausgewählte nestorianische Kirchenlieder über das Martyrium des heil. Georg von Giwargis Warda</title>
+                    <ptr target="http://syriaca.org/bibl/1858"/>
+                    <citedRange>Kirchhain N.L., 1896, p. 42-50 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1195-2" ref="dct:source" passive="" source="#bib1195-1"/>
+                        <relation active="#bib1195-2" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-3">ms Berlin, Königliche Bibliothek, Syr. 65 (= orient. fol. 619), f. 152v-154v<listRelation>
+                        <relation active="#bib1195-3" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-4">ms Vatican, Syr. 184, f. 160v-162v<listRelation>
+                        <relation active="#bib1195-4" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-5">ms Vatican, Syr. 499, f. 131-132v<listRelation>
+                        <relation active="#bib1195-5" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-6">ms Vatican, Syr. 567, f. 163v-165v<listRelation>
+                        <relation active="#bib1195-6" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-7">ms Vatican, Borg. Syr. 40, f. 151-153<listRelation>
+                        <relation active="#bib1195-7" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-8">ms Vatican, Borg. Syr. 60, f. 345v-346v<listRelation>
+                        <relation active="#bib1195-8" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-9">ms Berlin, Königliche Bibliothek, syr. 43 (orient. fol. 620), f. 320-<listRelation>
+                        <relation active="#bib1195-9" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-10">ms Berlin, Königliche Bibliothek, syr. 63 (Sachau 188), f. 138v-140<listRelation>
+                        <relation active="#bib1195-10" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-11">ms Berlin, Königliche Bibliothek, syr. 64 (Sachau 330), f. 144-146<listRelation>
+                        <relation active="#bib1195-11" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-12">mss Cambridge, University Library, Add. 1980, f. 348-353<listRelation>
+                        <relation active="#bib1195-12" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-13">mss Cambridge, University Library, Add. 1982, f. 153-154v<listRelation>
+                        <relation active="#bib1195-13" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-14">ms Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales, fonds oriental ancien 3 (Pigulevskaya 68), f. 135-136v<listRelation>
+                        <relation active="#bib1195-14" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-15">ms Oxford, Bodleian Library, Syr.d.19, f. 144-146<listRelation>
+                        <relation active="#bib1195-15" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-16">ms Londres, British Library, Or. 8678, f. 165v-167v<listRelation>
+                        <relation active="#bib1195-16" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-17">ms Londres, British Library, Or. 7460, f. 157-159<listRelation>
+                        <relation active="#bib1195-17" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1195-18">ms Londres, British Library, Or. 9357, f. 129v-131<listRelation>
+                        <relation active="#bib1195-18" ref="lawd:embodies" passive="http://syriaca.org/work/1195"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1195-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1035</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1195" passive="http://syriaca.org/person/1749" source="#bib1195-1"/>
+                    <relation active="http://syriaca.org/work/1195" passive="http://syriaca.org/person/1749" source="#bib1195-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

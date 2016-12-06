@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Theodore Castrensis (text) — <foreign xml:lang="syr">ܬܐܕܘܪܐ ܩܣܛܪܝܣܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-848" ana="#hagiographic">
+            <bibl xml:id="work-848" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name848-1" xml:lang="syr" source="#bib848-1" syriaca-tags="#syriaca-headword">ܬܐܕܘܪܐ ܩܣܛܪܝܣܝܣ</title>
                 <title xml:id="name848-2" xml:lang="fr-x-bhs" source="#bib848-1">Tēʾōḏōrā qastrīsīs</title>
                 <title xml:id="name848-3" xml:lang="fr" source="#bib848-1">Théodore castrensis (texte)</title>
@@ -204,6 +208,10 @@
                         <forename>Jean</forename>
                         <addName type="untagged-title">d’Éphèse</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/848</idno>
+                <idno type="BHS">640</idno>
+                <idno type="BHO">870</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib848-1">
                     <quote>ܛܘܒܢܐ ܗܟܝܠ ܗܢܐ ܬܐܘܕܘܪܐ̣. ܒܦܠܚܘܬܐ ܪܒܬܐ ܕܒܦܠܛܝܢ ܕܡܠܟܘܬܐ ܐܝܬܘܗܝ ܗܘܐ. ܟܕ ܡܢ ܠܘܩܕܡ ܡܫܡܫ ܗܘܐ ܠܓܒܪܐ ܪܒܐ ܕܩܕܡ ܐܠܗܐ. ܘܐܦ ܒܝܬ ܒ̈ܢܝ ܐܢܫܐ ܪܒ ܗܘܐ ܕܫܡܗ ܡܝܫܐܝܠ.</quote>
                 </note>
@@ -216,61 +224,67 @@
                 <note xml:lang="fr" type="explicit" source="#bib848-1">
                     <quote>Mais son frère Jean, qui imitait sa vie, lui survécut longtemps et il termina sa course dans une vie pieuse.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib848-1" corresp="#bib848-4" n="1" xml:id="bib848-2">
-                        <author>Brooks, E. W.</author>
-                        <title>LES 3</title>
-                        <ptr target="http://syriaca.org/bibl/2033"/>
-                        <citedRange>p. 200 [546] - 206 [552]</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib848-1" corresp="#bib848-5 bib848-8" n="2" xml:id="bib848-3">
-                        <author>Land, J. P. N.</author>
-                        <title>JEEMSH</title>
-                        <ptr target="http://syriaca.org/bibl/1744"/>
-                        <citedRange>p. 272-275</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib848-1">
-                    <bibl xml:id="bib848-4"> et (2): ms Londres, British Library, Add. 14647, f. 127v-129v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib848-1">
-                    <bibl xml:id="bib848-5">ms Leiden, Rijksuniversiteit, or. 2354 (cod. 1638)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib848-1">
-                    <bibl xml:id="bib848-6">
-                        <editor>W. J. Van Douwen et J. P. N.
+                <bibl type="lawd:Edition" source="#bib848-1" xml:id="bib848-2">
+                    <author>Brooks, E. W.</author>
+                    <title>LES 3</title>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
+                    <citedRange>p. 200 [546] - 206 [552]</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib848-2" ref="dct:source" passive="#bib848-4" source="#bib848-1"/>
+                        <relation active="#bib848-2" ref="lawd:embodies" passive="http://syriaca.org/work/848"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib848-1" xml:id="bib848-3">
+                    <author>Land, J. P. N.</author>
+                    <title>JEEMSH</title>
+                    <ptr target="http://syriaca.org/bibl/1744"/>
+                    <citedRange>p. 272-275</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib848-3" ref="dct:source" passive="#bib848-5 bib848-8" source="#bib848-1"/>
+                        <relation active="#bib848-3" ref="lawd:embodies" passive="http://syriaca.org/work/848"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib848-4"> et (2): ms Londres, British Library, Add. 14647, f. 127v-129v<listRelation>
+                        <relation active="#bib848-4" ref="lawd:embodies" passive="http://syriaca.org/work/848"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib848-5">ms Leiden, Rijksuniversiteit, or. 2354 (cod. 1638)<listRelation>
+                        <relation active="#bib848-5" ref="lawd:embodies" passive="http://syriaca.org/work/848"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib848-6">
+                    <lang>la</lang>
+                    <editor>W. J. Van Douwen et J. P. N.
                 Land</editor>
-                        <title>CBO</title>
-                        <ptr target="http://syriaca.org/bibl/1728"/>
-                        <citedRange unit="pp">179-181</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib848-1">
-                    <bibl xml:id="bib848-7">
-                        <editor>E. W. Brooks</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/2033"/>
-                        <citedRange>p. 200 [546] - 206 [552]</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib848-8">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/848</idno>
-                <idno type="BHS">640</idno>
-                <idno type="BHO">870</idno>
-                <bibl xml:id="bib848-1">
+                    <title>CBO</title>
+                    <ptr target="http://syriaca.org/bibl/1728"/>
+                    <citedRange unit="pp">179-181</citedRange>
+                    <listRelation>
+                        <relation active="#bib848-6" ref="lawd:embodies" passive="http://syriaca.org/work/848"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib848-7">
+                    <lang>en</lang>
+                    <editor>E. W. Brooks</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
+                    <citedRange>p. 200 [546] - 206 [552]</citedRange>
+                    <listRelation>
+                        <relation active="#bib848-7" ref="lawd:embodies" passive="http://syriaca.org/work/848"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib848-8">The manuscript witnesses for edition 2 are undetermined.<listRelation>
+                        <relation active="#bib848-8" ref="lawd:embodies" passive="http://syriaca.org/work/848"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib848-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">640</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/848" passive="http://syriaca.org/person/2108" source="#bib848-1"/>
+                    <relation active="http://syriaca.org/work/848" passive="http://syriaca.org/person/2108" source="#bib848-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

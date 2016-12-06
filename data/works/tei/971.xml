@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Sharbel (text) — <foreign xml:lang="syr">ܫܪܒܝܠ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-971" ana="#hagiographic">
+            <bibl xml:id="work-971" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name971-1" xml:lang="syr" source="#bib971-1" syriaca-tags="#syriaca-headword">ܫܪܒܝܠ</title>
                 <title xml:id="name971-2" xml:lang="fr-x-bhs" source="#bib971-1">Šarbēl</title>
                 <title xml:id="name971-3" xml:lang="fr" source="#bib971-1">Sharbel (texte)</title>
@@ -203,6 +207,10 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">de Serugh</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/971</idno>
+                <idno type="BHS">779</idno>
+                <idno type="BHO">1051</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib971-1">
                     <quote>ܫܪܒܝܠ ܟܘܡܪܐ ܕܗܘܐ ܣܗܕܐ ܒܚܪܬ ܝܘ̈ܡܘܗܝ ܬܒܥܢܝ ܡܐܡܪܐ ܗܒ ܠܝ ܡܪܢ ܕܥܠܘܗܝ ܐܡܪ.</quote>
                 </note>
@@ -215,70 +223,77 @@
                 <note xml:lang="fr" type="explicit" source="#bib971-1">
                     <quote>Fiancée par le sang elle a reçu et donné le sang; béni soit celui qui dans son amour mêle le sang des maryrs au sien.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib971-1" xml:id="bib971-4">
-                        <author>Mösinger, G.</author>
-                        <title>Monumenta Syriaca ex Romanis codicibus collecta II</title>
-                        <ptr target="http://syriaca.org/bibl/1885"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>Oeniponti, 1878, p. 52-63</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-5">ms Vatican, Borgia Syr. 128, f. 170v-175v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-6">ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 324-327</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-7">ms Damas, Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 156 (Baumstark Litur. 43)), f. 179v-180v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-8">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-9">ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-10">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-11">ms Mardin, Évêché syrien orthodoxe, cod. 135 (olim ms Dayr az-Za‘faran, cod. pap. 62 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib971-1">
-                    <bibl xml:id="bib971-12">ms Midyat, Église Mart Shmuni, Coll. Mgr Abdullah Gülçe, cod. 10</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/971</idno>
-                <idno type="BHS">779</idno>
-                <idno type="BHO">1051</idno>
-                <bibl xml:id="bib971-1">
+                <bibl type="lawd:Edition" source="#bib971-1" xml:id="bib971-4">
+                    <author>Mösinger, G.</author>
+                    <title>Monumenta Syriaca ex Romanis codicibus collecta II</title>
+                    <ptr target="http://syriaca.org/bibl/1885"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>Oeniponti, 1878, p. 52-63</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib971-4" ref="dct:source" passive="" source="#bib971-1"/>
+                        <relation active="#bib971-4" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-5">ms Vatican, Borgia Syr. 128, f. 170v-175v<listRelation>
+                        <relation active="#bib971-5" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-6">ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 324-327<listRelation>
+                        <relation active="#bib971-6" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-7">ms Damas, Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 156 (Baumstark Litur. 43)), f. 179v-180v<listRelation>
+                        <relation active="#bib971-7" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-8">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))<listRelation>
+                        <relation active="#bib971-8" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-9">ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))<listRelation>
+                        <relation active="#bib971-9" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-10">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))<listRelation>
+                        <relation active="#bib971-10" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-11">ms Mardin, Évêché syrien orthodoxe, cod. 135 (olim ms Dayr az-Za‘faran, cod. pap. 62 (Dolabany))<listRelation>
+                        <relation active="#bib971-11" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib971-12">ms Midyat, Église Mart Shmuni, Coll. Mgr Abdullah Gülçe, cod. 10<listRelation>
+                        <relation active="#bib971-12" ref="lawd:embodies" passive="http://syriaca.org/work/971"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib971-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">779</citedRange>
                 </bibl>
-                <bibl xml:id="bib971-2">
+                <bibl xml:id="bib971-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="m" xml:lang="la">V Symposium Syriacum</title>
                     <title level="s" xml:lang="la">Orientalia christiana analecta</title>
                     <ptr target="http://syriaca.org/bibl/722"/>
                     <citedRange from="195" to="206" unit="pp">195-206</citedRange>
                 </bibl>
-                <bibl xml:id="bib971-2b">
+                <bibl xml:id="bib971-2b" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="j" xml:lang="en">The Harp</title>
                     <ptr target="http://syriaca.org/bibl/1207"/>
                     <citedRange from="99" to="110" unit="pp">99-110 <note>?</note>
                     </citedRange>
                 </bibl>
-                <bibl xml:id="bib971-3">
+                <bibl xml:id="bib971-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Le “Passionnaire d’Adiabène”</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/723"/>
                     <citedRange from="261" to="304" unit="pp">261-304</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/971" passive="http://syriaca.org/person/1454" source="#bib971-1"/>
+                    <relation active="http://syriaca.org/work/971" passive="http://syriaca.org/person/1454" source="#bib971-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

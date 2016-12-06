@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">John the Baptist (text) — <foreign xml:lang="syr">ܝܘܚܢܢ ܡܥܡܕܢܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1254" ana="#hagiographic">
+            <bibl xml:id="work-1254" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1254-1" xml:lang="syr" source="#bib1254-1" syriaca-tags="#syriaca-headword">ܝܘܚܢܢ ܡܥܡܕܢܐ</title>
                 <title xml:id="name1254-2" xml:lang="fr-x-bhs" source="#bib1254-1">Yōḥanān maʿməḏānā</title>
                 <title xml:id="name1254-3" xml:lang="fr" source="#bib1254-1">Jean Baptiste (texte)</title>
@@ -200,6 +204,9 @@
                         <forename>Kamis</forename>
                         <addName type="family">bar Qardahé</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1254</idno>
+                <idno type="BHS">1097</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1254-1">
                     <quote>ܐܘ ܥܘܠܐ ܕܢܫ̈ܐ. ܕܒܝܫ ܡܢ ܟܠ ܒܝܫ̈ܐ. ܘܡܢ ܫܐܕ̈ܐ ܟܬܝܫ̈ܐ. ܣܗܕ ܝܘܚܢܢ.</quote>
                 </note>
@@ -212,33 +219,37 @@
                 <note xml:lang="fr" type="explicit" source="#bib1254-1">
                     <quote>Persuade le miséricordieux de juger digne de miséricorde le misérable auteur qui a fait mémoire de toi, Jean.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1254-1">
-                    <bibl xml:id="bib1254-3">ms Vatican, Syr. 188, f. 19-20 (plus court)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1254-1">
-                    <bibl xml:id="bib1254-4">ms Vatican, Borg. Syr. 33, f. 209v-210v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1254-1">
-                    <bibl xml:id="bib1254-5">ms Cambridge, University Library, Add. 2820, f. 26-27</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1254-1">
-                    <bibl xml:id="bib1254-6">ms Cambridge, University Library, Add. 2041, f. 10v-12v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1254-1">
-                    <bibl xml:id="bib1254-7">ms Jérusalem, Patriarcat grec orthodoxe, syr. 31, f. 222r-v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1254-1">
-                    <bibl xml:id="bib1254-8">ms Münster, Coll. Ad. Rücker, “Liederhandschrift”, p. 34-36</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1254</idno>
-                <idno type="BHS">1097</idno>
-                <bibl xml:id="bib1254-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1254-3">ms Vatican, Syr. 188, f. 19-20 (plus court)<listRelation>
+                        <relation active="#bib1254-3" ref="lawd:embodies" passive="http://syriaca.org/work/1254"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1254-4">ms Vatican, Borg. Syr. 33, f. 209v-210v<listRelation>
+                        <relation active="#bib1254-4" ref="lawd:embodies" passive="http://syriaca.org/work/1254"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1254-5">ms Cambridge, University Library, Add. 2820, f. 26-27<listRelation>
+                        <relation active="#bib1254-5" ref="lawd:embodies" passive="http://syriaca.org/work/1254"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1254-6">ms Cambridge, University Library, Add. 2041, f. 10v-12v<listRelation>
+                        <relation active="#bib1254-6" ref="lawd:embodies" passive="http://syriaca.org/work/1254"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1254-7">ms Jérusalem, Patriarcat grec orthodoxe, syr. 31, f. 222r-v<listRelation>
+                        <relation active="#bib1254-7" ref="lawd:embodies" passive="http://syriaca.org/work/1254"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1254-8">ms Münster, Coll. Ad. Rücker, “Liederhandschrift”, p. 34-36<listRelation>
+                        <relation active="#bib1254-8" ref="lawd:embodies" passive="http://syriaca.org/work/1254"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1254-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1097</citedRange>
                 </bibl>
-                <bibl xml:id="bib1254-2">
+                <bibl xml:id="bib1254-2" type="lawd:Citation">
                     <title xml:lang="de" level="a">Über einige nestorianische Liederhandschriften,
                      vornehmlich der griech. Patriarchatsbibliothek in Jerusalem</title>
                     <title level="m">Oriens christianus</title>
@@ -246,7 +257,7 @@
                     <citedRange from="121" to="123" unit="pp">121-123</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1254" passive="http://syriaca.org/person/1808" source="#bib1254-1"/>
+                    <relation active="http://syriaca.org/work/1254" passive="http://syriaca.org/person/1808" source="#bib1254-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

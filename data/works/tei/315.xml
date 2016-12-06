@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ephrem (text) — <foreign xml:lang="syr">ܐܦܪܝܡ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-315" ana="#hagiographic">
+            <bibl xml:id="work-315" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name315-1" xml:lang="syr" source="#bib315-1" syriaca-tags="#syriaca-headword">ܐܦܪܝܡ</title>
                 <title xml:id="name315-2" xml:lang="fr-x-bhs" source="#bib315-1">ʾAfrēm</title>
                 <title xml:id="name315-3" xml:lang="fr" source="#bib315-1">Éphrem (texte)</title>
                 <title xml:id="name315-4" xml:lang="en" source="#bib315-1" syriaca-tags="#syriaca-headword">Ephrem (text)</title>
+                <idno type="URI">http://syriaca.org/work/315</idno>
+                <idno type="BHS">95</idno>
+                <idno type="BHO">269</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib315-1">
                     <quote>Avec confiance dans la force de notre Seigneur Jésus-Christ et dans l’appui et le secours de ses prières, nous commençons l’histoire de la vie de saint Mâr Éphrem, depuis le début jusqu’à la fin de sa vie dans la ville d’Édesse en Mésopotamie.</quote>
                 </note>
@@ -207,97 +215,109 @@
                 <note xml:lang="fr" type="explicit" source="#bib315-1">
                     <quote>Peu de temps après qu’il y eut été placé, ses concitoyens l’en retirèrent et le placèrent dans la caverne où reposaient les évêques de la ville; et voilà qu’il est honoré et révéré par tous les gens de là-bas. Que par les prières de saint Mar Éphrem et de saint Basile et de tous… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib315-1" corresp="#bib315-17" n="1" xml:id="bib315-7">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>p. 621-665</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib315-1" corresp="#bib315-10 bib315-11" n="2" xml:id="bib315-8">
-                        <author>Lamy, T. J.</author>
-                        <title>SESHS 2</title>
-                        <ptr target="http://syriaca.org/bibl/1741"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>col. 3-89</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib315-1" corresp="#bib315-12 bib315-18" n="3" xml:id="bib315-9">
-                        <author>Amar, J. P.</author>
-                        <title>The Syriac Vita Tradition of Ephrem the Syrian</title>
-                        <ptr target="http://syriaca.org/bibl/1807"/>
-                        <citedRange>Diss. Cath. U. of America, 1968</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib315-1">
-                    <bibl xml:id="bib315-10">ms Paris, Bibliothèque nationale, syr. 235, f. 125-142v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib315-1">
-                    <bibl xml:id="bib315-11">ms Alqosh, Église paroissiale chaldéenne, cod. 87 ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib315-1">
-                    <bibl xml:id="bib315-12">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 17 p. 12 - cah. 18 p. 12</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib315-1">
-                    <bibl xml:id="bib315-13">ms Saint-Pétersbourg, Bibliothèque publique Saltykov-Shchedrine, Fonds Académie spirituelle, B III 4 (Pigulevskaya 51), f. 2v-23</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib315-1">
-                    <bibl xml:id="bib315-14">ms Sinai, Monastère Sainte-Catherine, Syriac Sp. 53 (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib315-1">
-                    <bibl xml:id="bib315-15">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 220v-226</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib315-1">
-                    <bibl xml:id="bib315-16">
-                        <editor>T. J. Lamy</editor>
-                        <ptr target="http://syriaca.org/bibl/1741"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange unit="column">4-90</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib315-17">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib315-18">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/315</idno>
-                <idno type="BHS">95</idno>
-                <idno type="BHO">269</idno>
-                <bibl xml:id="bib315-1">
+                <bibl type="lawd:Edition" source="#bib315-1" xml:id="bib315-7">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>p. 621-665</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib315-7" ref="dct:source" passive="#bib315-17" source="#bib315-1"/>
+                        <relation active="#bib315-7" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib315-1" xml:id="bib315-8">
+                    <author>Lamy, T. J.</author>
+                    <title>SESHS 2</title>
+                    <ptr target="http://syriaca.org/bibl/1741"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>col. 3-89</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib315-8" ref="dct:source" passive="#bib315-10 bib315-11" source="#bib315-1"/>
+                        <relation active="#bib315-8" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib315-1" xml:id="bib315-9">
+                    <author>Amar, J. P.</author>
+                    <title>The Syriac Vita Tradition of Ephrem the Syrian</title>
+                    <ptr target="http://syriaca.org/bibl/1807"/>
+                    <citedRange>Diss. Cath. U. of America, 1968</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib315-9" ref="dct:source" passive="#bib315-12 bib315-18" source="#bib315-1"/>
+                        <relation active="#bib315-9" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-10">ms Paris, Bibliothèque nationale, syr. 235, f. 125-142v<listRelation>
+                        <relation active="#bib315-10" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-11">ms Alqosh, Église paroissiale chaldéenne, cod. 87 ?<listRelation>
+                        <relation active="#bib315-11" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-12">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 17 p. 12 - cah. 18 p. 12<listRelation>
+                        <relation active="#bib315-12" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-13">ms Saint-Pétersbourg, Bibliothèque publique Saltykov-Shchedrine, Fonds Académie spirituelle, B III 4 (Pigulevskaya 51), f. 2v-23<listRelation>
+                        <relation active="#bib315-13" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-14">ms Sinai, Monastère Sainte-Catherine, Syriac Sp. 53 (fgt)<listRelation>
+                        <relation active="#bib315-14" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-15">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 220v-226<listRelation>
+                        <relation active="#bib315-15" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib315-16">
+                    <lang>la</lang>
+                    <editor>T. J. Lamy</editor>
+                    <ptr target="http://syriaca.org/bibl/1741"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange unit="column">4-90</citedRange>
+                    <listRelation>
+                        <relation active="#bib315-16" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-17">The manuscript witnesses for edition 1 are undetermined.<listRelation>
+                        <relation active="#bib315-17" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib315-18">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib315-18" ref="lawd:embodies" passive="http://syriaca.org/work/315"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib315-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">95</citedRange>
                 </bibl>
-                <bibl xml:id="bib315-2">
+                <bibl xml:id="bib315-2" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Saint Éphrem d’après ses biographies et ses oeuvres</title>
                     <title xml:lang="fr" level="j">Parole de l'Orient</title>
                     <ptr target="http://syriaca.org/bibl/912"/>
                     <citedRange from="11" to="33" unit="pp">11-33</citedRange>
                 </bibl>
-                <bibl xml:id="bib315-3">
+                <bibl xml:id="bib315-3" type="lawd:Citation">
                     <title level="m" xml:lang="it">Sant’ Efrem Siro. Biografia, Scritti, Teologia</title>
                     <ptr target="http://syriaca.org/bibl/710"/>
                 </bibl>
-                <bibl xml:id="bib315-4">
+                <bibl xml:id="bib315-4" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de Ricciotti</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/711"/>
                     <citedRange from="384" to="384" unit="pp">384</citedRange>
                 </bibl>
-                <bibl xml:id="bib315-5">
+                <bibl xml:id="bib315-5" type="lawd:Citation">
                     <title level="a" xml:lang="fr">La Rencontre de saint Éphrem et de saint Basile</title>
                     <title xml:lang="fr" level="j">L'Orient syrien</title>
                     <ptr target="http://syriaca.org/bibl/712"/>
                     <citedRange from="273" to="284" unit="pp">273-284</citedRange>
                 </bibl>
-                <bibl xml:id="bib315-6">
+                <bibl xml:id="bib315-6" type="lawd:Citation">
                     <title xml:lang="de" level="a">Die syroaramäische Vita sancti Ephraem Syri:
                      geschichtlicher und sprachlicher Ertrag</title>
                     <title level="m" xml:lang="de">XXIV. deutscher Orientalistentag vom 26. bis 30. September 1988
@@ -308,7 +328,7 @@
                     <citedRange from="99" to="104" unit="pp">99-104</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/315" passive="http://syriaca.org/person/13" source="#bib315-1"/>
+                    <relation active="http://syriaca.org/work/315" passive="http://syriaca.org/person/13" source="#bib315-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

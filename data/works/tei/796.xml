@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Abraham and Maron (text) — <foreign xml:lang="syr">ܐܒܪܗܡ ܘܡܪܘܢ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-796" ana="#hagiographic">
+            <bibl xml:id="work-796" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name796-1" xml:lang="syr" source="#bib796-1" syriaca-tags="#syriaca-headword">ܐܒܪܗܡ ܘܡܪܘܢ</title>
                 <title xml:id="name796-2" xml:lang="fr-x-bhs" source="#bib796-1">ʾAḇrāhām w-Mārōn</title>
                 <title xml:id="name796-3" xml:lang="fr" source="#bib796-1">Abraham et Maron (texte)</title>
@@ -204,6 +208,11 @@
                         <forename>Jean</forename>
                         <addName type="untagged-title">d’Éphèse</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/796</idno>
+                <idno type="BHS">586</idno>
+                <idno type="BHO">870</idno>
+                <idno type="BHO">18</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib796-1">
                     <quote>ܗܠܝܢ ܩܕܡ ܙܒܢܢ ܘܒܗ ܒܙܒܢܢ ܥܠ ܐܣܛܘܢܐ ܢܨܚܘ ܘܚܛܦܘ ܟܠܝܠܐ ܕܙܟܘܬܐ ܒܝܕ ܕܘܒܪ̈ܝܗܘܢ ܬܡܝܗ̈ܐ.</quote>
                 </note>
@@ -216,68 +225,73 @@
                 <note xml:lang="fr" type="explicit" source="#bib796-1">
                     <quote>Car je m’éloignai de là à cause de la proximité de la famille corporelle et je me joignis aux communautés des gens d’Amid exilés par les hérétiques.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib796-1" corresp="#bib796-5" n="1" xml:id="bib796-3">
-                        <author>Brooks, E. W.</author>
-                        <title>LES 1</title>
-                        <ptr target="http://syriaca.org/bibl/1409"/>
-                        <citedRange>p. 56-84</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib796-1" corresp="#bib796-6" n="2" xml:id="bib796-4">
-                        <author>Land, J. P. N.</author>
-                        <title>JEEMSH</title>
-                        <ptr target="http://syriaca.org/bibl/1744"/>
-                        <citedRange>p. 31-45</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib796-1">
-                    <bibl xml:id="bib796-5">ms Londres, British Library, Add. 14647, f. 14-20 + ms Paris, Bibliothèque nationale, syr. 234, f. 450v-456v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib796-1">
-                    <bibl xml:id="bib796-6">ms Londres, British Library, Add. 14647, f. 14-20</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib796-1">
-                    <bibl xml:id="bib796-7">ms Leiden, Rijksuniversiteit, or. 2354 (cod. 1638)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib796-1">
-                    <bibl xml:id="bib796-8">
-                        <editor>W. J. Van Douwen et J. P. N.
+                <bibl type="lawd:Edition" source="#bib796-1" xml:id="bib796-3">
+                    <author>Brooks, E. W.</author>
+                    <title>LES 1</title>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange>p. 56-84</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib796-3" ref="dct:source" passive="#bib796-5" source="#bib796-1"/>
+                        <relation active="#bib796-3" ref="lawd:embodies" passive="http://syriaca.org/work/796"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib796-1" xml:id="bib796-4">
+                    <author>Land, J. P. N.</author>
+                    <title>JEEMSH</title>
+                    <ptr target="http://syriaca.org/bibl/1744"/>
+                    <citedRange>p. 31-45</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib796-4" ref="dct:source" passive="#bib796-6" source="#bib796-1"/>
+                        <relation active="#bib796-4" ref="lawd:embodies" passive="http://syriaca.org/work/796"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib796-5">ms Londres, British Library, Add. 14647, f. 14-20 + ms Paris, Bibliothèque nationale, syr. 234, f. 450v-456v<listRelation>
+                        <relation active="#bib796-5" ref="lawd:embodies" passive="http://syriaca.org/work/796"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib796-6">ms Londres, British Library, Add. 14647, f. 14-20<listRelation>
+                        <relation active="#bib796-6" ref="lawd:embodies" passive="http://syriaca.org/work/796"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib796-7">ms Leiden, Rijksuniversiteit, or. 2354 (cod. 1638)<listRelation>
+                        <relation active="#bib796-7" ref="lawd:embodies" passive="http://syriaca.org/work/796"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib796-8">
+                    <lang>la</lang>
+                    <editor>W. J. Van Douwen et J. P. N.
                 Land</editor>
-                        <title>CBO</title>
-                        <ptr target="http://syriaca.org/bibl/1728"/>
-                        <citedRange unit="pp">21-30</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib796-1">
-                    <bibl xml:id="bib796-9">
-                        <editor>E. W. Brooks</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1409"/>
-                        <citedRange>p. 56-84</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/796</idno>
-                <idno type="BHS">586</idno>
-                <idno type="BHO">870</idno>
-                <idno type="BHO">18</idno>
-                <bibl xml:id="bib796-1">
+                    <title>CBO</title>
+                    <ptr target="http://syriaca.org/bibl/1728"/>
+                    <citedRange unit="pp">21-30</citedRange>
+                    <listRelation>
+                        <relation active="#bib796-8" ref="lawd:embodies" passive="http://syriaca.org/work/796"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib796-9">
+                    <lang>en</lang>
+                    <editor>E. W. Brooks</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange>p. 56-84</citedRange>
+                    <listRelation>
+                        <relation active="#bib796-9" ref="lawd:embodies" passive="http://syriaca.org/work/796"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib796-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">586</citedRange>
                 </bibl>
-                <bibl xml:id="bib796-2">
+                <bibl xml:id="bib796-2" type="lawd:Citation">
                     <title xml:lang="en" level="m">Maro the Dendrite: an anti-social holy man</title>
                     <title level="m" xml:lang="en">Homo Viator. Classical Essays for John Bramble</title>
                     <ptr target="http://syriaca.org/bibl/818"/>
                     <citedRange from="309" to="317" unit="pp">309-317</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/796" passive="http://syriaca.org/person/1885 http://syriaca.org/person/1546" source="#bib796-1"/>
+                    <relation active="http://syriaca.org/work/796" passive="http://syriaca.org/person/1885 http://syriaca.org/person/1546" source="#bib796-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Paul the Apostle (text) — <foreign xml:lang="syr">ܦܘܠܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-223" ana="#hagiographic">
+            <bibl xml:id="work-223" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name223-1" xml:lang="syr" source="#bib223-1" syriaca-tags="#syriaca-headword">ܦܘܠܘܣ</title>
                 <title xml:id="name223-2" xml:lang="fr-x-bhs" source="#bib223-1">Pawlōs</title>
                 <title xml:id="name223-3" xml:lang="fr" source="#bib223-1">Paul, apôtre (texte)</title>
                 <title xml:id="name223-4" xml:lang="en" source="#bib223-1" syriaca-tags="#syriaca-headword">Paul the Apostle (text)</title>
+                <idno type="URI">http://syriaca.org/work/223</idno>
+                <idno type="BHS">2</idno>
+                <idno type="BHO">889</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib223-1">
                     <quote>Venons-en donc à l’histoire des hauts faits du bienheureux Paul, lui qui, plus que tous, peina comme parole de l’Esprit qui parla en lui; il acheva sa course, garda son ministère, et pour notre Seigneur Jésus-Christ, il répandit la libation de son sang en vue de réconcilier son troupeau…</quote>
                 </note>
@@ -220,57 +228,60 @@
                 <note xml:lang="en" type="explicit" source="#bib223-1">
                     <quote>And thus from the multitude of their disciples, jealousy from the Jews, the crucifiers, was aroused, and secretly at night they cut down these trees.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib223-1" xml:id="bib223-5">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 1</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 34-44</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib223-1">
-                    <bibl xml:id="bib223-6">Rome (&lt; Guidi ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib223-1">
-                    <bibl xml:id="bib223-7">ms Vatican, Syr. 597, f. 67-69 (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib223-1">
-                    <bibl xml:id="bib223-8">ms Londres, British Library, Or. 9391, p. 367-379</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib223-1">
-                    <bibl xml:id="bib223-9">
-                        <editor>E.L. de Stefani</editor>
-                        <title>Storia del Beato Apostolo S.
+                <bibl type="lawd:Edition" source="#bib223-1" xml:id="bib223-5">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 1</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 34-44</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib223-5" ref="dct:source" passive="" source="#bib223-1"/>
+                        <relation active="#bib223-5" ref="lawd:embodies" passive="http://syriaca.org/work/223"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib223-6">Rome (&lt; Guidi ?)<listRelation>
+                        <relation active="#bib223-6" ref="lawd:embodies" passive="http://syriaca.org/work/223"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib223-7">ms Vatican, Syr. 597, f. 67-69 (mutilé de la fin)<listRelation>
+                        <relation active="#bib223-7" ref="lawd:embodies" passive="http://syriaca.org/work/223"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib223-8">ms Londres, British Library, Or. 9391, p. 367-379<listRelation>
+                        <relation active="#bib223-8" ref="lawd:embodies" passive="http://syriaca.org/work/223"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib223-9">
+                    <lang>it</lang>
+                    <editor>E.L. de Stefani</editor>
+                    <title>Storia del Beato Apostolo S.
                 Paolo, dans Giornale della Società Asiatica Italiana, 14 (1901)</title>
-                        <ptr target="http://syriaca.org/bibl/1963"/>
-                        <citedRange unit="pp">209-216</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/223</idno>
-                <idno type="BHS">2</idno>
-                <idno type="BHO">889</idno>
-                <bibl xml:id="bib223-1">
+                    <ptr target="http://syriaca.org/bibl/1963"/>
+                    <citedRange unit="pp">209-216</citedRange>
+                    <listRelation>
+                        <relation active="#bib223-9" ref="lawd:embodies" passive="http://syriaca.org/work/223"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib223-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">2</citedRange>
                 </bibl>
-                <bibl xml:id="bib223-2">
+                <bibl xml:id="bib223-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Die Petrus- und Paulusacten in der litterarischen
                      Ueberlieferung der syrischen Kirche. Festgruss dem Priestercollegium des
                      deutschen Campo Santo zu Rom zur Feier seines 25jährigen Bestehens (8 December 1901)</title>
                     <ptr target="http://syriaca.org/bibl/752"/>
                 </bibl>
-                <bibl xml:id="bib223-3">
+                <bibl xml:id="bib223-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Notes sur la légende des apôtres s. Pierre et s.
                      Paul dans la littérature syrienne</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/753"/>
                     <citedRange from="121" to="140" unit="pp">121-140</citedRange>
                 </bibl>
-                <bibl xml:id="bib223-4">
+                <bibl xml:id="bib223-4" type="lawd:Citation">
                     <title xml:lang="de" level="a">Bemerkungen zum ersten Bande der syrischen Acta
                      Martyrum et Sanctorum</title>
                     <title xml:lang="de" level="j">Zeitschrift der Deutschen Morgenländischen
@@ -279,7 +290,7 @@
                     <citedRange from="744" to="746" unit="pp">744-746</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/223" passive="http://syriaca.org/person/1983" source="#bib223-1"/>
+                    <relation active="http://syriaca.org/work/223" passive="http://syriaca.org/person/1983" source="#bib223-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

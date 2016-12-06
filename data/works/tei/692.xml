@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Aaron of Serugh (text) — <foreign xml:lang="syr">ܐܗܪܘܢ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,12 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-692" ana="#hagiographic">
+            <bibl xml:id="work-692" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name692-1" xml:lang="syr" source="#bib692-1" syriaca-tags="#syriaca-headword">ܐܗܪܘܢ</title>
                 <title xml:id="name692-2" xml:lang="fr-x-bhs" source="#bib692-1">ʾAhrōn</title>
                 <title xml:id="name692-3" xml:lang="fr" source="#bib692-1">Aaron de Serugh (texte)</title>
                 <title xml:id="name692-4" xml:lang="en" source="#bib692-1" syriaca-tags="#syriaca-headword">Aaron of Serugh (text)</title>
                 <author xml:lang="fr" source="#bib692-1">Paul</author>
+                <idno type="URI">http://syriaca.org/work/692</idno>
+                <idno type="BHS">477</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib692-1">
                     <quote>Mes frères, dans tous les âges et en tout temps les justes amis de Dieu brillent.</quote>
                 </note>
@@ -212,61 +219,65 @@
                 <note xml:lang="fr" type="explicit" source="#bib692-1">
                     <quote>Et il partit pour la terre de la joie et le paradis plein de délices en l’an 648 d’Alexandre, le 28 Iyar, à neuf heures le saint dimanche de la Pentecôte, jour où il avait reçu l’ordination sacerdotale de Mâr Théodore, évêque d’Amîd. Que la mémoire du saint soit une bénédiction… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib692-1" xml:id="bib692-4">
-                        <author>Nau, F.</author>
-                        <title>Les Légendes syriaques d’Aaron de Serugh, de Maxime et Domèce, d’Abraham, maître de Barsoma et de l’empereur Maurice</title>
-                        <ptr target="http://syriaca.org/bibl/1942"/>
-                        <citedRange>Paris, 1910, p. 703 [295] - 749 [341]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib692-1">
-                    <bibl xml:id="bib692-5">ms Londres, British Library, Add. 12174, f. 90-98v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib692-1">
-                    <bibl xml:id="bib692-6">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 47-52</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib692-1">
-                    <bibl xml:id="bib692-7">
-                        <editor>M. Guidi</editor>
-                        <title>RAL Va 25 (1916)</title>
-                        <ptr target="http://syriaca.org/bibl/2026"/>
-                        <citedRange unit="pp">659-701</citedRange>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib692-1">
-                    <bibl xml:id="bib692-8">
-                        <editor>F. Nau</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1942"/>
-                        <citedRange>Paris, 1910, p. 703 [295] - 749 [341]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/692</idno>
-                <idno type="BHS">477</idno>
-                <bibl xml:id="bib692-1">
+                <bibl type="lawd:Edition" source="#bib692-1" xml:id="bib692-4">
+                    <author>Nau, F.</author>
+                    <title>Les Légendes syriaques d’Aaron de Serugh, de Maxime et Domèce, d’Abraham, maître de Barsoma et de l’empereur Maurice</title>
+                    <ptr target="http://syriaca.org/bibl/1942"/>
+                    <citedRange>Paris, 1910, p. 703 [295] - 749 [341]</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib692-4" ref="dct:source" passive="" source="#bib692-1"/>
+                        <relation active="#bib692-4" ref="lawd:embodies" passive="http://syriaca.org/work/692"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib692-5">ms Londres, British Library, Add. 12174, f. 90-98v<listRelation>
+                        <relation active="#bib692-5" ref="lawd:embodies" passive="http://syriaca.org/work/692"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib692-6">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 47-52<listRelation>
+                        <relation active="#bib692-6" ref="lawd:embodies" passive="http://syriaca.org/work/692"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib692-7">
+                    <lang>gez</lang>
+                    <editor>M. Guidi</editor>
+                    <title>RAL Va 25 (1916)</title>
+                    <ptr target="http://syriaca.org/bibl/2026"/>
+                    <citedRange unit="pp">659-701</citedRange>
+                    <listRelation>
+                        <relation active="#bib692-7" ref="lawd:embodies" passive="http://syriaca.org/work/692"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib692-8">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1942"/>
+                    <citedRange>Paris, 1910, p. 703 [295] - 749 [341]</citedRange>
+                    <listRelation>
+                        <relation active="#bib692-8" ref="lawd:embodies" passive="http://syriaca.org/work/692"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib692-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">477</citedRange>
                 </bibl>
-                <bibl xml:id="bib692-2">
+                <bibl xml:id="bib692-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Sur Aaron de Saroug et ses deux monastères</title>
                     <title level="j" xml:lang="fr">Revue de l'Orient chrétien</title>
                     <title level="s" xml:lang="fr">Revue de l'Orient chrétien</title>
                     <ptr target="http://syriaca.org/bibl/828"/>
                     <citedRange from="205" to="211" unit="pp">205-211</citedRange>
                 </bibl>
-                <bibl xml:id="bib692-3">
+                <bibl xml:id="bib692-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">CR de l’éd. de Nau</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/827"/>
                     <citedRange from="453" to="454" unit="pp">453-454</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/692" passive="http://syriaca.org/person/1092" source="#bib692-1"/>
+                    <relation active="http://syriaca.org/work/692" passive="http://syriaca.org/person/1092" source="#bib692-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

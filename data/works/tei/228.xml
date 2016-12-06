@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Habib (text) — <foreign xml:lang="syr">ܚܒܝܒ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,12 +191,16 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-228" ana="#hagiographic">
+            <bibl xml:id="work-228" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name228-1" xml:lang="syr" source="#bib228-1" syriaca-tags="#syriaca-headword">ܚܒܝܒ</title>
                 <title xml:id="name228-2" xml:lang="fr-x-bhs" source="#bib228-1">Ḥabīb</title>
                 <title xml:id="name228-3" xml:lang="fr" source="#bib228-1">Habib (texte)</title>
                 <title xml:id="name228-4" xml:lang="en" source="#bib228-1" syriaca-tags="#syriaca-headword">Habib (text)</title>
                 <author xml:lang="fr" source="#bib228-1">Théophile</author>
+                <idno type="URI">http://syriaca.org/work/228</idno>
+                <idno type="BHS">7</idno>
+                <idno type="BHO">367</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib228-1">
                     <quote>ܒܝܪܚ ܐܒ ܕܫܢܬ ܫܬܡܐܐ ܘܥܣܪܝܢ ܕܡܠܟܘܬܗ ܕܐܠܟܣܢܕܪܘܣ ܡܩܕܘܢ: ܒܗܘܦܛܝܐ ܕܠܝܩܢܝܣ ܘܕܩܘܣܛܢܛܝܢܣ: ܕܐܝܬܝܗܿ ܫܢܬܐ ܕܐܬܝܠܕ ܒܗܿ: ܒܐܣܛܪܛܝܓܘܬܐ ܕܝܘܠܝܣ ܘܕܒܩܪ: ܒܝܘܡܝ ܩܘܢܐ ܐܦܣܩܘܦܐ ܕܐܘܪܗܝ: ܥܒܕ ܗܘ̣ܐ ܗܘ ܠܝܩܢܝܣ ܪܕܘܦܝܐ ܠܥܕܬܐ: ܘܠܥܡܐ ܟܠܗ ܕܟܪ̈ܣܛܝܢܐ.</quote>
                 </note>
@@ -205,115 +213,127 @@
                 <note xml:lang="fr" type="explicit" source="#bib228-1">
                     <quote>Le jour où il fut brûlé était le vendredi deux Éloul, jour où on apprit que Constantin le Grand avait commencé à quitter l’intérieur de l’Espagne pour venir à la ville de Rome en Italie…Moi Théophile, qui ai renié le mauvais héritage de mes pères et ai reconnu le Christ, j’ai eu soin d’écrire un exemplaire de ces mémoires de Habîb…Et que la poussière des pieds de ces martyrs, que j’ai reçue en courant derrière eux quand ils furent emmenés vers le couronnement, me pardonne à moi qui l’ai renié, et qu’elle me reconnaisse devant ses adorateurs, moi qui l’ai désormais reconnu. Et après l’avoir interrogé ving-sept fois le juge prononça contre Habîb la sentence de la mort par le feu.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib228-1" corresp="#bib228-11" n="1" xml:id="bib228-8">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 1</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 144-160</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib228-1" corresp="#bib228-12 bib228-18" n="2" xml:id="bib228-9">
-                        <author>Cureton, W.</author>
-                        <title>ASD</title>
-                        <ptr target="http://syriaca.org/bibl/1696"/>
-                        <citedRange>p. 73-86 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib228-1" corresp="#bib228-13 bib228-19" n="3" xml:id="bib228-10">
-                        <author>Burkitt, F. C.</author>
-                        <title>Euphemia and the Goth</title>
-                        <ptr target="http://syriaca.org/bibl/1785"/>
-                        <citedRange>Londres-Oxford, 1913, p. 26-43 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib228-1">
-                    <bibl xml:id="bib228-11"> et (3): ms Londres, British Library, Add. 14645, f. 238v-245</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib228-1">
-                    <bibl xml:id="bib228-12">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 205 = Sony 162, f. 1-8</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib228-1">
-                    <bibl xml:id="bib228-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 117-119</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib228-1">
-                    <bibl xml:id="bib228-14">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 160, p. 82-130</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib228-1">
-                    <bibl xml:id="bib228-15">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 203, p. 63-78</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib228-1">
-                    <bibl xml:id="bib228-16">
-                        <editor>O. von Gebhardt</editor>
-                        <editor>E. von Dobschütz</editor>
-                        <title>Die Akten der edessenischen
+                <bibl type="lawd:Edition" source="#bib228-1" xml:id="bib228-8">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 1</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 144-160</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib228-8" ref="dct:source" passive="#bib228-11" source="#bib228-1"/>
+                        <relation active="#bib228-8" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib228-1" xml:id="bib228-9">
+                    <author>Cureton, W.</author>
+                    <title>ASD</title>
+                    <ptr target="http://syriaca.org/bibl/1696"/>
+                    <citedRange>p. 73-86 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib228-9" ref="dct:source" passive="#bib228-12 bib228-18" source="#bib228-1"/>
+                        <relation active="#bib228-9" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib228-1" xml:id="bib228-10">
+                    <author>Burkitt, F. C.</author>
+                    <title>Euphemia and the Goth</title>
+                    <ptr target="http://syriaca.org/bibl/1785"/>
+                    <citedRange>Londres-Oxford, 1913, p. 26-43 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib228-10" ref="dct:source" passive="#bib228-13 bib228-19" source="#bib228-1"/>
+                        <relation active="#bib228-10" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib228-11"> et (3): ms Londres, British Library, Add. 14645, f. 238v-245<listRelation>
+                        <relation active="#bib228-11" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib228-12">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 205 = Sony 162, f. 1-8<listRelation>
+                        <relation active="#bib228-12" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib228-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 117-119<listRelation>
+                        <relation active="#bib228-13" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib228-14">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 160, p. 82-130<listRelation>
+                        <relation active="#bib228-14" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib228-15">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 203, p. 63-78<listRelation>
+                        <relation active="#bib228-15" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib228-16">
+                    <lang>de</lang>
+                    <editor>O. von Gebhardt</editor>
+                    <editor>E. von Dobschütz</editor>
+                    <title>Die Akten der edessenischen
                             Bekenner Gurjas, Samonas und Abibos (TU 37/2), Leipzig, 1911</title>
-                        <ptr target="http://syriaca.org/bibl/2004"/>
-                        <citedRange unit="pp">64-99</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib228-1">
-                    <bibl xml:id="bib228-17">
-                        <editor>W. Cureton</editor>
-                        <ptr target="http://syriaca.org/bibl/1696"/>
-                        <citedRange unit="pp">72-85</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib228-18">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib228-19">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/228</idno>
-                <idno type="BHS">7</idno>
-                <idno type="BHO">367</idno>
-                <bibl xml:id="bib228-1">
+                    <ptr target="http://syriaca.org/bibl/2004"/>
+                    <citedRange unit="pp">64-99</citedRange>
+                    <listRelation>
+                        <relation active="#bib228-16" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib228-17">
+                    <lang>en</lang>
+                    <editor>W. Cureton</editor>
+                    <ptr target="http://syriaca.org/bibl/1696"/>
+                    <citedRange unit="pp">72-85</citedRange>
+                    <listRelation>
+                        <relation active="#bib228-17" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib228-18">The manuscript witnesses for edition 2 are undetermined.<listRelation>
+                        <relation active="#bib228-18" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib228-19">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib228-19" ref="lawd:embodies" passive="http://syriaca.org/work/228"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib228-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">7</citedRange>
                 </bibl>
-                <bibl xml:id="bib228-2">
+                <bibl xml:id="bib228-2" type="lawd:Citation">
                     <title xml:lang="de" level="a">Über einige edessenische Märtyrerakten</title>
                     <title xml:lang="de" level="m">Strassburger Festschrift zur XLVI. Versammlung
                      deutscher Philologen und Schulmänner</title>
                     <ptr target="http://syriaca.org/bibl/739"/>
                     <citedRange from="13" to="22" unit="pp">13-22</citedRange>
                 </bibl>
-                <bibl xml:id="bib228-3">
+                <bibl xml:id="bib228-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="m" xml:lang="la">V Symposium Syriacum</title>
                     <title level="s" xml:lang="la">Orientalia christiana analecta</title>
                     <ptr target="http://syriaca.org/bibl/722"/>
                     <citedRange from="195" to="206" unit="pp">195-206</citedRange>
                 </bibl>
-                <bibl xml:id="bib228-4">
+                <bibl xml:id="bib228-4" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="j" xml:lang="en">The Harp</title>
                     <ptr target="http://syriaca.org/bibl/1207"/>
                     <citedRange from="99" to="110" unit="pp">99-110 <note>?</note>
                     </citedRange>
                 </bibl>
-                <bibl xml:id="bib228-5">
+                <bibl xml:id="bib228-5" type="lawd:Citation">
                     <title xml:lang="fr" level="a">CR de l’éd. de Burkitt</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/737"/>
                     <citedRange from="69" to="70" unit="pp">69-70</citedRange>
                 </bibl>
-                <bibl xml:id="bib228-6">
+                <bibl xml:id="bib228-6" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Glanures martyrologiques. II. La Basilique des
                      Confesseurs à Édesse</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/741"/>
                     <citedRange from="110" to="123" unit="pp">110-123</citedRange>
                 </bibl>
-                <bibl xml:id="bib228-7">
+                <bibl xml:id="bib228-7" type="lawd:Citation">
                     <title level="a" xml:lang="ru-Latn-iso9r95">K voprosu o vozniknovenii
                      belletrističeskogo povestvovaniâ v sirijskoj literature</title>
                     <title level="a" xml:lang="ru">К вопросу о возникновении беллетристического
@@ -324,8 +344,8 @@
                     <citedRange from="173" to="178" unit="pp">173-178</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/228" passive="http://syriaca.org/person/1258" source="#bib228-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/228" passive="http://syriaca.org/person/2812" source="#bib228-1"/>
+                    <relation active="http://syriaca.org/work/228" passive="http://syriaca.org/person/1258" source="#bib228-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/228" passive="http://syriaca.org/person/2812" source="#bib228-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

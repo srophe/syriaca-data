@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">John of Rome (bar Rhômaye) (text) — <foreign xml:lang="syr">ܝܘܚܢܢ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,11 +188,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1933" ana="#hagiographic">
+            <bibl xml:id="work-1933" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1933-1" xml:lang="syr" source="#bib1933-1" syriaca-tags="#syriaca-headword">ܝܘܚܢܢ</title>
                 <title xml:id="name1933-2" xml:lang="fr-x-bhs" source="#bib1933-1">Yōḥanān</title>
                 <title xml:id="name1933-3" xml:lang="fr" source="#bib1933-1">Jean de Rome (bar Rhômayé) (texte)</title>
                 <title xml:id="name1933-4" xml:lang="en" source="#bib1933-1" syriaca-tags="#syriaca-headword">John of Rome (bar Rhômaye) (text)</title>
+                <idno type="URI">http://syriaca.org/work/1933</idno>
+                <idno type="BHS">1898</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib1933-1">
                     <quote>Mes bien-aimés, je veux vous raconter aujourd’hui l’histoire d’un homme juste et parfait.</quote>
                 </note>
@@ -207,22 +214,22 @@
                 <note xml:lang="fr" type="explicit" source="#bib1933-1">
                     <quote>Et, ayant laissé de nombreux biens avec de l’or pour le service des étrangers, eux aussi reposèrent en paix. Et par les prières de leur fils ils parvinrent ensemble à la demeure du paradis. Voilà l’histoire de la vie du bienheureux Jean. (Qu’à ses prières… Amen.)</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1933-1">
-                    <bibl xml:id="bib1933-2">ms Londres, British Library, Add. 17192, f. 260-268v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1933-1">
-                    <bibl xml:id="bib1933-3">ms Londres, British Library, Add. 14735, f. 121v-127v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1933</idno>
-                <idno type="BHS">1898</idno>
-                <bibl xml:id="bib1933-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1933-2">ms Londres, British Library, Add. 17192, f. 260-268v<listRelation>
+                        <relation active="#bib1933-2" ref="lawd:embodies" passive="http://syriaca.org/work/1933"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1933-3">ms Londres, British Library, Add. 14735, f. 121v-127v<listRelation>
+                        <relation active="#bib1933-3" ref="lawd:embodies" passive="http://syriaca.org/work/1933"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1933-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1898</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1933" passive="http://syriaca.org/person/1818" source="#bib1933-1"/>
+                    <relation active="http://syriaca.org/work/1933" passive="http://syriaca.org/person/1818" source="#bib1933-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

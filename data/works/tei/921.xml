@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Addai (Teaching of) (text) — <foreign xml:lang="syr">ܐܕܝ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-03-09">
                 Added new bibl element. 
@@ -190,11 +194,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-921" ana="#hagiographic">
+            <bibl xml:id="work-921" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name921-1" xml:lang="syr" source="#bib921-1" syriaca-tags="#syriaca-headword">ܐܕܝ</title>
                 <title xml:id="name921-2" xml:lang="fr-x-bhs" source="#bib921-1">ʾAdday</title>
                 <title xml:id="name921-3" xml:lang="fr" source="#bib921-1">Addaï (Doctrine d’) (texte)</title>
                 <title xml:id="name921-4" xml:lang="en" source="#bib921-1" syriaca-tags="#syriaca-headword">Addai (Teaching of) (text)</title>
+                <idno type="URI">http://syriaca.org/work/921</idno>
+                <idno type="BHS">717</idno>
+                <idno type="BHO">24</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib921-1">
                     <quote>ܒܫܢܬ ܬܠܬܡܐܐ ܘܐܪ̈ܒܥܝܢ ܘܬܠܬ ܠܡܠܟܘܬܐ ܕܝܘ̈ܢܝܐ. ܘܒܡܠܟܘܬܗ ܕܡܪܢ ܛܝܒܪܝܣ ܩܣܪ ܪܗܘܡܝܐ: ܘܒܡܠܟܘܬܗ ܕܐܒܓܪ ܡܠܟܐ ܒܪ ܡܥܢܘ ܡܠܟܐ: ܒܐܝܪܚ ܬܫܪܝ ܩܕܡ ܒܝܘܡ ܬܪ̈ܥܣܪ̣. ܫܕܪ ܗܘܐ ܐܒܓܪ ܐܘܟܡܐ ܠܡܪܝܗܒ ܘܠܫܡܫܓܪܡ. ܪ̈ܫܢܐ ܘܡܝܩܪ̈ܐ ܕܡܠܟܘܬܗ. ܘܠܚܿܢܢ ܛܒܘܠܪܐ ܫܪܝܪܐ ܥܡܗܘܢ.</quote>
                 </note>
@@ -207,138 +215,157 @@
                 <note xml:lang="fr" type="explicit" source="#bib921-1">
                     <quote>Ainsi aussi Laboubnâ, fils de Sénaq fis de Ebedshadday, scribe royal, écrivit ce qui concerne l’apôtre Adday du début à la fin, tandis que Hanan l’archiviste fidèle du roi levait la main en témoignage, et il le plaça au milieu des archives du roi, là où sont placés les commandements et les lois, et où les pièces des acheteurs et des vendeus sont conservées avec soin et sans aucune négligence.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib921-1" corresp="#bib921-27" n="1" xml:id="bib921-24">
-                        <author>Phillips, G.</author>
-                        <title>The Doctrine of Addai, The Apostle</title>
-                        <ptr target="http://syriaca.org/bibl/1907"/>
-                        <citedRange>London, 1876, p. 1-53 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib921-1" corresp="#bib921-28" n="2" xml:id="bib921-25">
-                        <author>Cureton, W.</author>
-                        <title>ASD</title>
-                        <ptr target="http://syriaca.org/bibl/1696"/>
-                        <citedRange>p. 5-23 (syr.) et 108-110 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib921-1" corresp="#bib921-29 bib921-42" n="3" xml:id="bib921-26">
-                        <author>Me¯?erskaja, E.N. (photo du ms)</author>
-                        <title>Legenda ob Avgare - Rannesirijskij literaturnyj pamjatnik</title>
-                        <ptr target="http://syriaca.org/bibl/1866"/>
-                        <citedRange>Moscou, 1984, p. 119-184</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-27"> et (3): ms Saint-Pétersbourg, Bibliothèque Publique Saltykov-Shchedrine, N.S. Syr. 4 (Pigulevskaya 48), , f. 1v33</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-28">ms Londres, British Library, Add. 14654, f. 33r-v (fgt) + Add. 14644, f. 1-9v + Add. 14535, f. 1r (fgt) + Add. 12155, f. 53v + Add. 17193, f. 36v-37 (extrait)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-29">ms Alqosh, Église paroissiale chaldéenne, cod. 87 ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-30">ms Londres, British Library, Add. 12161, f. 1v (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-31">ms Londres, British Library, Add. 14612, f. 165r (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-32">ms Londres, British Library, Add. 14644, f. 1-9v (mutilé du début et au milieu)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-33">ms Paris, Bibliothèque nationale, syr. 62, f. 102v-108 (extraits)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-34">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 405, f. 1</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib921-1">
-                    <bibl xml:id="bib921-35">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 153, p. 241-259</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib921-1">
-                    <bibl xml:id="bib921-36">
-                        <editor>A. Carrière</editor>
-                        <title>La Légende d’Abgar dans
+                <bibl type="lawd:Edition" source="#bib921-1" xml:id="bib921-24">
+                    <author>Phillips, G.</author>
+                    <title>The Doctrine of Addai, The Apostle</title>
+                    <ptr target="http://syriaca.org/bibl/1907"/>
+                    <citedRange>London, 1876, p. 1-53 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib921-24" ref="dct:source" passive="#bib921-27" source="#bib921-1"/>
+                        <relation active="#bib921-24" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib921-1" xml:id="bib921-25">
+                    <author>Cureton, W.</author>
+                    <title>ASD</title>
+                    <ptr target="http://syriaca.org/bibl/1696"/>
+                    <citedRange>p. 5-23 (syr.) et 108-110 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib921-25" ref="dct:source" passive="#bib921-28" source="#bib921-1"/>
+                        <relation active="#bib921-25" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib921-1" xml:id="bib921-26">
+                    <author>Me¯?erskaja, E.N. (photo du ms)</author>
+                    <title>Legenda ob Avgare - Rannesirijskij literaturnyj pamjatnik</title>
+                    <ptr target="http://syriaca.org/bibl/1866"/>
+                    <citedRange>Moscou, 1984, p. 119-184</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib921-26" ref="dct:source" passive="#bib921-29 bib921-42" source="#bib921-1"/>
+                        <relation active="#bib921-26" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-27"> et (3): ms Saint-Pétersbourg, Bibliothèque Publique Saltykov-Shchedrine, N.S. Syr. 4 (Pigulevskaya 48), , f. 1v33<listRelation>
+                        <relation active="#bib921-27" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-28">ms Londres, British Library, Add. 14654, f. 33r-v (fgt) + Add. 14644, f. 1-9v + Add. 14535, f. 1r (fgt) + Add. 12155, f. 53v + Add. 17193, f. 36v-37 (extrait)<listRelation>
+                        <relation active="#bib921-28" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-29">ms Alqosh, Église paroissiale chaldéenne, cod. 87 ?<listRelation>
+                        <relation active="#bib921-29" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-30">ms Londres, British Library, Add. 12161, f. 1v (fgt)<listRelation>
+                        <relation active="#bib921-30" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-31">ms Londres, British Library, Add. 14612, f. 165r (fgt)<listRelation>
+                        <relation active="#bib921-31" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-32">ms Londres, British Library, Add. 14644, f. 1-9v (mutilé du début et au milieu)<listRelation>
+                        <relation active="#bib921-32" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-33">ms Paris, Bibliothèque nationale, syr. 62, f. 102v-108 (extraits)<listRelation>
+                        <relation active="#bib921-33" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-34">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 405, f. 1<listRelation>
+                        <relation active="#bib921-34" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-35">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 153, p. 241-259<listRelation>
+                        <relation active="#bib921-35" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib921-36">
+                    <lang>hy</lang>
+                    <editor>A. Carrière</editor>
+                    <title>La Légende d’Abgar dans
                 l’Histoire d’Arménie de Moïse de Khoren, dans Centenaire de l’École des langues
                 orientales vivantes, Paris, 1895</title>
-                        <ptr target="http://syriaca.org/bibl/1962"/>
-                        <citedRange unit="pp">357-414</citedRange>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib921-1">
-                    <bibl xml:id="bib921-37">
-                        <editor>G. Haile</editor>
-                        <title>The legend of Abgar in the Ethiopic
+                    <ptr target="http://syriaca.org/bibl/1962"/>
+                    <citedRange unit="pp">357-414</citedRange>
+                    <listRelation>
+                        <relation active="#bib921-36" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib921-37">
+                    <lang>gez</lang>
+                    <editor>G. Haile</editor>
+                    <title>The legend of Abgar in the Ethiopic
                 tradition, dans OCP, 55 (1989)</title>
-                        <ptr target="http://syriaca.org/bibl/1980"/>
-                        <citedRange unit="pp">375-410</citedRange>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib921-1">
-                    <bibl xml:id="bib921-38">
-                        <editor>A. Desreumaux</editor>
-                        <title>Histoire du roi Abgar et de Jésus</title>
-                        <pubPlace>Turnhout</pubPlace>
-                        <date>1993</date>
-                        <ptr target="http://syriaca.org/bibl/2104"/>
-                        <citedRange unit="pp">53-117 (Coll. “Apocryphes”)</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib921-1">
-                    <bibl xml:id="bib921-39">
-                        <editor>G. Howard</editor>
-                        <title level="m">The Teaching of Addai</title>
-                        <title level="s">Society of
+                    <ptr target="http://syriaca.org/bibl/1980"/>
+                    <citedRange unit="pp">375-410</citedRange>
+                    <listRelation>
+                        <relation active="#bib921-37" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib921-38">
+                    <lang>fr</lang>
+                    <editor>A. Desreumaux</editor>
+                    <title>Histoire du roi Abgar et de Jésus</title>
+                    <pubPlace>Turnhout</pubPlace>
+                    <date>1993</date>
+                    <ptr target="http://syriaca.org/bibl/2104"/>
+                    <citedRange unit="pp">53-117 (Coll. “Apocryphes”)</citedRange>
+                    <listRelation>
+                        <relation active="#bib921-38" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib921-39">
+                    <lang>en</lang>
+                    <editor>G. Howard</editor>
+                    <title level="m">The Teaching of Addai</title>
+                    <title level="s">Society of
             Biblical Literature. Texts and Translations</title>
-                        <biblScope unit="vol">16</biblScope>
-                        <title level="s">Early Christian Literature Series</title>
-                        <biblScope unit="vol">4</biblScope>
-                        <pubPlace>Chico CA</pubPlace>
-                        <date>1981</date>
-                        <ptr target="http://syriaca.org/bibl/2105"/>
-                        <citedRange unit="pp">3-107</citedRange>
-                        <note xml:lang="fr">avec réimpression de l’édition de G. Phillips</note>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib921-1">
-                    <bibl xml:id="bib921-40">
-                        <editor xml:lang="ru">Е. Н. Мещерская</editor>
-                        <ptr target="http://syriaca.org/bibl/1866"/>
-                        <citedRange unit="pp">185-203</citedRange>
-                        <lang>ru</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib921-1">
-                    <bibl xml:id="bib921-41">
-                        <editor>J.W. Drijvers</editor>
-                        <title>Helena Augusta:
+                    <biblScope unit="vol">16</biblScope>
+                    <title level="s">Early Christian Literature Series</title>
+                    <biblScope unit="vol">4</biblScope>
+                    <pubPlace>Chico CA</pubPlace>
+                    <date>1981</date>
+                    <ptr target="http://syriaca.org/bibl/2105"/>
+                    <citedRange unit="pp">3-107</citedRange>
+                    <note xml:lang="fr">avec réimpression de l’édition de G. Phillips</note>
+                    <listRelation>
+                        <relation active="#bib921-39" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib921-40">
+                    <lang>ru</lang>
+                    <editor xml:lang="ru">Е. Н. Мещерская</editor>
+                    <ptr target="http://syriaca.org/bibl/1866"/>
+                    <citedRange unit="pp">185-203</citedRange>
+                    <listRelation>
+                        <relation active="#bib921-40" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib921-41">
+                    <lang>nl</lang>
+                    <editor>J.W. Drijvers</editor>
+                    <title>Helena Augusta:
             waarheid en legende, Groningen, 1989</title>
-                        <note xml:lang="fr">partielle</note>
-                        <ptr target="http://syriaca.org/bibl/2001"/>
-                        <citedRange unit="pp">153-157</citedRange>
-                        <lang>nl</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib921-42">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/921</idno>
-                <idno type="BHS">717</idno>
-                <idno type="BHO">24</idno>
-                <bibl xml:id="bib921-1">
+                    <note xml:lang="fr">partielle</note>
+                    <ptr target="http://syriaca.org/bibl/2001"/>
+                    <citedRange unit="pp">153-157</citedRange>
+                    <listRelation>
+                        <relation active="#bib921-41" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib921-42">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib921-42" ref="lawd:embodies" passive="http://syriaca.org/work/921"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib921-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">717</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-2">
+                <bibl xml:id="bib921-2" type="lawd:Citation">
                     <title xml:lang="de" level="a">Der Briefwechsel des Königs Abgar von Edessa mit
                      Jesus in Jerusalem oder die Abgarfrage</title>
                     <title xml:lang="de" level="j">Der Katholik</title>
@@ -350,15 +377,15 @@
                     <citedRange unit="pp" from="322" to="345">322-345</citedRange>
                     <citedRange unit="pp" from="398" to="420">398-420</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-3">J. Nirschl, Der Briefwechsel des Königs Abgar von Edessa mit Jesus in Jerusalem oder die Abgarfrage, dans Der Katholik, 76 (1896), p. 17-40, 97-114, 193-209, 322-345, 398-420 (pas vu)</bibl>
-                <bibl xml:id="bib921-4">
+                <bibl xml:id="bib921-3" type="lawd:Citation">J. Nirschl, Der Briefwechsel des Königs Abgar von Edessa mit Jesus in Jerusalem oder die Abgarfrage, dans Der Katholik, 76 (1896), p. 17-40, 97-114, 193-209, 322-345, 398-420 (pas vu)</bibl>
+                <bibl xml:id="bib921-4" type="lawd:Citation">
                     <title xml:lang="de" level="a">Über einige edessenische Märtyrerakten</title>
                     <title xml:lang="de" level="m">Strassburger Festschrift zur XLVI. Versammlung
                      deutscher Philologen und Schulmänner</title>
                     <ptr target="http://syriaca.org/bibl/739"/>
                     <citedRange from="13" to="22" unit="pp">13-22</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-5">
+                <bibl xml:id="bib921-5" type="lawd:Citation">
                     <title xml:lang="ru-Latn-iso9r95" level="a">Legenda ob avgare i apotropeičeskie
                      teksty na grečeskom jazyke</title>
                     <title xml:lang="ru" level="a">Легенда об авгаре и апотропеические тексты на
@@ -368,21 +395,21 @@
                     <ptr target="http://syriaca.org/bibl/756"/>
                     <citedRange from="102" to="106" unit="pp">102-106</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-6">
+                <bibl xml:id="bib921-6" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="m" xml:lang="la">V Symposium Syriacum</title>
                     <title level="s" xml:lang="la">Orientalia christiana analecta</title>
                     <ptr target="http://syriaca.org/bibl/722"/>
                     <citedRange from="195" to="206" unit="pp">195-206</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-6b">
+                <bibl xml:id="bib921-6b" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="j" xml:lang="en">The Harp</title>
                     <ptr target="http://syriaca.org/bibl/1207"/>
                     <citedRange from="99" to="110" unit="pp">99-110 <note>?</note>
                     </citedRange>
                 </bibl>
-                <bibl xml:id="bib921-7">
+                <bibl xml:id="bib921-7" type="lawd:Citation">
                     <title xml:lang="ru-Latn-iso9r95">K skazaniû o snošeniâh Edesskogo knâzâ Avgarâ so Hristom Spasitelem</title>
                     <title level="a" xml:lang="ru">К сказанию о сношениях Едесского князя Авгаря со Христом Спасителем</title>
                     <title level="j" xml:lang="ru-Latn-iso9r95">Trudy Kievskoj Duhovnoj Akademii</title>
@@ -390,25 +417,25 @@
                     <ptr target="http://syriaca.org/bibl/757"/>
                     <citedRange from="501" to="513" unit="pp">501-513</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-8">
+                <bibl xml:id="bib921-8" type="lawd:Citation">
                     <title xml:lang="en" level="m">Syriac Literature. The Acts of Addi</title>
                     <ptr target="http://syriaca.org/bibl/758"/>
                 </bibl>
-                <bibl xml:id="bib921-9">
+                <bibl xml:id="bib921-9" type="lawd:Citation">
                     <title xml:lang="de" level="m">Die Kreuzauffindungslegende. Untersuchungen über
                      ihre altchristlichen Fassungen mit besonderer Berücksichtigung der syrischen
                      Texte</title>
                     <ptr target="http://syriaca.org/bibl/717"/>
                     <citedRange from="82" to="103" unit="pp">82-103</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-10">
+                <bibl xml:id="bib921-10" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Égérie à Édesse. S. Thomas l’Apôtre. Le roi
                      Abgar</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/759"/>
                     <citedRange from="381" to="400" unit="pp">381-400</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-11">
+                <bibl xml:id="bib921-11" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La Doctrine d’Addaï, l’image du Christ et les
                      monophysites</title>
                     <title xml:lang="fr" level="m">Nicée II 787-1987. Douze siècles d’images
@@ -417,45 +444,45 @@
                     <ptr target="http://syriaca.org/bibl/760"/>
                     <citedRange from="73" to="79" unit="pp">73-79</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-12">
+                <bibl xml:id="bib921-12" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La Doctrine d’Addaï: le chroniqueur et ses
                      documents</title>
                     <title level="j">Apocrypha</title>
                     <ptr target="http://syriaca.org/bibl/761"/>
                     <citedRange from="249" to="267" unit="pp">249-267</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-13">
+                <bibl xml:id="bib921-13" type="lawd:Citation">
                     <title level="a" xml:lang="it">Cristo all’Eufrate</title>
                     <title xml:lang="it" level="j">Parola del Passato</title>
                     <ptr target="http://syriaca.org/bibl/762"/>
                     <citedRange from="59" to="63" unit="pp">59-63</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-14">
+                <bibl xml:id="bib921-14" type="lawd:Citation">
                     <title level="a" xml:lang="de">Abgarsage</title>
                     <title xml:lang="de" level="m">Neutestamentliche Apokryphen, I. Evangelien,
                      Tübingen, 51987</title>
                     <ptr target="http://syriaca.org/bibl/763"/>
                     <citedRange from="389" to="395" unit="pp">389-395</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-15">
+                <bibl xml:id="bib921-15" type="lawd:Citation">
                     <title level="m" xml:lang="nl">Helena Augusta: waarheid en legende</title>
                     <ptr target="http://syriaca.org/bibl/718"/>
                     <citedRange from="153" to="171" unit="pp">153-171</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-16">
+                <bibl xml:id="bib921-16" type="lawd:Citation">
                     <title xml:lang="en" level="a">Apocryphal Literature in the Cultural Milieu of
                      Osrhoëne</title>
                     <title level="j">Apocrypha</title>
                     <ptr target="http://syriaca.org/bibl/764"/>
                     <citedRange from="231" to="247" unit="pp">231-247</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-17">
+                <bibl xml:id="bib921-17" type="lawd:Citation">
                     <title xml:lang="it" level="m">Gli Apocrifi del Nuovo Testamento. III. Lettere e
                      Apocalissi, s.l. 1969</title>
                     <ptr target="http://syriaca.org/bibl/765"/>
                     <citedRange from="79" to="84" unit="pp">79-84</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-18">
+                <bibl xml:id="bib921-18" type="lawd:Citation">
                     <title xml:lang="de" level="a">Die “Lehre des Apostels Addai” (“Lehre der
                      Apostel”). Zur Überlieferung pseudo-apostolischer Kanones in der syrischen
                      Literatur</title>
@@ -464,21 +491,21 @@
                     <ptr target="http://syriaca.org/bibl/766"/>
                     <citedRange from="102" to="128" unit="pp">102-128</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-19">
+                <bibl xml:id="bib921-19" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La Légende d’Abgar et de Thaddée et les missions
                      chrétiennes à Édesse</title>
                     <title xml:lang="fr" level="j">Revue de l'histoire des religions</title>
                     <ptr target="http://syriaca.org/bibl/767"/>
                     <citedRange from="269" to="283" unit="pp">269-283</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-20">
+                <bibl xml:id="bib921-20" type="lawd:Citation">
                     <title level="a" xml:lang="fr">La doctrine d’Addaï: essai de classement des témoins syriaques et
                      grecs</title>
                     <title level="j" xml:lang="la">Augustinianum</title>
                     <ptr target="http://syriaca.org/bibl/768"/>
                     <citedRange from="181" to="186" unit="pp">181-186</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-21">
+                <bibl xml:id="bib921-21" type="lawd:Citation">
                     <title level="a" xml:lang="ru-Latn-iso9r95">Legenda ob Avgare v literaturah
                      vizantijskogo kul'turnogo kruga</title>
                     <title level="a" xml:lang="ru">Легенда об Авгаре в литературах византийского
@@ -488,7 +515,7 @@
                     <ptr target="http://syriaca.org/bibl/769"/>
                     <citedRange from="97" to="107" unit="pp">97-107</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-22">
+                <bibl xml:id="bib921-22" type="lawd:Citation">
                     <title xml:lang="ru-Latn-iso9r95" level="a">K izučeniû sirijskih istočnikov i
                      grečesko-slavânskih versij apokrifičeskih legend</title>
                     <title xml:lang="ru" level="a">К изучению сирийских источников и
@@ -498,17 +525,17 @@
                     <ptr target="http://syriaca.org/bibl/770"/>
                     <citedRange from="168" to="172" unit="pp">168-172</citedRange>
                 </bibl>
-                <bibl xml:id="bib921-23">
+                <bibl xml:id="bib921-23" type="lawd:Citation">
                     <title xml:lang="de" level="m">Die edessenische Abgar-Sage kritisch
                      untersucht</title>
                     <ptr target="http://syriaca.org/bibl/771"/>
                 </bibl>
-                <bibl xml:id="bib921-43">
+                <bibl xml:id="bib921-43" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de A. Burckhardt</title>
                     <ptr target="http://syriaca.org/bibl/1210"/>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/921" passive="http://syriaca.org/person/1118" source="#bib921-1"/>
+                    <relation active="http://syriaca.org/work/921" passive="http://syriaca.org/person/1118" source="#bib921-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

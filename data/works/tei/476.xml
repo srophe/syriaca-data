@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Disciple of an Elder of Scetis (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -185,7 +189,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-476" ana="#hagiographic">
+            <bibl xml:id="work-476" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name476-3" xml:lang="fr" source="#bib476-1">Disciple d’un vieillard de Scété (texte)</title>
                 <title xml:id="name476-4" xml:lang="en" source="#bib476-1" syriaca-tags="#syriaca-headword">Disciple of an Elder of Scetis (text)</title>
                 <author xml:lang="fr" source="#bib476-1" ref="http://syriaca.org/person/668">
@@ -196,6 +200,10 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Pallade</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/476</idno>
+                <idno type="BHS">256</idno>
+                <idno type="BHO">854</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib476-1">
                     <quote>ܣܒܐ ܚܕ ܥܡܿܪ ܗܘ̣ܐ ܒܡܕܒܪܐ ܗܘܿ ܕܡܬܩܪܐ ܐܣܩܝܛܝܣ: ܘܠܗ ܠܗܢܐ ܣܒܐ ܐܝܬ ܗܘ̣ܐ ܠܗ ܬܠܡܝܕܐ ܚܕ ܕܥܡܿܪ ܗܘ̣ܐ ܥܡܗ.</quote>
                 </note>
@@ -208,50 +216,56 @@
                 <note xml:lang="fr" type="explicit" source="#bib476-1">
                     <quote>Et il les délivra de la main de leurs ennemis et les sauva des filets du Calomniateur. Nous aussi, que notre Seigneur nous cache sous les ailes de sa miséricorde… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib476-1" corresp="#bib476-8" n="1" xml:id="bib476-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 7</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">7</citedRange>
-                        <citedRange>p. 209-214</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib476-1" corresp="#bib476-4 bib476-5" n="2" xml:id="bib476-3">
-                        <author>Budge, E. A. W.</author>
-                        <title>BP 2</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 258-261 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib476-1">
-                    <bibl xml:id="bib476-4">ms Lady Meux 6 (?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib476-1">
-                    <bibl xml:id="bib476-5">ms Vatican, Syr. 126, f. 41v-42v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib476-1">
-                    <bibl xml:id="bib476-6">ms Londres, British Library, Add. 14650, f. 13v-</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib476-1">
-                    <bibl xml:id="bib476-7">
-                        <editor>E.A.W. Budge</editor>
-                        <title>BP 1</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">318-322</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib476-8">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/476</idno>
-                <idno type="BHS">256</idno>
-                <idno type="BHO">854</idno>
-                <bibl xml:id="bib476-1">
+                <bibl type="lawd:Edition" source="#bib476-1" xml:id="bib476-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 7</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">7</citedRange>
+                    <citedRange>p. 209-214</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib476-2" ref="dct:source" passive="#bib476-8" source="#bib476-1"/>
+                        <relation active="#bib476-2" ref="lawd:embodies" passive="http://syriaca.org/work/476"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib476-1" xml:id="bib476-3">
+                    <author>Budge, E. A. W.</author>
+                    <title>BP 2</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 258-261 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib476-3" ref="dct:source" passive="#bib476-4 bib476-5" source="#bib476-1"/>
+                        <relation active="#bib476-3" ref="lawd:embodies" passive="http://syriaca.org/work/476"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib476-4">ms Lady Meux 6 (?)<listRelation>
+                        <relation active="#bib476-4" ref="lawd:embodies" passive="http://syriaca.org/work/476"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib476-5">ms Vatican, Syr. 126, f. 41v-42v<listRelation>
+                        <relation active="#bib476-5" ref="lawd:embodies" passive="http://syriaca.org/work/476"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib476-6">ms Londres, British Library, Add. 14650, f. 13v-<listRelation>
+                        <relation active="#bib476-6" ref="lawd:embodies" passive="http://syriaca.org/work/476"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib476-7">
+                    <lang>en</lang>
+                    <editor>E.A.W. Budge</editor>
+                    <title>BP 1</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="pp">318-322</citedRange>
+                    <listRelation>
+                        <relation active="#bib476-7" ref="lawd:embodies" passive="http://syriaca.org/work/476"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib476-8">The manuscript witnesses for edition 1 are undetermined.<listRelation>
+                        <relation active="#bib476-8" ref="lawd:embodies" passive="http://syriaca.org/work/476"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib476-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>

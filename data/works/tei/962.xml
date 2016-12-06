@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mary Mother of God (text) — <foreign xml:lang="syr">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,11 +190,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-962" ana="#hagiographic">
+            <bibl xml:id="work-962" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name962-1" xml:lang="syr" source="#bib962-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</title>
                 <title xml:id="name962-2" xml:lang="fr-x-bhs" source="#bib962-1">Maryam yāldaṯ Alāhā</title>
                 <title xml:id="name962-3" xml:lang="fr" source="#bib962-1">Marie Mère de Dieu (miracle: histoire d’André fils d’Andronius) (texte)</title>
                 <title xml:id="name962-4" xml:lang="en" source="#bib962-1" syriaca-tags="#syriaca-headword">Mary Mother of God (text)</title>
+                <idno type="URI">http://syriaca.org/work/962</idno>
+                <idno type="BHS">769</idno>
+                <idno type="BHO">645</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib962-1">
                     <quote>ܕܥܘ ܐܘ ܚܒܝ̈ܒܝ ܕܐܫܬܥܝܘ ܠܢ ܐܒܗ̈ܬܐ ܘܡܠܦ̈ܢܐ ܕܥܕܬܐ ܩܕܝܫܬܐ ܥܠ ܐܬܘ̈ܬܐ ܘܬܕܡܪ̈ܬܐ ܕܣܥܪܬ ܡܪܬܝ ܡܪܝܡ ܒܬܘܠܬܐ ܕܟܝܬܐ ܡܢ ܒܬܪ ܕܣܠ̣ܩ ܡܪܢ ܝܫܘܥ ܡܫܝܚܐ ܠܫܡܝܐ.</quote>
                 </note>
@@ -203,49 +211,51 @@
                 <note xml:lang="fr" type="explicit" source="#bib962-1">
                     <quote>Maintenant, frères bien-aimés, sachez que nous implorons et prions le Christ qui est né d’elle et qui s’est manifesté à partir du sein de la pure, sainte et bénie Vierge, dans sa pitié et dans sa clémence de bénir quiconque célèbre la fête de sainte Marie et honorera et exaltera ses fêtes et ses commémoraisons dans les louanges et les chants de l’Esprit Saint. Prions le Christ d’établir sa prospérité et sa paix dans tout lieu où on honorera les fêtes de la sainte Vierge Marie et de multiplier ses bienfaits à tous ses habitants pour qu’ils soient aidés et sauvés du feu de la Géhenne. Oui et amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib962-1" xml:id="bib962-4">
-                        <author>Budge, E. A. W.</author>
-                        <title>The History of the Blessed Virgin Mary and the History of the Likeness of Christ which the Jews of Tiberias Made to Mock at. The Syriac Texts</title>
-                        <ptr target="http://syriaca.org/bibl/1788"/>
-                        <citedRange>Londres, 1899, p. 146-152</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib962-1">
-                    <bibl xml:id="bib962-5">ms Leeds, University, Coll. Wallis Budge, Syr. 1, f. 82v-86v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib962-1">
-                    <bibl xml:id="bib962-6">ms Vatican, Borg. Syr. 128, f. 111r-v (mutilé de la fin)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib962-1">
-                    <bibl xml:id="bib962-7">
-                        <editor>E. A. W. Budge</editor>
-                        <title>The History of the Blessed
+                <bibl type="lawd:Edition" source="#bib962-1" xml:id="bib962-4">
+                    <author>Budge, E. A. W.</author>
+                    <title>The History of the Blessed Virgin Mary and the History of the Likeness of Christ which the Jews of Tiberias Made to Mock at. The Syriac Texts</title>
+                    <ptr target="http://syriaca.org/bibl/1788"/>
+                    <citedRange>Londres, 1899, p. 146-152</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib962-4" ref="dct:source" passive="" source="#bib962-1"/>
+                        <relation active="#bib962-4" ref="lawd:embodies" passive="http://syriaca.org/work/962"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib962-5">ms Leeds, University, Coll. Wallis Budge, Syr. 1, f. 82v-86v<listRelation>
+                        <relation active="#bib962-5" ref="lawd:embodies" passive="http://syriaca.org/work/962"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib962-6">ms Vatican, Borg. Syr. 128, f. 111r-v (mutilé de la fin)<listRelation>
+                        <relation active="#bib962-6" ref="lawd:embodies" passive="http://syriaca.org/work/962"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib962-7">
+                    <lang>en</lang>
+                    <editor>E. A. W. Budge</editor>
+                    <title>The History of the Blessed
                 Virgin Mary and the History of the Likeness of Christ which the Jews of Tiberias
                 Made to Mock at. English Translations (Luzac’s Semitic Text and Translation Series
                 5), Londres, 1899</title>
-                        <ptr target="http://syriaca.org/bibl/1788"/>
-                        <citedRange unit="pp">160-167</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/962</idno>
-                <idno type="BHS">769</idno>
-                <idno type="BHO">645</idno>
-                <bibl xml:id="bib962-1">
+                    <ptr target="http://syriaca.org/bibl/1788"/>
+                    <citedRange unit="pp">160-167</citedRange>
+                    <listRelation>
+                        <relation active="#bib962-7" ref="lawd:embodies" passive="http://syriaca.org/work/962"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib962-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">769</citedRange>
                 </bibl>
-                <bibl xml:id="bib962-2">
+                <bibl xml:id="bib962-2" type="lawd:Citation">
                     <title xml:lang="fr" level="m">La mort et l’Assomption de la sainte Vierge. Étude
                      historico-doctrinale</title>
                     <title xml:lang="it" level="s">Studi e testi</title>
                     <ptr target="http://syriaca.org/bibl/726"/>
                     <citedRange from="124" to="126" unit="pp">124-126</citedRange>
                 </bibl>
-                <bibl xml:id="bib962-3">
+                <bibl xml:id="bib962-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Vies de la Vierge: État de la question</title>
                     <title level="j">Apocrypha</title>
                     <ptr target="http://syriaca.org/bibl/727"/>

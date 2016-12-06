@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Basil and Gregory (text) — <foreign xml:lang="syr">ܒܣܝܠܝܘܣ ܘܓܪܝܓܘܪܝܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -183,7 +187,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1964" ana="#hagiographic">
+            <bibl xml:id="work-1964" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1964-1" xml:lang="syr" source="#bib1964-1" syriaca-tags="#syriaca-headword">ܒܣܝܠܝܘܣ ܘܓܪܝܓܘܪܝܘܣ</title>
                 <title xml:id="name1964-2" xml:lang="fr-x-bhs" source="#bib1964-1">Bāsīlīyōs wa-Órīǥōrīyōs</title>
                 <title xml:id="name1964-3" xml:lang="fr" source="#bib1964-1">Basile et Grégoire (texte)</title>
@@ -200,6 +204,10 @@
                         <forename>Sévère</forename>
                         <addName type="untagged-title">d’Antioche</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1964</idno>
+                <idno type="BHS">1931</idno>
+                <idno type="CPG">7035</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1964-1">
                     <quote>ܠܥܐܕܐ ܗܢܐ ܦܨܝܚܐ ܘܪܘܚܢܝܐ ܐܝܟ ܕܒܫܪܪܐ ܕܠܐ ܒܨܒܝܢܝ ܡܿܢ ܕܢܬ ܕܝܢ ܒܪܡ ܕܐܥܒܪܝܘܗܝ ܒܫܬܩܐ. ܟܕ ܒܡܪ̈ܢܝܬܐ ܕܣܘܥܪ̈ܢܐ ܣܢܓܝܐܐ ܩܿܛܐ ܐܢܐ. ܘܐܦ ܠܐ ܕܐܣܘܩ ܪܘܚܐ ܡܫܬܒܩ ܐܢܐ.</quote>
                 </note>
@@ -212,23 +220,21 @@
                 <note xml:lang="fr" type="explicit" source="#bib1964-1">
                     <quote>Que cette Trinité, parfaite en tout et sainte, pour l’honneur de ces saints qui ont parlé parfaitement dans le discours de la divinité, reçoive aussi notre enfant imparfait et indigent comme s’il était parfait, et donne la récompense à la volonté; à elle… Amen.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1964-1">
-                    <bibl xml:id="bib1964-2">ms Londres, British Library, Add. 14599, f. 34-39v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1964</idno>
-                <idno type="BHS">1931</idno>
-                <idno type="CPG">7035</idno>
-                <bibl xml:id="bib1964-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1964-2">ms Londres, British Library, Add. 14599, f. 34-39v<listRelation>
+                        <relation active="#bib1964-2" ref="lawd:embodies" passive="http://syriaca.org/work/1964"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1964-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1931</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/511 http://syriaca.org/person/376" source="#bib1964-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/511" source="#bib1964-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/376" source="#bib1964-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/511" source="#bib1964-1"/>
+                    <relation active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/511 http://syriaca.org/person/376" source="#bib1964-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/511" source="#bib1964-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/376" source="#bib1964-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/1964" passive="http://syriaca.org/person/511" source="#bib1964-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

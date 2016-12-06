@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Narrative of Mary Mother of God (text) — <foreign xml:lang="syr">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -182,95 +186,123 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1295" ana="#hagiographic">
+            <bibl xml:id="work-1295" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1295-1" xml:lang="syr" source="#bib1295-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</title>
                 <title xml:id="name1295-2" xml:lang="fr-x-bhs" source="#bib1295-1">Maryam yāldaṯ Alāhā</title>
                 <title xml:id="name1295-3" xml:lang="fr" source="#bib1295-1">Marie Mère de Dieu (Histoire de) (texte)</title>
                 <title xml:id="name1295-4" xml:lang="en" source="#bib1295-1" syriaca-tags="#syriaca-headword">The Narrative of Mary Mother of God (text)</title>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-2">ms Dawra, Monastère chaldéen, cod. 589 (olim Alqosh, Monastère N.-D. des Semences, cod. 184 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-3">ms Dawra, Monastère chaldéen, cod. 598</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-4">ms Dawra, Monastère chaldéen, cod. 653</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-5">ms Cambridge, University Library, Add. 2001, f. 1-151</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-6">ms Cambridge (Mass.), Harvard University Library, Syr. 35</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-7">ms Cambridge (Mass.), Harvard University Library, Syr. 39</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-8">ms Cambridge (Mass.), Harvard University Library, Syr. 82</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-9">ms Cambridge (Mass.), Harvard University Library, Syr. 168</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-10">ms New York, Columbia University Library, X893-B47</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-11">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Fonds Rahmani, cod. 157 (écrite par Jacob au temps de la mort d’Hérode)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-12">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Fonds Rahmani, cod. 60 (transitus)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-13">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 42 = Sony 216, f. 1-137´</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-14">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 5, f. 1-101</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-15">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 39, f. 70v-97v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-16">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 48, f. 1-71v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-17">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 122, f. 1-112v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-18">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 502, f. 2v-92</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-19">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 560, f. 1-142v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-20">ms Mardin, Évêché chaldéen, syr. 80</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-21">ms Londres, British Library, Or. 9367, f. 225-268v (ms de Budge, mutilé ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-22">ms Bagdad, Patriarcat chaldéen catholique, = ms olim Mossoul, Patriarcat chaldéen, cod. 29</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-23">ms Alep, Église Mar Giwargis, cod. A</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-24">ms Mossoul, Résidence épiscopale syrienne orthodoxe, cod. 124, f. 1v-84v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-25">ms Ourmia, Sarau-Shedd 43</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-26">ms Ourmia, Sarau-Shedd 145</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-27">ms Dayr az-Za‘faran, cod. pap. 114 (Dolabany)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1295-1">
-                    <bibl xml:id="bib1295-28">ms Dayr az-Za‘faran, cod. pap. 115 (Dolabany)</bibl>
-                </note>
                 <idno type="URI">http://syriaca.org/work/1295</idno>
                 <idno type="BHS">1144</idno>
-                <bibl xml:id="bib1295-1">
+                <textLang mainLang="syr"/>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-2">ms Dawra, Monastère chaldéen, cod. 589 (olim Alqosh, Monastère N.-D. des Semences, cod. 184 Vosté)<listRelation>
+                        <relation active="#bib1295-2" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-3">ms Dawra, Monastère chaldéen, cod. 598<listRelation>
+                        <relation active="#bib1295-3" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-4">ms Dawra, Monastère chaldéen, cod. 653<listRelation>
+                        <relation active="#bib1295-4" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-5">ms Cambridge, University Library, Add. 2001, f. 1-151<listRelation>
+                        <relation active="#bib1295-5" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-6">ms Cambridge (Mass.), Harvard University Library, Syr. 35<listRelation>
+                        <relation active="#bib1295-6" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-7">ms Cambridge (Mass.), Harvard University Library, Syr. 39<listRelation>
+                        <relation active="#bib1295-7" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-8">ms Cambridge (Mass.), Harvard University Library, Syr. 82<listRelation>
+                        <relation active="#bib1295-8" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-9">ms Cambridge (Mass.), Harvard University Library, Syr. 168<listRelation>
+                        <relation active="#bib1295-9" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-10">ms New York, Columbia University Library, X893-B47<listRelation>
+                        <relation active="#bib1295-10" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-11">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Fonds Rahmani, cod. 157 (écrite par Jacob au temps de la mort d’Hérode)<listRelation>
+                        <relation active="#bib1295-11" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-12">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Fonds Rahmani, cod. 60 (transitus)<listRelation>
+                        <relation active="#bib1295-12" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-13">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 42 = Sony 216, f. 1-137´<listRelation>
+                        <relation active="#bib1295-13" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-14">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 5, f. 1-101<listRelation>
+                        <relation active="#bib1295-14" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-15">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 39, f. 70v-97v<listRelation>
+                        <relation active="#bib1295-15" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-16">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 48, f. 1-71v<listRelation>
+                        <relation active="#bib1295-16" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-17">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 122, f. 1-112v<listRelation>
+                        <relation active="#bib1295-17" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-18">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 502, f. 2v-92<listRelation>
+                        <relation active="#bib1295-18" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-19">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 560, f. 1-142v<listRelation>
+                        <relation active="#bib1295-19" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-20">ms Mardin, Évêché chaldéen, syr. 80<listRelation>
+                        <relation active="#bib1295-20" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-21">ms Londres, British Library, Or. 9367, f. 225-268v (ms de Budge, mutilé ?)<listRelation>
+                        <relation active="#bib1295-21" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-22">ms Bagdad, Patriarcat chaldéen catholique, = ms olim Mossoul, Patriarcat chaldéen, cod. 29<listRelation>
+                        <relation active="#bib1295-22" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-23">ms Alep, Église Mar Giwargis, cod. A<listRelation>
+                        <relation active="#bib1295-23" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-24">ms Mossoul, Résidence épiscopale syrienne orthodoxe, cod. 124, f. 1v-84v<listRelation>
+                        <relation active="#bib1295-24" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-25">ms Ourmia, Sarau-Shedd 43<listRelation>
+                        <relation active="#bib1295-25" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-26">ms Ourmia, Sarau-Shedd 145<listRelation>
+                        <relation active="#bib1295-26" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-27">ms Dayr az-Za‘faran, cod. pap. 114 (Dolabany)<listRelation>
+                        <relation active="#bib1295-27" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1295-28">ms Dayr az-Za‘faran, cod. pap. 115 (Dolabany)<listRelation>
+                        <relation active="#bib1295-28" ref="lawd:embodies" passive="http://syriaca.org/work/1295"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1295-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>

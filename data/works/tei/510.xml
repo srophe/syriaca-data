@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Courtesan (text) — <foreign xml:lang="syr">ܙܢܝܬܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-510" ana="#hagiographic">
+            <bibl xml:id="work-510" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name510-1" xml:lang="syr" source="#bib510-1" syriaca-tags="#syriaca-headword">ܙܢܝܬܐ</title>
                 <title xml:id="name510-3" xml:lang="fr" source="#bib510-1">Courtisane (texte)</title>
                 <title xml:id="name510-4" xml:lang="en" source="#bib510-1" syriaca-tags="#syriaca-headword">Courtesan (text)</title>
@@ -196,6 +200,10 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Pallade</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/510</idno>
+                <idno type="BHS">290</idno>
+                <idno type="BHO">854</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib510-1">
                     <quote>̣ܐܡܿܪ ܗܘ̣ܐ ܣܒܐ ܚܕ: ܕܐܝܬ ܗܘ̣ܐ ܙܢܝܬܐ ܚܕܐ: ܕܗܟܢܐ ܫܦܝܪܐ ܗܘ̣ܬ ܘܥܬܝܪܐ: ܐܝܟܢܐ ܕܪ̈ܫܢܐ ܢܨܘܒܘܢ ܠܘܬܗܿ.</quote>
                 </note>
@@ -208,39 +216,40 @@
                 <note xml:lang="fr" type="explicit" source="#bib510-1">
                     <quote>Et elle entra dans l’église en pleurant et en disant: «S’il m’est advenu ainsi ici-bas, que ferai-je là-haut?». Et elle se repentit et devint un instrument de choix.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib510-1" xml:id="bib510-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 7</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">7</citedRange>
-                        <citedRange>p. 307-308</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib510-1">
-                    <bibl xml:id="bib510-3">ms Vatican, Syr. 126, f. 56v-57</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib510-1">
-                    <bibl xml:id="bib510-4">
-                        <editor>E.A.W. Budge</editor>
-                        <title>BP 1</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">414-415</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/510</idno>
-                <idno type="BHS">290</idno>
-                <idno type="BHO">854</idno>
-                <bibl xml:id="bib510-1">
+                <bibl type="lawd:Edition" source="#bib510-1" xml:id="bib510-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 7</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">7</citedRange>
+                    <citedRange>p. 307-308</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib510-2" ref="dct:source" passive="" source="#bib510-1"/>
+                        <relation active="#bib510-2" ref="lawd:embodies" passive="http://syriaca.org/work/510"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib510-3">ms Vatican, Syr. 126, f. 56v-57<listRelation>
+                        <relation active="#bib510-3" ref="lawd:embodies" passive="http://syriaca.org/work/510"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib510-4">
+                    <lang>en</lang>
+                    <editor>E.A.W. Budge</editor>
+                    <title>BP 1</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="pp">414-415</citedRange>
+                    <listRelation>
+                        <relation active="#bib510-4" ref="lawd:embodies" passive="http://syriaca.org/work/510"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib510-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">290</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/510" passive="http://syriaca.org/person/1658" source="#bib510-1"/>
+                    <relation active="http://syriaca.org/work/510" passive="http://syriaca.org/person/1658" source="#bib510-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

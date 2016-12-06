@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Peter the Iberian (text) — <foreign xml:lang="syr">ܦܛܪܘܣ ܐܝܒܪܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-10-28+02:00">Added edition suggested by Zanetti and corrected bibl xml:ids.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
@@ -197,7 +201,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-928" ana="#hagiographic">
+            <bibl xml:id="work-928" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name928-1" xml:lang="syr" source="#bib928-1" syriaca-tags="#syriaca-headword">ܦܛܪܘܣ ܐܝܒܪܝܐ</title>
                 <title xml:id="name928-2" xml:lang="fr-x-bhs" source="#bib928-1">Paṭrōs ʾĪḇerāyā</title>
                 <title xml:id="name928-3" xml:lang="fr" source="#bib928-1">Pierre l’Ibère (texte)</title>
@@ -234,6 +238,10 @@
                         <addName type="untagged-title">le Rhéteur</addName>
                     </persName>)
                 </author>
+                <idno type="URI">http://syriaca.org/work/928</idno>
+                <idno type="BHS">725</idno>
+                <idno type="BHO">955</idno>
+                <textLang mainLang="syr"/>
                 <note type="abstract" source="#bib928-6 #bib928-14 #bib928-13 #bib928-15 #bib928-16">A Syriac translation of a Greek work which is no longer extant. 
                     The authorship of this anti-Chalcedonian life of Peter the Iberian is unknown and disputed, but widely thought to be 
                     <persName ref="http://syriaca.org/person/39">John Rufus</persName>, since the author appears to have been a close associate of Peter. 
@@ -258,139 +266,144 @@
                 <note xml:lang="fr" type="explicit" source="#bib928-1">
                     <quote>La mort de notre Père eut donc lieu le premier Kanôn I, son premier enterrement le deux du même mois, sa translation et sa déposition sous l’autel le trente Teshrî II. La durée de sa vie fut d’environ quatre-vingts ans. C’est pourquoi nous célébrons sa mémoire pendant trois jours, le premier jour, nous fêtons sa translation sous l’autel, le deuxième, quand vint tout le peuple, le troisième son enterrement; dans le Christ… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib928-1" xml:id="bib928-8">
-                        <author>Raabe, R.</author>
-                        <title>Petrus der Iberer. Ein Charakterbild zur Kirchen- und Sittengeschichte des fünften Jahrhunderts</title>
-                        <ptr target="http://syriaca.org/bibl/1901"/>
-                        <citedRange>Leipzig, 1895, p. 3-146 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl xml:id="bib928-17">
-                        <title level="m" xml:lang="en">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
-                        <ptr target="http://syriaca.org/bibl/1703"/>
-                        <citedRange unit="pp" from="2" to="281">2-281</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib928-1">
-                    <bibl xml:id="bib928-9">ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 68v-103 + ms Londres, British Library, Add. 12174, f. 48-78v</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib928-1">
-                    <bibl xml:id="bib928-10">
-                        <editor>N. Marr</editor>
-                        <title>(Zbornik), Saint-Pétersbourg, 1896</title>
-                        <ptr target="http://syriaca.org/bibl/2072"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib928-1">
-                    <bibl xml:id="bib928-11">
-                        <editor>R. Raabe</editor>
-                        <ptr target="http://syriaca.org/bibl/1901"/>
-                        <citedRange unit="pp">13-132</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib928-13">
-                    <bibl xml:id="bib928-12">
-                        <title level="m" xml:lang="en">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
-                        <ptr target="http://syriaca.org/bibl/1703"/>
-                        <citedRange unit="pp" from="2" to="281">2-281</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/928</idno>
-                <idno type="BHS">725</idno>
-                <idno type="BHO">955</idno>
-                <bibl xml:id="bib928-1">
+                <bibl type="lawd:Edition" source="#bib928-1" xml:id="bib928-8">
+                    <author>Raabe, R.</author>
+                    <title>Petrus der Iberer. Ein Charakterbild zur Kirchen- und Sittengeschichte des fünften Jahrhunderts</title>
+                    <ptr target="http://syriaca.org/bibl/1901"/>
+                    <citedRange>Leipzig, 1895, p. 3-146 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib928-8" ref="dct:source" passive="" source="#bib928-1"/>
+                        <relation active="#bib928-8" ref="lawd:embodies" passive="http://syriaca.org/work/928"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib928-17">
+                    <title level="m" xml:lang="en">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
+                    <ptr target="http://syriaca.org/bibl/1703"/>
+                    <citedRange unit="pp" from="2" to="281">2-281</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib928-17" ref="dct:source" passive="" source=""/>
+                        <relation active="#bib928-17" ref="lawd:embodies" passive="http://syriaca.org/work/928"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib928-9">ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 68v-103 + ms Londres, British Library, Add. 12174, f. 48-78v<listRelation>
+                        <relation active="#bib928-9" ref="lawd:embodies" passive="http://syriaca.org/work/928"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib928-10">
+                    <lang>ka</lang>
+                    <editor>N. Marr</editor>
+                    <title>(Zbornik), Saint-Pétersbourg, 1896</title>
+                    <ptr target="http://syriaca.org/bibl/2072"/>
+                    <listRelation>
+                        <relation active="#bib928-10" ref="lawd:embodies" passive="http://syriaca.org/work/928"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib928-11">
+                    <lang>de</lang>
+                    <editor>R. Raabe</editor>
+                    <ptr target="http://syriaca.org/bibl/1901"/>
+                    <citedRange unit="pp">13-132</citedRange>
+                    <listRelation>
+                        <relation active="#bib928-11" ref="lawd:embodies" passive="http://syriaca.org/work/928"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib928-12">
+                    <lang>en</lang>
+                    <title level="m" xml:lang="en">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
+                    <ptr target="http://syriaca.org/bibl/1703"/>
+                    <citedRange unit="pp" from="2" to="281">2-281</citedRange>
+                    <listRelation>
+                        <relation active="#bib928-12" ref="lawd:embodies" passive="http://syriaca.org/work/928"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib928-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">725</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-2d">
+                <bibl xml:id="bib928-2d" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Quand Pierre l’Ibère vint-il à Jérusalem?</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/744"/>
                     <citedRange from="337" to="350" unit="pp">337-350</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-2c">
+                <bibl xml:id="bib928-2c" type="lawd:Citation">
                     <title level="a" xml:lang="fr">La «Servante de Dieu» Poemenia d’après Pallade, la tradition
                      copte et Jean Rufus</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/745"/>
                     <citedRange from="189" to="208" unit="pp">189-208</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-2b">
+                <bibl xml:id="bib928-2b" type="lawd:Citation">
                     <title xml:lang="en" level="a">The «Servant of God» Poemenia in Palladius, the
                      Coptic Tradition and John Rufus</title>
                     <title level="j" xml:lang="en">Classical Folia</title>
                     <ptr target="http://syriaca.org/bibl/746"/>
                     <citedRange from="3" to="27" unit="pp">3-27</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-2a">
+                <bibl xml:id="bib928-2a" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de Raabe</title>
                     <title xml:lang="de" level="m">Literarisches Centralblatt, 1895</title>
                     <ptr target="http://syriaca.org/bibl/743"/>
                     <citedRange from="484" to="486" unit="pp">484-486</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-3">
+                <bibl xml:id="bib928-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Pierre l’Ibérien, évêque monophysite de Mayouma à
                      la fin du Ve siècle</title>
                     <title xml:lang="fr" level="j">Revue de l’Orient latin</title>
                     <ptr target="http://syriaca.org/bibl/747"/>
                     <citedRange from="367" to="397" unit="pp">367-397</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-4">
+                <bibl xml:id="bib928-4" type="lawd:Citation">
                     <title xml:lang="de" level="m">Severus von Antiochien. Ein kritischer
                      Quellenbeitrag zur Geschichte des Monophysitismus</title>
                     <ptr target="http://syriaca.org/bibl/748"/>
                     <citedRange from="17" to="21" unit="pp">17-21</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-5">
+                <bibl xml:id="bib928-5" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Ascalon et la ville de la Colombe</title>
                     <title level="j" xml:lang="fr">Comptes rendus des séances de l'Académie des Inscriptions et Belles-Lettres</title>
                     <ptr target="http://syriaca.org/bibl/749"/>
                     <citedRange from="380" to="381" unit="pp">380-381</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-5b">
+                <bibl xml:id="bib928-5b" type="lawd:Citation">
                     <title level="m" xml:lang="fr">Données géographiques relatives à la Palestine contenues dans la Vie de Pierre l'Ibère</title>
                     <title level="j" xml:lang="fr">Comptes rendus des séances de l'Académie des Inscriptions et Belles-Lettres</title>
                     <ptr target="http://syriaca.org/bibl/1201"/>
                     <citedRange from="391" to="392" unit="pp">391-392</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-6">
+                <bibl xml:id="bib928-6" type="lawd:Citation">
                     <title xml:lang="en" level="a">Peter the Iberian and his Biographers</title>
                     <title xml:lang="en" level="j">Journal of Ecclesiastical History</title>
                     <ptr target="http://syriaca.org/bibl/750"/>
                     <citedRange from="158" to="168" unit="pp">158-168</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-7">
+                <bibl xml:id="bib928-7" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de Lang</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/751"/>
                     <citedRange from="385" to="388" unit="pp">385-388</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-16">
+                <bibl xml:id="bib928-16" type="lawd:Citation">
                     <title level="a" xml:lang="en">Peter the Iberian</title>
                     <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                     <ptr target="http://syriaca.org/bibl/435"/>
                     <citedRange from="331" to="332" unit="pp">331-332</citedRange>
                     <citedRange unit="entry">426</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-14">
+                <bibl xml:id="bib928-14" type="lawd:Citation">
                     <title level="m" xml:lang="en">The lives of Peter the Iberian, Theodosius of Jerusalem, and the Monk Romanus</title>
                     <ptr target="http://syriaca.org/bibl/1703"/>
                     <citedRange unit="pp">lviii-lxii</citedRange>
                 </bibl>
-                <bibl xml:id="bib928-15">
+                <bibl xml:id="bib928-15" type="lawd:Citation">
                     <title level="a" xml:lang="de">Johannes Rufus, ein monophysitischer Schriftsteller</title>
                     <title level="j" xml:lang="de">Sitzungs-berichte der Heidelberger Akademie, Philosophisch-historische Klasse</title>
                     <ptr target="http://syriaca.org/bibl/1704"/>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/928" passive="http://syriaca.org/person/680" source="#bib928-1"/>
+                    <relation active="http://syriaca.org/work/928" passive="http://syriaca.org/person/680" source="#bib928-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

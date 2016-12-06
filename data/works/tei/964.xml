@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Rabban Bar ʿEdta (text) — <foreign xml:lang="syr">ܪܒܢ ܒܪ ܥܕܬܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-02-03">
@@ -190,12 +194,16 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-964" ana="#hagiographic">
+            <bibl xml:id="work-964" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name964-1" xml:lang="syr" source="#bib964-1" syriaca-tags="#syriaca-headword">ܪܒܢ ܒܪ ܥܕܬܐ</title>
                 <title xml:id="name964-2" xml:lang="fr-x-bhs" source="#bib964-1">Rabban Bar ʿidṯā</title>
                 <title xml:id="name964-3" xml:lang="fr" source="#bib964-1">Rabban Bar ‘Édta (texte)</title>
                 <title xml:id="name964-4" xml:lang="en" source="#bib964-1" syriaca-tags="#syriaca-headword">Rabban Bar ʿEdta (text)</title>
                 <author xml:lang="fr" source="#bib964-1">Abraham Zabaya</author>
+                <idno type="URI">http://syriaca.org/work/964</idno>
+                <idno type="BHS">771</idno>
+                <idno type="BHO">137</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib964-1">
                     <quote>Avec la force du Père et du Fils son Verbe et de l’Esprit Saint sa Vie… par la miséricorde de son amour je m’approche, moi son faible adorateur, Abraham le plus pécheur des hommes, de la région du Zâb, prêtre de nom.</quote>
                 </note>
@@ -214,70 +222,79 @@
                 <note xml:lang="fr" type="explicit" source="#bib964-1">
                     <quote>Et des profits qui se sont écoulés de lui au Beyt Gourbaq, ce sont eux les prêcheurs de ses actions admirables. Par la prière du vénérable saint Rabban Bar ‘Idtâ, que les habitants de ce village soient gardés de tout dommage… Christ, à la prière de ton ami Rabban Bar ‘Idtâ, souviens-toi d’Abraham qui a composé son discours et prends pitié de lui dans les deux mondes. Christ, aie pitié de ton serviteur Abraham et de ses parents, lui qui avec ta force et ton aide a assumé la composition du discours de ton saint.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib964-1" xml:id="bib964-3">
-                        <author>Budge, E. A. W.</author>
-                        <title>The Histories of Rabban Hôrmîzd the Persian and Rabban Bar-’Idtâ. The Syriac Texts</title>
-                        <ptr target="http://syriaca.org/bibl/1348"/>
-                        <citedRange>Londres, 1902, p. 114-201</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-4">mss Leeds, University, Coll. Wallis Budge, Syr. 3, f. 138r-208r</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-5">ms Dawra, Monastère chaldéen, cod. 544 (olim Alqosh, Monastère N.-D. des Semences, cod. 192 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-6">ms Dawra, Monastère chaldéen, cod. 545 (olim Alqosh, Monastère N.-D. des Semences, cod. 194 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-7">ms Dawra, Monastère chaldéen, cod. 546</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-8">ms Dawra, Monastère chaldéen, cod. 547</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-9">ms Alqosh, Monastère N.-D. des Semences, cod. 193 (Vosté) (ms perdu ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-10">ms Vatican, Syr. 584, f. 1v-56v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-11">ms Cambridge, University Library, Jenks Coll., Or. 1316</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib964-1">
-                    <bibl xml:id="bib964-12">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 61 C f. 186-240</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib964-1">
-                    <bibl xml:id="bib964-13">
-                        <editor>E. A. W. Budge</editor>
-                        <title>The Histories of Rabban
+                <bibl type="lawd:Edition" source="#bib964-1" xml:id="bib964-3">
+                    <author>Budge, E. A. W.</author>
+                    <title>The Histories of Rabban Hôrmîzd the Persian and Rabban Bar-’Idtâ. The Syriac Texts</title>
+                    <ptr target="http://syriaca.org/bibl/1348"/>
+                    <citedRange>Londres, 1902, p. 114-201</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib964-3" ref="dct:source" passive="" source="#bib964-1"/>
+                        <relation active="#bib964-3" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-4">mss Leeds, University, Coll. Wallis Budge, Syr. 3, f. 138r-208r<listRelation>
+                        <relation active="#bib964-4" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-5">ms Dawra, Monastère chaldéen, cod. 544 (olim Alqosh, Monastère N.-D. des Semences, cod. 192 Vosté)<listRelation>
+                        <relation active="#bib964-5" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-6">ms Dawra, Monastère chaldéen, cod. 545 (olim Alqosh, Monastère N.-D. des Semences, cod. 194 Vosté)<listRelation>
+                        <relation active="#bib964-6" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-7">ms Dawra, Monastère chaldéen, cod. 546<listRelation>
+                        <relation active="#bib964-7" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-8">ms Dawra, Monastère chaldéen, cod. 547<listRelation>
+                        <relation active="#bib964-8" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-9">ms Alqosh, Monastère N.-D. des Semences, cod. 193 (Vosté) (ms perdu ?)<listRelation>
+                        <relation active="#bib964-9" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-10">ms Vatican, Syr. 584, f. 1v-56v<listRelation>
+                        <relation active="#bib964-10" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-11">ms Cambridge, University Library, Jenks Coll., Or. 1316<listRelation>
+                        <relation active="#bib964-11" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib964-12">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 61 C f. 186-240<listRelation>
+                        <relation active="#bib964-12" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib964-13">
+                    <lang>en</lang>
+                    <editor>E. A. W. Budge</editor>
+                    <title>The Histories of Rabban
                 Hôrmîzd the Persian and Rabban Bar-’Idtâ. II.I. English Translations (Luzac’s
                 Semitic Text and Translation Series 10), Londres, 1902</title>
-                        <ptr target="http://syriaca.org/bibl/1786"/>
-                        <citedRange unit="pp">164-303</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/964</idno>
-                <idno type="BHS">771</idno>
-                <idno type="BHO">137</idno>
-                <bibl xml:id="bib964-1">
+                    <ptr target="http://syriaca.org/bibl/1786"/>
+                    <citedRange unit="pp">164-303</citedRange>
+                    <listRelation>
+                        <relation active="#bib964-13" ref="lawd:embodies" passive="http://syriaca.org/work/964"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib964-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">771</citedRange>
                 </bibl>
-                <bibl xml:id="bib964-2">
+                <bibl xml:id="bib964-2" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Autour de la biographie de Rabban Bar ‘Éta</title>
                     <title xml:lang="fr" level="j">L'Orient syrien</title>
                     <ptr target="http://syriaca.org/bibl/725"/>
                     <citedRange from="1" to="16" unit="pp">1-16</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/964" passive="http://syriaca.org/person/366" source="#bib964-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/964" passive="http://syriaca.org/person/2821" source="#bib964-1"/>
+                    <relation active="http://syriaca.org/work/964" passive="http://syriaca.org/person/366" source="#bib964-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/964" passive="http://syriaca.org/person/2821" source="#bib964-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

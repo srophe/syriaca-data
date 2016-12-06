@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Macarius the Great (text) — <foreign xml:lang="syr">ܡܩܪܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -67,7 +64,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -76,7 +73,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -92,8 +89,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -111,8 +111,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -175,6 +178,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-10-27+02:00">Added bibls suggested by U. Zanetti</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
@@ -193,12 +197,17 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-355" ana="#hagiographic">
+            <bibl xml:id="work-355" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name355-1" xml:lang="syr" source="#bib355-1" syriaca-tags="#syriaca-headword">ܡܩܪܝܣ</title>
                 <title xml:id="name355-2" xml:lang="fr-x-bhs" source="#bib355-1">Māqārīs</title>
                 <title xml:id="name355-3" xml:lang="fr" source="#bib355-1">Macaire l’Égyptien (texte)</title>
                 <title xml:id="name355-4" xml:lang="en" source="#bib355-1" syriaca-tags="#syriaca-headword">Macarius the Great (text)</title>
                 <author xml:lang="fr" source="#bib355-1">Sérapion de Thmouis</author>
+                <idno type="URI">http://syriaca.org/work/355</idno>
+                <idno type="BHS">135</idno>
+                <idno type="BHO">574</idno>
+                <idno type="CPG">2501</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib355-1">
                     <quote>Mes bien-aimés, tout ce qu’a écrit Moïse, grand parmi les prophètes, comme une loi reçue de Dieu, n’est pas sans utilité, car c’est la loi qui a été pour nous révélatrice du Christ, selon la parole de l’Économie, comme a dit et nous a instruit l’apôtre Paul.</quote>
                 </note>
@@ -217,96 +226,105 @@
                 <note xml:lang="fr" type="explicit" source="#bib355-1">
                     <quote>Alors notre Sauveur Jésus-Christ, qu’il avait aimé de tout son coeur, le déroba et le leur cacha et il le fit entrer dans ses demeures glorieuses. Qu’il advienne et qu’il nous soit confirmé que nous soyons jugés dignes de ces demeures desquelles a été jugé digne notre saint Père Abbâ Macaire, par la grâce, la miséricorde et l’amour pour les hommes de notre Seigneur… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib355-1" xml:id="bib355-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 5</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">5</citedRange>
-                        <citedRange>p. 177-262</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl xml:id="bib355-9">
-                        <author>Toda, Satoshi</author>
-                        <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
-                        <ptr target="http://syriaca.org/bibl/2319"/>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib355-1">
-                    <bibl xml:id="bib355-3">ms Paris, Bibliothèque nationale, syr. 236, f. 8v-21 + mss Londres, British Library, Add. ? + Add. 14732, f. 54v-74v + Add. 14656, f. 7v-60v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib355-1">
-                    <bibl xml:id="bib355-4">ms Londres, British Library, Add. 14728, f. 53v-55v, 72-75v (extraits)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib355-1">
-                    <bibl xml:id="bib355-5">ms Londres, British Library, Add. 14735, f. 1-23v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib355-1">
-                    <bibl xml:id="bib355-6">ms Paris, Bibliothèque nationale, syr. 234, f. 376-416</bibl>
-                </note>
-                <note type="ancientVersion">
-                    <bibl xml:id="bib355-13">
-                        <author>Toda, Satoshi</author>
-                        <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
-                        <ptr target="http://syriaca.org/bibl/2319"/>
-                        <lang>cop</lang>
-                        <note>= BHO 573</note>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib355-1">
-                    <bibl xml:id="bib355-8">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion">
-                    <bibl xml:id="bib355-14">
-                        <author>Toda, Satoshi</author>
-                        <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
-                        <ptr target="http://syriaca.org/bibl/2319"/>
-                        <lang>grc</lang>
-                        <note>= BHG 999j</note>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib355-1">
-                    <bibl xml:id="bib355-7">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation">
-                    <bibl xml:id="bib355-10">
-                        <author>Toda, Satoshi</author>
-                        <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
-                        <ptr target="http://syriaca.org/bibl/2319"/>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/355</idno>
-                <idno type="BHS">135</idno>
-                <idno type="BHO">574</idno>
-                <idno type="CPG">2501</idno>
-                <bibl xml:id="bib355-1">
+                <bibl type="lawd:Edition" source="#bib355-1" xml:id="bib355-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 5</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">5</citedRange>
+                    <citedRange>p. 177-262</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib355-2" ref="dct:source" passive="" source="#bib355-1"/>
+                        <relation active="#bib355-2" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib355-9">
+                    <author>Toda, Satoshi</author>
+                    <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
+                    <ptr target="http://syriaca.org/bibl/2319"/>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib355-9" ref="dct:source" passive="" source=""/>
+                        <relation active="#bib355-9" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib355-3">ms Paris, Bibliothèque nationale, syr. 236, f. 8v-21 + mss Londres, British Library, Add. ? + Add. 14732, f. 54v-74v + Add. 14656, f. 7v-60v<listRelation>
+                        <relation active="#bib355-3" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib355-4">ms Londres, British Library, Add. 14728, f. 53v-55v, 72-75v (extraits)<listRelation>
+                        <relation active="#bib355-4" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib355-5">ms Londres, British Library, Add. 14735, f. 1-23v<listRelation>
+                        <relation active="#bib355-5" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib355-6">ms Paris, Bibliothèque nationale, syr. 234, f. 376-416<listRelation>
+                        <relation active="#bib355-6" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib355-13">
+                    <lang>cop</lang>
+                    <author>Toda, Satoshi</author>
+                    <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
+                    <ptr target="http://syriaca.org/bibl/2319"/>
+                    <note>= BHO 573</note>
+                    <listRelation>
+                        <relation active="#bib355-13" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib355-8">
+                    <lang>cop</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib355-8" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib355-14">
+                    <lang>grc</lang>
+                    <author>Toda, Satoshi</author>
+                    <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
+                    <ptr target="http://syriaca.org/bibl/2319"/>
+                    <note>= BHG 999j</note>
+                    <listRelation>
+                        <relation active="#bib355-14" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib355-7">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib355-7" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib355-10">
+                    <lang>fr</lang>
+                    <author>Toda, Satoshi</author>
+                    <title>Vie de S. Macaire L'egyptien: Edition et traduction des textes copte et syriaque</title>
+                    <ptr target="http://syriaca.org/bibl/2319"/>
+                    <listRelation>
+                        <relation active="#bib355-10" ref="lawd:embodies" passive="http://syriaca.org/work/355"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib355-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">135</citedRange>
                 </bibl>
-                <bibl xml:id="bib355-11">
+                <bibl xml:id="bib355-11" type="lawd:Citation">
                     <author>Toda, Satoshi</author>
                     <title level="a">Position of Arabic in the Literatures of the Christian Orient: The Case of the Life of Saint Macarius the Egyptian</title>
                     <title level="j">Orient: The Reports of the Society for Near Eastern Studies in Japan</title>
                     <ptr target="http://syriaca.org/bibl/2321"/>
                 </bibl>
-                <bibl xml:id="bib355-12">
+                <bibl xml:id="bib355-12" type="lawd:Citation">
                     <author>Toda, Satoshi</author>
                     <title level="a">La Vie de S. Macaire l'Égyptien. État de la question</title>
                     <title level="j">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/2320"/>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/355" passive="http://syriaca.org/person/856" source="#bib355-1"/>
+                    <relation active="http://syriaca.org/work/355" passive="http://syriaca.org/person/856" source="#bib355-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

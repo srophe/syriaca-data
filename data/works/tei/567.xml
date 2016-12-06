@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Abraham Quidounaya (text) — <foreign xml:lang="syr">ܐܒܪܗܡ ܩܝܕܘܢܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-567" ana="#hagiographic">
+            <bibl xml:id="work-567" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name567-1" xml:lang="syr" source="#bib567-1" syriaca-tags="#syriaca-headword">ܐܒܪܗܡ ܩܝܕܘܢܝܐ</title>
                 <title xml:id="name567-2" xml:lang="fr-x-bhs" source="#bib567-1">ʾAḇrāhām Qīdūnāyā</title>
                 <title xml:id="name567-3" xml:lang="fr" source="#bib567-1">Abraham Qidounaya (texte)</title>
@@ -200,6 +204,9 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Éphrem</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/567</idno>
+                <idno type="BHS">347</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib567-1">
                     <quote>ܨܒܿܬܗ ܫܡܘܐܝܠ ܠܫܪܪܟ ܕܐܣܗܕ ܗܘܐ ܦܘܡܗ ܠܥܡܐ ܘܚܣܝܗ ܥܡܐ ܡܢ ܫܘܚܕܐ ܕܝܠܟ ܗܐ ܫܬܝܩ ܦܘܡܟ ܘܫܪܪܟ ܩܿܥܐ ܚܠܦܝܟ.</quote>
                 </note>
@@ -212,60 +219,67 @@
                 <note xml:lang="fr" type="explicit" source="#bib567-1">
                     <quote>Tous mes bienfaits ont été pillés, seule m’est restée la foi de la vérité; sois suppliant au jour du jugement pour que par cet unique bienfait je vive au jour du jugement.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib567-1" corresp="#bib567-5" n="1" xml:id="bib567-3">
-                        <author>Beck, E.</author>
-                        <title>Des heiligen Ephraem des Syrers Hymnen auf Abraham Kidunaya und Julianos Saba</title>
-                        <ptr target="http://syriaca.org/bibl/1801"/>
-                        <citedRange>Louvain, 1972, p. 3-6</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib567-1" corresp="#bib567-6" n="2" xml:id="bib567-4">
-                        <author>Lamy, T. J.</author>
-                        <title>SESHS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1742"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>col. 757-765</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib567-1">
-                    <bibl xml:id="bib567-5">mss Londres, British Library, Add. 14592, f. 63v-64v + Add. 12155 + ms Vatican, Syr. 92</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib567-1">
-                    <bibl xml:id="bib567-6">ms Londres, British Library, Add. 14592, f. 63v-64v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib567-1">
-                    <bibl xml:id="bib567-7">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 118 = Sony 205</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib567-1">
-                    <bibl xml:id="bib567-8">
-                        <editor>T. J. Lamy</editor>
-                        <ptr target="http://syriaca.org/bibl/1742"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange unit="col">758-766</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib567-1">
-                    <bibl xml:id="bib567-9">
-                        <editor>E. Beck</editor>
-                        <ptr target="http://syriaca.org/bibl/2086"/>
-                        <title>CSCO 323 Script. Syri
+                <bibl type="lawd:Edition" source="#bib567-1" xml:id="bib567-3">
+                    <author>Beck, E.</author>
+                    <title>Des heiligen Ephraem des Syrers Hymnen auf Abraham Kidunaya und Julianos Saba</title>
+                    <ptr target="http://syriaca.org/bibl/1801"/>
+                    <citedRange>Louvain, 1972, p. 3-6</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib567-3" ref="dct:source" passive="#bib567-5" source="#bib567-1"/>
+                        <relation active="#bib567-3" ref="lawd:embodies" passive="http://syriaca.org/work/567"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib567-1" xml:id="bib567-4">
+                    <author>Lamy, T. J.</author>
+                    <title>SESHS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1742"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>col. 757-765</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib567-4" ref="dct:source" passive="#bib567-6" source="#bib567-1"/>
+                        <relation active="#bib567-4" ref="lawd:embodies" passive="http://syriaca.org/work/567"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib567-5">mss Londres, British Library, Add. 14592, f. 63v-64v + Add. 12155 + ms Vatican, Syr. 92<listRelation>
+                        <relation active="#bib567-5" ref="lawd:embodies" passive="http://syriaca.org/work/567"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib567-6">ms Londres, British Library, Add. 14592, f. 63v-64v<listRelation>
+                        <relation active="#bib567-6" ref="lawd:embodies" passive="http://syriaca.org/work/567"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib567-7">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 118 = Sony 205<listRelation>
+                        <relation active="#bib567-7" ref="lawd:embodies" passive="http://syriaca.org/work/567"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib567-8">
+                    <lang>la</lang>
+                    <editor>T. J. Lamy</editor>
+                    <ptr target="http://syriaca.org/bibl/1742"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange unit="col">758-766</citedRange>
+                    <listRelation>
+                        <relation active="#bib567-8" ref="lawd:embodies" passive="http://syriaca.org/work/567"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib567-9">
+                    <lang>de</lang>
+                    <editor>E. Beck</editor>
+                    <ptr target="http://syriaca.org/bibl/2086"/>
+                    <title>CSCO 323 Script. Syri
                 141</title>
-                        <citedRange unit="pp">3-7</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/567</idno>
-                <idno type="BHS">347</idno>
-                <bibl xml:id="bib567-1">
+                    <citedRange unit="pp">3-7</citedRange>
+                    <listRelation>
+                        <relation active="#bib567-9" ref="lawd:embodies" passive="http://syriaca.org/work/567"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib567-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">347</citedRange>
                 </bibl>
-                <bibl xml:id="bib567-2">
+                <bibl xml:id="bib567-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">Theological progress and artistic regress in the
                      hymns on Abraham Kidunaya attributed to St Ephrem</title>
                     <title level="j" xml:lang="la">Acta Patristica et Byzantina</title>
@@ -273,7 +287,7 @@
                     <citedRange from="77" to="98" unit="pp">77-98</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/567" passive="http://syriaca.org/person/1113" source="#bib567-1"/>
+                    <relation active="http://syriaca.org/work/567" passive="http://syriaca.org/person/1113" source="#bib567-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

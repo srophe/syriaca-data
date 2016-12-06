@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Aḥudemmeh (text) — <foreign xml:lang="syr">ܐܚܘܕܡܗ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-689" ana="#hagiographic">
+            <bibl xml:id="work-689" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name689-1" xml:lang="syr" source="#bib689-1" syriaca-tags="#syriaca-headword">ܐܚܘܕܡܗ</title>
                 <title xml:id="name689-2" xml:lang="fr-x-bhs" source="#bib689-1">ʾAḥūḏemmēh</title>
                 <title xml:id="name689-3" xml:lang="fr" source="#bib689-1">Ahoudemmeh (texte)</title>
                 <title xml:id="name689-4" xml:lang="en" source="#bib689-1" syriaca-tags="#syriaca-headword">Aḥudemmeh (text)</title>
+                <idno type="URI">http://syriaca.org/work/689</idno>
+                <idno type="BHS">474</idno>
+                <idno type="BHO">35</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib689-1">
                     <quote>Par la venue de notre Seigneur Jésus-Christ dans la race humaine, et par la glorieuse apparition du grand Dieu, notre Sauveur et notre vivificateur Jésus-Christ, par sa venue du ciel sur terre pour notre salut, la race de l’Adam terrestre a été enrichie de beaucoup de choses.</quote>
                 </note>
@@ -210,60 +218,63 @@
                 <note xml:lang="fr" type="explicit" source="#bib689-1">
                     <quote>C’est lui aussi qui a reçu les deux oboles de la veuve et les a fait passer avant les offrandes des riches, pour que nous préparions par eux les biens spirituels; car lorsque les saints sont loués, les foules se réjouissent. Que par les prières de saint Mâr Ahoudemmeh et des saints ses compagnons, Dieu fasse passer loin de nous tout coup et le bâton de la colère dans les siècles. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib689-1" xml:id="bib689-6">
-                        <author>Nau, F.</author>
-                        <title>Histoires d’Ahoudemmeh et de Marouta, métropolitains jacobites de Tagrit et de l’Orient (VIe et VIIe siècles), suivies du Traité d’Ahoudemmeh sur l’homme</title>
-                        <ptr target="http://syriaca.org/bibl/1881"/>
-                        <citedRange>Paris, 1905, p. 15-51</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib689-1">
-                    <bibl xml:id="bib689-7">ms Londres, British Library, Add. 14645, f. 209v-221</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib689-1">
-                    <bibl xml:id="bib689-8">ms Dayr az-Za‘faran, cod. pap. 119 (Dolabany)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib689-1">
-                    <bibl xml:id="bib689-9">ms Dayr az-Za‘faran, cod. pap. 120 (Dolabany)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib689-1">
-                    <bibl xml:id="bib689-10">
-                        <editor>F. Nau</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1881"/>
-                        <citedRange>Paris, 1905, p. 15-51</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/689</idno>
-                <idno type="BHS">474</idno>
-                <idno type="BHO">35</idno>
-                <bibl xml:id="bib689-1">
+                <bibl type="lawd:Edition" source="#bib689-1" xml:id="bib689-6">
+                    <author>Nau, F.</author>
+                    <title>Histoires d’Ahoudemmeh et de Marouta, métropolitains jacobites de Tagrit et de l’Orient (VIe et VIIe siècles), suivies du Traité d’Ahoudemmeh sur l’homme</title>
+                    <ptr target="http://syriaca.org/bibl/1881"/>
+                    <citedRange>Paris, 1905, p. 15-51</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib689-6" ref="dct:source" passive="" source="#bib689-1"/>
+                        <relation active="#bib689-6" ref="lawd:embodies" passive="http://syriaca.org/work/689"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib689-7">ms Londres, British Library, Add. 14645, f. 209v-221<listRelation>
+                        <relation active="#bib689-7" ref="lawd:embodies" passive="http://syriaca.org/work/689"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib689-8">ms Dayr az-Za‘faran, cod. pap. 119 (Dolabany)<listRelation>
+                        <relation active="#bib689-8" ref="lawd:embodies" passive="http://syriaca.org/work/689"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib689-9">ms Dayr az-Za‘faran, cod. pap. 120 (Dolabany)<listRelation>
+                        <relation active="#bib689-9" ref="lawd:embodies" passive="http://syriaca.org/work/689"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib689-10">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1881"/>
+                    <citedRange>Paris, 1905, p. 15-51</citedRange>
+                    <listRelation>
+                        <relation active="#bib689-10" ref="lawd:embodies" passive="http://syriaca.org/work/689"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib689-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">474</citedRange>
                 </bibl>
-                <bibl xml:id="bib689-2">
+                <bibl xml:id="bib689-2" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Aḥoudemmeh. Notule de littérature syriaque</title>
                     <title xml:lang="fr" level="j">Le Muséon</title>
                     <ptr target="http://syriaca.org/bibl/830"/>
                     <citedRange from="155" to="159" unit="pp">155-159</citedRange>
                 </bibl>
-                <bibl xml:id="bib689-3">
+                <bibl xml:id="bib689-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">CR de l’éd. de Nau</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/829"/>
                     <citedRange from="126" to="128" unit="pp">126-128</citedRange>
                 </bibl>
-                <bibl xml:id="bib689-4">
+                <bibl xml:id="bib689-4" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les saints Serge de l’Iraq</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/780"/>
                     <citedRange from="102" to="114" unit="pp">102-114</citedRange>
                 </bibl>
-                <bibl xml:id="bib689-5">
+                <bibl xml:id="bib689-5" type="lawd:Citation">
                     <title xml:lang="de" level="a">Christlicher Heiligenkult im Umkreis eines
                      sassanidischen Grosskönigs</title>
                     <title level="m" xml:lang="de">Festgabe deutscher Iranisten zur 2500 Jahrfeier Irans</title>
@@ -271,7 +282,7 @@
                     <citedRange from="141" to="155" unit="pp">141-155</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/689" passive="http://syriaca.org/person/67" source="#bib689-1"/>
+                    <relation active="http://syriaca.org/work/689" passive="http://syriaca.org/person/67" source="#bib689-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

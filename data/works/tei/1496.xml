@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Saba of Tour Mesatha (text) — <foreign xml:lang="syr">ܣܒܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,11 +188,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1496" ana="#hagiographic">
+            <bibl xml:id="work-1496" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1496-1" xml:lang="syr" source="#bib1496-1" syriaca-tags="#syriaca-headword">ܣܒܐ</title>
                 <title xml:id="name1496-2" xml:lang="fr-x-bhs" source="#bib1496-1">Sāḇā</title>
                 <title xml:id="name1496-3" xml:lang="fr" source="#bib1496-1">Saba du Tour Mesatha (texte)</title>
                 <title xml:id="name1496-4" xml:lang="en" source="#bib1496-1" syriaca-tags="#syriaca-headword">Saba of Tour Mesatha (text)</title>
+                <idno type="URI">http://syriaca.org/work/1496</idno>
+                <idno type="BHS">1386</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib1496-1">
                     <quote>Chaque fois qu’est racontée l’histoire des ouvriers diligents dans la vigne, elle invite les paresseux au travail et elle augmente la préparation pour les vignes.</quote>
                 </note>
@@ -207,19 +214,18 @@
                 <note xml:lang="fr" type="explicit" source="#bib1496-1">
                     <quote>Les habitants du pays l’escortèrent donc en chantant des louanges et des psaumes de l’Esprit Saint; et ils le placèrent dans cercueil en bois avec grand honneur. Et voici que son esprit se meut avec les anges qui sont au ciel. Et nous selon l’aide de Dieu nous avons consigné une toute petite partie de l’histoire de cet homme de Dieu. Que notre Seigneur Jésus-Christ nous donne… Amen.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1496-1">
-                    <bibl xml:id="bib1496-2">ms Londres, British Library, Add. 14645, f. 164-178</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1496</idno>
-                <idno type="BHS">1386</idno>
-                <bibl xml:id="bib1496-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1496-2">ms Londres, British Library, Add. 14645, f. 164-178<listRelation>
+                        <relation active="#bib1496-2" ref="lawd:embodies" passive="http://syriaca.org/work/1496"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1496-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1386</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1496" passive="http://syriaca.org/person/2046" source="#bib1496-1"/>
+                    <relation active="http://syriaca.org/work/1496" passive="http://syriaca.org/person/2046" source="#bib1496-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Apocalypse of Methodius (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-27+02:00">CHANGED: Corrected multiple author and author role info</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1558" ana="#hagiographic">
+            <bibl xml:id="work-1558" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1558-3" xml:lang="fr" source="#bib1558-1">Apocalypse de Méthode (texte)</title>
                 <title xml:id="name1558-4" xml:lang="en" source="#bib1558-1" syriaca-tags="#syriaca-headword">Apocalypse of Methodius (text)</title>
                 <author source="#bib1558-1" ref="http://syriaca.org/person/2800" role="pseudo">
@@ -199,79 +203,88 @@
                         <addName type="untagged-title">d’<placeName>Olympe</placeName>
                         </addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1558</idno>
+                <idno type="BHS">1473</idno>
+                <idno type="CPG">1830</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="explicit" source="#bib1558-1">
                     <quote>ܘܗܟܢܐ ܛܒ̈ܐ ܣܠܩܝܢ ܠܫܡܝܐ ܘܠܡܠܟܘܬܐ ܠܐ ܢܗܘܐ ܠܗܘܢ ܚܕ ܦܘܪܥܢܐ. ܐܠܐ ܟܠܢܫ ܐܝܟ ܕܥܒܕ ܢܬܦܪܥ ܒܗܿܝ ܥܕܢܐ.</quote>
                 </note>
                 <note xml:lang="fr" type="explicit" source="#bib1558-1">
                     <quote>Et ainsi les bons monteront au ciel et au Royaume leur rétribution ne sera pas une mais chacun sera rétribué à ce moment selon ce qu’il aura fait.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1558-1" xml:id="bib1558-14">
-                        <author>Nau, F.</author>
-                        <title>Die syrische Handschrift Berlin Sachau 220</title>
-                        <ptr target="http://syriaca.org/bibl/1889"/>
-                        <citedRange unit="vol">220</citedRange>
-                        <citedRange>sér. XI, 9 (1917), p. 425-434 (réimprimée dans H. Suermann cf. fiche 1716)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1558-1">
-                    <bibl xml:id="bib1558-15">ms Paris, Bibliothèque nationale, Syr. 350, f. 98-105 + ms Cambridge, University Library, Add. 2054, f. 1-2</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1558-1">
-                    <bibl xml:id="bib1558-16">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1558-1">
-                    <bibl xml:id="bib1558-17">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1558-1">
-                    <bibl xml:id="bib1558-18">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1558-1">
-                    <bibl xml:id="bib1558-19">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1558-1">
-                    <bibl xml:id="bib1558-20">
-                        <editor>F. Nau</editor>
-                        <ptr target="http://syriaca.org/bibl/1889"/>
-                        <citedRange unit="vol">220</citedRange>
-                        <citedRange unit="pp">434-446</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1558</idno>
-                <idno type="BHS">1473</idno>
-                <idno type="CPG">1830</idno>
-                <bibl xml:id="bib1558-1">
+                <bibl type="lawd:Edition" source="#bib1558-1" xml:id="bib1558-14">
+                    <author>Nau, F.</author>
+                    <title>Die syrische Handschrift Berlin Sachau 220</title>
+                    <ptr target="http://syriaca.org/bibl/1889"/>
+                    <citedRange unit="vol">220</citedRange>
+                    <citedRange>sér. XI, 9 (1917), p. 425-434 (réimprimée dans H. Suermann cf. fiche 1716)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1558-14" ref="dct:source" passive="" source="#bib1558-1"/>
+                        <relation active="#bib1558-14" ref="lawd:embodies" passive="http://syriaca.org/work/1558"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1558-15">ms Paris, Bibliothèque nationale, Syr. 350, f. 98-105 + ms Cambridge, University Library, Add. 2054, f. 1-2<listRelation>
+                        <relation active="#bib1558-15" ref="lawd:embodies" passive="http://syriaca.org/work/1558"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1558-16">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1558-16" ref="lawd:embodies" passive="http://syriaca.org/work/1558"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1558-17">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1558-17" ref="lawd:embodies" passive="http://syriaca.org/work/1558"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1558-18">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1558-18" ref="lawd:embodies" passive="http://syriaca.org/work/1558"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1558-19">
+                    <lang>cu</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1558-19" ref="lawd:embodies" passive="http://syriaca.org/work/1558"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1558-20">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <ptr target="http://syriaca.org/bibl/1889"/>
+                    <citedRange unit="vol">220</citedRange>
+                    <citedRange unit="pp">434-446</citedRange>
+                    <listRelation>
+                        <relation active="#bib1558-20" ref="lawd:embodies" passive="http://syriaca.org/work/1558"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1558-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1473</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-2">
+                <bibl xml:id="bib1558-2" type="lawd:Citation">
                     <title xml:lang="de" level="a">Das Rätsel des Pseudo-Methodius</title>
                     <title level="j">Byzantion</title>
                     <ptr target="http://syriaca.org/bibl/1055"/>
                     <citedRange from="273" to="296" unit="pp">273-296</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-3">
+                <bibl xml:id="bib1558-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">Medieval Apocalypses as Historical Sources</title>
                     <title level="j" xml:lang="en">American Historical Review</title>
                     <ptr target="http://syriaca.org/bibl/1056"/>
                     <citedRange from="997" to="1018" unit="pp">997-1018</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-4">
+                <bibl xml:id="bib1558-4" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Syriac Original of Pseudo-Methodius’
                      Apocalypse</title>
                     <title xml:lang="en" level="m">Proceedings of the Twenty-Seventh International
@@ -279,14 +292,14 @@
                     <ptr target="http://syriaca.org/bibl/1057"/>
                     <citedRange from="106" to="107" unit="pp">106-107</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-5">
+                <bibl xml:id="bib1558-5" type="lawd:Citation">
                     <title xml:lang="en" level="a">Discovery of an Unknown Syrian Author, Methodios of
                      Petrā</title>
                     <title level="j">Abr-Nahrain</title>
                     <ptr target="http://syriaca.org/bibl/1058"/>
                     <citedRange from="1" to="4" unit="pp">1-4</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-6">
+                <bibl xml:id="bib1558-6" type="lawd:Citation">
                     <title xml:lang="en" level="a">The medieval legend of the last Roman Emperor and
                      its messianic origins</title>
                     <title xml:lang="en" level="j">Journal of the Warburg and Courtauld
@@ -294,34 +307,34 @@
                     <ptr target="http://syriaca.org/bibl/1059"/>
                     <citedRange from="1" to="15" unit="pp">1-15</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-7">
+                <bibl xml:id="bib1558-7" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Méthode de Patara, ‘Le temps de l’apostasie et du
                      châtiment des fils d’Ismaël’</title>
                     <title level="j">Graeco-Arabica</title>
                     <ptr target="http://syriaca.org/bibl/1060"/>
                     <citedRange from="59" to="68" unit="pp">59-68</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-8">
+                <bibl xml:id="bib1558-8" type="lawd:Citation">
                     <title xml:lang="en" level="m">Eastern Christian Apocalyptic in the Early Muslim
                      Period: Pseudo-Methodius and Pseudo-Athanasius, Diss. Washington DC
                      1985</title>
                     <ptr target="http://syriaca.org/bibl/1061"/>
                 </bibl>
-                <bibl xml:id="bib1558-9">
+                <bibl xml:id="bib1558-9" type="lawd:Citation">
                     <title xml:lang="de" level="a">Ismaël, der Wildesel in der Wüste. Zur Typologie
                      der Apokalypse des Pseudo-Methodios</title>
                     <title level="j" xml:lang="de">Byzantinische Zeitschrift</title>
                     <ptr target="http://syriaca.org/bibl/1062"/>
                     <citedRange from="336" to="344" unit="pp">336-344</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-10">
+                <bibl xml:id="bib1558-10" type="lawd:Citation">
                     <title xml:lang="de" level="a">Der Verfassername ‘Modios’ der syrischen
                      Schatzhöhle und die Apokalypse des Pseudo-Methodios</title>
                     <title level="j" xml:lang="la">Oriens christianus</title>
                     <ptr target="http://syriaca.org/bibl/1063"/>
                     <citedRange from="46" to="64" unit="pp">46-64</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-11">
+                <bibl xml:id="bib1558-11" type="lawd:Citation">
                     <title xml:lang="de" level="a">Die syrischen Wurzeln der mittelalterlichen Legende
                      vom römischen Endkaiser</title>
                     <title level="m" xml:lang="fr">Non Nova sed Nove. Mélanges de civilisation médiévale dédiés à
@@ -329,7 +342,7 @@
                     <ptr target="http://syriaca.org/bibl/1064"/>
                     <citedRange from="195" to="209" unit="pp">195-209</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-12">
+                <bibl xml:id="bib1558-12" type="lawd:Citation">
                     <title xml:lang="en" level="a">Byzantium and the migration of literary works and
                      motifs: the legend of the last Roman emperor</title>
                     <title level="j" xml:lang="la">Medievalia et Humanistica</title>
@@ -337,14 +350,14 @@
                     <ptr target="http://syriaca.org/bibl/1065"/>
                     <citedRange from="47" to="68" unit="pp">47-68</citedRange>
                 </bibl>
-                <bibl xml:id="bib1558-13">
+                <bibl xml:id="bib1558-13" type="lawd:Citation">
                     <title xml:lang="de" level="m">Die geschichtstheologische Reaktion auf die einfallenden Muslime in der edessenischen Apokalyptik des 7. Jahrhunderts</title>
                     <ptr target="http://syriaca.org/bibl/1066"/>
                     <citedRange from="162" to="174" unit="pp">162-174</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1558" passive="http://syriaca.org/person/635" source="#bib1558-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1558" passive="http://syriaca.org/person/2800" source="#bib1558-1"/>
+                    <relation active="http://syriaca.org/work/1558" passive="http://syriaca.org/person/635" source="#bib1558-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/1558" passive="http://syriaca.org/person/2800" source="#bib1558-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

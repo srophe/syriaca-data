@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mary Mother of God (text) — <foreign xml:lang="syr">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -183,7 +187,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1180" ana="#hagiographic">
+            <bibl xml:id="work-1180" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1180-1" xml:lang="syr" source="#bib1180-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</title>
                 <title xml:id="name1180-2" xml:lang="fr-x-bhs" source="#bib1180-1">Maryam yāldaṯ Alāhā</title>
                 <title xml:id="name1180-3" xml:lang="fr" source="#bib1180-1">Marie Mère de Dieu (texte)</title>
@@ -196,6 +200,9 @@
                         <forename>Georges</forename>
                         <addName type="family">Warda</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1180</idno>
+                <idno type="BHS">1020</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="incipit" source="#bib1180-1">
                     <quote>Fils en qui sont cachés les trésors de toutes les sagesses et de toutes les connaissances, donne-moi pure et une parole parfaite, sans doute.</quote>
                 </note>
@@ -205,47 +212,56 @@
                 <note xml:lang="fr" type="explicit" source="#bib1180-1">
                     <quote>Fais preuve de miséricorde envers l’auteur qui selon son intelligence ténébreuse a exalté ta Mère sublime; à toi la gloire, à elle l’exaltation et sur nous ta miséricorde jusqu’à la fin.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1180-1" ana="partialTranslation" xml:id="bib1180-2">
-                        <author>(1) Cardahi, G. </author>
-                        <title>(1) Liber Thesauri de arte poetica Syrorum nec non de eorum poetarum vitis et carminibus</title>
-                        <ptr target="http://syriaca.org/bibl/1766"/>
-                        <citedRange>(1) Rome, 1875, p. 51-53</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib1180-1" ana="partialTranslation" xml:id="bib1180-3">
-                        <author>(2) Bedjan, P. </author>
-                        <title>(2) Breviarium Chaldaicum 3</title>
-                        <ptr target="http://syriaca.org/bibl/1923"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>(2) Paris, 1887, p. 530-532 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1180-1">
-                    <bibl xml:id="bib1180-4">ms Vatican, Syr. 184, f. 20-23v + Syr. 499, f. 23-26 + Syr. 521, f. 30-32 + f. 83v-89v (2e fois) + Syr. 567, f. 1-4v + Borg. Syr. 40, f. 20v-22v + Borg. Syr. 143, f. 37-38v + Borg. Syr. 60, f. 82v-84v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1180-1">
-                    <bibl xml:id="bib1180-5">ms Berlin, Königliche Bibliothek, syr. 43 (orient. fol. 620), f. 77v-80v + syr. 63 (Sachau 188), f. 18v-21</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1180-1">
-                    <bibl xml:id="bib1180-6">mss Cambridge, University Library, Add. 1980, f. 72v-86 + Add. 1982, f. 20-22v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1180-1">
-                    <bibl xml:id="bib1180-7">ms Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales, fonds oriental ancien 3 (Pigulevskaya 68), f. 12-14v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1180-1">
-                    <bibl xml:id="bib1180-8">ms Londres, British Library, Or. 8678, f. 27v-30v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1180-1">
-                    <bibl xml:id="bib1180-9">ms Londres, British Library, Or. 7460, f. 17-20</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1180-1">
-                    <bibl xml:id="bib1180-10">ms Londres, British Library, Or. 9357, f. 17v-20</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1180</idno>
-                <idno type="BHS">1020</idno>
-                <bibl xml:id="bib1180-1">
+                <bibl type="lawd:Edition" source="#bib1180-1" ana="partialTranslation" xml:id="bib1180-2">
+                    <author>(1) Cardahi, G. </author>
+                    <title>(1) Liber Thesauri de arte poetica Syrorum nec non de eorum poetarum vitis et carminibus</title>
+                    <ptr target="http://syriaca.org/bibl/1766"/>
+                    <citedRange>(1) Rome, 1875, p. 51-53</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1180-2" ref="dct:source" passive="" source="#bib1180-1"/>
+                        <relation active="#bib1180-2" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib1180-1" ana="partialTranslation" xml:id="bib1180-3">
+                    <author>(2) Bedjan, P. </author>
+                    <title>(2) Breviarium Chaldaicum 3</title>
+                    <ptr target="http://syriaca.org/bibl/1923"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>(2) Paris, 1887, p. 530-532 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1180-3" ref="dct:source" passive="" source="#bib1180-1"/>
+                        <relation active="#bib1180-3" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1180-4">ms Vatican, Syr. 184, f. 20-23v + Syr. 499, f. 23-26 + Syr. 521, f. 30-32 + f. 83v-89v (2e fois) + Syr. 567, f. 1-4v + Borg. Syr. 40, f. 20v-22v + Borg. Syr. 143, f. 37-38v + Borg. Syr. 60, f. 82v-84v<listRelation>
+                        <relation active="#bib1180-4" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1180-5">ms Berlin, Königliche Bibliothek, syr. 43 (orient. fol. 620), f. 77v-80v + syr. 63 (Sachau 188), f. 18v-21<listRelation>
+                        <relation active="#bib1180-5" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1180-6">mss Cambridge, University Library, Add. 1980, f. 72v-86 + Add. 1982, f. 20-22v<listRelation>
+                        <relation active="#bib1180-6" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1180-7">ms Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales, fonds oriental ancien 3 (Pigulevskaya 68), f. 12-14v<listRelation>
+                        <relation active="#bib1180-7" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1180-8">ms Londres, British Library, Or. 8678, f. 27v-30v<listRelation>
+                        <relation active="#bib1180-8" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1180-9">ms Londres, British Library, Or. 7460, f. 17-20<listRelation>
+                        <relation active="#bib1180-9" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1180-10">ms Londres, British Library, Or. 9357, f. 17v-20<listRelation>
+                        <relation active="#bib1180-10" ref="lawd:embodies" passive="http://syriaca.org/work/1180"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1180-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Guria and Shmona (text) — <foreign xml:lang="syr">ܓܘܪܝܐ ܘܫܡܘܢܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-929" ana="#hagiographic">
+            <bibl xml:id="work-929" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name929-1" xml:lang="syr" source="#bib929-1" syriaca-tags="#syriaca-headword">ܓܘܪܝܐ ܘܫܡܘܢܐ</title>
                 <title xml:id="name929-2" xml:lang="fr-x-bhs" source="#bib929-1">Gūryā wa-Šmōnā</title>
                 <title xml:id="name929-3" xml:lang="fr" source="#bib929-1">Gouria et Shamona (texte)</title>
                 <title xml:id="name929-4" xml:lang="en" source="#bib929-1" syriaca-tags="#syriaca-headword">Guria and Shmona (text)</title>
+                <idno type="URI">http://syriaca.org/work/929</idno>
+                <idno type="BHS">726</idno>
+                <idno type="BHO">363</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib929-1">
                     <quote>ܒܫܢܬ ܫܬܡܐܐ ܘܬܡܢܬܥܣܪ̈ܐ ܕܡܠܟܘܬܗ ܕܐܠܟܣܢܕܪܘܣ ܡܠܟܐ ܡܐܩܕܘܢܝܐ. ܘܐܝܬܝܗܿ ܫܢܬ ܐܪܒܥܣܪ̈ܐ ܕܡܠܟܘܬܗ ܕܕܘܐܩܠܝܛܝܢܘܣ ܗܘܿ ܕܐܡܠܟ ܗܘܐ ܬܫܥܣܪ̈ܐ ܫܢ̈ܝܢ̣. ܟܕ ܒܗܘܦܛܝܐ ܕܝܠܗ ܕܬܡܢܐ: ܘܕܡܘܣܝܢܘܣ ܕܫܝܬ̣. ܒܐܣܛܪܛܝܓܘܬܐ ܕܐܒܐ ܘܕܐܒܓܪ ܒܪ ܙܥܘܪܐ...</quote>
                 </note>
@@ -204,135 +212,147 @@
                 <note xml:lang="fr" type="explicit" source="#bib929-1">
                     <quote>Et j’ai écrit ces choses le dimanche 20 Teshrî II, cinq jours après le couronnement de ces saints martyrs, que même leurs meurtriers déclaraient bienheureux; ils chérissaient et honoraient secrètement leur mise à mort, tout en craignant le pouvoir impérial. Que le Christ fasse le salut de son peuple dans sa grande miséricorde et que la paix règne dans sa sainte Église… que la miséricorde soit sur tous ceux qui ont participé au jour de sa commémoration dans les siècles des siècles. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib929-1" corresp="#bib929-20" n="1" xml:id="bib929-8">
-                        <author>Burkitt, F. C.</author>
-                        <title>Euphemia and the Goth</title>
-                        <ptr target="http://syriaca.org/bibl/1785"/>
-                        <citedRange>Londres-Oxford, 1913, p. 3-25 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib929-1" corresp="#bib929-10 bib929-11" n="2" xml:id="bib929-9">
-                        <author>Rahmani, I.E.</author>
-                        <title>Acta sanctorum confessorum Guriae et Shamonae exarata Syriaca lingua a Theophilo Edesseno anno Christi 297</title>
-                        <ptr target="http://syriaca.org/bibl/1919"/>
-                        <citedRange>Rome, 1899, p. 3-28 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib929-1">
-                    <bibl xml:id="bib929-10">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. Baumstark Liter. 37</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib929-1">
-                    <bibl xml:id="bib929-11">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 205 = Sony 162, f. 9-18</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib929-1">
-                    <bibl xml:id="bib929-12">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 114-117</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib929-1">
-                    <bibl xml:id="bib929-13">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 203, p. 78-99</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib929-1">
-                    <bibl xml:id="bib929-14">
-                        <editor>O. von Gebhardt</editor>
-                        <editor>E. von
+                <bibl type="lawd:Edition" source="#bib929-1" xml:id="bib929-8">
+                    <author>Burkitt, F. C.</author>
+                    <title>Euphemia and the Goth</title>
+                    <ptr target="http://syriaca.org/bibl/1785"/>
+                    <citedRange>Londres-Oxford, 1913, p. 3-25 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib929-8" ref="dct:source" passive="#bib929-20" source="#bib929-1"/>
+                        <relation active="#bib929-8" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib929-1" xml:id="bib929-9">
+                    <author>Rahmani, I.E.</author>
+                    <title>Acta sanctorum confessorum Guriae et Shamonae exarata Syriaca lingua a Theophilo Edesseno anno Christi 297</title>
+                    <ptr target="http://syriaca.org/bibl/1919"/>
+                    <citedRange>Rome, 1899, p. 3-28 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib929-9" ref="dct:source" passive="#bib929-10 bib929-11" source="#bib929-1"/>
+                        <relation active="#bib929-9" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib929-10">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. Baumstark Liter. 37<listRelation>
+                        <relation active="#bib929-10" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib929-11">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 205 = Sony 162, f. 9-18<listRelation>
+                        <relation active="#bib929-11" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib929-12">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 114-117<listRelation>
+                        <relation active="#bib929-12" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib929-13">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 203, p. 78-99<listRelation>
+                        <relation active="#bib929-13" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib929-14">
+                    <lang>la</lang>
+                    <editor>O. von Gebhardt</editor>
+                    <editor>E. von
                 Dobschütz</editor>
-                        <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
+                    <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
                 Abibos (TU 37/2), Leipzig, 1911</title>
-                        <ptr target="http://syriaca.org/bibl/2004"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib929-1">
-                    <bibl xml:id="bib929-15">
-                        <editor>O. von Gebhardt</editor>
-                        <editor>E. von
+                    <ptr target="http://syriaca.org/bibl/2004"/>
+                    <listRelation>
+                        <relation active="#bib929-14" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib929-15">
+                    <lang>grc</lang>
+                    <editor>O. von Gebhardt</editor>
+                    <editor>E. von
                 Dobschütz</editor>
-                        <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
+                    <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
                 Abibos (TU 37/2), Leipzig, 1911</title>
-                        <ptr target="http://syriaca.org/bibl/2004"/>
-                        <lang>grc</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib929-1">
-                    <bibl xml:id="bib929-16">
-                        <editor>O. von Gebhardt</editor>
-                        <editor>E. von
+                    <ptr target="http://syriaca.org/bibl/2004"/>
+                    <listRelation>
+                        <relation active="#bib929-15" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib929-16">
+                    <lang>hy</lang>
+                    <editor>O. von Gebhardt</editor>
+                    <editor>E. von
                 Dobschütz</editor>
-                        <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
+                    <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
                 Abibos (TU 37/2), Leipzig, 1911</title>
-                        <ptr target="http://syriaca.org/bibl/2004"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib929-1">
-                    <bibl xml:id="bib929-17">
-                        <editor>I.E. Rahmani</editor>
-                        <ptr target="http://syriaca.org/bibl/1919"/>
-                        <citedRange unit="pp">3-19</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib929-1">
-                    <bibl xml:id="bib929-18">
-                        <editor>O. von Gebhardt</editor>
-                        <editor>E. von
+                    <ptr target="http://syriaca.org/bibl/2004"/>
+                    <listRelation>
+                        <relation active="#bib929-16" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib929-17">
+                    <lang>la</lang>
+                    <editor>I.E. Rahmani</editor>
+                    <ptr target="http://syriaca.org/bibl/1919"/>
+                    <citedRange unit="pp">3-19</citedRange>
+                    <listRelation>
+                        <relation active="#bib929-17" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib929-18">
+                    <lang>de</lang>
+                    <editor>O. von Gebhardt</editor>
+                    <editor>E. von
                 Dobschütz</editor>
-                        <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
+                    <title>Die Akten der edessenischen Bekenner Gurjas, Samonas und
                 Abibos (TU 37/2), Leipzig, 1911</title>
-                        <ptr target="http://syriaca.org/bibl/2004"/>
-                        <citedRange unit="pp">2-63</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib929-1">
-                    <bibl xml:id="bib929-19">
-                        <editor>F. C. Burkitt</editor>
-                        <ptr target="http://syriaca.org/bibl/1785"/>
-                        <citedRange unit="pp">90-110</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib929-20">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/929</idno>
-                <idno type="BHS">726</idno>
-                <idno type="BHO">363</idno>
-                <bibl xml:id="bib929-1">
+                    <ptr target="http://syriaca.org/bibl/2004"/>
+                    <citedRange unit="pp">2-63</citedRange>
+                    <listRelation>
+                        <relation active="#bib929-18" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib929-19">
+                    <lang>en</lang>
+                    <editor>F. C. Burkitt</editor>
+                    <ptr target="http://syriaca.org/bibl/1785"/>
+                    <citedRange unit="pp">90-110</citedRange>
+                    <listRelation>
+                        <relation active="#bib929-19" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib929-20">The manuscript witnesses for edition 1 are undetermined.<listRelation>
+                        <relation active="#bib929-20" ref="lawd:embodies" passive="http://syriaca.org/work/929"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib929-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">726</citedRange>
                 </bibl>
-                <bibl xml:id="bib929-2">
+                <bibl xml:id="bib929-2" type="lawd:Citation">
                     <title xml:lang="de" level="a">Über einige edessenische Märtyrerakten</title>
                     <title xml:lang="de" level="m">Strassburger Festschrift zur XLVI. Versammlung
                      deutscher Philologen und Schulmänner</title>
                     <ptr target="http://syriaca.org/bibl/739"/>
                     <citedRange from="13" to="22" unit="pp">13-22</citedRange>
                 </bibl>
-                <bibl xml:id="bib929-2b">
+                <bibl xml:id="bib929-2b" type="lawd:Citation">
                     <title xml:lang="fr" level="a">CR de l’éd. de Burkitt</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/737"/>
                     <citedRange from="69" to="70" unit="pp">69-70</citedRange>
                 </bibl>
-                <bibl xml:id="bib929-3">
+                <bibl xml:id="bib929-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="m" xml:lang="la">V Symposium Syriacum</title>
                     <title level="s" xml:lang="la">Orientalia christiana analecta</title>
                     <ptr target="http://syriaca.org/bibl/722"/>
                     <citedRange from="195" to="206" unit="pp">195-206</citedRange>
                 </bibl>
-                <bibl xml:id="bib929-3b">
+                <bibl xml:id="bib929-3b" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Edessan Martyrs and Ascetic Tradition</title>
                     <title level="j" xml:lang="en">The Harp</title>
                     <ptr target="http://syriaca.org/bibl/1207"/>
                     <citedRange from="99" to="110" unit="pp">99-110 <note>?</note>
                     </citedRange>
                 </bibl>
-                <bibl xml:id="bib929-4">
+                <bibl xml:id="bib929-4" type="lawd:Citation">
                     <title xml:lang="de" level="a">Das Todesjahr der edessenischen Märtyrer Guria und
                      Shamona</title>
                     <title xml:lang="it" level="m">Atti del II° Congresso internazionale di
@@ -340,21 +360,21 @@
                     <ptr target="http://syriaca.org/bibl/740"/>
                     <citedRange from="23" to="27" unit="pp">23-27</citedRange>
                 </bibl>
-                <bibl xml:id="bib929-5">
+                <bibl xml:id="bib929-5" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Glanures martyrologiques. II. La Basilique des
                      Confesseurs à Édesse</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/741"/>
                     <citedRange from="110" to="123" unit="pp">110-123</citedRange>
                 </bibl>
-                <bibl xml:id="bib929-6">
+                <bibl xml:id="bib929-6" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La Liste martyrologique des Actes de Guriā et
                      Shamōnā</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/742"/>
                     <citedRange from="15" to="26" unit="pp">15-26</citedRange>
                 </bibl>
-                <bibl xml:id="bib929-7">
+                <bibl xml:id="bib929-7" type="lawd:Citation">
                     <title level="a" xml:lang="ru-Latn-iso9r95">K voprosu o vozniknovenii
                      belletrističeskogo povestvovaniâ v sirijskoj literature</title>
                     <title level="a" xml:lang="ru">К вопросу о возникновении беллетристического
@@ -365,7 +385,7 @@
                     <citedRange from="173" to="178" unit="pp">173-178</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/929" passive="http://syriaca.org/person/1257" source="#bib929-1"/>
+                    <relation active="http://syriaca.org/work/929" passive="http://syriaca.org/person/1257" source="#bib929-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

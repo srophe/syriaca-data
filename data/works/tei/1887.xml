@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Peter of Africa (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -181,25 +185,28 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1887" ana="#hagiographic">
+            <bibl xml:id="work-1887" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1887-3" xml:lang="fr" source="#bib1887-1">Pierre d’Afrique, le Patrice (texte)</title>
                 <title xml:id="name1887-4" xml:lang="en" source="#bib1887-1" syriaca-tags="#syriaca-headword">Peter of Africa (text)</title>
-                <note xml:lang="en" type="MSS" source="#bib1887-1">
-                    <bibl xml:id="bib1887-2">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 128-129v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1887-1">
-                    <bibl xml:id="bib1887-3">ms Istanbul, Maryemana, Yeni 196 (Palmer) (olim cod. 7 (Vööbus), olim coll. P. Fehim, cod. 1 (Dolabany)), f. 113-118</bibl>
-                </note>
                 <idno type="URI">http://syriaca.org/work/1887</idno>
                 <idno type="BHS">1846</idno>
-                <bibl xml:id="bib1887-1">
+                <textLang mainLang="syr"/>
+                <bibl type="syriaca:Manuscript" xml:id="bib1887-2">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 128-129v<listRelation>
+                        <relation active="#bib1887-2" ref="lawd:embodies" passive="http://syriaca.org/work/1887"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1887-3">ms Istanbul, Maryemana, Yeni 196 (Palmer) (olim cod. 7 (Vööbus), olim coll. P. Fehim, cod. 1 (Dolabany)), f. 113-118<listRelation>
+                        <relation active="#bib1887-3" ref="lawd:embodies" passive="http://syriaca.org/work/1887"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1887-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1846</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1887" passive="http://syriaca.org/person/2007" source="#bib1887-1"/>
+                    <relation active="http://syriaca.org/work/1887" passive="http://syriaca.org/person/2007" source="#bib1887-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

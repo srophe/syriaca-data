@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Stephen (The Finding of) (text) — <foreign xml:lang="syr">ܐܣܛܦܢܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-300" ana="#hagiographic">
+            <bibl xml:id="work-300" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name300-1" xml:lang="syr" source="#bib300-1" syriaca-tags="#syriaca-headword">ܐܣܛܦܢܘܣ</title>
                 <title xml:id="name300-2" xml:lang="fr-x-bhs" source="#bib300-1">Esṭapānōs</title>
                 <title xml:id="name300-3" xml:lang="fr" source="#bib300-1">Étienne (invention) (texte)</title>
                 <title xml:id="name300-4" xml:lang="en" source="#bib300-1" syriaca-tags="#syriaca-headword">Stephen (The Finding of) (text)</title>
+                <idno type="URI">http://syriaca.org/work/300</idno>
+                <idno type="BHS">79</idno>
+                <idno type="BHO">1087</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib300-1">
                     <quote>Aux saints, fidèles et amis de Dieu en tout lieu, évêques, prêtres, diacres, à tous les clercs et aux frères qui ont cru en Jésus-Christ, de la part de Lucien, le plus misérable et la lie de tous les prêtres, paix en Dieu le Père.</quote>
                 </note>
@@ -211,67 +219,77 @@
                 <note xml:lang="fr" type="explicit" source="#bib300-1">
                     <quote>Et il promit de construire un martyrion là où ils avaient été trouvés, et un autre dans la ville sainte, là où reposent les ossements du saint ami de Dieu. Aussi je vous prie, vous tous qui écoutez, de me commémorer dans vos prières saintes et reçues auprès de Dieu… En outre ceux qui veulent se réunir dans le martyrion de Kfar Gamlâ, qu’ils reçoivent de bons fruits… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib300-1" xml:id="bib300-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>p. 188-199</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-3">ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 118-123 + collation de mss du Vatican</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-4">ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 9, p. 19 - cah. 10, p. 9</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-5">ms Dawra, Monastère chaldéen, cod. 622, f. 117-142 ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-6">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 18 p. 12 - cah. 19 p. 8</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-7">ms Dawra, Monastère chaldéen, cod. 629 (olim Alqosh, Monastère N.-D. des Semences, cod. 216 Vosté), f. 201-210</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-8">ms Vatican, Borg. Syr. 91, f. 3v-</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-9">ms Paris, Bibliothèque nationale, syr. 295, f. 2v-10</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-10">ms Siirt, Évêché chaldéen, cod. 63</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-11">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 598, f. 98-103v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib300-1">
-                    <bibl xml:id="bib300-12">ms Oxford, Bodleian Library, Syr. 163 (Marsh. 13), f. 114-126</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib300-1">
-                    <bibl xml:id="bib300-13">
-                        <editor>V. Ryssel</editor>
-                        <title>Materialien zur Geschichte der
+                <bibl type="lawd:Edition" source="#bib300-1" xml:id="bib300-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>p. 188-199</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib300-2" ref="dct:source" passive="" source="#bib300-1"/>
+                        <relation active="#bib300-2" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-3">ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 118-123 + collation de mss du Vatican<listRelation>
+                        <relation active="#bib300-3" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-4">ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 9, p. 19 - cah. 10, p. 9<listRelation>
+                        <relation active="#bib300-4" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-5">ms Dawra, Monastère chaldéen, cod. 622, f. 117-142 ?<listRelation>
+                        <relation active="#bib300-5" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-6">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 18 p. 12 - cah. 19 p. 8<listRelation>
+                        <relation active="#bib300-6" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-7">ms Dawra, Monastère chaldéen, cod. 629 (olim Alqosh, Monastère N.-D. des Semences, cod. 216 Vosté), f. 201-210<listRelation>
+                        <relation active="#bib300-7" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-8">ms Vatican, Borg. Syr. 91, f. 3v-<listRelation>
+                        <relation active="#bib300-8" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-9">ms Paris, Bibliothèque nationale, syr. 295, f. 2v-10<listRelation>
+                        <relation active="#bib300-9" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-10">ms Siirt, Évêché chaldéen, cod. 63<listRelation>
+                        <relation active="#bib300-10" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-11">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 598, f. 98-103v<listRelation>
+                        <relation active="#bib300-11" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib300-12">ms Oxford, Bodleian Library, Syr. 163 (Marsh. 13), f. 114-126<listRelation>
+                        <relation active="#bib300-12" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib300-13">
+                    <lang>de</lang>
+                    <editor>V. Ryssel</editor>
+                    <title>Materialien zur Geschichte der
                 Kreuzauffindungslegende in der syrischen Litteratur, dans Zeitschrift für
                 Kirchengeschichte, 15 (1895)</title>
-                        <ptr target="http://syriaca.org/bibl/1993"/>
-                        <citedRange unit="pp">233-240</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/300</idno>
-                <idno type="BHS">79</idno>
-                <idno type="BHO">1087</idno>
-                <bibl xml:id="bib300-1">
+                    <ptr target="http://syriaca.org/bibl/1993"/>
+                    <citedRange unit="pp">233-240</citedRange>
+                    <listRelation>
+                        <relation active="#bib300-13" ref="lawd:embodies" passive="http://syriaca.org/work/300"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib300-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">79</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/300" passive="http://syriaca.org/person/1710" source="#bib300-1"/>
+                    <relation active="http://syriaca.org/work/300" passive="http://syriaca.org/person/1710" source="#bib300-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

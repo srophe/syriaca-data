@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Maccabees (text) — <foreign xml:lang="syr">ܡܩܒ̈ܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-967" ana="#hagiographic">
+            <bibl xml:id="work-967" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name967-1" xml:lang="syr" source="#bib967-1" syriaca-tags="#syriaca-headword">ܡܩܒ̈ܝܐ</title>
                 <title xml:id="name967-2" xml:lang="fr-x-bhs" source="#bib967-1">Maqbāyē</title>
                 <title xml:id="name967-3" xml:lang="fr" source="#bib967-1">Macchabées (texte)</title>
@@ -202,6 +206,11 @@
                         <forename>Grégoire</forename>
                         <addName type="untagged-title">de Nazianze</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/967</idno>
+                <idno type="BHS">774</idno>
+                <idno type="BHO">app</idno>
+                <idno type="CPG">3010</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib967-1">
                     <quote>ܡܢܐ ܟܝ ܡܩ̈ܒܝܐ. ܕܗܠܝܢ ܗܘ ܓܝܪ ܚܓܐ ܕܩܐܿܡ. ܕܠܘ ܠܘܬ ܣ̈ܓܝܐܐ ܡܿܢ ܡܬܝܩܪܝܢ: ܡܛܠ ܕܠܘ ܒܬܪ ܡܫܝܚܐ ܗܝ ܐܬܠܝܛܘܬܗܘܢ.</quote>
                 </note>
@@ -214,67 +223,73 @@
                 <note xml:lang="fr" type="explicit" source="#bib967-1">
                     <quote>Pour que Dieu prospère en nous, lui qui est loué dans le Fils et dans l’Esprit Saint, lui qui connaît les siens et est connu d’eux, lui qui est confessé et confesse, lui qui est loué et loue dans le Christ notre Seigneur; à lui la gloire et le pouvoir, maintenant et en tout temps et dans les siècles des siècles. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib967-1" xml:id="bib967-3">
-                        <author>Bensly, R. L.</author>
-                        <title>The Fourth Book of Maccabees and Kindred Documents in Syriac</title>
-                        <ptr target="http://syriaca.org/bibl/1782"/>
-                        <citedRange>Cambridge, 1895, p. 56-74 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib967-1">
-                    <bibl xml:id="bib967-4">mss Londres, British Library, Add. 14547, f. 193-200 + Add. 14548, f. 158-162v + Add. 12153, f. 168v-174v + Rich 7187, f. 155v-160v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib967-1">
-                    <bibl xml:id="bib967-5">ms Londres, British Library, Or. 8731, f. 80 (mutilé) + Or. 8730, f. 173v-179</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib967-1">
-                    <bibl xml:id="bib967-6">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib967-1">
-                    <bibl xml:id="bib967-7">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib967-1">
-                    <bibl xml:id="bib967-8">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib967-1">
-                    <bibl xml:id="bib967-9">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib967-1">
-                    <bibl xml:id="bib967-10">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib967-1">
-                    <bibl xml:id="bib967-11">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/967</idno>
-                <idno type="BHS">774</idno>
-                <idno type="BHO">app</idno>
-                <idno type="CPG">3010</idno>
-                <bibl xml:id="bib967-1">
+                <bibl type="lawd:Edition" source="#bib967-1" xml:id="bib967-3">
+                    <author>Bensly, R. L.</author>
+                    <title>The Fourth Book of Maccabees and Kindred Documents in Syriac</title>
+                    <ptr target="http://syriaca.org/bibl/1782"/>
+                    <citedRange>Cambridge, 1895, p. 56-74 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib967-3" ref="dct:source" passive="" source="#bib967-1"/>
+                        <relation active="#bib967-3" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib967-4">mss Londres, British Library, Add. 14547, f. 193-200 + Add. 14548, f. 158-162v + Add. 12153, f. 168v-174v + Rich 7187, f. 155v-160v<listRelation>
+                        <relation active="#bib967-4" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib967-5">ms Londres, British Library, Or. 8731, f. 80 (mutilé) + Or. 8730, f. 173v-179<listRelation>
+                        <relation active="#bib967-5" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib967-6">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib967-6" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib967-7">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib967-7" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib967-8">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib967-8" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib967-9">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib967-9" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib967-10">
+                    <lang>cu</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib967-10" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib967-11">
+                    <lang>cop</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib967-11" ref="lawd:embodies" passive="http://syriaca.org/work/967"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib967-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">774</citedRange>
                 </bibl>
-                <bibl xml:id="bib967-2">
+                <bibl xml:id="bib967-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">Mart(y) Shmuni, the Mother of the Maccabean
                      Martyrs, in Syriac Tradition</title>
                     <title level="m" xml:lang="la">VI Symposium Syriacum 1992</title>
@@ -283,10 +298,10 @@
                     <citedRange from="153" to="168" unit="pp">153-168</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/967" passive="http://syriaca.org/person/1858 http://syriaca.org/person/2080" source="#bib967-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/967" passive="http://syriaca.org/person/2080" source="#bib967-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/967" passive="http://syriaca.org/person/1858" source="#bib967-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/967" passive="http://syriaca.org/person/2080" source="#bib967-1"/>
+                    <relation active="http://syriaca.org/work/967" passive="http://syriaca.org/person/1858 http://syriaca.org/person/2080" source="#bib967-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/967" passive="http://syriaca.org/person/2080" source="#bib967-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/967" passive="http://syriaca.org/person/1858" source="#bib967-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/967" passive="http://syriaca.org/person/2080" source="#bib967-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

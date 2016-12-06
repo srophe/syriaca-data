@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Innocents (text) — <foreign xml:lang="syr">ܝܘܚܢܢ ܡܥܡܕܢܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1472" ana="#hagiographic">
+            <bibl xml:id="work-1472" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1472-1" xml:lang="syr" source="#bib1472-1" syriaca-tags="#syriaca-headword">ܝܘܚܢܢ ܡܥܡܕܢܐ</title>
                 <title xml:id="name1472-2" xml:lang="fr-x-bhs" source="#bib1472-1">Yōḥanān maʿməḏānā</title>
                 <title xml:id="name1472-3" xml:lang="fr" source="#bib1472-1">Innocents (texte)</title>
@@ -200,6 +204,9 @@
                         <forename>Moïse</forename>
                         <addName type="family">bar Képha</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1472</idno>
+                <idno type="BHS">1351</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1472-1">
                     <quote>ܘܐܡܪܝܢܢ ܡܛܠ ܕܨܒܐ ܕܢܩܛܘܠ ܠܡܠܟܐ ܡܫܝܚܐ ܕܐܬܝܠܕ ܘܡܛܠ ܕܠܐ ܝܕܥ ܗܘܐ ܐܝܢܐ ܛܠܝܐ ܐܝܬܘܗܝ ܫܕܪ ܩܛܠ ܛ̈ܠܝܐ ܕܒܝܬ ܠܚܡ ܐܝܟܢܐ ܕܢܩܛܠܝܘܗܝ ܥܡܗܘܢ.</quote>
                 </note>
@@ -212,31 +219,34 @@
                 <note xml:lang="fr" type="explicit" source="#bib1472-1">
                     <quote>Et il lui est gardé là-bas un supplice sévère. Ces choses à son sujet sont données à connaître plus abondamment par l’Histoire ecclésiastique du grand Eusèbe de Césarée.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1472-1">
-                    <bibl xml:id="bib1472-2">ms Londres, British Library, Add. 21210, f. 30-33</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1472-1">
-                    <bibl xml:id="bib1472-3">ms Paris, Bibliothèque nationale, syr. 206, f. 36v-40</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1472-1">
-                    <bibl xml:id="bib1472-4">ms Paris, Bibliothèque nationale, syr. 207, f. 59-63v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1472-1">
-                    <bibl xml:id="bib1472-5">ms Cambridge, University Library, Add. 2918, f. 62v-67v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1472-1">
-                    <bibl xml:id="bib1472-6">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 112, f. 31v-34</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1472</idno>
-                <idno type="BHS">1351</idno>
-                <bibl xml:id="bib1472-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1472-2">ms Londres, British Library, Add. 21210, f. 30-33<listRelation>
+                        <relation active="#bib1472-2" ref="lawd:embodies" passive="http://syriaca.org/work/1472"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1472-3">ms Paris, Bibliothèque nationale, syr. 206, f. 36v-40<listRelation>
+                        <relation active="#bib1472-3" ref="lawd:embodies" passive="http://syriaca.org/work/1472"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1472-4">ms Paris, Bibliothèque nationale, syr. 207, f. 59-63v<listRelation>
+                        <relation active="#bib1472-4" ref="lawd:embodies" passive="http://syriaca.org/work/1472"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1472-5">ms Cambridge, University Library, Add. 2918, f. 62v-67v<listRelation>
+                        <relation active="#bib1472-5" ref="lawd:embodies" passive="http://syriaca.org/work/1472"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1472-6">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 112, f. 31v-34<listRelation>
+                        <relation active="#bib1472-6" ref="lawd:embodies" passive="http://syriaca.org/work/1472"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1472-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1351</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1472" passive="http://syriaca.org/person/1786" source="#bib1472-1"/>
+                    <relation active="http://syriaca.org/work/1472" passive="http://syriaca.org/person/1786" source="#bib1472-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

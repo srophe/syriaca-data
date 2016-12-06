@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Behnam and his Companions (text) — <foreign xml:lang="syr">ܒܗܢܡ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,11 +188,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1625" ana="#hagiographic">
+            <bibl xml:id="work-1625" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1625-1" xml:lang="syr" source="#bib1625-1" syriaca-tags="#syriaca-headword">ܒܗܢܡ</title>
                 <title xml:id="name1625-2" xml:lang="fr-x-bhs" source="#bib1625-1">Bēhnām</title>
                 <title xml:id="name1625-3" xml:lang="fr" source="#bib1625-1">Behnam et compagnons (texte)</title>
                 <title xml:id="name1625-4" xml:lang="en" source="#bib1625-1" syriaca-tags="#syriaca-headword">Behnam and his Companions (text)</title>
+                <idno type="URI">http://syriaca.org/work/1625</idno>
+                <idno type="BHS">1546</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib1625-1">
                     <quote>Mes bien-aimés, parce que pour beaucoup de ceux qui sont enfants de Dieu sont extraordinaires les histoires pleines de pensées divines qui nous sont prêchées par les maryrs du Christ, et qu’elles sont comme impossibles pour beaucoup, parce qu’elles conviennent plus à l’oeil qu’à l’oreille, disons devant vous aujourd’hui que les vrais croyants doivent accepter avec joie la parole de vérité et louer la vertu de ceux qui ont triomphé.</quote>
                 </note>
@@ -204,31 +211,34 @@
                 <note xml:lang="fr" type="explicit" source="#bib1625-1">
                     <quote>Et même les gouverneurs et leurs serviteurs apportaient des aides et des dons au monastère de saint Mâr Behnam. Par ses prières… Amen. Le couronnement du vaillant martyr Mâr Behnam et de sa soeur Sarâ eut lieu le dix Kanôn I. Et voici que de leurs ossements coulent des secours pour tous ceux qui avec foi se réfugient auprès de leur châsse. Qu’à leurs prières… Amen.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1625-1">
-                    <bibl xml:id="bib1625-2">ms Londres, British Library, Add. 12174, f. 400-411v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1625-1">
-                    <bibl xml:id="bib1625-3">ms Paris, Bibliothèque nationale, syr. 234, f. 12v-29</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1625-1">
-                    <bibl xml:id="bib1625-4">ms Londres, British Library, Add. 17267, f. 61-75</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1625-1">
-                    <bibl xml:id="bib1625-5">ms Londres, British Library, Add. 14733, f. 1v-33</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1625-1">
-                    <bibl xml:id="bib1625-6">ms Londres, British Library, Add. 14735, f. 51v-71v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1625</idno>
-                <idno type="BHS">1546</idno>
-                <bibl xml:id="bib1625-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1625-2">ms Londres, British Library, Add. 12174, f. 400-411v<listRelation>
+                        <relation active="#bib1625-2" ref="lawd:embodies" passive="http://syriaca.org/work/1625"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1625-3">ms Paris, Bibliothèque nationale, syr. 234, f. 12v-29<listRelation>
+                        <relation active="#bib1625-3" ref="lawd:embodies" passive="http://syriaca.org/work/1625"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1625-4">ms Londres, British Library, Add. 17267, f. 61-75<listRelation>
+                        <relation active="#bib1625-4" ref="lawd:embodies" passive="http://syriaca.org/work/1625"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1625-5">ms Londres, British Library, Add. 14733, f. 1v-33<listRelation>
+                        <relation active="#bib1625-5" ref="lawd:embodies" passive="http://syriaca.org/work/1625"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1625-6">ms Londres, British Library, Add. 14735, f. 51v-71v<listRelation>
+                        <relation active="#bib1625-6" ref="lawd:embodies" passive="http://syriaca.org/work/1625"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1625-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1546</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1625" passive="http://syriaca.org/person/1171" source="#bib1625-1"/>
+                    <relation active="http://syriaca.org/work/1625" passive="http://syriaca.org/person/1171" source="#bib1625-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

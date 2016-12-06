@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Pachomius (text) — <foreign xml:lang="syr">ܦܟܘܡ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -185,11 +189,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-354" ana="#hagiographic">
+            <bibl xml:id="work-354" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name354-1" xml:lang="syr" source="#bib354-1" syriaca-tags="#syriaca-headword">ܦܟܘܡ</title>
                 <title xml:id="name354-2" xml:lang="fr-x-bhs" source="#bib354-1">Pākōm</title>
                 <title xml:id="name354-3" xml:lang="fr" source="#bib354-1">Pachôme (texte)</title>
                 <title xml:id="name354-4" xml:lang="en" source="#bib354-1" syriaca-tags="#syriaca-headword">Pachomius (text)</title>
+                <idno type="URI">http://syriaca.org/work/354</idno>
+                <idno type="BHS">134</idno>
+                <idno type="BHO">829</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib354-1">
                     <quote>Ce qui a été écrit peut, à mon avis, être d’un secours suffisant. Le fait de se hâter vers ces mêmes choses rend l’auditeur plus vigilant envers la contemplation de ce qui est dit.</quote>
                 </note>
@@ -208,57 +216,63 @@
                 <note xml:lang="fr" type="explicit" source="#bib354-1">
                     <quote>Et au début, avant qu’il ne soit vraiment vaincu par la maladie, ce grand homme avait l’habitude de l’envoyer dans chaque monastère, pour qu’il soit la fondation et l’exemple pour tous les frères, parce qu’il supportait la faiblesse pénible de cette maldadie avec reconnaissance. Remercions donc le Seigneur pour cela; à lui… Amen. Fin de l’histoire des compagnons de Pachôme, qui s’appelle en grec Esqêtîôn des compagnons de Pachôme.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib354-1" xml:id="bib354-2">
-                        <author>(1) Bedjan, P.</author>
-                        <title>(1) AMS 5</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">5</citedRange>
-                        <citedRange>(1) p. 122-176</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib354-1" xml:id="bib354-3">
-                        <author>(2) Budge, E. A. W.</author>
-                        <title>(2) BP 2</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>(2) p. 301-343 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib354-1">
-                    <bibl xml:id="bib354-4">— ed (1): mss Paris, Bibliothèque nationale, syr. 236, f. 39v-54v et 317, f. 1 + ms Londres, British Library, Add. 12175, f. 2v-27v + ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 56-68v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib354-1">
-                    <bibl xml:id="bib354-5">— ed (2): ms Lady Meux 6 (?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib354-1">
-                    <bibl xml:id="bib354-6">ms Londres, British Library, Add. 14732, f. 227r-v (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib354-1">
-                    <bibl xml:id="bib354-7">ms Paris, Bibliothèque nationale, syr. 234, f. 416-440v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib354-1">
-                    <bibl xml:id="bib354-8">
-                        <editor>E.A.W. Budge</editor>
-                        <title>BP 1</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">432-480</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/354</idno>
-                <idno type="BHS">134</idno>
-                <idno type="BHO">829</idno>
-                <bibl xml:id="bib354-1">
+                <bibl type="lawd:Edition" source="#bib354-1" xml:id="bib354-2">
+                    <author>(1) Bedjan, P.</author>
+                    <title>(1) AMS 5</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">5</citedRange>
+                    <citedRange>(1) p. 122-176</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib354-2" ref="dct:source" passive="" source="#bib354-1"/>
+                        <relation active="#bib354-2" ref="lawd:embodies" passive="http://syriaca.org/work/354"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib354-1" xml:id="bib354-3">
+                    <author>(2) Budge, E. A. W.</author>
+                    <title>(2) BP 2</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>(2) p. 301-343 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib354-3" ref="dct:source" passive="" source="#bib354-1"/>
+                        <relation active="#bib354-3" ref="lawd:embodies" passive="http://syriaca.org/work/354"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib354-4">— ed (1): mss Paris, Bibliothèque nationale, syr. 236, f. 39v-54v et 317, f. 1 + ms Londres, British Library, Add. 12175, f. 2v-27v + ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 56-68v<listRelation>
+                        <relation active="#bib354-4" ref="lawd:embodies" passive="http://syriaca.org/work/354"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib354-5">— ed (2): ms Lady Meux 6 (?)<listRelation>
+                        <relation active="#bib354-5" ref="lawd:embodies" passive="http://syriaca.org/work/354"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib354-6">ms Londres, British Library, Add. 14732, f. 227r-v (fgt)<listRelation>
+                        <relation active="#bib354-6" ref="lawd:embodies" passive="http://syriaca.org/work/354"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib354-7">ms Paris, Bibliothèque nationale, syr. 234, f. 416-440v<listRelation>
+                        <relation active="#bib354-7" ref="lawd:embodies" passive="http://syriaca.org/work/354"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib354-8">
+                    <lang>en</lang>
+                    <editor>E.A.W. Budge</editor>
+                    <title>BP 1</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="pp">432-480</citedRange>
+                    <listRelation>
+                        <relation active="#bib354-8" ref="lawd:embodies" passive="http://syriaca.org/work/354"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib354-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">134</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/354" passive="http://syriaca.org/person/1955" source="#bib354-1"/>
+                    <relation active="http://syriaca.org/work/354" passive="http://syriaca.org/person/1955" source="#bib354-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

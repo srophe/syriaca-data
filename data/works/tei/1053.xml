@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Children of Ephesus (Sleepers) (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -185,9 +189,13 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1053" ana="#hagiographic">
+            <bibl xml:id="work-1053" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1053-3" xml:lang="fr" source="#bib1053-1">Enfants d’Éphèse (texte)</title>
                 <title xml:id="name1053-4" xml:lang="en" source="#bib1053-1" syriaca-tags="#syriaca-headword">The Children of Ephesus (Sleepers) (text)</title>
+                <idno type="URI">http://syriaca.org/work/1053</idno>
+                <idno type="BHS">877</idno>
+                <idno type="BHO">1015</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1053-1">
                     <quote>ܟܕ ܗܟܝܠ ܕܝܩܘܣ ܡܠܟܐ ܥܘܠܐ ܐܡܠܟ ܗܘܐ ܘܢܚܬ ܠܩܘܢܣܛܢܛܝܢܐܦܘܠܝܣ ܘܠܐܦܣܘܣ ܡ̈ܕܝܢܬܐ ܡܢ ܩܪܬܓܐܢܐ ܡܕܝܢܬܐ.</quote>
                 </note>
@@ -200,56 +208,59 @@
                 <note xml:lang="fr" type="explicit" source="#bib1053-1">
                     <quote>Mais que Dieu, lui qui nous a donné par les visions de ces confesseurs d’être affermis dans notre foi, élève en tous lieux la corne des confesseurs, lui dont la divinité élevée doit être louée par les puissances, maintenant… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1053-1" xml:id="bib1053-4">
-                        <author>Allgeier, A.</author>
-                        <title>Die älteste Gestalt der Siebenschläferlegende</title>
-                        <ptr target="http://syriaca.org/bibl/1781"/>
-                        <citedRange>n.s. 6 (1916), p. 2-43</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1053-1">
-                    <bibl xml:id="bib1053-5">ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 179v-186v + ms Paris, Bibliothèque nationale, syr. 235, f. 326-336v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1053-1">
-                    <bibl xml:id="bib1053-6">ms Cambridge, University Library, Add. 2020, f. 121-131</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1053-1">
-                    <bibl xml:id="bib1053-7">ms Saint-Pétersbourg, Bibliothèque Publique Saltykov-Shchedrine, N.S. Syr. 4 (Pigulevskaya 48), f. 92-101</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1053-1">
-                    <bibl xml:id="bib1053-8">
-                        <editor>A. Allgeier</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1781"/>
-                        <citedRange>n.s. 6 (1916), p. 2-43</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1053</idno>
-                <idno type="BHS">877</idno>
-                <idno type="BHO">1015</idno>
-                <bibl xml:id="bib1053-1">
+                <bibl type="lawd:Edition" source="#bib1053-1" xml:id="bib1053-4">
+                    <author>Allgeier, A.</author>
+                    <title>Die älteste Gestalt der Siebenschläferlegende</title>
+                    <ptr target="http://syriaca.org/bibl/1781"/>
+                    <citedRange>n.s. 6 (1916), p. 2-43</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1053-4" ref="dct:source" passive="" source="#bib1053-1"/>
+                        <relation active="#bib1053-4" ref="lawd:embodies" passive="http://syriaca.org/work/1053"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1053-5">ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 179v-186v + ms Paris, Bibliothèque nationale, syr. 235, f. 326-336v<listRelation>
+                        <relation active="#bib1053-5" ref="lawd:embodies" passive="http://syriaca.org/work/1053"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1053-6">ms Cambridge, University Library, Add. 2020, f. 121-131<listRelation>
+                        <relation active="#bib1053-6" ref="lawd:embodies" passive="http://syriaca.org/work/1053"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1053-7">ms Saint-Pétersbourg, Bibliothèque Publique Saltykov-Shchedrine, N.S. Syr. 4 (Pigulevskaya 48), f. 92-101<listRelation>
+                        <relation active="#bib1053-7" ref="lawd:embodies" passive="http://syriaca.org/work/1053"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1053-8">
+                    <lang>de</lang>
+                    <editor>A. Allgeier</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1781"/>
+                    <citedRange>n.s. 6 (1916), p. 2-43</citedRange>
+                    <listRelation>
+                        <relation active="#bib1053-8" ref="lawd:embodies" passive="http://syriaca.org/work/1053"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1053-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">877</citedRange>
                 </bibl>
-                <bibl xml:id="bib1053-2">
+                <bibl xml:id="bib1053-2" type="lawd:Citation">
                     <title xml:lang="de" level="a">Die älteste Gestalt der
                      Siebenschläferlegende</title>
                     <title level="j" xml:lang="la">Oriens christianus</title>
                     <ptr target="http://syriaca.org/bibl/1138"/>
                     <citedRange from="33" to="87" unit="pp">33-87</citedRange>
                 </bibl>
-                <bibl xml:id="bib1053-3">
+                <bibl xml:id="bib1053-3" type="lawd:Citation">
                     <title xml:lang="de" level="a">Syrische Quellen abendländischer
                      Erzählungsstoffe: IV. Die Silvesterlegende</title>
                     <title xml:lang="de" level="j">Archiv für das Studium der neueren Sprachen und
                      Litteraturen</title>
                     <ptr target="http://syriaca.org/bibl/847"/>
                 </bibl>
-                <bibl xml:id="bib1053-3">
+                <bibl xml:id="bib1053-3" type="lawd:Citation">
                     <title xml:lang="de" level="a">Syrische Quellen abendländischer
                      Erzählungsstoffe: II. Die Siebenschläferlegende</title>
                     <title xml:lang="de" level="j">Archiv für das Studium der neueren Sprachen und
@@ -257,14 +268,14 @@
                     <ptr target="http://syriaca.org/bibl/1139"/>
                     <citedRange from="277" to="280" unit="pp">277-280</citedRange>
                 </bibl>
-                <bibl xml:id="bib1053-3">
+                <bibl xml:id="bib1053-3" type="lawd:Citation">
                     <title xml:lang="de" level="a">Syrische Quellen abendländischer
                      Erzählungsstoffe: IV. Die Silvesterlegende</title>
                     <title xml:lang="de" level="j">Archiv für das Studium der neueren Sprachen und
                      Litteraturen</title>
                     <ptr target="http://syriaca.org/bibl/847"/>
                 </bibl>
-                <bibl xml:id="bib1053-3">
+                <bibl xml:id="bib1053-3" type="lawd:Citation">
                     <title xml:lang="de" level="a">Syrische Quellen abendländischer
                      Erzählungsstoffe: II. Die Siebenschläferlegende</title>
                     <title xml:lang="de" level="j">Archiv für das Studium der neueren Sprachen und
@@ -273,10 +284,10 @@
                     <citedRange from="277" to="280" unit="pp">277-280</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/3018 http://syriaca.org/person/1227" source="#bib1053-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/3018" source="#bib1053-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/1227" source="#bib1053-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/3018" source="#bib1053-1"/>
+                    <relation active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/3018 http://syriaca.org/person/1227" source="#bib1053-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/3018" source="#bib1053-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/1227" source="#bib1053-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/1053" passive="http://syriaca.org/person/3018" source="#bib1053-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

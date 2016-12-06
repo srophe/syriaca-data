@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ignatius of Antioch (text) — <foreign xml:lang="syr">ܐܓܢܛܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,11 +190,16 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-301" ana="#hagiographic">
+            <bibl xml:id="work-301" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name301-1" xml:lang="syr" source="#bib301-1" syriaca-tags="#syriaca-headword">ܐܓܢܛܝܣ</title>
                 <title xml:id="name301-2" xml:lang="fr-x-bhs" source="#bib301-1">ʾAǥnāṭīs</title>
                 <title xml:id="name301-3" xml:lang="fr" source="#bib301-1">Ignace d’Antioche (texte)</title>
                 <title xml:id="name301-4" xml:lang="en" source="#bib301-1" syriaca-tags="#syriaca-headword">Ignatius of Antioch (text)</title>
+                <idno type="URI">http://syriaca.org/work/301</idno>
+                <idno type="BHS">80</idno>
+                <idno type="BHO">452</idno>
+                <idno type="CPG">1036</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib301-1">
                     <quote>ܒܗ ܕܝܢ ܒܙܒܢܐ ܗܘܿ: ܟܕ ܩܒܠ ܪܫܢܘܬܐ ܕܪ̈ܗܘܡܝܐ ܛܪܝܢܘܣ ܡܠܟܐ ܪܫܝܥܐ: ܐܓܢܛܝܘܣ: ܬܠܡܝܕܗ ܕܝܘܚܢܢ ܫܠܝܚܐ ܐܘܢܓܠܣܛܐ: ܓܒܪܐ ܗܘܐ ܕܒܟܠܗܘܢ ܣܘܥܪ̈ܢܐ ܕܫܠܝܚ̈ܐ ܡܬܕܒܪ ܗܘ̣ܐ.</quote>
                 </note>
@@ -203,77 +212,88 @@
                 <note xml:lang="fr" type="explicit" source="#bib301-1">
                     <quote>Et quand ils virent cela et le comparèrent avec ce qu’ils avaient vu dans leurs songes, en psalmodiant et en louant Dieu donateur des biens, ils déclarèrent bienheureux le saint martyr de Dieu Ignace. Voilà donc que je vous ai appris le jour et le moment où a été achevé son martyre, moment où vous étiez associés à cet athlète qui a foulé la tête du dragon par le désir de l’amour du Christ, et a achevé sa course dans le Christ Jésus notre Seigneur.À lui et par lui à Dieu le Père… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib301-1" corresp="#bib301-5" n="1" xml:id="bib301-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>p. 199-214</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib301-1" corresp="#bib301-6" n="2" xml:id="bib301-4">
-                        <author>Wright, W. dans Lightfoot, J.B.</author>
-                        <title>The Apostolic Fathers. Part II. Vol. III</title>
-                        <ptr target="http://syriaca.org/bibl/2059"/>
-                        <citedRange>p. 103-124</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-5">ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v + collation de mss du Vatican</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-6">ms Berlin, British Library, Rich. 7200, f. 98-101 (mutilé de la fin) + mss Vatican, Borg. 91, f. 45-49v + Vat. Syr. 160, f. 231v-234v (mutilé de la fin) + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-7">extrait de Cureton: ms Londres, British Library, Add. 7200, f. 103v-105v (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-8">ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 15, p. 10 - cah. 16, p. 3</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-9">ms Dawra, Monastère chaldéen, cod. 622, f. 194-201</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-10">ms Paris, Bibliothèque nationale, syr. 295, f. 98-111v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-11">ms Cambridge (Mass.), Harvard University Library, Syr. 107, f. 6v-11v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-12">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 598, f. 158v-165v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 210v-212v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-14">ms Istanbul, Maryemana, Yeni 196 (Palmer) (olim cod. 7 (Vööbus), olim coll. P. Fehim, cod. 1 (Dolabany)), f. 13-18</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib301-1">
-                    <bibl xml:id="bib301-15">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/301</idno>
-                <idno type="BHS">80</idno>
-                <idno type="BHO">452</idno>
-                <idno type="CPG">1036</idno>
-                <bibl xml:id="bib301-1">
+                <bibl type="lawd:Edition" source="#bib301-1" xml:id="bib301-3">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>p. 199-214</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib301-3" ref="dct:source" passive="#bib301-5" source="#bib301-1"/>
+                        <relation active="#bib301-3" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib301-1" xml:id="bib301-4">
+                    <author>Wright, W. dans Lightfoot, J.B.</author>
+                    <title>The Apostolic Fathers. Part II. Vol. III</title>
+                    <ptr target="http://syriaca.org/bibl/2059"/>
+                    <citedRange>p. 103-124</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib301-4" ref="dct:source" passive="#bib301-6" source="#bib301-1"/>
+                        <relation active="#bib301-4" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-5">ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v + collation de mss du Vatican<listRelation>
+                        <relation active="#bib301-5" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-6">ms Berlin, British Library, Rich. 7200, f. 98-101 (mutilé de la fin) + mss Vatican, Borg. 91, f. 45-49v + Vat. Syr. 160, f. 231v-234v (mutilé de la fin) + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v<listRelation>
+                        <relation active="#bib301-6" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-7">extrait de Cureton: ms Londres, British Library, Add. 7200, f. 103v-105v (mutilé de la fin)<listRelation>
+                        <relation active="#bib301-7" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-8">ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 15, p. 10 - cah. 16, p. 3<listRelation>
+                        <relation active="#bib301-8" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-9">ms Dawra, Monastère chaldéen, cod. 622, f. 194-201<listRelation>
+                        <relation active="#bib301-9" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-10">ms Paris, Bibliothèque nationale, syr. 295, f. 98-111v<listRelation>
+                        <relation active="#bib301-10" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-11">ms Cambridge (Mass.), Harvard University Library, Syr. 107, f. 6v-11v<listRelation>
+                        <relation active="#bib301-11" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-12">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 598, f. 158v-165v<listRelation>
+                        <relation active="#bib301-12" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 210v-212v<listRelation>
+                        <relation active="#bib301-13" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib301-14">ms Istanbul, Maryemana, Yeni 196 (Palmer) (olim cod. 7 (Vööbus), olim coll. P. Fehim, cod. 1 (Dolabany)), f. 13-18<listRelation>
+                        <relation active="#bib301-14" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib301-15">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib301-15" ref="lawd:embodies" passive="http://syriaca.org/work/301"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib301-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">80</citedRange>
                 </bibl>
-                <bibl xml:id="bib301-2">
+                <bibl xml:id="bib301-2" type="lawd:Citation">
                     <title level="m" xml:lang="la">Corpus Ignatianum</title>
                     <ptr target="http://syriaca.org/bibl/923"/>
                     <citedRange from="222" to="225" unit="pp">222-225 <note xml:lang="fr">extrait</note>
                     </citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/301" passive="http://syriaca.org/person/544" source="#bib301-1"/>
+                    <relation active="http://syriaca.org/work/301" passive="http://syriaca.org/person/544" source="#bib301-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Sabrisho I (text) — <foreign xml:lang="syr">ܣܒܪܝܫܘܥ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-15+02:00">Corrected commemoration relation</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -187,12 +191,16 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-897" ana="#hagiographic">
+            <bibl xml:id="work-897" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name897-1" xml:lang="syr" source="#bib897-1" syriaca-tags="#syriaca-headword">ܣܒܪܝܫܘܥ</title>
                 <title xml:id="name897-2" xml:lang="fr-x-bhs" source="#bib897-1">Saḇrīšōʿ</title>
                 <title xml:id="name897-3" xml:lang="fr" source="#bib897-1">Sabrisho I (texte)</title>
                 <title xml:id="name897-4" xml:lang="en" source="#bib897-1" syriaca-tags="#syriaca-headword">Sabrisho I (text)</title>
                 <author xml:lang="fr" source="#bib897-1">Pierre le Solitaire</author>
+                <idno type="URI">http://syriaca.org/work/897</idno>
+                <idno type="BHS">691</idno>
+                <idno type="BHO">1032</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib897-1">
                     <quote>ܗܘ ܕܝܢ ܗܢܐ ܩܕܝܫܐ: ܐܝܬܘܗܝ ܗܘ̣ܐ ܡܢ ܐܬܪܐ ܕܒܝܬ ܓܪ̈ܡܝ: ܡܢ ܩܪܝܬܐ ܕܡܬܩܪܝܐ ܦܝܪܘܙܒܕ ܕܒܬܚܘܡܐ ܕܣܝܪܙܘܪ.</quote>
                 </note>
@@ -205,30 +213,31 @@
                 <note xml:lang="fr" type="explicit" source="#bib897-1">
                     <quote>Et à la fin du temps de sa vie terrestre, il criait d’une voix haute et agréable: “J’ai terminé ma course et j’ai gardé ma foi, désormais est gardée pour moi la couronne de justice que le Christ mon Seigneur me donnera en rétribution au jour de sa manifestation. À lui… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib897-1" xml:id="bib897-3">
-                        <author>Bedjan, P.</author>
-                        <title>Histoire de Mar-Jabalaha, de trois autres patriarches, d’un prêtre et deux laïques, nestoriens</title>
-                        <ptr target="http://syriaca.org/bibl/1698"/>
-                        <citedRange>Paris, 1895, p. 288-331</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib897-1">
-                    <bibl xml:id="bib897-4">ms Berlin, Königliche Bibliothek, or. oct. 1257 (Assfalg 27, olim Abbeloos, dein Bedjan copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 490-541</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib897-1">
-                    <bibl xml:id="bib897-5">ms Siirt, Évêché chaldéen, cod. 63</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/897</idno>
-                <idno type="BHS">691</idno>
-                <idno type="BHO">1032</idno>
-                <bibl xml:id="bib897-1">
+                <bibl type="lawd:Edition" source="#bib897-1" xml:id="bib897-3">
+                    <author>Bedjan, P.</author>
+                    <title>Histoire de Mar-Jabalaha, de trois autres patriarches, d’un prêtre et deux laïques, nestoriens</title>
+                    <ptr target="http://syriaca.org/bibl/1698"/>
+                    <citedRange>Paris, 1895, p. 288-331</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib897-3" ref="dct:source" passive="" source="#bib897-1"/>
+                        <relation active="#bib897-3" ref="lawd:embodies" passive="http://syriaca.org/work/897"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib897-4">ms Berlin, Königliche Bibliothek, or. oct. 1257 (Assfalg 27, olim Abbeloos, dein Bedjan copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 490-541<listRelation>
+                        <relation active="#bib897-4" ref="lawd:embodies" passive="http://syriaca.org/work/897"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib897-5">ms Siirt, Évêché chaldéen, cod. 63<listRelation>
+                        <relation active="#bib897-5" ref="lawd:embodies" passive="http://syriaca.org/work/897"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib897-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">691</citedRange>
                 </bibl>
-                <bibl xml:id="bib897-2">
+                <bibl xml:id="bib897-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Der Katholikos-Patriarch Sabrīšō’ I. (598-604) und
                      das Mönchtum</title>
                     <title level="s" xml:lang="de">Europäische Hochschulschriften</title>
@@ -236,8 +245,8 @@
                     <citedRange from="12" to="13" unit="pp">12-13</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/897" passive="http://syriaca.org/person/708" source="#bib897-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/897" passive="http://syriaca.org/person/2819" source="#bib897-1"/>
+                    <relation active="http://syriaca.org/work/897" passive="http://syriaca.org/person/708" source="#bib897-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/897" passive="http://syriaca.org/person/2819" source="#bib897-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

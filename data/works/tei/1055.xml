@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Magi (text) — <foreign xml:lang="syr">ܡܓܘ̈ܫܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-06-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-06-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1055" ana="#hagiographic">
+            <bibl xml:id="work-1055" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1055-1" xml:lang="syr" source="#bib1055-1" syriaca-tags="#syriaca-headword">ܡܓܘ̈ܫܐ</title>
                 <title xml:id="name1055-2" xml:lang="fr-x-bhs" source="#bib1055-1">Məǥūšē</title>
                 <title xml:id="name1055-3" xml:lang="fr" source="#bib1055-1">Mages (texte)</title>
                 <title xml:id="name1055-4" xml:lang="en" source="#bib1055-1" syriaca-tags="#syriaca-headword">The Magi (text)</title>
+                <idno type="URI">http://syriaca.org/work/1055</idno>
+                <idno type="BHS">879</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1055-1">
                     <quote>ܒܝܠܕܗ ܕܒܪܐ ܡܫܝܚܐ ܡܪܢ. ܗܘ̈ܝ ܚ̈ܕܬܬܐ ܘܬܡܝܗ̈ܬܐ. ܒܝܬ ܝܗܘ̈ܕܝܐ ܠܦܪ̈ܣܝܐ. ܕܐܫܬܠܡ ܗܘܐ ܟܠܡܐ ܕܟܬܝܒ. ܒܢܒ̈ܝܐ ܟܠܗܘܢ ܕܗܘܘ.</quote>
                 </note>
@@ -204,36 +211,38 @@
                 <note xml:lang="fr" type="explicit" source="#bib1055-1">
                     <quote>Et nous qui célébrons le jour de ta naissance dans des chants de l’Esprit Saint, juge-nous tous dignes de voir ta miséricorde au grand jour de ta venue, et de tous crier ensemble: “Gloire à toi de toutes les bouches des anges et des hommes pour les siècles des siècles”.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1055-1" xml:id="bib1055-2">
-                        <author>Rücker, A.</author>
-                        <title>Zwei nestorianische Hymnen über die Magier</title>
-                        <ptr target="http://syriaca.org/bibl/1913"/>
-                        <citedRange>n.s. 10-11 (1923), p. 44-54</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1055-1">
-                    <bibl xml:id="bib1055-3">ms Berlin, Königliche Bibliothek, syr. 43 (Orient. fol. 620), f. 27b-30</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1055-1">
-                    <bibl xml:id="bib1055-4">
-                        <editor>A. Rücker</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1913"/>
-                        <citedRange>n.s. 10-11 (1923), p. 44-54</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1055</idno>
-                <idno type="BHS">879</idno>
-                <bibl xml:id="bib1055-1">
+                <bibl type="lawd:Edition" source="#bib1055-1" xml:id="bib1055-2">
+                    <author>Rücker, A.</author>
+                    <title>Zwei nestorianische Hymnen über die Magier</title>
+                    <ptr target="http://syriaca.org/bibl/1913"/>
+                    <citedRange>n.s. 10-11 (1923), p. 44-54</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1055-2" ref="dct:source" passive="" source="#bib1055-1"/>
+                        <relation active="#bib1055-2" ref="lawd:embodies" passive="http://syriaca.org/work/1055"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1055-3">ms Berlin, Königliche Bibliothek, syr. 43 (Orient. fol. 620), f. 27b-30<listRelation>
+                        <relation active="#bib1055-3" ref="lawd:embodies" passive="http://syriaca.org/work/1055"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1055-4">
+                    <lang>de</lang>
+                    <editor>A. Rücker</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1913"/>
+                    <citedRange>n.s. 10-11 (1923), p. 44-54</citedRange>
+                    <listRelation>
+                        <relation active="#bib1055-4" ref="lawd:embodies" passive="http://syriaca.org/work/1055"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1055-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">879</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1055" passive="http://syriaca.org/person/1859" source="#bib1055-1"/>
+                    <relation active="http://syriaca.org/work/1055" passive="http://syriaca.org/person/1859" source="#bib1055-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>
