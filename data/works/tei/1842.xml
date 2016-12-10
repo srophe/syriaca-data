@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -170,6 +170,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-10+01:00">Revised headword; added title, bibl, and relations</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +185,9 @@
         <body>
             <bibl xml:id="work-1842" ana="#hagiographic">
                 <title xml:id="name1842-3" xml:lang="fr" source="#bib1842-1">Supérieurs (Livre des) (extrait: Babaï le Grand) (texte)</title>
-                <title xml:id="name1842-4" xml:lang="en" source="#bib1842-1" syriaca-tags="#syriaca-headword">Book of the Superiors (text)</title>
+                <title xml:id="name1842-4" xml:lang="en" source="#bib1842-1" syriaca-tags="#syriaca-headword">Babai the Great (text)</title>
+                <title xml:id="name1842-5" xml:lang="en" source="#bib1842-3">The history of <persName ref="http://syriaca.org/person/359">Babai the Great, the Archimandrite of the monastery of
+                    Mount Izla</persName></title>
                 <author xml:lang="fr" source="#bib1842-1" ref="http://syriaca.org/person/796">
                     <persName xml:lang="en-x-gedsh">
                         <forename sort="1">Toma</forename>
@@ -208,6 +211,17 @@
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1792</citedRange>
                 </bibl>
+                <bibl xml:id="bib1842-3">
+                    <title level="m" xml:lang="en">Catalogue of the Mingana Collection of Manuscripts</title>
+                    <ptr target="http://syriaca.org/bibl/637"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="entry">47X</citedRange>
+                    <citedRange unit="pp">127</citedRange>
+                </bibl>
+                <listRelation>
+                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1842" passive="http://syriaca.org/person/359" source="#bib1842-1"/>
+                    <relation active="http://syriaca.org/work/1842" ref="dct:isPartOf" passive="http://syriaca.org/work/1290" source="#bib1842-1"/>
+                </listRelation>
             </bibl>
         </body>
     </text>
