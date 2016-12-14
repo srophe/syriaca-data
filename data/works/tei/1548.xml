@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Macarius of Alexandria (text) — <foreign xml:lang="syr">ܡܩܪܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1548" ana="#hagiographic">
+            <bibl xml:id="work-1548" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1548-1" xml:lang="syr" source="#bib1548-1" syriaca-tags="#syriaca-headword">ܡܩܪܝܣ</title>
                 <title xml:id="name1548-2" xml:lang="fr-x-bhs" source="#bib1548-1">Māqārīs</title>
                 <title xml:id="name1548-3" xml:lang="fr" source="#bib1548-1">Macaire l’Alexandrin (texte)</title>
                 <title xml:id="name1548-4" xml:lang="en" source="#bib1548-1" syriaca-tags="#syriaca-headword">Macarius of Alexandria (text)</title>
+                <idno type="URI">http://syriaca.org/work/1548</idno>
+                <idno type="BHS">1460</idno>
+                <idno type="CPG">2400</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1548-1">
                     <quote>ܚܒ̈ܝܒܝ ܐܫܬܥܝ ܠܢ ܬܠܡܝܕܗ ܕܗܢܐ ܩܕܝܫܐ ܟܕ ܐܡܿܪ. ܕܫܐܠ ܗܘܐ ܡܢ ܐܠܗܐ ܕܢܓܠܐ ܘܢܚܘܝܘܗܝ ܐܪܙܐ ܗܢܐ ܕܡܦܩܢܐ ܕܢܦܫܐ ܡܢ ܦܓܪܐ.</quote>
                 </note>
@@ -204,54 +212,58 @@
                 <note xml:lang="fr" type="explicit" source="#bib1548-1">
                     <quote>Et abba Macaire et nous, nous allâmes notre chemin en rendant grâce et gloire à notre Dieu, à qui… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1548-1" xml:id="bib1548-2">
-                        <author>Van Lantschoot</author>
-                        <title>Révélations de Macaire et de Marc de Tarmaq‹ sur le sort de l’âme après la mort</title>
-                        <ptr target="http://syriaca.org/bibl/1925"/>
-                        <citedRange>63 (1950), p. 168-176</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1548-1">
-                    <bibl xml:id="bib1548-3">ms Vatican, Syr. 96, f. 113v-117v + Syr. 490, f. 130v-135v + ms Londres, British Library, Add. 17269, f.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1548-1">
-                    <bibl xml:id="bib1548-4">ms Paris, Bibliothèque nationale, syr. 234, f. 9-12v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1548-1">
-                    <bibl xml:id="bib1548-5">mss Cambridge (Mass.), Harvard University Library, Syr. 41, f. 241v-245v + Syr. 59, f. 5-14</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1548-1">
-                    <bibl xml:id="bib1548-6">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1548-1">
-                    <bibl xml:id="bib1548-7">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1548-1">
-                    <bibl xml:id="bib1548-8">
-                        <editor>A. Van Lantschoot</editor>
-                        <ptr target="http://syriaca.org/bibl/1925"/>
-                        <citedRange unit="pp">176-181</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1548</idno>
-                <idno type="BHS">1460</idno>
-                <idno type="CPG">2400</idno>
-                <bibl xml:id="bib1548-1">
+                <bibl type="lawd:Edition" source="#bib1548-1" xml:id="bib1548-2">
+                    <author>Van Lantschoot</author>
+                    <title>Révélations de Macaire et de Marc de Tarmaq‹ sur le sort de l’âme après la mort</title>
+                    <ptr target="http://syriaca.org/bibl/1925"/>
+                    <citedRange>63 (1950), p. 168-176</citedRange>
+                    <listRelation>
+                        <relation active="#bib1548-2" ref="lawd:embodies" passive="http://syriaca.org/work/1548"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1548-3" source="#bib1548-1">ms Vatican, Syr. 96, f. 113v-117v + Syr. 490, f. 130v-135v + ms Londres, British Library, Add. 17269, f.<listRelation>
+                        <relation active="#bib1548-3" ref="lawd:embodies" passive="http://syriaca.org/work/1548"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1548-4" source="#bib1548-1">ms Paris, Bibliothèque nationale, syr. 234, f. 9-12v<listRelation>
+                        <relation active="#bib1548-4" ref="lawd:embodies" passive="http://syriaca.org/work/1548"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1548-5" source="#bib1548-1">mss Cambridge (Mass.), Harvard University Library, Syr. 41, f. 241v-245v + Syr. 59, f. 5-14<listRelation>
+                        <relation active="#bib1548-5" ref="lawd:embodies" passive="http://syriaca.org/work/1548"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1548-6" source="#bib1548-1">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1548-6" ref="lawd:embodies" passive="http://syriaca.org/work/1548"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1548-7" source="#bib1548-1">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1548-7" ref="lawd:embodies" passive="http://syriaca.org/work/1548"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1548-8" source="#bib1548-1">
+                    <lang>fr</lang>
+                    <editor>A. Van Lantschoot</editor>
+                    <ptr target="http://syriaca.org/bibl/1925"/>
+                    <citedRange unit="pp">176-181</citedRange>
+                    <listRelation>
+                        <relation active="#bib1548-8" ref="lawd:embodies" passive="http://syriaca.org/work/1548"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1548-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1460</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1548" passive="http://syriaca.org/person/1346" source="#bib1548-1"/>
+                    <relation active="http://syriaca.org/work/1548" passive="http://syriaca.org/person/1346" source="#bib1548-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

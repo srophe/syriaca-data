@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Constantine and Silvester (text) — <foreign xml:lang="syr">ܣܝܠܒܣܛܪܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,11 +188,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1399" ana="#hagiographic">
+            <bibl xml:id="work-1399" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1399-1" xml:lang="syr" source="#bib1399-1" syriaca-tags="#syriaca-headword">ܣܝܠܒܣܛܪܘܣ</title>
                 <title xml:id="name1399-2" xml:lang="fr-x-bhs" source="#bib1399-1">Sīlbasṭrōs</title>
                 <title xml:id="name1399-3" xml:lang="fr" source="#bib1399-1">Constantin et Silvestre (texte)</title>
                 <title xml:id="name1399-4" xml:lang="en" source="#bib1399-1" syriaca-tags="#syriaca-headword">Constantine and Silvester (text)</title>
+                <idno type="URI">http://syriaca.org/work/1399</idno>
+                <idno type="BHS">1269</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib1399-1">
                     <quote>Eusèbe de Césarée, quand il écrivait le texte de l’Histoire ecclésiastique a presque raconté les choses qui se trouvent dans les autres écrits. Car il écrivit en dix livres pratiquement toutes les passions des martyrs, évêques et confesseurs, et il décrivit aussi leurs combats dans toutes les éparchies, et ceux des femmes et des vierges qui entrèrent dans la lutte pour notre Seigneur Jésus-Christ avec des pensées viriles.</quote>
                 </note>
@@ -207,19 +214,18 @@
                 <note xml:lang="fr" type="explicit" source="#bib1399-1">
                     <quote>Car ces prophètes avec qui Dieu a parlé sont avec toi; et tout ce que tu demanderas par eux, ils te le donneront. Sois fort, Auguste, pour les siècles, noble fils, sois prospère dans de bonnes bénédictions.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1399-1">
-                    <bibl xml:id="bib1399-2">ms Londres, British Library, Add. 12174, f. 200v-205</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1399</idno>
-                <idno type="BHS">1269</idno>
-                <bibl xml:id="bib1399-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1399-2" source="#bib1399-1">ms Londres, British Library, Add. 12174, f. 200v-205<listRelation>
+                        <relation active="#bib1399-2" ref="lawd:embodies" passive="http://syriaca.org/work/1399"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1399-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1269</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1399" passive="http://syriaca.org/person/2086 http://syriaca.org/person/1655" source="#bib1399-1"/>
+                    <relation active="http://syriaca.org/work/1399" passive="http://syriaca.org/person/2086 http://syriaca.org/person/1655" source="#bib1399-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

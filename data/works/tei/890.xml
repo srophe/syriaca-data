@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Philip (text) — <foreign xml:lang="syr">ܦܝܠܝܦܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-890" ana="#hagiographic">
+            <bibl xml:id="work-890" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name890-1" xml:lang="syr" source="#bib890-1" syriaca-tags="#syriaca-headword">ܦܝܠܝܦܘܣ</title>
                 <title xml:id="name890-2" xml:lang="fr-x-bhs" source="#bib890-1">Pīlīpōs</title>
                 <title xml:id="name890-3" xml:lang="fr" source="#bib890-1">Philippe (texte)</title>
                 <title xml:id="name890-4" xml:lang="en" source="#bib890-1" syriaca-tags="#syriaca-headword">Philip (text)</title>
+                <idno type="URI">http://syriaca.org/work/890</idno>
+                <idno type="BHS">684</idno>
+                <idno type="BHO">974</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib890-1">
                     <quote>ܘܡܠܠ ܡܪܢ ܝܫܘܥ ܡܫܝܚܐ ܥܡ ܦܝܠܝܦܘܗ ܫܠܝܚܐ ܒܚܙܘܐ ܕܠܠܝܐ ܒܐܘܪܫܠܡ ܘܐܡܪ ܠܗ. ܩܘܡ ܙܠ ܠܩܪܛܓܢܐ ܡܕܝܢܬܐ ܕܗܝ ܗܝ ܒܐܙܘܛܘܣ. ܘܐܦܩ ܡܢ ܬܡܢ ܠܐܪܟܘܢܗ ܕܣܛܢܐ. ܕܗܐ ܡܬܒܣܡ ܬܡܢ ܐܝܟ ܕܐܒܐ ܡܚܒܠܢܐ. ܕܡܬܒܣܡ ܒܥܢ̈ܐ ܕܠܝܬ ܠܗܿ ܪܥܝܐ. ܡܢ ܕܝܢ ܕܐܦܩܬܝܗܝ ܐܟܪܙ ܬܡܢ ܡܠܟܘܬܐ ܕܫܡܝܐ.</quote>
                 </note>
@@ -204,60 +212,65 @@
                 <note xml:lang="fr" type="explicit" source="#bib890-1">
                     <quote>Mais les juifs qui n’avaient pas cru à la parole de l’apôtre sortirent de cette ville et allèrent s’installer dans d’autres villes. Et avant le coucher du soleil, l’ange du Seigneur frappa et tua quarante prêtres des juifs, parce qu’ils avaient répandu le sang pur d’un homme droit et juste. Et tous ceux qui entendirent et virent confessèrent, adorèrent, glorifièrent et dirent: “Un est le vrai Dieu notre Seigneur Jésus-Christ; et avec lui son Père… Amen.”</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib890-1" xml:id="bib890-5">
-                        <author>Wright, W.</author>
-                        <title>AAA 1</title>
-                        <ptr target="http://syriaca.org/bibl/1755"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 74-99</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib890-1">
-                    <bibl xml:id="bib890-6">ms Londres, Royal Asiatic Society Library, syr. ?, f. 107a-</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib890-1">
-                    <bibl xml:id="bib890-7">ms Berlin, Königliche Bibliothek, syr. 74 (Sachau 9), f. 52v-65v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib890-1">
-                    <bibl xml:id="bib890-8">ms Paris, Bibliothèque nationale, syr. 235, f. 55v-60v (mutilé au milieu)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib890-1">
-                    <bibl xml:id="bib890-9">ms Téhéran, Archevêché chaldéen, cod. Issayi 18 (olim Neesan 8), f. 79-93</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib890-1">
-                    <bibl xml:id="bib890-10">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 122, f. 112v-135</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib890-1">
-                    <bibl xml:id="bib890-11">ms Londres, British Library, Or. 9391, p. 307-331</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib890-1">
-                    <bibl xml:id="bib890-12">
-                        <editor>W. Wright</editor>
-                        <title>AAA 2</title>
-                        <ptr target="http://syriaca.org/bibl/1755"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange unit="pp">69-92</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/890</idno>
-                <idno type="BHS">684</idno>
-                <idno type="BHO">974</idno>
-                <bibl xml:id="bib890-1">
+                <bibl type="lawd:Edition" source="#bib890-1" xml:id="bib890-5">
+                    <author>Wright, W.</author>
+                    <title>AAA 1</title>
+                    <ptr target="http://syriaca.org/bibl/1755"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 74-99</citedRange>
+                    <listRelation>
+                        <relation active="#bib890-5" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib890-6" source="#bib890-1">ms Londres, Royal Asiatic Society Library, syr. ?, f. 107a-<listRelation>
+                        <relation active="#bib890-6" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib890-7" source="#bib890-1">ms Berlin, Königliche Bibliothek, syr. 74 (Sachau 9), f. 52v-65v<listRelation>
+                        <relation active="#bib890-7" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib890-8" source="#bib890-1">ms Paris, Bibliothèque nationale, syr. 235, f. 55v-60v (mutilé au milieu)<listRelation>
+                        <relation active="#bib890-8" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib890-9" source="#bib890-1">ms Téhéran, Archevêché chaldéen, cod. Issayi 18 (olim Neesan 8), f. 79-93<listRelation>
+                        <relation active="#bib890-9" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib890-10" source="#bib890-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 122, f. 112v-135<listRelation>
+                        <relation active="#bib890-10" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib890-11" source="#bib890-1">ms Londres, British Library, Or. 9391, p. 307-331<listRelation>
+                        <relation active="#bib890-11" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib890-12" source="#bib890-1">
+                    <lang>en</lang>
+                    <editor>W. Wright</editor>
+                    <title>AAA 2</title>
+                    <ptr target="http://syriaca.org/bibl/1755"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange unit="pp">69-92</citedRange>
+                    <listRelation>
+                        <relation active="#bib890-12" ref="lawd:embodies" passive="http://syriaca.org/work/890"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib890-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">684</citedRange>
                 </bibl>
-                <bibl xml:id="bib890-2">
+                <bibl xml:id="bib890-2" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de T. Nöldeke</title>
                     <title xml:lang="de" level="j">Zeitschrift der Deutschen Morgenländischen
                      Gesellschaft</title>
                     <ptr target="http://syriaca.org/bibl/799"/>
                     <citedRange from="670" to="679" unit="pp">670-679</citedRange>
                 </bibl>
-                <bibl xml:id="bib890-3">
+                <bibl xml:id="bib890-3" type="lawd:Citation">
                     <title xml:lang="de" level="a">Sprachliche Bemerkungen zu Wright’s Apocryphal
                      Acts</title>
                     <title xml:lang="de" level="j">Zeitschrift der Deutschen Morgenländischen
@@ -265,7 +278,7 @@
                     <ptr target="http://syriaca.org/bibl/800"/>
                     <citedRange from="798" to="804" unit="pp">798-804</citedRange>
                 </bibl>
-                <bibl xml:id="bib890-4">
+                <bibl xml:id="bib890-4" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Actes de Philippe</title>
                     <title xml:lang="de" level="m">6. Teilband, Schluss</title>
                     <title xml:lang="de" level="m">Religion (Vorkonstantinisches Christentum: Leben
@@ -277,7 +290,7 @@
                     <citedRange from="4431" to="4527" unit="pp">4431-4527</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/890" passive="http://syriaca.org/person/1998" source="#bib890-1"/>
+                    <relation active="http://syriaca.org/work/890" passive="http://syriaca.org/person/1998" source="#bib890-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

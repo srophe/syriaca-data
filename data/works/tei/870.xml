@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Simeon the Stylite (text) — <foreign xml:lang="syr">ܫܡܥܘܢ ܕܐܣܛܘܢܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-870" ana="#hagiographic">
+            <bibl xml:id="work-870" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name870-1" xml:lang="syr" source="#bib870-1" syriaca-tags="#syriaca-headword">ܫܡܥܘܢ ܕܐܣܛܘܢܐ</title>
                 <title xml:id="name870-2" xml:lang="fr-x-bhs" source="#bib870-1">Šemʿōn d-ʾEsṭōnā</title>
                 <title xml:id="name870-3" xml:lang="fr" source="#bib870-1">Syméon le Stylite (texte)</title>
@@ -203,6 +207,10 @@
                         <forename>Sévère</forename>
                         <addName type="untagged-title">d’Antioche</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/870</idno>
+                <idno type="BHS">663</idno>
+                <idno type="CPG">7035</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib870-1">
                     <quote>ܡܢܐ ܗܘ ܗܿܘ ܕܢܩܠܣ ܐܢܫ ܡܢ ܛܒ̈ܬܐ. ܐܢܗܘ ܕܚܢܢ ܠܐ ܢܩܠܣ ܠܫܡܥܘܢ ܗܿܘ ܙܕܝܩܐ. ܐܠܐ ܠܫܦܝܪܬܐ ܗܿܝ ܕܟܠܗ ܗܢܐ ܒܫܬܩܐ ܢܥܒܪ.</quote>
                 </note>
@@ -215,39 +223,40 @@
                 <note xml:lang="fr" type="explicit" source="#bib870-1">
                     <quote>Il délivra de sa souffrance un démoniaque qui errait dans le cimetière; et il montra cette première guérison aux fidèles d’ici, dans le Christ Jésus notre Seigneur, lui à qui convient… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib870-1" xml:id="bib870-3">
-                        <author>Brière, M., Graffin, F.</author>
-                        <title>Les Homiliae cathedrales de Sévère d’Antioche, traduction syriaque de Jacques d’Édesse. Homélies XXVI à XXXI</title>
-                        <ptr target="http://syriaca.org/bibl/2043"/>
-                        <citedRange>Turnhout, 1974, p. 608 [74] - 639 [105]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib870-1">
-                    <bibl xml:id="bib870-4">ms Londres, British Library, Add. 12159, f. 47-51v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib870-1">
-                    <bibl xml:id="bib870-5">ms Londres, British Library, Add. 14601, f. 127v-132v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib870-1">
-                    <bibl xml:id="bib870-6">
-                        <editor>M. Brière et F. Graffin</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/2043"/>
-                        <citedRange>Turnhout, 1974, p. 608 [74] - 639 [105]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/870</idno>
-                <idno type="BHS">663</idno>
-                <idno type="CPG">7035</idno>
-                <bibl xml:id="bib870-1">
+                <bibl type="lawd:Edition" source="#bib870-1" xml:id="bib870-3">
+                    <author>Brière, M., Graffin, F.</author>
+                    <title>Les Homiliae cathedrales de Sévère d’Antioche, traduction syriaque de Jacques d’Édesse. Homélies XXVI à XXXI</title>
+                    <ptr target="http://syriaca.org/bibl/2043"/>
+                    <citedRange>Turnhout, 1974, p. 608 [74] - 639 [105]</citedRange>
+                    <listRelation>
+                        <relation active="#bib870-3" ref="lawd:embodies" passive="http://syriaca.org/work/870"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib870-4" source="#bib870-1">ms Londres, British Library, Add. 12159, f. 47-51v<listRelation>
+                        <relation active="#bib870-4" ref="lawd:embodies" passive="http://syriaca.org/work/870"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib870-5" source="#bib870-1">ms Londres, British Library, Add. 14601, f. 127v-132v<listRelation>
+                        <relation active="#bib870-5" ref="lawd:embodies" passive="http://syriaca.org/work/870"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib870-6" source="#bib870-1">
+                    <lang>fr</lang>
+                    <editor>M. Brière et F. Graffin</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/2043"/>
+                    <citedRange>Turnhout, 1974, p. 608 [74] - 639 [105]</citedRange>
+                    <listRelation>
+                        <relation active="#bib870-6" ref="lawd:embodies" passive="http://syriaca.org/work/870"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib870-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">663</citedRange>
                 </bibl>
-                <bibl xml:id="bib870-2">
+                <bibl xml:id="bib870-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Memory and Meaning of a Saint: Two Homilies on
                      Simeon Stylites</title>
                     <title level="j">Aram</title>
@@ -255,7 +264,7 @@
                     <citedRange from="219" to="241" unit="pp">219-241</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/870" passive="http://syriaca.org/person/744" source="#bib870-1"/>
+                    <relation active="http://syriaca.org/work/870" passive="http://syriaca.org/person/744" source="#bib870-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

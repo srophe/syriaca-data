@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Evagrius (text) — <foreign xml:lang="syr">ܐܘܓܪܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-677" ana="#hagiographic">
+            <bibl xml:id="work-677" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name677-1" xml:lang="syr" source="#bib677-1" syriaca-tags="#syriaca-headword">ܐܘܓܪܝܣ</title>
                 <title xml:id="name677-2" xml:lang="fr-x-bhs" source="#bib677-1">ʾĒwaǥrīs</title>
                 <title xml:id="name677-3" xml:lang="fr" source="#bib677-1">Évagre (texte)</title>
@@ -197,6 +201,10 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Pallade</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/677</idno>
+                <idno type="BHS">461</idno>
+                <idno type="BHO">854</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib677-1">
                     <quote>ܐܝܠܝܢ ܕܥܠ ܚܠܝܨܐ ܐܘܐܓܪܝܣ ܡܫܡܫܢܐ ܓܒܝܐ ܕܡܫܝܚܐ ܓܒܪܐ ܕܚܝ̣ܐ ܐܝܟ ܫ̈ܠܝܚܐ̣ ܠܐ ܙܿܕܩ ܕܠܫܬܩܐ ܢܬܝܗ̈ܒܢ...</quote>
                 </note>
@@ -209,42 +217,43 @@
                 <note xml:lang="fr" type="explicit" source="#bib677-1">
                     <quote>On fit connaître une fois à ce saint la mort de son père; aussitôt il dit à celui qui lui avait porté la nouvelle: “Tais-toi, car tu blasphèmes; en effet, mon père est immortel.”</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib677-1" xml:id="bib677-2">
-                        <author>Draguet, R.</author>
-                        <title>FSMHL 2</title>
-                        <ptr target="http://syriaca.org/bibl/1731"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 267-282</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib677-1">
-                    <bibl xml:id="bib677-3">ms Londres, British Library, Add. 14635, f. 5v (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib677-1">
-                    <bibl xml:id="bib677-4">ms Londres, British Library, Add. 14732, f. 166-168v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib677-1">
-                    <bibl xml:id="bib677-5">
-                        <editor>R. Draguet</editor>
-                        <ptr target="http://syriaca.org/bibl/2096"/>
-                        <title>CSCO 399 Script. Syri
+                <bibl type="lawd:Edition" source="#bib677-1" xml:id="bib677-2">
+                    <author>Draguet, R.</author>
+                    <title>FSMHL 2</title>
+                    <ptr target="http://syriaca.org/bibl/1731"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 267-282</citedRange>
+                    <listRelation>
+                        <relation active="#bib677-2" ref="lawd:embodies" passive="http://syriaca.org/work/677"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib677-3" source="#bib677-1">ms Londres, British Library, Add. 14635, f. 5v (mutilé de la fin)<listRelation>
+                        <relation active="#bib677-3" ref="lawd:embodies" passive="http://syriaca.org/work/677"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib677-4" source="#bib677-1">ms Londres, British Library, Add. 14732, f. 166-168v<listRelation>
+                        <relation active="#bib677-4" ref="lawd:embodies" passive="http://syriaca.org/work/677"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib677-5" source="#bib677-1">
+                    <lang>fr</lang>
+                    <editor>R. Draguet</editor>
+                    <ptr target="http://syriaca.org/bibl/2096"/>
+                    <title>CSCO 399 Script. Syri
                 174</title>
-                        <citedRange unit="pp">179-187</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/677</idno>
-                <idno type="BHS">461</idno>
-                <idno type="BHO">854</idno>
-                <bibl xml:id="bib677-1">
+                    <citedRange unit="pp">179-187</citedRange>
+                    <listRelation>
+                        <relation active="#bib677-5" ref="lawd:embodies" passive="http://syriaca.org/work/677"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib677-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">461</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/677" passive="http://syriaca.org/person/483" source="#bib677-1"/>
+                    <relation active="http://syriaca.org/work/677" passive="http://syriaca.org/person/483" source="#bib677-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

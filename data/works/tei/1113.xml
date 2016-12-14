@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Joseph Bousnaya (text) — <foreign xml:lang="syr">ܝܘܣܦ ܒܘܣܢܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -185,7 +189,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1113" ana="#hagiographic">
+            <bibl xml:id="work-1113" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1113-1" xml:lang="syr" source="#bib1113-1" syriaca-tags="#syriaca-headword">ܝܘܣܦ ܒܘܣܢܝܐ</title>
                 <title xml:id="name1113-2" xml:lang="fr-x-bhs" source="#bib1113-1">Yawsep Būsnāyā</title>
                 <title xml:id="name1113-3" xml:lang="fr" source="#bib1113-1">Joseph Bousnaya (texte)</title>
@@ -201,6 +205,9 @@
                         <forename>Jean</forename>
                         <addName type="family">Bar-Kaldoun</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1113</idno>
+                <idno type="BHS">943</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib1113-1">
                     <quote>Un théologien sage dans les mystères divins a défini, affirmé et conclu que ce que le Seigneur veut, toute la création se met au service de sa réalisation…Celui qui marche sur un chemin impraticable se voit opposer beaucoup d’obstacles et il arrive même qu’il ne parvienne pas dans sa marche au but qu’il visait…</quote>
                 </note>
@@ -219,52 +226,59 @@
                 <note xml:lang="fr" type="explicit" source="#bib1113-1">
                     <quote>Or Rabban Joseph vécut dans ce monde une vie agréable à Dieu dans tous ses instants, plus ou moins cent dix ans, dont quatre-vingt dans le monachisme. Il se reposa de son labeur continu… un jeudi; et il fut placé dans le martyrion de Mâr Abraham de Beyt-Sayaré à l’aube du vendredi, sixième jour de la semaine où l’on chante “hallelayni”… le quatre du mois d’Éloul de l’an 1496 des Grecs qui est l’an 581 des Arabes, fils d’Agar, servante égyptienne de Sara. Et voilà que coule de la châsse de son saint corps des secours pour tous ceux qui se réfugient dans ses prières. Que sa mémoire soit source de bénédiction… Amen. Un homme important et très intelligent parmi ceux qui ont revêtu le Christ, à qui il a été confié beaucoup et qui a distribué à ses compagnons beaucoup de choses admirables au-delà de toute parole… Demandez lui pour nous tous de nous faire grâce et miséricorde dans les deux mondes, ici et là-bas par la grâce de son Unique, à qui… Amen.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-2">ms Vatican, Syr. 467, f. 1v-222</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-3">ms Dawra, Monastère chaldéen, cod. 548</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-4">ms Dawra, Monastère chaldéen, cod. 549</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-5">ms Dawra, Monastère chaldéen, cod. 550</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-6">ms Alqosh, Monastère N.-D. des Semences, cod. 195 (Vosté) (ms perdu ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-7">ms Cambridge, University Library, Jenks Coll., Or. 1315</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-8">ms Washington, Catholic University of America, Syr. 11</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1113-1">
-                    <bibl xml:id="bib1113-9">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 66</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1113-1">
-                    <bibl xml:id="bib1113-10">
-                        <editor>J.-B. Chabot</editor>
-                        <title>Vie du moine Rabban Youssef
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-2" source="#bib1113-1">ms Vatican, Syr. 467, f. 1v-222<listRelation>
+                        <relation active="#bib1113-2" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-3" source="#bib1113-1">ms Dawra, Monastère chaldéen, cod. 548<listRelation>
+                        <relation active="#bib1113-3" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-4" source="#bib1113-1">ms Dawra, Monastère chaldéen, cod. 549<listRelation>
+                        <relation active="#bib1113-4" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-5" source="#bib1113-1">ms Dawra, Monastère chaldéen, cod. 550<listRelation>
+                        <relation active="#bib1113-5" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-6" source="#bib1113-1">ms Alqosh, Monastère N.-D. des Semences, cod. 195 (Vosté) (ms perdu ?)<listRelation>
+                        <relation active="#bib1113-6" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-7" source="#bib1113-1">ms Cambridge, University Library, Jenks Coll., Or. 1315<listRelation>
+                        <relation active="#bib1113-7" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-8" source="#bib1113-1">ms Washington, Catholic University of America, Syr. 11<listRelation>
+                        <relation active="#bib1113-8" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1113-9" source="#bib1113-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 66<listRelation>
+                        <relation active="#bib1113-9" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1113-10" source="#bib1113-1">
+                    <lang>fr</lang>
+                    <editor>J.-B. Chabot</editor>
+                    <title>Vie du moine Rabban Youssef
                 Bousnaya écrite par son disciple Jean Bar-Kaldoun, dans ROC</title>
-                        <ptr target="http://syriaca.org/bibl/2007"/>
-                        <citedRange>2
+                    <ptr target="http://syriaca.org/bibl/2007"/>
+                    <citedRange>2
                 (1897), 359-405, 3 (1898), p. 77-121, 168-190, 292-327, 458-480, 4 (1899), p.
                 380-415, 5 (1900), p. 118-133, 182-194</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1113</idno>
-                <idno type="BHS">943</idno>
-                <bibl xml:id="bib1113-1">
+                    <listRelation>
+                        <relation active="#bib1113-10" ref="lawd:embodies" passive="http://syriaca.org/work/1113"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1113-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">943</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1113" passive="http://syriaca.org/person/815" source="#bib1113-1"/>
+                    <relation active="http://syriaca.org/work/1113" passive="http://syriaca.org/person/815" source="#bib1113-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

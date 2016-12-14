@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Dionysius the Areopagite (text) — <foreign xml:lang="syr">ܕܝܘܢܘܣܝܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,11 +190,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1050" ana="#hagiographic">
+            <bibl xml:id="work-1050" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1050-1" xml:lang="syr" source="#bib1050-1" syriaca-tags="#syriaca-headword">ܕܝܘܢܘܣܝܘܣ</title>
                 <title xml:id="name1050-2" xml:lang="fr-x-bhs" source="#bib1050-1">Dyōnēwsīyōs</title>
                 <title xml:id="name1050-3" xml:lang="fr" source="#bib1050-1">Denys l’Aréopagite (texte)</title>
                 <title xml:id="name1050-4" xml:lang="en" source="#bib1050-1" syriaca-tags="#syriaca-headword">Dionysius the Areopagite (text)</title>
+                <idno type="URI">http://syriaca.org/work/1050</idno>
+                <idno type="BHS">874</idno>
+                <idno type="BHO">255c</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1050-1">
                     <quote>ܐܢܐ ܐܘ ܪ̈ܚܡܝ ܝܘܠܦܢܐ ܕܚܟܡܬܐ ܡܢ ܟܪܣܗܿ ܕܐܡܝ ܐܬܢܕܪܬ ܕܐܗܘܐ ܕܒܚܐ ܠܐܪܟܘܢܛܐ ܕܫܐ̈ܕܐ.</quote>
                 </note>
@@ -203,36 +211,36 @@
                 <note xml:lang="fr" type="explicit" source="#bib1050-1">
                     <quote>Et je sais qu’il n’y a pas de richesse hormis la sagesse; et tous les jours de ma vie j’adore et loue le donateur de la sagesse, Père, Fils... Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1050-1" xml:id="bib1050-3">
-                        <author>Kugener, M. A.</author>
-                        <title>Une autobiographie syriaque de Denys l’Aréopagite</title>
-                        <ptr target="http://syriaca.org/bibl/1825"/>
-                        <citedRange>7 (1907), p. 294-312</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1050-1">
-                    <bibl xml:id="bib1050-4">ms Londres, British Library, Add. 12151, f. 173-176</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1050-1">
-                    <bibl xml:id="bib1050-5">
-                        <editor>M. A. Kugener</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1825"/>
-                        <citedRange>7 (1907), p. 294-312</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1050</idno>
-                <idno type="BHS">874</idno>
-                <idno type="BHO">255c</idno>
-                <bibl xml:id="bib1050-1">
+                <bibl type="lawd:Edition" source="#bib1050-1" xml:id="bib1050-3">
+                    <author>Kugener, M. A.</author>
+                    <title>Une autobiographie syriaque de Denys l’Aréopagite</title>
+                    <ptr target="http://syriaca.org/bibl/1825"/>
+                    <citedRange>7 (1907), p. 294-312</citedRange>
+                    <listRelation>
+                        <relation active="#bib1050-3" ref="lawd:embodies" passive="http://syriaca.org/work/1050"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1050-4" source="#bib1050-1">ms Londres, British Library, Add. 12151, f. 173-176<listRelation>
+                        <relation active="#bib1050-4" ref="lawd:embodies" passive="http://syriaca.org/work/1050"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1050-5" source="#bib1050-1">
+                    <lang>fr</lang>
+                    <editor>M. A. Kugener</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1825"/>
+                    <citedRange>7 (1907), p. 294-312</citedRange>
+                    <listRelation>
+                        <relation active="#bib1050-5" ref="lawd:embodies" passive="http://syriaca.org/work/1050"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1050-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">874</citedRange>
                 </bibl>
-                <bibl xml:id="bib1050-2">
+                <bibl xml:id="bib1050-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La Vision de Denys l’Aréopagite à
                      Héliopolis</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
@@ -240,7 +248,7 @@
                     <citedRange from="302" to="322" unit="pp">302-322</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1050" passive="http://syriaca.org/person/452" source="#bib1050-1"/>
+                    <relation active="http://syriaca.org/work/1050" passive="http://syriaca.org/person/452" source="#bib1050-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

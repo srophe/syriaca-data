@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Apocalypse of Paul, the Apostle (text) — <foreign xml:lang="syr">ܦܘܠܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1042" ana="#hagiographic">
+            <bibl xml:id="work-1042" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1042-1" xml:lang="syr" source="#bib1042-1" syriaca-tags="#syriaca-headword">ܦܘܠܘܣ</title>
                 <title xml:id="name1042-2" xml:lang="fr-x-bhs" source="#bib1042-1">Pawlōs</title>
                 <title xml:id="name1042-3" xml:lang="fr" source="#bib1042-1">Paul, apôtre (apocalypse) (texte)</title>
                 <title xml:id="name1042-4" xml:lang="en" source="#bib1042-1" syriaca-tags="#syriaca-headword">Apocalypse of Paul, the Apostle (text)</title>
+                <idno type="URI">http://syriaca.org/work/1042</idno>
+                <idno type="BHS">861</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="incipit" source="#bib1042-1">
                     <quote>Et la parole du Seigneur me fut adressée: Homme, va dire au monde de la terre: «Jusqu’à quand pécherez-vous, et ajouterez-vous des péchés aux péchés et le mettrez en colère par vous-mêmes et direz-vous “Nous sommes les fils du Dieu vivant” ?</quote>
                 </note>
@@ -201,164 +208,190 @@
                 <note xml:lang="fr" type="explicit" source="#bib1042-1">
                     <quote>Ainsi examinez vos chemins pour que pas même une petite parole ne sorte de votre bouche et ne soit pour vous pierre d’achoppement.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1042-1" xml:id="bib1042-6">
-                        <author>Ricciotti, G.</author>
-                        <title>Apcalypsis Pauli Syriace</title>
-                        <ptr target="http://syriaca.org/bibl/1958"/>
-                        <citedRange>NS 2 (1933), p. 2-24 et 120-148</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-7">mss Vatican, Syr. 180, f. 4v-40v + Borg. Syr. 39, f. 122v-137v (mutilé de le la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-8">ms Cambridge, University Library, Add. 2043, f. 1-4v (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-9">ms Cambridge, University Library, Add. 2050, f. 47r-v et 58r-v (fgts)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-10">ms Cambridge (Mass.), Harvard University Library, Syr. 59, f. 117-159v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-11">ms Cambridge (Mass.), Harvard University Library, Syr. 169, f. 1v-</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-12">ms New Haven, Yale University, Beinecke Library, Rn. R32 (mutilé)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-13">ms New Haven, Yale University, Beinecke Library, Rn. R32b</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-14">ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 1, p. 1 - cah. 3, p. 5</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-15">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 598, f. 1v-23v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-16">ms Monserrat, Abadia de San Maria, cod. 24</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-17">ms New York, Union Theological Seminary, ms Clemons 310</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-18">ms Paris, Coll. Patrologia Orientalis, = olim coll. R. Graffin (ms du Kalila et Dimna), f. 117-132r</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-19">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 201</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-20">ms Paris, Bibliothèque nationale, syr. 377, f. 89-145</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-21">ms Ourmia, Sarau-Shedd 42</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-22">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 196, p. 1-62</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1042-1">
-                    <bibl xml:id="bib1042-23">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 201, p. 15-65</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1042-1">
-                    <bibl xml:id="bib1042-24">cf. <title>Clavis Apocryphorum Novi Testamenti</title>
-                        <ptr target="http://syriaca.org/bibl/2080"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1042-1">
-                    <bibl xml:id="bib1042-25">cf. <title>Clavis Apocryphorum Novi Testamenti</title>
-                        <ptr target="http://syriaca.org/bibl/2080"/>
-                        <lang>grc</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1042-1">
-                    <bibl xml:id="bib1042-26">cf. <title>Clavis Apocryphorum Novi Testamenti</title>
-                        <ptr target="http://syriaca.org/bibl/2080"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1042-1">
-                    <bibl xml:id="bib1042-27">cf. <title>Clavis Apocryphorum Novi Testamenti</title>
-                        <ptr target="http://syriaca.org/bibl/2080"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1042-1">
-                    <bibl xml:id="bib1042-28">cf. <title>Clavis Apocryphorum Novi Testamenti</title>
-                        <ptr target="http://syriaca.org/bibl/2080"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1042-1">
-                    <bibl xml:id="bib1042-29">cf. <title>Clavis Apocryphorum Novi Testamenti</title>
-                        <ptr target="http://syriaca.org/bibl/2080"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1042-1">
-                    <bibl xml:id="bib1042-30">cf. <title>Clavis Apocryphorum Novi Testamenti</title>
-                        <ptr target="http://syriaca.org/bibl/2080"/>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1042-1">
-                    <bibl xml:id="bib1042-31">
-                        <editor>G. Ricciotti</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1958"/>
-                        <citedRange>NS 2 (1933), p. 2-24 et 120-148</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1042-1">
-                    <bibl xml:id="bib1042-32">
-                        <editor>J. Perkins</editor>
-                        <title>The Revelation of the Blessed
+                <bibl type="lawd:Edition" source="#bib1042-1" xml:id="bib1042-6">
+                    <author>Ricciotti, G.</author>
+                    <title>Apcalypsis Pauli Syriace</title>
+                    <ptr target="http://syriaca.org/bibl/1958"/>
+                    <citedRange>NS 2 (1933), p. 2-24 et 120-148</citedRange>
+                    <listRelation>
+                        <relation active="#bib1042-6" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-7" source="#bib1042-1">mss Vatican, Syr. 180, f. 4v-40v + Borg. Syr. 39, f. 122v-137v (mutilé de le la fin)<listRelation>
+                        <relation active="#bib1042-7" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-8" source="#bib1042-1">ms Cambridge, University Library, Add. 2043, f. 1-4v (fgt)<listRelation>
+                        <relation active="#bib1042-8" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-9" source="#bib1042-1">ms Cambridge, University Library, Add. 2050, f. 47r-v et 58r-v (fgts)<listRelation>
+                        <relation active="#bib1042-9" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-10" source="#bib1042-1">ms Cambridge (Mass.), Harvard University Library, Syr. 59, f. 117-159v<listRelation>
+                        <relation active="#bib1042-10" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-11" source="#bib1042-1">ms Cambridge (Mass.), Harvard University Library, Syr. 169, f. 1v-<listRelation>
+                        <relation active="#bib1042-11" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-12" source="#bib1042-1">ms New Haven, Yale University, Beinecke Library, Rn. R32 (mutilé)<listRelation>
+                        <relation active="#bib1042-12" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-13" source="#bib1042-1">ms New Haven, Yale University, Beinecke Library, Rn. R32b<listRelation>
+                        <relation active="#bib1042-13" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-14" source="#bib1042-1">ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 1, p. 1 - cah. 3, p. 5<listRelation>
+                        <relation active="#bib1042-14" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-15" source="#bib1042-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 598, f. 1v-23v<listRelation>
+                        <relation active="#bib1042-15" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-16" source="#bib1042-1">ms Monserrat, Abadia de San Maria, cod. 24<listRelation>
+                        <relation active="#bib1042-16" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-17" source="#bib1042-1">ms New York, Union Theological Seminary, ms Clemons 310<listRelation>
+                        <relation active="#bib1042-17" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-18" source="#bib1042-1">ms Paris, Coll. Patrologia Orientalis, = olim coll. R. Graffin (ms du Kalila et Dimna), f. 117-132r<listRelation>
+                        <relation active="#bib1042-18" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-19" source="#bib1042-1">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 201<listRelation>
+                        <relation active="#bib1042-19" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-20" source="#bib1042-1">ms Paris, Bibliothèque nationale, syr. 377, f. 89-145<listRelation>
+                        <relation active="#bib1042-20" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-21" source="#bib1042-1">ms Ourmia, Sarau-Shedd 42<listRelation>
+                        <relation active="#bib1042-21" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-22" source="#bib1042-1">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 196, p. 1-62<listRelation>
+                        <relation active="#bib1042-22" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1042-23" source="#bib1042-1">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 201, p. 15-65<listRelation>
+                        <relation active="#bib1042-23" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1042-24" source="#bib1042-1">
+                    <lang>la</lang>cf. <title>Clavis Apocryphorum Novi Testamenti</title>
+                    <ptr target="http://syriaca.org/bibl/2080"/>
+                    <listRelation>
+                        <relation active="#bib1042-24" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1042-25" source="#bib1042-1">
+                    <lang>grc</lang>cf. <title>Clavis Apocryphorum Novi Testamenti</title>
+                    <ptr target="http://syriaca.org/bibl/2080"/>
+                    <listRelation>
+                        <relation active="#bib1042-25" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1042-26" source="#bib1042-1">
+                    <lang>ar</lang>cf. <title>Clavis Apocryphorum Novi Testamenti</title>
+                    <ptr target="http://syriaca.org/bibl/2080"/>
+                    <listRelation>
+                        <relation active="#bib1042-26" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1042-27" source="#bib1042-1">
+                    <lang>hy</lang>cf. <title>Clavis Apocryphorum Novi Testamenti</title>
+                    <ptr target="http://syriaca.org/bibl/2080"/>
+                    <listRelation>
+                        <relation active="#bib1042-27" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1042-28" source="#bib1042-1">
+                    <lang>cu</lang>cf. <title>Clavis Apocryphorum Novi Testamenti</title>
+                    <ptr target="http://syriaca.org/bibl/2080"/>
+                    <listRelation>
+                        <relation active="#bib1042-28" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1042-29" source="#bib1042-1">
+                    <lang>cop</lang>cf. <title>Clavis Apocryphorum Novi Testamenti</title>
+                    <ptr target="http://syriaca.org/bibl/2080"/>
+                    <listRelation>
+                        <relation active="#bib1042-29" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1042-30" source="#bib1042-1">
+                    <lang>gez</lang>cf. <title>Clavis Apocryphorum Novi Testamenti</title>
+                    <ptr target="http://syriaca.org/bibl/2080"/>
+                    <listRelation>
+                        <relation active="#bib1042-30" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1042-31" source="#bib1042-1">
+                    <lang>la</lang>
+                    <editor>G. Ricciotti</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1958"/>
+                    <citedRange>NS 2 (1933), p. 2-24 et 120-148</citedRange>
+                    <listRelation>
+                        <relation active="#bib1042-31" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1042-32" source="#bib1042-1">
+                    <lang>en</lang>
+                    <editor>J. Perkins</editor>
+                    <title>The Revelation of the Blessed
                 Apostle Paul translated from an ancient Syriac manuscript, dans JAOS, 8
                 (1866)</title>
-                        <ptr target="http://syriaca.org/bibl/1998"/>
-                        <citedRange unit="pp">183-212</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1042-1">
-                    <bibl xml:id="bib1042-33">
-                        <editor>G. Ricciotti</editor>
-                        <title>L’Apocalisse di Paolo Siriaca I,
+                    <ptr target="http://syriaca.org/bibl/1998"/>
+                    <citedRange unit="pp">183-212</citedRange>
+                    <listRelation>
+                        <relation active="#bib1042-32" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1042-33" source="#bib1042-1">
+                    <lang>it</lang>
+                    <editor>G. Ricciotti</editor>
+                    <title>L’Apocalisse di Paolo Siriaca I,
             Brescia, 1932</title>
-                        <ptr target="http://syriaca.org/bibl/1145"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1042</idno>
-                <idno type="BHS">861</idno>
-                <bibl xml:id="bib1042-1">
+                    <ptr target="http://syriaca.org/bibl/1145"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <listRelation>
+                        <relation active="#bib1042-33" ref="lawd:embodies" passive="http://syriaca.org/work/1042"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1042-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">861</citedRange>
                 </bibl>
-                <bibl xml:id="bib1042-2">
+                <bibl xml:id="bib1042-2" type="lawd:Citation">
                     <title xml:lang="fr" level="m">L’Apocalisse di Paolo Siriaca. I-II</title>
                     <ptr target="http://syriaca.org/bibl/1145"/>
                 </bibl>
-                <bibl xml:id="bib1042-3">
+                <bibl xml:id="bib1042-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La «Visio S. Pauli»: circulation et influence d’un
                      apocryphe eschatologique</title>
                     <title level="j">Apocrypha</title>
                     <ptr target="http://syriaca.org/bibl/1146"/>
                     <citedRange from="165" to="180" unit="pp">165-180</citedRange>
                 </bibl>
-                <bibl xml:id="bib1042-4">
+                <bibl xml:id="bib1042-4" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les origines de l’Apocalypse de Paul
                      reconsidérées</title>
                     <title level="j">Apocrypha</title>
                     <ptr target="http://syriaca.org/bibl/1147"/>
                     <citedRange from="25" to="64" unit="pp">25-64</citedRange>
                 </bibl>
-                <bibl xml:id="bib1042-5">
+                <bibl xml:id="bib1042-5" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Des symboles à la réalité: la préface à
                      l’Apocalypse de Paul dans la tradition syriaque</title>
                     <title level="j">Apocrypha</title>
@@ -366,7 +399,7 @@
                     <citedRange from="65" to="82" unit="pp">65-82</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1042" passive="http://syriaca.org/person/1983" source="#bib1042-1"/>
+                    <relation active="http://syriaca.org/work/1042" passive="http://syriaca.org/person/1983" source="#bib1042-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

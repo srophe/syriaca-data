@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Onesima (text) — <foreign xml:lang="syr">ܐܢܣܝܡܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-359" ana="#hagiographic">
+            <bibl xml:id="work-359" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name359-1" xml:lang="syr" source="#bib359-1" syriaca-tags="#syriaca-headword">ܐܢܣܝܡܐ</title>
                 <title xml:id="name359-2" xml:lang="fr-x-bhs" source="#bib359-1">ʾĀnēsīmā</title>
                 <title xml:id="name359-3" xml:lang="fr" source="#bib359-1">Onésima (texte)</title>
                 <title xml:id="name359-4" xml:lang="en" source="#bib359-1" syriaca-tags="#syriaca-headword">Onesima (text)</title>
+                <idno type="URI">http://syriaca.org/work/359</idno>
+                <idno type="BHS">139</idno>
+                <idno type="BHO">815</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib359-1">
                     <quote>ܐܢܬܬܐ ܚܕܐ ܐܝܬ ܗܘ̣ܐ ܒܐܓܘܦܛܘܣ: ܕܫܡܗܿ ܗܘ̣ܐ ܐܢܣܝܡܐ: ܘܐܝܬ ܗܘ̣ܐ ܠܗܿ ܚܡܫܥܣܪ̈ܐ ܡܕܝ̈ܢܢ: ܘܟܠܗ ܫܘܠܛܢܗܝܢ ܕܐܒܗܝ̈ܗܿ ܗܘ̣ܐ: ܡܠܟ̈ܐ ܗܘ̣ܘ ܓܝܪ ܕܥܠܡܐ.</quote>
                 </note>
@@ -204,74 +212,88 @@
                 <note xml:lang="fr" type="explicit" source="#bib359-1">
                     <quote>Et personne ne sut où elle était allée; et l’endroit de sa mort ne fut pas non plus connu des hommes. Et voilà qu’elle est morte; et ses hauts faits seront transmis et commémorés jusqu’à la venue du Fils de Dieu; à lui… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib359-1" xml:id="bib359-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 5</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">5</citedRange>
-                        <citedRange>p. 405-419</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-3">mss Paris, Bibliothèque nationale, syr. 235, f. 230v-242v + syr. 236, f. 343-349 + ms Londres, British Library, Add. 14649, f. 109-114 + ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-4">ms Dayr Mar Matti, Église syrienne orthodoxe, cod. 27</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-5">ms Dawra, Monastère chaldéen, cod. 620 (olim Alqosh, Monastère N.-D. des Semences, cod. 210 Vosté), cah. 1, p. 1 - cah. 2, p. 11</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-6">ms Dawra, Monastère chaldéen, cod. 622, f. 339-358</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-7">ms Dawra, Monastère chaldéen, cod. 626, f. 72-83 et 83-93 ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-8">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 34 p. 9 - cah. 35 p. 6</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-9">ms Dawra, Monastère chaldéen, cod. 635 (olim Alqosh, Monastère N.-D. des Semences, cod. 211 Vosté ?), f. 33-40</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-10">ms Vatican, Syr. 561, f. 309-317</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-11">ms Vatican, Borg. Syr. 39, f. 71-77 (mutilé du début)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-12">ms Londres, British Library, Add. 14650, f. 214-220</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-13">ms Londres, British Library, Rich. 7190, f. 338v-342</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-14">ms Berlin, Königliche Bibliothek, or. quart. 1051 (Assfalg 25), f. 55v-62v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-15">ms Aqra, Bibliothèque épiscopale chaldéenne, cod. 54 (Vosté), cah. 8, f. 9 - cah. 10, f. 2v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-16">ms Aqra, Bibliothèque épiscopale chaldéenne, cod. 55 (Vosté), B cah. 3, f. 8 - cah. 5, f. 2v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-17">ms Londres, British Library, Or. 4528, f. 131-138</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib359-1">
-                    <bibl xml:id="bib359-18">ms Londres, British Library, Or. 3337, f. 26v-45v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/359</idno>
-                <idno type="BHS">139</idno>
-                <idno type="BHO">815</idno>
-                <bibl xml:id="bib359-1">
+                <bibl type="lawd:Edition" source="#bib359-1" xml:id="bib359-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 5</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">5</citedRange>
+                    <citedRange>p. 405-419</citedRange>
+                    <listRelation>
+                        <relation active="#bib359-2" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-3" source="#bib359-1">mss Paris, Bibliothèque nationale, syr. 235, f. 230v-242v + syr. 236, f. 343-349 + ms Londres, British Library, Add. 14649, f. 109-114 + ?<listRelation>
+                        <relation active="#bib359-3" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-4" source="#bib359-1">ms Dayr Mar Matti, Église syrienne orthodoxe, cod. 27<listRelation>
+                        <relation active="#bib359-4" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-5" source="#bib359-1">ms Dawra, Monastère chaldéen, cod. 620 (olim Alqosh, Monastère N.-D. des Semences, cod. 210 Vosté), cah. 1, p. 1 - cah. 2, p. 11<listRelation>
+                        <relation active="#bib359-5" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-6" source="#bib359-1">ms Dawra, Monastère chaldéen, cod. 622, f. 339-358<listRelation>
+                        <relation active="#bib359-6" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-7" source="#bib359-1">ms Dawra, Monastère chaldéen, cod. 626, f. 72-83 et 83-93 ?<listRelation>
+                        <relation active="#bib359-7" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-8" source="#bib359-1">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 34 p. 9 - cah. 35 p. 6<listRelation>
+                        <relation active="#bib359-8" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-9" source="#bib359-1">ms Dawra, Monastère chaldéen, cod. 635 (olim Alqosh, Monastère N.-D. des Semences, cod. 211 Vosté ?), f. 33-40<listRelation>
+                        <relation active="#bib359-9" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-10" source="#bib359-1">ms Vatican, Syr. 561, f. 309-317<listRelation>
+                        <relation active="#bib359-10" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-11" source="#bib359-1">ms Vatican, Borg. Syr. 39, f. 71-77 (mutilé du début)<listRelation>
+                        <relation active="#bib359-11" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-12" source="#bib359-1">ms Londres, British Library, Add. 14650, f. 214-220<listRelation>
+                        <relation active="#bib359-12" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-13" source="#bib359-1">ms Londres, British Library, Rich. 7190, f. 338v-342<listRelation>
+                        <relation active="#bib359-13" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-14" source="#bib359-1">ms Berlin, Königliche Bibliothek, or. quart. 1051 (Assfalg 25), f. 55v-62v<listRelation>
+                        <relation active="#bib359-14" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-15" source="#bib359-1">ms Aqra, Bibliothèque épiscopale chaldéenne, cod. 54 (Vosté), cah. 8, f. 9 - cah. 10, f. 2v<listRelation>
+                        <relation active="#bib359-15" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-16" source="#bib359-1">ms Aqra, Bibliothèque épiscopale chaldéenne, cod. 55 (Vosté), B cah. 3, f. 8 - cah. 5, f. 2v<listRelation>
+                        <relation active="#bib359-16" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-17" source="#bib359-1">ms Londres, British Library, Or. 4528, f. 131-138<listRelation>
+                        <relation active="#bib359-17" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib359-18" source="#bib359-1">ms Londres, British Library, Or. 3337, f. 26v-45v<listRelation>
+                        <relation active="#bib359-18" ref="lawd:embodies" passive="http://syriaca.org/work/359"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib359-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">139</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/359" passive="http://syriaca.org/person/1398" source="#bib359-1"/>
+                    <relation active="http://syriaca.org/work/359" passive="http://syriaca.org/person/1398" source="#bib359-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

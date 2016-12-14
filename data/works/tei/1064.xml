@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Simeon of Qartmin (text) — <foreign xml:lang="syr">ܫܡܥܘܢ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1064" ana="#hagiographic">
+            <bibl xml:id="work-1064" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1064-1" xml:lang="syr" source="#bib1064-1" syriaca-tags="#syriaca-headword">ܫܡܥܘܢ</title>
                 <title xml:id="name1064-2" xml:lang="fr-x-bhs" source="#bib1064-1">Šemʿōn</title>
                 <title xml:id="name1064-3" xml:lang="fr" source="#bib1064-1">Syméon de Qartamin (texte)</title>
                 <title xml:id="name1064-4" xml:lang="en" source="#bib1064-1" syriaca-tags="#syriaca-headword">Simeon of Qartmin (text)</title>
+                <idno type="URI">http://syriaca.org/work/1064</idno>
+                <idno type="BHS">889</idno>
+                <idno type="BHO">1120</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1064-1">
                     <quote>ܡܢ ܒܬܪ ܗܟܝܠ ܡܘܬܗ ܕܢܨܝܚܐ ܡܪܝ ܫܡܘܐܝܠ: ܐܘܣܦ ܡܪܝ ܫܡܥܘܢ ܥܠ ܨܠܘܬܗ ܘܨܘܡܗ ܒܐܥܦ̈ܐ ܣܓܝܐ̈ܐ.</quote>
                 </note>
@@ -204,81 +212,96 @@
                 <note xml:lang="fr" type="explicit" source="#bib1064-1">
                     <quote>La même année, qui est l’année 750, se réunit le deuxième concile à Éphèse, au temps de Théodose le Jeune. Et alors le patriarche digne de bonne mémoire Dioscore retourna à son siège après avoir remporté une grande victoire et il loua Dieu qui magnifie ses saints. À lui la gloire… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1064-1" corresp="#bib1064-9 bib1064-10" n="1" xml:id="bib1064-6">
-                        <author>Nau, F.</author>
-                        <title>Notice historique sur le monastère de Qartamin suivie d’une note sur le monastère de Qenne¯ré</title>
-                        <ptr target="http://syriaca.org/bibl/1315"/>
-                        <citedRange>Actes du XIVe Congrès international des orientalistes. Alger 1905. IIe partie, Paris, 1907, p. 88-97</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib1064-1" corresp="#bib1064-19" n="2" xml:id="bib1064-7">
-                        <author>Palmer, A.</author>
-                        <title>Te¯æ¬‡≈ d-qad¬¯≈ m≈r(y) ∑mºÆ¬l w-m≈r(y) ∑emæºn w-m≈r(y) GabriÆ¥l</title>
-                        <ptr target="http://syriaca.org/bibl/2055"/>
-                        <citedRange>Glane/Losser, 1983, p. 33-54</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib1064-1" corresp="#bib1064-11 bib1064-20" n="3" xml:id="bib1064-8">
-                        <author>Palmer, A.</author>
-                        <title>Monk and mason on the Tigris frontier. The early history of ¢ur æAbdin</title>
-                        <ptr target="http://syriaca.org/bibl/1400"/>
-                        <citedRange>Cambridge, 1990, p. XXXIII-LIV des microfiches</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-9">ms Londres, British Library, Add. 17265, f. 39v-74</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-10"> et (3): ms Londres, British Library, Add. 17265, f. 39v-74 + ms Istanbul, Maryemana, Yeni 196 (Palmer) (olim cod. 7 (Vööbus), olim coll. P. Fehim, cod. 1 (Dolabany)), f. 90-99</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-11">ms Mardin, Évêché syrien orthodoxe, cod. 258 (olim ms Dayr az-Za‘faran, cod. pap. 119 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-12">ms Mardin, Évêché syrien orthodoxe, cod. 262 (olim ms Dayr az-Za‘faran, cod. pap. 117 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-13">ms Mardin, Évêché syrien orthodoxe, cod. 275</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-14">ms Berlin, Königliche Bibliothek, syr. 179 (Sachau 221), f. 57v-73v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-15">ms Paris, Bibliothèque nationale, syr. 375, f. 34v-61</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-16">ms Damas, Patriarcat syrien orthodoxe, ms 9/29</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1064-1">
-                    <bibl xml:id="bib1064-17">ms Mossoul, Église syrienne orthodoxe Mâr Tûmâ, ms 254</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1064-1">
-                    <bibl xml:id="bib1064-18">
-                        <editor>A. Palmer</editor>
-                        <title> Monk…, ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1400"/>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib1064-19">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib1064-20">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1064</idno>
-                <idno type="BHS">889</idno>
-                <idno type="BHO">1120</idno>
-                <bibl xml:id="bib1064-1">
+                <bibl type="lawd:Edition" source="#bib1064-1" xml:id="bib1064-6">
+                    <author>Nau, F.</author>
+                    <title>Notice historique sur le monastère de Qartamin suivie d’une note sur le monastère de Qenne¯ré</title>
+                    <ptr target="http://syriaca.org/bibl/1315"/>
+                    <citedRange>Actes du XIVe Congrès international des orientalistes. Alger 1905. IIe partie, Paris, 1907, p. 88-97</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1064-6" ref="dct:source" passive="#bib1064-9 bib1064-10" source="#bib1064-1"/>
+                        <relation active="#bib1064-6" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib1064-1" xml:id="bib1064-7">
+                    <author>Palmer, A.</author>
+                    <title>Te¯æ¬‡≈ d-qad¬¯≈ m≈r(y) ∑mºÆ¬l w-m≈r(y) ∑emæºn w-m≈r(y) GabriÆ¥l</title>
+                    <ptr target="http://syriaca.org/bibl/2055"/>
+                    <citedRange>Glane/Losser, 1983, p. 33-54</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1064-7" ref="dct:source" passive="#bib1064-19" source="#bib1064-1"/>
+                        <relation active="#bib1064-7" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib1064-1" xml:id="bib1064-8">
+                    <author>Palmer, A.</author>
+                    <title>Monk and mason on the Tigris frontier. The early history of ¢ur æAbdin</title>
+                    <ptr target="http://syriaca.org/bibl/1400"/>
+                    <citedRange>Cambridge, 1990, p. XXXIII-LIV des microfiches</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1064-8" ref="dct:source" passive="#bib1064-11 bib1064-20" source="#bib1064-1"/>
+                        <relation active="#bib1064-8" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-9" source="#bib1064-1">ms Londres, British Library, Add. 17265, f. 39v-74<listRelation>
+                        <relation active="#bib1064-9" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-10" source="#bib1064-1"> et (3): ms Londres, British Library, Add. 17265, f. 39v-74 + ms Istanbul, Maryemana, Yeni 196 (Palmer) (olim cod. 7 (Vööbus), olim coll. P. Fehim, cod. 1 (Dolabany)), f. 90-99<listRelation>
+                        <relation active="#bib1064-10" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-11" source="#bib1064-1">ms Mardin, Évêché syrien orthodoxe, cod. 258 (olim ms Dayr az-Za‘faran, cod. pap. 119 (Dolabany))<listRelation>
+                        <relation active="#bib1064-11" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-12" source="#bib1064-1">ms Mardin, Évêché syrien orthodoxe, cod. 262 (olim ms Dayr az-Za‘faran, cod. pap. 117 (Dolabany))<listRelation>
+                        <relation active="#bib1064-12" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-13" source="#bib1064-1">ms Mardin, Évêché syrien orthodoxe, cod. 275<listRelation>
+                        <relation active="#bib1064-13" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-14" source="#bib1064-1">ms Berlin, Königliche Bibliothek, syr. 179 (Sachau 221), f. 57v-73v<listRelation>
+                        <relation active="#bib1064-14" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-15" source="#bib1064-1">ms Paris, Bibliothèque nationale, syr. 375, f. 34v-61<listRelation>
+                        <relation active="#bib1064-15" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-16" source="#bib1064-1">ms Damas, Patriarcat syrien orthodoxe, ms 9/29<listRelation>
+                        <relation active="#bib1064-16" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-17" source="#bib1064-1">ms Mossoul, Église syrienne orthodoxe Mâr Tûmâ, ms 254<listRelation>
+                        <relation active="#bib1064-17" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1064-18" source="#bib1064-1">
+                    <lang>en</lang>
+                    <editor>A. Palmer</editor>
+                    <title> Monk…, ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1400"/>
+                    <listRelation>
+                        <relation active="#bib1064-18" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-19" source="#bib250-1">The manuscript witnesses for edition 2 are undetermined.<listRelation>
+                        <relation active="#bib1064-19" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1064-20" source="#bib250-1">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib1064-20" ref="lawd:embodies" passive="http://syriaca.org/work/1064"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1064-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">889</citedRange>
                 </bibl>
-                <bibl xml:id="bib1064-2">
+                <bibl xml:id="bib1064-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">Important Discoveries for the History of the
                      Monastery of Qartamin: New Light on the Literary Traditions Regarding its
                      History</title>
@@ -286,7 +309,7 @@
                     <ptr target="http://syriaca.org/bibl/1051"/>
                     <citedRange from="223" to="227" unit="pp">223-227</citedRange>
                 </bibl>
-                <bibl xml:id="bib1064-3">
+                <bibl xml:id="bib1064-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Notice historique sur le monastère de Qartamin suivie d’une note sur le monastère de Qennešré</title>
                     <title xml:lang="fr" level="m">Actes du XIVe Congrès international des Orientalistes, Alger 1897. IIe partie: Section II (Langues sémitiques)</title>
                     <ptr target="http://syriaca.org/bibl/1052"/>
@@ -294,14 +317,14 @@
                   d’extraits</note>
                     </citedRange>
                 </bibl>
-                <bibl xml:id="bib1064-4">
+                <bibl xml:id="bib1064-4" type="lawd:Citation">
                     <title xml:lang="de" level="m">Das syrisch-monophysitische Mönchtum im
                      Tur-Ab(h)din von seinen Anfängen bis zur Mitte des 12. Jahrhunderts, Münster
                      i.W., 1937</title>
                     <ptr target="http://syriaca.org/bibl/1053"/>
                     <citedRange from="33" to="34" unit="pp">33-34</citedRange>
                 </bibl>
-                <bibl xml:id="bib1064-5">
+                <bibl xml:id="bib1064-5" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Note sur l’histoire du monastère de Saint-Gabriel
                      de Quartamin</title>
                     <title xml:lang="fr" level="j">Le Muséon</title>
@@ -309,7 +332,7 @@
                     <citedRange from="95" to="102" unit="pp">95-102</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1064" passive="http://syriaca.org/person/1475" source="#bib1064-1"/>
+                    <relation active="http://syriaca.org/work/1064" passive="http://syriaca.org/person/1475" source="#bib1064-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mimes (Glaukos and compagnons, in Oxhyrrynque) (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -181,9 +185,12 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1314" ana="#hagiographic">
+            <bibl xml:id="work-1314" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1314-3" xml:lang="fr" source="#bib1314-1">Mimes (Glaukos and compagnons, in Oxhyrrynque ?) (texte)</title>
                 <title xml:id="name1314-4" xml:lang="en" source="#bib1314-1" syriaca-tags="#syriaca-headword">Mimes (Glaukos and compagnons, in Oxhyrrynque) (text)</title>
+                <idno type="URI">http://syriaca.org/work/1314</idno>
+                <idno type="BHS">1168</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1314-1">
                     <quote>ܣܗܕܘܬܐ ܕܡܝܡ̈ܣܐ ܕܗܘܘ ܒܡܕܝܢܬܐ ܐܘܣܪܢܟܘܣ. ܘܫܡܗܝ̈ܗܘܢ ܗܠܝܢ ܐܢܘܢ. ܓܠܘܩܘܣ. ܘܕܓܠܘܩܪܝܘܣ. ܘܕܝܪܘܩܕܝܘܣ. ܘܐܘܪܩܘܒܘܠܘܣ. ܘܓܢܘܣܝܣ ܡܝܡ̈ܣܐ. ܘܐܘܛܟܝܣ ܪܒ ܐܣܝܪ̈ܐ. ܘܩܘܢܝܣ ܙܡܪܐ. ܘܦܪܩܝܡܘܣ. ܘܙܝܙܢܛܝܣ. ܪܫܝ ܛܪ̈ܡܠܐ...</quote>
                 </note>
@@ -196,22 +203,22 @@
                 <note xml:lang="fr" type="explicit" source="#bib1314-1">
                     <quote>La terre ouvrit sa bouche et les engloutit tous les deux et ils ne furent plus vus ni le glaive ni eux. Ces choses et d’autres semblables furent accomplies par les vaillants dans la ville de Aksounarakos, notre Seigneur Jésus-Christ régnant. À son Père… Amen.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1314-1">
-                    <bibl xml:id="bib1314-2">ms Dawra, Monastère chaldéen, cod. 634 (olim Alqosh, Monastère N.-D. des Semences, cod. 208 Vosté), f. 1-96</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1314-1">
-                    <bibl xml:id="bib1314-3">ms Londres, British Library, Or. 9384.II, f. 92-139v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1314</idno>
-                <idno type="BHS">1168</idno>
-                <bibl xml:id="bib1314-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1314-2" source="#bib1314-1">ms Dawra, Monastère chaldéen, cod. 634 (olim Alqosh, Monastère N.-D. des Semences, cod. 208 Vosté), f. 1-96<listRelation>
+                        <relation active="#bib1314-2" ref="lawd:embodies" passive="http://syriaca.org/work/1314"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1314-3" source="#bib1314-1">ms Londres, British Library, Or. 9384.II, f. 92-139v<listRelation>
+                        <relation active="#bib1314-3" ref="lawd:embodies" passive="http://syriaca.org/work/1314"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1314-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1168</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1314" passive="http://syriaca.org/person/1925" source="#bib1314-1"/>
+                    <relation active="http://syriaca.org/work/1314" passive="http://syriaca.org/person/1925" source="#bib1314-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

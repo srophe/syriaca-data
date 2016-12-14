@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Daniel the Doctor (text) — <foreign xml:lang="syr">ܕܢܝܐܝܠ ܐܣܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-310" ana="#hagiographic">
+            <bibl xml:id="work-310" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name310-1" xml:lang="syr" source="#bib310-1" syriaca-tags="#syriaca-headword">ܕܢܝܐܝܠ ܐܣܝܐ</title>
                 <title xml:id="name310-2" xml:lang="fr-x-bhs" source="#bib310-1">Dānīʾēl ʾāsyā</title>
                 <title xml:id="name310-3" xml:lang="fr" source="#bib310-1">Daniel le médecin (texte)</title>
                 <title xml:id="name310-4" xml:lang="en" source="#bib310-1" syriaca-tags="#syriaca-headword">Daniel the Doctor (text)</title>
+                <idno type="URI">http://syriaca.org/work/310</idno>
+                <idno type="BHS">90</idno>
+                <idno type="BHO">244</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib310-1">
                     <quote>Mes bien-aimés, nous devons comprendre dans l’intelligence de nos esprits que le triomphe des saints est l’image du mystère des alliances de Dieu, par lesquelles se montre la puissance de sa création.</quote>
                 </note>
@@ -211,62 +219,72 @@
                 <note xml:lang="fr" type="explicit" source="#bib310-1">
                     <quote>Et contre le glorieux chef des prêtres se rassemblèrent des criminels entêtés, et ils le lapidèrent sans pitié, et il fut couronné et reçut la couronne de la victoire. Et ses fils l’enterrèrent avec grand honneur et ils le placèrent dans le temple du martyrion le 3 Hazîran. Par les prières et les supplications de ces bienheureux commémorés, Mâ Daniel le médecin, Mâr Hash le roi et Mâr Mîlès l’évêque… Oui et amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib310-1" xml:id="bib310-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>p. 481-510</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-3">ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 425-438v + collation du ms Paris, Bibliothèque nationale, syr. 295, f. 144v-168</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-4">ms Dawra, Monastère chaldéen, cod. 623 (olim Alqosh, Monastère N.-D. des Semences, cod. 213 Vosté), cah. 22, p. 8 - cah. 24, p. 19</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-5">ms Dawra, Monastère chaldéen, cod. 630 (olim Alqosh, Monastère N.-D. des Semences, cod. 217 Vosté), cah. 9, p. 1 - cah. 10, p. 16</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-6">ms Dawra, Monastère chaldéen, cod. 635 ( (olim Alqosh, Monastère N.-D. des Semences, cod. 211 Vosté ?), f. 1-15</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-7">ms Vatican, Borgia, Syr. 39, f. 1v-15v + Borg. Syr. 91, f. 65-75</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-8">ms Londres, British Library, Or. 4404, f. 98v-111v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-9">ms Paris, Bibliothèque nationale, syr. 309, f. 92-114v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-10">ms Cambridge, University Library, Add. 2020, f. 141v-153v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-11">ms Berlin, Königliche Bibliothek, or. quart. 1051 (Assfalg 25), f. 114-127v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-12">ms Beyrouth, Université Saint-Joseph, Bibliothèque orientale, syr. 18</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-13">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 85, f. 1-19</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib310-1">
-                    <bibl xml:id="bib310-14">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 593, f. 1v-16</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/310</idno>
-                <idno type="BHS">90</idno>
-                <idno type="BHO">244</idno>
-                <bibl xml:id="bib310-1">
+                <bibl type="lawd:Edition" source="#bib310-1" xml:id="bib310-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>p. 481-510</citedRange>
+                    <listRelation>
+                        <relation active="#bib310-2" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-3" source="#bib310-1">ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 425-438v + collation du ms Paris, Bibliothèque nationale, syr. 295, f. 144v-168<listRelation>
+                        <relation active="#bib310-3" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-4" source="#bib310-1">ms Dawra, Monastère chaldéen, cod. 623 (olim Alqosh, Monastère N.-D. des Semences, cod. 213 Vosté), cah. 22, p. 8 - cah. 24, p. 19<listRelation>
+                        <relation active="#bib310-4" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-5" source="#bib310-1">ms Dawra, Monastère chaldéen, cod. 630 (olim Alqosh, Monastère N.-D. des Semences, cod. 217 Vosté), cah. 9, p. 1 - cah. 10, p. 16<listRelation>
+                        <relation active="#bib310-5" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-6" source="#bib310-1">ms Dawra, Monastère chaldéen, cod. 635 ( (olim Alqosh, Monastère N.-D. des Semences, cod. 211 Vosté ?), f. 1-15<listRelation>
+                        <relation active="#bib310-6" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-7" source="#bib310-1">ms Vatican, Borgia, Syr. 39, f. 1v-15v + Borg. Syr. 91, f. 65-75<listRelation>
+                        <relation active="#bib310-7" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-8" source="#bib310-1">ms Londres, British Library, Or. 4404, f. 98v-111v<listRelation>
+                        <relation active="#bib310-8" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-9" source="#bib310-1">ms Paris, Bibliothèque nationale, syr. 309, f. 92-114v<listRelation>
+                        <relation active="#bib310-9" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-10" source="#bib310-1">ms Cambridge, University Library, Add. 2020, f. 141v-153v<listRelation>
+                        <relation active="#bib310-10" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-11" source="#bib310-1">ms Berlin, Königliche Bibliothek, or. quart. 1051 (Assfalg 25), f. 114-127v<listRelation>
+                        <relation active="#bib310-11" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-12" source="#bib310-1">ms Beyrouth, Université Saint-Joseph, Bibliothèque orientale, syr. 18<listRelation>
+                        <relation active="#bib310-12" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-13" source="#bib310-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 85, f. 1-19<listRelation>
+                        <relation active="#bib310-13" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib310-14" source="#bib310-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 593, f. 1v-16<listRelation>
+                        <relation active="#bib310-14" ref="lawd:embodies" passive="http://syriaca.org/work/310"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib310-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">90</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/310" passive="http://syriaca.org/person/1384" source="#bib310-1"/>
+                    <relation active="http://syriaca.org/work/310" passive="http://syriaca.org/person/1384" source="#bib310-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Shalita (text) — <foreign xml:lang="syr">ܫܠܝܛܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-256" ana="#hagiographic">
+            <bibl xml:id="work-256" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name256-1" xml:lang="syr" source="#bib256-1" syriaca-tags="#syriaca-headword">ܫܠܝܛܐ</title>
                 <title xml:id="name256-2" xml:lang="fr-x-bhs" source="#bib256-1">Šalītā</title>
                 <title xml:id="name256-3" xml:lang="fr" source="#bib256-1">Shalita (texte)</title>
                 <title xml:id="name256-4" xml:lang="en" source="#bib256-1" syriaca-tags="#syriaca-headword">Shalita (text)</title>
+                <idno type="URI">http://syriaca.org/work/256</idno>
+                <idno type="BHS">35</idno>
+                <idno type="BHO">1034</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib256-1">
                     <quote>Quand le feu de l’amour divin prend dans le coeur, il ne cesse pas tandis que la chaleur brûle jusqu’à élever l’âme au saint lieu où il n’y a plus de souffrance qui est la terre promise…</quote>
                 </note>
@@ -211,53 +219,60 @@
                 <note xml:lang="fr" type="explicit" source="#bib256-1">
                     <quote>Et il acheva alertement sa course par ces deux luttes, et il reçut en lui-même la vie nouvelle; au jour de la résurrection il recevra entièrement les biens indicibles d’en-haut qui ont été préparés pour ses adorateurs constants comme lui par le Christ leur Seigneur, qui fait triompher ses saints dans les peines de leurs luttes. Amen. C’est lui le vaillant athlète qui a triomphé et vaincu courageusement son service spirituel… Et qu’il n’y ait dans sa maison aucune infirmité, ni la peste ni aucune maladie. Par les prières de Mâr Shalîtâ, qu’ils soient marqués et gardés par le Père… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib256-1" xml:id="bib256-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 1</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 424-465</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-3">copie d’un ms d’Ardichaï (Ourmiah)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-4">ms Londres, British Library, Add. 25875, f. 232v-252v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-5">ms Cambridge (Mass.), Harvard University Library, Syr. 38, f. 83-111v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-6">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, fonds ancien, syr. 11/24</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-7">ms Mardin, Évêché chaldéen, syr. 79</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-8">ms Oxford, Bodleian Library, Syr.e.16, f. 49-69</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-9">ms Londres, British Library, Or. 4528, f. 107-127</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-10">ms Londres, British Library, Or. 9394, f. 83-106v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib256-1">
-                    <bibl xml:id="bib256-11">ms Ourmia, Sarau-Shedd 110</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/256</idno>
-                <idno type="BHS">35</idno>
-                <idno type="BHO">1034</idno>
-                <bibl xml:id="bib256-1">
+                <bibl type="lawd:Edition" source="#bib256-1" xml:id="bib256-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 1</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 424-465</citedRange>
+                    <listRelation>
+                        <relation active="#bib256-2" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-3" source="#bib256-1">copie d’un ms d’Ardichaï (Ourmiah)<listRelation>
+                        <relation active="#bib256-3" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-4" source="#bib256-1">ms Londres, British Library, Add. 25875, f. 232v-252v<listRelation>
+                        <relation active="#bib256-4" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-5" source="#bib256-1">ms Cambridge (Mass.), Harvard University Library, Syr. 38, f. 83-111v<listRelation>
+                        <relation active="#bib256-5" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-6" source="#bib256-1">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, fonds ancien, syr. 11/24<listRelation>
+                        <relation active="#bib256-6" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-7" source="#bib256-1">ms Mardin, Évêché chaldéen, syr. 79<listRelation>
+                        <relation active="#bib256-7" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-8" source="#bib256-1">ms Oxford, Bodleian Library, Syr.e.16, f. 49-69<listRelation>
+                        <relation active="#bib256-8" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-9" source="#bib256-1">ms Londres, British Library, Or. 4528, f. 107-127<listRelation>
+                        <relation active="#bib256-9" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-10" source="#bib256-1">ms Londres, British Library, Or. 9394, f. 83-106v<listRelation>
+                        <relation active="#bib256-10" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib256-11" source="#bib256-1">ms Ourmia, Sarau-Shedd 110<listRelation>
+                        <relation active="#bib256-11" ref="lawd:embodies" passive="http://syriaca.org/work/256"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib256-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">35</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/256" passive="http://syriaca.org/person/733" source="#bib256-1"/>
+                    <relation active="http://syriaca.org/work/256" passive="http://syriaca.org/person/733" source="#bib256-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

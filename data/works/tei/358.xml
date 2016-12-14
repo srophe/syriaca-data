@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Euphrosyne (text) — <foreign xml:lang="syr">ܐܘܦܪܘܣܝܢܝ ܐܙܡܪܓܕܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-358" ana="#hagiographic">
+            <bibl xml:id="work-358" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name358-1" xml:lang="syr" source="#bib358-1" syriaca-tags="#syriaca-headword">ܐܘܦܪܘܣܝܢܝ ܐܙܡܪܓܕܘܣ</title>
                 <title xml:id="name358-2" xml:lang="fr-x-bhs" source="#bib358-1">ʾĒwprōsīnī ʾEzmargḏōs</title>
                 <title xml:id="name358-3" xml:lang="fr" source="#bib358-1">Euphrosyne (texte)</title>
                 <title xml:id="name358-4" xml:lang="en" source="#bib358-1" syriaca-tags="#syriaca-headword">Euphrosyne (text)</title>
+                <idno type="URI">http://syriaca.org/work/358</idno>
+                <idno type="BHS">138</idno>
+                <idno type="BHO">288</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib358-1">
                     <quote>ܐܝܬ ܗܘܐ ܕܝܢ ܒܐܠܟܣܢܕܪܝܐ ܡܕܝܢܬܐ ܒܙܒܢ ܓܒܪܐ ܚܕ ܡܝܩܪܐ: ܕܫܡܗ ܗܘ̣ܐ ܦܦܢܘܛܝܣ: ܕܡܬܬܪܓܡ ܥܒܕܐ ܕܐܠܗܐ: ܘܚܦܝܛ ܗܘ̣ܐ ܒܟܠܫܥ ܕܢܫܡܠܐ ܟܠܗܘܢ ܦܘܩܕܢܘ̈ܗܝ ܕܐܠܗܐ.</quote>
                 </note>
@@ -204,56 +212,61 @@
                 <note xml:lang="fr" type="explicit" source="#bib358-1">
                     <quote>Il vécut dans ce monastère dix ans et il partit vers son Seigneur avec une belle vie; et il fut enterré près des ossements de sa fille Euphrosyne. À Dieu qui lui a donné perfection et victoire, qui l’a gardée du démon dans sa providence et selon la volonté duquel elle a mené au terme le combat de sa vie, gloire et honneur… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib358-1" xml:id="bib358-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 5</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">5</citedRange>
-                        <citedRange>p. 386-405</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib358-1">
-                    <bibl xml:id="bib358-3">Paris, Bibliothèque nationale, syr. 234, f. 213v-221v + ms Londres, British Library, Add. 14649, f. 19-25</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib358-1">
-                    <bibl xml:id="bib358-4">ms Londres, British Library, Add. 12172, f. 25-32v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib358-1">
-                    <bibl xml:id="bib358-5">ms Londres, British Library, Rich. 7190, f. 351v-353v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib358-1">
-                    <bibl xml:id="bib358-6">ms Paris, Bibliothèque nationale, syr. 235, f. 242v-250v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib358-1">
-                    <bibl xml:id="bib358-7">ms Diyarbakir, Archevêché chaldéen, cod. 98</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib358-1">
-                    <bibl xml:id="bib358-8">ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib358-1">
-                    <bibl xml:id="bib358-9">
-                        <editor>M. Kamil</editor>
-                        <title>Sainte Euphrosyne, vierge
+                <bibl type="lawd:Edition" source="#bib358-1" xml:id="bib358-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 5</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">5</citedRange>
+                    <citedRange>p. 386-405</citedRange>
+                    <listRelation>
+                        <relation active="#bib358-2" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib358-3" source="#bib358-1">Paris, Bibliothèque nationale, syr. 234, f. 213v-221v + ms Londres, British Library, Add. 14649, f. 19-25<listRelation>
+                        <relation active="#bib358-3" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib358-4" source="#bib358-1">ms Londres, British Library, Add. 12172, f. 25-32v<listRelation>
+                        <relation active="#bib358-4" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib358-5" source="#bib358-1">ms Londres, British Library, Rich. 7190, f. 351v-353v<listRelation>
+                        <relation active="#bib358-5" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib358-6" source="#bib358-1">ms Paris, Bibliothèque nationale, syr. 235, f. 242v-250v<listRelation>
+                        <relation active="#bib358-6" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib358-7" source="#bib358-1">ms Diyarbakir, Archevêché chaldéen, cod. 98<listRelation>
+                        <relation active="#bib358-7" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib358-8" source="#bib358-1">ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)<listRelation>
+                        <relation active="#bib358-8" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib358-9" source="#bib358-1">
+                    <lang>ar</lang>
+                    <editor>M. Kamil</editor>
+                    <title>Sainte Euphrosyne, vierge
                 d’Alexandrie, dans Tome commémoratif du millénaire de la Bibliothèque patriarcale
                 d’Alexandrie (Publications de l’Institut d’études orientales de la Bibliothèque
                 patriarcale d’Alexandrie, 2), Alexandrie, 1953</title>
-                        <ptr target="http://syriaca.org/bibl/2010"/>
-                        <citedRange unit="pp">231-260</citedRange>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/358</idno>
-                <idno type="BHS">138</idno>
-                <idno type="BHO">288</idno>
-                <bibl xml:id="bib358-1">
+                    <ptr target="http://syriaca.org/bibl/2010"/>
+                    <citedRange unit="pp">231-260</citedRange>
+                    <listRelation>
+                        <relation active="#bib358-9" ref="lawd:embodies" passive="http://syriaca.org/work/358"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib358-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">138</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/358" passive="http://syriaca.org/person/1721" source="#bib358-1"/>
+                    <relation active="http://syriaca.org/work/358" passive="http://syriaca.org/person/1721" source="#bib358-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

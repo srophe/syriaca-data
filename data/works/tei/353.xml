@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Antony (text) — <foreign xml:lang="syr">ܐܢܛܘܢܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-353" ana="#hagiographic">
+            <bibl xml:id="work-353" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name353-1" xml:lang="syr" source="#bib353-1" syriaca-tags="#syriaca-headword">ܐܢܛܘܢܝܣ</title>
                 <title xml:id="name353-2" xml:lang="fr-x-bhs" source="#bib353-1">ʾAnṭōnīs</title>
                 <title xml:id="name353-3" xml:lang="fr" source="#bib353-1">Antoine (texte)</title>
@@ -204,6 +208,11 @@
                         <forename>Athanase</forename>
                         <addName type="untagged-title">d’Alexandrie</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/353</idno>
+                <idno type="BHS">133</idno>
+                <idno type="BHO">68</idno>
+                <idno type="CPG">2101</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib353-1">
                     <quote>Par votre compréhension pour les frères solitaires d’Égypte, vous avez suscité une pensée admirable et un miséricordieux encouragement que votre esprit soit attiré vers la perfection par la méditation constante de ces histoires.</quote>
                 </note>
@@ -222,141 +231,161 @@
                 <note xml:lang="fr" type="explicit" source="#bib353-1">
                     <quote>Le fait montre que ce ne sont pas des dieux, car voilà, ils sont méprisés et piétinés comme des menteurs, et ils sont expulsés comme des brigands et des destructeurs en tout lieu par les croyants. Fin avec l’aide de notre Seigneur de l’histoire… Seigneur des vainqueurs.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib353-1" corresp="#bib353-13 bib353-15" n="1" xml:id="bib353-8">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 5</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">5</citedRange>
-                        <citedRange>p. 1-121 et 701-704 (var.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib353-1" corresp="#bib353-14" n="2" xml:id="bib353-9">
-                        <author>Draguet, R.</author>
-                        <title>La Vie primitive de S. Antoine conservée en syriaque</title>
-                        <ptr target="http://syriaca.org/bibl/1835"/>
-                        <citedRange>Louvain, 1980, p. 1-150</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib353-1" corresp="#bib353-25" n="3" xml:id="bib353-10">
-                        <author>Lewis, A. S., Gibson, M. D.</author>
-                        <title>Palestinian Syriac Texts from Palimpsest Fragments in the Taylor-Schechter Collection</title>
-                        <ptr target="http://syriaca.org/bibl/1887"/>
-                        <citedRange>Londres, 1900 (réimpression Jérusalem, 1971) p. 98-104</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib353-1" corresp="#bib353-16" n="4" xml:id="bib353-11">
-                        <author>Budge, E. A. W.</author>
-                        <title>BP 2</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 3-92 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib353-1" corresp="#bib353-17 bib353-26" n="5" xml:id="bib353-12">
-                        <author>Lewis, A.S.</author>
-                        <title>Apocrypha Syriaca. The Protevangelium Jacobi and Transitus Mariae</title>
-                        <ptr target="http://syriaca.org/bibl/1874"/>
-                        <citedRange>Londres, 1902, p. 142-149</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib353-1">
-                    <bibl xml:id="bib353-13">ms Paris, Bibliothèque nationale, syr. 317, f. 1 + ms Londres, British Library, Add. 14732, f. 19-52 + ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 23r-v et 24-48</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib353-1">
-                    <bibl xml:id="bib353-14">mss Londres, British Library, Add. 14646, f. 1v-80 + Add. 17172, f. 63v-120 + Add. 14732, f. 19-52 + ms. Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 24ra-48ra + ms Cambridge, University Library, Add. 2016, f. 94v-123r + ms Bagdad (olim Mossoul), Patriarcat chaldéen catholique, 801 (olim 94), p. 221-240 + 809 (olim 95), p. 2v-62a + ms Paris, Bibliothèque nationale, syr. 317, f. 1v-42r + ms Dawra, Monastère chaldéen cod. 695 (olim Alqosh, Monastère N.-D. des Semences, cod. 248 Vosté), p. 2-68 + ms Tel Kef ?, f. 1v-43v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib353-1">
-                    <bibl xml:id="bib353-15"> et (5): ms Cambridge, University Library, Taylor-Schechter coll., ? (Lewis-Gibson 29)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib353-1">
-                    <bibl xml:id="bib353-16">ms Lady Meux 6 (?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib353-1">
-                    <bibl xml:id="bib353-17">extrait de Schulthess: mss Londres, British Library, Add. 14646 + Add. 14609 + Add. 14732</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib353-1">
-                    <bibl xml:id="bib353-18">ms Londres, British Library, Or. 5021, f. 1-15v (mutilé du début)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib353-1">
-                    <bibl xml:id="bib353-19">ms Sinai, Monastère Sainte-Catherine, Syr. 1086</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib353-1">
-                    <bibl xml:id="bib353-20">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib353-1">
-                    <bibl xml:id="bib353-21">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib353-1">
-                    <bibl xml:id="bib353-22">
-                        <editor>F. Schulthess</editor>
-                        <ptr target="http://syriaca.org/bibl/834"/>
-                        <citedRange unit="pp" target="https://archive.org/stream/probeeinersyris00schugoog#page/n32">26-48</citedRange>
-                        <note xml:lang="fr">partielle</note>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib353-1">
-                    <bibl xml:id="bib353-23">
-                        <editor>R. Draguet</editor>
-                        <title>CSCO 418 Script. Syri
+                <bibl type="lawd:Edition" source="#bib353-1" xml:id="bib353-8">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 5</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">5</citedRange>
+                    <citedRange>p. 1-121 et 701-704 (var.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib353-8" ref="dct:source" passive="#bib353-13 bib353-15" source="#bib353-1"/>
+                        <relation active="#bib353-8" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib353-1" xml:id="bib353-9">
+                    <author>Draguet, R.</author>
+                    <title>La Vie primitive de S. Antoine conservée en syriaque</title>
+                    <ptr target="http://syriaca.org/bibl/1835"/>
+                    <citedRange>Louvain, 1980, p. 1-150</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib353-9" ref="dct:source" passive="#bib353-14" source="#bib353-1"/>
+                        <relation active="#bib353-9" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib353-1" xml:id="bib353-10">
+                    <author>Lewis, A. S., Gibson, M. D.</author>
+                    <title>Palestinian Syriac Texts from Palimpsest Fragments in the Taylor-Schechter Collection</title>
+                    <ptr target="http://syriaca.org/bibl/1887"/>
+                    <citedRange>Londres, 1900 (réimpression Jérusalem, 1971) p. 98-104</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib353-10" ref="dct:source" passive="#bib353-25" source="#bib353-1"/>
+                        <relation active="#bib353-10" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib353-1" xml:id="bib353-11">
+                    <author>Budge, E. A. W.</author>
+                    <title>BP 2</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 3-92 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib353-11" ref="dct:source" passive="#bib353-16" source="#bib353-1"/>
+                        <relation active="#bib353-11" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib353-1" xml:id="bib353-12">
+                    <author>Lewis, A.S.</author>
+                    <title>Apocrypha Syriaca. The Protevangelium Jacobi and Transitus Mariae</title>
+                    <ptr target="http://syriaca.org/bibl/1874"/>
+                    <citedRange>Londres, 1902, p. 142-149</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib353-12" ref="dct:source" passive="#bib353-17 bib353-26" source="#bib353-1"/>
+                        <relation active="#bib353-12" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-13" source="#bib353-1">ms Paris, Bibliothèque nationale, syr. 317, f. 1 + ms Londres, British Library, Add. 14732, f. 19-52 + ms Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 23r-v et 24-48<listRelation>
+                        <relation active="#bib353-13" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-14" source="#bib353-1">mss Londres, British Library, Add. 14646, f. 1v-80 + Add. 17172, f. 63v-120 + Add. 14732, f. 19-52 + ms. Berlin, Königliche Bibliothek, syr. 26 (Sachau 321), f. 24ra-48ra + ms Cambridge, University Library, Add. 2016, f. 94v-123r + ms Bagdad (olim Mossoul), Patriarcat chaldéen catholique, 801 (olim 94), p. 221-240 + 809 (olim 95), p. 2v-62a + ms Paris, Bibliothèque nationale, syr. 317, f. 1v-42r + ms Dawra, Monastère chaldéen cod. 695 (olim Alqosh, Monastère N.-D. des Semences, cod. 248 Vosté), p. 2-68 + ms Tel Kef ?, f. 1v-43v<listRelation>
+                        <relation active="#bib353-14" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-15" source="#bib353-1"> et (5): ms Cambridge, University Library, Taylor-Schechter coll., ? (Lewis-Gibson 29)<listRelation>
+                        <relation active="#bib353-15" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-16" source="#bib353-1">ms Lady Meux 6 (?)<listRelation>
+                        <relation active="#bib353-16" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-17" source="#bib353-1">extrait de Schulthess: mss Londres, British Library, Add. 14646 + Add. 14609 + Add. 14732<listRelation>
+                        <relation active="#bib353-17" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-18" source="#bib353-1">ms Londres, British Library, Or. 5021, f. 1-15v (mutilé du début)<listRelation>
+                        <relation active="#bib353-18" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-19" source="#bib353-1">ms Sinai, Monastère Sainte-Catherine, Syr. 1086<listRelation>
+                        <relation active="#bib353-19" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib353-20" source="#bib353-1">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib353-20" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib353-21" source="#bib353-1">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib353-21" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib353-22" source="#bib353-1">
+                    <lang>de</lang>
+                    <editor>F. Schulthess</editor>
+                    <ptr target="http://syriaca.org/bibl/834"/>
+                    <citedRange unit="pp" target="https://archive.org/stream/probeeinersyris00schugoog#page/n32">26-48</citedRange>
+                    <note xml:lang="fr">partielle</note>
+                    <listRelation>
+                        <relation active="#bib353-22" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib353-23" source="#bib353-1">
+                    <lang>fr</lang>
+                    <editor>R. Draguet</editor>
+                    <title>CSCO 418 Script. Syri
                 184</title>
-                        <ptr target="http://syriaca.org/bibl/2097"/>
-                        <citedRange unit="pp">1-89</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib353-1">
-                    <bibl xml:id="bib353-24">
-                        <editor>E.A.W. Budge</editor>
-                        <title>BP 1</title>
-                        <ptr target="http://syriaca.org/bibl/1717"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">3-108</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib353-25">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib353-26">The manuscript witnesses for edition 5 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/353</idno>
-                <idno type="BHS">133</idno>
-                <idno type="BHO">68</idno>
-                <idno type="CPG">2101</idno>
-                <bibl xml:id="bib353-1">
+                    <ptr target="http://syriaca.org/bibl/2097"/>
+                    <citedRange unit="pp">1-89</citedRange>
+                    <listRelation>
+                        <relation active="#bib353-23" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib353-24" source="#bib353-1">
+                    <lang>en</lang>
+                    <editor>E.A.W. Budge</editor>
+                    <title>BP 1</title>
+                    <ptr target="http://syriaca.org/bibl/1717"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange unit="pp">3-108</citedRange>
+                    <listRelation>
+                        <relation active="#bib353-24" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-25" source="#bib250-1">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib353-25" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib353-26" source="#bib250-1">The manuscript witnesses for edition 5 are undetermined.<listRelation>
+                        <relation active="#bib353-26" ref="lawd:embodies" passive="http://syriaca.org/work/353"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib353-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">133</citedRange>
                 </bibl>
-                <bibl xml:id="bib353-2">
+                <bibl xml:id="bib353-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Probe einer syrischen Version der Vita St.
                      Antonii</title>
                     <ptr target="http://syriaca.org/bibl/834"/>
                     <citedRange from="1" to="51" unit="pp">1-51 (syr.) <note xml:lang="fr">extrait</note>
                     </citedRange>
                 </bibl>
-                <bibl xml:id="bib353-3">
+                <bibl xml:id="bib353-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">The Greek and Syriac Versions of the Life of
                      Antony</title>
                     <title xml:lang="fr" level="j">Le Muséon</title>
                     <ptr target="http://syriaca.org/bibl/882"/>
                     <citedRange from="29" to="53" unit="pp">29-53</citedRange>
                 </bibl>
-                <bibl xml:id="bib353-4">
+                <bibl xml:id="bib353-4" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La «Vie d’Antoine» et le chanoine René
                      Draguet</title>
                     <title xml:lang="fr" level="m">Archéologie et philologie dans l’étude des
@@ -365,7 +394,7 @@
                     <ptr target="http://syriaca.org/bibl/883"/>
                     <citedRange from="287" to="297" unit="pp">287-297</citedRange>
                 </bibl>
-                <bibl xml:id="bib353-5">
+                <bibl xml:id="bib353-5" type="lawd:Citation">
                     <title xml:lang="de" level="a">Vertritt die syrische Fassung die ursprungliche
                      Gestalt der Vita Antonii? Eine Auseinandersetzung mit der These
                      Draguets</title>
@@ -375,14 +404,14 @@
                     <ptr target="http://syriaca.org/bibl/884"/>
                     <citedRange from="47" to="56" unit="pp">47-56</citedRange>
                 </bibl>
-                <bibl xml:id="bib353-6">
+                <bibl xml:id="bib353-6" type="lawd:Citation">
                     <title xml:lang="de" level="a">Die griechische Vita Antonii des Athanasius und
                      ihre syrische Fassung</title>
                     <title xml:lang="de" level="j">Zeitschrift für Kirchengeschichte</title>
                     <ptr target="http://syriaca.org/bibl/885"/>
                     <citedRange from="77" to="84" unit="pp">77-84</citedRange>
                 </bibl>
-                <bibl xml:id="bib353-7">
+                <bibl xml:id="bib353-7" type="lawd:Citation">
                     <title xml:lang="en" level="a">Angel of Light or Mystic Initiate? The Problem of
                      the Life of Antony</title>
                     <title level="m" xml:lang="en">The Journal of Theological Studies</title>
@@ -390,7 +419,7 @@
                     <citedRange from="353" to="368" unit="pp">353-368</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/353" passive="http://syriaca.org/person/1594" source="#bib353-1"/>
+                    <relation active="http://syriaca.org/work/353" passive="http://syriaca.org/person/1594" source="#bib353-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

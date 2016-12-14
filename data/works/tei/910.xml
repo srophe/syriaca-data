@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">John the Short (text) — <foreign xml:lang="syr">ܝܘܚܢܢ ܙܥܘܪܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-27+02:00">CHANGED: Corrected multiple author and author role info</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-03-21">Corrected ms witness information from Nau, ROC.</change>
@@ -190,7 +194,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-910" ana="#hagiographic">
+            <bibl xml:id="work-910" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name910-1" xml:lang="syr" source="#bib910-1" syriaca-tags="#syriaca-headword">ܝܘܚܢܢ ܙܥܘܪܐ</title>
                 <title xml:id="name910-2" xml:lang="fr-x-bhs" source="#bib910-1">Yôḥanān zʿōrā</title>
                 <title xml:id="name910-3" xml:lang="fr" source="#bib910-1">Jean le Petit (texte)</title>
@@ -209,6 +213,9 @@
                         <roleName type="office">évêque de <placeName ref="http://syriaca.org/place/1467">Sakha</placeName>
                         </roleName>
                     </persName>)</editor>
+                <idno type="URI">http://syriaca.org/work/910</idno>
+                <idno type="BHS">706</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib910-1">
                     <quote>Une histoire sublime, louable et céleste, très étonnante pour nos âmes, est dite devant vous, assemblée des saints Pères.</quote>
                 </note>
@@ -227,65 +234,74 @@
                 <note xml:lang="fr" type="explicit" source="#bib910-1">
                     <quote>Et il est parvenu près du Christ son Seigneur, et il a revêtu la couronna à sa droite, comme l’a dit notre Seigneur dans son Évangile: “Comme moi je suis, là sera aussi mon serviteur.” Et maintenant, mes bien-aimés, ce que vous nous avez entendu dire des hauts faits du saint Abbâ Jean est comme nous l’avons trouvé selon notre force… et que soit renforcée notre espérance de profiter avec lui de cet héritage céleste, par les prières et les supplications de la sainte Vierge… Amen. Et sur tous ceux qui font mémoire du saint Abba Jean… et que la droite de sa miséricorde les couvre maintenant… Amen. Et qu’il empêche les disputes entre eux, lui à qui… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib910-1" corresp="#bib910-4" n="1" xml:id="bib910-2">
-                        <author>Nau, F.</author>
-                        <title>Histoire de Jean le Petit hégoumène de Scété au IVe siècle</title>
-                        <ptr target="http://syriaca.org/bibl/1954"/>
-                        <citedRange>Paris, 1914, p. V-LXXVI</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib910-1" corresp="#bib910-4" n="2" xml:id="bib910-3">
-                        <author>Nau, F.</author>
-                        <title>La Version syriaque de l’Histoire de Jean le Petit</title>
-                        <ptr target="http://syriaca.org/bibl/1708"/>
-                        <citedRange>2e sér. 7 (1912), p. 351-375; 8 (1913), p. 53-62, 124-130, 283-298; 9 (1914), p. 33-48</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib910-1">
-                    <bibl xml:id="bib910-4"> et (2): ms Paris, Bibliothèque nationale, syr. 235, f. 91v-125 + ms Londres, British Library, Add. 14732, f. 90v-113</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib910-1">
-                    <bibl xml:id="bib910-5">ms Londres, British Library, Add. 14728, f. 42v-49 (extrait)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib910-1">
-                    <bibl xml:id="bib910-6">ms Londres, British Library, Add. 14645, f. 396v-430v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib910-1">
-                    <bibl xml:id="bib910-7">ms Cambridge, University Library, Add. 2016, f. 1-20 (incomplet)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib910-1">
-                    <bibl xml:id="bib910-8">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 2-6</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib910-1">
-                    <bibl xml:id="bib910-9">
-                        <title>BHO</title>
-                        <ptr target="http://syriaca.org/bibl/1314"/>
-                        <citedRange unit="entry">509</citedRange>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib910-1">
-                    <bibl xml:id="bib910-10">
-                        <editor>Nau, F.</editor>
-                        <title>Histoire de Jean le Petit hégoumène de Scété au IVe siècle</title>
-                        <ptr target="http://syriaca.org/bibl/1954"/>
-                        <citedRange unit="pp">1-40</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/910</idno>
-                <idno type="BHS">706</idno>
-                <bibl xml:id="bib910-1">
+                <bibl type="lawd:Edition" source="#bib910-1" xml:id="bib910-2">
+                    <author>Nau, F.</author>
+                    <title>Histoire de Jean le Petit hégoumène de Scété au IVe siècle</title>
+                    <ptr target="http://syriaca.org/bibl/1954"/>
+                    <citedRange>Paris, 1914, p. V-LXXVI</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib910-2" ref="dct:source" passive="#bib910-4" source="#bib910-1"/>
+                        <relation active="#bib910-2" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib910-1" xml:id="bib910-3">
+                    <author>Nau, F.</author>
+                    <title>La Version syriaque de l’Histoire de Jean le Petit</title>
+                    <ptr target="http://syriaca.org/bibl/1708"/>
+                    <citedRange>2e sér. 7 (1912), p. 351-375; 8 (1913), p. 53-62, 124-130, 283-298; 9 (1914), p. 33-48</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib910-3" ref="dct:source" passive="#bib910-4" source="#bib910-1"/>
+                        <relation active="#bib910-3" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib910-4" source="#bib910-1"> et (2): ms Paris, Bibliothèque nationale, syr. 235, f. 91v-125 + ms Londres, British Library, Add. 14732, f. 90v-113<listRelation>
+                        <relation active="#bib910-4" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib910-5" source="#bib910-1">ms Londres, British Library, Add. 14728, f. 42v-49 (extrait)<listRelation>
+                        <relation active="#bib910-5" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib910-6" source="#bib910-1">ms Londres, British Library, Add. 14645, f. 396v-430v<listRelation>
+                        <relation active="#bib910-6" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib910-7" source="#bib910-1">ms Cambridge, University Library, Add. 2016, f. 1-20 (incomplet)<listRelation>
+                        <relation active="#bib910-7" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib910-8" source="#bib910-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 2-6<listRelation>
+                        <relation active="#bib910-8" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib910-9" source="#bib910-1">
+                    <lang>cop</lang>
+                    <title>BHO</title>
+                    <ptr target="http://syriaca.org/bibl/1314"/>
+                    <citedRange unit="entry">509</citedRange>
+                    <listRelation>
+                        <relation active="#bib910-9" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib910-10" source="#bib910-1">
+                    <lang>fr</lang>
+                    <editor>Nau, F.</editor>
+                    <title>Histoire de Jean le Petit hégoumène de Scété au IVe siècle</title>
+                    <ptr target="http://syriaca.org/bibl/1954"/>
+                    <citedRange unit="pp">1-40</citedRange>
+                    <listRelation>
+                        <relation active="#bib910-10" ref="lawd:embodies" passive="http://syriaca.org/work/910"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib910-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">706</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/910" passive="http://syriaca.org/person/1823" source="#bib910-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/910" passive="http://syriaca.org/person/2820" source="#bib910-1"/>
+                    <relation active="http://syriaca.org/work/910" passive="http://syriaca.org/person/1823" source="#bib910-1" ref="syriaca:commemorated"/>
+                    <relation active="http://syriaca.org/work/910" passive="http://syriaca.org/person/2820" source="#bib910-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

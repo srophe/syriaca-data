@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Abgar (text) — <foreign xml:lang="syr">ܐܒܓܪ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -183,7 +187,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1813" ana="#hagiographic">
+            <bibl xml:id="work-1813" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1813-1" xml:lang="syr" source="#bib1813-1" syriaca-tags="#syriaca-headword">ܐܒܓܪ</title>
                 <title xml:id="name1813-2" xml:lang="fr-x-bhs" source="#bib1813-1">ʾAḇgar</title>
                 <title xml:id="name1813-3" xml:lang="fr" source="#bib1813-1">Abgar (texte)</title>
@@ -199,28 +203,31 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">de Serugh</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1813</idno>
+                <idno type="BHS">1754</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1813-1">
                     <quote>ܝܫܘܥ ܢܗܪܐ ܕܠܛܠܠܐ ܒܕܢܚܗ ܐܥܪܩ...</quote>
                 </note>
                 <note xml:lang="fr" type="incipit" source="#bib1813-1">
                     <quote>Jésus lumière qui par ton apparition a éloigné les ténèbres…</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1813-1">
-                    <bibl xml:id="bib1813-2">ms Damas Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 156 (Baumstark Litur. 43)), f. 56-59v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1813-1">
-                    <bibl xml:id="bib1813-3">ms Mardin, Évêché syrien orthodoxe, cod. 137 (olim ms Dayr az-Za‘faran, cod. pap. 64 (Dolabany))</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1813</idno>
-                <idno type="BHS">1754</idno>
-                <bibl xml:id="bib1813-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1813-2" source="#bib1813-1">ms Damas Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 156 (Baumstark Litur. 43)), f. 56-59v<listRelation>
+                        <relation active="#bib1813-2" ref="lawd:embodies" passive="http://syriaca.org/work/1813"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1813-3" source="#bib1813-1">ms Mardin, Évêché syrien orthodoxe, cod. 137 (olim ms Dayr az-Za‘faran, cod. pap. 64 (Dolabany))<listRelation>
+                        <relation active="#bib1813-3" ref="lawd:embodies" passive="http://syriaca.org/work/1813"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1813-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1754</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1813" passive="http://syriaca.org/person/2823" source="#bib1813-1"/>
+                    <relation active="http://syriaca.org/work/1813" passive="http://syriaca.org/person/2823" source="#bib1813-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

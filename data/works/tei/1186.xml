@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Tahmazgerd (text) — <foreign xml:lang="syr">ܛܗܡܙܓܪܕ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1186" ana="#hagiographic">
+            <bibl xml:id="work-1186" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1186-1" xml:lang="syr" source="#bib1186-1" syriaca-tags="#syriaca-headword">ܛܗܡܙܓܪܕ</title>
                 <title xml:id="name1186-2" xml:lang="fr-x-bhs" source="#bib1186-1">Ṭahmazgerd</title>
                 <title xml:id="name1186-3" xml:lang="fr" source="#bib1186-1">Tahmazgerd (texte)</title>
@@ -199,6 +203,10 @@
                         <forename>Georges</forename>
                         <addName type="family">Warda</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1186</idno>
+                <idno type="BHS">1026</idno>
+                <idno type="BHO">1136</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1186-1">
                     <quote>ܫܪܒܐ ܕܣܗ̈ܕܐ ܫܡܥܬ ܗܘܝܬ ܘܕܚܠܬ ܘܙܥܬ. ܘܐܬܪܗܒܬ ܗܘܝܬ ܕܫܡܥܬ ܫܡ̈ܥܐ ܡܕܠܚܢ̈ܐ ܘܛܒ̈ܐ ܕܚܝ̈ܠܐ. ܘܡܡܪܡܪ̈ܢܐ ܕܕܠܚܝܢ ܠܢܦܫܐ ܘܠܦܓܪܐ ܘܡܡܚܠܝܢ ܠܓܪ̈ܡܐ ܘܠܒܣܪܐ.</quote>
                 </note>
@@ -211,57 +219,64 @@
                 <note xml:lang="fr" type="explicit" source="#bib1186-1">
                     <quote>Et sur l’auteur et sur le lecteur et sur toute l’assemblée des hommes et des femmes qui se font mémoire d’eux dans la foi et leur demandent des prières, à eux, justes martyrs qui ont été offert pour toi; donne-nous avec eux part à ta miséricorde.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1186-1" xml:id="bib1186-2">
-                        <author>Hilgenfeld, H.</author>
-                        <title>Ausgewählte Gesänge des Giwargis Warda von Arbel</title>
-                        <ptr target="http://syriaca.org/bibl/1852"/>
-                        <citedRange>Leipzig, 1904, p. 37-40 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-3">mss Berlin, Königliche Bibliothek, Syr. 63 (= Sachau 188), f. 132v-134 + Syr. 64 (= Sachau 330), f. 134v-136 + ms Vatican, Syr. 184, f. 154-156</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-4">ms Vatican, Syr. 499, f. 125-126v + Syr. 567, f. 155-157 + Borg. Syr. 40, f. 131v-133 + Borg. Syr. 60, f. 333-334</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-5">ms Berlin, Königliche Bibliothek, syr. 43 (orient. fol. 620), f. 308v-</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-6">mss Cambridge, Univesity Library, Add. 1980, f. 337-339 + Add. 1982, f. 146v-148</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-7">ms Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales, fonds oriental ancien 3 (Pigulevskaya 68), f. 126-128</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-8">ms Londres, British Library, Or. 8678, f. 154v-156v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-9">ms Londres, British Library, Or. 7460, f. 150-152</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1186-1">
-                    <bibl xml:id="bib1186-10">ms Londres, British Library, Or. 9357, f. 123v-125</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1186-1">
-                    <bibl xml:id="bib1186-11">
-                        <editor>H. Hilgenfeld</editor>
-                        <ptr target="http://syriaca.org/bibl/1852"/>
-                        <citedRange unit="pp">74-79</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1186</idno>
-                <idno type="BHS">1026</idno>
-                <idno type="BHO">1136</idno>
-                <bibl xml:id="bib1186-1">
+                <bibl type="lawd:Edition" source="#bib1186-1" xml:id="bib1186-2">
+                    <author>Hilgenfeld, H.</author>
+                    <title>Ausgewählte Gesänge des Giwargis Warda von Arbel</title>
+                    <ptr target="http://syriaca.org/bibl/1852"/>
+                    <citedRange>Leipzig, 1904, p. 37-40 (syr.)</citedRange>
+                    <listRelation>
+                        <relation active="#bib1186-2" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-3" source="#bib1186-1">mss Berlin, Königliche Bibliothek, Syr. 63 (= Sachau 188), f. 132v-134 + Syr. 64 (= Sachau 330), f. 134v-136 + ms Vatican, Syr. 184, f. 154-156<listRelation>
+                        <relation active="#bib1186-3" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-4" source="#bib1186-1">ms Vatican, Syr. 499, f. 125-126v + Syr. 567, f. 155-157 + Borg. Syr. 40, f. 131v-133 + Borg. Syr. 60, f. 333-334<listRelation>
+                        <relation active="#bib1186-4" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-5" source="#bib1186-1">ms Berlin, Königliche Bibliothek, syr. 43 (orient. fol. 620), f. 308v-<listRelation>
+                        <relation active="#bib1186-5" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-6" source="#bib1186-1">mss Cambridge, Univesity Library, Add. 1980, f. 337-339 + Add. 1982, f. 146v-148<listRelation>
+                        <relation active="#bib1186-6" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-7" source="#bib1186-1">ms Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales, fonds oriental ancien 3 (Pigulevskaya 68), f. 126-128<listRelation>
+                        <relation active="#bib1186-7" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-8" source="#bib1186-1">ms Londres, British Library, Or. 8678, f. 154v-156v<listRelation>
+                        <relation active="#bib1186-8" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-9" source="#bib1186-1">ms Londres, British Library, Or. 7460, f. 150-152<listRelation>
+                        <relation active="#bib1186-9" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1186-10" source="#bib1186-1">ms Londres, British Library, Or. 9357, f. 123v-125<listRelation>
+                        <relation active="#bib1186-10" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1186-11" source="#bib1186-1">
+                    <lang>de</lang>
+                    <editor>H. Hilgenfeld</editor>
+                    <ptr target="http://syriaca.org/bibl/1852"/>
+                    <citedRange unit="pp">74-79</citedRange>
+                    <listRelation>
+                        <relation active="#bib1186-11" ref="lawd:embodies" passive="http://syriaca.org/work/1186"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1186-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1026</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1186" passive="http://syriaca.org/person/1493" source="#bib1186-1"/>
+                    <relation active="http://syriaca.org/work/1186" passive="http://syriaca.org/person/1493" source="#bib1186-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

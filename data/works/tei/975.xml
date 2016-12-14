@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Second Finding of the Cross (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -66,7 +63,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -75,7 +72,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -91,8 +88,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -110,8 +110,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -174,6 +177,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-11-03+01:00">Added edition and translation suggested by Zanetti</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -191,9 +195,13 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-975" ana="#hagiographic">
+            <bibl xml:id="work-975" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name975-3" xml:lang="fr" source="#bib975-1">Croix (seconde invention de la) (texte)</title>
                 <title xml:id="name975-4" xml:lang="en" source="#bib975-1" syriaca-tags="#syriaca-headword">The Second Finding of the Cross (text)</title>
+                <idno type="URI">http://syriaca.org/work/975</idno>
+                <idno type="BHS">783</idno>
+                <idno type="BHO">217</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib975-1">
                     <quote>ܒܫܢܬ ܬܠܬܡܐܐ ܘܚܡܫܝܢ ܘܚܕܐ ܒܡܠܟܘܬܗ ܕܪܚܡ ܐܠܗܐ ܩܘܣܛܢܛܝܢܘܣ ܛܝܒܘܬܐ ܩܕܝܫܬܐ ܘܡܚܝܢܝܬܐ ܕܪܘܚܐ ܕܩܘܕܫܐ ܐܫܘܝܬ ܠܡܗܝܡܢܬܐ ܗܠܢܐ ܐܡܗ ܕܝܠܗ ܕܩܘܣܛܢܛܝܢܣ ܠܡܘܗܒܬܐ ܪܒܬܐ ܘܡܝܬܪܬܐ.</quote>
                 </note>
@@ -206,88 +214,94 @@
                 <note xml:lang="fr" type="explicit" source="#bib975-1">
                     <quote>Et elle ordonna à tous ceux qui croient dans le Christ, hommes et femmes, de faire mémoire de la découverte de la Croix d’année en année tant qu’ils vivraient. Et que tous ceux qui connaissent la croix et la commémorent aient une part avec Marie la bienheureuse Mère de Dieu dans les siècles des siècles. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib975-1" xml:id="bib975-4">
-                        <author>Nestle, E.</author>
-                        <title>De sancta Cruce. Ein Beitrag zur christlichen Legendengeschichte</title>
-                        <ptr target="http://syriaca.org/bibl/1903"/>
-                        <citedRange>Berlin, 1889, p. 25-36</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl xml:id="bib975-11">
-                        <title level="m">The finding of the True Cross: The Judas Kyriakos legend in Syriac: Introduction, text, and translation</title>
-                        <ptr target="http://syriaca.org/bibl/2326"/>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib975-1">
-                    <bibl xml:id="bib975-5">ms Londres, British Library, Add. 14644, f. 18-23v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib975-1">
-                    <bibl xml:id="bib975-6">ms Vatican, Syr. 623, f. 212-222v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib975-1">
-                    <bibl xml:id="bib975-7">ms Londres, British Library, Or. 4404, f. 128v-131v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib975-1">
-                    <bibl xml:id="bib975-8">
-                        <editor>E. Nestle</editor>
-                        <ptr target="http://syriaca.org/bibl/1903"/>
-                        <citedRange unit="pp">55-64</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib975-1">
-                    <bibl xml:id="bib975-9">
-                        <editor>I. Pizzi</editor>
-                        <title>Due legende siriache intorno
+                <bibl type="lawd:Edition" source="#bib975-1" xml:id="bib975-4">
+                    <author>Nestle, E.</author>
+                    <title>De sancta Cruce. Ein Beitrag zur christlichen Legendengeschichte</title>
+                    <ptr target="http://syriaca.org/bibl/1903"/>
+                    <citedRange>Berlin, 1889, p. 25-36</citedRange>
+                    <listRelation>
+                        <relation active="#bib975-4" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib975-11">
+                    <title level="m">The finding of the True Cross: The Judas Kyriakos legend in Syriac: Introduction, text, and translation</title>
+                    <ptr target="http://syriaca.org/bibl/2326"/>
+                    <listRelation>
+                        <relation active="#bib975-11" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib975-5" source="#bib975-1">ms Londres, British Library, Add. 14644, f. 18-23v<listRelation>
+                        <relation active="#bib975-5" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib975-6" source="#bib975-1">ms Vatican, Syr. 623, f. 212-222v<listRelation>
+                        <relation active="#bib975-6" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib975-7" source="#bib975-1">ms Londres, British Library, Or. 4404, f. 128v-131v<listRelation>
+                        <relation active="#bib975-7" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib975-8" source="#bib975-1">
+                    <lang>de</lang>
+                    <editor>E. Nestle</editor>
+                    <ptr target="http://syriaca.org/bibl/1903"/>
+                    <citedRange unit="pp">55-64</citedRange>
+                    <listRelation>
+                        <relation active="#bib975-8" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib975-9" source="#bib975-1">
+                    <lang>it</lang>
+                    <editor>I. Pizzi</editor>
+                    <title>Due legende siriache intorno
                 all’invenzione della Croce, dans Giornale Arcadico, sér. 3, 2
                 (1899)</title>
-                        <ptr target="http://syriaca.org/bibl/2070"/>
-                        <citedRange unit="pp">346-354</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib975-1">
-                    <bibl xml:id="bib975-10">
-                        <editor>J.W. Drijvers</editor>
-                        <title>Helena Augusta: waarheid en
+                    <ptr target="http://syriaca.org/bibl/2070"/>
+                    <citedRange unit="pp">346-354</citedRange>
+                    <listRelation>
+                        <relation active="#bib975-9" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib975-10" source="#bib975-1">
+                    <lang>nl</lang>
+                    <editor>J.W. Drijvers</editor>
+                    <title>Helena Augusta: waarheid en
                 legende, Groningen, 1989</title>
-                        <ptr target="http://syriaca.org/bibl/2001"/>
-                        <citedRange unit="pp">172-180</citedRange>
-                        <lang>nl</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation">
-                    <bibl xml:id="bib975-12">
-                        <title level="m">The finding of the True Cross: The Judas Kyriakos legend in Syriac: Introduction, text, and translation</title>
-                        <ptr target="http://syriaca.org/bibl/2326"/>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/975</idno>
-                <idno type="BHS">783</idno>
-                <idno type="BHO">217</idno>
-                <bibl xml:id="bib975-1">
+                    <ptr target="http://syriaca.org/bibl/2001"/>
+                    <citedRange unit="pp">172-180</citedRange>
+                    <listRelation>
+                        <relation active="#bib975-10" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib975-12" source="">
+                    <lang>en</lang>
+                    <title level="m">The finding of the True Cross: The Judas Kyriakos legend in Syriac: Introduction, text, and translation</title>
+                    <ptr target="http://syriaca.org/bibl/2326"/>
+                    <listRelation>
+                        <relation active="#bib975-12" ref="lawd:embodies" passive="http://syriaca.org/work/975"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib975-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">783</citedRange>
                 </bibl>
-                <bibl xml:id="bib975-2">
+                <bibl xml:id="bib975-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Die Kreuzauffindungslegende. Untersuchungen über
                      ihre altchristlichen Fassungen mit besonderer Berücksichtigung der syrischen
                      Texte</title>
                     <ptr target="http://syriaca.org/bibl/717"/>
                     <citedRange from="1" to="81" unit="pp">1-81</citedRange>
                 </bibl>
-                <bibl xml:id="bib975-3">
+                <bibl xml:id="bib975-3" type="lawd:Citation">
                     <title level="m" xml:lang="nl">Helena Augusta: waarheid en legende</title>
                     <ptr target="http://syriaca.org/bibl/718"/>
                     <citedRange from="172" to="186" unit="pp">172-186</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/975" passive="http://syriaca.org/person/1661" source="#bib975-1"/>
+                    <relation active="http://syriaca.org/work/975" passive="http://syriaca.org/person/1661" source="#bib975-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

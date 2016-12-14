@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Euphemia and Sophia (text) — <foreign xml:lang="syr">ܐܘܦܡܝܐ ܘܣܘܦܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-930" ana="#hagiographic">
+            <bibl xml:id="work-930" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name930-1" xml:lang="syr" source="#bib930-1" syriaca-tags="#syriaca-headword">ܐܘܦܡܝܐ ܘܣܘܦܝܐ</title>
                 <title xml:id="name930-2" xml:lang="fr-x-bhs" source="#bib930-1">ʾEwpimīyā w-Sōpīyā</title>
                 <title xml:id="name930-3" xml:lang="fr" source="#bib930-1">Euphémie et Sophie (texte)</title>
                 <title xml:id="name930-4" xml:lang="en" source="#bib930-1" syriaca-tags="#syriaca-headword">Euphemia and Sophia (text)</title>
+                <idno type="URI">http://syriaca.org/work/930</idno>
+                <idno type="BHS">727</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib930-1">
                     <quote>Aujourd’hui nous devons chanter avec le prophète spirituel David: “Le Seigneur est proche des coeurs brisés et il sauve les esprits humbles.”</quote>
                 </note>
@@ -211,63 +218,70 @@
                 <note xml:lang="fr" type="explicit" source="#bib930-1">
                     <quote>Alors ils l’emmenèrent et le firent sortir de la ville et il reçut la sentence de l’épée; et à cause de beaucoup de persuasion il fut préservé du feu. Et tous glorifièrent et rendirent grâce à Dieu qui fait la volonté de ceux qui le craignent, qui écoute et reçoit la prière de ceux qui se rassemblent à sa porte et se réfugient en ses saints. À lui la gloire… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib930-1" corresp="#bib930-7" n="1" xml:id="bib930-5">
-                        <author>Burkitt, F. C.</author>
-                        <title>Euphemia and the Goth</title>
-                        <ptr target="http://syriaca.org/bibl/1785"/>
-                        <citedRange>Londres-Oxford, 1913, p. 44-74 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib930-1" corresp="#bib930-8" n="2" xml:id="bib930-6">
-                        <author>Nau, F.</author>
-                        <title>Hagiographie syriaque</title>
-                        <ptr target="http://syriaca.org/bibl/1909"/>
-                        <citedRange>2e sér. 5 (1910), p. 66-72, 173-181</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib930-1">
-                    <bibl xml:id="bib930-7">ms Londres, British Library, Add. 14649, f. 114-120v + ms Paris, Bibliothèque nationale, syr. 234, f. 299-308</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib930-1">
-                    <bibl xml:id="bib930-8">ms Paris, Bibliothèque nationale, syr. 234, f. 299-308</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib930-1">
-                    <bibl xml:id="bib930-9">
-                        <editor>F. Nau</editor>
-                        <ptr target="http://syriaca.org/bibl/1909"/>
-                        <citedRange unit="pp">182-191</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib930-1">
-                    <bibl xml:id="bib930-10">
-                        <editor>F. C. Burkitt</editor>
-                        <ptr target="http://syriaca.org/bibl/1785"/>
-                        <citedRange unit="pp">129-153</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib930-1">
-                    <bibl xml:id="bib930-11">
-                        <editor>A.V. Pajkova</editor>
-                        <title>Legendy i skazanija v
+                <bibl type="lawd:Edition" source="#bib930-1" xml:id="bib930-5">
+                    <author>Burkitt, F. C.</author>
+                    <title>Euphemia and the Goth</title>
+                    <ptr target="http://syriaca.org/bibl/1785"/>
+                    <citedRange>Londres-Oxford, 1913, p. 44-74 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib930-5" ref="dct:source" passive="#bib930-7" source="#bib930-1"/>
+                        <relation active="#bib930-5" ref="lawd:embodies" passive="http://syriaca.org/work/930"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib930-1" xml:id="bib930-6">
+                    <author>Nau, F.</author>
+                    <title>Hagiographie syriaque</title>
+                    <ptr target="http://syriaca.org/bibl/1909"/>
+                    <citedRange>2e sér. 5 (1910), p. 66-72, 173-181</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib930-6" ref="dct:source" passive="#bib930-8" source="#bib930-1"/>
+                        <relation active="#bib930-6" ref="lawd:embodies" passive="http://syriaca.org/work/930"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib930-7" source="#bib930-1">ms Londres, British Library, Add. 14649, f. 114-120v + ms Paris, Bibliothèque nationale, syr. 234, f. 299-308<listRelation>
+                        <relation active="#bib930-7" ref="lawd:embodies" passive="http://syriaca.org/work/930"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib930-8" source="#bib930-1">ms Paris, Bibliothèque nationale, syr. 234, f. 299-308<listRelation>
+                        <relation active="#bib930-8" ref="lawd:embodies" passive="http://syriaca.org/work/930"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib930-9" source="#bib930-1">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <ptr target="http://syriaca.org/bibl/1909"/>
+                    <citedRange unit="pp">182-191</citedRange>
+                    <listRelation>
+                        <relation active="#bib930-9" ref="lawd:embodies" passive="http://syriaca.org/work/930"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib930-10" source="#bib930-1">
+                    <lang>en</lang>
+                    <editor>F. C. Burkitt</editor>
+                    <ptr target="http://syriaca.org/bibl/1785"/>
+                    <citedRange unit="pp">129-153</citedRange>
+                    <listRelation>
+                        <relation active="#bib930-10" ref="lawd:embodies" passive="http://syriaca.org/work/930"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib930-11" source="#bib930-1">
+                    <lang>ru</lang>
+                    <editor>A.V. Pajkova</editor>
+                    <title>Legendy i skazanija v
                 pamjatnikax sirijskoj agiografii, dans PalSb, 30 (93) (1990)</title>
-                        <ptr target="http://syriaca.org/bibl/2061"/>
-                        <citedRange unit="pp">95-100</citedRange>
-                        <lang>ru</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/930</idno>
-                <idno type="BHS">727</idno>
-                <bibl xml:id="bib930-1">
+                    <ptr target="http://syriaca.org/bibl/2061"/>
+                    <citedRange unit="pp">95-100</citedRange>
+                    <listRelation>
+                        <relation active="#bib930-11" ref="lawd:embodies" passive="http://syriaca.org/work/930"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib930-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">727</citedRange>
                 </bibl>
-                <bibl xml:id="bib930-2">
+                <bibl xml:id="bib930-2" type="lawd:Citation">
                     <title xml:lang="ru-Latn-iso9r95" level="a">Povest' o Evfimii i gote (k voprosu ob opredelenii âzyka originala)</title>
                     <title xml:lang="ru" level="a">Повесть о Евфимии и готе (к вопросу об определении языка оригинала)</title>
                     <title level="j" xml:lang="ru-Latn-iso9r95">Palestinskij sbornik</title>
@@ -275,13 +289,13 @@
                     <ptr target="http://syriaca.org/bibl/736"/>
                     <citedRange from="86" to="101" unit="pp">86-101</citedRange>
                 </bibl>
-                <bibl xml:id="bib930-3">
+                <bibl xml:id="bib930-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">CR de l’éd. de Burkitt</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/737"/>
                     <citedRange from="69" to="70" unit="pp">69-70</citedRange>
                 </bibl>
-                <bibl xml:id="bib930-4">
+                <bibl xml:id="bib930-4" type="lawd:Citation">
                     <title level="a" xml:lang="ru-Latn-iso9r95">K voprosu o vozniknovenii
                      belletrističeskogo povestvovaniâ v sirijskoj literature</title>
                     <title level="a" xml:lang="ru">К вопросу о возникновении беллетристического
@@ -292,7 +306,7 @@
                     <citedRange from="173" to="178" unit="pp">173-178</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/930" passive="http://syriaca.org/person/1720" source="#bib930-1"/>
+                    <relation active="http://syriaca.org/work/930" passive="http://syriaca.org/person/1720" source="#bib930-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

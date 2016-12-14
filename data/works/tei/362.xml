@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Malke (text) — <foreign xml:lang="syr">ܡܠܟܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-362" ana="#hagiographic">
+            <bibl xml:id="work-362" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name362-1" xml:lang="syr" source="#bib362-1" syriaca-tags="#syriaca-headword">ܡܠܟܐ</title>
                 <title xml:id="name362-2" xml:lang="fr-x-bhs" source="#bib362-1">Malḵē</title>
                 <title xml:id="name362-3" xml:lang="fr" source="#bib362-1">Malké de Clysma (texte)</title>
@@ -203,6 +207,10 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Élisée</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/362</idno>
+                <idno type="BHS">142</idno>
+                <idno type="BHO">587</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib362-1">
                     <quote>À toute la communauté des fils de la sainte Église, qui ont la foi en Jésus-Christ et en ses saints je veux manifester et montrer la vie de vertu, les hauts faits et les belles peines apaisées et calmées par Dieu de celui qui, dès son enfance et jusqu’à sa vieillesse commença et finit en elles.</quote>
                 </note>
@@ -218,64 +226,75 @@
                 <note xml:lang="fr" type="explicit" source="#bib362-1">
                     <quote>Et Salomon d’Arkah choisit de faire au grand Mâr Malké une autre commémoration le premier Éloul; et il associa à cette commémoration l’ascète Euthélios; par leurs prières et leur intercession… Amen. Cette histoire du valeureux et bienheureux Mâr Malké a été composée par Élisée son frère spirituel de Clysma… par ses prières… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib362-1" xml:id="bib362-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 5</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">5</citedRange>
-                        <citedRange>p. 421-469</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-4">ms Paris, Bibliothèque nationale, syr. 236, f. 86-112 + ms Londres, British Library, Add. 14733, f. 83v-94v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-5">ms Dehok, Église de la Vierge, cod. 52 ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-6">ms Dawra, Monastère chaldéen, cod. 635 (olim Alqosh, Monastère N.-D. des Semences, cod. 211 Vosté?), f. 105-126</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-7">ms Alqosh, Monstère N.-D. des Semences, cod. 215 (Vosté) (ms perdu ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-8">ms Vatican, Borg. Syr. 39, f. 162v-181 (mutilié au milieu)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-9">ms Cambridge (Mass.), Harvard University Library, Syr. 43, f. 11- ? (fgts)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-10">ms Jérusalem, Patriarcat grec orthodoxe, syr. 17, f. 147-153v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-11">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 85, f. 139-166v + Syr. 593, f. 106-124</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-12">ms Damas, Patriarcat syrien orthodoxe, cod.12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-13">ms Londres, British Library, Or. 9391, p. 196-253 (mutilé au milieu)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-14">ms Ourmia, Sarau-Shedd 103</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-15">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 201, p. 110-150</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib362-1">
-                    <bibl xml:id="bib362-16">ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/362</idno>
-                <idno type="BHS">142</idno>
-                <idno type="BHO">587</idno>
-                <bibl xml:id="bib362-1">
+                <bibl type="lawd:Edition" source="#bib362-1" xml:id="bib362-3">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 5</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">5</citedRange>
+                    <citedRange>p. 421-469</citedRange>
+                    <listRelation>
+                        <relation active="#bib362-3" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-4" source="#bib362-1">ms Paris, Bibliothèque nationale, syr. 236, f. 86-112 + ms Londres, British Library, Add. 14733, f. 83v-94v<listRelation>
+                        <relation active="#bib362-4" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-5" source="#bib362-1">ms Dehok, Église de la Vierge, cod. 52 ?<listRelation>
+                        <relation active="#bib362-5" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-6" source="#bib362-1">ms Dawra, Monastère chaldéen, cod. 635 (olim Alqosh, Monastère N.-D. des Semences, cod. 211 Vosté?), f. 105-126<listRelation>
+                        <relation active="#bib362-6" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-7" source="#bib362-1">ms Alqosh, Monstère N.-D. des Semences, cod. 215 (Vosté) (ms perdu ?)<listRelation>
+                        <relation active="#bib362-7" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-8" source="#bib362-1">ms Vatican, Borg. Syr. 39, f. 162v-181 (mutilié au milieu)<listRelation>
+                        <relation active="#bib362-8" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-9" source="#bib362-1">ms Cambridge (Mass.), Harvard University Library, Syr. 43, f. 11- ? (fgts)<listRelation>
+                        <relation active="#bib362-9" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-10" source="#bib362-1">ms Jérusalem, Patriarcat grec orthodoxe, syr. 17, f. 147-153v<listRelation>
+                        <relation active="#bib362-10" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-11" source="#bib362-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 85, f. 139-166v + Syr. 593, f. 106-124<listRelation>
+                        <relation active="#bib362-11" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-12" source="#bib362-1">ms Damas, Patriarcat syrien orthodoxe, cod.12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany))<listRelation>
+                        <relation active="#bib362-12" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-13" source="#bib362-1">ms Londres, British Library, Or. 9391, p. 196-253 (mutilé au milieu)<listRelation>
+                        <relation active="#bib362-13" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-14" source="#bib362-1">ms Ourmia, Sarau-Shedd 103<listRelation>
+                        <relation active="#bib362-14" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-15" source="#bib362-1">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 201, p. 110-150<listRelation>
+                        <relation active="#bib362-15" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib362-16" source="#bib362-1">ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)<listRelation>
+                        <relation active="#bib362-16" ref="lawd:embodies" passive="http://syriaca.org/work/362"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib362-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">142</citedRange>
                 </bibl>
-                <bibl xml:id="bib362-2">
+                <bibl xml:id="bib362-2" type="lawd:Citation">
                     <title xml:lang="en" level="a">Sisters, Fiancées, Wives and Mothers of Syrian Holy
                      Men</title>
                     <title level="m" xml:lang="la">V Symposium Syriacum</title>
@@ -284,7 +303,7 @@
                     <citedRange from="207" to="214" unit="pp">207-214</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/362" passive="http://syriaca.org/person/1350" source="#bib362-1"/>
+                    <relation active="http://syriaca.org/work/362" passive="http://syriaca.org/person/1350" source="#bib362-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

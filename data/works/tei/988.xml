@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mary Mother of God (text) — <foreign xml:lang="syr">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-988" ana="#hagiographic">
+            <bibl xml:id="work-988" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name988-1" xml:lang="syr" source="#bib988-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</title>
                 <title xml:id="name988-2" xml:lang="fr-x-bhs" source="#bib988-1">Maryam yāldaṯ Alāhā</title>
                 <title xml:id="name988-3" xml:lang="fr" source="#bib988-1">Marie Mère de Dieu (texte)</title>
@@ -199,52 +203,57 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Éphrem</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/988</idno>
+                <idno type="BHS">799</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="incipit" source="#bib988-1">
                     <quote>Soyez présentes, assemblées de vierges, battez des mains et chantez des chants de louange, car la Vierge a enfanté un grand prodige et a été un objet d’étonnement pour ses compagnes.</quote>
                 </note>
                 <note xml:lang="fr" type="explicit" source="#bib988-1">
                     <quote>Voilà que les eaux réunies à l’intérieur du voile sont l’enfant dans la Vierge sans union; en Marie ont été accomplies toutes les comparaisons, les signes et les annonces ont eu en elle leur terme.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib988-1" xml:id="bib988-3">
-                        <author>Lamy, T. J.</author>
-                        <title>SESHS 2</title>
-                        <ptr target="http://syriaca.org/bibl/1741"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>col. 537-541</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib988-1">
-                    <bibl xml:id="bib988-4">mss Londres, British Library, Add. 14506, f. 8v + Add. 14515, f. 9-10v (mutilé) et 46r-v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib988-1">
-                    <bibl xml:id="bib988-5">
-                        <editor>T. J. Lamy</editor>
-                        <ptr target="http://syriaca.org/bibl/1741"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange unit="column">538-542</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib988-1">
-                    <bibl xml:id="bib988-6">
-                        <editor>G. Ricciotti</editor>
-                        <title>S. Efrem Siro. Inni alla
+                <bibl type="lawd:Edition" source="#bib988-1" xml:id="bib988-3">
+                    <author>Lamy, T. J.</author>
+                    <title>SESHS 2</title>
+                    <ptr target="http://syriaca.org/bibl/1741"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>col. 537-541</citedRange>
+                    <listRelation>
+                        <relation active="#bib988-3" ref="lawd:embodies" passive="http://syriaca.org/work/988"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib988-4" source="#bib988-1">mss Londres, British Library, Add. 14506, f. 8v + Add. 14515, f. 9-10v (mutilé) et 46r-v<listRelation>
+                        <relation active="#bib988-4" ref="lawd:embodies" passive="http://syriaca.org/work/988"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib988-5" source="#bib988-1">
+                    <lang>la</lang>
+                    <editor>T. J. Lamy</editor>
+                    <ptr target="http://syriaca.org/bibl/1741"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange unit="column">538-542</citedRange>
+                    <listRelation>
+                        <relation active="#bib988-5" ref="lawd:embodies" passive="http://syriaca.org/work/988"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib988-6" source="#bib988-1">
+                    <lang>it</lang>
+                    <editor>G. Ricciotti</editor>
+                    <title>S. Efrem Siro. Inni alla
                 Vergine, Rome, 1925</title>
-                        <ptr target="http://syriaca.org/bibl/1968"/>
-                        <citedRange unit="pp">26-27</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/988</idno>
-                <idno type="BHS">799</idno>
-                <bibl xml:id="bib988-1">
+                    <ptr target="http://syriaca.org/bibl/1968"/>
+                    <citedRange unit="pp">26-27</citedRange>
+                    <listRelation>
+                        <relation active="#bib988-6" ref="lawd:embodies" passive="http://syriaca.org/work/988"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib988-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">799</citedRange>
                 </bibl>
-                <bibl xml:id="bib988-2">
+                <bibl xml:id="bib988-2" type="lawd:Citation">
                     <title level="a" xml:lang="la">S. Ephraem, Doctoris Syri, testimonia de Universali B. Mariae V.
                      Mediatione</title>
                     <title level="j" xml:lang="la">Ephemerides theologicae lovanienses</title>

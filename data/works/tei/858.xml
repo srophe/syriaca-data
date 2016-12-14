@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Thallelaios (text) — <foreign xml:lang="syr">ܬܐܠܐܠܐܘܣ </foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-858" ana="#hagiographic">
+            <bibl xml:id="work-858" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name858-1" xml:lang="syr" source="#bib858-1" syriaca-tags="#syriaca-headword">ܬܐܠܐܠܐܘܣ Y</title>
                 <title xml:id="name858-2" xml:lang="fr-x-bhs" source="#bib858-1">Tālēlāʾōs</title>
                 <title xml:id="name858-3" xml:lang="fr" source="#bib858-1">Thallélaios (texte)</title>
@@ -204,6 +208,10 @@
                         <forename>Sévère</forename>
                         <addName type="untagged-title">d’Antioche</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/858</idno>
+                <idno type="BHS">651</idno>
+                <idno type="CPG">7035</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="incipit" source="#bib858-1">
                     <quote>À moi qui auparavant désirait voir ce lieu saint et le temple du martyr Thallélaios, et embrasser son tombeau d’athlète couronné chaque jour par de nombreux miracles et des guérisons de maladies en tous genres, celui qui est la cause de tous le biens m’a donné une occasion propice.</quote>
                 </note>
@@ -213,49 +221,51 @@
                 <note xml:lang="fr" type="explicit" source="#bib858-1">
                     <quote>Élargissons donc nous aussi les vases de la foi et rendons-les neufs, en les purifiant de l’antique méchanceté; et ne les resserrons pas par notre peu de foi. Et la miséricorde du martyr ne nous fera jamais défaut, ni la remise des dettes du péché, par le Christ Jésus notre Seigneur; à lui la gloire pour les siècles. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib858-1" xml:id="bib858-3">
-                        <author>Brière, M.</author>
-                        <title>Les Homiliae cathedrales de Sévère d’Antioche, traduction de Jacques d’Édesse. Homélies CIV à CXII</title>
-                        <ptr target="http://syriaca.org/bibl/2047"/>
-                        <citedRange>Paris, 1943, p. 782 [276] - 788 [282]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib858-1">
-                    <bibl xml:id="bib858-4">ms Londres, British Library, Add. 12159, f. 254v-255v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib858-1">
-                    <bibl xml:id="bib858-5">ms Vatican, Syr. 143, f. 63-65</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib858-1">
-                    <bibl xml:id="bib858-6">ms Vatican, Syr. 256, f. 50-51 (mutilé du début)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib858-1">
-                    <bibl xml:id="bib858-7">
-                        <editor>M. Brière</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/2047"/>
-                        <citedRange>Paris, 1943, p. 782 [276] - 788 [282]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/858</idno>
-                <idno type="BHS">651</idno>
-                <idno type="CPG">7035</idno>
-                <bibl xml:id="bib858-1">
+                <bibl type="lawd:Edition" source="#bib858-1" xml:id="bib858-3">
+                    <author>Brière, M.</author>
+                    <title>Les Homiliae cathedrales de Sévère d’Antioche, traduction de Jacques d’Édesse. Homélies CIV à CXII</title>
+                    <ptr target="http://syriaca.org/bibl/2047"/>
+                    <citedRange>Paris, 1943, p. 782 [276] - 788 [282]</citedRange>
+                    <listRelation>
+                        <relation active="#bib858-3" ref="lawd:embodies" passive="http://syriaca.org/work/858"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib858-4" source="#bib858-1">ms Londres, British Library, Add. 12159, f. 254v-255v<listRelation>
+                        <relation active="#bib858-4" ref="lawd:embodies" passive="http://syriaca.org/work/858"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib858-5" source="#bib858-1">ms Vatican, Syr. 143, f. 63-65<listRelation>
+                        <relation active="#bib858-5" ref="lawd:embodies" passive="http://syriaca.org/work/858"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib858-6" source="#bib858-1">ms Vatican, Syr. 256, f. 50-51 (mutilé du début)<listRelation>
+                        <relation active="#bib858-6" ref="lawd:embodies" passive="http://syriaca.org/work/858"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib858-7" source="#bib858-1">
+                    <lang>fr</lang>
+                    <editor>M. Brière</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/2047"/>
+                    <citedRange>Paris, 1943, p. 782 [276] - 788 [282]</citedRange>
+                    <listRelation>
+                        <relation active="#bib858-7" ref="lawd:embodies" passive="http://syriaca.org/work/858"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib858-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">651</citedRange>
                 </bibl>
-                <bibl xml:id="bib858-2">
+                <bibl xml:id="bib858-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">CR de l’éd. de Brière</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/813"/>
                     <citedRange from="257" to="260" unit="pp">257-260</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/858" passive="http://syriaca.org/person/2105" source="#bib858-1"/>
+                    <relation active="http://syriaca.org/work/858" passive="http://syriaca.org/person/2105" source="#bib858-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

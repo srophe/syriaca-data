@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Pelagia (text) — <foreign xml:lang="syr">ܦܠܓܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-400" ana="#hagiographic">
+            <bibl xml:id="work-400" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name400-1" xml:lang="syr" source="#bib400-1" syriaca-tags="#syriaca-headword">ܦܠܓܝܐ</title>
                 <title xml:id="name400-2" xml:lang="fr-x-bhs" source="#bib400-1">Pēlaǥīyā</title>
                 <title xml:id="name400-3" xml:lang="fr" source="#bib400-1">Pélagie (texte)</title>
@@ -202,6 +206,10 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">le diacre</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/400</idno>
+                <idno type="BHS">180</idno>
+                <idno type="BHO">919</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib400-1">
                     <quote>De Jacques, diacre pécheur, aux croyants et spirituels dans le Seigneur, paix. J’ai voulu vous écrire sur la conversion de la courtisane Pélagie, saints Pères et frères…</quote>
                 </note>
@@ -220,74 +228,82 @@
                 <note xml:lang="fr" type="explicit" source="#bib400-1">
                     <quote>Et s’accomplit pour elle ce qui est dit dans l’Évangile: «Que votre lumière brille devant les hommes, pour qu’ils voient vos bonnes oeuvres et qu’ils louent votre Père au ciel.» Je vous ai écrit cette vie glorieuse, amis de Dieu, moi Jacques, pécheur et diacre, sur celle qui fut d’abord courtisane et puis devint un instrument parfait. Nous avons reçu ces éloges sur celle qui fut d’abord rejetée puis élue. Prions… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib400-1" corresp="#bib400-11" n="1" xml:id="bib400-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 6</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">6</citedRange>
-                        <citedRange>p. 616-649</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib400-1" corresp="#bib400-5 bib400-6" n="2" xml:id="bib400-4">
-                        <author>Gildemeister, I.</author>
-                        <title>Natalicia regis augustissimi Guilelmi imperatoris Germaniae... insunt Acta S. Pelagiae Syriace edita</title>
-                        <ptr target="http://syriaca.org/bibl/1843"/>
-                        <citedRange>Bonn, 1879, p. 1-12 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib400-1">
-                    <bibl xml:id="bib400-5">ms Londres, British Library, Add. 14651, f. 1v-23</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib400-1">
-                    <bibl xml:id="bib400-6">ms Londres, British Library, Or. 3337, f. 1-20 (mutilé du début)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib400-1">
-                    <bibl xml:id="bib400-7">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 157v-162</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib400-1">
-                    <bibl xml:id="bib400-8">ms Sinai, Monastère Sainte-Catherine, Syr. 30 (Kamil 74)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib400-1">
-                    <bibl xml:id="bib400-9">
-                        <editor>I. Gildemeister</editor>
-                        <ptr target="http://syriaca.org/bibl/1843"/>
-                        <citedRange unit="pp">3-14</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib400-1">
-                    <bibl xml:id="bib400-10">
-                        <editor>S.P. Brock et S.A. Harvey</editor>
-                        <title>Holy Women of the
+                <bibl type="lawd:Edition" source="#bib400-1" xml:id="bib400-3">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 6</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">6</citedRange>
+                    <citedRange>p. 616-649</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib400-3" ref="dct:source" passive="#bib400-11" source="#bib400-1"/>
+                        <relation active="#bib400-3" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib400-1" xml:id="bib400-4">
+                    <author>Gildemeister, I.</author>
+                    <title>Natalicia regis augustissimi Guilelmi imperatoris Germaniae... insunt Acta S. Pelagiae Syriace edita</title>
+                    <ptr target="http://syriaca.org/bibl/1843"/>
+                    <citedRange>Bonn, 1879, p. 1-12 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib400-4" ref="dct:source" passive="#bib400-5 bib400-6" source="#bib400-1"/>
+                        <relation active="#bib400-4" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib400-5" source="#bib400-1">ms Londres, British Library, Add. 14651, f. 1v-23<listRelation>
+                        <relation active="#bib400-5" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib400-6" source="#bib400-1">ms Londres, British Library, Or. 3337, f. 1-20 (mutilé du début)<listRelation>
+                        <relation active="#bib400-6" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib400-7" source="#bib400-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 157v-162<listRelation>
+                        <relation active="#bib400-7" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib400-8" source="#bib400-1">ms Sinai, Monastère Sainte-Catherine, Syr. 30 (Kamil 74)<listRelation>
+                        <relation active="#bib400-8" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib400-9" source="#bib400-1">
+                    <lang>la</lang>
+                    <editor>I. Gildemeister</editor>
+                    <ptr target="http://syriaca.org/bibl/1843"/>
+                    <citedRange unit="pp">3-14</citedRange>
+                    <listRelation>
+                        <relation active="#bib400-9" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib400-10" source="#bib400-1">
+                    <lang>en</lang>
+                    <editor>S.P. Brock et S.A. Harvey</editor>
+                    <title>Holy Women of the
                 Syrian Orient (The Transformation of the Classical Heritage, 13), Berkeley-Los
                 Angeles-Londres, 1987</title>
-                        <ptr target="http://syriaca.org/bibl/1702"/>
-                        <citedRange unit="pp">41-62</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib400-11">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/400</idno>
-                <idno type="BHS">180</idno>
-                <idno type="BHO">919</idno>
-                <bibl xml:id="bib400-1">
+                    <ptr target="http://syriaca.org/bibl/1702"/>
+                    <citedRange unit="pp">41-62</citedRange>
+                    <listRelation>
+                        <relation active="#bib400-10" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib400-11" source="#bib250-1">The manuscript witnesses for edition 1 are undetermined.<listRelation>
+                        <relation active="#bib400-11" ref="lawd:embodies" passive="http://syriaca.org/work/400"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib400-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">180</citedRange>
                 </bibl>
-                <bibl xml:id="bib400-2">
+                <bibl xml:id="bib400-2" type="lawd:Citation">
                     <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
                     <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
                     <ptr target="http://syriaca.org/bibl/709"/>
                     <citedRange from="258" to="259" unit="pp">258-259</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/400" passive="http://syriaca.org/person/1989" source="#bib400-1"/>
+                    <relation active="http://syriaca.org/work/400" passive="http://syriaca.org/person/1989" source="#bib400-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

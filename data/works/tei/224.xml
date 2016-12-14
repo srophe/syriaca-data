@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mari (text) — <foreign xml:lang="syr">ܡܐܪܝ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-224" ana="#hagiographic">
+            <bibl xml:id="work-224" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name224-1" xml:lang="syr" source="#bib224-1" syriaca-tags="#syriaca-headword">ܡܐܪܝ</title>
                 <title xml:id="name224-2" xml:lang="fr-x-bhs" source="#bib224-1">mārī</title>
                 <title xml:id="name224-3" xml:lang="fr" source="#bib224-1">Mari (texte)</title>
                 <title xml:id="name224-4" xml:lang="en" source="#bib224-1" syriaca-tags="#syriaca-headword">Mari (text)</title>
+                <idno type="URI">http://syriaca.org/work/224</idno>
+                <idno type="BHS">3</idno>
+                <idno type="BHO">610</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib224-1">
                     <quote>ܡܢ ܒܬܪ ܕܝܢ ܚܡܫܥܣܪ̈ܐ ܫܢ̈ܝܢ ܕܡܡܠܟ ܗܘ̣ܐ ܛܒܪܝܘܣ ܩܣܪ: ܟܕ ܫܪܝ ܕܫܘܠܡܐ ܡܝܬܪܐ ܢܫܩ̈ܠܢ ܬܠܬ ܫܢ̈ܝܢ ܕܡܕܒܪܢܘܬܗ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ ܕܒܝܬ ܒܢܝ̈ܢܫܐ: ܗܢܝܢ ܕܒܗܝܢ ܦܘܪܩܢܐ ܕܟܠܗ ܓܘܐ: ܕܥܠ̈ܝܐ ܘܕܬܚ̈ܬܝܐ: ܐܬܓܡܪ...</quote>
                 </note>
@@ -212,98 +220,116 @@
                 <note xml:lang="en" type="explicit" source="#bib224-1">
                     <quote>And after this, the blessed Mar Mari left this world . . . and he was placed in the church in Dur Qoni before the sanctuary . . . according to the command of Papa, the heir of his throne ...</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib224-1" corresp="#bib224-4" n="1" xml:id="bib224-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 1</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 45-94 + variantes p. 527</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib224-1" corresp="#bib224-5" n="2" xml:id="bib224-3">
-                        <author>Abbeloos, J.-B.</author>
-                        <title>Acta sancti Maris Assyriae, Babyloniae ac Persidis seculo I Apostoli Syriace sive Aramaice juxta manuscriptum Alqoschianum adjectis aliorum codicum lectionibus variantibus versione Latina et annotationibus illustrata</title>
-                        <ptr target="http://syriaca.org/bibl/1763"/>
-                        <citedRange>Bruxelles, 1885, p. 12-90 + variantes p. 91-93 = AB, 4 (1885), p. 50-131</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-4">? copie à Mavana d’un ms de Sath ? + variantes du ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 52-74</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-5">ms d’Abbeloos (?) + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 52-74, tous deux copiés à Alqoch</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-6">ms Alqosh, Église paroissiale chaldéenne, cod. 87 ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-7">ms Alqosh, Monstère N.-D. des Semences, cod. 215 (Vosté) (ms perdu ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-8">ms Dawra, Monastère chaldéen, cod. 622, f. 39-67</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-9">ms Dawra, Monastère chaldéen, cod. 624, f. 1-61</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-10">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214), cah. 8 p. 7 - cah. 11 p. 8</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-11">ms Dawra, Monastère chaldéen, cod. 630 (olim Alqosh, Monastère N.-D. des Semences, cod. 217 Vosté), cah. 2, p. 12 - cah. 5, p. 7</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-12">ms Dawra, Monastère chaldéen, cod. 636, cah. 1 - cah. 8</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-13">ms Vatican, Syr. 597, f. 8v-17v (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-14">ms Londres, British Library, Or. 9384.II, f. 42v-59</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-15">ms Londres, British Library, Or. 9391, p. 254-306</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-16">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 86</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-17">ms Ourmia, Sarau-Shedd 103</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib224-1">
-                    <bibl xml:id="bib224-18">ms Ourmia, Sarau-Shedd 160</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib224-1">
-                    <bibl xml:id="bib224-19">
-                        <editor>J.-B. Abbeloos</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1763"/>
-                        <citedRange>Bruxelles, 1885, p. 12-90 + variantes p. 91-93 = AB, 4 (1885), p. 50-131</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib224-1">
-                    <bibl xml:id="bib224-20">
-                        <editor>R. Raabe</editor>
-                        <title>Die Geschichte des Dominus Mâri
+                <bibl type="lawd:Edition" source="#bib224-1" xml:id="bib224-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 1</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 45-94 + variantes p. 527</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib224-2" ref="dct:source" passive="#bib224-4" source="#bib224-1"/>
+                        <relation active="#bib224-2" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib224-1" xml:id="bib224-3">
+                    <author>Abbeloos, J.-B.</author>
+                    <title>Acta sancti Maris Assyriae, Babyloniae ac Persidis seculo I Apostoli Syriace sive Aramaice juxta manuscriptum Alqoschianum adjectis aliorum codicum lectionibus variantibus versione Latina et annotationibus illustrata</title>
+                    <ptr target="http://syriaca.org/bibl/1763"/>
+                    <citedRange>Bruxelles, 1885, p. 12-90 + variantes p. 91-93 = AB, 4 (1885), p. 50-131</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib224-3" ref="dct:source" passive="#bib224-5" source="#bib224-1"/>
+                        <relation active="#bib224-3" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-4" source="#bib224-1">? copie à Mavana d’un ms de Sath ? + variantes du ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 52-74<listRelation>
+                        <relation active="#bib224-4" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-5" source="#bib224-1">ms d’Abbeloos (?) + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 52-74, tous deux copiés à Alqoch<listRelation>
+                        <relation active="#bib224-5" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-6" source="#bib224-1">ms Alqosh, Église paroissiale chaldéenne, cod. 87 ?<listRelation>
+                        <relation active="#bib224-6" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-7" source="#bib224-1">ms Alqosh, Monstère N.-D. des Semences, cod. 215 (Vosté) (ms perdu ?)<listRelation>
+                        <relation active="#bib224-7" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-8" source="#bib224-1">ms Dawra, Monastère chaldéen, cod. 622, f. 39-67<listRelation>
+                        <relation active="#bib224-8" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-9" source="#bib224-1">ms Dawra, Monastère chaldéen, cod. 624, f. 1-61<listRelation>
+                        <relation active="#bib224-9" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-10" source="#bib224-1">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214), cah. 8 p. 7 - cah. 11 p. 8<listRelation>
+                        <relation active="#bib224-10" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-11" source="#bib224-1">ms Dawra, Monastère chaldéen, cod. 630 (olim Alqosh, Monastère N.-D. des Semences, cod. 217 Vosté), cah. 2, p. 12 - cah. 5, p. 7<listRelation>
+                        <relation active="#bib224-11" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-12" source="#bib224-1">ms Dawra, Monastère chaldéen, cod. 636, cah. 1 - cah. 8<listRelation>
+                        <relation active="#bib224-12" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-13" source="#bib224-1">ms Vatican, Syr. 597, f. 8v-17v (fgt)<listRelation>
+                        <relation active="#bib224-13" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-14" source="#bib224-1">ms Londres, British Library, Or. 9384.II, f. 42v-59<listRelation>
+                        <relation active="#bib224-14" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-15" source="#bib224-1">ms Londres, British Library, Or. 9391, p. 254-306<listRelation>
+                        <relation active="#bib224-15" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-16" source="#bib224-1">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 86<listRelation>
+                        <relation active="#bib224-16" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-17" source="#bib224-1">ms Ourmia, Sarau-Shedd 103<listRelation>
+                        <relation active="#bib224-17" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib224-18" source="#bib224-1">ms Ourmia, Sarau-Shedd 160<listRelation>
+                        <relation active="#bib224-18" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib224-19" source="#bib224-1">
+                    <lang>la</lang>
+                    <editor>J.-B. Abbeloos</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1763"/>
+                    <citedRange>Bruxelles, 1885, p. 12-90 + variantes p. 91-93 = AB, 4 (1885), p. 50-131</citedRange>
+                    <listRelation>
+                        <relation active="#bib224-19" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib224-20" source="#bib224-1">
+                    <lang>de</lang>
+                    <editor>R. Raabe</editor>
+                    <title>Die Geschichte des Dominus Mâri
                 eines Apostels des Orients, Leipzig, 1893</title>
-                        <ptr target="http://syriaca.org/bibl/2005"/>
-                        <citedRange unit="pp">13-63</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/224</idno>
-                <idno type="BHS">3</idno>
-                <idno type="BHO">610</idno>
-                <bibl xml:id="bib224-1">
+                    <ptr target="http://syriaca.org/bibl/2005"/>
+                    <citedRange unit="pp">13-63</citedRange>
+                    <listRelation>
+                        <relation active="#bib224-20" ref="lawd:embodies" passive="http://syriaca.org/work/224"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib224-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">3</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/224" passive="http://syriaca.org/person/1358" source="#bib224-1"/>
+                    <relation active="http://syriaca.org/work/224" passive="http://syriaca.org/person/1358" source="#bib224-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

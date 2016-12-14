@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Cross (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-2003" ana="#hagiographic">
+            <bibl xml:id="work-2003" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name2003-3" xml:lang="fr" source="#bib2003-1">Croix (texte)</title>
                 <title xml:id="name2003-4" xml:lang="en" source="#bib2003-1" syriaca-tags="#syriaca-headword">The Cross (text)</title>
                 <author xml:lang="fr" source="#bib2003-1" ref="http://syriaca.org/person/431">
@@ -201,6 +205,10 @@
                         <forename>Cyrille</forename>
                         <addName type="untagged-title">de Jérusalem</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/2003</idno>
+                <idno type="BHS">1972</idno>
+                <idno type="CPG">3587</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib2003-1">
                     <quote>À l’empereur ami de Dieu Constantin Auguste, Cyrille évêque à Jérusalem, salut.</quote>
                 </note>
@@ -219,51 +227,54 @@
                 <note xml:lang="fr" type="explicit" source="#bib2003-1">
                     <quote>Que le Seigneur, seigneur de tout, te donne à nous, empereur aimé et ami de Dieu, Constantin Auguste, pour une durée de nombreuses années.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib2003-1" xml:id="bib2003-2">
-                        <author>Coakley, J.F.</author>
-                        <title>A Syriac Version of the Letter of Cyril of Jerusalem on the Vision of thte Cross</title>
-                        <ptr target="http://syriaca.org/bibl/1804"/>
-                        <citedRange>102 (1984), p. 77-80</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib2003-1">
-                    <bibl xml:id="bib2003-3">ms Paramus, Coll. Fr Jean Khoury</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib2003-1">
-                    <bibl xml:id="bib2003-4">ms Damas, Patriarcat syrien orthodoxe, cod. 4/12</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib2003-1">
-                    <bibl xml:id="bib2003-5">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib2003-1">
-                    <bibl xml:id="bib2003-6">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib2003-1">
-                    <bibl xml:id="bib2003-7">
-                        <editor>J.F. Coakley</editor>
-                        <ptr target="http://syriaca.org/bibl/1804"/>
-                        <citedRange unit="pp">81-84</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/2003</idno>
-                <idno type="BHS">1972</idno>
-                <idno type="CPG">3587</idno>
-                <bibl xml:id="bib2003-1">
+                <bibl type="lawd:Edition" source="#bib2003-1" xml:id="bib2003-2">
+                    <author>Coakley, J.F.</author>
+                    <title>A Syriac Version of the Letter of Cyril of Jerusalem on the Vision of thte Cross</title>
+                    <ptr target="http://syriaca.org/bibl/1804"/>
+                    <citedRange>102 (1984), p. 77-80</citedRange>
+                    <listRelation>
+                        <relation active="#bib2003-2" ref="lawd:embodies" passive="http://syriaca.org/work/2003"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2003-3" source="#bib2003-1">ms Paramus, Coll. Fr Jean Khoury<listRelation>
+                        <relation active="#bib2003-3" ref="lawd:embodies" passive="http://syriaca.org/work/2003"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2003-4" source="#bib2003-1">ms Damas, Patriarcat syrien orthodoxe, cod. 4/12<listRelation>
+                        <relation active="#bib2003-4" ref="lawd:embodies" passive="http://syriaca.org/work/2003"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib2003-5" source="#bib2003-1">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib2003-5" ref="lawd:embodies" passive="http://syriaca.org/work/2003"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib2003-6" source="#bib2003-1">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib2003-6" ref="lawd:embodies" passive="http://syriaca.org/work/2003"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2003-7" source="#bib2003-1">
+                    <lang>en</lang>
+                    <editor>J.F. Coakley</editor>
+                    <ptr target="http://syriaca.org/bibl/1804"/>
+                    <citedRange unit="pp">81-84</citedRange>
+                    <listRelation>
+                        <relation active="#bib2003-7" ref="lawd:embodies" passive="http://syriaca.org/work/2003"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib2003-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1972</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/2003" passive="http://syriaca.org/person/1661" source="#bib2003-1"/>
+                    <relation active="http://syriaca.org/work/2003" passive="http://syriaca.org/person/1661" source="#bib2003-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Thief and the Cherubim (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -183,7 +187,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1857" ana="#hagiographic">
+            <bibl xml:id="work-1857" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1857-3" xml:lang="fr" source="#bib1857-1">Larron et chérubin (texte)</title>
                 <title xml:id="name1857-4" xml:lang="en" source="#bib1857-1" syriaca-tags="#syriaca-headword">The Thief and the Cherubim (text)</title>
                 <author xml:lang="fr" source="#bib1857-1" ref="http://syriaca.org/person/42">
@@ -197,6 +201,9 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">de Serugh</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1857</idno>
+                <idno type="BHS">1810</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1857-1">
                     <quote>ܐܥܬܪ ܡܠܬܝ ܡܢ ܡܘܗܒܬܟ ܝܠܕܐ ܟܣܝܐ ܘܐܥܝܪ ܟܢܪܝ ܠܡܡܠܠܘ ܥܠ ܦܘܪܩܢܟ.</quote>
                 </note>
@@ -209,64 +216,78 @@
                 <note xml:lang="fr" type="explicit" source="#bib1857-1">
                     <quote>Christ qui es venu pacifier par ton sang hauteurs et profondeurs, pacifie ton Église aux quatre coins du monde, elle pour qui tu es mort.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-2">ms Oxford, Bodleian Library, Syr. 135 (Poc. 404), f. 263-267v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-3">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 408, f. 79-96</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-4">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 462, f. 193v-204</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-5">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 546, f. 52v-59</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-6">ms Mardin, Évêché syrien orthodoxe, cod. 138 (olim ms Dayr az-Za‘faran, cod. parch. 16 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-7">ms Damas, Patriarcat syrien orthodoxe, cod. 3/15</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-8">ms Mardin, Évêché chaldéen orthodoxe, cod. 130</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-9">ms Diyarbakir, Église Mar Ya‘qub, cod. 1/3</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-10">ms Chicago, University Library, Oriental Institute, A 12.008</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-11">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-12">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-14">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-15">ms Mardin, Évêché syrien orthodoxe, cod. 135 (olim ms Dayr az-Za‘faran, cod. pap. 62 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-16">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 53, cah. 18, f. 3 - cah. 19, f. 2v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1857-1">
-                    <bibl xml:id="bib1857-17">ms Mardin, Évêché syrien orthodoxe, cod. 163, f. 31v-35v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1857</idno>
-                <idno type="BHS">1810</idno>
-                <bibl xml:id="bib1857-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-2" source="#bib1857-1">ms Oxford, Bodleian Library, Syr. 135 (Poc. 404), f. 263-267v<listRelation>
+                        <relation active="#bib1857-2" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-3" source="#bib1857-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 408, f. 79-96<listRelation>
+                        <relation active="#bib1857-3" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-4" source="#bib1857-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 462, f. 193v-204<listRelation>
+                        <relation active="#bib1857-4" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-5" source="#bib1857-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 546, f. 52v-59<listRelation>
+                        <relation active="#bib1857-5" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-6" source="#bib1857-1">ms Mardin, Évêché syrien orthodoxe, cod. 138 (olim ms Dayr az-Za‘faran, cod. parch. 16 (Dolabany))<listRelation>
+                        <relation active="#bib1857-6" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-7" source="#bib1857-1">ms Damas, Patriarcat syrien orthodoxe, cod. 3/15<listRelation>
+                        <relation active="#bib1857-7" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-8" source="#bib1857-1">ms Mardin, Évêché chaldéen orthodoxe, cod. 130<listRelation>
+                        <relation active="#bib1857-8" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-9" source="#bib1857-1">ms Diyarbakir, Église Mar Ya‘qub, cod. 1/3<listRelation>
+                        <relation active="#bib1857-9" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-10" source="#bib1857-1">ms Chicago, University Library, Oriental Institute, A 12.008<listRelation>
+                        <relation active="#bib1857-10" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-11" source="#bib1857-1">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))<listRelation>
+                        <relation active="#bib1857-11" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-12" source="#bib1857-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))<listRelation>
+                        <relation active="#bib1857-12" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-13" source="#bib1857-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))<listRelation>
+                        <relation active="#bib1857-13" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-14" source="#bib1857-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))<listRelation>
+                        <relation active="#bib1857-14" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-15" source="#bib1857-1">ms Mardin, Évêché syrien orthodoxe, cod. 135 (olim ms Dayr az-Za‘faran, cod. pap. 62 (Dolabany))<listRelation>
+                        <relation active="#bib1857-15" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-16" source="#bib1857-1">ms Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 53, cah. 18, f. 3 - cah. 19, f. 2v<listRelation>
+                        <relation active="#bib1857-16" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1857-17" source="#bib1857-1">ms Mardin, Évêché syrien orthodoxe, cod. 163, f. 31v-35v<listRelation>
+                        <relation active="#bib1857-17" ref="lawd:embodies" passive="http://syriaca.org/work/1857"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1857-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1810</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1857" passive="http://syriaca.org/person/1851 http://syriaca.org/person/1644" source="#bib1857-1"/>
+                    <relation active="http://syriaca.org/work/1857" passive="http://syriaca.org/person/1851 http://syriaca.org/person/1644" source="#bib1857-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

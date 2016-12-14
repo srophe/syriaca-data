@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mary Mother of God (text) — <foreign xml:lang="syr">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1076" ana="#hagiographic">
+            <bibl xml:id="work-1076" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1076-1" xml:lang="syr" source="#bib1076-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</title>
                 <title xml:id="name1076-2" xml:lang="fr-x-bhs" source="#bib1076-1">Maryam yāldaṯ Alāhā</title>
                 <title xml:id="name1076-3" xml:lang="fr" source="#bib1076-1">Marie Mère de Dieu (texte)</title>
@@ -202,6 +206,9 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">de Serugh</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1076</idno>
+                <idno type="BHS">903</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1076-1">
                     <quote>ܛܒܐ ܕܦܬܝܚ ܬܪܥܗ ܠܒܝ̈ܫܐ ܘܠܚܛܝ̈ܐ: ܗܒ ܠܝ ܐܥܘܠ ܐܚܙܐ ܫܘܦܪܟ ܟܕ ܬܗܪ ܐܢܐ.</quote>
                 </note>
@@ -214,120 +221,142 @@
                 <note xml:lang="fr" type="explicit" source="#bib1076-1">
                     <quote>Bienheureuse celle dont le fils déclare bienheureux tous les bienheureux; béni soit celui qui est apparu venant saintement de sa pureté.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1076-1" corresp="#bib1076-7" n="1" xml:id="bib1076-4">
-                        <author>Abbeloos, J.-B.</author>
-                        <title>De vita et scriptis sancti Jacobi Batnarum Sarugi in Mesopotamia episcopi</title>
-                        <ptr target="http://syriaca.org/bibl/1767"/>
-                        <citedRange>Louvain, 1867, p. 202-252</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib1076-1" corresp="#bib1076-8" n="2" xml:id="bib1076-5">
-                        <author>Bedjan, P.</author>
-                        <title>S. Martyrii, qui et Sahdona, quae supersunt omnia</title>
-                        <ptr target="http://syriaca.org/bibl/1798"/>
-                        <citedRange>Paris-Leipzig, 1902, p. 614-639</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib1076-1" corresp="#bib1076-9 bib1076-24" n="3" xml:id="bib1076-6">
-                        <author>Bedjan, P.</author>
-                        <title>Cantus seu Homiliae Mar-Jacobi in Jesum et Mariam</title>
-                        <ptr target="http://syriaca.org/bibl/1803"/>
-                        <citedRange>Paris-Leipzig, 1902, p. 2-27</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-7">ms Vatican, Syr. 118, f. 26-31v + Syr. 117, f. 64-66v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-8">+ ms Londres, British Library, Add. 14516, f. 143-149</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-9">ms Vatican, Borg. Syr. 128, f. 71v-78v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-10">ms Londres, British Library, Add. 14515, f. 186v-192</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-11">ms Londres, British Library, Add. 14588, f. 1-12 (mutilé du début)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-12">ms Londres, British Library, Add. 12165, f. 11-13v (mutilé du début et au milieu)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-13">ms Paris, Bibliothèque nationale, syr. 196, f. 27-32</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-14">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 48, f. 95-101v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-15">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 77, f. 78-84v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-16">ms Manchester, Joh, Rylands Library, Syr. 39, p. 162-174</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-17">ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 39-42v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-18">ms Mossoul, Résidence épiscopale syrienne orthodoxe, cod. 124, f. 99v-106v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-19">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1076-1">
-                    <bibl xml:id="bib1076-20">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1076-1">
-                    <bibl xml:id="bib1076-21">
-                        <editor>J.-B. Abbeloos</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1767"/>
-                        <citedRange>Louvain, 1867, p. 202-252</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1076-1">
-                    <bibl xml:id="bib1076-22">
-                        <editor>G. Bickell</editor>
-                        <title>Ausgewählte Gedichte der
+                <bibl type="lawd:Edition" source="#bib1076-1" xml:id="bib1076-4">
+                    <author>Abbeloos, J.-B.</author>
+                    <title>De vita et scriptis sancti Jacobi Batnarum Sarugi in Mesopotamia episcopi</title>
+                    <ptr target="http://syriaca.org/bibl/1767"/>
+                    <citedRange>Louvain, 1867, p. 202-252</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1076-4" ref="dct:source" passive="#bib1076-7" source="#bib1076-1"/>
+                        <relation active="#bib1076-4" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib1076-1" xml:id="bib1076-5">
+                    <author>Bedjan, P.</author>
+                    <title>S. Martyrii, qui et Sahdona, quae supersunt omnia</title>
+                    <ptr target="http://syriaca.org/bibl/1798"/>
+                    <citedRange>Paris-Leipzig, 1902, p. 614-639</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1076-5" ref="dct:source" passive="#bib1076-8" source="#bib1076-1"/>
+                        <relation active="#bib1076-5" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib1076-1" xml:id="bib1076-6">
+                    <author>Bedjan, P.</author>
+                    <title>Cantus seu Homiliae Mar-Jacobi in Jesum et Mariam</title>
+                    <ptr target="http://syriaca.org/bibl/1803"/>
+                    <citedRange>Paris-Leipzig, 1902, p. 2-27</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib1076-6" ref="dct:source" passive="#bib1076-9 bib1076-24" source="#bib1076-1"/>
+                        <relation active="#bib1076-6" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-7" source="#bib1076-1">ms Vatican, Syr. 118, f. 26-31v + Syr. 117, f. 64-66v<listRelation>
+                        <relation active="#bib1076-7" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-8" source="#bib1076-1">+ ms Londres, British Library, Add. 14516, f. 143-149<listRelation>
+                        <relation active="#bib1076-8" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-9" source="#bib1076-1">ms Vatican, Borg. Syr. 128, f. 71v-78v<listRelation>
+                        <relation active="#bib1076-9" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-10" source="#bib1076-1">ms Londres, British Library, Add. 14515, f. 186v-192<listRelation>
+                        <relation active="#bib1076-10" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-11" source="#bib1076-1">ms Londres, British Library, Add. 14588, f. 1-12 (mutilé du début)<listRelation>
+                        <relation active="#bib1076-11" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-12" source="#bib1076-1">ms Londres, British Library, Add. 12165, f. 11-13v (mutilé du début et au milieu)<listRelation>
+                        <relation active="#bib1076-12" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-13" source="#bib1076-1">ms Paris, Bibliothèque nationale, syr. 196, f. 27-32<listRelation>
+                        <relation active="#bib1076-13" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-14" source="#bib1076-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 48, f. 95-101v<listRelation>
+                        <relation active="#bib1076-14" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-15" source="#bib1076-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 77, f. 78-84v<listRelation>
+                        <relation active="#bib1076-15" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-16" source="#bib1076-1">ms Manchester, Joh, Rylands Library, Syr. 39, p. 162-174<listRelation>
+                        <relation active="#bib1076-16" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-17" source="#bib1076-1">ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 39-42v<listRelation>
+                        <relation active="#bib1076-17" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-18" source="#bib1076-1">ms Mossoul, Résidence épiscopale syrienne orthodoxe, cod. 124, f. 99v-106v<listRelation>
+                        <relation active="#bib1076-18" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-19" source="#bib1076-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))<listRelation>
+                        <relation active="#bib1076-19" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-20" source="#bib1076-1">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))<listRelation>
+                        <relation active="#bib1076-20" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1076-21" source="#bib1076-1">
+                    <lang>la</lang>
+                    <editor>J.-B. Abbeloos</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1767"/>
+                    <citedRange>Louvain, 1867, p. 202-252</citedRange>
+                    <listRelation>
+                        <relation active="#bib1076-21" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1076-22" source="#bib1076-1">
+                    <lang>de</lang>
+                    <editor>G. Bickell</editor>
+                    <title>Ausgewählte Gedichte der
                 syrischen Kirchenväter Cyrillonas, Baläus, Isaak von Antiochien und Jakob von Sarug
                 (Bibliothek der Kirchenväter), Kempten, 1872</title>
-                        <ptr target="http://syriaca.org/bibl/1969"/>
-                        <citedRange unit="pp">228-246</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1076-1">
-                    <bibl xml:id="bib1076-23">
-                        <editor>C. Vona</editor>
-                        <title>Omelie mariologiche di S. Giacomo
+                    <ptr target="http://syriaca.org/bibl/1969"/>
+                    <citedRange unit="pp">228-246</citedRange>
+                    <listRelation>
+                        <relation active="#bib1076-22" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1076-23" source="#bib1076-1">
+                    <lang>it</lang>
+                    <editor>C. Vona</editor>
+                    <title>Omelie mariologiche di S. Giacomo
                 di Sarug, dans Lateranum, N.S. 19</title>
-                        <ptr target="http://syriaca.org/bibl/1981"/>
-                        <citedRange unit="pp">115-134</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib1076-24">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1076</idno>
-                <idno type="BHS">903</idno>
-                <bibl xml:id="bib1076-1">
+                    <ptr target="http://syriaca.org/bibl/1981"/>
+                    <citedRange unit="pp">115-134</citedRange>
+                    <listRelation>
+                        <relation active="#bib1076-23" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1076-24" source="#bib250-1">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib1076-24" ref="lawd:embodies" passive="http://syriaca.org/work/1076"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1076-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">903</citedRange>
                 </bibl>
-                <bibl xml:id="bib1076-2">
+                <bibl xml:id="bib1076-2" type="lawd:Citation">
                     <title level="a" xml:lang="fr">La sainteté de Marie d’après Jacques de Saroug</title>
                     <title level="j" xml:lang="la">Ephemerides theologicae lovanienses</title>
                     <ptr target="http://syriaca.org/bibl/1124"/>
                     <citedRange from="46" to="62" unit="pp">46-62</citedRange>
                 </bibl>
-                <bibl xml:id="bib1076-3">
+                <bibl xml:id="bib1076-3" type="lawd:Citation">
                     <title level="m" xml:lang="fr">S.C., Dormition et Assomption de Marie. Histoire des traditions
                      anciennes</title>
                     <title xml:lang="fr" level="s">Théologie historique</title>

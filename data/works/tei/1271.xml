@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Zosimus (text) — <foreign xml:lang="syr">ܙܘܣܝܡܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1271" ana="#hagiographic">
+            <bibl xml:id="work-1271" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1271-1" xml:lang="syr" source="#bib1271-1" syriaca-tags="#syriaca-headword">ܙܘܣܝܡܘܣ</title>
                 <title xml:id="name1271-2" xml:lang="fr-x-bhs" source="#bib1271-1">Zōsīmōs</title>
                 <title xml:id="name1271-3" xml:lang="fr" source="#bib1271-1">Zosime (Réchabites) (texte)</title>
@@ -204,6 +208,9 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">d’Édesse</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1271</idno>
+                <idno type="BHS">1115</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1271-1">
                     <quote>ܐܝܬ ܗܘܐ ܓܒܪܐ ܚܕ ܬܡܝܗܐ ܘܡܝܬܪܐ. ܕܥܡܪ ܗܘܐ ܒܡܕܒܪܐ ܫܢܝ̈ܐ ܐܪ̈ܒܥܝܢ . ܟܕ ܠܚܡܐ ܠܐ ܐܟܠ ܗܘܐ. ܘܚܡܪܐ ܠܐ ܫܬܐ ܗܘܐ. ܘܠܐ ܦܪܨܘܦܐ ܕܐܢܫܐ ܚܙܐ ܗܘܐ.</quote>
                 </note>
@@ -213,76 +220,81 @@
                 <note xml:lang="fr" type="explicit" source="#bib1271-1">
                     <quote>Et soudain vint cet animal, et il me porta et me conduisit à ma caverne, alors que je louais Dieu et l’exaltait, lui qui m’avait répondu, avait écouté la voix de ma prière et avait exauxé mon désir. À lui… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1271-1" xml:id="bib1271-5">
-                        <author>Nau, F.</author>
-                        <title>La Légende inédite des Fils de Jonadab fils de Réchab et les Îles Fortunées</title>
-                        <ptr target="http://syriaca.org/bibl/1890"/>
-                        <citedRange>7 (1899), p. 54-75</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1271-1">
-                    <bibl xml:id="bib1271-6">ms Paris, Bibliothèque nationale, syr. 236, f. 328-337v + syr. 235, f. 84v-91v + ms Londres, British Library, Add. 12174, f. 210-214</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1271-1">
-                    <bibl xml:id="bib1271-7">ms New York, Union Theological Seminary, Syr. 33</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1271-1">
-                    <bibl xml:id="bib1271-8">ms Téhéran, Archevêché chaldéen, cod. Issayi 18 (olim Neesan 8), f. 57-78v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1271-1">
-                    <bibl xml:id="bib1271-9">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 109-111v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1271-1">
-                    <bibl xml:id="bib1271-10">
-                        <editor>F. Nau</editor>
-                        <ptr target="http://syriaca.org/bibl/1890"/>
-                        <citedRange unit="pp">136-146</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1271-1">
-                    <bibl xml:id="bib1271-12">
-                        <editor>J.H. Charlesworth</editor>
-                        <title>Greek, Persian, Roman, Syrian, and
+                <bibl type="lawd:Edition" source="#bib1271-1" xml:id="bib1271-5">
+                    <author>Nau, F.</author>
+                    <title>La Légende inédite des Fils de Jonadab fils de Réchab et les Îles Fortunées</title>
+                    <ptr target="http://syriaca.org/bibl/1890"/>
+                    <citedRange>7 (1899), p. 54-75</citedRange>
+                    <listRelation>
+                        <relation active="#bib1271-5" ref="lawd:embodies" passive="http://syriaca.org/work/1271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1271-6" source="#bib1271-1">ms Paris, Bibliothèque nationale, syr. 236, f. 328-337v + syr. 235, f. 84v-91v + ms Londres, British Library, Add. 12174, f. 210-214<listRelation>
+                        <relation active="#bib1271-6" ref="lawd:embodies" passive="http://syriaca.org/work/1271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1271-7" source="#bib1271-1">ms New York, Union Theological Seminary, Syr. 33<listRelation>
+                        <relation active="#bib1271-7" ref="lawd:embodies" passive="http://syriaca.org/work/1271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1271-8" source="#bib1271-1">ms Téhéran, Archevêché chaldéen, cod. Issayi 18 (olim Neesan 8), f. 57-78v<listRelation>
+                        <relation active="#bib1271-8" ref="lawd:embodies" passive="http://syriaca.org/work/1271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1271-9" source="#bib1271-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 109-111v<listRelation>
+                        <relation active="#bib1271-9" ref="lawd:embodies" passive="http://syriaca.org/work/1271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1271-10" source="#bib1271-1">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <ptr target="http://syriaca.org/bibl/1890"/>
+                    <citedRange unit="pp">136-146</citedRange>
+                    <listRelation>
+                        <relation active="#bib1271-10" ref="lawd:embodies" passive="http://syriaca.org/work/1271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1271-12" source="#bib1271-1">
+                    <lang>en</lang>
+                    <editor>J.H. Charlesworth</editor>
+                    <title>Greek, Persian, Roman, Syrian, and
             Egyptian Influences in Early Jewish Theology. A Study of the History of the Rechabites,
             dans A. Caquot, M. Hadas-Lebel et J. Riaud (ed.), Hellenica et Judaica. Hommage à
             Valentin Nikiprowetzky, Leuven-Paris, 1986</title>
-                        <note xml:lang="fr">anglaise partielle (ch. 7-12,9,14,1-4)</note>
-                        <ptr target="http://syriaca.org/bibl/2009"/>
-                        <citedRange unit="pp">221-226</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1271</idno>
-                <idno type="BHS">1115</idno>
-                <bibl xml:id="bib1271-1">
+                    <note xml:lang="fr">anglaise partielle (ch. 7-12,9,14,1-4)</note>
+                    <ptr target="http://syriaca.org/bibl/2009"/>
+                    <citedRange unit="pp">221-226</citedRange>
+                    <listRelation>
+                        <relation active="#bib1271-12" ref="lawd:embodies" passive="http://syriaca.org/work/1271"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1271-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1115</citedRange>
                 </bibl>
-                <bibl xml:id="bib1271-2">
+                <bibl xml:id="bib1271-2" type="lawd:Citation">
                     <title level="a" xml:lang="en">Greek, Persian, Roman, Syrian, and Egyptian Influences in Early Jewish Theology. A Study of the History of the Rechabites</title>
                     <title level="m" xml:lang="fr">Hellenica et Judaica. Hommage à Valentin Nikiprowetzky</title>
                     <ptr target="http://syriaca.org/bibl/1090"/>
                     <citedRange from="226" to="243" unit="pp">226-243</citedRange>
                 </bibl>
-                <bibl xml:id="bib1271-3">
+                <bibl xml:id="bib1271-3" type="lawd:Citation">
                     <title xml:lang="en" level="a">Notes on some texts in the Mingana
                      collection</title>
                     <title xml:lang="en" level="j">Journal of Semitic Studies</title>
                     <ptr target="http://syriaca.org/bibl/1091"/>
                     <citedRange from="215" to="216" unit="pp">215-216</citedRange>
                 </bibl>
-                <bibl xml:id="bib1271-4">
+                <bibl xml:id="bib1271-4" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Un manuscrit syriaque de Téhéran contenant des apocryphes</title>
                     <title level="j">Apocrypha</title>
                     <ptr target="http://syriaca.org/bibl/1092"/>
                     <citedRange from="137" to="164" unit="pp">137-164</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1271" passive="http://syriaca.org/person/2161" source="#bib1271-1"/>
+                    <relation active="http://syriaca.org/work/1271" passive="http://syriaca.org/person/2161" source="#bib1271-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

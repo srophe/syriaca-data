@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Sabinius (text) — <foreign xml:lang="syr">ܣܒܝܢܝܢܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -183,11 +187,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1487" ana="#hagiographic">
+            <bibl xml:id="work-1487" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1487-1" xml:lang="syr" source="#bib1487-1" syriaca-tags="#syriaca-headword">ܣܒܝܢܝܢܘܣ</title>
                 <title xml:id="name1487-2" xml:lang="fr-x-bhs" source="#bib1487-1">Saḇīnyanōs</title>
                 <title xml:id="name1487-3" xml:lang="fr" source="#bib1487-1">Sabinien (texte)</title>
                 <title xml:id="name1487-4" xml:lang="en" source="#bib1487-1" syriaca-tags="#syriaca-headword">Sabinius (text)</title>
+                <idno type="URI">http://syriaca.org/work/1487</idno>
+                <idno type="BHS">1375</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1487-1">
                     <quote>ܫܘܪܝܐ ܕܡܡܠܠܗ ܕܣܗܕܐ. ܕܐܣܗܕ ܒܙܒܢܐ ܕܗܘܐ ܒܣܘܣ ܕܘܟܣ. ܘܕܡܛܪܝܘܣ ܗܓܡܘܢܐ. ܒܪܝܫ ܫܘܐ̈ܠܘܗܝ ܕܒܣܘܣ ܕܘܟܣ̣. ܐܡܪ ܠܗ ܠܣܒܝܢܝܢܘܣ. ܣܒ̈ܝܢܝܢܐ̣. ܠܡܢܐ ܩܝܡܬ ܠܘܩܒܠ ܡ̈ܠܟܐ.</quote>
                 </note>
@@ -200,19 +207,18 @@
                 <note xml:lang="fr" type="explicit" source="#bib1487-1">
                     <quote>Alors les bourreaux s’approchèrent et l’un d’eux frappa et leva la tête du saint et son sang descendit sur tout son corps comme avait ordonné le duc impie et méchant Bassos. Et quand il se fut repenti, il dit à l’impie Bassos que Sabinien était mort. Et Bassos commença à être très affligé et cela l’empêcha de siéger au au tribunal pendant de nombreux jours.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1487-1">
-                    <bibl xml:id="bib1487-2">ms Londres, British Library, Add. 14651, f. 113-126</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1487</idno>
-                <idno type="BHS">1375</idno>
-                <bibl xml:id="bib1487-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1487-2" source="#bib1487-1">ms Londres, British Library, Add. 14651, f. 113-126<listRelation>
+                        <relation active="#bib1487-2" ref="lawd:embodies" passive="http://syriaca.org/work/1487"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1487-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1375</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1487" passive="http://syriaca.org/person/2049" source="#bib1487-1"/>
+                    <relation active="http://syriaca.org/work/1487" passive="http://syriaca.org/person/2049" source="#bib1487-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

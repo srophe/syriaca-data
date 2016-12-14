@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">John the Baptist (text) — <foreign xml:lang="syr">ܝܘܚܢܢ ܡܥܡܕܢܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,7 +191,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-952" ana="#hagiographic">
+            <bibl xml:id="work-952" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name952-1" xml:lang="syr" source="#bib952-1" syriaca-tags="#syriaca-headword">ܝܘܚܢܢ ܡܥܡܕܢܐ</title>
                 <title xml:id="name952-2" xml:lang="fr-x-bhs" source="#bib952-1">Yōḥanān maʿməḏānā</title>
                 <title xml:id="name952-3" xml:lang="fr" source="#bib952-1">Jean Baptiste (décapitation) (texte)</title>
@@ -203,6 +207,10 @@
                         <forename>Jacques</forename>
                         <addName type="untagged-title">de Serugh</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/952</idno>
+                <idno type="BHS">755</idno>
+                <idno type="BHO">489</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib952-1">
                     <quote>ܡܪܝ ܐܦܩ ܠܝ ܥܘܬܪ̈ܐ ܟܣܝ̈ܐ ܡܢ ܒܝܬ ܓܙܟ: ܐܬܠ ܐܢܘܢ ܠܐܝܢܐ ܕܣܢܝܩ ܥܠ ܡܘܗܒܬܟ.</quote>
                 </note>
@@ -215,99 +223,117 @@
                 <note xml:lang="fr" type="explicit" source="#bib952-1">
                     <quote>Car il n’y a pas de plus grand que lui parmi tous les enfants des hommes; béni soit le Verbe qui a fait la voix et l’a envoyée devant lui.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib952-1" corresp="#bib952-4" n="1" xml:id="bib952-2">
-                        <author>Bedjan, P.</author>
-                        <title>HSMJS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1734"/>
-                        <citedRange>p. 664-687</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib952-1" corresp="#bib952-5 bib952-20" n="2" ana="partialTranslation" xml:id="bib952-3">
-                        <author>Zingerle P. </author>
-                        <title>Proben syrischer Poesie aus Jakob von Sarug</title>
-                        <ptr target="http://syriaca.org/bibl/1936"/>
-                        <citedRange>13 (1859), p. 46-47</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-4">ms Oxford, Bodeleian Library, syr. 135 (Poc. 404), f. 282-285v + ms Londres, British Library, Add. 14515, f. 209-215v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-5">ms Vatican, Syr. 117, f. 104v-107 + Syr. 118, f. 69v-74</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-6">ms Londres, British Library, Add. 14516, f. 160-165</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-7">ms Londres, British Library, Add. 14634, f. 13v-23</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-8">ms Manchester, Joh, Rylands Library, Syr. 39, p. 240-250</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-9">ms Hah, Monastère Saints-Serge-et-Bacchus, cod. 1</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-10">ms Diyarbakir, Église Mar Ya‘qub, cod. 1/3</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-11">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-12">ms Mardin, Évêché syrien orthodoxe, cod. 132 (olim ms Dayr az-Za‘faran, cod. pap. 59 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-14">ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-15">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-16">ms Pampakuda, Coll. Konat, cod. 52</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib952-1">
-                    <bibl xml:id="bib952-17">ms Mardin, Évêché syrien orthodoxe, cod. 134 (olim ms Dayr az-Za‘faran, cod. pap. 61 (Dolabany))</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib952-1">
-                    <bibl xml:id="bib952-18">
-                        <editor>P. Zingerle</editor>
-                        <note xml:lang="fr">partielle</note>
-                        <ptr target="http://syriaca.org/bibl/1936"/>
-                        <citedRange unit="pp">47-48</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib952-1">
-                    <bibl xml:id="bib952-19">
-                        <editor>J. Babakhan</editor>
-                        <title>Vulgarisation des homélies
+                <bibl type="lawd:Edition" source="#bib952-1" xml:id="bib952-2">
+                    <author>Bedjan, P.</author>
+                    <title>HSMJS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1734"/>
+                    <citedRange>p. 664-687</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib952-2" ref="dct:source" passive="#bib952-4" source="#bib952-1"/>
+                        <relation active="#bib952-2" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib952-1" ana="partialTranslation" xml:id="bib952-3">
+                    <author>Zingerle P. </author>
+                    <title>Proben syrischer Poesie aus Jakob von Sarug</title>
+                    <ptr target="http://syriaca.org/bibl/1936"/>
+                    <citedRange>13 (1859), p. 46-47</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib952-3" ref="dct:source" passive="#bib952-5 bib952-20" source="#bib952-1"/>
+                        <relation active="#bib952-3" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-4" source="#bib952-1">ms Oxford, Bodeleian Library, syr. 135 (Poc. 404), f. 282-285v + ms Londres, British Library, Add. 14515, f. 209-215v<listRelation>
+                        <relation active="#bib952-4" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-5" source="#bib952-1">ms Vatican, Syr. 117, f. 104v-107 + Syr. 118, f. 69v-74<listRelation>
+                        <relation active="#bib952-5" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-6" source="#bib952-1">ms Londres, British Library, Add. 14516, f. 160-165<listRelation>
+                        <relation active="#bib952-6" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-7" source="#bib952-1">ms Londres, British Library, Add. 14634, f. 13v-23<listRelation>
+                        <relation active="#bib952-7" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-8" source="#bib952-1">ms Manchester, Joh, Rylands Library, Syr. 39, p. 240-250<listRelation>
+                        <relation active="#bib952-8" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-9" source="#bib952-1">ms Hah, Monastère Saints-Serge-et-Bacchus, cod. 1<listRelation>
+                        <relation active="#bib952-9" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-10" source="#bib952-1">ms Diyarbakir, Église Mar Ya‘qub, cod. 1/3<listRelation>
+                        <relation active="#bib952-10" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-11" source="#bib952-1">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))<listRelation>
+                        <relation active="#bib952-11" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-12" source="#bib952-1">ms Mardin, Évêché syrien orthodoxe, cod. 132 (olim ms Dayr az-Za‘faran, cod. pap. 59 (Dolabany))<listRelation>
+                        <relation active="#bib952-12" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-13" source="#bib952-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))<listRelation>
+                        <relation active="#bib952-13" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-14" source="#bib952-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))<listRelation>
+                        <relation active="#bib952-14" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-15" source="#bib952-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))<listRelation>
+                        <relation active="#bib952-15" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-16" source="#bib952-1">ms Pampakuda, Coll. Konat, cod. 52<listRelation>
+                        <relation active="#bib952-16" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-17" source="#bib952-1">ms Mardin, Évêché syrien orthodoxe, cod. 134 (olim ms Dayr az-Za‘faran, cod. pap. 61 (Dolabany))<listRelation>
+                        <relation active="#bib952-17" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib952-18" source="#bib952-1">
+                    <lang>de</lang>
+                    <editor>P. Zingerle</editor>
+                    <note xml:lang="fr">partielle</note>
+                    <ptr target="http://syriaca.org/bibl/1936"/>
+                    <citedRange unit="pp">47-48</citedRange>
+                    <listRelation>
+                        <relation active="#bib952-18" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib952-19" source="#bib952-1">
+                    <lang>fr</lang>
+                    <editor>J. Babakhan</editor>
+                    <title>Vulgarisation des homélies
             métriques de Jacques de Saroug, évêque de Batnan en Mésopotamie (451-521), dans ROC, 2e
             sér. 9 (1914)</title>
-                        <note xml:lang="fr">française partielle</note>
-                        <ptr target="http://syriaca.org/bibl/2016"/>
-                        <citedRange unit="pp">67-68, 143-148</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib952-20">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/952</idno>
-                <idno type="BHS">755</idno>
-                <idno type="BHO">489</idno>
-                <bibl xml:id="bib952-1">
+                    <note xml:lang="fr">française partielle</note>
+                    <ptr target="http://syriaca.org/bibl/2016"/>
+                    <citedRange unit="pp">67-68, 143-148</citedRange>
+                    <listRelation>
+                        <relation active="#bib952-19" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib952-20" source="#bib250-1">The manuscript witnesses for edition 2 are undetermined.<listRelation>
+                        <relation active="#bib952-20" ref="lawd:embodies" passive="http://syriaca.org/work/952"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib952-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">755</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/952" passive="http://syriaca.org/person/1808" source="#bib952-1"/>
+                    <relation active="http://syriaca.org/work/952" passive="http://syriaca.org/person/1808" source="#bib952-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

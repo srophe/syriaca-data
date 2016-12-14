@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Joseph Bousnaya (text) — <foreign xml:lang="syr">ܝܘܣܦ ܒܘܣܢܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change type="planned">
                 Resolve author identification.  
             </change>
@@ -189,11 +193,14 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1319" ana="#hagiographic">
+            <bibl xml:id="work-1319" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1319-1" xml:lang="syr" source="#bib1319-1" syriaca-tags="#syriaca-headword">ܝܘܣܦ ܒܘܣܢܝܐ</title>
                 <title xml:id="name1319-2" xml:lang="fr-x-bhs" source="#bib1319-1">Yawsep Būsnāyā</title>
                 <title xml:id="name1319-3" xml:lang="fr" source="#bib1319-1">Joseph Bousnaya (texte)</title>
                 <title xml:id="name1319-4" xml:lang="en" source="#bib1319-1" syriaca-tags="#syriaca-headword">Joseph Bousnaya (text)</title>
+                <idno type="URI">http://syriaca.org/work/1319</idno>
+                <idno type="BHS">1179</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1319-1">
                     <quote>ܫܘܒܚܐ ܢܣܩ ܘܬܘܕܝܬܐ. ܠܐܠܗܘܬܐ ܡܬܘܡܝܬܐ.</quote>
                 </note>
@@ -206,20 +213,19 @@
                 <note xml:lang="fr" type="explicit" source="#bib1319-1">
                     <quote>Que nous recevions la plénitude de ta grâce et que nous adorions bellement ton nom.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1319-1">
-                    <bibl xml:id="bib1319-2">ms Vatican, Syr. 467, f. 223-230v</bibl>
-                </note>
+                <bibl type="syriaca:Manuscript" xml:id="bib1319-2" source="#bib1319-1">ms Vatican, Syr. 467, f. 223-230v<listRelation>
+                        <relation active="#bib1319-2" ref="lawd:embodies" passive="http://syriaca.org/work/1319"/>
+                    </listRelation>
+                </bibl>
                 <note>Zanetti gives the author as Sabrisho’ de Soba. Perhaps more information could be found in Halleux, André de, O.F.M. Les manuscrits syriaques du 'C.S.C.O.', In Muséon 1987.</note>
-                <idno type="URI">http://syriaca.org/work/1319</idno>
-                <idno type="BHS">1179</idno>
-                <bibl xml:id="bib1319-1">
+                <bibl xml:id="bib1319-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1179</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1319" passive="http://syriaca.org/person/815" source="#bib1319-1"/>
+                    <relation active="http://syriaca.org/work/1319" passive="http://syriaca.org/person/815" source="#bib1319-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

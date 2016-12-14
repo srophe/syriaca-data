@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Thief and the Cherubim (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -62,7 +59,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -71,7 +68,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -87,8 +84,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -106,8 +106,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -170,6 +173,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,7 +190,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1844" ana="#hagiographic">
+            <bibl xml:id="work-1844" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1844-3" xml:lang="fr" source="#bib1844-1">Larron et chérubin (texte)</title>
                 <title xml:id="name1844-4" xml:lang="en" source="#bib1844-1" syriaca-tags="#syriaca-headword">The Thief and the Cherubim (text)</title>
                 <author xml:lang="fr" source="#bib1844-1" ref="http://syriaca.org/person/650">
@@ -197,6 +201,9 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Narsaï</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1844</idno>
+                <idno type="BHS">1794</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1844-1">
                     <quote>ܒܙܩܝܦܘܬܐ ܬܗܪܐ ܚܙܝܬ ܟܕ ܓܝܣܐ ܠܡܪܢ ܩܪܐ ܕܐܬܕܟܪܝܢܝ ܡܪܝ ܒܝܘܡ ܡܐܬܝܬܟ ܒܗܿܝ ܡܠܟܘܬܐ ܕܠܐ ܥܒܪܐ.</quote>
                 </note>
@@ -209,59 +216,66 @@
                 <note xml:lang="fr" type="explicit" source="#bib1844-1">
                     <quote>Louange à toi, par la parole de qui le larron est entré dans le jardin d’Éden et qui a été bonne nouvelle pour Adam qui est revenu à l’endroit d’où il était sorti.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1844-1" xml:id="bib1844-3">
-                        <author>Sachau, E.</author>
-                        <title>Über die Poesie in der Volkssprache der Nestorianer</title>
-                        <ptr target="http://syriaca.org/bibl/1916"/>
-                        <citedRange>11 (1896), p. 196-203</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1844-1">
-                    <bibl xml:id="bib1844-4">ms Berlin, Königliche Bibliothek, syr. 57 (Sachau 174-175-176), f. 214v-217v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1844-1">
-                    <bibl xml:id="bib1844-5">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 55, f. 348-349v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1844-1">
-                    <bibl xml:id="bib1844-6">ms Alqosh, Monastère N.-D. des Semences, cod. 143 (Vosté, disparu ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1844-1">
-                    <bibl xml:id="bib1844-7">ms Vatican, Syr. 188, f. 45v-51v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1844-1">
-                    <bibl xml:id="bib1844-8">ms Londres, British Library, Add. 14506, f. 229-231v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1844-1">
-                    <bibl xml:id="bib1844-9">ms Londres, British Library, Add. 14503, f. 132v-133v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1844-1">
-                    <bibl xml:id="bib1844-10">
-                        <editor>E. Sachau</editor>
-                        <ptr target="http://syriaca.org/bibl/1916"/>
-                        <citedRange unit="pp">204-208</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1844-1">
-                    <bibl xml:id="bib1844-11">
-                        <editor>F. Graffin</editor>
-                        <title>La soghita du chérubin et du
+                <bibl type="lawd:Edition" source="#bib1844-1" xml:id="bib1844-3">
+                    <author>Sachau, E.</author>
+                    <title>Über die Poesie in der Volkssprache der Nestorianer</title>
+                    <ptr target="http://syriaca.org/bibl/1916"/>
+                    <citedRange>11 (1896), p. 196-203</citedRange>
+                    <listRelation>
+                        <relation active="#bib1844-3" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1844-4" source="#bib1844-1">ms Berlin, Königliche Bibliothek, syr. 57 (Sachau 174-175-176), f. 214v-217v<listRelation>
+                        <relation active="#bib1844-4" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1844-5" source="#bib1844-1">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 55, f. 348-349v<listRelation>
+                        <relation active="#bib1844-5" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1844-6" source="#bib1844-1">ms Alqosh, Monastère N.-D. des Semences, cod. 143 (Vosté, disparu ?)<listRelation>
+                        <relation active="#bib1844-6" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1844-7" source="#bib1844-1">ms Vatican, Syr. 188, f. 45v-51v<listRelation>
+                        <relation active="#bib1844-7" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1844-8" source="#bib1844-1">ms Londres, British Library, Add. 14506, f. 229-231v<listRelation>
+                        <relation active="#bib1844-8" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1844-9" source="#bib1844-1">ms Londres, British Library, Add. 14503, f. 132v-133v<listRelation>
+                        <relation active="#bib1844-9" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1844-10" source="#bib1844-1">
+                    <lang>de</lang>
+                    <editor>E. Sachau</editor>
+                    <ptr target="http://syriaca.org/bibl/1916"/>
+                    <citedRange unit="pp">204-208</citedRange>
+                    <listRelation>
+                        <relation active="#bib1844-10" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1844-11" source="#bib1844-1">
+                    <lang>fr</lang>
+                    <editor>F. Graffin</editor>
+                    <title>La soghita du chérubin et du
                 larron, dans OS, 12 (1967)</title>
-                        <ptr target="http://syriaca.org/bibl/1984"/>
-                        <citedRange unit="pp">482-490</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1844</idno>
-                <idno type="BHS">1794</idno>
-                <bibl xml:id="bib1844-1">
+                    <ptr target="http://syriaca.org/bibl/1984"/>
+                    <citedRange unit="pp">482-490</citedRange>
+                    <listRelation>
+                        <relation active="#bib1844-11" ref="lawd:embodies" passive="http://syriaca.org/work/1844"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1844-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1794</citedRange>
                 </bibl>
-                <bibl xml:id="bib1844-2">
+                <bibl xml:id="bib1844-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">La soghita du chérubin et du larron, source d’une
                      miniature du manuscrit syriaque B.M. Add. 7169</title>
                     <title level="m" xml:lang="fr">Parole de l'Orient</title>
@@ -269,7 +283,7 @@
                     <citedRange from="413" to="419" unit="pp">413-419</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1844" passive="http://syriaca.org/person/1851 http://syriaca.org/person/1644" source="#bib1844-1"/>
+                    <relation active="http://syriaca.org/work/1844" passive="http://syriaca.org/person/1851 http://syriaca.org/person/1644" source="#bib1844-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ananias of Arbela (text) — <foreign xml:lang="syr">ܚܢܢܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,16 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-325" ana="#hagiographic">
+            <bibl xml:id="work-325" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name325-1" xml:lang="syr" source="#bib325-1" syriaca-tags="#syriaca-headword">ܚܢܢܝܐ</title>
                 <title xml:id="name325-2" xml:lang="fr-x-bhs" source="#bib325-1">Ḥananyā</title>
                 <title xml:id="name325-3" xml:lang="fr" source="#bib325-1">Ananie d’Arbèles (texte)</title>
                 <title xml:id="name325-4" xml:lang="en" source="#bib325-1" syriaca-tags="#syriaca-headword">Ananias of Arbela (text)</title>
+                <idno type="URI">http://syriaca.org/work/325</idno>
+                <idno type="BHS">105</idno>
+                <idno type="BHO">372</idno>
+                <idno type="CPG">0</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib325-1">
                     <quote>ܒܫܢܬ ܫܬ ܕܪܕܘܦܝܢ: ܐܬܬܚܕ ܗܘ̣ܐ ܚܢܢܝܐ: ܓܒܪܐ ܒܪ ܥܠܡܐ ܡܢ ܐܝܕܝ̈ ܐܕܘܪܫܓ ܡܘܗܦܛܐ: ܘܢܦܠ ܗܘ̣ܐ ܒܬܫܢܝ̈ܕܐ ܣܓܝ̈ܐܐ.</quote>
                 </note>
@@ -204,29 +213,27 @@
                 <note xml:lang="fr" type="explicit" source="#bib325-1">
                     <quote>Et quand le bien heureux eut dit cela, son âme le quitta. Le bienheureux fut couronné le douze du mois lunaire de Kanôn.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib325-1" xml:id="bib325-5">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 4</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>p. 131-132</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib325-1">
-                    <bibl xml:id="bib325-6">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 503-505 + collation du ms Londres, British Library, Add. 14645, f. 327v-328</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/325</idno>
-                <idno type="BHS">105</idno>
-                <idno type="BHO">372</idno>
-                <idno type="CPG">0</idno>
-                <bibl xml:id="bib325-1">
+                <bibl type="lawd:Edition" source="#bib325-1" xml:id="bib325-5">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 4</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange>p. 131-132</citedRange>
+                    <listRelation>
+                        <relation active="#bib325-5" ref="lawd:embodies" passive="http://syriaca.org/work/325"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib325-6" source="#bib325-1">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 503-505 + collation du ms Londres, British Library, Add. 14645, f. 327v-328<listRelation>
+                        <relation active="#bib325-6" ref="lawd:embodies" passive="http://syriaca.org/work/325"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib325-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">105</citedRange>
                 </bibl>
-                <bibl xml:id="bib325-2">
+                <bibl xml:id="bib325-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Zur Märtyrerüberlieferung aus der
                      Christenverfolgung Schapurs II</title>
                     <title xml:lang="de" level="s">Abhandlungen der Akademie der Wissenschaften in
@@ -234,13 +241,13 @@
                     <ptr target="http://syriaca.org/bibl/909"/>
                     <citedRange from="199" to="288" unit="pp">199-288</citedRange>
                 </bibl>
-                <bibl xml:id="bib325-3">
+                <bibl xml:id="bib325-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Le “Passionnaire d’Adiabène”</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/723"/>
                     <citedRange from="261" to="304" unit="pp">261-304</citedRange>
                 </bibl>
-                <bibl xml:id="bib325-4">
+                <bibl xml:id="bib325-4" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
                      syriaques</title>
                     <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
@@ -250,7 +257,7 @@
                     <citedRange from="213" to="225" unit="pp">213-225</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/325" passive="http://syriaca.org/person/1262" source="#bib325-1"/>
+                    <relation active="http://syriaca.org/work/325" passive="http://syriaca.org/person/1262" source="#bib325-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

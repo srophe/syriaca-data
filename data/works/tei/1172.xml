@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mary the Mother of God (text) — <foreign xml:lang="syr">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,11 +190,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1172" ana="#hagiographic">
+            <bibl xml:id="work-1172" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1172-1" xml:lang="syr" source="#bib1172-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܝܠܕܬ ܐܠܗܐ</title>
                 <title xml:id="name1172-2" xml:lang="fr-x-bhs" source="#bib1172-1">Maryam yāldaṯ Alāhā</title>
                 <title xml:id="name1172-3" xml:lang="fr" source="#bib1172-1">Marie Mère de Dieu (Dormition de) (texte)</title>
                 <title xml:id="name1172-4" xml:lang="en" source="#bib1172-1" syriaca-tags="#syriaca-headword">Mary the Mother of God (text)</title>
+                <idno type="URI">http://syriaca.org/work/1172</idno>
+                <idno type="BHS">1012</idno>
+                <idno type="BHO">630</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1172-1">
                     <quote>ܟܕ ܕܝܢ ܐܬܬܣܝܡܬ ܛܘܒܢܝܬܐ ܡܪܝܡ ܒܦܪܕܝܣܐ ܕܥܕܝܢ ܘܐܬܟܠܠܬ ܒܗܿܘ ܒܫܘܒܚܐ ܪܒܐ. ܘܐܙܠܘ ܫ̈ܠܝܚܐ ܠܟܠܦܢ̈ܝܢ ܘܐܬܐ ܡܪܢ ܝܫܘܥ ܡܫܝܚܐ ܠܘܬ ܐܡܗ ܠܥܕܝܢ.</quote>
                 </note>
@@ -203,55 +211,57 @@
                 <note xml:lang="fr" type="explicit" source="#bib1172-1">
                     <quote>Et quiconque croit en lui ressuscitera avec lui et héritera la gloire éternelle qu’héritent les fils de la lumière et qu’attendent les justes qui sont avec toi, car à toi convient et est due la gloire avec ton Père… pour les siècles des siècles. Que la miséricorde de Dieu le Père, de son Fils unique et de son Esprit vivant et saint soit sur les lecteurs… et sur ses pères corporels et spirituels et sur quiconque y participe. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1172-1" xml:id="bib1172-4">
-                        <author>Lewis, A.S.</author>
-                        <title>Apocrypha Syriaca. The Protevangelium Jacobi and Transitus Mariae</title>
-                        <ptr target="http://syriaca.org/bibl/1874"/>
-                        <citedRange>Londres, 1902, p. 106-115 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1172-1">
-                    <bibl xml:id="bib1172-5">ms Cambridge, Westminster Theological College, Coll. Lewis-Gibson + ms Cambridge (Mass.), Harvard University Library, Syr. 39</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1172-1">
-                    <bibl xml:id="bib1172-6">ms Vatican, Syr. 537, f. 150-158v +Borg. Syr. 128, f. 63-67v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1172-1">
-                    <bibl xml:id="bib1172-7">
-                        <editor>A.S. Lewis</editor>
-                        <ptr target="http://syriaca.org/bibl/1874"/>
-                        <citedRange unit="pp">64-69</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib1172-1">
-                    <bibl xml:id="bib1172-8">
-                        <editor>M. Erbetta</editor>
-                        <title>Gli Apocrifi del Nuovo
+                <bibl type="lawd:Edition" source="#bib1172-1" xml:id="bib1172-4">
+                    <author>Lewis, A.S.</author>
+                    <title>Apocrypha Syriaca. The Protevangelium Jacobi and Transitus Mariae</title>
+                    <ptr target="http://syriaca.org/bibl/1874"/>
+                    <citedRange>Londres, 1902, p. 106-115 (syr.)</citedRange>
+                    <listRelation>
+                        <relation active="#bib1172-4" ref="lawd:embodies" passive="http://syriaca.org/work/1172"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1172-5" source="#bib1172-1">ms Cambridge, Westminster Theological College, Coll. Lewis-Gibson + ms Cambridge (Mass.), Harvard University Library, Syr. 39<listRelation>
+                        <relation active="#bib1172-5" ref="lawd:embodies" passive="http://syriaca.org/work/1172"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1172-6" source="#bib1172-1">ms Vatican, Syr. 537, f. 150-158v +Borg. Syr. 128, f. 63-67v<listRelation>
+                        <relation active="#bib1172-6" ref="lawd:embodies" passive="http://syriaca.org/work/1172"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1172-7" source="#bib1172-1">
+                    <lang>en</lang>
+                    <editor>A.S. Lewis</editor>
+                    <ptr target="http://syriaca.org/bibl/1874"/>
+                    <citedRange unit="pp">64-69</citedRange>
+                    <listRelation>
+                        <relation active="#bib1172-7" ref="lawd:embodies" passive="http://syriaca.org/work/1172"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib1172-8" source="#bib1172-1">
+                    <lang>it</lang>
+                    <editor>M. Erbetta</editor>
+                    <title>Gli Apocrifi del Nuovo
                 Testamento. I. Vangeli. 2, s.l. 1981</title>
-                        <ptr target="http://syriaca.org/bibl/728"/>
-                        <citedRange unit="pp">568-571</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1172</idno>
-                <idno type="BHS">1012</idno>
-                <idno type="BHO">630</idno>
-                <bibl xml:id="bib1172-1">
+                    <ptr target="http://syriaca.org/bibl/728"/>
+                    <citedRange unit="pp">568-571</citedRange>
+                    <listRelation>
+                        <relation active="#bib1172-8" ref="lawd:embodies" passive="http://syriaca.org/work/1172"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1172-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1012</citedRange>
                 </bibl>
-                <bibl xml:id="bib1172-2">
+                <bibl xml:id="bib1172-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Apocalypses de la Vierge. État de la
                      question</title>
                     <title level="j">Apocrypha</title>
                     <ptr target="http://syriaca.org/bibl/1077"/>
                     <citedRange from="101" to="112" unit="pp">101-112</citedRange>
                 </bibl>
-                <bibl xml:id="bib1172-3">
+                <bibl xml:id="bib1172-3" type="lawd:Citation">
                     <title level="m" xml:lang="fr">S.C., Dormition et Assomption de Marie. Histoire des traditions
                      anciennes</title>
                     <title xml:lang="fr" level="s">Théologie historique</title>

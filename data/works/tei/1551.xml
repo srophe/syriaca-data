@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mamas (text) — <foreign xml:lang="syr">ܡܐܡܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1551" ana="#hagiographic">
+            <bibl xml:id="work-1551" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1551-1" xml:lang="syr" source="#bib1551-1" syriaca-tags="#syriaca-headword">ܡܐܡܐ</title>
                 <title xml:id="name1551-2" xml:lang="fr-x-bhs" source="#bib1551-1">Māmā</title>
                 <title xml:id="name1551-3" xml:lang="fr" source="#bib1551-1">Mamas (texte)</title>
@@ -200,83 +204,98 @@
                         <forename>Grégoire</forename>
                         <addName type="untagged-title">de Nazianze</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1551</idno>
+                <idno type="BHS">1463</idno>
+                <idno type="CPG">3010</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1551-1">
                     <quote>ܕܚܘ̈ܕܬܐ ܢܬܝܩܪܘܢ ܠܢܡܘܣܐ ܗܘ ܥܬܝܩܐ. ܘܕܫܦܝܪ ܐܝܬ ܠܗ</quote>
                 </note>
                 <note xml:lang="fr" type="incipit" source="#bib1551-1">
                     <quote>C’est une antique loi que soient honorés les dédicaces et cette loi est belle.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-2">ms Londres, British Library, Or. 8731, f. 35v-38</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-3">ms Londres, British Library, Add. 14548, f. 77-80v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-4">ms Londres, British Library, Add. 12153, f. 70-74</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-5">ms Londres, British Library, Or. 8730, f. 79v-83</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-6">ms Londres, British Library, Add. 14547, f. 91-95v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-7">ms Londres, British Library, Rich. 7187, f. 72-76v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-8">ms Damas, Patriarcat syrien orthodoxe, cod. 12/19 (olim ms Dayr az-Za‘faran, cod. parch. 12 (Dolabany)), f. 320v-323v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1551-1">
-                    <bibl xml:id="bib1551-9">ms Damas, Patriarcat syrien orthodoxe, cod. 12/20, (olim ms Dayr az-Za‘faran, cod. parch. 11 (Dolabany)), f. 447v-451v</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1551-1">
-                    <bibl xml:id="bib1551-10">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1551-1">
-                    <bibl xml:id="bib1551-11">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1551-1">
-                    <bibl xml:id="bib1551-12">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1551-1">
-                    <bibl xml:id="bib1551-13">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1551-1">
-                    <bibl xml:id="bib1551-14">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib1551-1">
-                    <bibl xml:id="bib1551-15">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1551</idno>
-                <idno type="BHS">1463</idno>
-                <idno type="CPG">3010</idno>
-                <bibl xml:id="bib1551-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-2" source="#bib1551-1">ms Londres, British Library, Or. 8731, f. 35v-38<listRelation>
+                        <relation active="#bib1551-2" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-3" source="#bib1551-1">ms Londres, British Library, Add. 14548, f. 77-80v<listRelation>
+                        <relation active="#bib1551-3" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-4" source="#bib1551-1">ms Londres, British Library, Add. 12153, f. 70-74<listRelation>
+                        <relation active="#bib1551-4" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-5" source="#bib1551-1">ms Londres, British Library, Or. 8730, f. 79v-83<listRelation>
+                        <relation active="#bib1551-5" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-6" source="#bib1551-1">ms Londres, British Library, Add. 14547, f. 91-95v<listRelation>
+                        <relation active="#bib1551-6" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-7" source="#bib1551-1">ms Londres, British Library, Rich. 7187, f. 72-76v<listRelation>
+                        <relation active="#bib1551-7" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-8" source="#bib1551-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/19 (olim ms Dayr az-Za‘faran, cod. parch. 12 (Dolabany)), f. 320v-323v<listRelation>
+                        <relation active="#bib1551-8" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1551-9" source="#bib1551-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/20, (olim ms Dayr az-Za‘faran, cod. parch. 11 (Dolabany)), f. 447v-451v<listRelation>
+                        <relation active="#bib1551-9" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1551-10" source="#bib1551-1">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1551-10" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1551-11" source="#bib1551-1">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1551-11" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1551-12" source="#bib1551-1">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1551-12" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1551-13" source="#bib1551-1">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1551-13" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1551-14" source="#bib1551-1">
+                    <lang>cu</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1551-14" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib1551-15" source="#bib1551-1">
+                    <lang>cop</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib1551-15" ref="lawd:embodies" passive="http://syriaca.org/work/1551"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1551-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1463</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1551" passive="http://syriaca.org/person/1352" source="#bib1551-1"/>
+                    <relation active="http://syriaca.org/work/1551" passive="http://syriaca.org/person/1352" source="#bib1551-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

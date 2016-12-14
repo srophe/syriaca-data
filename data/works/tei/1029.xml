@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Benjamin of Beth ܹNuhadra (text) — <foreign xml:lang="syr">ܒܢܝܡܝܢ ܡܢ ܐܬܪܐ ܢܘܗܕܪܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,11 +192,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1029" ana="#hagiographic">
+            <bibl xml:id="work-1029" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1029-1" xml:lang="syr" source="#bib1029-1" syriaca-tags="#syriaca-headword">ܒܢܝܡܝܢ ܡܢ ܐܬܪܐ ܢܘܗܕܪܐ</title>
                 <title xml:id="name1029-2" xml:lang="fr-x-bhs" source="#bib1029-1">Benyāmēn</title>
                 <title xml:id="name1029-3" xml:lang="fr" source="#bib1029-1">Benjamin du Beth-Nouhadra (texte)</title>
                 <title xml:id="name1029-4" xml:lang="en" source="#bib1029-1" syriaca-tags="#syriaca-headword">Benjamin of Beth Nuhadra (text)</title>
+                <idno type="URI">http://syriaca.org/work/1029</idno>
+                <idno type="BHS">844</idno>
+                <idno type="BHO">178</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib1029-1">
                     <quote>Ta lettre pleine d’amour est arrivée, ami de mon âme Disocore, et tu me demandes de te retracer l’histoire des exploits de l’excellent Mâr Benjamin le bienheureux.</quote>
                 </note>
@@ -211,31 +219,31 @@
                 <note xml:lang="fr" type="explicit" source="#bib1029-1">
                     <quote>Mais toi, médite ces choses et donne-moi par la prière commune qu’il me pardonne mes fautes par lesquelles j’ai minimisé ses exploits à cause de ma petitesse et à Dieu, qui l’a exalté et fait triompher, gloire… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib1029-1" xml:id="bib1029-2">
-                        <author>Scheil, V.</author>
-                        <title>La Vie de Mar Benjamin</title>
-                        <ptr target="http://syriaca.org/bibl/1915"/>
-                        <citedRange>12 (1897), p. 64-85 et 93-96</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1029-1">
-                    <bibl xml:id="bib1029-3">ms Londres, British Library, Add. 14733, f. 52v-62</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1029-1">
-                    <bibl xml:id="bib1029-4">ms Vatican, Borg. Syr. 39, f. 213-219 (mutilé du début)</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1029</idno>
-                <idno type="BHS">844</idno>
-                <idno type="BHO">178</idno>
-                <bibl xml:id="bib1029-1">
+                <bibl type="lawd:Edition" source="#bib1029-1" xml:id="bib1029-2">
+                    <author>Scheil, V.</author>
+                    <title>La Vie de Mar Benjamin</title>
+                    <ptr target="http://syriaca.org/bibl/1915"/>
+                    <citedRange>12 (1897), p. 64-85 et 93-96</citedRange>
+                    <listRelation>
+                        <relation active="#bib1029-2" ref="lawd:embodies" passive="http://syriaca.org/work/1029"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1029-3" source="#bib1029-1">ms Londres, British Library, Add. 14733, f. 52v-62<listRelation>
+                        <relation active="#bib1029-3" ref="lawd:embodies" passive="http://syriaca.org/work/1029"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1029-4" source="#bib1029-1">ms Vatican, Borg. Syr. 39, f. 213-219 (mutilé du début)<listRelation>
+                        <relation active="#bib1029-4" ref="lawd:embodies" passive="http://syriaca.org/work/1029"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1029-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">844</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1029" passive="http://syriaca.org/person/1633 http://syriaca.org/person/1172" source="#bib1029-1"/>
+                    <relation active="http://syriaca.org/work/1029" passive="http://syriaca.org/person/1633 http://syriaca.org/person/1172" source="#bib1029-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

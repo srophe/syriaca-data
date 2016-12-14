@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ephrem (text) — <foreign xml:lang="syr">ܐܦܪܝܡ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -186,11 +190,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-979" ana="#hagiographic">
+            <bibl xml:id="work-979" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name979-1" xml:lang="syr" source="#bib979-1" syriaca-tags="#syriaca-headword">ܐܦܪܝܡ</title>
                 <title xml:id="name979-2" xml:lang="fr-x-bhs" source="#bib979-1">ʾAfrēm</title>
                 <title xml:id="name979-3" xml:lang="fr" source="#bib979-1">Éphrem (texte)</title>
                 <title xml:id="name979-4" xml:lang="en" source="#bib979-1" syriaca-tags="#syriaca-headword">Ephrem (text)</title>
+                <idno type="URI">http://syriaca.org/work/979</idno>
+                <idno type="BHS">789</idno>
+                <idno type="BHO">270</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib979-1">
                     <quote>ܩܕܝܫܐ ܗܢܐ ܡܪܝ ܐܦܪܝܡ ܐܝܬܘܗܝ ܗܘܐ ܒܓܢܣܐ ܣܘܪܝܝܐ. ܐܒܘܗܝ ܕܝܢ ܡܢ ܢܨܝܒܝܢ ܡܕܝܢܬܐ. ܘܐܡܗ ܕܩܕܝܫܐ ܐܝܬܝܗܿ ܗܘܬ ܡܢ ܐܡܝܕ ܡܕܝܢܬܐ.</quote>
                 </note>
@@ -203,74 +211,81 @@
                 <note xml:lang="fr" type="explicit" source="#bib979-1">
                     <quote>Et plus tard ils le firent sortir et le placèrent sous son église, et une odeur de vie s’exhala de ses os, qui procurait vie et joie à tous les croyants. La mort du saint eut lieu le 15 du mois de Hazîran. Par sa prière et par celle de saint Basile et de tous les saints… dans ce monde et dans celui à venir.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib979-1" corresp="#bib979-6" n="1" xml:id="bib979-3">
-                        <author>Assemani, J. S.</author>
-                        <title>BO 1</title>
-                        <ptr target="http://syriaca.org/bibl/709"/>
-                        <citedRange>p. 26-55</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib979-1" corresp="#bib979-8" n="2" ana="partialTranslation" xml:id="bib979-4">
-                        <author>Zingerle, P. </author>
-                        <title>Chrestomathia Syriaca</title>
-                        <ptr target="http://syriaca.org/bibl/1764"/>
-                        <citedRange>Rome, 1871, p. 204-211</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib979-1" corresp="#bib979-9" n="3" xml:id="bib979-5">
-                        <author>Benedictus, P. et Assemani, S.E.</author>
-                        <title>Sancti Patris nostri Ephraem Syri opera omnia quae exstant Graece, Syriace, Latine..., t. III Syriace et Latine</title>
-                        <ptr target="http://syriaca.org/bibl/1809"/>
-                        <citedRange>Rome, 1743, p. XXIII-LXIII</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib979-1">
-                    <bibl xml:id="bib979-6"> et (3): ms Vatican, Syr. 117, f. 187v-194</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib979-1">
-                    <bibl xml:id="bib979-7">
-                        <editor>J. S. Assemani</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/709"/>
-                        <citedRange>p. 26-55</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib979-8">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib979-9">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/979</idno>
-                <idno type="BHS">789</idno>
-                <idno type="BHO">270</idno>
-                <bibl xml:id="bib979-1">
+                <bibl type="lawd:Edition" source="#bib979-1" xml:id="bib979-3">
+                    <author>Assemani, J. S.</author>
+                    <title>BO 1</title>
+                    <ptr target="http://syriaca.org/bibl/709"/>
+                    <citedRange>p. 26-55</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib979-3" ref="dct:source" passive="#bib979-6" source="#bib979-1"/>
+                        <relation active="#bib979-3" ref="lawd:embodies" passive="http://syriaca.org/work/979"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib979-1" ana="partialTranslation" xml:id="bib979-4">
+                    <author>Zingerle, P. </author>
+                    <title>Chrestomathia Syriaca</title>
+                    <ptr target="http://syriaca.org/bibl/1764"/>
+                    <citedRange>Rome, 1871, p. 204-211</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib979-4" ref="dct:source" passive="#bib979-8" source="#bib979-1"/>
+                        <relation active="#bib979-4" ref="lawd:embodies" passive="http://syriaca.org/work/979"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib979-1" xml:id="bib979-5">
+                    <author>Benedictus, P. et Assemani, S.E.</author>
+                    <title>Sancti Patris nostri Ephraem Syri opera omnia quae exstant Graece, Syriace, Latine..., t. III Syriace et Latine</title>
+                    <ptr target="http://syriaca.org/bibl/1809"/>
+                    <citedRange>Rome, 1743, p. XXIII-LXIII</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib979-5" ref="dct:source" passive="#bib979-9" source="#bib979-1"/>
+                        <relation active="#bib979-5" ref="lawd:embodies" passive="http://syriaca.org/work/979"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib979-6" source="#bib979-1"> et (3): ms Vatican, Syr. 117, f. 187v-194<listRelation>
+                        <relation active="#bib979-6" ref="lawd:embodies" passive="http://syriaca.org/work/979"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib979-7" source="#bib979-1">
+                    <lang>la</lang>
+                    <editor>J. S. Assemani</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/709"/>
+                    <citedRange>p. 26-55</citedRange>
+                    <listRelation>
+                        <relation active="#bib979-7" ref="lawd:embodies" passive="http://syriaca.org/work/979"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib979-8" source="#bib250-1">The manuscript witnesses for edition 2 are undetermined.<listRelation>
+                        <relation active="#bib979-8" ref="lawd:embodies" passive="http://syriaca.org/work/979"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib979-9" source="#bib250-1">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib979-9" ref="lawd:embodies" passive="http://syriaca.org/work/979"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib979-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">789</citedRange>
                 </bibl>
-                <bibl xml:id="bib979-2d">
+                <bibl xml:id="bib979-2d" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de Ricciotti</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/711"/>
                     <citedRange from="384" to="384" unit="pp">384</citedRange>
                 </bibl>
-                <bibl xml:id="bib979-2a">
+                <bibl xml:id="bib979-2a" type="lawd:Citation">
                     <title level="m" xml:lang="it">Sant’ Efrem Siro. Biografia, Scritti, Teologia</title>
                     <ptr target="http://syriaca.org/bibl/710"/>
                 </bibl>
-                <bibl xml:id="bib979-2c">
+                <bibl xml:id="bib979-2c" type="lawd:Citation">
                     <title level="a" xml:lang="fr">La Rencontre de saint Éphrem et de saint Basile</title>
                     <title xml:lang="fr" level="j">L'Orient syrien</title>
                     <ptr target="http://syriaca.org/bibl/712"/>
                     <citedRange from="273" to="284" unit="pp">273-284</citedRange>
                 </bibl>
-                <bibl xml:id="bib979-2b">
+                <bibl xml:id="bib979-2b" type="lawd:Citation">
                     <title xml:lang="de" level="a">Der von Ephraem Syrus’ Vater verehrte Gott Apoll in
                      Nisibis</title>
                     <title xml:lang="de" level="m">Syrisches Christentum weltweit. Studien zur syrischen Kirchengeschichte. Festschrift für Wolfgang Hage</title>
@@ -279,7 +294,7 @@
                     <citedRange from="164" to="179" unit="pp">164-179</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/979" passive="http://syriaca.org/person/13" source="#bib979-1"/>
+                    <relation active="http://syriaca.org/work/979" passive="http://syriaca.org/person/13" source="#bib979-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

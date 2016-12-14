@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Eustathius and Meletius, Bishops of Antioch (text) — <foreign xml:lang="syr">ܐܘܣܛܬܝܣ ܘܡܝܠܛܘܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-872" ana="#hagiographic">
+            <bibl xml:id="work-872" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name872-1" xml:lang="syr" source="#bib872-1" syriaca-tags="#syriaca-headword">ܐܘܣܛܬܝܣ ܘܡܝܠܛܘܣ</title>
                 <title xml:id="name872-2" xml:lang="fr-x-bhs" source="#bib872-1">ʾĒwsṭāṯīs w-Mīlīṭōs</title>
                 <title xml:id="name872-3" xml:lang="fr" source="#bib872-1">Eustathe et Mélèce, évêques d’Antioche (texte)</title>
@@ -203,6 +207,9 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Barhadbechabba Arbaya</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/872</idno>
+                <idno type="BHS">665</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib872-1">
                     <quote>Les hommes ont l’habitude, quand meurent leurs amis, de peindre les images de ceux qu’ils aiment sur des planches au moyen de couleurs et de formes relevées.</quote>
                 </note>
@@ -221,36 +228,37 @@
                 <note xml:lang="fr" type="explicit" source="#bib872-1">
                     <quote>Et après qu’un messager fut allé et qu’il entendu cela, il étendit ses deux mains en disant: «Il est mieux que celles-ci soient blessées et que je ne donne pas ce livre.» Après quelque temps Mélèce rentra d’exil et finit sa vie à Antioche</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib872-1" xml:id="bib872-2">
-                        <author>Nau, F.</author>
-                        <title>Barhadbe¯abba æArbaïa, Histoire ecclésiastique (Ière partie)</title>
-                        <ptr target="http://syriaca.org/bibl/1935"/>
-                        <citedRange>Turnhout, 1977, p. 216 [40] - 223 [47]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib872-1">
-                    <bibl xml:id="bib872-3">ms Londres, British Library, Or. 6714, f. 111v-113v</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib872-1">
-                    <bibl xml:id="bib872-4">
-                        <editor>F. Nau</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1935"/>
-                        <citedRange>Turnhout, 1977, p. 216 [40] - 223 [47]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/872</idno>
-                <idno type="BHS">665</idno>
-                <bibl xml:id="bib872-1">
+                <bibl type="lawd:Edition" source="#bib872-1" xml:id="bib872-2">
+                    <author>Nau, F.</author>
+                    <title>Barhadbe¯abba æArbaïa, Histoire ecclésiastique (Ière partie)</title>
+                    <ptr target="http://syriaca.org/bibl/1935"/>
+                    <citedRange>Turnhout, 1977, p. 216 [40] - 223 [47]</citedRange>
+                    <listRelation>
+                        <relation active="#bib872-2" ref="lawd:embodies" passive="http://syriaca.org/work/872"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib872-3" source="#bib872-1">ms Londres, British Library, Or. 6714, f. 111v-113v<listRelation>
+                        <relation active="#bib872-3" ref="lawd:embodies" passive="http://syriaca.org/work/872"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib872-4" source="#bib872-1">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1935"/>
+                    <citedRange>Turnhout, 1977, p. 216 [40] - 223 [47]</citedRange>
+                    <listRelation>
+                        <relation active="#bib872-4" ref="lawd:embodies" passive="http://syriaca.org/work/872"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib872-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">665</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/872" passive="http://syriaca.org/person/1919 http://syriaca.org/person/1725" source="#bib872-1"/>
+                    <relation active="http://syriaca.org/work/872" passive="http://syriaca.org/person/1919 http://syriaca.org/person/1725" source="#bib872-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

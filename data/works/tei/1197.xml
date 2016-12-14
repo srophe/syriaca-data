@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Mary the Sinful Woman (text) — <foreign xml:lang="syr">ܡܪܝܡ ܚܛܝܬܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -184,7 +188,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1197" ana="#hagiographic">
+            <bibl xml:id="work-1197" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name1197-1" xml:lang="syr" source="#bib1197-1" syriaca-tags="#syriaca-headword">ܡܪܝܡ ܚܛܝܬܐ</title>
                 <title xml:id="name1197-2" xml:lang="fr-x-bhs" source="#bib1197-1">Maryam ḥaṭāyṯā</title>
                 <title xml:id="name1197-3" xml:lang="fr" source="#bib1197-1">Marie la pécheresse (texte)</title>
@@ -197,6 +201,9 @@
                         <forename>Georges</forename>
                         <addName type="family">Warda</addName>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/1197</idno>
+                <idno type="BHS">1037</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib1197-1">
                     <quote>ܥܬܝܪܐ ܕܠܝܬ ܐܟܘܬܗ. ܒܝܬ ܐܪ̈ܥܝܐ ܦܬܚ ܣܝܡ̈ܬܗ. ܘܠܟܪ̈ܝܗܐ ܥܒܕ ܐܣܝܘܬܐ. ܘܣܒܥ ܟܦ̈ܢܐ ܡܢ ܛܒ̈ܬܐ. ܘܥܠ ܒܪܐ ܨܕ ܠܫܡܪܝܬܐ. ܘܡܢ ܒܝܬ ܫܡܥܘܢ ܠܗܝ ܚܛܝܬܐ. ܕܠܪ̈ܓܠܘܗܝ ܗܘܬ ܡܫܘܚܬܐ. ܘܗܫܬ ܬܝܒܬܐ ܓܡܝܪܬܐ.</quote>
                 </note>
@@ -206,35 +213,39 @@
                 <note xml:lang="fr" type="explicit" source="#bib1197-1">
                     <quote>Et prends pitié de moi qui ai écrit et me suis donné à toi, et tous ceux qui ont été plongés dans le péché et se sont convertis devant toi à la vérité, fais-les parvenir au Royaume pour que nous t’y louions éternellement.</quote>
                 </note>
-                <note xml:lang="en" type="MSS" source="#bib1197-1">
-                    <bibl xml:id="bib1197-3">ms Vatican, Syr. 184, f. 162v-163v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1197-1">
-                    <bibl xml:id="bib1197-4">ms Vatican, Syr. 499, f. 145-146v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1197-1">
-                    <bibl xml:id="bib1197-5">ms Vatican, Syr. 567, f. 185v-187</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1197-1">
-                    <bibl xml:id="bib1197-6">mss Berlin, Königliche Bibliothek, syr. 63 (Sachau 188), f. 156-157v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1197-1">
-                    <bibl xml:id="bib1197-7">mss Berlin, Königliche Bibliothek, syr. 64 (Sachau 330), f. 167-169</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1197-1">
-                    <bibl xml:id="bib1197-8">mss Berlin, Königliche Bibliothek, syr. 65 (orient. fol. 619), f. 169-170v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1197</idno>
-                <idno type="BHS">1037</idno>
-                <bibl xml:id="bib1197-1">
+                <bibl type="syriaca:Manuscript" xml:id="bib1197-3" source="#bib1197-1">ms Vatican, Syr. 184, f. 162v-163v<listRelation>
+                        <relation active="#bib1197-3" ref="lawd:embodies" passive="http://syriaca.org/work/1197"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1197-4" source="#bib1197-1">ms Vatican, Syr. 499, f. 145-146v<listRelation>
+                        <relation active="#bib1197-4" ref="lawd:embodies" passive="http://syriaca.org/work/1197"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1197-5" source="#bib1197-1">ms Vatican, Syr. 567, f. 185v-187<listRelation>
+                        <relation active="#bib1197-5" ref="lawd:embodies" passive="http://syriaca.org/work/1197"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1197-6" source="#bib1197-1">mss Berlin, Königliche Bibliothek, syr. 63 (Sachau 188), f. 156-157v<listRelation>
+                        <relation active="#bib1197-6" ref="lawd:embodies" passive="http://syriaca.org/work/1197"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1197-7" source="#bib1197-1">mss Berlin, Königliche Bibliothek, syr. 64 (Sachau 330), f. 167-169<listRelation>
+                        <relation active="#bib1197-7" ref="lawd:embodies" passive="http://syriaca.org/work/1197"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib1197-8" source="#bib1197-1">mss Berlin, Königliche Bibliothek, syr. 65 (orient. fol. 619), f. 169-170v<listRelation>
+                        <relation active="#bib1197-8" ref="lawd:embodies" passive="http://syriaca.org/work/1197"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib1197-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">1037</citedRange>
                 </bibl>
-                <bibl xml:id="bib1197-2">ms Vatican, Syr. 184, f. 178-179v</bibl>
+                <bibl xml:id="bib1197-2" type="lawd:Citation">ms Vatican, Syr. 184, f. 178-179v</bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1197" passive="http://syriaca.org/person/1883" source="#bib1197-1"/>
+                    <relation active="http://syriaca.org/work/1197" passive="http://syriaca.org/person/1883" source="#bib1197-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

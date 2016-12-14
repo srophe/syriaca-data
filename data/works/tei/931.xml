@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Joseph the Patriarch (text) — <foreign xml:lang="syr">ܝܘܣܦ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-27+02:00">CHANGED: Corrected multiple author and author role info</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -188,7 +192,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-931" ana="#hagiographic">
+            <bibl xml:id="work-931" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name931-1" xml:lang="syr" source="#bib931-1" syriaca-tags="#syriaca-headword">ܝܘܣܦ</title>
                 <title xml:id="name931-2" xml:lang="fr-x-bhs" source="#bib931-1">Yawsef</title>
                 <title xml:id="name931-3" xml:lang="fr" source="#bib931-1">Joseph le patriarche (texte)</title>
@@ -209,6 +213,9 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Éphrem</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/931</idno>
+                <idno type="BHS">728</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib931-1">
                     <quote>ܚܣܡܐ ܠܚܣܡ̈ܐ ܡܒܐܫ: ܚܣܝܡܐ ܕܝܢ ܠܐ ܡܣܬܓܦ. ܐܝܢܐ ܕܚܣܿܡ ܡܬܒܨܪ: ܘܕܡܣܝܒܪ ܗܘ ܡܬܟܠܠ. ܚܣܡܐ ܓܝܪ ܓܐܪܐ ܗܘ ܩܫܝܐ: ܕܗܘ ܩܛܿܠ ܠܕܡܘܠܕ ܠܗ. ܘܡܥܪܩܠ ܓܐܪܐ ܒܐܝܕܗ: ܘܠܗ ܡܚܒܠ ܒܢܟܝܠܘܬܗ.</quote>
                 </note>
@@ -221,150 +228,180 @@
                 <note xml:lang="fr" type="explicit" source="#bib931-1">
                     <quote>Gloire à la force cachée compagne de ses serviteurs en tout temps. Qu’elle m’accompagne moi pécheur dans les siècles des siècles. Amen et amen. Et que sa miséricorde se répande aussi sur l’écrivain pécheur qui a peiné pour écrire cette histoire et sur le lecteur et l’auditeur. Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib931-1" corresp="#bib931-9 bib931-11" n="1" xml:id="bib931-3">
-                        <author>Bedjan, P.</author>
-                        <title>Histoire complète de Joseph par saint Éphrem. Poème en douze livres</title>
-                        <ptr target="http://syriaca.org/bibl/1776"/>
-                        <citedRange>Paris-Leipzig, 1891, p. 1-344</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib931-1" corresp="#bib931-10" n="2" xml:id="bib931-4">
-                        <author>Lamy, T.J.</author>
-                        <title>SESHS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1742"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>col. 251-639</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib931-1" corresp="#bib931-24" n="3" xml:id="bib931-5">
-                        <author>Lamy, T.J.</author>
-                        <title>SESHS 4</title>
-                        <ptr target="http://syriaca.org/bibl/1758"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>col. 793-843</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib931-1" corresp="#bib931-12 bib931-25" n="4" xml:id="bib931-6">
-                        <author>Bedjan, P.</author>
-                        <title>Histoire de Joseph</title>
-                        <ptr target="http://syriaca.org/bibl/1776"/>
-                        <citedRange>p. 1-263</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib931-1" corresp="#bib931-13 bib931-26" n="5" xml:id="bib931-7">
-                        <author>Assemani, P.</author>
-                        <title>M¥mr¥ tr¥æsar daæí¬∂¬n l-</title>
-                        <ptr target="http://syriaca.org/bibl/2039"/>
-                        <citedRange>Jounieh, 1941, p. 2 (syr.) - 318 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib931-1" corresp="#bib931-14 bib931-27" n="6" xml:id="bib931-8">
-                        <author>Overbeck</author>
-                        <title>ºí‹n‹ M‹r(y) ÆAfr¥m æal Yawseπ k¬n‹ — al-qa≠¬dat al-ÆAfr‹m¬yat f¬ Æl-qi≠≠at al-Yºsuf¬yat</title>
-                        <ptr target="http://syriaca.org/bibl/2040"/>
-                        <citedRange>p. 270-293, 330</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-9">ms de Mgr Lamy + ms Londres, British Library, Add. 14590, f. 61v-67v (extrait) + ms Diyarbakir, Archevêché chaldéen, 76 + ms de Tallkayf + ms Dawra, Monastère chaldéen, cod. 634 (olim Alqosh, Monastère N.-D. des Semences, cod. 208 Vosté) ou 610 (olim Alqosh, Monastère N.-D. des Semences, cod. 307 Vosté) (?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-10">ms maronite + ms Vatican, Syr. ? + mss Londres, British Library, Add. 12166, f. 103-123v (discours 1 et 8) + Add. 14390, f. 61-68</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-11"> ms Londres, British Library, Add. 12166, f. 103-111 et 111v-123v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-12">ms Alqosh, Église paroissiale chaldéenne, cod. 60 (memra de Joseph) ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-13">ms Alqosh, Monastère N.-D. des Semences, cod. 308 (Vosté) (ms perdu ?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-14">ms Vatican, Syr. 469, f. 2-123 (10 premiers memré sur les 12)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-15">ms Londres, British Library, Or. 4078, f. 1-141v (mutilé du début et de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-16">ms Siirt, Évêché chaldéen, cod. 109 (extrait)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-17">ms Cambridge, University Library, Add. 2817</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-18">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 194 = Sony 199</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-19">ms Bagdad, Patriarcat chaldéen catholique, = ms olim Mossoul, Patriarcat chaldéen, cod. 67</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-20">ms olim Mossoul, Patriarcat chaldéen, cod. 68</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib931-1">
-                    <bibl xml:id="bib931-21">ms Dayr az-Za‘faran, cod. pap. 70 (Dolabany)</bibl>
-                </note>
-                <note type="modernTranslation" source="#bib931-1">
-                    <bibl xml:id="bib931-22">
-                        <editor>T. J. Lamy</editor>
-                        <title>SESHS 3</title>
-                        <ptr target="http://syriaca.org/bibl/1742"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange unit="col" target="https://archive.org/stream/sanctiephraemsy04lamygoog#page/n192">252-640</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib931-1">
-                    <bibl xml:id="bib931-28">
-                        <editor>T. J. Lamy</editor>
-                        <title>SESHS 4</title>
-                        <ptr target="http://syriaca.org/bibl/1758"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange unit="col" target="https://archive.org/stream/sanctiephraemsy03lamygoog#page/n449">794-844</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib931-1">
-                    <bibl xml:id="bib931-23">
-                        <editor>P. Assemani</editor>
-                        <ptr target="http://syriaca.org/bibl/2039"/>
-                        <citedRange unit="pp">2-318</citedRange>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib931-24">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib931-25">The manuscript witnesses for edition 4 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib931-26">The manuscript witnesses for edition 5 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib931-27">The manuscript witnesses for edition 6 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/931</idno>
-                <idno type="BHS">728</idno>
-                <bibl xml:id="bib931-1">
+                <bibl type="lawd:Edition" source="#bib931-1" xml:id="bib931-3">
+                    <author>Bedjan, P.</author>
+                    <title>Histoire complète de Joseph par saint Éphrem. Poème en douze livres</title>
+                    <ptr target="http://syriaca.org/bibl/1776"/>
+                    <citedRange>Paris-Leipzig, 1891, p. 1-344</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib931-3" ref="dct:source" passive="#bib931-9 bib931-11" source="#bib931-1"/>
+                        <relation active="#bib931-3" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib931-1" xml:id="bib931-4">
+                    <author>Lamy, T.J.</author>
+                    <title>SESHS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1742"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange>col. 251-639</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib931-4" ref="dct:source" passive="#bib931-10" source="#bib931-1"/>
+                        <relation active="#bib931-4" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib931-1" xml:id="bib931-5">
+                    <author>Lamy, T.J.</author>
+                    <title>SESHS 4</title>
+                    <ptr target="http://syriaca.org/bibl/1758"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange>col. 793-843</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib931-5" ref="dct:source" passive="#bib931-24" source="#bib931-1"/>
+                        <relation active="#bib931-5" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib931-1" xml:id="bib931-6">
+                    <author>Bedjan, P.</author>
+                    <title>Histoire de Joseph</title>
+                    <ptr target="http://syriaca.org/bibl/1776"/>
+                    <citedRange>p. 1-263</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib931-6" ref="dct:source" passive="#bib931-12 bib931-25" source="#bib931-1"/>
+                        <relation active="#bib931-6" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib931-1" xml:id="bib931-7">
+                    <author>Assemani, P.</author>
+                    <title>M¥mr¥ tr¥æsar daæí¬∂¬n l-</title>
+                    <ptr target="http://syriaca.org/bibl/2039"/>
+                    <citedRange>Jounieh, 1941, p. 2 (syr.) - 318 (syr.)</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib931-7" ref="dct:source" passive="#bib931-13 bib931-26" source="#bib931-1"/>
+                        <relation active="#bib931-7" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib931-1" xml:id="bib931-8">
+                    <author>Overbeck</author>
+                    <title>ºí‹n‹ M‹r(y) ÆAfr¥m æal Yawseπ k¬n‹ — al-qa≠¬dat al-ÆAfr‹m¬yat f¬ Æl-qi≠≠at al-Yºsuf¬yat</title>
+                    <ptr target="http://syriaca.org/bibl/2040"/>
+                    <citedRange>p. 270-293, 330</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib931-8" ref="dct:source" passive="#bib931-14 bib931-27" source="#bib931-1"/>
+                        <relation active="#bib931-8" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-9" source="#bib931-1">ms de Mgr Lamy + ms Londres, British Library, Add. 14590, f. 61v-67v (extrait) + ms Diyarbakir, Archevêché chaldéen, 76 + ms de Tallkayf + ms Dawra, Monastère chaldéen, cod. 634 (olim Alqosh, Monastère N.-D. des Semences, cod. 208 Vosté) ou 610 (olim Alqosh, Monastère N.-D. des Semences, cod. 307 Vosté) (?)<listRelation>
+                        <relation active="#bib931-9" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-10" source="#bib931-1">ms maronite + ms Vatican, Syr. ? + mss Londres, British Library, Add. 12166, f. 103-123v (discours 1 et 8) + Add. 14390, f. 61-68<listRelation>
+                        <relation active="#bib931-10" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-11" source="#bib931-1"> ms Londres, British Library, Add. 12166, f. 103-111 et 111v-123v<listRelation>
+                        <relation active="#bib931-11" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-12" source="#bib931-1">ms Alqosh, Église paroissiale chaldéenne, cod. 60 (memra de Joseph) ?<listRelation>
+                        <relation active="#bib931-12" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-13" source="#bib931-1">ms Alqosh, Monastère N.-D. des Semences, cod. 308 (Vosté) (ms perdu ?)<listRelation>
+                        <relation active="#bib931-13" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-14" source="#bib931-1">ms Vatican, Syr. 469, f. 2-123 (10 premiers memré sur les 12)<listRelation>
+                        <relation active="#bib931-14" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-15" source="#bib931-1">ms Londres, British Library, Or. 4078, f. 1-141v (mutilé du début et de la fin)<listRelation>
+                        <relation active="#bib931-15" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-16" source="#bib931-1">ms Siirt, Évêché chaldéen, cod. 109 (extrait)<listRelation>
+                        <relation active="#bib931-16" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-17" source="#bib931-1">ms Cambridge, University Library, Add. 2817<listRelation>
+                        <relation active="#bib931-17" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-18" source="#bib931-1">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Rahmani 194 = Sony 199<listRelation>
+                        <relation active="#bib931-18" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-19" source="#bib931-1">ms Bagdad, Patriarcat chaldéen catholique, = ms olim Mossoul, Patriarcat chaldéen, cod. 67<listRelation>
+                        <relation active="#bib931-19" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-20" source="#bib931-1">ms olim Mossoul, Patriarcat chaldéen, cod. 68<listRelation>
+                        <relation active="#bib931-20" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-21" source="#bib931-1">ms Dayr az-Za‘faran, cod. pap. 70 (Dolabany)<listRelation>
+                        <relation active="#bib931-21" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib931-22" source="#bib931-1">
+                    <lang>la</lang>
+                    <editor>T. J. Lamy</editor>
+                    <title>SESHS 3</title>
+                    <ptr target="http://syriaca.org/bibl/1742"/>
+                    <citedRange unit="vol">3</citedRange>
+                    <citedRange unit="col" target="https://archive.org/stream/sanctiephraemsy04lamygoog#page/n192">252-640</citedRange>
+                    <listRelation>
+                        <relation active="#bib931-22" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib931-28" source="#bib931-1">
+                    <lang>la</lang>
+                    <editor>T. J. Lamy</editor>
+                    <title>SESHS 4</title>
+                    <ptr target="http://syriaca.org/bibl/1758"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange unit="col" target="https://archive.org/stream/sanctiephraemsy03lamygoog#page/n449">794-844</citedRange>
+                    <listRelation>
+                        <relation active="#bib931-28" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib931-23" source="#bib931-1">
+                    <lang>ar</lang>
+                    <editor>P. Assemani</editor>
+                    <ptr target="http://syriaca.org/bibl/2039"/>
+                    <citedRange unit="pp">2-318</citedRange>
+                    <listRelation>
+                        <relation active="#bib931-23" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-24" source="#bib250-1">The manuscript witnesses for edition 3 are undetermined.<listRelation>
+                        <relation active="#bib931-24" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-25" source="#bib250-1">The manuscript witnesses for edition 4 are undetermined.<listRelation>
+                        <relation active="#bib931-25" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-26" source="#bib250-1">The manuscript witnesses for edition 5 are undetermined.<listRelation>
+                        <relation active="#bib931-26" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib931-27" source="#bib250-1">The manuscript witnesses for edition 6 are undetermined.<listRelation>
+                        <relation active="#bib931-27" ref="lawd:embodies" passive="http://syriaca.org/work/931"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib931-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">728</citedRange>
                 </bibl>
-                <bibl xml:id="bib931-2">
+                <bibl xml:id="bib931-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Syrische Josef-Gedichte</title>
                     <ptr target="http://syriaca.org/bibl/701"/>
                     <citedRange from="13" to="35" unit="pp">13-35</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/931" passive="http://syriaca.org/person/1836" source="#bib931-1"/>
+                    <relation active="http://syriaca.org/work/931" passive="http://syriaca.org/person/1836" source="#bib931-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Andronicus and Athanasia (text) — <foreign xml:lang="syr">ܐܢܕܪܘܢܝܩܘܣ ܘܐܬܢܣܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,16 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-385" ana="#hagiographic">
+            <bibl xml:id="work-385" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name385-1" xml:lang="syr" source="#bib385-1" syriaca-tags="#syriaca-headword">ܐܢܕܪܘܢܝܩܘܣ ܘܐܬܢܣܝܐ</title>
                 <title xml:id="name385-2" xml:lang="fr-x-bhs" source="#bib385-1">ʾAndrōnīqōs w-ʾĀṯānāsīyā</title>
                 <title xml:id="name385-3" xml:lang="fr" source="#bib385-1">Andronic et Athanasie (texte)</title>
                 <title xml:id="name385-4" xml:lang="en" source="#bib385-1" syriaca-tags="#syriaca-headword">Andronicus and Athanasia (text)</title>
+                <idno type="URI">http://syriaca.org/work/385</idno>
+                <idno type="BHS">165</idno>
+                <idno type="BHO">59</idno>
+                <idno type="CPG">7363</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib385-1">
                     <quote>ܐܝܬ ܗܘ̣ܐ ܕܝܢ ܛܠܝܐ ܚܕ ܒܐܢܛܝܘܟܝܐ ܡܕܝܢܬܐ: ܕܫܡܗ ܐܢܕܪܘܢܝܩܘܣ. ܒܐܘܡܢܘܬܗ ܕܝܢ ܐܝܬܘܗܝ ܗܘ̣ܐ ܐܪܓܘܪܦܪܛܝܣ: ܗܢܘ ܕܝܢ ܡܙܒܢ ܣܐܡܐ. ܐܝܬ ܗܘ̣ܐ ܠܗ ܕܝܢ ܐܢܬܬܐ ܒܪܬܗ ܕܝܘܚܢܢ: ܕܐܦ ܗܘ ܐܪܓܘܪܦܪܛܝܣ ܐܝܬܘܗܝ ܗܘ̣ܐ ܒܐܘܡܢܘܬܗ: ܘܫܡܗܿ ܗܘ̣ܐ ܐܬܢܣܝܐ.</quote>
                 </note>
@@ -204,93 +213,103 @@
                 <note xml:lang="fr" type="explicit" source="#bib385-1">
                     <quote>Le vieillard leur dit: «Célébrons le septième jour de la mort de notre frère.» Et ils ne le laissèrent pas et ils l’emmenèrent et montèrent. Mais nous tous, mes frères, prions notre Seigneur de nous juger dignes… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib385-1" xml:id="bib385-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 6</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">6</citedRange>
-                        <citedRange>p. 405-417</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib385-1">
-                    <bibl xml:id="bib385-3">ms Paris, Bibliothèque nationale, syr. 235, f. 204v-209v + ms Londres, British Library, Add. 14649, f. 96-99v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib385-1">
-                    <bibl xml:id="bib385-4">ms Londres, British Library, Add. 14535, f. 47r-v (atéleute)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib385-1">
-                    <bibl xml:id="bib385-5">ms Londres, British Library, Add. 12172, f. 49-53v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib385-1">
-                    <bibl xml:id="bib385-6">ms Londres, British Library, Add. 12174, f. 179v-182</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib385-1">
-                    <bibl xml:id="bib385-7">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 30-31v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib385-1">
-                    <bibl xml:id="bib385-8">ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib385-1">
-                    <bibl xml:id="bib385-9">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib385-1">
-                    <bibl xml:id="bib385-10">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib385-1">
-                    <bibl xml:id="bib385-11">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib385-1">
-                    <bibl xml:id="bib385-12">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib385-1">
-                    <bibl xml:id="bib385-13">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib385-1">
-                    <bibl xml:id="bib385-14">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>syr-pal</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib385-1">
-                    <bibl xml:id="bib385-15">
-                        <editor>F. Nau</editor>
-                        <title>Vie et récits de l’abbé Daniel, de
+                <bibl type="lawd:Edition" source="#bib385-1" xml:id="bib385-2">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 6</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">6</citedRange>
+                    <citedRange>p. 405-417</citedRange>
+                    <listRelation>
+                        <relation active="#bib385-2" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib385-3" source="#bib385-1">ms Paris, Bibliothèque nationale, syr. 235, f. 204v-209v + ms Londres, British Library, Add. 14649, f. 96-99v<listRelation>
+                        <relation active="#bib385-3" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib385-4" source="#bib385-1">ms Londres, British Library, Add. 14535, f. 47r-v (atéleute)<listRelation>
+                        <relation active="#bib385-4" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib385-5" source="#bib385-1">ms Londres, British Library, Add. 12172, f. 49-53v<listRelation>
+                        <relation active="#bib385-5" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib385-6" source="#bib385-1">ms Londres, British Library, Add. 12174, f. 179v-182<listRelation>
+                        <relation active="#bib385-6" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib385-7" source="#bib385-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 30-31v<listRelation>
+                        <relation active="#bib385-7" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib385-8" source="#bib385-1">ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)<listRelation>
+                        <relation active="#bib385-8" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib385-9" source="#bib385-1">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib385-9" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib385-10" source="#bib385-1">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib385-10" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib385-11" source="#bib385-1">
+                    <lang>cu</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib385-11" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib385-12" source="#bib385-1">
+                    <lang>cop</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib385-12" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib385-13" source="#bib385-1">
+                    <lang>gez</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib385-13" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib385-14" source="#bib385-1">
+                    <lang>syr-pal</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib385-14" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib385-15" source="#bib385-1">
+                    <lang>fr</lang>
+                    <editor>F. Nau</editor>
+                    <title>Vie et récits de l’abbé Daniel, de
                 Scété (VIe siècle). II. Texte syriaque, dans ROC, 5 (1900), p. 401-406 = Vie (et
                 récits) de l’abbé Daniel le Scétiote (VIe siècle) (Bibliothèque hagiographique
                 orientale, 1), Paris, 1901</title>
-                        <ptr target="http://syriaca.org/bibl/1951"/>
-                        <citedRange unit="pp">78-82</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/385</idno>
-                <idno type="BHS">165</idno>
-                <idno type="BHO">59</idno>
-                <idno type="CPG">7363</idno>
-                <bibl xml:id="bib385-1">
+                    <ptr target="http://syriaca.org/bibl/1951"/>
+                    <citedRange unit="pp">78-82</citedRange>
+                    <listRelation>
+                        <relation active="#bib385-15" ref="lawd:embodies" passive="http://syriaca.org/work/385"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib385-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">165</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/385" passive="http://syriaca.org/person/1618 http://syriaca.org/person/1588" source="#bib385-1"/>
+                    <relation active="http://syriaca.org/work/385" passive="http://syriaca.org/person/1618 http://syriaca.org/person/1588" source="#bib385-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

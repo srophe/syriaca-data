@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Macarius the Alexandrian (text) — <foreign xml:lang="syr">ܡܩܪܝܣ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -181,7 +185,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-654" ana="#hagiographic">
+            <bibl xml:id="work-654" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name654-1" xml:lang="syr" source="#bib654-1" syriaca-tags="#syriaca-headword">ܡܩܪܝܣ</title>
                 <title xml:id="name654-2" xml:lang="fr-x-bhs" source="#bib654-1">Māqārīs</title>
                 <title xml:id="name654-3" xml:lang="fr" source="#bib654-1">Macaire l’Alexandrin (texte)</title>
@@ -194,6 +198,11 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Enanicho</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/654</idno>
+                <idno type="BHS">438</idno>
+                <idno type="BHO">849</idno>
+                <idno type="CPG">6036</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib654-1">
                     <quote>ܘܗܠܝܢ ܢܨܚܢܘ̈ܗܝ ܕܡܩܪܝܣ ܛܘܒܢܐ ܐܠܟܣܢܕܪܝܐ̣ ܗܢܐ ܕܐܦ ܥ̣ܠ ܠܦܪܕܝܣܗ ܘܠܢܘܣܗ ܕܝܢܝܣ ܘܝܒܪܝܣ.</quote>
                 </note>
@@ -206,90 +215,96 @@
                 <note xml:lang="fr" type="explicit" source="#bib654-1">
                     <quote>Une d’elles vint et elle lui donnait du lait jusqu’à ce qu’il fût parvenu à sa cellule.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib654-1" xml:id="bib654-3">
-                        <author>Draguet, R.</author>
-                        <title>FSMHL 1</title>
-                        <ptr target="http://syriaca.org/bibl/2094"/>
-                        <citedRange>p. 139-144 et 133-138</citedRange>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-4">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-5">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-6">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-7">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-8">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>sog</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-9">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-10">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib654-1">
-                    <bibl xml:id="bib654-11">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib654-1">
-                    <bibl xml:id="bib654-12">
-                        <editor>R. Draguet</editor>
-                        <title>CSCO 390 Script. Syri 170</title>
-                        <ptr target="http://syriaca.org/bibl/2095"/>
-                        <citedRange unit="pp">99-101 et
+                <bibl type="lawd:Edition" source="#bib654-1" xml:id="bib654-3">
+                    <author>Draguet, R.</author>
+                    <title>FSMHL 1</title>
+                    <ptr target="http://syriaca.org/bibl/2094"/>
+                    <citedRange>p. 139-144 et 133-138</citedRange>
+                    <listRelation>
+                        <relation active="#bib654-3" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-4" source="#bib654-1">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-4" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-5" source="#bib654-1">
+                    <lang>ar</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-5" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-6" source="#bib654-1">
+                    <lang>hy</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-6" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-7" source="#bib654-1">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-7" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-8" source="#bib654-1">
+                    <lang>sog</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-8" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-9" source="#bib654-1">
+                    <lang>cu</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-9" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-10" source="#bib654-1">
+                    <lang>cop</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-10" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib654-11" source="#bib654-1">
+                    <lang>gez</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib654-11" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib654-12" source="#bib654-1">
+                    <lang>fr</lang>
+                    <editor>R. Draguet</editor>
+                    <title>CSCO 390 Script. Syri 170</title>
+                    <ptr target="http://syriaca.org/bibl/2095"/>
+                    <citedRange unit="pp">99-101 et
             95-98</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/654</idno>
-                <idno type="BHS">438</idno>
-                <idno type="BHO">849</idno>
-                <idno type="CPG">6036</idno>
-                <bibl xml:id="bib654-1">
+                    <listRelation>
+                        <relation active="#bib654-12" ref="lawd:embodies" passive="http://syriaca.org/work/654"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib654-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">438</citedRange>
                 </bibl>
-                <bibl xml:id="bib654-2">
+                <bibl xml:id="bib654-2" type="lawd:Citation">
                     <title xml:lang="en" level="m">A Critical Discussion together with Notes on Early Egyptian Monachism</title>
                     <title xml:lang="en" level="s">Texts and Studies</title>
                     <title xml:lang="en" level="m">The Lausiac History of Palladius</title>
                     <ptr target="http://syriaca.org/bibl/836"/>
                     <citedRange from="77" to="96" unit="pp">77-96</citedRange>
                 </bibl>
-                <bibl xml:id="bib654-2b">
+                <bibl xml:id="bib654-2b" type="lawd:Citation">
                     <title xml:lang="en" level="m">The Greek Text Edited with Introduction and Notes</title>
                     <title xml:lang="en" level="s">Texts and Studies</title>
                     <title xml:lang="en" level="m">The Lausiac History of Palladius</title>
@@ -297,7 +312,7 @@
                     <citedRange unit="pp">lxxvii-lxxx</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/654" passive="http://syriaca.org/person/1346" source="#bib654-1"/>
+                    <relation active="http://syriaca.org/work/654" passive="http://syriaca.org/person/1346" source="#bib654-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

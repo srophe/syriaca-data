@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Abraham Qidounaya (text) — <foreign xml:lang="syr">ܐܒܪܗܡ ܩܝܕܘܢܝܐ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-27+02:00">CHANGED: Corrected multiple author and author role info</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
@@ -189,7 +193,7 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-396" ana="#hagiographic">
+            <bibl xml:id="work-396" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name396-1" xml:lang="syr" source="#bib396-1" syriaca-tags="#syriaca-headword">ܐܒܪܗܡ ܩܝܕܘܢܝܐ</title>
                 <title xml:id="name396-2" xml:lang="fr-x-bhs" source="#bib396-1">ʾAḇrāhām Qīdūnāyā</title>
                 <title xml:id="name396-3" xml:lang="fr" source="#bib396-1">Abraham Qidounaya (texte)</title>
@@ -202,6 +206,12 @@
                     </persName> (<persName xml:lang="fr">
                         <forename>Éphrem</forename>
                     </persName>)</author>
+                <idno type="URI">http://syriaca.org/work/396</idno>
+                <idno type="BHS">176</idno>
+                <idno type="BHO">16</idno>
+                <idno type="BHO">17</idno>
+                <idno type="CPG">3937</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="fr" type="prologue" source="#bib396-1">
                     <quote>Mes frères, je veux vous raconter la belle vie parfaite d’un homme digne d’admiration et d’éloge, vie qu’il a commencée et terminée et pour laquelle il a été loué; mais je crains de dépeindre l’image du  portrait splendide et la gloire admirable de la vie de cet homme de Dieu.</quote>
                 </note>
@@ -220,153 +230,167 @@
                 <note xml:lang="fr" type="explicit" source="#bib396-1">
                     <quote>Elle acheva ainsi sa vie et elle sortit du monde dans une bonne fin et avec des actes qui contentent Dieu. Mais moi l’auteur, je me dis à moi-même: «Malheur à moi, mes frères bien-aimés, car ceux-là sont morts en confiance et sont partis chez Dieu… et juge-moi digne de te bénir avec tous ceux qui ont plu à ta volonté, parce que te conviennent… Amen.</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib396-1" corresp="#bib396-23" n="1" xml:id="bib396-7">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 6</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">6</citedRange>
-                        <citedRange>p. 465-499</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib396-1" corresp="#bib396-9 bib396-10" n="2" xml:id="bib396-8">
-                        <author>Lamy, T. J.</author>
-                        <title>SESHS 4</title>
-                        <ptr target="http://syriaca.org/bibl/1758"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>col. 13-83 = AB 10 (1891), col. 10-49</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib396-1">
-                    <bibl xml:id="bib396-9">mss Londres, British Library, Add. 14644, f. 28-43v (mutilé de la fin) + Add. 12160, f. 109-117 + ms Paris, Bibliothèque nationale, syr. 234, f. 172-186v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib396-1">
-                    <bibl xml:id="bib396-10">ms Paris, Bibliothèque nationale, syr. 235, f. 3-12v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib396-1">
-                    <bibl xml:id="bib396-11">ms Londres, British Library, Or. 4404, f. 57v-73</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib396-1">
-                    <bibl xml:id="bib396-12">ms Paris, Bibliothèque nationale, syr. 326, f. 169v-181v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib396-1">
-                    <bibl xml:id="bib396-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 41-43v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib396-1">
-                    <bibl xml:id="bib396-14">ms Ourmia, Sarau-Shedd 179</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib396-1">
-                    <bibl xml:id="bib396-15">ms Ourmia, Sarau-Shedd 186</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib396-1">
-                    <bibl xml:id="bib396-16">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib396-1">
-                    <bibl xml:id="bib396-17">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib396-1">
-                    <bibl xml:id="bib396-18">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/bibl/2081"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note type="ancientVersion" source="#bib396-1">
-                    <bibl xml:id="bib396-19">
-                        <editor>dans Vatican</editor>
-                        <title>Syr. 628, éd. par F.
+                <bibl type="lawd:Edition" source="#bib396-1" xml:id="bib396-7">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 6</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">6</citedRange>
+                    <citedRange>p. 465-499</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib396-7" ref="dct:source" passive="#bib396-23" source="#bib396-1"/>
+                        <relation active="#bib396-7" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib396-1" xml:id="bib396-8">
+                    <author>Lamy, T. J.</author>
+                    <title>SESHS 4</title>
+                    <ptr target="http://syriaca.org/bibl/1758"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange>col. 13-83 = AB 10 (1891), col. 10-49</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib396-8" ref="dct:source" passive="#bib396-9 bib396-10" source="#bib396-1"/>
+                        <relation active="#bib396-8" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-9" source="#bib396-1">mss Londres, British Library, Add. 14644, f. 28-43v (mutilé de la fin) + Add. 12160, f. 109-117 + ms Paris, Bibliothèque nationale, syr. 234, f. 172-186v<listRelation>
+                        <relation active="#bib396-9" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-10" source="#bib396-1">ms Paris, Bibliothèque nationale, syr. 235, f. 3-12v<listRelation>
+                        <relation active="#bib396-10" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-11" source="#bib396-1">ms Londres, British Library, Or. 4404, f. 57v-73<listRelation>
+                        <relation active="#bib396-11" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-12" source="#bib396-1">ms Paris, Bibliothèque nationale, syr. 326, f. 169v-181v<listRelation>
+                        <relation active="#bib396-12" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-13" source="#bib396-1">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 41-43v<listRelation>
+                        <relation active="#bib396-13" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-14" source="#bib396-1">ms Ourmia, Sarau-Shedd 179<listRelation>
+                        <relation active="#bib396-14" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-15" source="#bib396-1">ms Ourmia, Sarau-Shedd 186<listRelation>
+                        <relation active="#bib396-15" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib396-16" source="#bib396-1">
+                    <lang>la</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib396-16" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib396-17" source="#bib396-1">
+                    <lang>ka</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib396-17" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib396-18" source="#bib396-1">
+                    <lang>cu</lang>cf. <title>CPG</title>
+                    <ptr target="http://syriaca.org/bibl/2081"/>
+                    <listRelation>
+                        <relation active="#bib396-18" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib396-19" source="#bib396-1">
+                    <lang>syr-pal</lang>
+                    <editor>dans Vatican</editor>
+                    <title>Syr. 628, éd. par F.
                 Schulthess, Christlich-palästinische Fragmente, dans ZDMG, 56
                 (1902)</title>
-                        <ptr target="http://syriaca.org/bibl/2106"/>
-                        <citedRange unit="pp" target="http://menadoc.bibliothek.uni-halle.de.emedien.ub.uni-muenchen.de/dmg/periodical/pageview/46991">254-257</citedRange>
-                        <lang>syr-pal</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib396-1">
-                    <bibl xml:id="bib396-20">
-                        <editor>T. J. Lamy</editor>
-                        <ptr target="http://syriaca.org/bibl/1758"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange unit="col">14-84</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib396-1">
-                    <bibl xml:id="bib396-21">
-                        <editor>S.P. Brock</editor>
-                        <editor>S.A. Harvey</editor>
-                        <title>Holy Women of
+                    <ptr target="http://syriaca.org/bibl/2106"/>
+                    <citedRange unit="pp" target="http://menadoc.bibliothek.uni-halle.de.emedien.ub.uni-muenchen.de/dmg/periodical/pageview/46991">254-257</citedRange>
+                    <listRelation>
+                        <relation active="#bib396-19" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib396-20" source="#bib396-1">
+                    <lang>la</lang>
+                    <editor>T. J. Lamy</editor>
+                    <ptr target="http://syriaca.org/bibl/1758"/>
+                    <citedRange unit="vol">4</citedRange>
+                    <citedRange unit="col">14-84</citedRange>
+                    <listRelation>
+                        <relation active="#bib396-20" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib396-21" source="#bib396-1">
+                    <lang>en</lang>
+                    <editor>S.P. Brock</editor>
+                    <editor>S.A. Harvey</editor>
+                    <title>Holy Women of
             the Syrian Orient (The Transformation of the Classical Heritage, 13), Berkeley-Los
             Angeles-Londres, 1987</title>
-                        <ptr target="http://syriaca.org/bibl/1702"/>
-                        <citedRange unit="pp">29-39</citedRange>
-                        <note xml:lang="fr">partielle</note>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib396-1">
-                    <bibl xml:id="bib396-22">
-                        <editor>A.V. Pajkova</editor>
-                        <title>Legendy i skazanija v
+                    <ptr target="http://syriaca.org/bibl/1702"/>
+                    <citedRange unit="pp">29-39</citedRange>
+                    <note xml:lang="fr">partielle</note>
+                    <listRelation>
+                        <relation active="#bib396-21" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib396-22" source="#bib396-1">
+                    <lang>ru</lang>
+                    <editor>A.V. Pajkova</editor>
+                    <title>Legendy i skazanija v
                 pamjatnikax sirijskoj agiografii, dans PalSb, 30 (93) (1990)</title>
-                        <ptr target="http://syriaca.org/bibl/2061"/>
-                        <citedRange unit="pp">107-116</citedRange>
-                        <lang>ru</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib396-23">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/396</idno>
-                <idno type="BHS">176</idno>
-                <idno type="BHO">16</idno>
-                <idno type="BHO">17</idno>
-                <idno type="CPG">3937</idno>
-                <bibl xml:id="bib396-1">
+                    <ptr target="http://syriaca.org/bibl/2061"/>
+                    <citedRange unit="pp">107-116</citedRange>
+                    <listRelation>
+                        <relation active="#bib396-22" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib396-23" source="#bib250-1">The manuscript witnesses for edition 1 are undetermined.<listRelation>
+                        <relation active="#bib396-23" ref="lawd:embodies" passive="http://syriaca.org/work/396"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib396-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">176</citedRange>
                 </bibl>
-                <bibl xml:id="bib396-2">
+                <bibl xml:id="bib396-2" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Un mot sur les sources des Actes d’Abraamios de
                      Qiduna</title>
                     <title level="j" xml:lang="fr">Musée belge</title>
                     <ptr target="http://syriaca.org/bibl/862"/>
                     <citedRange from="297" to="312" unit="pp">297-312</citedRange>
                 </bibl>
-                <bibl xml:id="bib396-3">
+                <bibl xml:id="bib396-3" type="lawd:Citation">
                     <title level="a" xml:lang="fr">CR de De Stoop</title>
                     <title level="j" xml:lang="la">Analecta Bollandiana</title>
                     <ptr target="http://syriaca.org/bibl/863"/>
                     <citedRange from="78" to="79" unit="pp">78-79</citedRange>
                 </bibl>
-                <bibl xml:id="bib396-4">
+                <bibl xml:id="bib396-4" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Éphrem (les versions). I. Éphrem grec; II. Éphrem latin</title>
                     <title level="m" xml:lang="fr">Dictionnaire de spiritualité ascétique et mystique: doctrine et histoire</title>
                     <ptr target="http://syriaca.org/bibl/864"/>
                     <citedRange unit="col">803, § 1, 2°</citedRange>
                 </bibl>
-                <bibl xml:id="bib396-5">
+                <bibl xml:id="bib396-5" type="lawd:Citation">
                     <title level="a" xml:lang="fr">Étude comparative des versions grecque, latine et slave de la
                      Vita Abrahamii (BHG 5, 6 et 7)</title>
                     <title level="m" xml:lang="fr">Études balkaniques, 2-3 (1965)</title>
                     <ptr target="http://syriaca.org/bibl/865"/>
                     <citedRange from="301" to="308" unit="pp">301-308</citedRange>
                 </bibl>
-                <bibl xml:id="bib396-6">
+                <bibl xml:id="bib396-6" type="lawd:Citation">
                     <title level="m" xml:lang="la">Patrologia Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/866"/>
                     <citedRange from="74" to="74" unit="pp">74, n° 9</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/396" passive="http://syriaca.org/person/1113" source="#bib396-1"/>
+                    <relation active="http://syriaca.org/work/396" passive="http://syriaca.org/person/1113" source="#bib396-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>

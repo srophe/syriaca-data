@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Shahdoust and his Companions (text) — <foreign xml:lang="syr">ܫܗܕܘܣܬ</foreign>
                 </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
@@ -63,7 +60,7 @@
                                 License.</p>
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
-                                <bibl>
+                                <bibl type="lawd:Citation">
                                     <ptr target="http://syriaca.org/bibl/649"/>
                                 </bibl>
                             </listBibl>
@@ -72,7 +69,7 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2015-11-05-06:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">Gateway to the Syriac Saints</title>
@@ -88,8 +85,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/saints</idno>
             </seriesStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -107,8 +107,11 @@
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                             Michelson</name>
                 </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
@@ -171,6 +174,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -187,11 +191,15 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-271" ana="#hagiographic">
+            <bibl xml:id="work-271" ana="#hagiographic" type="lawd:ConceptualWork">
                 <title xml:id="name271-1" xml:lang="syr" source="#bib271-1" syriaca-tags="#syriaca-headword">ܫܗܕܘܣܬ</title>
                 <title xml:id="name271-2" xml:lang="fr-x-bhs" source="#bib271-1">Šāhdūst</title>
                 <title xml:id="name271-3" xml:lang="fr" source="#bib271-1">Shahdoust et ses compagnons (texte)</title>
                 <title xml:id="name271-4" xml:lang="en" source="#bib271-1" syriaca-tags="#syriaca-headword">Shahdoust and his Companions (text)</title>
+                <idno type="URI">http://syriaca.org/work/271</idno>
+                <idno type="BHS">50</idno>
+                <idno type="BHO">1033</idno>
+                <textLang mainLang="syr"/>
                 <note xml:lang="syr" type="incipit" source="#bib271-1">
                     <quote>ܫܗܕܘܣܬ ܕܝܢ ܐܦܣܩܘܦܐ: ܗܘܿ ܕܗܘܐ ܚܠܦ ܫܡܥܘܢ ܒܣܠܝܩ ܘܒܩܛܝܣܦܘܢ ܡܕܝ̈ܢܬܐ: ܒܚܕ ܡܢ ܝܘ̈ܡܬܐ ܚܙܐ ܗܘ̣ܐ ܚܙܘܐ ܬܡܝܗܐ ܘܐܬܕܡܪ.</quote>
                 </note>
@@ -204,82 +212,93 @@
                 <note xml:lang="fr" type="explicit" source="#bib271-1">
                     <quote>Quant au bienheureux Shahdoust qu’ils avaient emmené enchaîné, ils le portèrent au Khouzistan dans la ville de Beyt-Lapat, et là il fut décapité à l’épée et couronné en Christ son espoir. (Et ils furent couronnés par le martyre pour le Christ, à qui… Amen.)</quote>
                 </note>
-                <note type="editions">
-                    <bibl source="#bib271-1" corresp="#bib271-7" n="1" xml:id="bib271-5">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 2</title>
-                        <ptr target="http://syriaca.org/bibl/1697"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 276-281</citedRange>
-                    </bibl>
-                </note>
-                <note type="editions">
-                    <bibl source="#bib271-1" corresp="#bib271-8" n="2" xml:id="bib271-6">
-                        <author>Assemani, S. E.</author>
-                        <title>ASMOO 1</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 88-91</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib271-1">
-                    <bibl xml:id="bib271-7">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 412-419 + du ms Berlin,Königliche Bibliothek, syr. 75 (Sachau 222), f. 326-328</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib271-1">
-                    <bibl xml:id="bib271-8">ms Vatican, Syr. 161, f. 55-56</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib271-1">
-                    <bibl xml:id="bib271-9">ms Londres, British Library, Add. 14654, f. 12r-v (mutilé)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib271-1">
-                    <bibl xml:id="bib271-10">ms Londres, British Library, Add. 14645, f. 323v-325</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib271-1">
-                    <bibl xml:id="bib271-11">ms Londres, British Library, Add. 12174, f. 380-381</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib271-1">
-                    <bibl xml:id="bib271-12">ms Dawra, Monstère chaldéen, cod. 631 (olim Alqosh, Monastère N.-D. des Semences, cod. 218 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib271-1">
-                    <bibl xml:id="bib271-13">ms Dayr az-Za‘faran, cod. pap. 116 (Dolabany)</bibl>
-                </note>
-                <note type="ancientVersion" source="#bib271-1">
-                    <bibl xml:id="bib271-14" xml:lang="hy">
-                        <editor>Լ. Հ .Տեր-Պետրոսյան</editor>
-                        <title>Աբրահամ Խոստովանողի «Վկայք Արեւելիցը» Երևան, 1976</title>
-                        <ptr target="http://syriaca.org/bibl/2078"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib271-1">
-                    <bibl xml:id="bib271-15">
-                        <editor>S. E. Assemani</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/bibl/1725"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 88-91</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note type="modernTranslation" source="#bib271-1">
-                    <bibl xml:id="bib271-16">
-                        <editor>O. Braun</editor>
-                        <title>AAPM</title>
-                        <ptr target="http://syriaca.org/bibl/1747"/>
-                        <citedRange unit="pp">93-96</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/271</idno>
-                <idno type="BHS">50</idno>
-                <idno type="BHO">1033</idno>
-                <bibl xml:id="bib271-1">
+                <bibl type="lawd:Edition" source="#bib271-1" xml:id="bib271-5">
+                    <author>Bedjan, P.</author>
+                    <title>AMS 2</title>
+                    <ptr target="http://syriaca.org/bibl/1697"/>
+                    <citedRange unit="vol">2</citedRange>
+                    <citedRange>p. 276-281</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib271-5" ref="dct:source" passive="#bib271-7" source="#bib271-1"/>
+                        <relation active="#bib271-5" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" source="#bib271-1" xml:id="bib271-6">
+                    <author>Assemani, S. E.</author>
+                    <title>ASMOO 1</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 88-91</citedRange>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib271-6" ref="dct:source" passive="#bib271-8" source="#bib271-1"/>
+                        <relation active="#bib271-6" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib271-7" source="#bib271-1">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 412-419 + du ms Berlin,Königliche Bibliothek, syr. 75 (Sachau 222), f. 326-328<listRelation>
+                        <relation active="#bib271-7" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib271-8" source="#bib271-1">ms Vatican, Syr. 161, f. 55-56<listRelation>
+                        <relation active="#bib271-8" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib271-9" source="#bib271-1">ms Londres, British Library, Add. 14654, f. 12r-v (mutilé)<listRelation>
+                        <relation active="#bib271-9" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib271-10" source="#bib271-1">ms Londres, British Library, Add. 14645, f. 323v-325<listRelation>
+                        <relation active="#bib271-10" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib271-11" source="#bib271-1">ms Londres, British Library, Add. 12174, f. 380-381<listRelation>
+                        <relation active="#bib271-11" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib271-12" source="#bib271-1">ms Dawra, Monstère chaldéen, cod. 631 (olim Alqosh, Monastère N.-D. des Semences, cod. 218 Vosté)<listRelation>
+                        <relation active="#bib271-12" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib271-13" source="#bib271-1">ms Dayr az-Za‘faran, cod. pap. 116 (Dolabany)<listRelation>
+                        <relation active="#bib271-13" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:AncientVersion" xml:id="bib271-14" xml:lang="hy" source="#bib271-1">
+                    <lang>hy</lang>
+                    <editor>Լ. Հ .Տեր-Պետրոսյան</editor>
+                    <title>Աբրահամ Խոստովանողի «Վկայք Արեւելիցը» Երևան, 1976</title>
+                    <ptr target="http://syriaca.org/bibl/2078"/>
+                    <listRelation>
+                        <relation active="#bib271-14" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib271-15" source="#bib271-1">
+                    <lang>la</lang>
+                    <editor>S. E. Assemani</editor>
+                    <title>ibid.</title>
+                    <ptr target="http://syriaca.org/bibl/1725"/>
+                    <citedRange unit="vol">1</citedRange>
+                    <citedRange>p. 88-91</citedRange>
+                    <listRelation>
+                        <relation active="#bib271-15" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib271-16" source="#bib271-1">
+                    <lang>de</lang>
+                    <editor>O. Braun</editor>
+                    <title>AAPM</title>
+                    <ptr target="http://syriaca.org/bibl/1747"/>
+                    <citedRange unit="pp">93-96</citedRange>
+                    <listRelation>
+                        <relation active="#bib271-16" ref="lawd:embodies" passive="http://syriaca.org/work/271"/>
+                    </listRelation>
+                </bibl>
+                <bibl xml:id="bib271-1" type="lawd:Citation">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
                     <ptr target="http://syriaca.org/bibl/649"/>
                     <citedRange unit="entry">50</citedRange>
                 </bibl>
-                <bibl xml:id="bib271-2">
+                <bibl xml:id="bib271-2" type="lawd:Citation">
                     <title xml:lang="de" level="m">Zur Märtyrerüberlieferung aus der
                      Christenverfolgung Schapurs II</title>
                     <title xml:lang="de" level="s">Abhandlungen der Akademie der Wissenschaften in
@@ -287,7 +306,7 @@
                     <ptr target="http://syriaca.org/bibl/909"/>
                     <citedRange from="105" to="128" unit="pp">105-128</citedRange>
                 </bibl>
-                <bibl xml:id="bib271-3">
+                <bibl xml:id="bib271-3" type="lawd:Citation">
                     <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
                      syriaques</title>
                     <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
@@ -296,14 +315,14 @@
                     <ptr target="http://syriaca.org/bibl/781"/>
                     <citedRange from="213" to="225" unit="pp">213-225</citedRange>
                 </bibl>
-                <bibl xml:id="bib271-4">
+                <bibl xml:id="bib271-4" type="lawd:Citation">
                     <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
                     <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
                     <ptr target="http://syriaca.org/bibl/709"/>
                     <citedRange from="188" to="188" unit="pp">188</citedRange>
                 </bibl>
                 <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/271" passive="http://syriaca.org/person/2074" source="#bib271-1"/>
+                    <relation active="http://syriaca.org/work/271" passive="http://syriaca.org/person/2074" source="#bib271-1" ref="syriaca:commemorated"/>
                 </listRelation>
             </bibl>
         </body>
