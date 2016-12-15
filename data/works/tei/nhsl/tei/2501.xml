@@ -36,7 +36,7 @@
                                 License.</p>
                     </licence>
                 </availability>
-                <date>2016-07-05+02:00</date>
+                <date>2016-12-12-05:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -50,7 +50,7 @@
                     <resp>Edited by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
                 </respStmt>
-                <idno type="URI">http://syriaca.org/works</idno>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
                 <!-- One or more volumes containing this record can go here.  -->
                 <!--<biblScope unit="vol" from="1" to="1">
                     <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
@@ -118,6 +118,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-07-05+02:00">CREATED: work</change>
         </revisionDesc>
     </teiHeader>
@@ -126,7 +127,7 @@
             <!-- The conceptual/abstract work being described is the bibl that is the direct child of <body> -->
             <!-- The main <bibl> entity and any of its bibl children should have an @type containing an RDF class (usually from http://lawd.info/ontology/) -->
             <!-- @ana should contain one or more links to the @xml:id of subject & genre tags in http://syriaca.org/documentation/work-subject-classifications.xml -->
-            <bibl xml:id="work-2501" type="lawd:ConceptualWork" ana="http://syriaca.org/documentation/work-subject-classifications.xml#history-universal">
+            <bibl xml:id="work-2501" ana="http://syriaca.org/documentation/work-subject-classifications.xml#history-universal" type="lawd:ConceptualWork">
                 <!-- The English title tagged as @syriaca-tags="#syriaca-headword" should generally be the title in most common use, or used 
                 in the most recent edition/translation of the work. If a Latin title is frequently used, this should be included in parentheses. 
                 See documentation for more details. -->
@@ -151,10 +152,11 @@
                     <persName xml:lang="syr">ܓܪܝܓܘܪܝܘܣ ܒܪ ܥܒܪܝܐ</persName>
                 </author>
                 <idno type="URI">http://syriaca.org/work/2501</idno>
+                <idno type="Takahashi">B19A</idno>
+                <textLang mainLang="syr"/>
                 <!-- A viaf.org URI can go here if one exists. -->
                 <!--<idno type="URI">http://viaf.org/viaf/28146462540327770635</idno>-->
                 <!-- Identifiers from print clavises or reference works can go here. @type should contain an unambiguous label for the clavis. -->
-                <idno type="Takahashi">B19A</idno>
                 <textLang mainLang="syr"/>
                 <!-- One or more dates associated with the text should be provided using attributes with standardized dates (usually @notBefore and @notAfter).
                     The text content of the date element should be a human-readable date.
@@ -363,7 +365,8 @@
                     <title level="m" xml:lang="en">The Chronography of Bar Hebraeus</title>
                     <ptr target="http://syriaca.org/bibl/2281"/>
                     <citedRange unit="vol" from="1" to="1">1</citedRange>
-                    <note type="misc" source="#bib2501-8">Wilmshurst calls this <quote>a clotted English translation ... which has not yet been replaced by anything better.</quote></note>
+                    <note type="misc" source="#bib2501-8">Wilmshurst calls this <quote>a clotted English translation ... which has not yet been replaced by anything better.</quote>
+                    </note>
                     <listRelation>
                         <relation type="translationSource" active="#bib2501-5" ref="dct:source" passive="#bib2501-2" source="#bib2501-7"/>
                         <relation active="#bib2501-5" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
@@ -514,7 +517,9 @@
                         <!-- If the placement of this work within a larger work follows a certain order, use a label with human-readable text content plus 
                             @type="order", @subtype with the unit, and @n with the machine-readable number. If there are multiple orders that differ by source 
                             (e.g., a different arrangement in manuscripts or editions), use multiple labels and include @source attributes. -->
-                        <desc><label type="order" subtype="part" n="1">part 1</label></desc>
+                        <desc>
+                            <label type="order" subtype="part" n="1">part 1</label>
+                        </desc>
                     </relation>
                 </listRelation>
             </bibl>
