@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:syriaca="http://syriaca.org" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -103,15 +103,62 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work</change>
         </revisionDesc>
     </teiHeader>
     <text>
         <body>
             <bibl xml:id="work-39" type="lawd:ConceptualWork">
-                <title xml:id="name39-1" xml:lang="en" syriaca-tags="#syriaca-headword">Psalm 151 (Peshitta Version)</title>
+                <title xml:lang="en" syriaca-tags="#syriaca-headword" xml:id="name39-1">Psalm 151 (Peshitta Version)</title>
+                <title xml:lang="en" source="#bib39-1" xml:id="name39-2">The apocryphal Psalm cli., without any commentary</title>
+                <title xml:lang="syr" type="final-rubric" source="#bib39-1" xml:id="name39-3">ܫܠܡ ܠܡܟܬܒ ܦܘܫܩܐ ܕܡܙܡܘܪ̈ܐ ܦܠܓܘܬܐ ܐܚܪܝܬܐ ܕܕܘܝܕ܀ ܕܦܫܩ ܛܘܒܢܐ ܐܬܢܣܝܘܣ ܦܛܪܝܪܟܐ ܕܐܠܟܣܢܕܪܝܐ ܪܒܬܐ܀</title>
                 <idno type="URI">http://syriaca.org/work/39</idno>
                 <textLang mainLang="syr"/>
+                <bibl type="syriaca:Manuscript" xml:id="bib39-3" source="#bib39-1">
+                    <idno type="BL-Shelfmark">Add MS 14568</idno>
+                    <biblScope unit="folio" from="50" to="50">Fol. 50</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/301"/>
+                    <date when="0599" calendar="Gregorian">This volume seems to be dated A.D. 599</date>
+                    <date when-custom="0910" datingMethod="Seleucid">A.Gr. 910.</date>
+                    <listRelation>
+                        <relation active="bib39-3" ref="lawd:embodies" passive="http://syriaca.org/work/39"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib39-1">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add. MS 14568</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/301"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/301#b2">The apocryphal Psalm cli., without any commentary</citedRange>
+                    <listRelation>
+                        <relation active="#bib39-1" ref="dct:source" passive="#bib39-2">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib39-2">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">DXXXI</citedRange>
+                    <citedRange unit="pp">II:405-406</citedRange>
+                    <citedRange unit="entry">BL Add. MS 14568</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/301" ref="lawd:hasCitation" passive="#bib39-2"/>
+                    </listRelation>
+                </bibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/39" ref="dct:isPartOf" passive="http://syriaca.org/manuscript/301#a1" source="#bib39-1" xml:id="relation39-1">
+                        <desc>
+                            <label type="order" subtype="part" n="2" source="#bib39-1">part 2</label>
+                        </desc>
+                    </relation>
+                </listRelation>
             </bibl>
         </body>
     </text>

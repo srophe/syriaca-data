@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:syriaca="http://syriaca.org" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -103,15 +103,89 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work</change>
         </revisionDesc>
     </teiHeader>
     <text>
         <body>
             <bibl xml:id="work-19" type="lawd:ConceptualWork">
-                <title xml:id="name19-1" xml:lang="en" syriaca-tags="#syriaca-headword">Psalms (Peshitta Version)</title>
+                <title xml:lang="en" syriaca-tags="#syriaca-headword" xml:id="name19-1">Psalms (Peshitta Version)</title>
+                <title xml:lang="en" source="#bib19-1" xml:id="name19-2">Old Testament. Psalms with Arabic translation. Peshitta.</title>
+                <title xml:lang="en" source="#bib19-3" xml:id="name19-3">Psalter. Peshitta.</title>
                 <idno type="URI">http://syriaca.org/work/19</idno>
                 <textLang mainLang="syr"/>
+                <bibl type="syriaca:Manuscript" xml:id="bib19-5" source="#bib19-1">
+                    <idno type="Shelfmark">CBMJ Sy/15th cent.</idno>
+                    <biblScope unit="folio" from="1" to="234">Foll. 1-234</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1362"/>
+                    <date notBefore="1350" notAfter="1550" calendar="Gregorian">c. XV</date>
+                    <listRelation>
+                        <relation active="bib19-5" ref="lawd:embodies" passive="http://syriaca.org/work/19"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib19-6" source="#bib19-3">
+                    <idno type="Shelfmark">Har. Syr. Ms. 5</idno>
+                    <idno type="Accession-number">42M-1690</idno>
+                    <ptr target="http://syriaca.org/manuscript/1275"/>
+                    <date/>
+                    <listRelation>
+                        <relation active="bib19-6" ref="lawd:embodies" passive="http://syriaca.org/work/19"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib19-1">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">Andover Newton Theological School CBMJ Sy/15th cent.</title>
+                    <ptr target="http://syriaca.org/manuscript/1362"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1362#a1">Old Testament. Psalms with Arabic translation. Peshitta</citedRange>
+                    <listRelation>
+                        <relation active="#bib19-1" ref="dct:source" passive="#bib19-2">
+                            <desc>Digital catalogue based on James T. Clemons. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib19-2">
+                    <author>James T. Clemons</author>
+                    <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+                    <citedRange unit="pp">508</citedRange>
+                    <ptr target="http://syriaca.org/bibl/2202"/>
+                    <citedRange unit="entry">Andover Newton Theological School CBMJ Sy/15th cent.</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1362" ref="lawd:hasCitation" passive="#bib19-2"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib19-3">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">Houghton Library Har-Syr-Ms-5</title>
+                    <ptr target="http://syriaca.org/manuscript/1275"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1275#b1">Psalter. Peshitta</citedRange>
+                    <listRelation>
+                        <relation active="#bib19-3" ref="dct:source" passive="#bib19-4">
+                            <desc>Digital catalogue based on James T. Clemons. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib19-4">
+                    <author>James T. Clemons</author>
+                    <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+                    <citedRange unit="pp">508</citedRange>
+                    <ptr target="http://syriaca.org/bibl/2202"/>
+                    <citedRange unit="entry">Houghton Library Har-Syr-Ms-5</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1275" ref="lawd:hasCitation" passive="#bib19-4"/>
+                    </listRelation>
+                </bibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/19" ref="dct:isPartOf" passive="http://syriaca.org/manuscript/1275#a1" source="#bib19-3" xml:id="relation19-1">
+                        <desc>
+                            <label type="order" subtype="part" n="1" source="#bib19-3">part 1</label>
+                        </desc>
+                    </relation>
+                </listRelation>
             </bibl>
         </body>
     </text>
