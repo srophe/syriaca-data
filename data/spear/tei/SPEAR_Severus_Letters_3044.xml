@@ -69,7 +69,7 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2558"/>
                         <sex value="M">
-                                Male
+                                <note type="desc">Misael was male.</note>
                             </sex>
                     </person>
                 </listPerson>
@@ -82,14 +82,10 @@
             <div uri="http://syriaca.org/spear/3044-3">
                 <listPerson>
                     <person>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2558">
-                                    Misael
-                                </persName>
-                                was a chamberlain.
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2558"/>
+                        <occupation ref="http://syriaca.org/keyword/chamberlain">
+                            <note type="desc">Misael was a chamberlain.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -110,10 +106,10 @@
             </div>
             <div uri="http://syriaca.org/spear/3044-5">
                 <listPerson>
-                    <person>
+                    <personGrp>
                         <persName ref="http://syriaca.org/person/3060">
                             The Oeconomi of the church of 
-                            <placeName>
+                            <placeName><!-- URI needed for Antioch -->
                                 Antioch
                             </placeName>
                             under 
@@ -121,7 +117,7 @@
                                 Severus
                             </persName>
                         </persName>
-                    </person>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -131,23 +127,12 @@
             </div>
             <div uri="http://syriaca.org/spear/3044-6">
                 <listPerson>
-                    <person>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/3060">
-                                    The Oeconmi
-                                </persName>
-                                were the stewards of the church of
-                                <placeName>
-                                    Antioch
-                                </placeName>
-                                under
-                                <persName ref="http://syriaca.org/person/51">
-                                    Severus
-                                </persName>.
-                            </desc>
-                        </state>
-                    </person>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3060"/>
+                        <occupation ref="http://syriaca.org/keyword/steward">
+                            <note type="desc">The Oeconmi were the stewards of the church of Antioch under Severus.</note>
+                        </occupation>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -184,7 +169,7 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2559"/>
                         <sex value="M">
-                                Male
+                                <note type="desc">Eleutherius was male.</note>
                             </sex>
                     </person>
                 </listPerson>
@@ -197,14 +182,10 @@
             <div uri="http://syriaca.org/spear/3044-10">
                 <listPerson>
                     <person>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2559">
-                                    Eleutherius
-                                </persName>
-                                was a sacellarius.
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2559"/>
+                        <occupation ref="http://syriaca.org/keyword/sacellarius">
+                            <note type="desc">Eleutherius was a sacellarius.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -235,14 +216,14 @@
             </div>
             <div uri="http://syriaca.org/spear/3044-13">
                 <listPerson>
-                    <person>
+                    <personGrp>
                         <persName ref="http://syriaca.org/person/3061">
                             Those who managed the apokriseis of 
                             <persName ref="http://syriaca.org/person/51">
                                 Severus
                             </persName>
                         </persName>
-                    </person>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -252,22 +233,16 @@
             </div>
             <div uri="http://syriaca.org/spear/3044-14">
                 <listPerson>
-                    <person>
-                        <state type="office">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/3061">
-                                    Those who managed the apokriseis of 
-                                    <persName ref="http://syriaca.org/person/51">
-                                        Severus
-                                    </persName>
-                                </persName>
-                                were the ecclesiastical administrators of the church of
-                                <placeName>
-                                    Antioch
-                                </placeName>.
-                            </desc>
-                        </state>
-                    </person>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3061"/>
+                        <occupation ref="http://syriaca.org/keyword/ecclesiasticaladministrators"><!-- I added the place name here, since it isn't mentioned in the name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. Also we need a URI for Antioch -->
+                            <note type="desc">Those who managed the apokriseis of Severus were the ecclesiastical administrators of the church of>
+                            <placeName ref=""><!-- URI needed for Antioch -->
+                                Antioch
+                            </placeName>
+                            </note>
+                        </occupation>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
