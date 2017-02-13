@@ -29,4 +29,8 @@ declare function local:mkcol($collection, $path) {
 
 (: store the collection configuration :)
 local:mkcol("/db/system/config", $target),
-xdb:store-files-from-pattern(concat("/system/config", $target), $dir, "*.xconf")
+xdb:store-files-from-pattern(concat("/system/config", $target), $dir, "*.xconf"),
+
+(: Add additional index configuration file for depreciated records, they should not be indexed :)
+local:mkcol("/db/system/config", $target),
+xdb:store-files-from-pattern(concat("/system/config", $target,'/data/deprecated'), $dir, "*.xconf")
