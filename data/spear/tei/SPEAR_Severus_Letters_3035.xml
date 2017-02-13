@@ -24,7 +24,7 @@
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/spear/3036/tei</idno> <!-- REPLACE THE 3036 WITH THE NUMBER OF THE ASSIGNED LETTER -->
+                <idno type="URI">http://syriaca.org/spear/3035/tei</idno> <!-- REPLACE THE 3035 WITH THE NUMBER OF THE ASSIGNED LETTER -->
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
@@ -50,12 +50,12 @@
     </teiHeader>
     <text>
         <body>
-            <div uri="http://syriaca.org/spear/3036-1">
+            <div uri="http://syriaca.org/spear/3035-1">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3042">
                            The Archimandrite of 
-                           <placeName>
+                           <placeName><!-- URI needed for Bassus -->
                                the monastery of Bassus
                            </placeName>
                         </persName>
@@ -67,11 +67,13 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-2">
+            <div uri="http://syriaca.org/spear/3035-2">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3042"/>
-                        <sex value="M">Male</sex>
+                        <sex value="M">
+                            <note type="desc">The Archimandrite of the monastery of Bassus was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -80,18 +82,13 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-3">
+            <div uri="http://syriaca.org/spear/3035-3">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/3042"/>
-                                He was the archimandrite of
-                                <placeName>
-                                    the monastery of Bassus
-                                </placeName>.
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/3042"/>
+                        <occupation ref="http://syriaca.org/keyword/archimatrite">
+                            <note type="desc">This man was an archimandrite of the monastery of Bassus.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -100,9 +97,9 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-4">
+            <div uri="http://syriaca.org/spear/3035-4">
                 <listRelation>
-                    <relation ana="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3042"/>
+                    <relation ana="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3042"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -110,11 +107,11 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-5">
+            <div uri="http://syriaca.org/spear/3035-5">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2539">
-                            Cosmos
+                            Cosmas
                         </persName>
                     </person>
                 </listPerson>
@@ -124,11 +121,13 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-6">
+            <div uri="http://syriaca.org/spear/3035-6">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2539"/>
-                        <sex value="M">Male</sex>
+                        <sex value="M">
+                            <note type="desc">Cosmas was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -137,20 +136,17 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-7">
+            <div uri="http://syriaca.org/spear/3035-7">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2539">
-                                    Cosmas
-                                </persName>
-                                was bishop of
-                                <placeName>
-                                    Apamea
+                        <persName ref="http://syriaca.org/person/2539"/>
+                        <occupation ref="http://syriaca.org/keyword/bishop">
+                            <note type="desc">Cosmas was Bishop of.>
+                                <placeName ref="http://syriaca.org/place/2630"><!-- I added the place name here, since it isn't mentioned in Cosmas's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. -->
+                                  Apamea  
                                 </placeName>
-                            </desc>
-                        </state>
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -159,7 +155,7 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-8">
+            <div uri="http://syriaca.org/spear/3035-8">
                 <listRelation>
                     <relation ana="clerical" name="syriaca:BishopOverBishop" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2539"/>
                 </listRelation>
@@ -169,7 +165,7 @@
                     <citedRange unit="pp">47</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-9">
+            <div uri="http://syriaca.org/spear/3035-9">
                 <listRelation>
                     <relation ana="personal" name="snap:EnmityFor" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2539"/>
                 </listRelation>
@@ -179,7 +175,7 @@
                     <citedRange unit="pp">48-52</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-10">
+            <div uri="http://syriaca.org/spear/3035-10">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2540">
@@ -193,11 +189,12 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-11">
+            <div uri="http://syriaca.org/spear/3035-11">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2540"/>
-                        <sex value="M">Male</sex>
+                        <sex value="M"><note type="desc">Theodore was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -206,20 +203,17 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-12">
+            <div uri="http://syriaca.org/spear/3035-12">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2540">
-                                    Theodore
-                                </persName>
-                                was a presbyter of
-                                <placeName>
+                        <persName ref="http://syriaca.org/person/2540"/>
+                        <occupation ref="http://syriaca.org/keyword/presbyter">
+                            <note type="desc">Theodore was a presbyter of.>
+                                <placeName ref="http://syriaca.org/place/xxxx"><!-- I added the place name here, since it isn't mentioned in Theodore's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. Also URI for Antioch needed. -->
                                     Antioch
-                                </placeName>.
-                            </desc>
-                        </state>
+                                </placeName>
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -228,9 +222,9 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-13">
+            <div uri="http://syriaca.org/spear/3035-13">
                 <listRelation>
-                    <relation ana="epistolary" name="EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/3042" passive="http://syriaca.org/person/2540"/>
+                    <relation ana="epistolary" name="syriaca:EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/3042" passive="http://syriaca.org/person/2540"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -238,9 +232,9 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-14">
+            <div uri="http://syriaca.org/spear/3035-14">
                 <listRelation>
-                    <relation ana="clerical" name="BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2540"/>
+                    <relation ana="clerical" name="syriaca:BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2540"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -248,9 +242,9 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-15">
+            <div uri="http://syriaca.org/spear/3035-15">
                 <listRelation>
-                    <relation ana="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2540" passive="http://syriaca.org/person/2539"/>
+                    <relation ana="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/2540" passive="http://syriaca.org/person/2539"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -258,12 +252,12 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-16">
+            <div uri="http://syriaca.org/spear/3035-16">
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3043">
                             The bishops present in 
-                            <placeName>
+                            <placeName><!-- URI needed for Antioch -->
                                 Antioch
                             </placeName>
                             for a synod of eastern bishops
@@ -276,9 +270,9 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-17">
+            <div uri="http://syriaca.org/spear/3035-17">
                 <listRelation>
-                    <relation ana="clerical" name="BishopOverBishop" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3043"/>
+                    <relation ana="clerical" name="syriaca:BishopOverBishop" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3043"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -286,7 +280,7 @@
                     <citedRange unit="pp">48</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-18">
+            <div uri="http://syriaca.org/spear/3035-18">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2514">
@@ -300,11 +294,13 @@
                     <citedRange unit="pp">49</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-19">
+            <div uri="http://syriaca.org/spear/3035-19">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2514"/>
-                        <sex value="M">Male</sex>
+                        <sex value="M">
+                            <note type="desc">Peter was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -313,20 +309,17 @@
                     <citedRange unit="pp">49</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-20">
+            <div uri="http://syriaca.org/spear/3035-20">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2514">
-                                    Peter
-                                </persName>
-                                was bishop of
-                                <placeName>
+                        <persName ref="http://syriaca.org/person/2514"/>
+                        <occupation ref="http://syriaca.org/keyword/bishop">
+                            <note type="desc">Peter was Bishop of.>
+                                <placeName ref="http://syriaca.org/place/2630"><!-- I added the place name here, since it isn't mentioned in Peter's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. -->
                                     Apamea
-                                </placeName>.
-                            </desc>
-                        </state>
+                                </placeName>
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -335,9 +328,9 @@
                     <citedRange unit="pp">49</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-21">
+            <div uri="http://syriaca.org/spear/3035-21">
                 <listRelation>
-                    <relation ana="epistolary" name="EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/3042" passive="http://syriaca.org/person/2514"/>
+                    <relation ana="epistolary" name="syriaca:EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/3042" passive="http://syriaca.org/person/2514"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -345,9 +338,9 @@
                     <citedRange unit="pp">49</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-22">
+            <div uri="http://syriaca.org/spear/3035-22">
                 <listRelation>
-                    <relation ana="clerical" name="BishopOverBishop" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2514"/>
+                    <relation ana="clerical" name="syriaca:BishopOverBishop" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2514"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -355,7 +348,7 @@
                     <citedRange unit="pp">49</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-23">
+            <div uri="http://syriaca.org/spear/3035-23">
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3044">
@@ -376,12 +369,17 @@
                     <citedRange unit="pp">49</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-24">
+            <div uri="http://syriaca.org/spear/3035-24">
                 <listRelation>
                     <relation ana="professional" name="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/51 http://syriaca.org/person/3044"/>
                 </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <citedRange unit="part">1.11</citedRange>
+                    <citedRange unit="pp">49</citedRange>
+                </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-25">
+            <div uri="http://syriaca.org/spear/3035-25">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2541">
@@ -395,11 +393,13 @@
                     <citedRange unit="pp">50</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-26">
+            <div uri="http://syriaca.org/spear/3035-26">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2541"/>
-                        <sex value="M">Male</sex>
+                        <sex value="M">
+                            <note type="desc">Father Elijah was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -408,20 +408,17 @@
                     <citedRange unit="pp">50</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-27">
+            <div uri="http://syriaca.org/spear/3035-27">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2541">
-                                    Elijah
-                                </persName>
-                                was a deacon of 
-                                <placeName>
+                        <persName ref="http://syriaca.org/person/2541"/>
+                        <occupation ref="http://syriaca.org/keyword/deacon">
+                            <note type="desc">Elijah was a deacon of.>
+                                <placeName ref="http://syriaca.org/place/xxxx"><!-- I added the place name here, since it isn't mentioned in Elijah's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. Also, URI needed for Antioch -->
                                     Antioch
-                                </placeName>.
-                            </desc>
-                        </state>
+                                </placeName>
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -430,17 +427,13 @@
                     <citedRange unit="pp">50</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-28">
+            <div uri="http://syriaca.org/spear/3035-28">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2541">
-                                    Elijah
-                                </persName>
-                                was a monk.
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/2541"/>
+                        <occupation ref="http://syriaca.org/keyword/monk">
+                            <note type="desc">Elijah was a monk.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -449,7 +442,7 @@
                     <citedRange unit="pp">50</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3036-29">
+            <div uri="http://syriaca.org/spear/3035-29">
                 <listRelation>
                     <relation ana="clerical" name="syriaca:BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2541"/>
                 </listRelation>

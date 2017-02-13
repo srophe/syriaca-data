@@ -55,7 +55,7 @@
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3066">
                            Bishops under
-                           <placeName>
+                            <placeName ref="http://syriaca.org/place/2630">
                                Apamea
                            </placeName>
                             summoned to a council
@@ -79,8 +79,8 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3066"/>
-                        <sex value="M">
-                            Male
+                        <sex value="M"><!-- Revise to eliminate error once bibl is corrected -->
+                            <note type="desc">The bishops under Apamea were male.</note>
                         </sex>
                     </personGrp>
                 </listPerson>
@@ -93,16 +93,14 @@
             <div uri="http://syriaca.org/spear/3068-3">
                 <listPerson>
                     <personGrp>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/3066">
-                                    These men were bishops in the province of  
-                                    <placeName ref="http://syriaca.org/place/176">
-                                        Syria Secunda
-                                    </placeName>
-                                </persName>.
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/3066"/>
+                            <occupation ref="http://syriaca.org/keyword/bishop">
+                            <note type="desc">These men were bishops in the province of>
+                                <placeName ref="http://syriaca.org/place/176">
+                                    Syria Secunda
+                                </placeName>
+                            </note>
+                        </occupation>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -113,7 +111,7 @@
             </div>
             <div uri="http://syriaca.org/spear/3068-4">
                 <listRelation>
-                    <relation ana="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3066"/>
+                    <relation ana="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3066"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -136,7 +134,7 @@
                     <person>
                         <persName ref="http://syriaca.org/person/3090">
                             The reader of 
-                            <placeName>
+                            <placeName><!-- URI needed for Antioch -->
                                 Antioch
                             </placeName>
                             who delivered a message to 
@@ -175,16 +173,10 @@
             <div uri="http://syriaca.org/spear/3068-8">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/3090">
-                                    This man was a reader of 
-                                    <placeName ref="http://syriaca.org/place/10">
-                                        Antioch
-                                    </placeName>
-                                </persName>
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/3090"/>
+                        <sex value="M">
+                            <note type="desc">The reader of Antioch was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -194,6 +186,21 @@
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3068-9">
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3090"/>
+                            <occupation ref="http://syriaca.org/keyword/reader">
+                            <note type="desc">This man was a reader of Antioch.</note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <citedRange unit="part">1.34</citedRange>
+                    <citedRange unit="pp">101</citedRange>
+                </bibl>
+            </div>
+            <div uri="http://syriaca.org/spear/3068-10">
                 <listRelation>
                     <relation ana="clerical" name="syriaca:BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3090"/>
                 </listRelation>

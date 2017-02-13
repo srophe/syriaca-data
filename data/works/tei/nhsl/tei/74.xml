@@ -1,148 +1,1392 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0"
-     xmlns:tei="http://www.tei-c.org/ns/1.0"
-     xmlns:syriaca="http://syriaca.org"
-     xmlns:lawd="http://lawd.info/ontology/"
-     xmlns:dct="http://purl.org/dc/terms/"
-     xmlns:saxon="http://saxon.sf.net/"
-     xmlns:functx="http://www.functx.com"
-     xml:lang="en">
-   <teiHeader>
-      <fileDesc>
-         <titleStmt>
-            <title level="a" xml:lang="en">Luke (Peshitta Version)</title>
-            <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
-            <funder>The International Balzan Prize Foundation</funder>
-            <funder>The National Endowment for the Humanities</funder>
-            <principal>David A. Michelson</principal>
-            <editor role="general"
-                    ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
-            <editor role="general"
-                    ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-            <editor role="creator"
-                    ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
-            <editor role="creator"
-                    ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-            <editor role="creator"
-                    ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</editor>
-            <respStmt>
-               <resp>Editing, data entry, and reconciling by</resp>
-               <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
-            </respStmt>
-            <respStmt>
-               <resp>Editing, proofreading, data architecture, and encoding by</resp>
-               <name type="person"
-                     ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
-            </respStmt>
-            <respStmt>
-               <resp>Data entry by</resp>
-               <name type="person"
-                     ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</name>
-            </respStmt>
-         </titleStmt>
-         <editionStmt>
-            <edition n="1.0"/>
-         </editionStmt>
-         <publicationStmt>
-            <authority>Syriaca.org: The Syriac Reference Portal</authority>
-            <idno type="URI">http://syriaca.org/work/74/tei</idno>
-            <availability>
-               <licence target="http://creativecommons.org/licenses/by/3.0/">
-                  <p>Distributed under a Creative Commons Attribution 3.0 Unported
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dct="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:syriaca="http://syriaca.org" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" xml:lang="en">Luke (Peshitta Version)</title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The International Balzan Prize Foundation</funder>
+                <funder>The National Endowment for the Humanities</funder>
+                <principal>David A. Michelson</principal>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</editor>
+                <respStmt>
+                    <resp>Editing, data entry, and reconciling by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, proofreading, data architecture, and encoding by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="1.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/work/74/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported
                                 License.</p>
-               </licence>
-            </availability>
-            <date>2016-12-16+01:00</date>
-         </publicationStmt>
-         <seriesStmt>
-            <title level="s">New Handbook of Syriac Literature</title>
-            <editor role="general"
-                    ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
-            <editor role="general"
-                    ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-            <respStmt>
-               <resp>Edited by</resp>
-               <name type="person"
-                     ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
-            </respStmt>
-            <respStmt>
-               <resp>Edited by</resp>
-               <name type="person"
-                     ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
-            </respStmt>
-            <idno type="URI">http://syriaca.org/nhsl</idno>
-         </seriesStmt>
-         <sourceDesc>
-            <p>Born digital.</p>
-         </sourceDesc>
-      </fileDesc>
-      <encodingDesc>
-         <editorialDecl>
-            <p>This record created following the Syriaca.org guidelines. Documentation
+                    </licence>
+                </availability>
+                <date>2016-12-16+01:00</date>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="s">New Handbook of Syriac Literature</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
+                <biblScope unit="vol" from="2" to="2">
+                    <title level="m">Clavis of Syriac Biblical Works</title>
+                    <idno type="URI">http://syriaca.org/bible</idno>
+                </biblScope>
+            </seriesStmt>
+            <sourceDesc>
+                <p>Born digital.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>This record created following the Syriaca.org guidelines. Documentation
                         available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
-            <interpretation>
-               <p>Approximate dates described in terms of centuries or partial centuries
+                <interpretation>
+                    <p>Approximate dates described in terms of centuries or partial centuries
                             have been interpreted as documented in <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org
                                 Dates</ref>.</p>
-            </interpretation>
-         </editorialDecl>
-         <classDecl>
-            <taxonomy>
-               <category xml:id="syriaca-headword">
-                  <catDesc>The name used by Syriaca.org for document titles, citation, and
+                </interpretation>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="syriaca-headword">
+                        <catDesc>The name used by Syriaca.org for document titles, citation, and
                                 disambiguation. These names have been created according to the
                                 Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
-               </category>
-               <category xml:id="syriaca-anglicized">
-                  <catDesc>An anglicized version of a name, included to facilitate
+                    </category>
+                    <category xml:id="syriaca-anglicized">
+                        <catDesc>An anglicized version of a name, included to facilitate
                                 searching.</catDesc>
-               </category>
-            </taxonomy>
-         </classDecl>
-      </encodingDesc>
-      <profileDesc>
-         <langUsage>
-            <language ident="syr">Unvocalized Syriac of any variety or period</language>
-            <language ident="syr-Syrj">Vocalized West Syriac</language>
-            <language ident="syr-Syrn">Vocalized East Syriac</language>
-            <language ident="en">English</language>
-            <language ident="en-x-gedsh">Names or terms Romanized into English according to
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="syr">Unvocalized Syriac of any variety or period</language>
+                <language ident="syr-Syrj">Vocalized West Syriac</language>
+                <language ident="syr-Syrn">Vocalized East Syriac</language>
+                <language ident="en">English</language>
+                <language ident="en-x-gedsh">Names or terms Romanized into English according to
                         the standards adopted by the Gorgias Encyclopedic Dictionary of the Syriac
                         Heritage</language>
-            <language ident="ar">Arabic</language>
-            <language ident="fr">French</language>
-            <language ident="de">German</language>
-            <language ident="la">Latin</language>
-         </langUsage>
-      </profileDesc>
-      <revisionDesc status="draft">
-         <change who="http://syriaca.org/documentation/editors.xml#ngibson"
-                 n="1.0"
-                 when="2016-12-16+01:00">CREATED: work</change>
-      </revisionDesc>
-   </teiHeader>
-   <text>
-      <body>
-         <bibl xml:id="work-74" type="lawd:ConceptualWork">
-            <title xml:id="name74-1" xml:lang="en" syriaca-tags="#syriaca-headword">Luke (Peshitta Version)</title>
-            <idno type="URI">http://syriaca.org/work/74</idno>
-            <textLang mainLang="syr"/>
-            <listRelation>
-               <relation xml:id="relation74-1" type="part" active="http://syriaca.org/work/74" ref="dct:isPartOf" passive="http://syriaca.org/work/71"><desc>
-                  <label type="order" subtype="book" n="3">book 3</label>
-               </desc>
-               </relation>
-               <relation xml:id="relation74-2" type="part" active="http://syriaca.org/work/74" ref="dct:isPartOf" passive="http://syriaca.org/work/201"><desc>
-                  <label type="order" subtype="book" n="3">book 3</label>
-               </desc>
-               </relation>
-               <relation xml:id="relation74-3" type="part" active="http://syriaca.org/work/74" ref="dct:isPartOf" passive="http://syriaca.org/work/208"><desc>
-                  <label type="order" subtype="book" n="1">book 1</label>
-               </desc>
-               </relation>
-            </listRelation>
-         </bibl>
-      </body>
-   </text>
+                <language ident="ar">Arabic</language>
+                <language ident="fr">French</language>
+                <language ident="de">German</language>
+                <language ident="la">Latin</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <bibl xml:id="work-74" type="lawd:ConceptualWork">
+                <title xml:lang="en" syriaca-tags="#syriaca-headword" xml:id="name74-1">Luke (Peshitta Version)</title>
+                <title xml:lang="en" source="#bib74-1" xml:id="name74-2">S. Luke</title>
+                <title xml:lang="en" source="#bib74-3 #bib74-31 #bib74-33 #bib74-35 #bib74-37 #bib74-47 #bib74-53 #bib74-57 #bib74-65" xml:id="name74-3">The Gospel of S. Luke, according to the Peshitta version</title>
+                <title xml:lang="en" source="#bib74-5" xml:id="name74-4">The Gospel of Luke, according to the Peshitta version</title>
+                <title xml:lang="syr" source="#bib74-5" xml:id="name74-5">ܐܘܢܓܠܝܘܢ ܩܕܝܫܐ ܟܪܘܙܘܬܐ ܕܠܘܩܐ ܡܣܒܪܢܐ</title>
+                <title xml:lang="syr" type="final-rubric" source="#bib74-5" xml:id="name74-6">ܫܠܡ ܐܘܢܓܠܝܘܢ ܩܕܝܫܐ ܟܪܘܙܘܬܐ ܕܠܘܩܐ ܡܣܒܪܢܐ ܕܡܠܠ ܝܘܢܐܝܬ ܒܐܠܟܣܢܕܪܝܐ ܪܒܬܐ</title>
+                <title xml:lang="en" source="#bib74-7 #bib74-9 #bib74-11 #bib74-15 #bib74-17 #bib74-19 #bib74-21 #bib74-41 #bib74-49 #bib74-55 #bib74-59 #bib74-61 #bib74-63" xml:id="name74-7">Luke</title>
+                <title xml:lang="syr" source="#bib74-9" xml:id="name74-8">ܐܘܢܓܠܝܘܢ ܩܕܝܫܐ ܕܝܫܘܥ ܡܫܝܚܐ ܟܪܘܙܘܬܐ ܕܛܘܒܢܐ ܠܘܩܐ ܚܚܕ ܡܢ ܫܒܥܝܢ ܫܠܝ̈ܫܠܝ̈ܚܐ .</title>
+                <title xml:lang="en" source="#bib74-13" xml:id="name74-9">Fragments of the Gospel of S. Luke, according to the Peshitta version</title>
+                <title xml:lang="syr" type="final-rubric" source="#bib74-21" xml:id="name74-10">ܫܠܡ ܐܘܢܓܠܝܘܢ ܩܕܝܫܐ. ܟܪܘܙܘܬܐ ܕܠܘܩܐ.ܕܡܠܠ ܝܘܢܐܝܬ ܒܐܦܣܘܣ</title>
+                <title xml:lang="en" source="#bib74-23 #bib74-25 #bib74-27" xml:id="name74-11">The Gospel of S. Luke</title>
+                <title xml:lang="en" source="#bib74-29" xml:id="name74-12">Luke 1.1-39a, 1.59-3.28a, 4.23b-6.33a</title>
+                <title xml:lang="en" source="#bib74-39" xml:id="name74-13">Luke, according to the Peshitta version</title>
+                <title xml:lang="en" source="#bib74-39" xml:id="name74-14">Luke, in Arabic translation with Syriac characters</title>
+                <title xml:lang="en" source="#bib74-43" xml:id="name74-15">The Gospel of Luke according to the Peshitta version</title>
+                <title xml:lang="en" source="#bib74-45" xml:id="name74-16">The Gospel of Luke</title>
+                <title xml:lang="en" source="#bib74-51" xml:id="name74-17">New Testament. Luke (fragment). Peshitta.</title>
+                <title xml:lang="en" source="#bib74-67" xml:id="name74-18">The Gospel of S. Luke, ch. ix. 12—17, according to the Peshitta version.</title>
+                <idno type="URI">http://syriaca.org/work/74</idno>
+                <textLang mainLang="syr"/>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-69" source="#bib74-1">
+                    <idno type="BL-Shelfmark">Add MS 14461</idno>
+                    <biblScope unit="folio" from="108a" to="168b">Foll. 108a-168a</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/138"/>
+                    <date from="0800" to="1000">ixth or xth cent.</date>
+                    <listRelation>
+                        <relation active="bib74-69" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-70" source="#bib74-3">
+                    <idno type="BL-Shelfmark">Add MS 14450</idno>
+                    <biblScope unit="folio" from="79b" to="145">Foll. 79b-145</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/122"/>
+                    <date notBefore="0600" notAfter="0700">7th century</date>
+                    <listRelation>
+                        <relation active="bib74-70" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-71" source="#bib74-5">
+                    <idno type="BL-Shelfmark">Add MS 14449</idno>
+                    <biblScope unit="folio" from="87b" to="150a">Foll. 87b-150a</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/121"/>
+                    <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+                    <listRelation>
+                        <relation active="bib74-71" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-72" source="#bib74-7">
+                    <idno type="BL-Shelfmark">Add MS 14465</idno>
+                    <biblScope unit="folio" from="80a" to="111">Foll. 80a-111</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/142"/>
+                    <date notBefore="1100" notAfter="1150">Early in the 12th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-72" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-73" source="#bib74-9">
+                    <idno type="BL-Shelfmark">Add MS 14460</idno>
+                    <biblScope unit="folio" from="46a" to="78">Foll. 46a-78</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/135"/>
+                    <date when-custom="0911" datingMethod="Seleucid">A. Gr. 911</date>
+                    <date when="0600" calendar="Gregorian">A.D. 600</date>
+                    <listRelation>
+                        <relation active="bib74-73" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-74" source="#bib74-11">
+                    <idno type="BL-Shelfmark">Add MS 14470</idno>
+                    <biblScope unit="folio" from="40b" to="68">Foll. 40b-68</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/153"/>
+                    <date notBefore="0400" notAfter="0600">5th or 6th century</date>
+                    <listRelation>
+                        <relation active="bib74-74" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-75" source="#bib74-13">
+                    <idno type="BL-Shelfmark">Add MS 14466</idno>
+                    <biblScope unit="folio" from="14" to="17">Foll. 14-17</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/145"/>
+                    <date from="0900" to="1100">xth or xith cent.</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-75" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-76" source="#bib74-15">
+                    <idno type="BL-Shelfmark">Add MS 14463</idno>
+                    <biblScope unit="folio" from="69a" to="120">Foll. 69a-120</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/140"/>
+                    <date notBefore="0600" notAfter="0700">7th century</date>
+                    <listRelation>
+                        <relation active="bib74-76" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-77" source="#bib74-17">
+                    <idno type="BL-Shelfmark">Add MS 14459</idno>
+                    <biblScope unit="folio" from="67b" to="126">Foll. 67b-126</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/134"/>
+                    <date notBefore-custom="0840" notAfter-custom="0849" datingMethod="Seleucid">(in the year) 84 . . (of the Greeks)</date>
+                    <date notBefore="0530" notAfter="0540" calendar="Gregorian">the 6th cent, (between A.D. 530 and 540)</date>
+                    <listRelation>
+                        <relation active="bib74-77" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-78" source="#bib74-19">
+                    <idno type="BL-Shelfmark">Add MS 14458</idno>
+                    <biblScope unit="folio" from="73b" to="120">Foll. 73b-120</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/131"/>
+                    <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+                    <listRelation>
+                        <relation active="bib74-78" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-79" source="#bib74-21">
+                    <idno type="BL-Shelfmark">Add MS 14457</idno>
+                    <biblScope unit="folio" from="94a" to="154b">Foll. 94a-154b</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1193"/>
+                    <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+                    <listRelation>
+                        <relation active="bib74-79" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-80" source="#bib74-23">
+                    <idno type="BL-Shelfmark">Add MS 12141</idno>
+                    <biblScope unit="folio" from="88" to="88">Foll. 88</biblScope>
+                    <biblScope unit="folio" from="94" to="94">and 94</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1167"/>
+                    <date notBefore="0700" notAfter="0800">8th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-80" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-81" source="#bib74-25">
+                    <idno type="BL-Shelfmark">Add MS 12141</idno>
+                    <biblScope unit="folio" from="95" to="144">Foll. 95-144</biblScope>
+                    <biblScope unit="folio" from="146" to="148">and 146-148</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1168"/>
+                    <date notBefore="0500" notAfter="0600">6th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-81" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-82" source="#bib74-27">
+                    <idno type="BL-Shelfmark">Add MS 12141</idno>
+                    <biblScope unit="folio" from="89" to="93">Foll. 89-93</biblScope>
+                    <biblScope unit="folio" from="145" to="145">and 145</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1169"/>
+                    <date notBefore="1000" notAfter="1100">11th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-82" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-83" source="#bib74-29">
+                    <idno type="Shelfmark">Syr. Ms. 1.</idno>
+                    <ptr target="http://syriaca.org/manuscript/1289"/>
+                    <date notBefore="0900" notAfter="1000">X.</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-83" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-84" source="#bib74-31">
+                    <idno type="BL-Shelfmark">Add MS 14455</idno>
+                    <biblScope unit="folio" from="16a" to="90">Foll. 16a-90</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/128"/>
+                    <date notBefore="0500" notAfter="0600">6th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-84" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-85" source="#bib74-33">
+                    <idno type="BL-Shelfmark">Add MS 14454</idno>
+                    <biblScope unit="folio" from="79a" to="131">Foll. 79a-131</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/127"/>
+                    <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+                    <listRelation>
+                        <relation active="bib74-85" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-86" source="#bib74-35">
+                    <idno type="BL-Shelfmark">Add MS 14448</idno>
+                    <biblScope unit="folio" from="51b" to="87">Foll. 51b-87</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/120"/>
+                    <date when-custom="1012" datingMethod="Seleucid">A. Gr. 1012</date>
+                    <date when-custom="0080" datingMethod="Hijri-qamari">A.H. 80</date>
+                    <date notBefore="0699" notAfter="0700" calendar="Gregorian">A.D. 699-700</date>
+                    <listRelation>
+                        <relation active="bib74-86" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-87" source="#bib74-37">
+                    <idno type="BL-Shelfmark">Add MS 12140</idno>
+                    <biblScope unit="folio" from="90b" to="151">Foll. 90b-151</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/12"/>
+                    <date notBefore="0500" notAfter="0600">6th century</date>
+                    <listRelation>
+                        <relation active="bib74-87" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-88" source="#bib74-39">
+                    <idno type="BL-Shelfmark">Add MS 17983</idno>
+                    <biblScope unit="folio" from="153a" to="248">Foll. 153a-248</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1112"/>
+                    <date when-custom="1719" datingMethod="Seleucid">A. Gr. 1719</date>
+                    <date when="1438" calendar="Gregorian">A.D. 1438</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-88" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-89" source="#bib74-41">
+                    <idno type="BL-Shelfmark">Add MS 17922</idno>
+                    <biblScope unit="folio" from="90b" to="151">Foll. 90b-151</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1110"/>
+                    <date when-custom="1534" datingMethod="Seleucid">A. Gr. 1534</date>
+                    <date when-custom="0619" datingMethod="Hijri-qamari">A. H. 619</date>
+                    <date notBefore="1222" notAfter="1223" calendar="Gregorian">A.D. 1222-3</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-89" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-90" source="#bib74-43">
+                    <idno type="BL-Shelfmark">Add MS 14669</idno>
+                    <biblScope unit="folio" from="36b" to="36b">Fol. 36b</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/506"/>
+                    <date notBefore="0500" notAfter="0600">6th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-90" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-91" source="#bib74-45">
+                    <idno type="BL-Shelfmark">Add MS 14669</idno>
+                    <biblScope unit="folio" from="43b" to="52">Foll. 43b-52</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/508"/>
+                    <date notBefore="0800" notAfter="0900">9th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-91" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-92" source="#bib74-47">
+                    <idno type="BL-Shelfmark">Add MS 14456</idno>
+                    <biblScope unit="folio" from="72b" to="119">Foll. 72b-119</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/129"/>
+                    <date notBefore="0700" notAfter="0800">8th century</date>
+                    <listRelation>
+                        <relation active="bib74-92" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-93" source="#bib74-49">
+                    <idno type="Shelfmark">Shelf Number X893.4-B473.</idno>
+                    <ptr target="http://syriaca.org/manuscript/1265"/>
+                    <date notBefore="1150" notAfter="1350">c. XIII</date>
+                    <listRelation>
+                        <relation active="bib74-93" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-94" source="#bib74-51">
+                    <idno type="Shelfmark">M. 774</idno>
+                    <biblScope unit="folio" from="1" to="1">Fol. 1</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1262"/>
+                    <date notBefore="1100" notAfter="1300">XII-XIII</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-94" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-95" source="#bib74-53">
+                    <idno type="BL-Shelfmark">Add MS 14453</idno>
+                    <biblScope unit="folio" from="85b" to="142">Foll. 85b-142</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/126"/>
+                    <date notBefore="0400" notAfter="0600">5th or 6th century</date>
+                    <listRelation>
+                        <relation active="bib74-95" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-96" source="#bib74-55">
+                    <idno type="BL-Shelfmark">Add MS 17113</idno>
+                    <biblScope unit="folio" from="89a" to="158">Foll. 89a-158</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/742"/>
+                    <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+                    <listRelation>
+                        <relation active="bib74-96" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-97" source="#bib74-57">
+                    <idno type="BL-Shelfmark">Add MS 12177</idno>
+                    <biblScope unit="folio" from="132a" to="222">Foll. 132a-222</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/76"/>
+                    <date when-custom="1500" datingMethod="Seleucid">A. Gr. 1500</date>
+                    <date when="1189" calendar="Gregorian">A.D. 1189</date>
+                    <listRelation>
+                        <relation active="bib74-97" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-98" source="#bib74-59">
+                    <idno type="BL-Shelfmark">Add MS 17114</idno>
+                    <biblScope unit="folio" from="17a" to="48">Foll. 17a-48</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/743"/>
+                    <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-98" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-99" source="#bib74-61">
+                    <idno type="BL-Shelfmark">Add MS 17118</idno>
+                    <biblScope unit="folio" from="48a" to="89">Foll. 48a-89</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/747"/>
+                    <date notBefore="0700" notAfter="0900">8th or 9th century</date>
+                    <note>defective</note>
+                    <listRelation>
+                        <relation active="bib74-99" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-100" source="#bib74-63">
+                    <idno type="BL-Shelfmark">Add MS 14471</idno>
+                    <biblScope unit="folio" from="52a" to="85">Foll. 52a-85</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/154"/>
+                    <date when-custom="0926" datingMethod="Seleucid">A. Gr. 926</date>
+                    <date when="0615" calendar="Gregorian">A.D. 615</date>
+                    <listRelation>
+                        <relation active="bib74-100" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-101" source="#bib74-65">
+                    <idno type="BL-Shelfmark">Add MS 12137</idno>
+                    <biblScope unit="folio" from="99a" to="163b">Foll. 99a-163b</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/1161"/>
+                    <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+                    <listRelation>
+                        <relation active="bib74-101" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib74-102" source="#bib74-67">
+                    <idno type="BL-Shelfmark">Add MS 17224</idno>
+                    <biblScope unit="folio" from="66a" to="66a">Fol. 66a</biblScope>
+                    <ptr target="http://syriaca.org/manuscript/995"/>
+                    <date from="1200" to="1300">xiiith cent.</date>
+                    <listRelation>
+                        <relation active="bib74-102" ref="lawd:embodies" passive="http://syriaca.org/work/74"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-1">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14461</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/138"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/138#p2b1">S. Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-1" ref="dct:source" passive="#bib74-2">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-2">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">CII</citedRange>
+                    <citedRange unit="pp">I:68</citedRange>
+                    <citedRange unit="entry">BL Add MS 14461</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/138" ref="lawd:hasCitation" passive="#bib74-2"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-3">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14450</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/122"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/122#b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-3" ref="dct:source" passive="#bib74-4">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-4">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXIX</citedRange>
+                    <citedRange unit="pp">I:55</citedRange>
+                    <citedRange unit="entry">BL Add MS 14450</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/122" ref="lawd:hasCitation" passive="#bib74-4"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-5">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14449</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/121"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/121#b3">The Gospel of Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-5" ref="dct:source" passive="#bib74-6">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-6">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXIX</citedRange>
+                    <citedRange unit="pp">I:46-47</citedRange>
+                    <citedRange unit="entry">BL Add MS 14449</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/121" ref="lawd:hasCitation" passive="#bib74-6"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-7">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14465</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/142"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/142#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-7" ref="dct:source" passive="#bib74-8">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-8">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXV</citedRange>
+                    <citedRange unit="pp">I:60-61</citedRange>
+                    <citedRange unit="entry">BL Add MS 14465</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/142" ref="lawd:hasCitation" passive="#bib74-8"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-9">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14460</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/135"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/135#c3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-9" ref="dct:source" passive="#bib74-10">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-10">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXVI</citedRange>
+                    <citedRange unit="pp">I:52-53</citedRange>
+                    <citedRange unit="entry">BL Add MS 14460</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/135" ref="lawd:hasCitation" passive="#bib74-10"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-11">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14470</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/153"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/153#c3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-11" ref="dct:source" passive="#bib74-12">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-12">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXIII</citedRange>
+                    <citedRange unit="pp">I:40-41</citedRange>
+                    <citedRange unit="entry">BL Add MS 14470</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/153" ref="lawd:hasCitation" passive="#bib74-12"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-13">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14466</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/145"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/145#p2a2">Fragments of the Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-13" ref="dct:source" passive="#bib74-14">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-14">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">C</citedRange>
+                    <citedRange unit="pp">I:67</citedRange>
+                    <citedRange unit="entry">BL Add MS 14466</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/145" ref="lawd:hasCitation" passive="#bib74-14"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-15">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14463</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/140"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/140#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-15" ref="dct:source" passive="#bib74-16">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-16">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXVIII</citedRange>
+                    <citedRange unit="pp">I:54-55</citedRange>
+                    <citedRange unit="entry">BL Add MS 14463</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/140" ref="lawd:hasCitation" passive="#bib74-16"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-17">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14459</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/134"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/134#p3b1">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-17" ref="dct:source" passive="#bib74-18">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-18">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">CI</citedRange>
+                    <citedRange unit="pp">I:67-68</citedRange>
+                    <citedRange unit="entry">BL Add MS 14459</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/134" ref="lawd:hasCitation" passive="#bib74-18"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-19">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14458</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/131"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/131#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-19" ref="dct:source" passive="#bib74-20">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-20">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXI</citedRange>
+                    <citedRange unit="pp">I:47-48</citedRange>
+                    <citedRange unit="entry">BL Add MS 14458</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/131" ref="lawd:hasCitation" passive="#bib74-20"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-21">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14457</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/1193"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1193#p1b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-21" ref="dct:source" passive="#bib74-22">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-22">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXX</citedRange>
+                    <citedRange unit="pp">I:47</citedRange>
+                    <citedRange unit="entry">BL Add MS 14457</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1193" ref="lawd:hasCitation" passive="#bib74-22"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-23">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 12141</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/1167"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1167#p2a1">The Gospel of S. Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-23" ref="dct:source" passive="#bib74-24">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-24">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXIX. II.</citedRange>
+                    <citedRange unit="pp">I:63</citedRange>
+                    <citedRange unit="entry">BL Add MS 12141</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1167" ref="lawd:hasCitation" passive="#bib74-24"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-25">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 12141</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/1168"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1168#p3a1">The Gospel of S. Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-25" ref="dct:source" passive="#bib74-26">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-26">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXIX. III.</citedRange>
+                    <citedRange unit="pp">I:63</citedRange>
+                    <citedRange unit="entry">BL Add MS 12141</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1168" ref="lawd:hasCitation" passive="#bib74-26"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-27">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 12141</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/1169"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1169#p4a1">The Gospel of S. Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-27" ref="dct:source" passive="#bib74-28">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-28">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXIX. IV.</citedRange>
+                    <citedRange unit="pp">I:63-64</citedRange>
+                    <citedRange unit="entry">BL Add MS 12141</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1169" ref="lawd:hasCitation" passive="#bib74-28"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-29">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">Duke University Library Syr. Ms. 1</title>
+                    <ptr target="http://syriaca.org/manuscript/1289"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1289#b3">Luke 1.1-39a, 1.59-3.28a, 4.23b-6.33a</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-29" ref="dct:source" passive="#bib74-30">
+                            <desc>Digital catalogue based on James T. Clemons. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-30">
+                    <author>James T. Clemons</author>
+                    <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+                    <citedRange unit="pp">508</citedRange>
+                    <ptr target="http://syriaca.org/bibl/2202"/>
+                    <citedRange unit="entry">Duke University Library Syr. Ms. 1</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1289" ref="lawd:hasCitation" passive="#bib74-30"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-31">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14455</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/128"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/128#b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-31" ref="dct:source" passive="#bib74-32">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-32">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired
+                  since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXVII</citedRange>
+                    <citedRange unit="pp">I:45</citedRange>
+                    <citedRange unit="entry">BL Add MS 14455</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/128" ref="lawd:hasCitation" passive="#bib74-32"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-33">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14454</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/127"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/127#b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-33" ref="dct:source" passive="#bib74-34">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-34">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXVII</citedRange>
+                    <citedRange unit="pp">I:62</citedRange>
+                    <citedRange unit="entry">BL Add MS 14454</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/127" ref="lawd:hasCitation" passive="#bib74-34"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-35">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14448</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/120"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/120#c3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-35" ref="dct:source" passive="#bib74-36">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-36">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXIV</citedRange>
+                    <citedRange unit="pp">I:41-42</citedRange>
+                    <citedRange unit="entry">BL Add MS 14448</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/120" ref="lawd:hasCitation" passive="#bib74-36"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-37">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 12140</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/12"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/12#b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-37" ref="dct:source" passive="#bib74-38">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-38">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXIII</citedRange>
+                    <citedRange unit="pp">I:49</citedRange>
+                    <citedRange unit="entry">BL Add MS 12140</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/12" ref="lawd:hasCitation" passive="#bib74-38"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-39">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 17983</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/1112"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1112#c3">Luke, according to the Peshitta version Luke, in Arabic translation with Syriac characters</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-39" ref="dct:source" passive="#bib74-40">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-40">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXVI</citedRange>
+                    <citedRange unit="pp">I:61-62</citedRange>
+                    <citedRange unit="entry">BL Add MS 17983</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1112" ref="lawd:hasCitation" passive="#bib74-40"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-41">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 17922</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/1110"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1110#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-41" ref="dct:source" passive="#bib74-42">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-42">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXIV</citedRange>
+                    <citedRange unit="pp">I:60</citedRange>
+                    <citedRange unit="entry">BL Add MS 17922</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1110" ref="lawd:hasCitation" passive="#bib74-42"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-43">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14669</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/506"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/506#p10a2">The Gospel of Luke according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-43" ref="dct:source" passive="#bib74-44">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-44">
+                  <!-- In this manuscript part the references and the xml:id reflect that a different cited range of Wright is of concern than in Part 1 -->
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum
+                    Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">XCIX</citedRange>
+                    <citedRange unit="pp">I:67</citedRange>
+                    <citedRange unit="entry">BL Add MS 14669</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/506" ref="lawd:hasCitation" passive="#bib74-44"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-45">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14669</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/508"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/508#p12b3">The Gospel of Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-45" ref="dct:source" passive="#bib74-46">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-46">
+                  <!-- In this manuscript part the references and the xml:id reflect that a different cited range of Wright is of concern than in Part 1 -->
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum
+                    Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXII</citedRange>
+                    <citedRange unit="pp">I:58</citedRange>
+                    <citedRange unit="entry">BL Add MS 14669</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/508" ref="lawd:hasCitation" passive="#bib74-46"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-47">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14456</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/129"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/129#b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-47" ref="dct:source" passive="#bib74-48">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-48">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired
+                  since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXX</citedRange>
+                    <citedRange unit="pp">I:55-57</citedRange>
+                    <citedRange unit="entry">BL Add MS 14456</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/129" ref="lawd:hasCitation" passive="#bib74-48"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-49">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">Columbia University X893.4-B473</title>
+                    <ptr target="http://syriaca.org/manuscript/1265"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1265#b1">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-49" ref="dct:source" passive="#bib74-50">
+                            <desc>Digital catalogue based on James T. Clemons. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-50">
+                    <author>James T. Clemons</author>
+                    <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+                    <citedRange unit="pp">508</citedRange>
+                    <ptr target="http://syriaca.org/bibl/2202"/>
+                    <citedRange unit="entry">Columbia University X893.4-B473</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1265" ref="lawd:hasCitation" passive="#bib74-50"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-51">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">The Pierpont Morgan Library PML-774</title>
+                    <ptr target="http://syriaca.org/manuscript/1262"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1262#a1">New Testament. Luke (fragment). Peshitta</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-51" ref="dct:source" passive="#bib74-52">
+                            <desc>Digital catalogue based on James T. Clemons. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-52">
+                    <author>James T. Clemons</author>
+                    <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+                    <citedRange unit="pp">508</citedRange>
+                    <ptr target="http://syriaca.org/bibl/2202"/>
+                    <citedRange unit="entry">The Pierpont Morgan Library PML-774</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1262" ref="lawd:hasCitation" passive="#bib74-52"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-53">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14453</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/126"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/126#b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-53" ref="dct:source" passive="#bib74-54">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-54">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXVI</citedRange>
+                    <citedRange unit="pp">I:44-45</citedRange>
+                    <citedRange unit="entry">BL Add MS 14453</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/126" ref="lawd:hasCitation" passive="#bib74-54"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-55">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 17113</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/742"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/742#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-55" ref="dct:source" passive="#bib74-56">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-56">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXII</citedRange>
+                    <citedRange unit="pp">I:48-49</citedRange>
+                    <citedRange unit="entry">BL Add MS 17113</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/742" ref="lawd:hasCitation" passive="#bib74-56"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-57">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 12177</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/76"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/76#b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-57" ref="dct:source" passive="#bib74-58">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-58">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXIII</citedRange>
+                    <citedRange unit="pp">I:58-60</citedRange>
+                    <citedRange unit="entry">BL Add MS 12177</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/76" ref="lawd:hasCitation" passive="#bib74-58"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-59">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 17114</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/743"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/743#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-59" ref="dct:source" passive="#bib74-60">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-60">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXVIII</citedRange>
+                    <citedRange unit="pp">I:45-46</citedRange>
+                    <citedRange unit="entry">BL Add MS 17114</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/743" ref="lawd:hasCitation" passive="#bib74-60"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-61">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 17118</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/747"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/747#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-61" ref="dct:source" passive="#bib74-62">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-62">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXXI</citedRange>
+                    <citedRange unit="pp">I:57-58</citedRange>
+                    <citedRange unit="entry">BL Add MS 17118</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/747" ref="lawd:hasCitation" passive="#bib74-62"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-63">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 14471</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/154"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/154#b3">Luke</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-63" ref="dct:source" passive="#bib74-64">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-64">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXVII</citedRange>
+                    <citedRange unit="pp">I:53-54</citedRange>
+                    <citedRange unit="entry">BL Add MS 14471</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/154" ref="lawd:hasCitation" passive="#bib74-64"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-65">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 12137</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/1161"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/1161#p1b3">The Gospel of S. Luke, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-65" ref="dct:source" passive="#bib74-66">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-66">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">LXXV. I.</citedRange>
+                    <citedRange unit="pp">I:50</citedRange>
+                    <citedRange unit="entry">BL Add MS 12137</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/1161" ref="lawd:hasCitation" passive="#bib74-66"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-67">
+                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <title level="a" xml:lang="en">BL Add MS 17224</title>
+                    <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+                    <ptr target="http://syriaca.org/manuscript/995"/>
+                    <publisher>Syriaca.org</publisher>
+                    <date>forthcoming</date>
+                    <citedRange unit="entry" target="http://syriaca.org/manuscript/995#p10a1">The Gospel of S. Luke, ch. ix. 12—17, according to the Peshitta version</citedRange>
+                    <listRelation>
+                        <relation active="#bib74-67" ref="dct:source" passive="#bib74-68">
+                            <desc>Digital catalogue based on William Wright. See the citation from the print catalogue.</desc>
+                        </relation>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Catalogue" xml:id="bib74-68">
+                    <author>William Wright</author>
+                    <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+                    <pubPlace>London</pubPlace>
+                    <date>1870</date>
+                    <ptr target="http://syriaca.org/bibl/8"/>
+                    <citedRange unit="entry">CXI</citedRange>
+                    <citedRange unit="pp">I:71</citedRange>
+                    <citedRange unit="entry">BL Add MS 17224</citedRange>
+                    <listRelation>
+                        <relation active="http://syriaca.org/manuscript/995" ref="lawd:hasCitation" passive="#bib74-68"/>
+                    </listRelation>
+                </bibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/74" ref="dct:isPartOf" passive="http://syriaca.org/work/71" source="#bib74-1 #bib74-17 #bib74-49 #bib74-3 #bib74-5 #bib74-7 #bib74-9 #bib74-11 #bib74-15 #bib74-19 #bib74-21 #bib74-29 #bib74-31 #bib74-33 #bib74-35 #bib74-37 #bib74-39 #bib74-41 #bib74-45 #bib74-47 #bib74-53 #bib74-55 #bib74-57 #bib74-59 #bib74-61 #bib74-63 #bib74-65" xml:id="relation74-1">
+                        <desc>
+                            <label type="order" subtype="book" n="3">book 3</label>
+                            <label type="order" subtype="book" n="1">book 1</label>
+                            <label type="order" subtype="part" n="1" source="#bib74-1 #bib74-17 #bib74-49">part 1</label>
+                            <label type="order" subtype="part" n="3" source="#bib74-3 #bib74-5 #bib74-7 #bib74-9 #bib74-11 #bib74-15 #bib74-19 #bib74-21 #bib74-29 #bib74-31 #bib74-33 #bib74-35 #bib74-37 #bib74-39 #bib74-41 #bib74-45 #bib74-47 #bib74-53 #bib74-55 #bib74-57 #bib74-59 #bib74-61 #bib74-63 #bib74-65">part 3</label>
+                        </desc>
+                    </relation>
+                </listRelation>
+            </bibl>
+        </body>
+    </text>
 </TEI>

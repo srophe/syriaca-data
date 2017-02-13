@@ -52,7 +52,7 @@
         <body>
             <div uri="http://syriaca.org/spear/3066-1">
                 <listRelation>
-                    <relation ana="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2417"/>
+                    <relation ana="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2417"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -79,7 +79,7 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2413"/>
                         <sex value="M">
-                            Male
+                            <note type="desc">Maximus was male.</note>
                         </sex>
                     </person>
                 </listPerson>
@@ -92,21 +92,18 @@
             <div uri="http://syriaca.org/spear/3066-4">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2413"> 
-                                    Maximus 
-                                </persName> 
-                                was a presbyter of 
-                                <placeName>
+                        <persName ref="http://syriaca.org/person/2413"/><!-- I'm including the URI for Seleucia and Isaria in this div because these place names were not in the PersName div. -->
+                        <occupation ref="http://syriaca.org/keyword/presbyter">
+                            <note type="desc">Maximus was a presbyter of>
+                                <placeName ref="http://syriaca.org/place/2714">
                                     Seleucia
                                 </placeName>
                                 in
-                                <placeName>
+                                <placeName ref="http://syriaca.org/place/xxxx"><!-- URI needed for Isauria -->
                                     Isauria
                                 </placeName>
-                            </desc>
-                        </state>
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -131,7 +128,7 @@
                         <persName ref="http://syriaca.org/person/3088">
                             The God-loving bishops who met together 
                             at the Council of
-                            <placeName>
+                            <placeName ref="http://syriaca.org/place/466"><!-- This is the URI for a settlement and not a diocese -->
                                 Neocaesarea
                             </placeName>
                         </persName>
@@ -145,12 +142,12 @@
             </div>
             <div uri="http://syriaca.org/spear/3066-7">
                 <listPerson>
-                    <person>
-                        <persName ref="http://syriaca.org/person/3088"/>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3088"/><!-- This URI needs to be corrected -->
                         <sex value="M">
-                            Male
+                            <note type="desc">The bishops who met together at the Council of Neocaesarea were male.</note>
                         </sex>
-                    </person>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -160,16 +157,12 @@
             </div>
             <div uri="http://syriaca.org/spear/3066-8">
                 <listPerson>
-                    <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/3088"> 
-                                    These men
-                                </persName> 
-                                were bishops.
-                            </desc>
-                        </state>
-                    </person>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3088"/>
+                        <occupation ref="http://syriaca.org/keyword/bishop">
+                            <note type="desc">These men were bishops.</note>
+                        </occupation>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -193,12 +186,12 @@
             </div>
             <div uri="http://syriaca.org/spear/3066-10">
                 <listPerson>
-                    <person>
+                    <personGrp>
                         <persName ref="http://syriaca.org/person/3089"/>
                         <sex value="M">
-                            Male
+                            <note type="desc">the three hundred and eighteen holy fathers were male.</note>
                         </sex>
-                    </person>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -208,16 +201,12 @@
             </div>
             <div uri="http://syriaca.org/spear/3066-11">
                 <listPerson>
-                    <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/3089"> 
-                                    These men
-                                </persName> 
-                                were bishops.
-                            </desc>
-                        </state>
-                    </person>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3089"/>
+                        <occupation ref="http://syriaca.org/keyword/bishop">
+                            <note type="desc">These men were bishops.</note>
+                        </occupation>
+                    </personGrp>
                 </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -227,7 +216,7 @@
             </div>
             <div uri="http://syriaca.org/spear/3066-12">
                 <listRelation>
-                    <relation ana="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2417" passive="http://syriaca.org/person/51"/>
+                    <relation ana="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/2417" passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>

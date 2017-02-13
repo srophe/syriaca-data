@@ -55,7 +55,7 @@
                     <person>
                         <persName ref="http://syriaca.org/person/44">
                             Philoxenus, the Bishop of
-                            <placeName>
+                            <placeName><!-- URI needed for Hierapolis -->
                                 Hierapolis
                             </placeName>
                         </persName>
@@ -71,7 +71,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/44"/>
-                        <sex value="M">Male</sex>
+                        <sex value="M">
+                        <note type="desc">Philoxenus was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -83,17 +85,10 @@
             <div uri="http://syriaca.org/spear/3092-3">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/44"> 
-                                    Philoxenus 
-                                </persName>
-                                was bishop of
-                                <placeName>
-                                    Hierapolis
-                                </placeName>.
-                            </desc>
-                        </state>
+                        <persName ref="http://syriaca.org/person/44"/>
+                        <occupation ref="http://syriaca.org/keyword/bishop">
+                            <note type="desc">Philoxenus was Bishop of Hierapolis.</note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -104,7 +99,7 @@
             </div>
             <div uri="http://syriaca.org/spear/3092-4">
                 <listRelation>
-                    <relation ana="epistolary" name="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/44"/>
+                    <relation ana="epistolary" name="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/44"/>
                 </listRelation>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/bibl/666"/>
@@ -130,7 +125,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2530"/>
-                        <sex value="M">Male</sex>
+                        <sex value="M">
+                        <note type="desc">Flavian was male.</note>
+                        </sex>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -142,17 +139,14 @@
             <div uri="http://syriaca.org/spear/3092-7">
                 <listPerson>
                     <person>
-                        <state type="vocation">
-                            <desc>
-                                <persName ref="http://syriaca.org/person/2530">
-                                    Flavian 
-                                </persName>
-                                was bishop of
-                                <placeName>
+                        <persName ref="http://syriaca.org/person/2530"/><!-- I indcluded a URI for Antioch in this div because the place name was not icluded in the persname div. -->
+                        <occupation ref="http://syriaca.org/keyword/bishop">
+                            <note type="desc">Flavian was Bishop of>
+                                <placeName ref="http://syriaca.org/place/xxxx"><!-- URI needed for Antioch -->
                                     Antioch
                                 </placeName>
-                            </desc>
-                        </state>
+                            </note>
+                        </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -206,11 +200,11 @@
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3099">
                             Those in 
-                            <placeName ref="http://syriaca.org/place/586">
+                            <placeName ref="http://syriaca.org/place/586"><!-- Is the URI for the diocese of Constantinople 586 or 2290? -->
                                 Constantinople
                             </placeName>
                             who managed the affairs of the church of 
-                            <placeName ref="http://syriaca.org/place/10">
+                            <placeName ref="http://syriaca.org/place/10"><!-- Check URI -->
                                 Antioch
                             </placeName>
                             <date notBefore="0513" notAfter="0518">
