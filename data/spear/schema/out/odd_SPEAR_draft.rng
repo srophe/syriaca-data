@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2017-05-10T21:47:38Z. .
+Schema generated from ODD source 2017-05-15T16:06:49Z. .
 TEI Edition: Version 3.1.0. Last updated on
 	15th December 2016, revision d3f5e70
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.1.0/
@@ -4198,7 +4198,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          <empty/>
          <attribute name="tag">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-Suggested values include: 1] syr; 2] ar; 3] cop; 4] grc; 5] la; 6] mal</a:documentation>
+Suggested values include: 1] syr; 2] ar; 3] cop; 4] fa; 5] heb; 6] gez; 7] grc; 8] la; 9] mal; 10] tr</a:documentation>
             <choice>
                <value>syr</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Syriac of any variety or period</a:documentation>
@@ -4206,16 +4206,28 @@ Suggested values include: 1] syr; 2] ar; 3] cop; 4] grc; 5] la; 6] mal</a:docume
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Arabic of any variety or period</a:documentation>
                <value>cop</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Coptic of any variety or period</a:documentation>
+               <value>fa</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Persian of any variety or period</a:documentation>
+               <value>heb</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Hebrew of any variety or period</a:documentation>
+               <value>gez</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Ethiopic of any variety or period</a:documentation>
                <value>grc</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Ancient Greek to A.D. 1453</a:documentation>
                <value>la</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Latin of any variety or period</a:documentation>
                <value>mal</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Malayalam of any variety or period</a:documentation>
+               <value>tr</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Turkish of any variety or period</a:documentation>
                <data type="token">
                   <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
                </data>
             </choice>
+         </attribute>
+         <attribute name="ref">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <data type="anyURI"/>
          </attribute>
          <optional>
             <attribute name="level">
@@ -4392,6 +4404,10 @@ Suggested values include: 1] syr; 2] ar; 3] cop; 4] grc; 5] la; 6] mal</a:docume
             <group>
                <ref name="persName"/>
                <ref name="education"/>
+            </group>
+            <group>
+               <ref name="persName"/>
+               <ref name="sex"/>
             </group>
             <group>
                <ref name="persName"/>
