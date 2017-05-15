@@ -313,7 +313,126 @@
                 </valItem>
               </valList>
             </attDef>
-          </attList><!-- Insert exempla that highlight all the points above! -->
+          </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-185" resp="#dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/1718"/>
+                    <death>
+                      <date when="0387-04-23" calendar="Gregorian" syriaca-computed-start="0387-04-23">23 April A. D.
+                        387
+                      </date>
+                      <note type="desc"> <persName ref="http://syriaca.org/person/1718">Eulogios</persName> died on 23 April A. D. 387 </note>
+                    </death>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">5</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">37</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3029-6" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <personGrp>
+                    <persName ref="http://syriaca.org/person/3035">
+                      The sacred virgins under the authority of
+                      <persName ref="http://syriaca.org/person/2780">
+                        Valeriana
+                      </persName>
+                      sometime 
+                      <date notBefore="0513" notAfter="0518">
+                        between A.D. 513-518
+                      </date>
+                    </persName>
+                  </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/667"/>
+                  <citedRange unit="part">7.01</citedRange>
+                  <citedRange unit="pp">364</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-12" resp="#dschwartz">
+                <listEvent>
+                  <event>
+                    <desc> In <choice>
+                      <reg>
+                        <date when="0201-11" calendar="Gregorian" syriaca-computed-start="0201-11-01">November A. D.
+                          201</date>
+                      </reg>
+                      <orig>
+                        <date when-custom="0513-02" datingMethod="Seleucid-SyriacMonths">Teshri II A. Gr. 513</date>
+                      </orig>
+                    </choice> during the reign of <persName ref="http://syriaca.org/person/2201"> Abgar the Great </persName>,
+                      <placeName ref="http://syriaca.org/place/191"> the Daisan river
+                      </placeName> flooded <placeName ref="http://syriaca.org/place/78">
+                        Edessa </placeName> destroying the western wall of the city,
+                      <placeName ref="http://syriaca.org/place/2579"> the Great Palace
+                      </placeName>, and <placeName ref="http://syriaca.org/place/2580"> the
+                        Church of the Christians </placeName>. </desc>
+                    <ptr target="http://syriaca.org/keyword/naturalDisaster"/>
+                  </event>
+                </listEvent>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">1-2</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">8</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-434">
+                <listPerson>
+                  <personGrp>
+                    <persName ref="http://syriaca.org/person/2219"> Those struck by fire in <choice>
+                      <reg>
+                        <date notBefore="0511-04-11" notAfter="0512-04-10" calendar="Gregorian" syriaca-computed-end="0512-04-10" syriaca-computed-start="0511-04-11">A. D. 511/2</date>
+                        <note ana="#calculated">This date was calculated from a regnal
+                          year.</note>
+                      </reg>
+                      <orig>
+                        <date datingMethod="regnalYear">the 21st year of the reign of
+                          Anastasios</date>
+                      </orig>
+                    </choice> because they wanted to remove the book placed in the coffin of
+                      <persName ref="http://syriaca.org/person/479"> Euphemia the martyr
+                      </persName> by the <ref target="http://syriaca.org/keyword/councilChalcedon"> Council of
+                        <placeName ref="http://syriaca.org/place/622"> Chalcedon
+                        </placeName>
+                      </ref>. </persName>
+                    <ptr target="http://syriaca.org/keyword/councilChalcedon"/>
+                  </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">9</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">83</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>The customization limits the attributes used on the date element by only making it a part of the att.datable.custom and att.datable.w3c attribute classes and by suggesting attribute values for the calendar and dating method attributes.</p>
             <!-- I need to deal with an inconsistency in my encoding. Calendar and datingMethod currently offer two different ways to refer to something like the Seleucid Calendar. -->
@@ -579,8 +698,8 @@
                 <dataRef key="data.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="resp" mode="add"><!-- I want to require this attribute on div but ONLY in divs that are children of body - Schematron. -->
-              <datatype>
+            <attDef ident="resp" usage="req" mode="add"><!-- I want to require this attribute on div but ONLY in divs that are children of body - Schematron. -->
+              <datatype minOccurs="1" maxOccurs="unbounded">
                 <dataRef key="data.pointer"/>
               </datatype>
             </attDef>
@@ -617,8 +736,89 @@
           </content>
           <attList>
             <attDef ident="where" mode="delete"/>
-            
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3056-7" resp="#ktorabi #dschwartz">
+                <listEvent>
+                  <event>
+                    <desc>
+                      <date notBefore="0513" notAfter="0518" calendar="Gregorian">
+                        Sometime between A.D. 513 and 518
+                      </date>,
+                      <persName ref="http://syriaca.org/person/3075">
+                        prominent men in
+                        <placeName ref="http://syriaca.org/place/10">
+                          Antioch
+                        </placeName>
+                      </persName>
+                      petitioned 
+                      <persName ref="http://syriaca.org/person/51">
+                        Severus
+                      </persName>
+                      to allow
+                      <persName ref="http://syriaca.org/person/2575">
+                        Romulus
+                      </persName>
+                      to conduct prayers in 
+                      <placeName ref="http://syriaca.org/place/10">
+                        Antioch
+                      </placeName>
+                      even though he was under the authority of 
+                      <persName ref="http://syriaca.org/person/2574">
+                        Philoxenus
+                      </persName>, 
+                      bishop of 
+                      <placeName ref="http://syriaca.org/place/2661">
+                        Doliche
+                      </placeName>.
+                    </desc>
+                  </event>
+                </listEvent>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.28</citedRange>
+                  <citedRange unit="pp">89
+                  </citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-460" resp="#dschwartz">
+                <listEvent>
+                  <event>
+                    <desc> In <choice>
+                      <reg>
+                        <date notBefore="0518-10" notAfter="0519-09" calendar="Gregorian" syriaca-computed-end="0519-09-01" syriaca-computed-start="0518-10-01">A. D. 499/500</date>
+                      </reg>
+                      <orig>
+                        <date when-custom="0830" datingMethod="Seleucid">A. Gr.
+                          830</date>
+                      </orig>
+                    </choice>
+                      <persName ref="http://syriaca.org/person/2268"> Justin </persName>
+                      deposed <persName ref="http://syriaca.org/person/51"> Severus
+                      </persName> and <persName ref="http://syriaca.org/person/44"> Philoxenos
+                      </persName> for refusing to accept the Council of
+                      <placeName ref="http://syriaca.org/place/622"> Chalcedon
+                      </placeName>
+                      . </desc>
+                    <ptr target="http://syriaca.org/keyword/councilChalcedon http://syriaca.org/keyword/deposition"/>
+                  </event>
+                </listEvent>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">9-10</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">87</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization removes the event element from all model and attribute classes. It removes the where attribute  and makes the desc element the only acceptable child element.</p>
           </remarks>
@@ -656,29 +856,109 @@
           </attList>
           <exemplum>
             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-              <desc>
-                <persName ref="http://syriaca.org/person/2288">
-                  Lucius Verus
-                </persName> 
-                and his brother 
-                <persName ref="http://syriaca.org/person/2246">
-                  Commodus
-                </persName> 
-                conquered 
-                <persName ref="http://syriaca.org/person/2223">
-                  the Parthians
-                </persName> 
-                in 
-                <choice>
-                  <reg>
-                    <date notBefore="0165-03-08" notAfter="0166-03-07" calendar="Gregorian" syriaca-computed-end="0166-03-07" syriaca-computed-start="0165-03-08">A. D. 165/6</date>\
-                    <note ana="#calculated">This date was calculated from a regnal year.</note>
-                  </reg>
-                  <orig>
-                    <date datingMethod="regnalYear">the fifth year of Lucius's reign</date>
-                  </orig>
-                </choice>.
-              </desc>
+              <div uri="http://syriaca.org/spear/119-52" resp="#dschwartz">
+                <listEvent>
+                  <event>
+                    <desc> In <choice>
+                      <corr>
+                        <date when="-0044" calendar="Gregorian" syriaca-computed-start="-0044-01-01">44 B.C.</date>
+                      </corr>
+                      <sic>
+                        <date notBefore="-0046-10" notAfter="-0045-09" calendar="Gregorian">46/5 B.C.</date>
+                      </sic>
+                      <orig>
+                        <date when-custom="0266" datingMethod="Seleucid">A. Gr.
+                          266</date>
+                      </orig>
+                    </choice>
+                      <persName ref="http://syriaca.org/person/2238"> Augustus </persName>
+                      became King of
+                      <placeName ref="http://syriaca.org/place/166"> Rome </placeName>.
+                    </desc>
+                    <ptr target="http://syriaca.org/keyword/emperor http://syriaca.org/keyword/accession"/>
+                  </event>
+                </listEvent>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">3</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">2</citedRange>
+                </bibl>
+                <note type="errata"> The author has apparently mistaken the date of Augustus'
+                  accession. </note>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-96" resp="#dschwartz">
+                <listEvent>
+                  <event>
+                    <desc>
+                      <persName ref="http://syriaca.org/person/326"> Aitalaha </persName>
+                      built <placeName ref="http://syriaca.org/place/2589"> the cemetery
+                      </placeName> and the eastern side of the <placeName ref="http://syriaca.org/place/2588"> Church of <placeName ref="http://syriaca.org/place/78"> Edessa </placeName>
+                      </placeName> in <choice>
+                        <reg>
+                          <date notBefore="0324-10" notAfter="0325-09" calendar="Gregorian" syriaca-computed-end="0325-09-01" syriaca-computed-start="0324-10-01">A. D. 324/5</date>
+                        </reg>
+                        <orig>
+                          <date when-custom="0636" datingMethod="Seleucid">A. Gr.
+                            636</date>
+                        </orig>
+                      </choice>. </desc>
+                    <ptr target="http://syriaca.org/keyword/sacredSite http://syriaca.org/keyword/architecture"/>
+                  </event>
+                </listEvent>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">4</citedRange>
+                </bibl>
+                <note type="incerta"> The text seems to be confused regarding the relative dates of
+                  several events in this section. <!-- The English translation has ammended the text without comment (following Assemmani). In mss. section 13 refers to the year 636 A. Gr. while section 14 refers to 635 A. Gr. But, they refer to the same events. Moreover, section 15 of the Chronicle says that in the next year, 325 C. E., the council of Nicaea took place. While there is no comment in the English footnotes, Hallier discusses the issues. -->
+                  <bibl type="secondary">
+                    <ptr target="http://syriaca.org/bibl/660"/>
+                    <citedRange unit="pp">94-95</citedRange>
+                  </bibl>
+                </note>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-434">
+                <listPerson>
+                  <personGrp>
+                    <persName ref="http://syriaca.org/person/2219"> Those struck by fire in <choice>
+                      <reg>
+                        <date notBefore="0511-04-11" notAfter="0512-04-10" calendar="Gregorian" syriaca-computed-end="0512-04-10" syriaca-computed-start="0511-04-11">A. D. 511/2</date>
+                        <note ana="#calculated">This date was calculated from a regnal
+                          year.</note>
+                      </reg>
+                      <orig>
+                        <date datingMethod="regnalYear">the 21st year of the reign of
+                          Anastasios</date>
+                      </orig>
+                    </choice> because they wanted to remove the book placed in the coffin of
+                      <persName ref="http://syriaca.org/person/479"> Euphemia the martyr
+                      </persName> by the <ref target="http://syriaca.org/keyword/councilChalcedon"> Council of
+                        <placeName ref="http://syriaca.org/place/622"> Chalcedon
+                        </placeName>
+                      </ref>. </persName>
+                    <ptr target="http://syriaca.org/keyword/councilChalcedon"/>
+                  </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">9</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">83</citedRange>
+                </bibl>
+              </div>
             </egXML>
           </exemplum>
           <remarks>
@@ -698,6 +978,83 @@
               </datatype>
             </attDef>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-11" resp="#dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2201"> Abgar the great king
+                    </persName>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">1</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">8</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-200" resp="#dschwartz">
+                <listPerson>
+                  <personGrp>
+                    <persName ref="http://syriaca.org/person/2224">
+                      The Huns who
+                      entered <placeName ref="http://syriaca.org/place/166"> Roman territory
+                      </placeName> in <choice>
+                        <reg>
+                          <date when="0395-07" calendar="Gregorian" syriaca-computed-start="0395-07-01">July, A. D. 395</date>
+                        </reg>
+                        <orig>
+                          <date when-custom="0706-10" datingMethod="Seleucid-SyriacMonths">Tammuz A. Gr. 706</date>
+                        </orig>
+                      </choice>
+                    </persName>
+                    <ptr target="http://syriaca.org/keyword/Huns"/>
+                  </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">6</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">40</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3033-6" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <personGrp><!-- The discussion here is so vague that even though Severus breaks this group down into three, I've decided to encode them together as one anonymi -->
+                    <persName ref="http://syriaca.org/person/3041">
+                      Certain persons who ceaselessly sought ordination 
+                      from
+                      <persName ref="http://syriaca.org/person/51">
+                        Severus
+                      </persName>
+                      sometime between
+                      <date notBefore="0513" notAfter="0518">
+                        A.D. 513-518
+                      </date>
+                    </persName>
+                  </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.08</citedRange>
+                  <citedRange unit="pp">43</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization makes ref a required attribute for the persName element and also the only allowed attribute.</p>
           </remarks>
@@ -855,34 +1212,116 @@
           </attList>
           <exemplum>
             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-              <div uri="http://syriaca.org/spear/119-233">
+              <div uri="http://syriaca.org/spear/3140-21" resp="#ktorabi #dschwartz">
                 <listRelation>
-                  <relation ana="family" name="snap:ChildOf" active="http://syriaca.org/person/16" passive="http://syriaca.org/person/2234"/>
+                  <relation ana="family" ref="snap:SpouseOf" mutual="http://syriaca.org/person/3121 http://syriaca.org/person/3120"/>
                 </listRelation>
                 <bibl type="primary">
-                  <biblScope unit="pp">
-                    <ptr target="#bibl633-1"/>6</biblScope>
-                </bibl>
-                <bibl type="primary">
-                  <biblScope unit="part">
-                    <ptr target="#bibl633-2"/>47</biblScope>
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.63</citedRange>
+                  <citedRange unit="pp">196</citedRange>
                 </bibl>
               </div>
             </egXML>
           </exemplum>
           <exemplum>
             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-              <div uri="http://syriaca.org/spear/119-314">
+              <div uri="http://syriaca.org/spear/3013-13" resp="#ktorabi #dschwartz">
                 <listRelation>
-                  <relation ana="religious intellectual" name="snap:EnmityFor" active="http://syriaca.org/person/2314" passive="http://syriaca.org/person/2282 http://syriaca.org/person/2264 http://syriaca.org/person/847 http://syriaca.org/person/534 http://syriaca.org/person/2280 http://syriaca.org/person/2257 http://syriaca.org/person/2304 http://syriaca.org/person/781"/>
+                  <relation ana="monastic" ref="syriaca:MonasticHeadOver" active="http://syriaca.org/person/2669" passive="http://syriaca.org/person/3033"/>
                 </listRelation>
                 <bibl type="primary">
-                  <biblScope unit="pp">
-                    <ptr target="#bibl633-1"/>7</biblScope>
+                  <ptr target="http://syriaca.org/bibl/667"/>
+                  <citedRange unit="part">7.02</citedRange>
+                  <citedRange unit="pp">369</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3046-27" resp="#ktorabi #dschwartz">
+                <listRelation>
+                  <relation ana="religious" ref="syriaca:CommuneTogether" mutual="http://syriaca.org/person/2458 http://syriaca.org/person/3065"/>
+                </listRelation>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.19</citedRange>
+                  <citedRange unit="pp">70</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-555" resp="#dschwartz">
+                <listEvent>
+                  <event>
+                    <desc>
+                      The fourth time the
+                      walls of <placeName ref="http://syriaca.org/place/78"> Edessa
+                      </placeName> were broken down  was in the days of the king 
+                      <persName ref="http://syriaca.org/person/2268"> Justin </persName> and
+                      of the bishop 
+                      <persName ref="http://syriaca.org/person/2236"> Asclepius </persName> in <choice>
+                        <reg>
+                          <date notBefore="0524-10" notAfter="0525-09" calendar="Gregorian" syriaca-computed-end="0525-09-01" syriaca-computed-start="0524-10-01">A. D. 424/5</date>
+                        </reg>
+                        <orig>
+                          <date when-custom="0836" datingMethod="Seleucid">A. Gr.
+                            836</date>
+                        </orig>
+                      </choice>
+                    </desc>
+                    <ptr target="http://syriaca.org/keyword/emperor http://syriaca.org/keyword/bishop http://syriaca.org/keyword/naturalDisaster"/>
+                  </event>
+                  <listRelation>
+                    <relation ref="syriaca:SameAs" ana="event" mutual="http://syriaca.org/spear/119-376 http://syriaca.org/spear/119-555"/>
+                  </listRelation>
+                </listEvent>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">13</citedRange>
                 </bibl>
                 <bibl type="primary">
-                  <biblScope unit="part">
-                    <ptr target="#bibl633-2"/>63</biblScope>
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">106</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-542" resp="#dschwartz">
+                <listEvent>
+                  <event>
+                    <desc> In <choice>
+                      <reg>
+                        <date when="0540-05" calendar="Gregorian" syriaca-computed-start="0540-05-01">May A. D. 540</date>
+                      </reg>
+                      <orig>
+                        <date when-custom="0851-08" datingMethod="Seleucid-SyriacMonths">Iyār A. Gr. 851</date>
+                      </orig>
+                    </choice>
+                      <persName ref="http://syriaca.org/person/2244"> Chosroes </persName>
+                      broke the peace 
+                      and invaded <placeName ref="http://syriaca.org/place/166"> Roman
+                        territory </placeName>. He laid waste <placeName ref="http://syriaca.org/place/185"> Shura </placeName>, <placeName ref="http://syriaca.org/place/18"> Aleppo </placeName>, and
+                      <placeName ref="http://syriaca.org/place/10"> Antioch </placeName>.
+                    </desc>
+                    <ptr target="http://syriaca.org/keyword/war http://syriaca.org/keyword/violence"/>
+                  </event>
+                  <listRelation>
+                    <relation ref="syriaca:CloseConnection" ana="event" mutual="http://syriaca.org/spear/119-542 http://syriaca.org/spear/119-424"/>
+                  </listRelation>
+                </listEvent>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">13</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">105</citedRange>
                 </bibl>
               </div>
             </egXML>
@@ -975,6 +1414,44 @@
               </valList>
             </attDef>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3013-2" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2669"/>
+                    <sex value="F">
+                      <note type="desc"><persName ref="http://syriaca.org/person/2669">Jannia</persName> was female.</note>
+                    </sex>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/667"/>
+                  <citedRange unit="part">7.02</citedRange>
+                  <citedRange unit="pp">368</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3004-12" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2530"/>
+                    <sex value="M">
+                      <note type="desc"><persName ref="http://syriaca.org/person/2530">Flavian</persName> was male.</note>
+                    </sex>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.01</citedRange>
+                  <citedRange unit="pp">4</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization makes the value attribute the only attribute available to the sex element and requires a closed list for attribute values. </p>
           </remarks>
@@ -1007,6 +1484,62 @@
             <attDef ident="from" mode="delete"/>
             <attDef ident="to" mode="delete"/>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/119-55" resp="#dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2245"/>
+                    <birth>
+                      <choice>
+                        <reg>
+                          <date notBefore="-0003-10" notAfter="-0002-09" calendar="Gregorian" syriaca-computed-start="-0003-10-01" syriaca-computed-end="-0002-09-01">3/2 B.C.</date>
+                        </reg>
+                        <orig>
+                          <date when-custom="0309" datingMethod="Seleucid">A. Gr.
+                            309</date>
+                        </orig>
+                      </choice>
+                      <note type="desc"> Jesus was born in 3/2 B.C. </note>
+                    </birth>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/633"/>
+                  <citedRange unit="pp">3</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/657"/>
+                  <citedRange unit="part">3</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/10510-24" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/3218"/>
+                    <birth>
+                      <placeName ref="http://syriaca.org/place/486"/>
+                      <note type="desc">
+                        <persName ref="http://syriaca.org/person/3218">John Urtaya</persName> was born in <persName ref="http://syriaca.org/place/486">Syria</persName>.
+                      </note>
+                    </birth>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/work/10510"/>
+                  <citedRange unit="pp">554</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/2033"/>
+                  <citedRange unit="pp">208</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization restricts the attribute classes of the birth element to att.datable.w3c but excludes the to and from attributes. If more precise dating is required for a SPEAR factoid, encoder should use the date element.</p>
           </remarks>
@@ -1075,6 +1608,28 @@
               <elementRef key="note" minOccurs="1" maxOccurs="1"/>
             </sequence>
           </content>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3004-39" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2562"/>
+                    <nationality>
+                      <placeName ref="http://syriaca.org/place/1469"/>
+                      <note type="desc">
+                        <persName ref="http://syriaca.org/person/2562">Epiphanius</persName> was a citizen of <placeName ref="http://syriaca.org/place/1469">Perga</placeName>.
+                      </note>
+                    </nationality>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.01</citedRange>
+                  <citedRange unit="pp">7</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>The TEI name for this element is highly problematic from a pre-Modern perspective. Citizenship would be preferable in one sense, yet could in many instances exclude subaltern people such as slaves. SPEAR uses the "nationality" element as a general category for living under a particular jurisdiction. This customization limits the attribute classes of the nationality element to att.datable.custom and att.datable.w3c and removes the nationality element from all model classes. It also requires exactly one placeName element..</p>
           </remarks>
@@ -1091,6 +1646,24 @@
               <elementRef key="note" minOccurs="1" maxOccurs="1"/>
             </sequence>
           </content>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/10510-12" resp="#ktorabi">
+                <listPerson>
+                  <person> 
+                    <persName ref="http://syriaca.org/person/3251"/>
+                    <residence>
+                      <placeName ref="http://syriaca.org/place/399"/>
+                      <note type="desc">
+                        <persName ref="http://syriaca.org/person/3251">Mar Samuel</persName> resided in <placeName ref="http://syriaca.org/place/399">the Convent of John Urtaya</placeName>.
+                      </note>
+                    </residence>
+                  </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">553</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">207</citedRange></bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization limits the attribute classes of the residence element to att.datable.custom and att.datable.w3c and removes the residence element from all model classes. It also requires exactly one placeName element..</p>
           </remarks>
@@ -1107,6 +1680,70 @@
               </datatype>
             </attDef>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3020-3" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2606"/>
+                    <occupation ref="http://syriaca.org/keyword/reader">
+                      <note type="desc">
+                        <persName ref="http://syriaca.org/person/2606">Archelaus</persName> was a reader in 
+                        <placeName ref="http://syriaca.org/place/2729">
+                          Tyre
+                        </placeName>.
+                      </note>
+                    </occupation>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/667"/>
+                  <citedRange unit="part">6.02</citedRange>
+                  <citedRange unit="pp">363</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3042-3" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2558"/>
+                    <occupation ref="http://syriaca.org/keyword/chamberlain">
+                      <note type="desc"><persName ref="http://syriaca.org/person/2558">Misael</persName> was a chamberlain.</note>
+                    </occupation>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/667"/>
+                  <citedRange unit="part">11.1</citedRange>
+                  <citedRange unit="pp">459</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3053-3" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/2568"/>
+                    <occupation ref="http://syriaca.org/keyword/physician">
+                      <note type="desc">
+                        <persName ref="http://syriaca.org/person/2568">Theotecnus</persName> was an archiatros or chief physician.
+                      </note>
+                    </occupation>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.24</citedRange>
+                  <citedRange unit="pp">83</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization removes the occupation element from all attribute and member classes. It makes the note element the only acceptable child of the occupation element. It also requires a ref attribute on the occupation element.</p>
           </remarks>
@@ -1126,7 +1763,7 @@
         
         <elementSpec ident="langKnown" module="namesdates" mode="replace">
           <attList>
-            <attDef ident="tag" mode="replace" usage="req">
+            <attDef ident="tag" mode="replace" usage="rec">
               <datatype>
                 <dataRef key="teidata.enumerated"/>
               </datatype>
@@ -1179,6 +1816,31 @@
               </valList>
             </attDef>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/10510-22" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/3218"/>
+                    <langKnowledge>
+                      <langKnown ref="http://syriaca.org/keyword/urtaye"/>
+                      <note type="desc">
+                        <persName ref="http://syriaca.org/person/3218">John</persName> spoke Urtaye.
+                      </note>
+                    </langKnowledge>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/work/10510"/>
+                  <citedRange unit="pp">554</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/2033"/>
+                  <citedRange unit="pp">208</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization removes the langKnown element from all model and attribute classes. It also provides a semi closed value list for the required tag attribute and a closed list for the optional level attribute. </p>
           </remarks>
@@ -1195,6 +1857,25 @@
               </datatype>
             </attDef>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3127-10" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/3119"/>
+                    <socecStatus ref="http://syriaca.org/keyword/consul">
+                      <note type="desc">This man was of consular rank.</note>
+                    </socecStatus>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/667"/>
+                  <citedRange unit="part">10.08</citedRange>
+                  <citedRange unit="pp">455</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
           <remarks>
             <p>This customization removes the socecStatus element from all attribute and member classes. It makes the note element the only acceptable child of the socecStatus element. It also requires a ref attribute on the socecStatus element.</p>
           </remarks>
@@ -1227,6 +1908,53 @@
               </datatype>
             </attDef>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/10510-23" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/3218"/>
+                    <trait type="ethnicLabel" ref="http://syriaca.org/keyword/syrian">
+                      <note type="desc"><persName ref="http://syriaca.org/person/3218">John Urtaya</persName> was Syrian.</note>
+                    </trait>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/work/10510"/>
+                  <citedRange unit="pp">554</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/2033"/>
+                  <citedRange unit="pp">208</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/805-67" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/3010"/>
+                    <trait type="physical" ref="http://syriaca.org/keyword/illness">
+                      <note type="desc">
+                        <persName ref="http://syriaca.org/person/3010">Stephen</persName> was sickly and feeble of body.
+                      </note>
+                    </trait>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/work/805"/>
+                  <citedRange unit="pp">192</citedRange>
+                </bibl>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/1409"/>
+                  <citedRange unit="pp">192</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          
           <remarks>
             <p>This customization removes the trait element from all attribute and member classes. It makes the note element the only acceptable child of the trait element. It also requires a type attribute on the trait element and provides a closed list of values and limits the attribute values on the trait element to type and ref.</p>
           </remarks>
@@ -1267,6 +1995,30 @@
               </valList>
             </attDef>
           </attList>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              <div uri="http://syriaca.org/spear/3004-55" resp="#ktorabi #dschwartz">
+                <listPerson>
+                  <person>
+                    <persName ref="http://syriaca.org/person/958"/>
+                    <state type="sanctity" ref="http://syriaca.org/keyword/martyr">
+                      <note type="desc"><persName ref="http://syriaca.org/person/958">Eusebius</persName> was a martyr.</note>
+                    </state>
+                  </person>
+                </listPerson>
+                <bibl type="primary">
+                  <ptr target="http://syriaca.org/bibl/666"/>
+                  <citedRange unit="part">1.01</citedRange>
+                  <citedRange unit="pp">9</citedRange>
+                </bibl>
+              </div>
+            </egXML>
+          </exemplum>
+          <exemplum>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+              
+            </egXML>
+          </exemplum>
         </elementSpec>
         
         
