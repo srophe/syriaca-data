@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:syriaca="http://syriaca.org" xml:lang="en">
-    <teiHeader>
+<TEI xmlns:math="http://www.w3.org/1998/Math/MathML"
+     xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:syriaca="http://syriaca.org"
+     xml:lang="en">
+   <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Constantinople
@@ -11,10 +17,14 @@
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <principal>David A. Michelson</principal>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <funder>Qatar National Research Foundation</funder>
+            <principal>David A. Michelson</principal>
+                <editor role="general"
+                    ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="general"
+                    ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator"
+                    ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <respStmt>
                     <resp>Data merging, Pleiades and Wikipedia linking, and XML by</resp>
                     <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
@@ -23,7 +33,15 @@
                     <resp>Wilmshurst index information entry by</resp>
                     <name ref="http://syriaca.org/documentation/editors.xml#adavis">Anthony Davis</name>
                 </respStmt>
-            </titleStmt>
+            <respStmt>
+               <resp>Ibn Rustah data collection by</resp>
+               <name ref="http://syriaca.org/editors.xml#achamseddine">Abdul Rahman Chamseddine</name>
+            </respStmt>
+            <respStmt>
+               <resp>Ibn Rustah data correction and integration by</resp>
+               <name ref="http://syriaca.org/editors.xml#tcarlson">Thomas A. Carlson</name>
+            </respStmt>
+         </titleStmt>
             <editionStmt>
                 <edition n="1.0"/>
             </editionStmt>
@@ -50,8 +68,30 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2014-06-30-04:00</date>
+                <date>2017-08-09-05:00</date>
             </publicationStmt>
+         <seriesStmt>
+            <title level="s">Beth Qaṭraye Gazetteer</title>
+            <editor role="general"
+                    ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+            <editor role="general" ref="http://syriaca.org/editors.xml#tcarlson">Thomas A. Carlson</editor>
+            <editor role="associate" ref="http://syriaca.org/editors.xml#mkozah">Mario Kozah</editor>
+            <respStmt>
+               <resp>Edited by</resp>
+               <name type="person"
+                     ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+            </respStmt>
+            <respStmt>
+               <resp>Edited by</resp>
+               <name type="person"
+                     ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+            </respStmt>
+            <respStmt>
+               <resp>Edited by</resp>
+               <name type="person" ref="http://syriaca.org/documentation/editors.xml#mkozah">Mario Kozah</name>
+            </respStmt>
+            <idno type="URI">http://syriaca.org/bethqatraye</idno>
+         </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -81,89 +121,129 @@
                 <language ident="ar">Arabic</language>
             </langUsage>
         </profileDesc>
-        <revisionDesc status="published">
-            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-06-30-04:00">CHANGED tei:author element to tei:persName under tei:event element.</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson" when="2014-06-12-05:00">ADDED: Yaqut citation and attestation</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-01-14">ADDED: relation element with shares-name-with attribute for all place headwords that share names</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-01-14">ADDED: latitude and longitude from Pleiades</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-01-14">ADDED: syriaca-computed-start and syriaca-computed-end attributes for searching</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson" when="2013-12-18-05:00">CREATED: place</change>
+        <revisionDesc status="draft">
+         <change who="http://syriaca.org/editors.xml#tcarlson" when="2017-08-09-05:00">ADDED: Ibn Rustah citation and attestation</change>
+         <change who="http://syriaca.org/editors.xml#tcarlson" when="2017-08-09-05:00">ADDED: Arabic headword</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky"
+                 when="2014-06-30-04:00">CHANGED tei:author element to tei:persName under tei:event element.</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson"
+                 when="2014-06-12-05:00">ADDED: Yaqut citation and attestation</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky"
+                 when="2014-01-14">ADDED: relation element with shares-name-with attribute for all place headwords that share names</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky"
+                 when="2014-01-14">ADDED: latitude and longitude from Pleiades</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky"
+                 when="2014-01-14">ADDED: syriaca-computed-start and syriaca-computed-end attributes for searching</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson"
+                 when="2013-12-18-05:00">CREATED: place</change>
         </revisionDesc>
     </teiHeader>
-    <text>
-        <body>
-            <listPlace>
-                <place xml:id="place-586" type="settlement">
-                    <placeName xml:id="name586-1" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib586-1 #bib586-4 #bib586-5 #bib586-6">Constantinople</placeName>
-                    <placeName xml:id="name586-2" xml:lang="syr" syriaca-tags="#syriaca-headword">ܩܘܣܛܢܛܝܢܘܦܘܠܝܣ</placeName>
-                    <placeName xml:id="name586-3" xml:lang="syr-Syrj" source="#bib586-2">ܩܘܣܛܰܢܛܝܢܘܦܳܘܠܝܣ</placeName>
-                    <placeName xml:id="name586-4" xml:lang="ar" source="#bib586-3">القسطنطينية</placeName>
-                    <placeName xml:id="name586-5" xml:lang="ar" source="#bib586-8">قسطنطينية</placeName>
-                    <placeName xml:id="name586-6" xml:lang="ar" source="#bib586-8">اصطنْبُوْل</placeName>
-                    <desc xml:id="abstract-en-586" xml:lang="en">The capital of the Byzantine Empire.</desc>
-                    <location type="gps" source="#bib586-7">
+   <text>
+      <body>
+         <listPlace>
+            <place xml:id="place-586" type="settlement">
+               <placeName xml:id="name586-1"
+                          xml:lang="en"
+                          syriaca-tags="#syriaca-headword"
+                          source="#bib586-1 #bib586-4 #bib586-5 #bib586-6">Constantinople</placeName>
+               <placeName xml:id="name586-2" xml:lang="syr" syriaca-tags="#syriaca-headword">ܩܘܣܛܢܛܝܢܘܦܘܠܝܣ</placeName>
+               <placeName xml:id="name586-3" xml:lang="syr-Syrj" source="#bib586-2">ܩܘܣܛܰܢܛܝܢܘܦܳܘܠܝܣ</placeName>
+               <placeName xml:id="name586-4"
+                          xml:lang="ar"
+                          syriaca-tags="#syriaca-headword"
+                          source="#bib586-3 #bib586-9">القسطنطينية</placeName>
+               <placeName xml:id="name586-5" xml:lang="ar" source="#bib586-8">قسطنطينية</placeName>
+               <placeName xml:id="name586-6" xml:lang="ar" source="#bib586-8">اصطنْبُوْل</placeName>
+               <desc xml:id="abstract-en-586" xml:lang="en">The capital of the Byzantine Empire.</desc>
+               <location type="gps" source="#bib586-7">
                         <geo>41.008548 28.979938</geo>
                     </location>
-                    <event type="attestation" xml:id="attestation586-1" notBefore="1224" notAfter="1228" source="#bib586-8" syriaca-computed-start="1224-01-01" syriaca-computed-end="1228-01-01">
+               <event type="attestation"
+                      xml:id="attestation586-1"
+                      notBefore="1224"
+                      notAfter="1228"
+                      source="#bib586-8"
+                      syriaca-computed-start="1224-01-01"
+                      syriaca-computed-end="1228-01-01">
                         <p xml:lang="en">Attestation of names <foreign xml:lang="ar">قسطنطينية</foreign> and <foreign xml:lang="ar">اصطنْبُوْل</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
                         <link target="#name586-5 #attestation586-1"/>
                         <link target="#name586-6 #attestation586-1"/>
                     </event>
-                    <state type="existence" from="0330" to="2013" syriaca-computed-end="2013-01-01" syriaca-computed-start="0330-01-01">
+               <event type="attestation"
+                      xml:id="attestation586-2"
+                      notBefore="0902"
+                      notAfter="0914"
+                      source="#bib586-9">
+                  <p xml:lang="en">Attestation of name <foreign xml:lang="ar">القسطنطينية</foreign> in the 
+                        <title xml:lang="en" level="m">Kitāb al-aʿlāq al-nafīsa</title> of <persName>Aḥmad ibn ʿUmar Ibn Rustah</persName>.</p>
+                  <link target="#name586-4 #attestation586-2"/>
+               </event>
+               <state type="existence"
+                      from="0330"
+                      to="2013"
+                      syriaca-computed-end="2013-01-01"
+                      syriaca-computed-start="0330-01-01">
                         <precision match="@from" notAfter="0330" syriaca-computed-end="0330-01-01"/>
                         <precision match="@to" notBefore="2013" syriaca-computed-start="2013-01-01"/>
                     </state>
-                    <idno type="URI">http://syriaca.org/place/586</idno>
-                    <idno type="URI">http://pleiades.stoa.org/places/520998</idno>
-                    <idno type="URI">http://en.wikipedia.org/wiki/Constantinople</idno>
-                    <idno type="URI">http://en.wikipedia.org/wiki/Istanbul</idno>
-                    <idno type="URI">
+               <idno type="URI">http://syriaca.org/place/586</idno>
+               <idno type="URI">http://pleiades.stoa.org/places/520998</idno>
+               <idno type="URI">http://en.wikipedia.org/wiki/Constantinople</idno>
+               <idno type="URI">http://en.wikipedia.org/wiki/Istanbul</idno>
+               <idno type="URI">
                                             http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=C&amp;sK=Constantinople&amp;sT=keywords
                                         </idno>
-                    <bibl xml:id="bib586-1">
+               <bibl xml:id="bib586-1">
                         <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/1"/>
                         <citedRange unit="pp">1, 5, 10, 33, 104, 107, 109, 117, 129, 135, 137, 148, 155, 156, 167, 174, 181, 192, 196, 201, 212, 229–230, 231, 236, 238, 248, 259, 260, 265, 270, 282, 283, 285, 299, 303, 306, 322–333, 324, 331, 332, 340, 348, 352, 353–354, 357, 361, 362, 366, 368, 376, 393, 401, 408, 425, 431, 445, 446, 447, 448</citedRange>
                     </bibl>
-                    <bibl xml:id="bib586-2">
+               <bibl xml:id="bib586-2">
                         <title xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
                         <ptr target="http://syriaca.org/bibl/3"/>
                         <citedRange unit="pp">483</citedRange>
                     </bibl>
-                    <bibl xml:id="bib586-3">
+               <bibl xml:id="bib586-3">
                         <title xml:lang="ar">كتاب اللؤلؤ المنثور في تاريخ العلوم والأداب السريانية</title>
                         <ptr target="http://syriaca.org/bibl/2"/>
                         <citedRange unit="pp">451</citedRange>
                     </bibl>
-                    <bibl xml:id="bib586-4">
+               <bibl xml:id="bib586-4">
                         <title xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
                         <ptr target="http://syriaca.org/bibl/4"/>
                         <citedRange unit="pp">504</citedRange>
                     </bibl>
-                    <bibl xml:id="bib586-5">
+               <bibl xml:id="bib586-5">
                         <title xml:lang="en">The Comprehensive Bibliography on Syriac Christianity</title>
                         <ptr target="http://syriaca.org/bibl/5"/>
-                        <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=C&amp;sK=Constantinople&amp;sT=keywords">Constantinople</citedRange>
+                        <citedRange unit="entry"
+                              target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=C&amp;sK=Constantinople&amp;sT=keywords">Constantinople</citedRange>
                     </bibl>
-                    <bibl xml:id="bib586-6">
+               <bibl xml:id="bib586-6">
                         <author>David Wilmshurst</author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="pp">17, 61, 89, 190, 362, 363, 364</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
-                    <bibl xml:id="bib586-7">
+               <bibl xml:id="bib586-7">
                         <title>http://pleiades.stoa.org/places/520998</title>
                         <ptr target="http://pleiades.stoa.org/places/520998"/>
                     </bibl>
-                    <bibl xml:id="bib586-8">
+               <bibl xml:id="bib586-8">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
                         <author>Yāqūt al-Ḥamawī</author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="pp">I:250; IV:495</citedRange>
                     </bibl>
-                </place>
-                <relation name="share-a-name" mutual="#place-586  http://syriaca.org/place/2290"/>
-            </listPlace>
-        </body>
-    </text>
+               <bibl xml:id="bib586-9">
+                  <title xml:lang="en" level="m">Kitāb al-aʿlāq al-nafīsa</title>
+                  <author>Aḥmad ibn ʿUmar Ibn Rustah</author>
+                  <ptr target="http://syriaca.org/bibl/2503"/>
+                  <citedRange unit="pp">78</citedRange>
+               </bibl>
+            </place>
+            <relation name="share-a-name" mutual="#place-586  http://syriaca.org/place/2290"/>
+         </listPlace>
+      </body>
+   </text>
 </TEI>

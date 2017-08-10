@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:syriaca="http://syriaca.org" xml:lang="en">
-    <teiHeader>
+<TEI xmlns:math="http://www.w3.org/1998/Math/MathML"
+     xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:syriaca="http://syriaca.org"
+     xml:lang="en">
+   <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Black Sea
@@ -11,15 +17,27 @@
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <principal>David A. Michelson</principal>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <funder>Qatar National Research Foundation</funder>
+            <principal>David A. Michelson</principal>
+                <editor role="general"
+                    ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+                <editor role="general"
+                    ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator"
+                    ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <respStmt>
                     <resp>Data merging, Pleiades and Wikipedia linking, and XML by</resp>
                     <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
                 </respStmt>
-            </titleStmt>
+            <respStmt>
+               <resp>Ibn Rustah data collection by</resp>
+               <name ref="http://syriaca.org/editors.xml#achamseddine">Abdul Rahman Chamseddine</name>
+            </respStmt>
+            <respStmt>
+               <resp>Ibn Rustah data correction and integration by</resp>
+               <name ref="http://syriaca.org/editors.xml#tcarlson">Thomas A. Carlson</name>
+            </respStmt>
+         </titleStmt>
             <editionStmt>
                 <edition n="1.0"/>
             </editionStmt>
@@ -46,8 +64,30 @@
                         </p>
                     </licence>
                 </availability>
-                <date>2014-06-30-04:00</date>
+                <date>2017-08-09-05:00</date>
             </publicationStmt>
+         <seriesStmt>
+            <title level="s">Beth Qaṭraye Gazetteer</title>
+            <editor role="general"
+                    ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+            <editor role="general" ref="http://syriaca.org/editors.xml#tcarlson">Thomas A. Carlson</editor>
+            <editor role="associate" ref="http://syriaca.org/editors.xml#mkozah">Mario Kozah</editor>
+            <respStmt>
+               <resp>Edited by</resp>
+               <name type="person"
+                     ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+            </respStmt>
+            <respStmt>
+               <resp>Edited by</resp>
+               <name type="person"
+                     ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+            </respStmt>
+            <respStmt>
+               <resp>Edited by</resp>
+               <name type="person" ref="http://syriaca.org/documentation/editors.xml#mkozah">Mario Kozah</name>
+            </respStmt>
+            <idno type="URI">http://syriaca.org/bethqatraye</idno>
+         </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -77,63 +117,98 @@
                 <language ident="ar">Arabic</language>
             </langUsage>
         </profileDesc>
-        <revisionDesc status="published">
-            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-06-30-04:00">CHANGED tei:author element to tei:persName under tei:event element.</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson" when="2014-06-12-05:00">ADDED: Yaqut citation and attestation</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-01-14">ADDED: latitude and longitude from Pleiades</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-01-14">ADDED: syriaca-computed-start and syriaca-computed-end attributes for searching</change>
-            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson" when="2013-12-18-05:00">CREATED: place</change>
+        <revisionDesc status="draft">
+         <change who="http://syriaca.org/editors.xml#tcarlson" when="2017-08-09-05:00">ADDED: Ibn Rustah citation and attestation</change>
+         <change who="http://syriaca.org/editors.xml#tcarlson" when="2017-08-09-05:00">ADDED: Arabic headword</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky"
+                 when="2014-06-30-04:00">CHANGED tei:author element to tei:persName under tei:event element.</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson"
+                 when="2014-06-12-05:00">ADDED: Yaqut citation and attestation</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky"
+                 when="2014-01-14">ADDED: latitude and longitude from Pleiades</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#wsalesky"
+                 when="2014-01-14">ADDED: syriaca-computed-start and syriaca-computed-end attributes for searching</change>
+            <change who=" http://syriaca.org/documentation/editors.xml#tcarlson"
+                 when="2013-12-18-05:00">CREATED: place</change>
         </revisionDesc>
     </teiHeader>
-    <text>
-        <body>
-            <listPlace>
-                <place xml:id="place-503" type="open-water">
-                    <placeName xml:id="name503-1" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib503-3">Black Sea</placeName>
-                    <placeName xml:id="name503-2" xml:lang="syr" syriaca-tags="#syriaca-headword">ܝܡܐ ܐܘܟܡܐ</placeName>
-                    <placeName xml:id="name503-3" xml:lang="syr-Syrj" source="#bib503-1">ܝܰܡܳܐ ܐܘܟܳܡܐ</placeName>
-                    <placeName xml:id="name503-4" xml:lang="ar" source="#bib503-2">البحر الاسود</placeName>
-                    <placeName xml:id="name503-5" xml:lang="ar" source="#bib503-5">بحر بنْطُس</placeName>
-                    <desc xml:id="abstract-en-503" xml:lang="en">A large sea north of <placeName ref="http://syriaca.org/place/504">Anatolia</placeName>.</desc>
-                    <location type="gps" source="#bib503-4">
+   <text>
+      <body>
+         <listPlace>
+            <place xml:id="place-503" type="open-water">
+               <placeName xml:id="name503-1"
+                          xml:lang="en"
+                          syriaca-tags="#syriaca-headword"
+                          source="#bib503-3">Black Sea</placeName>
+               <placeName xml:id="name503-2" xml:lang="syr" syriaca-tags="#syriaca-headword">ܝܡܐ ܐܘܟܡܐ</placeName>
+               <placeName xml:id="name503-3" xml:lang="syr-Syrj" source="#bib503-1">ܝܰܡܳܐ ܐܘܟܳܡܐ</placeName>
+               <placeName xml:id="name503-4" xml:lang="ar" source="#bib503-2">البحر الاسود</placeName>
+               <placeName xml:id="name503-5" xml:lang="ar" source="#bib503-5">بحر بنْطُس</placeName>
+               <placeName xml:id="name503-6"
+                          xml:lang="ar"
+                          syriaca-tags="#syriaca-headword"
+                          source="#bib503-6">بحر بنطس</placeName>
+               <desc xml:id="abstract-en-503" xml:lang="en">A large sea north of <placeName ref="http://syriaca.org/place/504">Anatolia</placeName>.</desc>
+               <location type="gps" source="#bib503-4">
                         <geo>43.0786852 34.7425505</geo>
                     </location>
-                    <event type="attestation" xml:id="attestation503-1" notBefore="1224" notAfter="1228" source="#bib503-5" syriaca-computed-start="1224-01-01" syriaca-computed-end="1228-01-01">
+               <event type="attestation"
+                      xml:id="attestation503-1"
+                      notBefore="1224"
+                      notAfter="1228"
+                      source="#bib503-5"
+                      syriaca-computed-start="1224-01-01"
+                      syriaca-computed-end="1228-01-01">
                         <p xml:lang="en">Attestation of name <foreign xml:lang="ar">بحر بنْطُس</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
                         <link target="#name503-5 #attestation503-1"/>
                     </event>
-                    <state type="existence"/>
-                    <idno type="URI">http://syriaca.org/place/503</idno>
-                    <idno type="URI">http://pleiades.stoa.org/places/1224</idno>
-                    <idno type="URI">http://en.wikipedia.org/wiki/Black_Sea</idno>
-                    <idno type="URI">http://dbpedia.org/resource/Black_Sea</idno>
-                    <bibl xml:id="bib503-1">
+               <event type="attestation"
+                      xml:id="attestation503-2"
+                      notBefore="0902"
+                      notAfter="0914"
+                      source="#bib503-6">
+                  <p xml:lang="en">Attestation of name <foreign xml:lang="ar">بحر بنطس</foreign> in the 
+                        <title xml:lang="en" level="m">Kitāb al-aʿlāq al-nafīsa</title> of <persName>Aḥmad ibn ʿUmar Ibn Rustah</persName>.</p>
+                  <link target="#name503-6 #attestation503-2"/>
+               </event>
+               <state type="existence"/>
+               <idno type="URI">http://syriaca.org/place/503</idno>
+               <idno type="URI">http://pleiades.stoa.org/places/1224</idno>
+               <idno type="URI">http://en.wikipedia.org/wiki/Black_Sea</idno>
+               <idno type="URI">http://dbpedia.org/resource/Black_Sea</idno>
+               <bibl xml:id="bib503-1">
                         <title xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
                         <ptr target="http://syriaca.org/bibl/3"/>
                         <citedRange unit="pp">561</citedRange>
                     </bibl>
-                    <bibl xml:id="bib503-2">
+               <bibl xml:id="bib503-2">
                         <title xml:lang="ar">كتاب اللؤلؤ المنثور في تاريخ العلوم والأداب السريانية</title>
                         <ptr target="http://syriaca.org/bibl/2"/>
                         <citedRange unit="pp">519</citedRange>
                     </bibl>
-                    <bibl xml:id="bib503-3">
+               <bibl xml:id="bib503-3">
                         <title xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
                         <ptr target="http://syriaca.org/bibl/4"/>
                         <citedRange unit="pp">555</citedRange>
                     </bibl>
-                    <bibl xml:id="bib503-4">
+               <bibl xml:id="bib503-4">
                         <title>http://pleiades.stoa.org/places/1224</title>
                         <ptr target="http://pleiades.stoa.org/places/1224"/>
                     </bibl>
-                    <bibl xml:id="bib503-5">
+               <bibl xml:id="bib503-5">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
                         <author>Yāqūt al-Ḥamawī</author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="pp">I:406</citedRange>
                     </bibl>
-                </place>
-            </listPlace>
-        </body>
-    </text>
+               <bibl xml:id="bib503-6">
+                  <title xml:lang="en" level="m">Kitāb al-aʿlāq al-nafīsa</title>
+                  <author>Aḥmad ibn ʿUmar Ibn Rustah</author>
+                  <ptr target="http://syriaca.org/bibl/2503"/>
+                  <citedRange unit="pp">83</citedRange>
+               </bibl>
+            </place>
+         </listPlace>
+      </body>
+   </text>
 </TEI>
