@@ -135,7 +135,7 @@
    </teiHeader>
    <text>
       <body>
-         <bibl xml:id="work-10543" type="lawd:ConceptualWork"><!-- Is there a way to include a narrative description of the nature of this work, the fact that it is not extant in its entirety but that we have a part that refers to the whole? Brooks argues that there were something like 700 letters in this collection, that it circulated in Greek, and that Athanasius translated book 6 of that collection into Syriac in the 7th century.  -->
+         <bibl xml:id="work-10543" type="lawd:ConceptualWork">
             <title xml:id="name10543-1" xml:lang="en" source="#bib10543-1" syriaca-tags="#syriaca-headword">The Sixth Book of the Select Letters of Severus of Antioch</title>
             <title xml:id="name10543-2" xml:lang="syr" source="#bib10543-1" syriaca-tags="#syriaca-headword">ܟܬܒܐ ܕܫܬܐ ܕܐܓܪ̈ܬܐ ܗܩ̈ܠܘܓܐ ܕܩܕܝܫܐ ܣܐܘܪܐ</title>
             <author source="#bib10543-1" ref="http://syriaca.org/person/51">
@@ -148,7 +148,7 @@
                   <addName type="untagged-title" sort="2">ܕܐܢܛܝܘܟܝܐ</addName>
                </persName> 
             </author>
-            <author source="#bib10543-3" ref="http://syriaca.org/person/1014"><!-- In addition to being the translator, Athanasius wrote an introduction to this collection. I'm not sure how to handle that exactly. -->
+            <author source="#bib10543-3" ref="http://syriaca.org/person/1014" role="editor translator interpolator">
                <persName xml:lang="en">
                   <forename sort="1">Athanasius</forename>
                   <addName type="untagged-title" sort="2">of <placeName ref="http://syriaca.org/place/142">Nisibis</placeName></addName>
@@ -158,6 +158,15 @@
                   <addName type="untagged-title" sort="2">ܕܢܨܝܒܝܢ</addName>
                </persName> 
             </author>
+            <note type="abstract" source="#bib10543-3 #bib10543-10">
+               This collection of 123 letters was translated from Greek to Syriac in <date when="0669">A.D. 669</date> by 
+               <persName ref="http://syriaca.org/person/1014">Athanasius of Nisibis</persName>. 
+               It comes from book six of a larger Greek collection of letters 
+               that circulated under the title <title ref="http://syriaca.org/work/10542">The Select Letters of 
+               <persName ref="http://syriaca.org/person/51">Severus of Antioch</persName></title>. 
+               These were letters selected from a still larger collection of some 3824 letters called
+               <title>The Letters of <persName ref="http://syriaca.org/person/51">Severus of Antioch</persName></title>. 
+           </note>
             <idno type="URI">http://syriaca.org/work/10543</idno>
             <textLang mainLang="syr"/>
             <bibl xml:id="bib10543-1" type="lawd:Edition">
@@ -176,7 +185,7 @@
                <title xml:lang="en" level="m">The Sixth Book of the Select Letters of Severus Patriarch of Antioch, vol. 2.2 </title>
                <ptr target="http://syriaca.org/bibl/669"/>
             </bibl>
-            <bibl type="syriaca:Manuscript" xml:id="bib10543-5" source="#bib10543-1">Brit. Mus. MSS, Add. 12,181<!-- I'm not clear on the distinction between relation type="mssWitnesses" and bibl type="syriaca:Manuscript". I've used syriaca:Manuscript throughout but this might need to be changed. -->
+            <bibl type="syriaca:Manuscript" xml:id="bib10543-5" source="#bib10543-1">Brit. Mus. MSS, Add. 12,181
                <listRelation>
                   <relation active="#bib10543-5" ref="lawd:embodies" passive="http://syriaca.org/work/10543"/>
                </listRelation>
@@ -201,10 +210,14 @@
                   <relation active="#bib10543-9" ref="lawd:embodies" passive="http://syriaca.org/work/10543"/>
                </listRelation>
             </bibl>
+            <bibl xml:id="bib10543-10" type="lawd:Citation">
+               <title xml:lang="en" level="m">A Collection of Letters of Severus of Antioch from Numberous Manuscripts</title>
+               <ptr target="http://syriaca.org/bibl/671"/>
+            </bibl>
             <listRelation>
                <relation xml:id="relation10543-1" type="part" active="http://syriaca.org/work/10543" ref="dct:isPartOf" passive="http://syriaca.org/work/10542">
                   <desc>
-                     <label type="order" subtype="part" n="6">Book 6</label>
+                     <label type="order" subtype="book" n="6">Book 6</label>
                   </desc>
                </relation>
             </listRelation>
