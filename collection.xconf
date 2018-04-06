@@ -4,8 +4,6 @@
         <fulltext default="none" attributes="no"/>
         <!-- Full text search configuration  -->
         <lucene diacritics="no">
-            <!-- Does not currently search tei header info, other then title -->
-            <!-- Should maybe not index placeName, location, state or event?-->
             <text qname="tei:body"/>
             <text qname="tei:biblStruct"/>
             <text qname="tei:div"/>
@@ -19,7 +17,6 @@
             <text qname="tei:note"/>
             <text qname="tei:term"/>
         </lucene>
-        
         <!-- Range indexes -->
         <range>
             <create qname="@syriaca-computed-start" type="xs:date"/>
@@ -47,22 +44,6 @@
             <create qname="tei:persName" type="xs:string"/>
             <create qname="tei:placeName" type="xs:string"/>
             <create qname="tei:author" type="xs:string"/>
-            <!--
-            <create qname="tei:TEI">
-                <field name="uri" match="//tei:publicationStmt/tei:idno" type="xs:string">
-                    <field name="uriType" match="@type" type="xs:string"/>
-                </field>
-                <field name="title" match="//tei:titleStmt/tei:title" type="xs:string"/>
-            </create>
-            <create qname="tei:revisionDesc">
-                <field name="status" match="@status" type="xs:string"/>
-            </create>
-            <create qname="tei:div">
-                <field name="divID" match="//tei:idno" type="xs:string">
-                    <field name="divIDType" match="@type" type="xs:string"/>
-                </field>
-            </create>
-            -->
         </range>
     </index>
 </collection>
