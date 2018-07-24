@@ -113,7 +113,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $clerical]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -122,7 +122,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $epistolary]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -131,7 +131,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $family]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -140,7 +140,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $general]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -149,7 +149,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $intellectual]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -158,7 +158,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $legal]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -167,7 +167,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $military]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -176,7 +176,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $monastic]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -185,7 +185,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $personal]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -194,7 +194,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $professional]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -203,7 +203,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $religious]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
@@ -212,7 +212,7 @@
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = $slavery]">
                             <uri>
-                                <xsl:apply-templates select="./@active"/>
+                                <xsl:apply-templates select="ancestor::entryFree/idno[not(@type='URI')]"/>
                             </uri>
                         </xsl:for-each>
                     </listURI>
