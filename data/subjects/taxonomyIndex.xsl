@@ -4,32 +4,16 @@
     xpath-default-namespace="http://www.tei-c.org/ns/1.0" version="3.0">
     <xsl:output method="xml" indent="yes"/>
 
-    <xsl:variable name="dir" select="@dir"/>
     
     <xsl:template match="codhr:list/codhr:item">
         <xsl:result-document href="taxonomyIndex.xml">
+            
             <xsl:variable name="dir" select="@dir"/>
-            <taxonomy xmlns="http://syriaca.org/#schema">
-                <listURI ref="http://syriaca.org/keyword/socioeconomic-status">
-                    <xsl:for-each
-                        select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/socioeconomic-status']">
-                        <uri>
-                            <xsl:apply-templates select="./@active"/>
-                        </uri>
-                    </xsl:for-each>
-                </listURI>
+                            
+            <taxonomy>
                 <listURI ref="http://syriaca.org/keyword/ethnicity">
                     <xsl:for-each
                         select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/ethnicity']">
-                        <uri>
-                            <xsl:apply-templates select="./@active"/>
-                        </uri>
-                    </xsl:for-each>
-                </listURI>
-                
-                <listURI ref="http://syriaca.org/keyword/event-relationships">
-                    <xsl:for-each
-                        select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/event-relationships']">
                         <uri>
                             <xsl:apply-templates select="./@active"/>
                         </uri>
@@ -81,11 +65,29 @@
                     </xsl:for-each>
                 </listURI>
                 
+                <listURI ref="http://syriaca.org/keyword/socioeconomic-status">
+                    <xsl:for-each
+                        select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/socioeconomic-status']">
+                        <uri>
+                            <xsl:apply-templates select="./@active"/>
+                        </uri>
+                    </xsl:for-each>
+                </listURI>
+                
+                <listURI ref="http://syriaca.org/keyword/event-relationships">
+                    <xsl:for-each
+                        select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/event-relationships']">
+                        <uri>
+                            <xsl:apply-templates select="ancestor::entryFree/idno[@type = 'SPEAR']"/>
+                        </uri>
+                    </xsl:for-each>
+                </listURI>
+                
                 <listURI ref="http://syriaca.org/keyword/qualifier-relationships">
                     <xsl:for-each
                         select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/qualifier-relationships']">
                         <uri>
-                            <xsl:apply-templates select="./@active"/>
+                            <xsl:apply-templates select="ancestor::entryFree/idno[@type = 'SPEAR']"/>
                         </uri>
                     </xsl:for-each>
                 </listURI>
