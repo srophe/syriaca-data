@@ -92,7 +92,7 @@
                     </xsl:for-each>
                 </listURI>
                 
-                <listURI ref="http://syriaca.org/relationships">
+                <listURI ref="http://syriaca.org/keyword/relationships">
                     <listURI ref="http://syriaca.org/keyword/clerical-relationships">
                         <xsl:for-each
                             select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/clerical-relationships']">
