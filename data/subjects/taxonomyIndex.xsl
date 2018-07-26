@@ -9,7 +9,7 @@
     <xsl:template match="codhr:list/codhr:item">
         <xsl:result-document href="taxonomyIndex.xml">
             <xsl:variable name="dir" select="@dir"/>
-            <taxonomy>
+            <taxonomy xmlns="http://syriaca.org/#schema">
                 <listURI ref="http://syriaca.org/keyword/socioeconomic-status">
                     <xsl:for-each
                         select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/socioeconomic-status']">
