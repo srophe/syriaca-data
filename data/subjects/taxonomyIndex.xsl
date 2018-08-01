@@ -263,7 +263,7 @@
                         </xsl:for-each>
                     </listURI>
                 </listURI>
-                <listURI ref="http://syriaca.org/keyword/relationships">
+                <listURI type="taxonomyAllURIs">
                     <xsl:for-each select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//entryFree//idno[contains(., 'syriaca.org/keyword')]">
                         <uri>
                             <xsl:apply-templates select="."/>
