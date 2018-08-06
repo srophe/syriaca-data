@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -80,12 +80,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/801">Mare of Beth Urtaye</title>, in the Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/801" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints I</title>
+                        <title>Mare of Beth Urtaye</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/1409"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Mare of Beth Urtaye</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/801"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/801" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -176,7 +188,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1866"/>
-                        <occupation ref="http://syriaca.org/keyword/monks http://syriaca.org/keyword/rhetors"> <!-- Use as many keywords as needed to describe content in note. -->
+                        <occupation ref="http://syriaca.org/keyword/monks http://syriaca.org/keyword/rhetors"> 
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/1866">Mare</persName> was a monastic, a speaker, teacher, and very well informed on every subject.
                             </note>
@@ -192,7 +204,7 @@
                     <citedRange unit="pp">135</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/801-4" resp="#jmcmanaway #avawter">
+            <div uri="http://syriaca.org/spear/801-5" resp="#jmcmanaway #avawter">
                 <listPerson>
                     <person> 
                         <persName ref="http://syriaca.org/person/1866"/>
@@ -235,10 +247,10 @@
             <div uri="http://syriaca.org/spear/801-7" resp="#jmcmanaway #avawter">
                 <listEvent>
                     <event>
-                        <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
+                        <desc>
                             <persName ref="http://syriaca.org/person/1866">Mare</persName> was arrested and imprisoned.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/imprisonment http://syriaca.org/keyword/arrest"/><!-- Use as many keywords as needed to describe content in the description. -->
+                        <ptr target="http://syriaca.org/keyword/imprisonment"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -310,7 +322,7 @@
                <listPerson>
                    <person>
                        <persName ref="http://syriaca.org/person/1866"/>
-                       <state type="mental" ref="http://syriaca.org/keyword/arrogant http://syriaca.org/keyword/pride"><!-- Hey! Made two new keywords!-->
+                       <state type="mental" ref="http://syriaca.org/keyword/pride">
                            <note type="desc">
                                <persName ref="http://syriaca.org/person/1866">Mare</persName> used to behave with great and measureless arrogance and he was haughty.
                            </note>
@@ -326,11 +338,11 @@
                    <citedRange unit="pp">135</citedRange>
                </bibl>
            </div> 
-           <div uri="http://syriaca.org/spear/801-11" resp="#jmcmanaway #avawter">
+           <div uri="http://syriaca.org/spear/801-12" resp="#jmcmanaway #avawter">
                <listPerson>
                    <person>
                        <persName ref="http://syriaca.org/person/1866"/>
-                       <state type="mental" ref="http://syriaca.org/keyword/arrogant http://syriaca.org/keyword/pride"><!-- Hey! Made two new keywords!-->
+                       <state type="mental" ref="http://syriaca.org/keyword/pride">
                            <note type="desc">
                                <persName ref="http://syriaca.org/person/1866">Mare</persName> used to behave with great and measureless arrogance and he was haughty.
                            </note>
@@ -346,13 +358,13 @@
                    <citedRange unit="pp">135</citedRange>
                </bibl>
            </div>
-            <div uri="http://syriaca.org/spear/801-12" resp="#jmcmanaway #avawter">
+            <div uri="http://syriaca.org/spear/801-13" resp="#jmcmanaway #avawter">
                <listPerson>
                    <person>
                        <persName ref="http://syriaca.org/person/1866"/>
-                       <sex value="M">
+                       <trait type="gender" ref="http://syriaca.org/keyword/male">
                            <note type="desc"><persName ref="http://syriaca.org/person/1866"> Mare </persName> was male.</note>
-                       </sex><!-- TEI uses sex for biological distinctions, see also the gender factoid. -->
+                       </trait>
                    </person>
                </listPerson>
                <bibl type="primary">
@@ -364,11 +376,23 @@
                    <citedRange unit="pp">135</citedRange>
                </bibl>
            </div>
-            
-          
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl801-1">
+                    <title>Lives of the Eastern Saints I</title>
+                    <title>Mare of Beth Urtaye</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl801-2">
+                    <title>Mare of Beth Urtaye</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/801"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

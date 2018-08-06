@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
@@ -80,12 +80,24 @@
             <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
          </publicationStmt>
          <sourceDesc>
-            <p>
-               This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/836">Isaac</title>, in The Lives of the Eastern Saints.
-               <listRelation>
-                  <relation type="part" active="http://syriaca.org/work/836" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-               </listRelation>
-            </p>
+            <listBibl>
+               <head>Sources for the Data in this Born Digital Prosopography</head>
+               <bibl type="primary">
+                  <title>Lives of the Eastern Saints II</title>
+                  <title>Isaac</title>
+                  <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                  <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                  <ptr target="http://syriaca.org/bibl/2032"/>
+               </bibl>
+               <bibl type="primary">
+                  <title>Isaac</title>
+                  <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                  <ptr target="http://syriaca.org/work/836"/>
+               </bibl>
+            </listBibl>
+            <listRelation>
+               <relation type="part" active="http://syriaca.org/work/836" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+            </listRelation>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
@@ -187,7 +199,7 @@
             <listPerson>
                <person>
                   <persName ref="http://syriaca.org/person/1788"/>
-                  <socecStatus ref="http://syriaca.org/keyword/protector"><!-- You need a new keyword. No description of the rank in text. -->
+                  <socecStatus ref="http://syriaca.org/keyword/protectors"><!-- You need a new keyword. No description of the rank in text. -->
                      <note type="desc">
                         <persName ref="http://syriaca.org/person/1788">Isaac of Dara</persName> was a Protector.
                      </note>
@@ -249,7 +261,7 @@
             <listPerson>
                <person>
                   <persName ref="http://syriaca.org/person/1788"/>
-                  <occupation ref="http://syriaca.org/keyword/nurse http://syriaca.org/keyword/hospitals"><!-- New Keyword: nurse / sick-attendant. -->
+                  <occupation ref="http://syriaca.org/keyword/nurses"><!-- New Keyword: nurse / sick-attendant. -->
                      <note type="desc">
                         <persName ref="http://syriaca.org/person/1788">Isaac of Dara</persName> was a nurse in the hospital in <placeName ref="http://syriaca.org/place/586">Constantinople</placeName>.
                      </note>
@@ -272,7 +284,7 @@
                   <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
                      <persName ref="http://syriaca.org/person/1788">Isaac of Dara</persName> devoted himself to the care of the sick and service in the church.
                   </desc>
-                  <ptr target="http://syriaca.org/keyword/deacons http://syriaca.org/keyword/nurse"/><!-- Use as many keywords as needed to describe content in the description. -->
+                  <ptr target="http://syriaca.org/keyword/deacons http://syriaca.org/keyword/nurses"/><!-- Use as many keywords as needed to describe content in the description. -->
                </event>
             </listEvent>
             <bibl type="primary">
@@ -315,7 +327,7 @@
             </bibl>
          </div>
          
-         <div uri="http://syriaca.org/spear/836-10" resp="#rbarczok #kgibson">
+         <div uri="http://syriaca.org/spear/836-11" resp="#rbarczok #kgibson">
             <listPerson>
                <person> 
                   <persName ref="http://syriaca.org/person/1788"/>
@@ -338,7 +350,7 @@
          </div>
          
          
-         <div uri="http://syriaca.org/spear/836-11" resp="#rbarczok #kgibson">
+         <div uri="http://syriaca.org/spear/836-12" resp="#rbarczok #kgibson">
             <listEvent>
                <event>
                   <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
@@ -367,7 +379,21 @@
          
       </body>
       <back>
-         <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+         <listBibl>
+            <head>Works Cited</head>
+            <bibl type="primary" xml:id="bibl836-1">
+               <title>Lives of the Eastern Saints II</title>
+               <title>Isaac</title>
+               <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+               <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+               <ptr target="http://syriaca.org/bibl/2032"/>
+            </bibl>
+            <bibl type="primary" xml:id="bibl836-2">
+               <title>Isaac</title>
+               <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+               <ptr target="http://syriaca.org/work/836"/>
+            </bibl>
+         </listBibl>
       </back>
    </text>
 </TEI>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
@@ -37,12 +39,24 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/804">Mary and Euphemia</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/804" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints I</title>
+                        <title>Mary and Euphemia</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/1409"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Mary and Euphemia</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/804"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/804" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -60,8 +74,7 @@
             <div uri="http://syriaca.org/spear/804-1" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/1880"> Mary </persName>
-                        
+                        <persName ref="http://syriaca.org/person/1880">Mary</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -93,9 +106,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1880"/>
-                        <sex value="F">
-                            <note type="desc">Mary was female.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1880">Mary</persName> was female.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -111,8 +124,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1880"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
-                            <note type="desc">Mary was a saint.</note>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1880">Mary</persName> was a saint.</note>
                         </state>
                     </person>
                 </listPerson>
@@ -131,7 +144,7 @@
                         <persName ref="http://syriaca.org/person/1880"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/200"/>
-                            <note type="desc"> Mary lived in Thella. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/1880">Mary</persName> lived in <placeName ref="http://syriaca.org/place/200">Thella</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -147,8 +160,7 @@
             <div uri="http://syriaca.org/spear/804-6" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/3025"> Euphemia </persName>
-                        
+                        <persName ref="http://syriaca.org/person/3025">Euphemia</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -180,9 +192,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3025"/>
-                        <sex value="F">
-                            <note type="desc">Euphemia was female.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3025">Euphemia</persName> was female.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -198,8 +210,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3025"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
-                            <note type="desc">Euphemia was a saint.</note>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3025">Euphemia</persName> was a saint.</note>
                         </state>
                     </person>
                 </listPerson>
@@ -216,8 +228,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3025"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/martyr">
-                            <note type="desc">Euphemia was a martyr.</note>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/martyrs">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3025">Euphemia</persName> was a martyr.</note>
                         </state>
                     </person>
                 </listPerson>
@@ -236,7 +248,7 @@
                         <persName ref="http://syriaca.org/person/3025"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/8"/>
-                            <note type="desc"> Euphemia resided in Amida. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> resided in <placeName ref="http://syriaca.org/place/8">Amida</placeName>. </note>
                         </residence>
                     </personGrp>
                 </listPerson>
@@ -266,7 +278,7 @@
             <div uri="http://syriaca.org/spear/804-13" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> From childhood, Mary chose to remain a virgin and dedicate her life
+                        <desc> From childhood, <persName ref="http://syriaca.org/person/1880">Mary</persName> chose to remain a virgin and dedicate her life
                             to fasting, prayer, charity, and pilgrimage. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
                     </event>
@@ -283,7 +295,7 @@
             <div uri="http://syriaca.org/spear/804-14" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Mary travelled to <placeName ref="http://syriaca.org/place/2781"
+                        <desc> <persName ref="http://syriaca.org/person/1880">Mary</persName> travelled to <placeName ref="http://syriaca.org/place/2781"
                                 >Golgotha, where she prayed and fasted for three days.</placeName>
                         </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
@@ -301,7 +313,7 @@
             <div uri="http://syriaca.org/spear/804-15" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> As Mary prayed and fasted the custodians of Golgotha tried to drive
+                        <desc> As <persName ref="http://syriaca.org/person/1880">Mary</persName> prayed and fasted the custodians of Golgotha tried to drive
                             her away, then let her remain once they saw that she was praying. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
                     </event>
@@ -318,8 +330,8 @@
             <div uri="http://syriaca.org/spear/804-16" resp="#ktorabi">
                 <listPerson>
                     <personGrp>
-                        <persName ref="http://syriaca.org/person/xxxx"
-                            ><!-- URI neede for the Custodians of Golgotha who tried to drive away Mary -->
+                        <persName ref="http://syriaca.org/person/">
+                            <!-- URI neede for the Custodians of Golgotha who tried to drive away Mary -->
                             The custodians of <placeName ref="http://syriaca.org/place/2781"/>
                             Golgotha who tried to drive away <persName
                                 ref="http://syriaca.org/person/1880"/> Mary </persName>
@@ -337,7 +349,7 @@
             <div uri="http://syriaca.org/spear/804-17" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Mary engaged in ecstatic prayer and fasting for three years in
+                        <desc> <persName ref="http://syriaca.org/person/1880">Mary</persName> engaged in ecstatic prayer and fasting for three years in
                             Golgotha, drawing crowds of people who marvelled at her and asked for
                             prayers and blessings. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
@@ -355,11 +367,9 @@
             <div uri="http://syriaca.org/spear/804-18" resp="#ktorabi">
                 <listPerson>
                     <personGrp>
-                        <persName ref="http://syriaca.org/person/xxxx"
-                            ><!-- URI needed for the persons of Golgotha --> The persons of
-                                <placeName ref="http://syriaca.org/place/2781"> Golgotha who asked
-                                for prayers from <persName ref="http://syriaca.org/person/1880"/>
-                                Mary </placeName>
+                        <persName ref="http://syriaca.org/person/"><!-- URI needed for the persons of Golgotha --> The persons of
+                            <placeName ref="http://syriaca.org/place/2781">Golgotha</placeName> who asked
+                                for prayers from <persName ref="http://syriaca.org/person/1880">Mary</persName>
                         </persName>
                     </personGrp>
                 </listPerson>
@@ -375,8 +385,8 @@
             <div uri="http://syriaca.org/spear/804-19" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Mary, disturbed by the attention of those who gathered to admire her
-                            asceticism in Golgotha, left the holy site and went east to get away
+                        <desc> <persName ref="http://syriaca.org/person/1880">Mary</persName>, disturbed by the attention of those who gathered to admire her
+                            asceticism in <placeName ref="http://syriaca.org/place/2781">Golgotha</placeName>, left the holy site and went east to get away
                             from the crowds and live a holy life. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
                     </event>
@@ -393,9 +403,9 @@
             <div uri="http://syriaca.org/spear/804-20" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia took a husband and had one daughter, who was trained in the
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> took a <persName>husband</persName> and had one <persName ref="http://syriaca.org/person/3232">daughter</persName>, who was trained in the
                             religion. </desc>
-                        <ptr target="http://syriaca.org/keyword/family"/>
+                        <ptr target="http://syriaca.org/keyword/family http://syriaca.org/marriage"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -429,9 +439,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3232"/>
-                        <sex value="F">
-                            <note type="desc">This person was female.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3232">Anonymous 3232</persName> was female.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -467,9 +477,9 @@
                     <person>
                         <persName ref="http://syriaca.org/person/xxx"/>
                         <!-- URI needed for Euphemia's husband -->
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc">This person was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -500,8 +510,8 @@
             <div uri="http://syriaca.org/spear/804-26" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia dedicated her life to asceticism and charitable works. </desc>
-                        <ptr target="http://syriaca.org/keyword/asceticism"/>
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> dedicated her life to asceticism and charitable works. </desc>
+                        <ptr target="http://syriaca.org/keyword/asceticism http://syriaca.org/charity"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -516,7 +526,7 @@
             <div uri="http://syriaca.org/spear/804-27" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia and her daughter wove goat's wool and used half of the
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> and her <persName ref="http://syriaca.org/person/3232">daughter</persName> wove goat's wool and used half of the
                             proceeds to feed the poor, the sick, the prisoners, and the disabled in
                             their community. </desc>
                         <ptr target="http://syriaca.org/keyword/charity"/>
@@ -534,7 +544,7 @@
             <div uri="http://syriaca.org/spear/804-28" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia and her daughter labored tirelessly in their charitable
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> and her <persName ref="http://syriaca.org/person/3232">daughter</persName> labored tirelessly in their charitable
                             endeavors. </desc>
                         <ptr target="http://syriaca.org/keyword/charity"/>
                     </event>
@@ -551,7 +561,7 @@
             <div uri="http://syriaca.org/spear/804-29" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia always refused charity for herself and her daughter, and so
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> always refused charity for herself and her <persName ref="http://syriaca.org/person/3232">daughter</persName>, and so
                             they never ate except from the proceeds of their labor in their house. </desc>
                         <ptr target="http://syriaca.org/keyword/charity"/>
                     </event>
@@ -568,9 +578,9 @@
             <div uri="http://syriaca.org/spear/804-30" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> A great religious persecution took place and many holy men and women
+                        <desc> A great religious persecution took place and <persName ref="http://syriaca.org/person/">many holy men and women</persName>
                             were expelled from their convents </desc>
-                        <ptr target="http://syriaca.org/keyword/persecution"/>
+                        <ptr target="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -637,7 +647,7 @@
             <div uri="http://syriaca.org/spear/804-34" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia hired rooms to shelter 10-20 people who had been expelled
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> hired rooms to shelter 10-20 people who had been expelled
                             from their convents during the persecution. </desc>
                         <ptr target="http://syriaca.org/keyword/persecution"/>
                     </event>
@@ -654,7 +664,7 @@
             <div uri="http://syriaca.org/spear/804-35" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia went around to all of the wealthy people in the city and
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> went around to all of the wealthy people in the city and
                             asked for donations to distribute to the poor. </desc>
                         <ptr target="http://syriaca.org/keyword/charity"/>
                     </event>
@@ -691,8 +701,8 @@
             <div uri="http://syriaca.org/spear/804-37" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia helped those outside of the city as well and took the sick
-                            to the superintendents of the hospitals for care. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> helped those outside of the city as well and took the sick
+                            to <persName ref="http://syriaca.org/person/">the superintendents of the hospitals</persName> for care. </desc>
                         <ptr target="http://syriaca.org/keyword/charity"/>
                     </event>
                 </listEvent>
@@ -741,10 +751,10 @@
                     <citedRange unit="pp">178-180</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/804-40" resp="#ktorabi">
+            <div uri="http://syriaca.org/spear/804-40" resp="#ktorabi"><!-- URI for those who held power? -->
                 <listEvent>
                     <event>
-                        <desc> After thirty years of service, Euphemia aroused the envy of those who
+                        <desc> After thirty years of service, <persName ref="http://syriaca.org/person/3025">Euphemia</persName> aroused the envy of those who
                             held power in the Church. </desc>
                         <ptr target="http://syriaca.org/keyword/persecution"/>
                     </event>
@@ -762,7 +772,7 @@
                 <listEvent>
                     <event>
                         <desc> Those who held power in the Church tried unsuccessfully to force
-                            Euphemia to become a communicant in their impiety. </desc>
+                            <persName ref="http://syriaca.org/person/3025">Euphemia</persName> to become a communicant in their impiety. </desc>
                         <ptr target="http://syriaca.org/keyword/persecution"/>
                     </event>
                 </listEvent>
@@ -778,9 +788,9 @@
             <div uri="http://syriaca.org/spear/804-42" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia's persecutors imprisoned her for thirty days, then exiled
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName>'s persecutors imprisoned her for thirty days, then exiled
                             her because her imprisonment caused unrest in the community. </desc>
-                        <ptr target="http://syriaca.org/keyword/imprisonment"/>
+                        <ptr target="http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -795,7 +805,7 @@
             <div uri="http://syriaca.org/spear/804-43" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia and her daughter went into exile and were persecuted for
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> and her <persName ref="http://syriaca.org/person/3232">daughter</persName> went into exile and were persecuted for
                             five years. </desc>
                         <ptr target="http://syriaca.org/keyword/exile"/>
                     </event>
@@ -812,7 +822,7 @@
             <div uri="http://syriaca.org/spear/804-44" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia returned to Amida and stayed at a certain gentleman's house. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> returned to <placeName ref="http://syriaca.org/place/8">Amida</placeName> and stayed at a certain <persName>gentleman</persName>'s house. </desc>
                         <ptr target="http://syriaca.org/keyword/persecution"/>
                     </event>
                 </listEvent>
@@ -850,9 +860,9 @@
                     <person>
                         <persName ref="http://syriaca.org/person/xxx"/>
                         <!-- URI needed for the gentleman who sheltered Euphemia -->
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc">This person was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -871,7 +881,7 @@
                         <!-- URI needed for the gentleman who sheltered Euphemia -->
                         <residence>
                             <placeName ref="http://syriaca.org/place/8"/>
-                            <note type="desc"> This gentleman resided in Amida. </note>
+                            <note type="desc"> <persName>This gentleman</persName> resided in <placeName ref="http://syriaca.org/place/8">Amida</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -902,7 +912,7 @@
             <div uri="http://syriaca.org/spear/804-49" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> The adversaries found out that Euphemia returned to Amida and sent a
+                        <desc> The adversaries found out that <persName ref="http://syriaca.org/person/3025">Euphemia</persName> returned to <placeName ref="http://syriaca.org/place/8">Amida</placeName> and sent a
                             summons for her. </desc>
                         <ptr target="http://syriaca.org/keyword/persecution"/>
                     </event>
@@ -919,7 +929,7 @@
             <div uri="http://syriaca.org/spear/804-50" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia fell ill, blessed her daughter, and died. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> fell ill, blessed her <persName ref="http://syriaca.org/person/3232">daughter</persName>, and died. </desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
                     </event>
                 </listEvent>
@@ -935,8 +945,7 @@
             <div uri="http://syriaca.org/spear/804-51" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/3232"> Maria </persName>
-                        
+                        <persName ref="http://syriaca.org/person/3232">Maria</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -951,8 +960,8 @@
             <div uri="http://syriaca.org/spear/804-52" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> A messenger came bearing a letter from Mary to Maria </desc>
-                        <ptr target="http://syriaca.org/keyword/letter"/>
+                        <desc> A messenger came bearing a letter from <persName ref="http://syriaca.org/person/1880">Mary</persName> to <persName ref="http://syriaca.org/person/3232">Maria</persName> </desc>
+                        <ptr target="http://syriaca.org/keyword/letters"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -967,7 +976,7 @@
             <div uri="http://syriaca.org/spear/804-53" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Mary passed away ten days before Euphemia </desc>
+                        <desc> <persName ref="http://syriaca.org/person/1880">Mary</persName> passed away ten days before <persName ref="http://syriaca.org/person/3025">Euphemia</persName>.</desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
                     </event>
                 </listEvent>
@@ -1019,8 +1028,8 @@
             <div uri="http://syriaca.org/spear/804-56" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Mary completed sixty years in the course of her sanctity </desc>
-                        <ptr target="http://syriaca.org/keyword/saint"/>
+                        <desc> <persName ref="http://syriaca.org/person/1880">Mary</persName> completed sixty years in the course of her sanctity </desc>
+                        <ptr target="http://syriaca.org/keyword/saints"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1035,10 +1044,10 @@
             <div uri="http://syriaca.org/spear/804-57" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Euphemia completed thirty-five years in the course of perfection --
+                        <desc> <persName ref="http://syriaca.org/person/3025">Euphemia</persName> completed thirty-five years in the course of perfection --
                             thirty administering to saints and five in persecution, which led to
                             martyrdom. </desc>
-                        <ptr target="http://syriaca.org/keyword/saint"/>
+                        <ptr target="http://syriaca.org/keyword/saints"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1053,9 +1062,9 @@
             <div uri="http://syriaca.org/spear/804-58" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Maria followed closely in the footsteps of her saintly mother and
-                            aunt </desc>
-                        <ptr target="http://syriaca.org/keyword/saint"/>
+                        <desc> <persName ref="http://syriaca.org/person/3232">Marias</persName> followed closely in the footsteps of <persName>her saintly mother</persName> and
+                            <persName>aunt</persName> </desc>
+                        <ptr target="http://syriaca.org/keyword/saints"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1069,7 +1078,21 @@
             </div>
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl804-1">
+                    <title>Lives of the Eastern Saints I</title>
+                    <title>Mary and Euphemia</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl804-2">
+                    <title>Mary and Euphemia</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/804"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

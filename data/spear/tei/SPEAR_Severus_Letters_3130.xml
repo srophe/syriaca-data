@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -32,9 +34,21 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from Severus of Antioch's letter <title ref="http://syriaca.org/work/3130">To Julian Archimandrite of the Monastery of Bassus</title>.
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
+                        <title type="sub">Translation, I.1 - II.3</title>
+                        <author><persName ref="http://syriaca.org/person/51">Severus of Antioch</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/668"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>To Misael the Deacon</title>
+                        <author><persName ref="http://syriaca.org/person/51"/>Severus of Antioch</author>
+                        <ptr target="http://syriaca.org/work/3130"/>
+                    </bibl>
+                </listBibl>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -66,7 +80,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178</citedRange>
                 </bibl>
@@ -75,13 +89,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2465"/>
-                        <sex value="M">
-                        <note type="desc">Julian was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2465">Julian</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178</citedRange>
                 </bibl>
@@ -90,13 +104,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2465"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
-                            <note type="desc">Julian was an archimandrite of the monastery of the blessed Basus.</note>
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2465">Julian</persName> was an archimandrite of the monastery of the blessed Basus.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178</citedRange>
                 </bibl>
@@ -105,33 +119,33 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2465"/>
-                        <occupation ref="http://syriaca.org/keyword/presbyter">
-                            <note type="desc">Julian was a presbyter</note>
+                        <occupation ref="http://syriaca.org/keyword/priests">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2465">Julian</persName> was a presbyter</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3130-5" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2465"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2465"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3130-6" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/2465" passive="http://syriaca.org/person/51"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2465" passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178</citedRange>
                 </bibl>
@@ -148,7 +162,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">179</citedRange>
                 </bibl>
@@ -157,13 +171,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2408"/>
-                        <sex value="M">
-                        <note type="desc">Sergius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2408">Sergius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">179</citedRange>
                 </bibl>
@@ -172,23 +186,23 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2408"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Sergius was Bishop of Cyrrhus.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2408">Sergius</persName> was Bishop of Cyrrhus.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">179</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3130-10" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2408"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2408"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178-179</citedRange>
                 </bibl>
@@ -205,7 +219,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">179</citedRange>
                 </bibl>
@@ -214,13 +228,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2407"/>
-                        <sex value="M">
-                        <note type="desc">Marion was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2407">Marion</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">179</citedRange>
                 </bibl>
@@ -229,53 +243,37 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2407"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Marion was Bishop of Sura.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2407">Marion</persName> was Bishop of Sura.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">179</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3130-14" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2407"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2407"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.59</citedRange>
                     <citedRange unit="pp">178-179</citedRange>
                 </bibl>
             </div>
         </body>
         <back>
-            <div>
-                <bibl>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl3130-1">
                     <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
                     <title type="sub">Translation, I.1 - II.3</title>
-                    <ptr target="http://syriaca.org/bibl/666"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Translation, III.1 - XI.1</title>
-                    <ptr target="http://syriaca.org/bibl/667"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, I.1 - II.3</title>
-                    <biblScope unit="issue">I</biblScope>
                     <ptr target="http://syriaca.org/bibl/668"/>
                 </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, III.1 - XI.1</title>
-                    <biblScope unit="issue">II</biblScope>
-                    <ptr target="http://syriaca.org/bibl/669"/>
-                </bibl>
-            </div>
+            </listBibl>
         </back>
     </text>
 </TEI>

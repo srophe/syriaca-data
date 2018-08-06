@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -32,9 +34,22 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from Severus of Antioch's letter <title ref="http://syriaca.org/work/3053">To Theotecnus the Archiatros</title>.
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
+                        <title type="sub">Translation, I.1 - II.3</title>
+                        <title type="part">To Theotecnus the Archiatros</title>
+                        <author><persName ref="http://syriaca.org/person/51">Severus of Antioch</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/668"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>To Theotecnus the Archiatros</title>
+                        <author><persName ref="http://syriaca.org/person/51"/>Severus of Antioch</author>
+                        <ptr target="http://syriaca.org/work/3053"/>
+                    </bibl>
+                </listBibl>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -60,7 +75,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -69,15 +84,15 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2568"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc">
-                                Theotecnus was male.
+                                <persName ref="http://syriaca.org/person/2568">Theotecnus</persName> was male.
                             </note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -86,23 +101,23 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2568"/>
-                        <occupation ref="http://syriaca.org/keyword/physician">
-                            <note type="desc">Theotecnus was an archiatros or chief physician.</note>
+                        <occupation ref="http://syriaca.org/keyword/physicians">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2568">Theotecnus</persName> was an archiatros or chief physician.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3053-4" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2568"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2568"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -112,14 +127,14 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2567">
                             Eleusinius, Bishop of 
-                            <placeName><!-- URI needed for Sasima -->
+                            <placeName ref="http://syriaca.org/place/"><!-- URI needed for Sasima -->
                                 Sasima
                             </placeName>
                         </persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -128,13 +143,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2567"/>
-                        <sex value="M">
-                            <note type="desc">Eleusinius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2567">Eleusinius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -143,13 +158,16 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2567"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Eleusinius was Bishop of Sasima.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2567">Eleusinius</persName> was Bishop of <placeName ref="http://syriaca.org/place/"><!-- URI needed for Sasima -->
+                                Sasima
+                            </placeName>.
+                            </note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -159,14 +177,14 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2569">
                             Proclus, Bishop of 
-                            <placeName><!-- URI needed for Colonia -->
+                            <placeName ref="http://syriaca.org/place/"><!-- URI needed for Colonia -->
                                 Colonia
                             </placeName>
                         </persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -175,13 +193,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2569"/>
-                        <sex value="M">
-                            <note type="desc">Proclus was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2569">Proclus</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -190,13 +208,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2569"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Proclus was Bishop of Colonia.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2569">Proclus</persName> was Bishop of Colonia.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -206,7 +224,7 @@
                     <relation  ref="snap:AllianceWith" mutual="http://syriaca.org/person/51 http://syriaca.org/person/2567 http://syriaca.org/person/2569"/><!--unsure about this relationship-->
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">83</citedRange>
                 </bibl>
@@ -223,7 +241,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -232,13 +250,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/482"/>
-                        <sex value="M">
-                            <note type="desc">Eutyches was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/482">Eutyches</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -247,13 +265,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/482"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
-                            <note type="desc">Eutyches was an archimandrite in Constantinople.</note>
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
+                            <note type="desc"><persName ref="http://syriaca.org/person/482">Eutyches</persName> was an archimandrite in <placeName ref="http://syriaca.org/place/586">Constantinople</placeName>.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -263,7 +281,7 @@
                     <relation  ref="snap:EnmityFor" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/482"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -277,7 +295,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -291,7 +309,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -300,13 +318,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2565"/>
-                        <sex value="M">
-                            <note type="desc">Leontius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2565">Leontius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -315,23 +333,23 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2565"/>
-                        <occupation ref="http://syriaca.org/keyword/magistrian">
-                            <note type="desc">Leontius was a magistrian.</note>
+                        <occupation ref="http://syriaca.org/keyword/magistrians">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2565">Leontius</persName> was a magistrian.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3053-20" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/2265" passive="http://syriaca.org/person/51"/><!--I'm assuming the pious king is Anastasius-->
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2265" passive="http://syriaca.org/person/51"/><!--I'm assuming the pious king is Anastasius-->
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -345,17 +363,17 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3053-22" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/2564" passive="http://syriaca.org/person/51"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2564" passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -372,7 +390,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -382,7 +400,7 @@
                     <relation  ref="snap:EnmityFor" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/3071"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -402,7 +420,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
@@ -412,37 +430,21 @@
                     <relation  ref="snap:ProfessionalRelationship" mutual="http://syriaca.org/person/51 http://syriaca.org/person/3072"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.24</citedRange>
                     <citedRange unit="pp">84</citedRange>
                 </bibl>
             </div>
         </body>
         <back>
-            <div>
-                <bibl>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl3053-1">
                     <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
                     <title type="sub">Translation, I.1 - II.3</title>
-                    <ptr target="http://syriaca.org/bibl/666"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Translation, III.1 - XI.1</title>
-                    <ptr target="http://syriaca.org/bibl/667"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, I.1 - II.3</title>
-                    <biblScope unit="issue">I</biblScope>
                     <ptr target="http://syriaca.org/bibl/668"/>
                 </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, III.1 - XI.1</title>
-                    <biblScope unit="issue">II</biblScope>
-                    <ptr target="http://syriaca.org/bibl/669"/>
-                </bibl>
-            </div>
+            </listBibl>
         </back>
     </text>
 </TEI>

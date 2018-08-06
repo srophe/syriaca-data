@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -33,12 +35,24 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/10510">History of the Convent of John Urtaya</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/10510" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints III</title>
+                        <title>History of the Convent of John Urtaya</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2033"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>To Bishop Constantine of Seleucia</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/10510"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/10510" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -70,9 +84,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3218"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3218">John</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">552</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">206</citedRange></bibl>
@@ -81,7 +95,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3218"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3218">John</persName>was an archimandrite.</note>
                         </occupation>
                     </person>
@@ -92,7 +106,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3218"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                             <note type="desc"><persName ref="http://syriaca.org/person/3218">John</persName>was a saint.</note>
                         </state>
                     </person>
@@ -131,7 +145,7 @@
                                 </orig>
                             </choice>
                             </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">552</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">206</citedRange></bibl>
@@ -154,7 +168,7 @@
                                 </orig>
                             </choice>
                             </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">552</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">206</citedRange></bibl>
@@ -177,7 +191,7 @@
                                 </orig>
                             </choice>
                             </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">553</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">207</citedRange></bibl>
@@ -200,9 +214,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3251"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3251">Mar Samuel</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">553</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">207</citedRange></bibl>
@@ -211,7 +225,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3251"/>
-                        <occupation ref="http://syriaca.org/keyword/presbyter">
+                        <occupation ref="http://syriaca.org/keyword/priests">
                             <note type="desc"><persName ref="http://syriaca.org/person/3251">Mar Samuel</persName>was an archpresbyter.</note>
                         </occupation>
                     </person>
@@ -292,7 +306,7 @@
                         <desc>
                             Before the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>was established there were a collection of huts on the site, named after <persName ref="http://syriaca.org/person/3192">Mar Afwrsm</persName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">554</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">208</citedRange></bibl>
@@ -311,9 +325,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3192"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3192">Mar Afwrsm</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">554</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">208</citedRange></bibl>
@@ -322,7 +336,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3192"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3192">Mar Afwrsm</persName>was a monk.</note>
                         </occupation>
                     </person>
@@ -338,7 +352,7 @@
                                 A.D. 700
                             </date>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">554</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">208</citedRange></bibl>
@@ -383,7 +397,7 @@
                         <persName ref="http://syriaca.org/person/3218"/>
                         <birth>
                             <placeName ref="http://syriaca.org/place/486"/>
-                            <note type="desc"><persName ref="http://syriaca.org/person/3218">John Urtaya</persName>was born in Syria.</note>
+                            <note type="desc"><persName ref="http://syriaca.org/person/3218">John Urtaya</persName>was born in <placeName ref="http://syriaca.org/place/486">Syria</placeName>.</note>
                         </birth>
                     </person>
                 </listPerson>
@@ -395,7 +409,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3218">John Urtaya</persName>'s fame spread far and wide, attracting many followers including two excellent scribes from the <placeName ref="http://syriaca.org/place/1528">Convent of Edessa</placeName> at <placeName ref="http://syriaca.org/place/8">Amida</placeName>, <persName ref="http://syriaca.org/person/3249">Samuel</persName> and <persName ref="http://syriaca.org/person/3227">Johnathan</persName>.  
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery http://syriaca.org/keyword/disciples http://syriaca.org/keyword/scribes"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/disciples http://syriaca.org/keyword/scribes"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209</citedRange></bibl>
@@ -415,9 +429,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3249"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3249">Samuel</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209</citedRange></bibl>
@@ -426,7 +440,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3249"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3249">Samuel</persName>was a monk in 
                                 <placeName ref="http://syriaca.org/place/1528">
                                     the Convent of the Edessenes.
@@ -440,7 +454,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3249"/>
-                        <occupation ref="http://syriaca.org/keyword/scribe">
+                        <occupation ref="http://syriaca.org/keyword/scribes">
                             <note type="desc"><persName ref="http://syriaca.org/person/3249">Samuel</persName>was a scribe in 
                                 <placeName ref="http://syriaca.org/place/1528">
                                     the Convent of the Edessenes.
@@ -455,7 +469,7 @@
                     <person> 
                         <persName ref="http://syriaca.org/person/3249"/>
                         <residence>
-                            <placeName ref="http://syriaca.org/place/monastery"/>
+                            <placeName ref="http://syriaca.org/place/1528"/>
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/3249">Samuel</persName>resided in the<placeName ref="http://syriaca.org/place/1528">Convent of the Edessenes</placeName>.
                             </note>
@@ -479,9 +493,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3227"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3227">Johnathan</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209</citedRange></bibl>
@@ -490,7 +504,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3227"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3227">Johnathan</persName>was a monk in
                                 <placeName ref="http://syriaca.org/place/1528">
                                 the Convent of the Edessenes
@@ -504,7 +518,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3227"/>
-                        <occupation ref="http://syriaca.org/keyword/scribe">
+                        <occupation ref="http://syriaca.org/keyword/scribes">
                             <note type="desc"><persName ref="http://syriaca.org/person/3227">Johnathan</persName>was a scribe in
                                 <placeName ref="http://syriaca.org/place/1528">
                                 the Convent of the Edessenes
@@ -521,7 +535,7 @@
                         <residence>
                             <placeName ref="http://syriaca.org/place/1528"/>
                             <note type="desc">
-                                <persName ref="http://syriaca.org/person/3227">Johnathan</persName>resided in the Convent of the Edessenes
+                                <persName ref="http://syriaca.org/person/3227">Johnathan</persName>resided in the <placeName ref="http://syriaca.org/place/1528">Convent of the Edessenes</placeName>.
                             </note>
                         </residence>
                     </person>
@@ -540,7 +554,7 @@
                         <desc>
                             During the time that <persName ref="http://syriaca.org/person/3227">Johnathan</persName>and<persName ref="http://syriaca.org/person/3249">Samuel</persName>lived with <persName ref="http://syriaca.org/person/3218">Mar John Urtaya</persName>, they learned a great deal about asceticism and the Christian faith. The convent flourished, buildings were established, and the brotherhood grew to fifty in number.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209</citedRange></bibl>
@@ -590,7 +604,7 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3560"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3560">Anonymi 3560</persName>were monks in
                                 <placeName ref="http://syriaca.org/place/399">
                                     the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>in <placeName ref="http://syriaca.org/place/8">Amida</placeName>
@@ -617,7 +631,7 @@
             </div>
             <div uri="http://syriaca.org/spear/10510-43" resp="#ktorabi">
                 <listRelation>
-                    <relation  ref="syriaca:FellowMonastics" mutual="http://syriaca.org/person/3249 http://syriaca.org/person/3227 http://syriaca.org/place/3560"/>
+                    <relation  ref="syriaca:FellowMonastics" mutual="http://syriaca.org/person/3249 http://syriaca.org/person/3227 http://syriaca.org/person/3560"/>
                 </listRelation>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209</citedRange></bibl>
             </div>
@@ -647,7 +661,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3249"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3249">Samuel</persName>was the archimandrite of
                                 <placeName ref="http://syriaca.org/place/399">
                                     the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>in <placeName ref="http://syriaca.org/place/8">Amida</placeName>
@@ -659,7 +673,7 @@
             </div>
             <div uri="http://syriaca.org/spear/10510-47" resp="#ktorabi">
                 <listRelation>
-                    <relation  ref="syriaca:MonasticHeadOver" active="http://syriaca.org/person/3249" passive="http://syriaca.org/person/3227 http://syricaca.org/person/3560"/>
+                    <relation  ref="syriaca:MonasticHeadOver" active="http://syriaca.org/person/3249" passive="http://syriaca.org/person/3227 http://syriaca.org/person/3560"/>
                 </listRelation>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209</citedRange></bibl>
             </div>
@@ -669,7 +683,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3227">Johnathan</persName>, who had left the monastery while<persName ref="http://syriaca.org/person/3218">John Urtaya</persName>was still alive, returned after his death and lived in a brotherly fashion with <persName ref="http://syriaca.org/person/3249">Samuel</persName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555-556</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209-210</citedRange></bibl>
@@ -700,7 +714,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3227"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3227">Johnathan</persName>was archimandrite of
                                 <placeName ref="http://syriaca.org/place/399">
                                     the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>in <placeName ref="http://syriaca.org/place/8">Amida</placeName>.
@@ -757,9 +771,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3217"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3217">Job</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">556</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">210</citedRange></bibl>
@@ -768,7 +782,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3217"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3217">Job</persName>was the archimandrite of 
                                 <placeName ref="http://syriaca.org/place/399">
                                     the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>in <placeName ref="http://syriaca.org/place/8">Amida</placeName>.
@@ -825,9 +839,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3185"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3185">Abraham</persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">556</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">210</citedRange></bibl>
@@ -836,7 +850,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3185"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3185">Abraham</persName> was an archimandrite of
                                 <placeName ref="http://syriaca.org/place/399">
                                     the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>in <placeName ref="http://syriaca.org/place/8">Amida</placeName>
@@ -853,7 +867,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3185">Abraham</persName> was from <placeName ref="http://syriaca.org/place/8">Amida</placeName>and had a residence there. His <persName ref="http://syriaca.org/person/3561">mother</persName>, <persName ref="http://syriaca.org/person/3562">brothers</persName>, and <persName ref="http://syriaca.org/person/3563">kinsmen</persName> lived in <placeName ref="http://syriaca.org/place/8">Amida</placeName>. 
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/family http://syriaca.org/keyword/residence http://syriaca.org/keyword/ethnicity"/>
+                        <ptr target="http://syriaca.org/keyword/family http://syriaca.org/keyword/ethnicity"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">556</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">210</citedRange></bibl>
@@ -884,9 +898,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3561"/>
-                        <sex value="F">
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
                             <note type="desc"><persName ref="http://syriaca.org/person/3561">Anonymous 3561</persName>was female.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">556</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">210</citedRange></bibl>
@@ -958,7 +972,7 @@
                         <residence>
                             <placeName ref="http://syriaca.org/place/8"/>
                             <note type="desc">
-                                Abraham's kinsmen resided in<placeName ref="http://syriaca.org/place/8">Amida</placeName>.
+                                <persName ref="http://syriaca.org/person/3563">Anonymi 3563</persName> resided in<placeName ref="http://syriaca.org/place/8">Amida</placeName>.
                             </note>
                         </residence>
                     </personGrp>
@@ -977,7 +991,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3564">The monks</persName> serving under <persName ref="http://syriaca.org/person/3185">Abraham</persName> accused him of embezzling monastery funds in order to support his family. <persName ref="http://syriaca.org/person/3185">Abraham</persName> was innocent, but left the monastery to live in the city and lived the rest of his days longing for his former monastic existence.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/exile http://syriaca.org/keyword/embezzlement http://syriaca.org/keyword/shame "/>
+                        <ptr target="http://syriaca.org/keyword/exile http://syriaca.org/keyword/embezzlement http://syriaca.org/keyword/shame"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">557</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">211</citedRange></bibl>
@@ -996,7 +1010,7 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3564"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3564">Anonymi 3564</persName>were monks.</note>
                         </occupation>
                     </personGrp>
@@ -1029,7 +1043,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3186">Abraham II</persName> succeeded <persName ref="http://syriaca.org/person/3185">Abraham I</persName> as the head of the convent.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery http://syriaca.org/keyword/succession"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/succession"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">557</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">211</citedRange></bibl>
@@ -1052,9 +1066,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3186"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3186">Abraham II</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">557</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">211</citedRange></bibl>
@@ -1063,7 +1077,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3186"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3186">Abraham II</persName>was the archimandrite of
                                 <placeName ref="http://syriaca.org/place/399">
                                     the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>in<placeName ref="http://syriaca.org/place/8">Amida</placeName>
@@ -1112,9 +1126,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2273"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2273">King Zeno</persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">558</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">212</citedRange></bibl>
@@ -1136,7 +1150,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3186">Abraham II</persName> gave half of the land that he received from <persName ref="http://syriaca.org/person/2273">King Zeno</persName> to <persName ref="http://syriaca.org/person/3565">the brothers</persName> of the <placeName ref="http://syriaca.org/place/358">Monastery of Zurknin</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery http://syriaca.org/keyword/gift http://syriaca.org/keyword/land"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/monasteriesgift http://syriaca.org/keyword/monasteriesland"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">558</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">212</citedRange></bibl>
@@ -1158,7 +1172,7 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3565"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3565">Anonymi 3565</persName> were monks.</note>
                         </occupation>
                     </personGrp>
@@ -1185,7 +1199,7 @@
                         <desc>
                             The<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName> grew to include 400 brothers.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">558</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">212</citedRange></bibl>
@@ -1205,7 +1219,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3186"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
+                        <occupation ref="http://syriaca.org/keyword/bishops">
                             <note type="desc"><persName ref="http://syriaca.org/person/3186">Abraham II</persName>was Bishop of
                                 <placeName ref="http://syriaca.org/place/2758">
                                     Urtaye in the district of Anzetene.
@@ -1228,7 +1242,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3564">Anonymi 3564</persName> of the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>urged <persName ref="http://syriaca.org/person/3186">Bishop Abraham</persName> to appoint a new head. <persName ref="http://syriaca.org/person/3186">Abraham</persName> chose <persName ref="http://syriaca.org/person/3187">Abraham the Shepherd</persName>, who was formerly a shepherd from the <placeName ref="http://syriaca.org/place/2849">Village of Thella d Mikhana</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery http://syriaca.org/keyword/succession"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/succession"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">559-560</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">213-214</citedRange></bibl>
@@ -1239,7 +1253,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3187">Abraham the Shepherd</persName> succeeded <persName ref="http://syriaca.org/person/3186">Abraham II</persName>as head of the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery http://syriaca.org/keyword/succession"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/succession"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">559-560</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">213-214</citedRange></bibl>
@@ -1259,9 +1273,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3187"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3187">Abraham III</persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">559-560</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">213-214</citedRange></bibl>
@@ -1282,7 +1296,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3187"/>
-                        <occupation ref="http://syriaca.org/keyword/shepherd">
+                        <occupation ref="http://syriaca.org/keyword/shepherds">
                             <note type="desc"><persName ref="http://syriaca.org/person/3187">Abraham III</persName> was a shepherd.</note>
                         </occupation>
                     </person>
@@ -1293,7 +1307,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3187"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3187">Abraham III</persName> was a monk.</note>
                         </occupation>
                     </person>
@@ -1304,7 +1318,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3187"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3187">Abraham III</persName> was an archimandrite.</note>
                         </occupation>
                     </person>
@@ -1323,7 +1337,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3564">Anonymi 3564</persName>of the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>disliked <persName ref="http://syriaca.org/person/3186">Abraham II</persName>'s appointment of <persName ref="http://syriaca.org/person/3187">Abraham III</persName> as his successor, believing him to be a lowly peasant. <persName ref="http://syriaca.org/person/3566">Sixty monks</persName> left the convent.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery http://syriaca.org/keyword/succession http://syriaca.org/keyword/division"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/succession http://syriaca.org/keyword/division"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">561-562</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">215-216</citedRange></bibl>
@@ -1359,7 +1373,7 @@
                                 monastery in Beth Bar 'rubtha. 
                             </placeName>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">562</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">216</citedRange></bibl>
@@ -1370,7 +1384,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3250">Mar Samuel</persName>, prior to founding <placeName ref="http://syriaca.org/place/3249">Mar Samuel Convent</placeName>, visited the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery http://syriaca.org/keyword/monastery founder"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/monasteries-founder"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">562</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">216</citedRange></bibl>
@@ -1381,7 +1395,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3250">Mar Samuel</persName>stood on a column for a time before he began to build his convent. <persName ref="http://syriaca.org/person/3187">Abraham III</persName> sent his monks to help <persName ref="http://syriaca.org/person/3250">Mar Samuel</persName> build the convent.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/stylite http://syriaca.org/keyword/asceticism http://syriaca.org/keyword/monasticism"/>
+                        <ptr target="http://syriaca.org/keyword/stylites http://syriaca.org/keyword/asceticism http://syriaca.org/keyword/monasticism"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">562</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">216</citedRange></bibl>
@@ -1401,9 +1415,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3250"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3250">Mar Samuel</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">562</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">216</citedRange></bibl>
@@ -1412,7 +1426,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3250"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3250">Mar Samuel</persName>was an archimandrite.</note>
                         </occupation>
                     </person>
@@ -1428,7 +1442,7 @@
                                 A.D. 814
                             </date>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/invasion http://syriaca.org/keyword/war http://syriaca.org/keyword/death http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/invasion http://syriaca.org/keyword/war http://syriaca.org/keyword/death http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">562</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">216</citedRange></bibl>
@@ -1447,9 +1461,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2286"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2286">Kawad</persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">563, 564</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">217, 218</citedRange></bibl>
@@ -1493,9 +1507,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3567"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3567">Anonymous 3567</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">563</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">217</citedRange></bibl>
@@ -1504,7 +1518,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3567"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3567">Anonymous 3567</persName> was a monk.</note>
                         </occupation>
                     </person>
@@ -1542,7 +1556,7 @@
                         <desc>
                             Another old man, named <persName ref="http://syriaca.org/person/3239">Paul of Arzen</persName>, related the history of the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>to <persName ref="http://syriaca.org/person/74">John of Ephesus</persName>. 
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">565-566</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">219-220</citedRange></bibl>
@@ -1584,9 +1598,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3239"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3239">Paul</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">565-566</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">219-220</citedRange></bibl>
@@ -1595,7 +1609,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3239"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3239">Paul</persName>was a monk.</note>
                         </occupation>
                     </person>
@@ -1658,7 +1672,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3200">Cosmas</persName> succeeded <persName ref="http://syriaca.org/person/3187">Abraham III</persName> as head of the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>and served in the reign of the <persName ref="http://syriaca.org/person/2265">Emperor Anastasius</persName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery http://syriaca.org/keyword/succession"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/succession"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">567</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">221</citedRange></bibl>
@@ -1678,9 +1692,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3200"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3200">Cosmas</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">567</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">221</citedRange></bibl>
@@ -1689,7 +1703,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3200"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3200">Cosmas</persName>was an archimandrite of
                                 <placeName ref="http://syriaca.org/place/399">
                                 Convent of John Urtaya
@@ -1725,10 +1739,10 @@
             <div uri="http://syriaca.org/spear/10510-143" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/emperor"/>
-                        <sex value="M">
+                        <persName ref="http://syriaca.org/person/2265"/>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2265">Anastasius</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">567</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">221</citedRange></bibl>
@@ -1737,7 +1751,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2265"/>
-                        <occupation ref="http://syriaca.org/keyword/emperor">
+                        <occupation ref="http://syriaca.org/keyword/emperors">
                             <note type="desc"><persName ref="http://syriaca.org/person/2265">Anastasius</persName>was an empereror.</note>
                         </occupation>
                     </person>
@@ -1750,7 +1764,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3255">Sergius</persName>succeeded <persName ref="http://syriaca.org/person/3200">Cosmas</persName>as head of the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery http://syriaca.org/keyword/succession"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/succession"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">567</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">221</citedRange></bibl>
@@ -1770,9 +1784,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3255"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3255">Sergius</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">567</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">221</citedRange></bibl>
@@ -1781,7 +1795,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3255"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3255">Sergius</persName>was the archimandrite of
                                 <placeName ref="http://syriaca.org/place/399">
                                 the Convent of John Urtaya
@@ -1827,7 +1841,7 @@
                                 A.D. 522
                             </date>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/succession http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/succession http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">568-569</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">222-223</citedRange></bibl>
@@ -1847,9 +1861,9 @@
                  <listPerson>
                      <person>
                          <persName ref="http://syriaca.org/person/3263"/>
-                         <sex value="M">
+                         <trait type="gender" ref="http://syriaca.org/keyword/male">
                              <note type="desc"><persName ref="http://syriaca.org/person/3263">Symy</persName>was male.</note>
-                         </sex>
+                         </trait>
                      </person>
                  </listPerson>
                  <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">568-570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">222-224</citedRange></bibl>
@@ -1858,7 +1872,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3263"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3263">Symy</persName>was an archimandrite.</note>
                         </occupation>
                     </person>
@@ -1883,7 +1897,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3263">Symy</persName>prophesied many things that came to pass, including his own death three and a half years after assuming the office of archimandrite.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/prophesy http://syriaca.org/keyword/monastery http://syriaca.org/keyword/archimandrite"/>
+                        <ptr target="http://syriaca.org/keyword/prophesy http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/monastic-heads"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">569</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">223</citedRange></bibl>
@@ -1900,7 +1914,7 @@
                                 </date>
                             </placeName>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/death http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/death http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">569</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">223</citedRange></bibl>
@@ -1914,7 +1928,7 @@
                                 A.D. 530
                             </date>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/interment http://syriaca.org/keyword/exile"/>
+                        <ptr target="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/internment http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">569-570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">223-224</citedRange></bibl>
@@ -1925,7 +1939,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3183">Abba</persName>succeeded <persName ref="http://syriaca.org/person/3263">Symy</persName>as head of the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monastery http://syriaca.org/keyword/succession"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/monasteriesmonasteries http://syriaca.org/keyword/monasteriessuccession"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">224</citedRange></bibl>
@@ -1945,9 +1959,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3183"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3183">Abba</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">224</citedRange></bibl>
@@ -1956,7 +1970,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3183"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3183">Abba</persName>was an archimandrite.</note>
                         </occupation>
                     </person>
@@ -1984,7 +1998,7 @@
                                 A.D. August 1, 527
                             </date>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/emperor http://syriaca.org/keyword/succession http://syriaca.org/keyword/leadership http://syriaca.org/keyword/kingship"/>
+                        <ptr target="http://syriaca.org/keyword/emperors http://syriaca.org/keyword/succession http://syriaca.org/keyword/leadership http://syriaca.org/keyword/kingship"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">224</citedRange></bibl>
@@ -2004,9 +2018,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2284"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2284">The Emperor Justinian</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">224</citedRange></bibl>
@@ -2015,7 +2029,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2284"/>
-                        <occupation ref="http://syriaca.org/keyword/emperor">
+                        <occupation ref="http://syriaca.org/keyword/emperors">
                             <note type="desc"><persName ref="http://syriaca.org/person/2284">The Emperor Justinian</persName>was an emperor.</note>
                         </occupation>
                     </person>
@@ -2027,7 +2041,7 @@
                     <event>
                         <desc>
                             The persecution was renewed through the descent of <persName ref="http://syriaca.org/person/2274">Ephraim</persName> and all of the convents were expelled in
-                            <date when="0536" calendar="Gregorian"></date>
+                            <date when="0536" calendar="Gregorian">A.D. 536</date>.
                         </desc>
                         <ptr target="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/convents http://syriaca.org/keyword/expulsion http://syriaca.org/keyword/exile"/>
                     </event>
@@ -2049,9 +2063,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2274"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2274">Ephraim</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">224</citedRange></bibl>
@@ -2060,7 +2074,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2274"/>
-                        <occupation ref="http://syriaca.org/keyword/patriarch">
+                        <occupation ref="http://syriaca.org/keyword/bishops">
                             <note type="desc"><persName ref="http://syriaca.org/person/2274">Ephraim</persName>was the patriarch of <placeName ref="http://syriaca.org/place/2610">Antioch</placeName>.</note>
                         </occupation>
                     </person>
@@ -2092,7 +2106,7 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3568"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
+                        <occupation ref="http://syriaca.org/keyword/monks">
                             <note type="desc"><persName ref="http://syriaca.org/person/3568">Anonymi 3568</persName>were monks.</note>
                         </occupation>
                     </personGrp>
@@ -2139,7 +2153,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3183">Abba</persName> and <persName ref="http://syriaca.org/person/3568">Anonymi 3568</persName> were expelled from the <placeName ref="http://syriaca.org/place/2834">Convent of the Poplars</placeName> and took up residence in the <placeName ref="http://syriaca.org/place/2826">Convent of Nut</placeName> in the village of <placeName ref="http://syriaca.org/place/2864">'Bdhyr</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/exile http://syriaca.org/keyword/expulsion http://syriaca.org/keyword/monastery http://syriaca.org/keyword/conflict"/>
+                        <ptr target="http://syriaca.org/keyword/exile http://syriaca.org/keyword/expulsion http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/conflict"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">570</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">224</citedRange></bibl>
@@ -2237,9 +2251,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/779"/>
-                        <sex value="F">
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
                             <note type="desc"><persName ref="http://syriaca.org/person/779">Empress Theodora</persName>was female.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">571</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">225</citedRange></bibl>
@@ -2248,7 +2262,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/779"/>
-                        <occupation ref="http://syriaca.org/keyword/empress">
+                        <occupation ref="http://syriaca.org/keyword/empresses">
                             <note type="desc"><persName ref="http://syriaca.org/person/779">Theodora</persName>was an empress.</note>
                         </occupation>
                     </person>
@@ -2272,7 +2286,7 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/3188">Abraham IV</persName>succeeded <persName ref="http://syriaca.org/person/3183">Abba</persName>as head of the<placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/succession http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/leadership http://syriaca.org/keyword/succession http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">571</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">225</citedRange></bibl>
@@ -2292,9 +2306,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3188"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3188">Abraham IV</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">571</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">225</citedRange></bibl>
@@ -2303,7 +2317,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3188"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3188">Abraham IV</persName>was an archimandrite.</note>
                         </occupation>
                     </person>
@@ -2370,9 +2384,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3256"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3256">Sergius</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">571-572</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">225-226</citedRange></bibl>
@@ -2381,7 +2395,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3256"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
                             <note type="desc"><persName ref="http://syriaca.org/person/3256">Sergius</persName>was the archimandrite of
                                 <placeName ref="http://syriaca.org/place/399">
                                 the Convent of John Urtaya
@@ -2407,7 +2421,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3256"/>
-                        <socecStatus ref="http://syriaca.org/keyword/patrician">
+                        <socecStatus ref="http://syriaca.org/keyword/patricians">
                             <note type="desc"><persName ref="http://syriaca.org/person/3256">Sergius</persName>belonged to a distinguished family called the house of Bar Deba.</note>
                         </socecStatus>
                     </person>
@@ -2418,7 +2432,7 @@
                 <listEvent>
                     <event>
                         <desc>
-                            Emperor Justinian died in the year
+                            <persName ref="http://syriaca.org/person/2284">Emperor Justinian</persName> died in the year
                             <choice>
                                 <reg>
                                     <date when="0565" calendar="Gregorian">
@@ -2475,7 +2489,7 @@
             </div>
             <div uri="http://syriaca.org/spear/10510-204" resp="#ktorabi">
                 <listRelation>
-                    <relation  ref="syriaca:MonasticHeadOver" active="http://syriaca.org/person/3218" passive="http://syriaca.org/person/3249 http://syriaca.org/place/3227 http://syriaca.org/place/3568"/>
+                    <relation  ref="syriaca:MonasticHeadOver" active="http://syriaca.org/person/3218" passive="http://syriaca.org/person/3249 http://syriaca.org/person/3227 http://syriaca.org/person/3568"/>
                 </listRelation>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/10510"/><citedRange unit="pp">555</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2033"/><citedRange unit="pp">209</citedRange></bibl>
             </div>
@@ -2483,7 +2497,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3192"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/3192">Mar Afwrsm</persName>was a saint.
                             </note>
@@ -2503,7 +2517,7 @@
             <listPerson>
                 <person>
                     <persName ref="http://syriaca.org/person/3251"/>
-                    <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                    <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                         <note type="desc">
                             <persName ref="http://syriaca.org/person/3251">Mar Samuel</persName> was a saint.
                         </note>
@@ -2523,7 +2537,7 @@
             <listPerson>
                 <person>
                     <persName ref="http://syriaca.org/person/3250"/>
-                    <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                    <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                         <note type="desc">
                             <persName ref="http://syriaca.org/person/3250">Mar Samuel</persName> was a saint.
                         </note>
@@ -2564,9 +2578,9 @@
             <listPerson>
                 <personGrp>
                     <persName ref="http://syriaca.org/person/3560"/>
-                    <sex value="M">
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
                         <note type="desc"><persName ref="http://syriaca.org/person/3560"> Anonymi 3560 </persName> were male.</note>
-                    </sex>
+                    </trait>
                 </personGrp>
             </listPerson>
             <bibl type="primary">
@@ -2582,9 +2596,9 @@
             <listPerson>
                 <personGrp>
                     <persName ref="http://syriaca.org/person/3562"/>
-                    <sex value="M">
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
                         <note type="desc"><persName ref="http://syriaca.org/person/3562"> Anonymi 3562 </persName> was male.</note>
-                    </sex>
+                    </trait>
                 </personGrp>
             </listPerson>
             <bibl type="primary">
@@ -2600,13 +2614,13 @@
             <listPerson>
                 <personGrp>
                     <persName ref="http://syriaca.org/person/3564"/>
-                    <sex value="M">
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
                         <note type="desc"><persName ref="http://syriaca.org/person/3564"> Anonymi 3564 </persName> were male.</note>
-                    </sex>
+                    </trait>
                 </personGrp>
             </listPerson>
             <bibl type="primary">
-                <ptr target="http://syriaca.org/work/10510-211"/>
+                <ptr target="http://syriaca.org/work/10510"/>
                 <citedRange unit="pp">557</citedRange>
             </bibl>
             <bibl type="primary">
@@ -2618,9 +2632,9 @@
             <listPerson>
                 <personGrp>
                     <persName ref="http://syriaca.org/person/3565"/>
-                    <sex value="M">
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
                         <note type="desc"><persName ref="http://syriaca.org/person/3565"> Anonymi 3565 </persName> was male.</note>
-                    </sex>
+                    </trait>
                 </personGrp>
             </listPerson>
             <bibl type="primary">
@@ -2636,9 +2650,9 @@
             <listPerson>
                 <personGrp>
                     <persName ref="http://syriaca.org/person/3566"/>
-                    <sex value="M">
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
                         <note type="desc"><persName ref="http://syriaca.org/person/3566"> Anonymi 3566 </persName> were male.</note>
-                    </sex>
+                    </trait>
                 </personGrp>
             </listPerson>
             <bibl type="primary">
@@ -2695,9 +2709,9 @@
             <listPerson>
                 <personGrp>
                     <persName ref="http://syriaca.org/person/3568"/>
-                    <sex value="M">
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
                         <note type="desc"><persName ref="http://syriaca.org/person/3568"> Anonymi 3568 </persName> were male.</note>
-                    </sex>
+                    </trait>
                 </personGrp>
             </listPerson>
             <bibl type="primary">
@@ -2710,7 +2724,21 @@
             </bibl>
         </div></body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl10510-1">
+                    <title>Lives of the Eastern Saints III</title>
+                    <title>History of the Convent of John Urtaya</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl10510-2">
+                    <title>To Bishop Constantine of Seleucia</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/10510"/>
+                </bibl>
+            </listBibl>
         </back>
         </text>
 </TEI>

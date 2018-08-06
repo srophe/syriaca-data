@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
@@ -37,12 +39,24 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/805">Thomas, Stephen, and Zota</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/805" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints I</title>
+                        <title>Thomas, Stephen, and Zota</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/1409"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Thomas, Stephen, and Zota</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/805"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/805" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -60,7 +74,7 @@
             <div uri="http://syriaca.org/spear/805-1" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> King Anastasius died in <date when="0518"> A.D. 518 (830 Alexander).
+                        <desc> <persName ref="http://syriaca.org/person/2265">Anastasius</persName> died in <date when="0518"> A.D. 518 (830 Alexander).
                             </date>
                         </desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
@@ -79,7 +93,6 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2265"> Emperor Anastasius </persName>
-                        
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -95,9 +108,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2265"/>
-                        <sex value="M">
-                            <note type="desc">Anastasius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2265">Anastasius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -113,8 +126,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2265"/>
-                        <occupation ref="http://syriaca.org/keyword/emperor">
-                            <note type="desc">Anastasius was an emperor.</note>
+                        <occupation ref="http://syriaca.org/keyword/emperors">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2265">Anastasius</persName> was an emperor.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -130,10 +143,10 @@
             <div uri="http://syriaca.org/spear/805-5" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Justin became the new Emperor upon Anastasius's death in <date
-                                when="0518"> A.D. 518 (830 Alexander). </date>
+                        <desc> <persName ref="http://syriaca.org/person/2268">Justin</persName> became the new emperor upon <persName ref="http://syriaca.org/person/2265">Anastasius</persName>'s death in <date
+                                when="0518"> A.D. 518 (830 Alexander). </date><!-- Check original and give Gk date if it's in the text. -->
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/emperor"/>
+                        <ptr target="http://syriaca.org/keyword/emperors"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -165,9 +178,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2268"/>
-                        <sex value="M">
-                            <note type="desc">Justin was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2268">Justin</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -183,8 +196,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2268"/>
-                        <occupation ref="http://syriaca.org/keyword/emperor">
-                            <note type="desc">Justin was an emperor.</note>
+                        <occupation ref="http://syriaca.org/keyword/emperors">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2268">Justin</persName> was emperor.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -197,14 +210,14 @@
                     <citedRange unit="pp">187</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/805-9" resp="#ktorabi">
+            <div uri="http://syriaca.org/spear/805-9" resp="#ktorabi #dschwartz">
                 <listEvent>
                     <event>
-                        <desc> Jusin introduced the impious synod of Chalcedon. Those who did not
+                        <desc> <persName ref="http://syriaca.org/person/2268">Justin</persName> introduced the impious synod of Chalcedon. Those who did not
                             assent, lived under persecution and exile. This began in the year <date
-                                when="0518"> A.D. 518 (830 Alexander). </date>
+                                when="0518"> A.D. 518 (830 Alexander). </date><!-- Check original and give Gk date if it's in the text. -->
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/persecution"/>
+                        <ptr target="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/council-of-chalcedon-451 http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -219,10 +232,13 @@
             <div uri="http://syriaca.org/spear/805-10" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> The persecution reached Maro, Bishop of Amida in Mesopotamia and he
-                            chose exile over the synod of Chalcedon. He went into exile in Petra
-                            with Sergius, Stephen, and Thomas. </desc>
-                        <ptr target="http://syriaca.org/keyword/exile"/>
+                        <desc> The persecution reached <persName ref="http://syriaca.org/person/48"> Mare, Bishop of <placeName
+                            ref="http://syriaca.org/place/8"> Amida in 
+                            <placeName ref="http://syriaca.org/place/1452"> Mesopotamia </placeName></placeName>
+                        </persName> and he
+                            chose exile over the synod of Chalcedon. He went into exile in <placeName ref="http://syriaca.org/place/157">Petra</placeName>
+                            with <persName ref="http://syriaca.org/person/3257">Sergius</persName>, <persName ref="http://syriaca.org/person/3010">Stephen</persName>, and <persName ref="http://syriaca.org/person/2127">Thomas</persName>. </desc>
+                        <ptr target="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/council-of-chalcedon-451 http://syriaca.org/keyword/exile http://syriaca.org/keyword/bishops"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -257,9 +273,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/48"/>
-                        <sex value="M">
-                            <note type="desc">Mare was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/48">Mare</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -275,8 +291,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/48"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Mare was a bishop.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/48">Mare</persName> was a bishop.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -293,8 +309,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/48"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
-                            <note type="desc">Mare was a saint.</note>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/48">Mare</persName> was a saint.</note>
                         </state>
                     </person>
                 </listPerson>
@@ -313,7 +329,7 @@
                         <persName ref="http://syriaca.org/person/48"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/157"/>
-                            <note type="desc"> Mare resided in Petra after the exile. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/48">Mare</persName> resided in <placeName ref="http://syriaca.org/place/157">Petra</placeName> after the exile. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -346,9 +362,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3010"/>
-                        <sex value="M">
-                            <note type="desc">Stephen was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3010">Stephen</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -364,8 +380,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3010"/>
-                        <occupation ref="http://syriaca.org/keyword/deacon">
-                            <note type="desc">Stephen was a deacon.</note>
+                        <occupation ref="http://syriaca.org/keyword/deacons">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3010">Stephen</persName> was a deacon.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -382,8 +398,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3010"/>
-                        <occupation ref="http://syriaca.org/keyword/notary">
-                            <note type="desc">Stephen was a notary.</note>
+                        <occupation ref="http://syriaca.org/keyword/notaries">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3010">Stephen</persName> was a notary.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -400,8 +416,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3010"/>
-                        <occupation ref="http://syriaca.org/keyword/syncellus">
-                            <note type="desc">Stephen was a syncellus.</note>
+                        <occupation ref="http://syriaca.org/keyword/syncelli">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3010">Stephen</persName> was a syncellus.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -418,8 +434,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3010"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
-                            <note type="desc">Stephen was a saint.</note>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3010">Stephen</persName> was a saint.</note>
                         </state>
                     </person>
                 </listPerson>
@@ -438,7 +454,7 @@
                         <persName ref="http://syriaca.org/person/3010"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/157"/>
-                            <note type="desc"> After the exile, Stephen resided in Petra. </note>
+                            <note type="desc"> After the exile, <persName ref="http://syriaca.org/person/3010">Stephen</persName> resided in <placeName ref="http://syriaca.org/place/157">Petra</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -454,8 +470,7 @@
             <div uri="http://syriaca.org/spear/805-23" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/2127"> Thomas </persName>
-                        
+                        <persName ref="http://syriaca.org/person/2127">Thomas</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -471,9 +486,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2127"/>
-                        <sex value="M">
-                            <note type="desc">Thomas was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2127">Thomas</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -489,8 +504,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2127"/>
-                        <occupation ref="http://syriaca.org/keyword/notary">
-                            <note type="desc">Thomas was a notary.</note>
+                        <occupation ref="http://syriaca.org/keyword/notaries">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2127">Thomas</persName> was a notary.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -507,8 +522,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2127"/>
-                        <occupation ref="http://syriaca.org/keyword/syncellus">
-                            <note type="desc">Thomas was a syncellus.</note>
+                        <occupation ref="http://syriaca.org/keyword/syncelli">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2127">Thomas</persName> was a syncellus.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -525,8 +540,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2127"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
-                            <note type="desc">Thomas was a saint.</note>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2127">Thomas</persName> was a saint.</note>
                         </state>
                     </person>
                 </listPerson>
@@ -545,7 +560,7 @@
                         <persName ref="http://syriaca.org/person/2127"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/157"/>
-                            <note type="desc"> After the exile, Thomas resided in Petra. </note>
+                            <note type="desc"> After the exile, <persName ref="http://syriaca.org/person/2127">Thomas</persName> resided in <placeName ref="http://syriaca.org/place/157">Petra</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -561,8 +576,7 @@
             <div uri="http://syriaca.org/spear/805-29" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/3257"> Sergius </persName>
-                        
+                        <persName ref="http://syriaca.org/person/3257">Sergius</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -578,9 +592,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3257"/>
-                        <sex value="M">
-                            <note type="desc">Sergius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3257">Sergius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -596,8 +610,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3257"/>
-                        <occupation ref="http://syriaca.org/keyword/notary">
-                            <note type="desc">Sergius was a notary.</note>
+                        <occupation ref="http://syriaca.org/keyword/notaries">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3257">Sergius</persName> was a notary.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -614,8 +628,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3257"/>
-                        <occupation ref="http://syriaca.org/keyword/syncellus">
-                            <note type="desc">Sergius was a syncellus.</note>
+                        <occupation ref="http://syriaca.org/keyword/syncelli">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3257">Sergius</persName> was a syncellus.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -634,7 +648,7 @@
                         <persName ref="http://syriaca.org/person/3257"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/157"/>
-                            <note type="desc"> After the exile, Sergius resided in Petra. </note>
+                            <note type="desc"> After the exile, <persName ref="http://syriaca.org/person/3257">Sergius</persName> resided in <placeName ref="http://syriaca.org/place/157">Petra</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -663,14 +677,13 @@
                     <citedRange unit="pp">188</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/805-35" resp="#ktorabi">
+            <div uri="http://syriaca.org/spear/805-35" resp="#ktorabi"><!-- Fill in URIs, add keywords -->
                 <listEvent>
                     <event>
-                        <desc> Bishop Mare sent Stephen to the Royal City to ask for relief from
-                            their distress in Petra. Stephen appealed to the patrician who would be
-                            empress one day, Theodora. Theodora appealed to her husband, who would
-                            be emperor one day, Justinian. He appealed to his uncle, Justin I who
-                            stated that Mare and his group could come to Alexandria. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/48">Mare</persName> sent <persName ref="http://syriaca.org/person/3010">Stephen</persName> to the <placeName ref="http://syriaca.org/place/586">Royal City</placeName> to ask for relief from
+                            their distress in <placeName ref="http://syriaca.org/place/157">Petra</placeName>. <persName ref="http://syriaca.org/person/3010">Stephen</persName> appealed to <persName ref="http://syriaca.org/person/779">Theodora</persName>. 
+                            She appealed to her husband <persName ref="http://syriaca.org/person/2284">Justinian</persName>. He appealed to his uncle, <persName ref="http://syriaca.org/person/2268">Justin I</persName> who
+                            stated that <persName ref="http://syriaca.org/person/48">Mare</persName> could come to <placeName ref="http://syriaca.org/place/572">Alexandria</placeName>. </desc>
                         <ptr target="http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
@@ -703,9 +716,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/779"/>
-                        <sex value="F">
-                            <note type="desc">Theodora was female.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
+                            <note type="desc"><persName ref="http://syriaca.org/person/779">Theodora</persName> was female.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -721,8 +734,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/779"/>
-                        <occupation ref="http://syriaca.org/keyword/empress">
-                            <note type="desc">Theodora was an empress.</note>
+                        <occupation ref="http://syriaca.org/keyword/empresses">
+                            <note type="desc"><persName ref="http://syriaca.org/person/779">Theodora</persName> was an empress.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -739,8 +752,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/779"/>
-                        <socecStatus ref="http://syriaca.org/keyword/patrician">
-                            <note type="desc">Theodora was a patrician</note>
+                        <socecStatus ref="http://syriaca.org/keyword/patricians">
+                            <note type="desc"><persName ref="http://syriaca.org/person/779">Theodora</persName> was a patrician</note>
                         </socecStatus>
                     </person>
                 </listPerson>
@@ -756,8 +769,7 @@
             <div uri="http://syriaca.org/spear/805-40" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/2284"> Justinian </persName>
-                        
+                        <persName ref="http://syriaca.org/person/2284">Justinian</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -773,9 +785,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2284"/>
-                        <sex value="M">
-                            <note type="desc">Justinian was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2284">Justinian</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -791,8 +803,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2284"/>
-                        <occupation ref="http://syriaca.org/keyword/emperor">
-                            <note type="desc">Justinian was an emperor.</note>
+                        <occupation ref="http://syriaca.org/keyword/emperors">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2284">Justinian</persName> was an emperor.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -809,8 +821,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2284"/>
-                        <socecStatus ref="http://syriaca.org/keyword/patrician">
-                            <note type="desc">Justinian was a patrician</note>
+                        <socecStatus ref="http://syriaca.org/keyword/patricians">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2284">Justinian</persName> was a patrician</note>
                         </socecStatus>
                     </person>
                 </listPerson>
@@ -840,8 +852,7 @@
             <div uri="http://syriaca.org/spear/805-45" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/2268"> Justin I </persName>
-                        
+                        <persName ref="http://syriaca.org/person/2268">Justin I</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -857,9 +868,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2268"/>
-                        <sex value="M">
-                            <note type="desc">Justin was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2268">Justin</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -875,8 +886,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2268"/>
-                        <occupation ref="http://syriaca.org/keyword/emperor">
-                            <note type="desc">Justin I was an emperor.</note>
+                        <occupation ref="http://syriaca.org/keyword/emperors">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2268">Justin I</persName> was an emperor.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -907,8 +918,8 @@
             <div uri="http://syriaca.org/spear/805-49" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Stephen delivered the order to come to Alexandria to Mare and his men
-                            as well as to Isidore, Bishop of Kenneshrin, also in exile. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/3010">Stephen</persName> delivered the order to come to <placeName ref="http://syriaca.org/place/572">Alexandria</placeName> to <persName ref="http://syriaca.org/person/48">Mare</persName> and his men
+                            as well as to <persName ref="http://syriaca.org/person/2545">Isidore</persName>, Bishop of <placeName ref="http://syriaca.org/place/162">Kenneshrin</placeName>, also in exile. </desc>
                         <ptr target="http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
@@ -944,9 +955,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2545"/>
-                        <sex value="M">
-                            <note type="desc">Isidore was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2545">Isidore</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -962,8 +973,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2545"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Isidore was a bishop.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2545">Isidore</persName> was a bishop.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -979,9 +990,9 @@
             <div uri="http://syriaca.org/spear/805-53" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Mare and his men found an old man who sold utensils for a living in
-                            the village of Mendis. He lived in a community of other religious
-                            exiles. Stephen and Thomas asked the man to lead them to the exiles. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/48">Mare</persName> and his men found an old man who sold utensils for a living in
+                            the village of <placeName>Mendis</placeName>. He lived in a community of other religious
+                            exiles. <persName ref="http://syriaca.org/person/3010">Stephen</persName> and <persName ref="http://syriaca.org/person/2127">Thomas</persName> asked the man to lead them to the exiles. </desc>
                         <ptr target="http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
@@ -997,8 +1008,8 @@
             <div uri="http://syriaca.org/spear/805-54" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"><!-- URI needed --> An old
-                            man who sold utensils and lived in exile in Mendis. </persName>
+                        <persName ref="http://syriaca.org/person/"><!-- URI needed --> An old
+                            man who sold utensils and lived in exile in <placeName>Mendis</placeName>. </persName>
                         
                     </person>
                 </listPerson>
@@ -1015,10 +1026,10 @@
                 <!-- URI needed -->
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxx"/>
-                        <sex value="M">
-                            <note type="desc">This person was male.</note>
-                        </sex>
+                        <persName ref="http://syriaca.org/person/"/>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/">Anonymous ####</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1033,10 +1044,10 @@
             <div uri="http://syriaca.org/spear/805-56" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"/>
+                        <persName ref="http://syriaca.org/person/"/>
                         <!-- URI needed -->
-                        <occupation ref="http://syriaca.org/keyword/merchant">
-                            <note type="desc">This person was a utensil merchant.</note>
+                        <occupation ref="http://syriaca.org/keyword/merchants">
+                            <note type="desc"><persName ref="http://syriaca.org/person/">Anonymous ####</persName> was a utensil merchant.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -1053,10 +1064,10 @@
                 <!-- URI needed -->
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"/>
+                        <persName ref="http://syriaca.org/person/"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/2820"/>
-                            <note type="desc"> This man resided near the village of Mendis. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/">Anonymous ####</persName> resided near the village of <placeName>Mendis</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -1072,9 +1083,9 @@
             <div uri="http://syriaca.org/spear/805-58" resp="#ktorabi">
                 <listPerson>
                     <personGrp>
-                        <persName ref="http://syriaca.org/person/xxxx"
+                        <persName ref="http://syriaca.org/person/"
                             ><!-- URI needed for this group --> The men and women who lived in exile
-                            in Mendis </persName>
+                            in <placeName>Mendis</placeName> </persName>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -1089,12 +1100,12 @@
             <div uri="http://syriaca.org/spear/805-59" resp="#ktorabi">
                 <listPerson>
                     <personGrp>
-                        <persName ref="http://syriaca.org/person/xxxx"/>
+                        <persName ref="http://syriaca.org/person/"/>
                         <!-- URI needed for this group -->
                         <residence>
                             <placeName ref="http://syriaca.org/place/2820"/>
-                            <note type="desc"> The men and women resided in exile near the village
-                                of Mendis. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/">Anonymi ####</persName> resided in exile near the village
+                                of <placeName>Mendis</placeName>. </note>
                         </residence>
                     </personGrp>
                 </listPerson>
@@ -1107,14 +1118,14 @@
                     <citedRange unit="pp">190</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/805-60" resp="#ktorabi">
+            <div uri="http://syriaca.org/spear/805-60?" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Thomas, endeavored to live as an ascetic in the pit near the village
-                            of Mendis, but everyone who heard of his plans laughed at him because he
+                        <desc> <persName ref="http://syriaca.org/person/2127">Thomas</persName>, endeavored to live as an ascetic in the pit near the village
+                            of <placeName>Mendis</placeName>, but everyone who heard of his plans laughed at him because he
                             had such a privileged upbringing. He was a patrician who had his own
                             estate and slaves and he was the descendent of the great patrician,
-                            Ishakuni Bar Br'y. </desc>
+                            <persName ref="http://syriaca.org/person/3215">Ishakuni Bar Br'y</persName>. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
                     </event>
                 </listEvent>
@@ -1131,8 +1142,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2127"/>
-                        <socecStatus ref="http://syriaca.org/keyword/patrician">
-                            <note type="desc">Thomas was a patrician</note>
+                        <socecStatus ref="http://syriaca.org/keyword/patricians">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2127">Thomas</persName> was a patrician</note>
                         </socecStatus>
                     </person>
                 </listPerson>
@@ -1148,8 +1159,7 @@
             <div uri="http://syriaca.org/spear/805-62" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/3215"> Ishakuni Bar Br'y </persName>
-                        
+                        <persName ref="http://syriaca.org/person/3215">Ishakuni Bar Br'y</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1165,9 +1175,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3215"/>
-                        <sex value="M">
-                            <note type="desc">Ishakuni Bar Br'y was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3215">Ishakuni Bar Br'y</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1183,8 +1193,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3215"/>
-                        <socecStatus ref="http://syriaca.org/keyword/patrician">
-                            <note type="desc">Ishakuni Bar Br'y was a patrician.</note>
+                        <socecStatus ref="http://syriaca.org/keyword/patricians">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3215">Ishakuni Bar Br'y</persName> was a patrician.</note>
                         </socecStatus>
                     </person>
                 </listPerson>
@@ -1199,7 +1209,7 @@
             </div>
             <div uri="http://syriaca.org/spear/805-65" resp="#ktorabi">
                 <listRelation>
-                    <relation  ref="snap:descendantOf"
+                    <relation  ref="snap:DescendantOf"
                         active="http://syriaca.org/person/2127"
                         passive="http://syriaca.org/person/3215"/>
                 </listRelation>
@@ -1215,9 +1225,9 @@
             <div uri="http://syriaca.org/spear/805-66" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Stephen intended to live an ascetic life, but he was sickly and
+                        <desc> <persName ref="http://syriaca.org/person/3010">Stephen</persName> intended to live an ascetic life, but he was sickly and
                             feeble of body. </desc>
-                        <ptr target="http://syriaca.org/keyword/illness"/>
+                        <ptr target="http://syriaca.org/keyword/illness http://syriaca.org/keyword/monasticism"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1234,7 +1244,7 @@
                     <person>
                         <persName ref="http://syriaca.org/person/3010"/>
                         <trait type="physical">
-                            <note type="desc">Stephen was sickly and feeble of body.</note>
+                            <note type="desc"><persName ref="http://syriaca.org/person/3010">Stephen</persName> was sickly and feeble of body.</note>
                         </trait>
                     </person>
                 </listPerson>
@@ -1250,7 +1260,7 @@
             <div uri="http://syriaca.org/spear/805-68" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Thomas gave his keys to the bishop's cellarer and snuck out of his
+                        <desc> <persName ref="http://syriaca.org/person/2127">Thomas</persName> gave his keys to <persName>the bishop's cellarer</persName> and snuck out of his
                             monastery at night to go to the pit, where he lived an ascetic life of
                             prayer and fasting. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
@@ -1268,7 +1278,7 @@
             <div uri="http://syriaca.org/spear/805-69" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"><!-- URI needed --> The
+                        <persName ref="http://syriaca.org/person/">The
                             bishop's cellarer </persName>
                         
                     </person>
@@ -1285,11 +1295,11 @@
             <div uri="http://syriaca.org/spear/805-70" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxx"/>
+                        <persName ref="http://syriaca.org/person/"/>
                         <!-- URI needed -->
-                        <sex value="M">
-                            <note type="desc">This person was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/">Anonymous ####</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1304,10 +1314,10 @@
             <div uri="http://syriaca.org/spear/805-71" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"/>
+                        <persName ref="http://syriaca.org/person/"/>
                         <!-- URI needed -->
                         <occupation ref="http://syriaca.org/keyword/cellarer">
-                            <note type="desc">This person was a cellarer.</note>
+                            <note type="desc"><persName ref="http://syriaca.org/person/">Anonymous ####</persName> was a cellarer.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -1323,9 +1333,9 @@
             <div uri="http://syriaca.org/spear/805-72" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> After six years of living in the pit, Thomas's trials left him
+                        <desc> After six years of living in the pit, <persName ref="http://syriaca.org/person/2127">Thomas</persName>'s trials left him
                             physically ill and infirm. </desc>
-                        <ptr target="http://syriaca.org/keyword/asceticism"/>
+                        <ptr target="http://syriaca.org/keyword/illness http://syriaca.org/keyword/monasticism"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1340,7 +1350,7 @@
             <div uri="http://syriaca.org/spear/805-73" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Bishop Mare died in <placeName ref="http://syriaca.org/place/572">
+                        <desc> <persName ref="http://syriaca.org/person/48">Mare</persName> died in <placeName ref="http://syriaca.org/place/572">
                                 Alexandria </placeName>
                         </desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
@@ -1358,8 +1368,8 @@
             <div uri="http://syriaca.org/spear/805-74" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Stephen and the sisters of Mare received permission from Theodora to
-                            take Mare's bones to his own country. They also convinced John, who did
+                        <desc> <persName ref="http://syriaca.org/person/3010">Stephen</persName> and <persName>the sisters of <persName ref="http://syriaca.org/person/48">Mare</persName></persName> received permission from <persName ref="http://syriaca.org/person/779"> Theodora </persName> to
+                            take <persName ref="http://syriaca.org/person/48">Mare</persName>'s bones to his own country. They also convinced <persName>John</persName>, who did
                             not want to leave the pit, to accompany them on this journey. </desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
                     </event>
@@ -1376,9 +1386,9 @@
             <div uri="http://syriaca.org/spear/805-75" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"><!-- URI needed --> Bishop
-                            Mare's sister </persName>
-                        
+                        <persName ref="http://syriaca.org/person/">
+                            The sister of <persName ref="http://syriaca.org/person/48">Bishop Mare</persName>
+                        </persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1393,11 +1403,10 @@
             <div uri="http://syriaca.org/spear/805-76" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxx"/>
-                        <!-- URI needed -->
-                        <sex value="F">
-                            <note type="desc">Bishop Mare's sister was female.</note>
-                        </sex>
+                        <persName ref="http://syriaca.org/person/"/>
+                        <trait type="gender" ref="http://syriaca.org/keyword/female"><!-- sister of Mare -->
+                            <note type="desc"><persName ref="http://syriaca.org/person/">Anonymous ####</persName> was female.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1412,10 +1421,10 @@
             <div uri="http://syriaca.org/spear/805-77" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"/>
+                        <persName ref="http://syriaca.org/person/"/><!-- sister of Mare -->
                         <!-- URI needed -->
                         <occupation ref="http://syriaca.org/keyword/deaconess">
-                            <note type="desc">Bishop Mare's sister was a deaconess.</note>
+                            <note type="desc"><persName>Anonymous ####</persName> was a deaconess.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -1428,7 +1437,7 @@
                     <citedRange unit="pp">194</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/805-78" resp="#ktorabi">
+            <div uri="http://syriaca.org/spear/805-78" resp="#ktorabi"><!-- It looks like there are two sisters of Mare -->
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/xxxx"><!-- URI needed --> Bishop
@@ -1450,9 +1459,9 @@
                     <person>
                         <persName ref="http://syriaca.org/person/xxx"/>
                         <!-- URI needed -->
-                        <sex value="F">
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
                             <note type="desc">Bishop Mare's sister was female.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1501,31 +1510,12 @@
             <div uri="http://syriaca.org/spear/805-82" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Mare's bones were put to rest in a chapel in <placeName
+                        <desc> <persName ref="http://syriaca.org/person/48">Mare</persName>'s bones were put to rest in a chapel in <placeName
                                 ref="http://syriaca.org/place/2757"> Beth Shurla </placeName>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/death"/>
+                        <ptr target="http://syriaca.org/keyword/death http://syriaca.org/keyword/burial"/>
                     </event>
                 </listEvent>
-                <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/805"/>
-                    <citedRange unit="pp">197</citedRange>
-                </bibl>
-                <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
-                    <citedRange unit="pp">197</citedRange>
-                </bibl>
-            </div>
-            <div uri="http://syriaca.org/spear/805-83" resp="#ktorabi">
-                <listPerson>
-                    <person>
-                        <persName ref="http://syriaca.org/person/48"/>
-                        <residence>
-                            <placeName ref="http://syriaca.org/place/2757"/>
-                            <note type="desc"> Mare's bones rest in Beth Shurla. </note>
-                        </residence>
-                    </person>
-                </listPerson>
                 <bibl type="primary">
                     <ptr target="http://syriaca.org/work/805"/>
                     <citedRange unit="pp">197</citedRange>
@@ -1539,8 +1529,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/48"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/martyr">
-                            <note type="desc">Mare was a martyr.</note>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/martyrs">
+                            <note type="desc"><persName ref="http://syriaca.org/person/48">Mare</persName> was a martyr.</note>
                         </state>
                     </person>
                 </listPerson>
@@ -1553,13 +1543,13 @@
                     <citedRange unit="pp">197</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/805-85" resp="#ktorabi">
+            <div uri="http://syriaca.org/spear/805-85?" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Thomas went to the monastery of Mar John, where his sister Cosmo
+                        <desc> <persName ref="http://syriaca.org/person/2127">Thomas</persName> went to the <persName>monastery of Mar John</persName>, where his sister <persName ref="http://syriaca.org/person/3202">Cosmo</persName>
                             found him and pleaded with him to come home. He refused and remained at
                             the monastery. </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1591,9 +1581,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3202"/>
-                        <sex value="F">
-                            <note type="desc">Cosmo was female.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3202">Cosmo</persName> was female.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1609,8 +1599,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3202"/>
-                        <socecStatus ref="http://syriaca.org/keyword/patrician">
-                            <note type="desc">Cosmo was a patrician</note>
+                        <socecStatus ref="http://syriaca.org/keyword/patricians">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3202">Cosmo</persName> was a patrician</note>
                         </socecStatus>
                     </person>
                 </listPerson>
@@ -1637,13 +1627,13 @@
                     <citedRange unit="pp">197</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/805-90" resp="#ktorabi">
+            <div uri="http://syriaca.org/spear/805-90?" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Stephen saw that Thomas was residing in the Monastery of Mar John and
-                            decided to join him, as did another monk who served under Mare, named
-                            Zwt'. All three men dwelled in the Convent of John Urtaya for two years. </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <desc> <persName ref="http://syriaca.org/person/3010">Stephen</persName> saw that <persName ref="http://syriaca.org/person/2127">Thomas</persName> was residing in <placeName>the Monastery of Mar John</placeName> and
+                            decided to join him, as did another monk who served under <persName ref="http://syriaca.org/person/48">Mare</persName>, named
+                            <persName ref="http://syriaca.org/person/3011">Zwt'</persName>. All three men dwelled in the <placeName>Convent of John Urtaya</placeName> for two years. </desc>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1658,8 +1648,7 @@
             <div uri="http://syriaca.org/spear/805-91" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/3011"> Zwt' </persName>
-                        
+                        <persName ref="http://syriaca.org/person/3011">Zwt'</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1675,9 +1664,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3011"/>
-                        <sex value="M">
-                            <note type="desc">Zwt' was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3011">Zwt'</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1693,8 +1682,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3011"/>
-                        <occupation ref="http://syriaca.org/keyword/monk">
-                            <note type="desc">Zwt' was a monk.</note>
+                        <occupation ref="http://syriaca.org/keyword/monks">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3011">Zwt'</persName> was a monk.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -1711,8 +1700,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3011"/>
-                        <occupation ref="http://syriaca.org/keyword/deacon">
-                            <note type="desc">Zwt' was a deacon.</note>
+                        <occupation ref="http://syriaca.org/keyword/deacons">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3011">Zwt'</persName> was a deacon.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -1729,8 +1718,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3011"/>
-                        <occupation ref="http://syriaca.org/keyword/syncellus">
-                            <note type="desc">Zwt' was a syncellus.</note>
+                        <occupation ref="http://syriaca.org/keyword/syncelli">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3011">Zwt'</persName> was a syncellus.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -1764,7 +1753,7 @@
                         <persName ref="http://syriaca.org/person/2127"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/399"/>
-                            <note type="desc"> Thomas resided in the Convent of John Urtaya. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/2127">Thomas</persName> resided in the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -1783,7 +1772,7 @@
                         <persName ref="http://syriaca.org/person/3011"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/399"/>
-                            <note type="desc"> Zwt' resided in the Convent of John Urtaya. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/3011">Zwt'</persName> resided in the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -1802,7 +1791,7 @@
                         <persName ref="http://syriaca.org/person/3010"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/399"/>
-                            <note type="desc"> Stephen resided in the Convent of John Urtaya.
+                            <note type="desc"> <persName ref="http://syriaca.org/person/3010">Stephen</persName> resided in the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>.
                             </note>
                         </residence>
                     </person>
@@ -1819,8 +1808,8 @@
             <div uri="http://syriaca.org/spear/805-100" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> John of Ephesus, who was a monk in the Convent of John Urtaya,
-                            observed Thomas's ascetic practices and had many enlightening
+                        <desc> <persName ref="http://syriaca.org/person/74">John of Ephesus</persName>, who was a monk in the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>,
+                            observed <persName ref="http://syriaca.org/person/2127">Thomas</persName>'s ascetic practices and had many enlightening
                             conversations with him. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
                     </event>
@@ -1837,9 +1826,7 @@
             <div uri="http://syriaca.org/spear/805-101" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"
-                            ><!-- URI needed for John of Ephesus --> John of Ephesus </persName>
-                        
+                        <persName ref="http://syriaca.org/person/74">John of Ephesus</persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1856,9 +1843,9 @@
                     <person>
                         <persName ref="http://syriaca.org/person/xxx"/>
                         <!-- URI needed -->
-                        <sex value="M">
-                            <note type="desc">John was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/74">John</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -1875,8 +1862,8 @@
                     <person>
                         <persName ref="http://syriaca.org/person/xxxx"/>
                         <!-- URI needed -->
-                        <occupation ref="http://syriaca.org/keyword/monk">
-                            <note type="desc">John was a monk.</note>
+                        <occupation ref="http://syriaca.org/keyword/monks">
+                            <note type="desc"><persName ref="http://syriaca.org/person/74">John</persName> was a monk.</note>
                         </occupation>
                     </person>
                 </listPerson>
@@ -1896,7 +1883,7 @@
                         <!-- URI needed -->
                         <residence>
                             <placeName ref="http://syriaca.org/place/399"/>
-                            <note type="desc"> John resided in the Convent of John Urtaya. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/74">John</persName> resided in the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -1912,9 +1899,9 @@
             <div uri="http://syriaca.org/spear/805-105" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Thomas, Stephen, and Zwt' departed from the Convent of John Urtaya
-                            after two years and headed toward Egypt. </desc>
-                        <ptr target="http://syriaca.org/keyword/monastery"/>
+                        <desc> <persName ref="http://syriaca.org/person/2127">Thomas</persName>, <persName ref="http://syriaca.org/person/3010">Stephen</persName>, and <persName ref="http://syriaca.org/person/3011">Zwt'</persName> departed from the <placeName ref="http://syriaca.org/place/399">Convent of John Urtaya</placeName>
+                            after two years and headed toward <placeName>Egypt</placeName>. </desc>
+                        <ptr target="http://syriaca.org/keyword/monasteries"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1929,9 +1916,9 @@
             <div uri="http://syriaca.org/spear/805-106" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Empress Theodora sent a letter to Stephen, inviting the monks to stay
+                        <desc> <persName ref="http://syriaca.org/person/779"> Theodora </persName> sent a letter to <persName ref="http://syriaca.org/person/3010">Stephen</persName>, inviting the monks to stay
                             with her at court. </desc>
-                        <ptr target="http://syriaca.org/keyword/epistle"/>
+                        <ptr target="http://syriaca.org/keyword/letters"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1945,7 +1932,7 @@
             </div>
             <div uri="http://syriaca.org/spear/805-107" resp="#ktorabi">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary"
+                    <relation  ref="syriaca:SenderOfLetterTo"
                         active="http://syriaca.org/person/779"
                         passive="http://syriaca.org/person/3010"/>
                 </listRelation>
@@ -1961,11 +1948,11 @@
             <div uri="http://syriaca.org/spear/805-108" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Stephen accepted the invitation and tried to convince Thomas and Zwt'
-                            to accompany him, but they refused and parted ways. Thomas wished to
+                        <desc> <persName ref="http://syriaca.org/person/3010">Stephen</persName> accepted the invitation and tried to convince <persName ref="http://syriaca.org/person/2127">Thomas</persName> and <persName ref="http://syriaca.org/person/3011">Zwt'</persName>
+                            to accompany him, but they refused and parted ways. <persName ref="http://syriaca.org/person/2127">Thomas</persName> wished to
                             dedicated the remainder of his life to fasting and praying alone in the
                             desert. </desc>
-                        <ptr target="http://syriaca.org/keyword/ascetism"/>
+                        <ptr target="http://syriaca.org/keyword/asceticism"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -1980,8 +1967,8 @@
             <div uri="http://syriaca.org/spear/805-109" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> John of Ephesus found Thomas and Zwt' years later in the desert of
-                            Mendis by Mar Menas. Thomas's body was frail and sunburnt. He had
+                        <desc> <persName ref="http://syriaca.org/person/74">John of Ephesus</persName> found <persName ref="http://syriaca.org/person/2127">Thomas</persName> and <persName ref="http://syriaca.org/person/3011">Zwt'</persName> years later in the desert of
+                            <placeName>Mendis</placeName> by Mar Menas. <persName ref="http://syriaca.org/person/2127">Thomas</persName>'s body was frail and sunburnt. He had
                             dedicated his life to fasting, praying, so that by depriving the body he
                             would purify the soul. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
@@ -2002,7 +1989,7 @@
                         <persName ref="http://syriaca.org/person/2127"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/2821"/>
-                            <note type="desc"> Thomas resided in the desert of Mendis. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/2127">Thomas</persName> resided in the desert of <placeName>Mendis</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -2021,7 +2008,7 @@
                         <persName ref="http://syriaca.org/person/3011"/>
                         <residence>
                             <placeName ref="http://syriaca.org/place/2821"/>
-                            <note type="desc"> Zwt' resided in the desert of Mendis. </note>
+                            <note type="desc"> <persName ref="http://syriaca.org/person/3011">Zwt'</persName> resided in the desert of <placeName>Mendis</placeName>. </note>
                         </residence>
                     </person>
                 </listPerson>
@@ -2037,7 +2024,7 @@
             <div uri="http://syriaca.org/spear/805-112" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Thomas died. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/2127">Thomas</persName> died. </desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
                     </event>
                 </listEvent>
@@ -2053,7 +2040,7 @@
             <div uri="http://syriaca.org/spear/805-113" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Zwt' died after Thomas. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/3011">Zwt'</persName> died after <persName ref="http://syriaca.org/person/2127">Thomas</persName>. </desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
                     </event>
                 </listEvent>
@@ -2069,7 +2056,7 @@
             <div uri="http://syriaca.org/spear/805-114" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Stephen lived a life of asceticism and abstinence, setting an
+                        <desc> <persName ref="http://syriaca.org/person/3010">Stephen</persName> lived a life of asceticism and abstinence, setting an
                             excellent example for the king, queen, and senators. </desc>
                         <ptr target="http://syriaca.org/keyword/asceticism"/>
                     </event>
@@ -2086,7 +2073,7 @@
             <div uri="http://syriaca.org/spear/805-115" resp="#ktorabi">
                 <listEvent>
                     <event>
-                        <desc> Stephen died. </desc>
+                        <desc> <persName ref="http://syriaca.org/person/3010">Stephen</persName> died. </desc>
                         <ptr target="http://syriaca.org/keyword/death"/>
                     </event>
                 </listEvent>
@@ -2101,7 +2088,21 @@
             </div>
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl805-1">
+                    <title>Lives of the Eastern Saints I</title>
+                    <title>Thomas, Stephen, and Zota</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl805-2">
+                    <title>Thomas, Stephen, and Zota</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/805"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -83,12 +83,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/815">Simeon the Solitary</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/815" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints I</title>
+                        <title>Simeon the Solitary</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/1409"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Simeon the Solitary</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/815"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/815" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -291,7 +303,7 @@
                            planned and built his <placeName ref="http://syriaca.org/place/2618"> cell </placeName> 
                            two miles from <placeName ref="http://syriaca.org/place/8"> Amida </placeName>
                        </desc>
-                       <ptr target="http://syriaca.org/keyword/xxx"/><!-- Use as many keywords as needed to describe content in the description. -->
+                       <ptr target="http://syriaca.org/keyword/monasticism http://syriaca.org/keyword/architecture"/>
                    </event>
                </listEvent>
                <bibl type="primary">
@@ -383,7 +395,21 @@
             
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl815-1">
+                    <title>Lives of the Eastern Saints I</title>
+                    <title>Simeon the Solitary</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl815-2">
+                    <title>Simeon the Solitary</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/815"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

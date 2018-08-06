@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -85,12 +85,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/798">Paul the Mourner</title>, in the Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/798" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints I</title>
+                        <title>Paul the Mourner</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/1409"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Paul the Mourner</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/798"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/798" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -140,9 +152,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1980"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/monks http://syriaca.org/keyword/asceticism"><!-- New keyword: "asceticism" -->
+                        <state type="sanctity" ref="http://syriaca.org/keyword/monks http://syriaca.org/keyword/asceticism">
                             <note type="desc">
-                                <persName ref="http://syriaca.org/person/xxxx">Paul</persName> was a Nazirite.
+                                <persName ref="http://syriaca.org/person/1980">Paul</persName> was a Nazirite.
                             </note>
                         </state>
                     </person>
@@ -163,7 +175,7 @@
                         <residence>
                             <placeName ref="http://syriaca.org/place/493"/>
                             <note type="desc">
-                                <persName ref="http://syriaca.org/person/xxx">Paul</persName> resided in <placeName ref="http://syriaca.org/place/493">Sophanene</placeName>.
+                                <persName ref="http://syriaca.org/person/1980">Paul</persName> resided in <placeName ref="http://syriaca.org/place/493">Sophanene</placeName>.
                             </note>
                         </residence>
                     </person>
@@ -195,13 +207,13 @@
                     <citedRange unit="pp">111</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/798-4" resp="jwalters">
+            <div uri="http://syriaca.org/spear/798-5" resp="jwalters">
                 <listEvent>
                     <event>
                         <desc>
                             <persName ref="http://syriaca.org/person/1980">Paul</persName> entered a cave filled with malignent fiends and planted a cross and hung up relics of saints.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/holy-sites http://syriaca.org/keyword/relics"/>
+                        <ptr target="http://syriaca.org/keyword/holy-places http://syriaca.org/keyword/relics"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -213,7 +225,7 @@
                     <citedRange unit="pp">114</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/798-5" resp="jwalters">
+            <div uri="http://syriaca.org/spear/798-6" resp="jwalters">
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3547">
@@ -230,13 +242,13 @@
                     <citedRange unit="pp">116</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/798-6" resp="jwalters">
+            <div uri="http://syriaca.org/spear/798-7" resp="jwalters">
                 <listEvent>
                     <event>
                         <desc>
                             <persName ref="http://syriaca.org/person/1980">Paul</persName> made an altar and a chapel in his cave.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/holy-sites http://syriaca.org/keyword/altars"/>
+                        <ptr target="http://syriaca.org/keyword/holy-places http://syriaca.org/keyword/altars"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
@@ -248,7 +260,7 @@
                     <citedRange unit="pp">117</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/798-7" resp="jwalters">
+            <div uri="http://syriaca.org/spear/798-8" resp="jwalters">
                 <listEvent>
                     <event>
                         <desc>
@@ -266,7 +278,7 @@
                     <citedRange unit="pp">118</citedRange>
                 </bibl>
             </div>
-                <div uri="http://syriaca.org/spear/798-8" resp="jwalters">
+                <div uri="http://syriaca.org/spear/798-9" resp="jwalters">
                     <listEvent>
                         <event>
                             <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
@@ -286,7 +298,21 @@
                 </div>
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl798-1">
+                    <title>Lives of the Eastern Saints I</title>
+                    <title>Paul the Mourner</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl798-2">
+                    <title>Paul the Mourner</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/798"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

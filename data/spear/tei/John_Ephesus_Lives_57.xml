@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -85,12 +85,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/848">Theodore Castrensis</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/848" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints III</title>
+                        <title>Theodore Castrensis</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2033"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Theodore Castrensis</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/848"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/848" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -140,9 +152,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2108"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2108"> Theodore </persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -158,7 +170,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2108"/>
-                        <occupation ref="http://syriaca.org/keyword/chamberlain">
+                        <occupation ref="http://syriaca.org/keyword/chamberlains">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/2108">Theodore</persName> was a chamberlain.
                             </note>
@@ -178,11 +190,11 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2108"/>
-                        <occupation ref="http://syriaca.org/keyword/castrensis">
+                        <trait type="physical" ref="http://syriaca.org/keyword/eunuches">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/2108">Theodore</persName> was a castrensis.
                             </note>
-                        </occupation>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -221,12 +233,12 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/2108">Theodore</persName> gave all his wealth to the poor and needy.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/Charity"/>
+                        <ptr target="http://syriaca.org/keyword/charity"/>
                         
                     </event>
                 </listEvent>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/2108"/>
+                    <ptr target="http://syriaca.org/work/848"/>
                     <citedRange unit="pp">550</citedRange>
                 </bibl>
                 <bibl type="primary">
@@ -244,7 +256,7 @@
             </event>
         </listEvent>
         <bibl type="primary">
-            <ptr target="http://syriaca.org/work/2801"/>
+            <ptr target="http://syriaca.org/work/848"/>
             <citedRange unit="pp">547</citedRange>
         </bibl>
         <bibl type="primary">
@@ -263,7 +275,7 @@
                             </event>
                 </listEvent>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/2801"/>
+                    <ptr target="http://syriaca.org/work/848"/>
                     <citedRange unit="pp">548</citedRange>
                 </bibl>
                 <bibl type="primary">
@@ -280,7 +292,7 @@
                 </person>
             </listPerson>
             <bibl type="primary">
-                <ptr target="http://syriaca.org/work/2284"/>
+                <ptr target="http://syriaca.org/work/848"/>
                 <citedRange unit="pp">547</citedRange>
             </bibl>
             <bibl type="primary">
@@ -292,9 +304,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2284"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2284"> Justinian </persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -306,17 +318,17 @@
                     <citedRange unit="pp">201</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/842-11" resp="rtrupiano">
+            <div uri="http://syriaca.org/spear/848-11" resp="#rtrupiano">
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2558"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2558"> Mishael </persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/2558"/>
+                    <ptr target="http://syriaca.org/work/848"/>
                     <citedRange unit="pp">546</citedRange>
                 </bibl>
                 <bibl type="primary">
@@ -350,11 +362,11 @@
                         <desc>
                             <persName ref="http://syriaca.org/person/2558">Mishael</persName>had previously worked as a carpenter and builder.
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/Employment"/>
+                        <ptr target="http://syriaca.org/keyword/employment"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/2801"/>
+                    <ptr target="http://syriaca.org/work/848"/>
                     <citedRange unit="pp">547</citedRange>
                 </bibl>
                 <bibl type="primary">
@@ -366,13 +378,13 @@
                 <listEvent>
                     <event>
                         <desc>
-                            <persName ref="http://syriaca.org/person/2558">Mishael</persName> was in exile due to disagreement with Council of <placeName ref="http:syriaca.org/place/622">Chalcedon</placeName>
+                            <persName ref="http://syriaca.org/person/2558">Mishael</persName> was in exile due to disagreement with Council of <placeName ref="http://syriaca.org/place/622">Chalcedon</placeName>
                         </desc>
-                        <ptr target="http://syriaca.org/keyword/Exile"/>
+                        <ptr target="http://syriaca.org/keyword/exile"/>
                     </event>
                 </listEvent>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/2801"/>
+                    <ptr target="http://syriaca.org/work/848"/>
                     <citedRange unit="pp">546</citedRange>
                 </bibl>
                 <bibl type="primary">
@@ -401,9 +413,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3224"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3224"> John </persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -445,7 +457,7 @@
                     </event>
                 </listEvent>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/2801"/>
+                    <ptr target="http://syriaca.org/work/848"/>
                     <citedRange unit="pp">547</citedRange>
                 </bibl>
                 <bibl type="primary">
@@ -453,11 +465,26 @@
                     <citedRange unit="pp">201</citedRange>
                 </bibl>
             </div>
-         
- <!-- Not Complete -->
-        </body>
+         <div>
+             <!-- Not Complete -->
+         </div>
+         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl848-1">
+                    <title>Lives of the Eastern Saints III</title>
+                    <title>Theodore Castrensis</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl848-2">
+                    <title>Theodore Castrensis</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/848"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
@@ -37,12 +39,24 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/820">Mary the Mourner</title>, in The Lives of the Eastern.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/820" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints II</title>
+                        <title>Mary the Mourner</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2032"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Mary the Mourner</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/820"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/820" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -76,9 +90,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1881"/>
-                        <sex value="F">
+                        <trait type="gender" ref="http://syriaca.org/keyword/female">
                             <note type="desc"><persName ref="http://syriaca.org/person/1881"> Mary </persName>was female.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -94,7 +108,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1881"/>
-                        <occupation ref="http://syriaca.org/keyword/anchorite">
+                        <occupation ref="http://syriaca.org/keyword/anchorites">
                             <note type="desc"><persName ref="http://syriaca.org/person/1881"> Mary </persName>an anchorite.</note>
                         </occupation>
                     </person>
@@ -112,7 +126,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1881"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                             <note type="desc"><persName ref="http://syriaca.org/person/1881"> Mary </persName>was a saint.</note>
                         </state>
                     </person>
@@ -130,7 +144,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1881"/>
-                        <socecStatus ref="http://syriaca.org/keyword/patrician">
+                        <socecStatus ref="http://syriaca.org/keyword/patricians">
                              <note type="desc"><persName ref="http://syriaca.org/person/1881"> Mary </persName>was a patrician</note>
                         </socecStatus>
                     </person>
@@ -193,9 +207,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3573"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3573">Anonymous 3573 </persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -211,7 +225,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3573"/>
-                        <occupation ref="http://syriaca.org/keyword/anchorite">
+                        <occupation ref="http://syriaca.org/keyword/anchorites">
                             <note type="desc"><persName ref="http://syriaca.org/person/3573">Anonymous 3573 </persName>whom<persName ref="http://syriaca.org/person/1881"> Mary </persName>followed and took instruction from
                                 was an anchorite.</note>
                         </occupation>
@@ -229,8 +243,8 @@
             <div uri="http://syriaca.org/spear/820-11" resp="#ktorabi">
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/xxxx"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                        <persName ref="http://syriaca.org/person/3573"/>
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                             <note type="desc"><persName ref="http://syriaca.org/person/3573">Anonymous 3573 </persName>was a saint.</note>
                         </state>
                     </person>
@@ -315,9 +329,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3574"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3574">Anonymous 3574</persName>was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -381,7 +395,21 @@
             </div>
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl820-1">
+                    <title>Lives of the Eastern Saints II</title>
+                    <title>Mary the Mourner</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl820-2">
+                    <title>Mary the Mourner</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/820"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

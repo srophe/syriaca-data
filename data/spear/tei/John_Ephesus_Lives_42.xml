@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -85,12 +85,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/833">Mari, Sergius, and Daniel</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/833" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints II</title>
+                        <title>Mari, Sergius, and Daniel</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2032"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Mari, Sergius, and Daniel</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/833"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/833" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -227,7 +239,7 @@
                         <persName ref="http://syriaca.org/person/1866"/>
                         <state type="sanctity" ref="http://syriaca.org/keyword/monks http://syriaca.org/keyword/asceticism"><!-- We assigned a new keyword: asceticism -->
                             <note type="desc">
-                                <persName ref="http://syriaca.org/person/xxxx">Mari</persName> was a Nazirite.
+                                <persName ref="http://syriaca.org/person/1866">Mari</persName> was a Nazirite.
                             </note>
                         </state>
                     </person>
@@ -335,11 +347,11 @@
             <div uri="http://syriaca.org/spear/833-13" resp="#jwalters #syoung #tmcneir #tbaillargeon #jdaccache">
                 <listPerson>
                     <person> 
-                        <persName ref="http://syriaca.org/person/1876"/>
+                        <persName ref="http://syriaca.org/person/1876"/><!-- Same name below. Different URI. Make sure this is correct. -->
                         <death>
                             <placeName ref="http://syriaca.org/place/586"/>
                             <note type="desc">
-                                <persName ref="http://syriaca.org/person/xxxx">Mari</persName> died in <placeName ref="http://syriaca.org/place/586">the royal city</placeName>.
+                                <persName ref="http://syriaca.org/person/1876">Mari</persName> died in <placeName ref="http://syriaca.org/place/586">the royal city</placeName>.
                             </note>
                         </death>
                     </person>
@@ -450,7 +462,21 @@
             </div>
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl833-1">
+                    <title>Lives of the Eastern Saints II</title>
+                    <title>Mari, Sergius, and Daniel</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl833-2">
+                    <title>Mari, Sergius, and Daniel</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/833"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

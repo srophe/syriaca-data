@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -85,12 +85,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/824">A Monk who Stole</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/824" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints II</title>
+                        <title>A Monk who Stole</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2032"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>A Monk who Stole</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/824"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/824" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -141,7 +153,11 @@
             <listPerson>
                 <person>
                     <persName ref="http://syriaca.org/person/3535"/> 
-                    <sex value="M/F">Male</sex>
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
+                        <note type="desc">
+                            <persName ref="http://syriaca.org/person/3535">Anonymous 3535</persName> was male.
+                        </note>
+                    </trait>
                 </person>
             </listPerson>
             <bibl type="primary">
@@ -160,7 +176,7 @@
                         <persName ref="http://syriaca.org/person/3535"/> 
                         <occupation ref="http://syriaca.org/keyword/hermits">
                             <note type="desc">
-                                <persName ref="http://syriaca.org/person/xxxx"> the old blessed man </persName> 
+                                <persName ref="http://syriaca.org/person/3535"> Anonymous 3535 </persName> 
                                was a solitary.
                             </note>
                         </occupation>
@@ -198,7 +214,11 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3534"/> 
-                        <sex value="M/F">Males</sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc">
+                                <persName ref="http://syriaca.org/person/3534">Anonymi 3534</persName> were males.
+                            </note>
+                        </trait>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -292,7 +312,11 @@
            <listPerson>
                <person>
                    <persName ref="http://syriaca.org/person/3526"/> 
-                   <sex value="M/F">Male</sex>
+                   <trait type="gender" ref="http://syriaca.org/keyword/male">
+                       <note type="desc">
+                           <persName ref="http://syriaca.org/person/3526">Anonymous 3526</persName> was male.
+                       </note>
+                   </trait>
                </person>
            </listPerson>
            <bibl type="primary">
@@ -329,15 +353,14 @@
             <div uri="http://syriaca.org/spear/824-12" resp="#rdurmaz">
            <listEvent>
                <event>
-                   <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
-                       <persName ref="http://syriaca.org/person/3526">the monk who stole </persName> visited 
-                       <persName ref="http://syriaca.org/person/3535">the blessed man </persName>, a hermit, who was living with
+                   <desc>
+                       <persName ref="http://syriaca.org/person/3526">The monk who stole </persName> visited 
+                       <persName ref="http://syriaca.org/person/3535">the blessed man </persName> who was living with
                        <persName ref="http://syriaca.org/person/3534">two disciples</persName> in
                        <placeName ref="http://syriaca.org/place/473">Ennaton</placeName> in
                        <placeName ref="http://syriaca.org/place/572">Alexandria</placeName>.
-                     
                    </desc>
-                   <ptr target="http://syriaca.org/keyword/xxx"/><!-- Use as many keywords as needed to describe content in the description. -->
+                   <ptr target="http://syriaca.org/keyword/travel http://syriaca.org/keyword/discipleship"/>
                </event>
            </listEvent>
            <bibl type="primary">
@@ -353,12 +376,12 @@
        <div uri="http://syriaca.org/spear/824-13" resp="#rdurmaz">
            <listEvent>
                <event>
-                   <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
-                       <persName ref="http://syriaca.org/person/3526">the monk who stole </persName> 
+                   <desc>
+                       <persName ref="http://syriaca.org/person/3526">The monk who stole </persName> 
                        started living with <persName ref="http://syriaca.org/person/3535">the blessed man </persName>.
                        After a while, tempted by Satan, he stole his possessions and fled.
                    </desc>
-                   <ptr target="http://syriaca.org/keyword/books http://syriaca.org/keyword/satan http://syriaca.org/keyword/travel"/> <!-- Use as many keywords as needed to describe content in the description. -->
+                   <ptr target="http://syriaca.org/keyword/books http://syriaca.org/keyword/satan http://syriaca.org/keyword/travel"/>
                </event>
            </listEvent>
            <bibl type="primary">
@@ -374,14 +397,14 @@
         <div uri="http://syriaca.org/spear/824-14" resp="#rdurmaz">
             <listEvent>
                 <event>
-                    <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
-                        <persName ref="http://syriaca.org/person/3526">the monk who stole </persName> 
-                        took all of the possessions of  <persName ref="http://syriaca.org/person/3535">the blessed man </persName> 
+                    <desc>
+                        <persName ref="http://syriaca.org/person/3526">The monk who stole </persName> 
+                        took all of the possessions of <persName ref="http://syriaca.org/person/3535">the blessed man </persName> 
                         and went to 
                         <placeName ref="http://syriaca.org/place/2766">Cellia</placeName> in the desert above 
                         <placeName ref="http://syriaca.org/place/2810">Libya</placeName>. 
                     </desc>
-                    <ptr target="http://syriaca.org/keyword/travel"/><!-- Use as many keywords as needed to describe content in the description. -->
+                    <ptr target="http://syriaca.org/keyword/travel"/>
                 </event>
             </listEvent>
             <bibl type="primary">
@@ -397,11 +420,11 @@
         <div uri="http://syriaca.org/spear/824-15" resp="#rdurmaz">
             <listEvent>
                 <event>
-                    <desc><!-- Use persName, placeName, orgName, and date elements as needed, with URIs whenever possible. -->
-                        <persName ref="http://syriaca.org/person/3526">the monk who stole </persName>
+                    <desc>
+                        <persName ref="http://syriaca.org/person/3526">The monk who stole </persName>
                         found a cell for himself, and lived in it for a week. 
                     </desc>
-                    <ptr target="http://syriaca.org/keyword/xxx"/><!-- Use as many keywords as needed to describe content in the description. -->
+                    <ptr target="http://syriaca.org/keyword/monasticism"/>
                 </event>
             </listEvent>
             <bibl type="primary">
@@ -477,7 +500,7 @@
          
         <div uri="http://syriaca.org/spear/824-19" resp="#rdurmaz">
             <listRelation>
-                <relation  ref="snap:CasualIntimateRelationshipWith" active="http://syriaca.org/person/74" passive="http://syriaca.org/person/3526"/>
+                <relation  ref="snap:CasualIntimateRelationshipWith" mutual="http://syriaca.org/person/74 http://syriaca.org/person/3526"/>
             </listRelation>
             <bibl type="primary">
                 <ptr target="http://syriaca.org/work/824"/>
@@ -557,12 +580,23 @@
               <citedRange unit="pp">591-592</citedRange>
           </bibl>
       </div>
-            
-            
-            
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl824-1">
+                    <title>Lives of the Eastern Saints II</title>
+                    <title>A Monk who Stole</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl824-2">
+                    <title>A Monk who Stole</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/824"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

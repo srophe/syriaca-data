@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -32,9 +34,22 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from Severus of Antioch's letter <title ref="http://syriaca.org/work/3028">To Peter, Bishop of Apamea</title>.
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
+                        <title type="sub">Translation, I.1 - II.3</title>
+                        <title type="part">To Peter, Bishop of Apamea</title>
+                        <author><persName ref="http://syriaca.org/person/51">Severus of Antioch</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/668"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>To Peter, Bishop of Apamea</title>
+                        <author><persName ref="http://syriaca.org/person/51"/>Severus of Antioch</author>
+                        <ptr target="http://syriaca.org/work/3028"/>
+                    </bibl>
+                </listBibl>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -63,7 +78,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -72,13 +87,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2514"/>
-                        <sex value="M">
-                            <note type="desc">Peter was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2514">Peter</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -87,33 +102,33 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2514"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Peter was Bishop of Apamea.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2514">Peter</persName> was Bishop of <placeName ref="http://syriaca.org/place/">Apamea</placeName>.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3028-4" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/2514" passive="http://syriaca.org/person/51"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2514" passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3028-5" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2514"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2514"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -123,7 +138,7 @@
                     <relation  ref="syriaca:LegalChargesAgainst" active="http://syriaca.org/person/2514" passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -133,14 +148,14 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2515">
                             The religious presbyter Thomas of
-                            <placeName><!-- URI needed for Antioch -->
+                            <placeName ref="http://syriaca.org/place/"><!-- URI needed for Antioch -->
                                 Antioch
                             </placeName>
                         </persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -149,13 +164,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2515"/>
-                        <sex value="M">
-                            <note type="desc">Thomas was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2515">Thomas</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -164,23 +179,26 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2515"/>
-                        <occupation ref="http://syriaca.org/keyword/presbyter">
-                            <note type="desc">Thomas was a presbyter in Antioch.</note>
+                        <occupation ref="http://syriaca.org/keyword/priests">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2515">Thomas</persName> was a presbyter in 
+                                <placeName ref="http://syriaca.org/place/"><!-- URI needed for Antioch -->
+                                    Antioch
+                                </placeName>.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3028-10" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/2514" passive="http://syriaca.org/person/2515"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2514" passive="http://syriaca.org/person/2515"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -190,7 +208,7 @@
                     <relation  ref="syriaca:BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2515"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">34</citedRange>
                 </bibl>
@@ -207,7 +225,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -216,13 +234,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2518"/>
-                        <sex value="M">
-                            <note type="desc">Julian was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2518">Julian</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -231,13 +249,17 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2518"/>
-                                  <occupation ref="http://syriaca.org/keyword/bishop">
-                                      <note type="desc">Julian was Bishop of Emesa.</note>
+                                  <occupation ref="http://syriaca.org/keyword/bishops">
+                                      <note type="desc"><persName ref="http://syriaca.org/person/2518">Julian</persName> was Bishop of 
+                                          <placeName ref="http://syriaca.org/place/2665">
+                                              Emesa
+                                          </placeName>.
+                                      </note>
                                   </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -247,7 +269,7 @@
                     <relation  ref="syriaca:EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/2514" passive="http://syriaca.org/person/2518"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -261,7 +283,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -270,13 +292,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2517"/>
-                        <sex value="M">
-                            <note type="desc">Irenaeus was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2517">Irenaeus</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -285,12 +307,12 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2517"/>
-                        <occupation ref="http://syriaca.org/keyword/deacon">
-                            <note type="desc">Irenaeus was a deacon.</note>
+                        <occupation ref="http://syriaca.org/keyword/deacons">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2517">Irenaeus</persName> was a deacon.</note>
                         </occupation></person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -302,13 +324,13 @@
                         <nationality>
                             <placeName ref="http://syriaca.org/place/215"/><!-- Find URI for settlement or region of Emesa -->
                             <note type="desc">
-                                Irenaeus was a citizen of Emesa.
+                                <persName ref="http://syriaca.org/person/2517">Irenaeus</persName> was a citizen of <placeName ref="http://syriaca.org/place/215">Emesa</placeName>.
                             </note>
                         </nationality>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -318,7 +340,7 @@
                     <relation  ref="syriaca:BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2517"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -335,7 +357,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -344,13 +366,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2520"/>
-                        <sex value="M">
-                            <note type="desc">Dionysius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2520">Dionysius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -359,13 +381,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2520"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Dionysius was Bishop of Tarsus.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2520">Dionysius</persName> was Bishop of <placeName ref="http://syriaca.org/place/">Tarsus</placeName>.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -375,7 +397,7 @@
                     <relation  ref="syriaca:EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/2514" passive="http://syriaca.org/person/2520"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -389,7 +411,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -398,13 +420,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2516"/>
-                        <sex value="M">
-                            <note type="desc">Anatolius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2516">Anatolius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -413,9 +435,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2516"/>
-                        <occupation ref="http://syriaca.org/keyword/deacon">
-                            <note type="desc">Anatolius was a deacon of.>
-                                <placeName ref="http://syriaca.org/place/xxxx"><!-- I added the place name here, since it isn't mentioned in Anatolius's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. Also, we need a URI for Antioch -->
+                        <occupation ref="http://syriaca.org/keyword/deacons">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2516">Anatolius</persName> was a deacon of
+                                <placeName ref="http://syriaca.org/place/"><!-- I added the place name here, since it isn't mentioned in Anatolius's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. Also, we need a URI for Antioch -->
                                     Antioch
                                 </placeName>
                             </note>
@@ -423,7 +445,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -433,15 +455,15 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2516"/>
                         <nationality>
-                            <placeName ref="http://syriaca.org/place/196"/><!-- URI needed for the settlement or province of Tarsus -->
+                            <placeName ref="http://syriaca.org/place/196"/>
                             <note type="desc">
-                                Anatolius was a citizen of Tarsus.
+                                <persName ref="http://syriaca.org/person/2516">Anatolius</persName> was a citizen of <placeName ref="http://syriaca.org/place/196">Tarsus</placeName>.
                             </note>
                         </nationality>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -451,7 +473,7 @@
                     <relation  ref="syriaca:BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2516"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -465,7 +487,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -474,13 +496,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/56"/>
-                        <sex value="M">
-                            <note type="desc">Count Oecumenius is male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/56">Oecumenius</persName> is male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -489,13 +511,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/56"/>
-                        <occupation ref="http://syriaca.org/keyword/count">
-                            <note type="desc">Oecumenius was a Count.</note>
+                        <occupation ref="http://syriaca.org/keyword/counts">
+                            <note type="desc"><persName ref="http://syriaca.org/person/56">Oecumenius</persName> was a Count.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -505,7 +527,7 @@
                     <relation  ref="syriaca:EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/2514" passive="http://syriaca.org/person/56"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -515,7 +537,7 @@
                     <relation  ref="snap:IntimateRelationshipWith" mutual="http://syriaca.org/person/51 http://syriaca.org/person/56"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35</citedRange>
                 </bibl>
@@ -529,7 +551,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35-38</citedRange>
                 </bibl>
@@ -538,13 +560,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2519"/>
-                        <sex value="M">
-                            <note type="desc">Leontius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2519">Leontius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35-38</citedRange>
                 </bibl>
@@ -552,10 +574,10 @@
             <div uri="http://syriaca.org/spear/3028-37" resp="#ktorabi #dschwartz">
                 <listPerson>
                     <person>
-                        <persName ref="http:syriaca.org/person/2519"/>
-                        <occupation ref="http://syriaca.org/keyword/presbyter">
-                            <note type="desc">Leontius was a presbyter of.>
-                                <placeName ref="http://syriaca.org/place/xxxx"><!-- I added the place name here, since it isn't mentioned in Anatolius's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. Also, we need a URI for Antioch -->
+                        <persName ref="http://syriaca.org/person/2519"/>
+                        <occupation ref="http://syriaca.org/keyword/priests">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2519">Leontius</persName> was a presbyter of
+                                <placeName ref="http://syriaca.org/place/"><!-- I added the place name here, since it isn't mentioned in Anatolius's name variant. Place names are not included in occupation divs in the examples in the Pers_Element_Testing file, so if this is incorrect I can delete the place name. Also, we need a URI for Antioch -->
                                     Antioch
                                 </placeName>
                             </note>
@@ -563,7 +585,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35-38</citedRange>
                 </bibl>
@@ -573,7 +595,7 @@
                     <relation  ref="syriaca:BishopOverClergy" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2519"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35-38</citedRange>
                 </bibl>
@@ -583,7 +605,7 @@
                     <relation  ref="syriaca:FellowMonastics" mutual="http://syriaca.org/person/51 http://syriaca.org/person/2519"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">35-38</citedRange>
                 </bibl>
@@ -597,22 +619,22 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/3028-41" resp="#ktorabi #dschwartz">
+            <div uri="http://syriaca.org/spear/3028-41" resp="#ktorabi #dschwartz"><!-- Check this! -->
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2521"/>
-                        <sex value="M">
-                            <note type="desc">Matronian was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2521">Matronian</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -626,7 +648,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -635,13 +657,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2525"/>
-                        <sex value="M">
-                            <note type="desc">John was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2525">John</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -649,14 +671,14 @@
             <div uri="http://syriaca.org/spear/3028-44" resp="#ktorabi #dschwartz">
                 <listPerson>
                     <person>
-                        <persName ref="http:syriaca.org/person/2525"/>
-                        <occupation ref="http://syriaca.org/keyword/scholastic">
-                            <note type="desc">John was a scholastic.</note>
+                        <persName ref="http://syriaca.org/person/2525"/>
+                        <occupation ref="http://syriaca.org/keyword/scholastics">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2525">John</persName> was a scholastic.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -666,7 +688,7 @@
                     <relation  ref="snap:ChildOf" active="http://syriaca.org/person/2525" passive="http://syriaca.org/person/2521"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -680,7 +702,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -689,13 +711,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2524"/>
-                        <sex value="M">
-                            <note type="desc">Sergius was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2524">Sergius</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -703,14 +725,14 @@
             <div uri="http://syriaca.org/spear/3028-48" resp="#ktorabi #dschwartz">
                 <listPerson>
                     <person>
-                        <persName ref="http:syriaca.org/person/2524"/>
+                        <persName ref="http://syriaca.org/person/2524"/>
                         <occupation ref="http://syriaca.org/keyword/scholastic">
-                            <note type="desc">Sergius was a scholastic.</note>
+                            <note type="desc"><persName ref="http://syriaca.org/person/2524">Sergius</persName> was a scholastic.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -724,7 +746,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -733,13 +755,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2523"/>
-                        <sex value="M">
-                            <note type="desc">Peter was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2523">Peter</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -748,13 +770,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2523"/>
-                        <occupation ref="http://syriaca.org/keyword/scholastic">
-                            <note type="desc">Peter was a scholastic.</note>
+                        <occupation ref="http://syriaca.org/keyword/scholastics">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2523">Peter</persName> was a scholastic.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -768,7 +790,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -777,13 +799,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2522"/>
-                        <sex value="M">
-                            <note type="desc">Maximin was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2522">Maximin</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -792,13 +814,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2522"/>
-                        <occupation ref="http://syriaca.org/keyword/scholastic">
-                            <note type="desc">Maximin was a scholastic.</note>
+                        <occupation ref="http://syriaca.org/keyword/scholastics">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2522">Maximin</persName> was a scholastic.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -808,7 +830,7 @@
                     <relation  ref="syriaca:EpistolaryReferenceTo" active="http://syriaca.org/person/51 http://syriaca.org/person/2514" passive="http://syriaca.org/person/2525 http://syriaca.org/person/2524 http://syriaca.org/person/2523 http://syriaca.org/person/2522"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -818,7 +840,7 @@
                     <relation  ref="snap:IntimateRelationshipWith" mutual="http://syriaca.org/person/51 http://syriaca.org/person/2525"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -828,7 +850,7 @@
                     <relation  ref="snap:IntimateRelationshipWith" mutual="http://syriaca.org/person/51 http://syriaca.org/person/2524"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -838,7 +860,7 @@
                     <relation  ref="snap:IntimateRelationshipWith" mutual="http://syriaca.org/person/51 http://syriaca.org/person/2523"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
@@ -848,37 +870,21 @@
                     <relation  ref="snap:IntimateRelationshipWith" mutual="http://syriaca.org/person/51 http://syriaca.org/person/2522"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.05</citedRange>
                     <citedRange unit="pp">37</citedRange>
                 </bibl>
             </div>
         </body>
         <back>
-            <div>
-                <bibl>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl3028-1">
                     <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
                     <title type="sub">Translation, I.1 - II.3</title>
-                    <ptr target="http://syriaca.org/bibl/666"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Translation, III.1 - XI.1</title>
-                    <ptr target="http://syriaca.org/bibl/667"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, I.1 - II.3</title>
-                    <biblScope unit="issue">I</biblScope>
                     <ptr target="http://syriaca.org/bibl/668"/>
                 </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, III.1 - XI.1</title>
-                    <biblScope unit="issue">II</biblScope>
-                    <ptr target="http://syriaca.org/bibl/669"/>
-                </bibl>
-            </div>
+            </listBibl>
         </back>
     </text>
 </TEI>

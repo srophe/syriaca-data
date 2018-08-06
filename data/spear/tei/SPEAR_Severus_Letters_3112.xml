@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -32,9 +34,21 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from Severus of Antioch's letter <title ref="http://syriaca.org/work/3112">To Theodore, Archimandrite of the Monastery of Romanus</title>.
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
+                        <title type="sub">Translation, I.1 - II.3</title>
+                        <author><persName ref="http://syriaca.org/person/51">Severus of Antioch</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/668"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>To Theodore, Archimandrite of the Monastery of Romanus</title>
+                        <author><persName ref="http://syriaca.org/person/51"/>Severus of Antioch</author>
+                        <ptr target="http://syriaca.org/work/3112"/>
+                    </bibl>
+                </listBibl>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -63,7 +77,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164</citedRange>
                 </bibl>
@@ -72,12 +86,12 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2455"/>
-                        <sex value="M">
-                        <note type="desc">Theodore was male.</note></sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2455">Theodore</persName> was male.</note></trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164</citedRange>
                 </bibl>
@@ -86,23 +100,23 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2455"/>
-                        <occupation ref="http://syriaca.org/keyword/archimandrite">
-                            <note type="desc">Theodore was an archimandrite of the monastery of Father Romanus among the saints.</note>
+                        <occupation ref="http://syriaca.org/keyword/monastic-heads">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2455">Theodore</persName> was an archimandrite of the monastery of Father Romanus among the saints.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164-65</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3112-4" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2455"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2455"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164</citedRange>
                 </bibl>
@@ -116,7 +130,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164</citedRange>
                 </bibl>
@@ -125,13 +139,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2515"/>
-                        <sex value="M">
-                        <note type="desc">Thomas was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2515">Thomas</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164</citedRange>
                 </bibl>
@@ -140,23 +154,23 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2515"/>
-                        <occupation ref="http://syriaca.org/keyword/presbyter">
-                            <note type="desc">Thomas was a presbyter.</note>
+                        <occupation ref="http://syriaca.org/keyword/priests">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2515">Thomas</persName> was a presbyter.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3112-8" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/2455" passive="http://syriaca.org/person/2515"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/2455" passive="http://syriaca.org/person/2515"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">164-165</citedRange>
                 </bibl>
@@ -177,7 +191,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">165</citedRange>
                 </bibl>
@@ -198,7 +212,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">165</citedRange>
                 </bibl>
@@ -219,7 +233,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">165</citedRange>
                 </bibl>
@@ -229,7 +243,7 @@
                     <relation  ref="syriaca:MemberOfGroup" active="http://syriaca.org/person/2455" passive="http://syriaca.org/person/3112"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">165</citedRange>
                 </bibl>
@@ -254,7 +268,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">165</citedRange>
                 </bibl>
@@ -268,7 +282,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">166</citedRange>
                 </bibl>
@@ -277,13 +291,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2440"/>
-                        <sex value="M">
-                        <note type="desc">Timothy was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2440">Timothy</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">166</citedRange>
                 </bibl>
@@ -292,8 +306,8 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2440"/><!-- I included the place name URI in this div because there is no place name in the persname div. -->
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Timothy was Bishop of>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2440">Timothy</persName> was Bishop of>
                                 <placeName ref="http://syriaca.org/place/2620">
                                 Alexandria
                             </placeName>
@@ -302,37 +316,21 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.55</citedRange>
                     <citedRange unit="pp">166</citedRange>
                 </bibl>
             </div>
         </body>
         <back>
-            <div>
-                <bibl>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl3112-1">
                     <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
                     <title type="sub">Translation, I.1 - II.3</title>
-                    <ptr target="http://syriaca.org/bibl/666"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Translation, III.1 - XI.1</title>
-                    <ptr target="http://syriaca.org/bibl/667"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, I.1 - II.3</title>
-                    <biblScope unit="issue">I</biblScope>
                     <ptr target="http://syriaca.org/bibl/668"/>
                 </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, III.1 - XI.1</title>
-                    <biblScope unit="issue">II</biblScope>
-                    <ptr target="http://syriaca.org/bibl/669"/>
-                </bibl>
-            </div>
+            </listBibl>
         </back>
     </text>
 </TEI>

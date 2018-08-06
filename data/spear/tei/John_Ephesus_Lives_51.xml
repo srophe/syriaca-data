@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -85,12 +85,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/842">Qashish</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/842" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints III</title>
+                        <title>Qashish</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2033"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Qashish</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/842"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/842" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -138,7 +150,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2032"/>
-                        <sex value="M/F">Male</sex><!-- TEI uses sex for biological distinctions, see also the gender factoid. -->
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2032">Kashish</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -146,7 +160,7 @@
                     <citedRange unit="pp">505</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/(19)"/>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
                     <citedRange unit="pp">159</citedRange>
                 </bibl>
             </div>
@@ -175,7 +189,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2032"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
+                        <occupation ref="http://syriaca.org/keyword/bishops">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/2032">Kashish</persName> was bishop of Chios. 
                             </note>
@@ -183,7 +197,7 @@
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/work/2032"/>
+                    <ptr target="http://syriaca.org/work/842"/>
                     <citedRange unit="pp">505</citedRange>
                 </bibl>
                 <bibl type="primary">
@@ -224,7 +238,7 @@
                  </person>
              </listPerson>
              <bibl type="primary">
-                 <ptr target="http://syriaca.org/work/2032"/>
+                 <ptr target="http://syriaca.org/work/842"/>
                  <citedRange unit="pp">505</citedRange>
              </bibl>
              <bibl type="primary">
@@ -266,7 +280,7 @@
                     <citedRange unit="pp">505</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/19"/>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
                     <citedRange unit="pp">159</citedRange>
                 </bibl>
             </div>
@@ -433,7 +447,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/69"/>
-                        <sex value="M/F">Male</sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/69">Jacob Baradaeus</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -506,7 +522,11 @@
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3547"/>
-                        <sex value="M/F">Males</sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                        <note type="desc">
+                            <persName ref="http://syriaca.org/person/3547">Anonymi 3547 </persName> were males.
+                        </note>
+                        </trait>
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
@@ -539,9 +559,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3216"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/3216"> Isidore </persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -557,7 +577,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3216"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/3216">Isidore</persName> was a saint.
                             </note>
@@ -594,7 +614,11 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3545"/>
-                        <sex value="M/F">The bishop who ordained Kashish was male</sex> 
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc">
+                                <persName ref="http://syriaca.org/person/3545">Anonymous 3545</persName> was male
+                            </note>
+                        </trait> 
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -610,7 +634,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3545"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
+                        <occupation ref="http://syriaca.org/keyword/bishops">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/3545">Anonymous 3545</persName> was a bishop.
                             </note>
@@ -643,11 +667,15 @@
                     <citedRange unit="pp">162</citedRange>
                 </bibl>
             </div>
-            <div uri="http://syriaca.org/spear/842-31" resp="#jwickes">
+            <div uri="http://syriaca.org/spear/842-31" resp="#jwickes"><!-- conflation of person/3545 and person/3546? -->
                 <listPerson>
                     <person>
-                        <persName ref="http://syriaca.org/person/3546"/>
-                        <sex value="M/F">The bishop who ordained Kashish was male</sex> 
+                        <persName ref="http://syriaca.org/person/"/>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc">
+                                <persName ref="http://syriaca.org/person/3546">Anonymous 3546</persName> was male.
+                            </note>
+                        </trait> 
                     </person>
                 </listPerson>
                 <bibl type="primary">
@@ -663,7 +691,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/3546"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
+                        <occupation ref="http://syriaca.org/keyword/bishops">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/3545">Anonymous 3546</persName> was a bishop.
                             </note>
@@ -682,10 +710,22 @@
             
             
         </body>
-            
-        
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl842-1">
+                    <title>Lives of the Eastern Saints III</title>
+                    <title>Qashish</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2033"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl842-2">
+                    <title>Qashish</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/842"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

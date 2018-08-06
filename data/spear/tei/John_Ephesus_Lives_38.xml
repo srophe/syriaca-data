@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -55,7 +55,7 @@
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
-                <idno type="URI">http://syriaca.org/spear/829</idno>
+                <idno type="URI">http://syriaca.org/spear/829/tei</idno>
                 
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
@@ -66,12 +66,24 @@
                 <date><!-- INPUT ONCE WE HAVE A "FINAL" DRAFT --></date>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/829">Aaron</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/829" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints II</title>
+                        <title>Aaron</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2032"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Aaron</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/829"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/829" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -116,7 +128,7 @@
                     <citedRange unit="pp">439</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">641</citedRange>
                 </bibl>
             </div>
@@ -128,7 +140,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1533"/>
-                        <occupation ref="http://syriaca.org/keyword/presbyter"><!-- Need to add Presbyter keyword please. -->
+                        <occupation ref="http://syriaca.org/keyword/priests">
                             <note type="desc">
                                 <persName ref="http://syriaca.org/person/1533">Aaron</persName> was a Presbyter.
                             </note>
@@ -140,18 +152,18 @@
                     <citedRange unit="pp">439</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">641</citedRange>
                 </bibl>
             </div>
             
             
             
-            <div uri="http://syriaca.org/spear/829-3" resp="#ayousif #ekowalik">
+            <div uri="http://syriaca.org/spear/829-3" resp="#ayousif #ekowalik"><!-- This is not a persName? -->
                 <listPerson>
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3522">
-                            and the rest of the presbyters and deacons who were afterwards laid in the <placeName ref="2816">sepulchre</placeName> that was built by the blessed Mare.
+                            and the rest of the presbyters and deacons who were afterwards laid in the <placeName ref="http://syriaca.org/place/2816">sepulchre</placeName> that was built by the blessed <persName ref="http://syriaca.org/person/">Mare</persName>.
                         </persName>
                     </personGrp>
                 </listPerson>
@@ -160,7 +172,7 @@
                     <citedRange unit="pp">439</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">641</citedRange>
                 </bibl>
             </div>
@@ -170,7 +182,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/1875">
-                            blessed Mare
+                            The blessed Mare
                         </persName>
                     </person>
                 </listPerson>
@@ -179,7 +191,7 @@
                     <citedRange unit="pp">439</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">641</citedRange>
                 </bibl>
             </div>
@@ -201,7 +213,7 @@
                     <citedRange unit="pp">439</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">641</citedRange>
                 </bibl>
             </div>
@@ -225,7 +237,7 @@
                                 </orig>
                             </choice> 
                             <note type="desc">
-                                <persName ref="http://syriaca.org/person/1533">Aaron</persName> died on 22 October 560 A.D. from old age and he was laid in the <placeName ref="2816">sepulchre</placeName> that was built by the blessed Mare.
+                                <persName ref="http://syriaca.org/person/1533">Aaron</persName> died on 22 October 560 A.D. from old age and he was laid in the <placeName ref="http://syriaca.org/place/2816">sepulchre</placeName> that was built by the blessed <persName>Mare</persName>.
                             </note>
                         </death>
                     </person>
@@ -235,7 +247,7 @@
                     <citedRange unit="pp">442</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">644</citedRange>
                 </bibl>
             </div>
@@ -254,7 +266,7 @@
                     <citedRange unit="pp">440</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">642</citedRange>
                 </bibl>
            </div>
@@ -273,7 +285,7 @@
                     <citedRange unit="pp">440</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">642</citedRange>
                 </bibl>
             </div>
@@ -295,7 +307,7 @@
                     <citedRange unit="pp">440</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">642</citedRange>
                 </bibl>
             </div>
@@ -318,7 +330,7 @@
                     <citedRange unit="pp">440</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">642</citedRange>
                 </bibl>
             </div>
@@ -340,7 +352,7 @@
                     <citedRange unit="pp">441</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">643</citedRange>
                 </bibl>
             </div>
@@ -360,12 +372,10 @@
                     <citedRange unit="pp">442</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">644</citedRange>
                 </bibl>
             </div>
-            
-            
             <div uri="http://syriaca.org/spear/829-13" resp="#ayousif #ekowalik">
                <listPerson>
                    <person> 
@@ -383,40 +393,27 @@
                     <citedRange unit="pp">443</citedRange>
                 </bibl>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
                     <citedRange unit="pp">643</citedRange>
                 </bibl>
            </div>
-           
-           
-           
-            
-            
-            
-            
-
-
-
-            
- 
- 
-            
-            
-            
-            
-            
-            
-                    
-            
-            
-            
-            
-
-            
-                     
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl829-1">
+                    <title>Lives of the Eastern Saints II</title>
+                    <title>Aaron</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl829-2">
+                    <title>Aaron</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/829"/>
+                </bibl>
+            </listBibl>
         </back>
     </text>
 </TEI>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -33,12 +35,24 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from John of Ephesus, <title ref="http://syriaca.org/work/826">Simeon the Scribe</title>, in The Lives of the Eastern Saints.
-                    <listRelation>
-                        <relation type="part" active="http://syriaca.org/work/826" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
-                    </listRelation>
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints II</title>
+                        <title>Simeon the Scribe</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2032"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Simeon the Scribe</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/826"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/826" ref="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -73,9 +87,9 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2098"/>
-                        <sex value="M">
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
                             <note type="desc"><persName ref="http://syriaca.org/person/2098">Simeon</persName> was male.</note>
-                        </sex>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary"><ptr target="http://syriaca.org/work/826"/><citedRange unit="pp">400</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2032"/><citedRange unit="pp">602</citedRange></bibl>
@@ -84,7 +98,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2098"/>
-                        <occupation ref="http://syriaca.org/keyword/scribe">
+                        <occupation ref="http://syriaca.org/keyword/scribes">
                             <note type="desc"><persName ref="http://syriaca.org/person/2098">Simeon</persName>was a scribe.</note>
                         </occupation>
                     </person>
@@ -95,7 +109,7 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2098"/>
-                        <state type="sanctity" ref="http://syriaca.org/keyword/saint">
+                        <state type="sanctity" ref="http://syriaca.org/keyword/saints">
                             <note type="desc"><persName ref="http://syriaca.org/person/2098">Simeon</persName>was a saint.</note>
                         </state>
                     </person>
@@ -118,9 +132,9 @@
             <listPerson>
                 <person>
                     <persName ref="http://syriaca.org/person/3576"/>
-                    <sex value="M">
+                    <trait type="gender" ref="http://syriaca.org/keyword/male">
                         <note type="desc"><persName ref="http://syriaca.org/person/3576">Anonymous 3576</persName>was male.</note>
-                    </sex>
+                    </trait>
                 </person>
             </listPerson>
             <bibl type="primary"><ptr target="http://syriaca.org/work/826"/><citedRange unit="pp">401</citedRange></bibl><bibl type="primary"><ptr target="http://syriaca.org/bibl/2032"/><citedRange unit="pp">603</citedRange></bibl>
@@ -206,7 +220,21 @@
             </div>            
         </body>
         <back>
-            <!-- Enter full bibl information here for the  bibl URIs contained in this document, n.b. the schema needs to be updated in order to allow this.-->
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl826-1">
+                    <title>Lives of the Eastern Saints II</title>
+                    <title>Simeon the Scribe</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl826-2">
+                    <title>Simeon the Scribe</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/826"/>
+                </bibl>
+            </listBibl>
         </back>
         </text>
 </TEI>

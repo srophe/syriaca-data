@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/dev/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/schema-4-spear-edits/srophe-app/documentation/SPEARschema/out/odd_SPEAR.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML">
     <teiHeader>
         <fileDesc>
@@ -32,9 +34,22 @@
                 <date/>
             </publicationStmt>
             <sourceDesc>
-                <p>
-                    This is a born digital prosopography containing data derived from Severus of Antioch's letter <title ref="http://syriaca.org/work/3032">To Castor, Bishop of Perga</title>.
-                </p>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
+                        <title type="sub">Translation, I.1 - II.3</title>
+                        <title type="part">To Castor, Bishop of Perga</title>
+                        <author><persName ref="http://syriaca.org/person/51">Severus of Antioch</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/668"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>To Castor, Bishop of Perga</title>
+                        <author><persName ref="http://syriaca.org/person/51"/>Severus of Antioch</author>
+                        <ptr target="http://syriaca.org/work/3032"/>
+                    </bibl>
+                </listBibl>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
@@ -56,14 +71,14 @@
                     <person>
                         <persName ref="http://syriaca.org/person/2527">
                             Castor, Bishop of
-                            <placeName><!-- URI needed for Perga -->
+                            <placeName ref="http://syriaca.org/place/"><!-- URI needed for Perga -->
                                 Perga
                             </placeName>
                         </persName>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
@@ -72,13 +87,13 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2527"/>
-                        <sex value="M">
-                            <note type="desc">Castor was male.</note>
-                        </sex>
+                        <trait type="gender" ref="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2527">Castor</persName> was male.</note>
+                        </trait>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
@@ -87,23 +102,23 @@
                 <listPerson>
                     <person>
                         <persName ref="http://syriaca.org/person/2527"/>
-                        <occupation ref="http://syriaca.org/keyword/bishop">
-                            <note type="desc">Castor was Bishop of Perga.</note>
+                        <occupation ref="http://syriaca.org/keyword/bishops">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2527">Castor</persName> was Bishop of <placeName ref="http://syriaca.org/place/">Perga</placeName>.</note>
                         </occupation>
                     </person>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
             </div>
             <div uri="http://syriaca.org/spear/3032-4" resp="#ktorabi #dschwartz">
                 <listRelation>
-                    <relation  ref="syriaca:Epistolary" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2527"/>
+                    <relation  ref="syriaca:SenderOfLetterTo" active="http://syriaca.org/person/51" passive="http://syriaca.org/person/2527"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
@@ -113,11 +128,8 @@
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3038">
                             Those in the order of subdeacons under
-                            <persName ref="http://syrica.org/person/2527"> 
-                                Castor, Bishop of
-                                <placeName><!-- URI needed for Perga -->
-                                    Perga
-                                </placeName>
+                            <persName ref="http://syriaca.org/person/2527"> 
+                                Castor
                             </persName>
                             who petitioned 
                             <persName ref="http://syriaca.org/person/51">
@@ -131,7 +143,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
@@ -141,7 +153,7 @@
                     <relation  ref="syriaca:BishopOverClergy" active="http://syriaca.org/person/2527" passive="http://syriaca.org/person/3038"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
@@ -151,11 +163,8 @@
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3039">
                             The readers in the church under
-                            <persName ref="http://syrica.org/person/2527"> 
-                                Castor, Bishop of
-                                <placeName><!-- URI needed for Perga -->
-                                    Perga
-                                </placeName>
+                            <persName ref="http://syriaca.org/person/2527"> 
+                                Castor
                             </persName>
                             sometime between
                             <date notBefore="0513" notAfter="0518">
@@ -165,7 +174,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">40</citedRange>
                 </bibl>
@@ -175,7 +184,7 @@
                     <relation  ref="syriaca:BishopOverClergy" active="http://syriaca.org/person/2527" passive="http://syriaca.org/person/3039"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">40</citedRange>
                 </bibl>
@@ -185,11 +194,8 @@
                     <personGrp>
                         <persName ref="http://syriaca.org/person/3040">
                             The psaltai or singers of the church under
-                            <persName ref="http://syrica.org/person/2527"> 
-                                Castor, Bishop of
-                                <placeName><!-- URI needed for Perga -->
-                                    Perga
-                                </placeName>
+                            <persName ref="http://syriaca.org/person/2527"> 
+                                Castor
                             </persName>
                             sometime between
                             <date notBefore="0513" notAfter="0518">
@@ -199,7 +205,7 @@
                     </personGrp>
                 </listPerson>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">40</citedRange>
                 </bibl>
@@ -209,7 +215,7 @@
                     <relation  ref="syriaca:BishopOverClergy" active="http://syriaca.org/person/2527" passive="http://syriaca.org/person/3040"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">40</citedRange>
                 </bibl>
@@ -219,7 +225,7 @@
                     <relation  ref="syriaca:LegalChargesAgainst" active="http://syriaca.org/person/3038" passive="http://syriaca.org/person/3039 http://syriaca.org/person/3040"/><!-- Not sure if a petition to the church rises to the level of bringing formal legal charges against another entity. Good question. Let's go with yes, since the ruling given in response to a petition had legal force. -->
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
@@ -229,37 +235,21 @@
                     <relation  ref="syriaca:Petitioned" active="http://syriaca.org/person/3038" passive="http://syriaca.org/person/51"/>
                 </listRelation>
                 <bibl type="primary">
-                    <ptr target="http://syriaca.org/bibl/666"/>
+                    <ptr target="http://syriaca.org/bibl/668"/>
                     <citedRange unit="part">1.07</citedRange>
                     <citedRange unit="pp">39</citedRange>
                 </bibl>
             </div>
         </body>
         <back>
-            <div>
-                <bibl>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl3032-1">
                     <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
                     <title type="sub">Translation, I.1 - II.3</title>
-                    <ptr target="http://syriaca.org/bibl/666"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Translation, III.1 - XI.1</title>
-                    <ptr target="http://syriaca.org/bibl/667"/>
-                </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, I.1 - II.3</title>
-                    <biblScope unit="issue">I</biblScope>
                     <ptr target="http://syriaca.org/bibl/668"/>
                 </bibl>
-                <bibl>
-                    <title xml:lang="en">The Sixth Book of the Select Letters of Severus, Patriarch of Antioch in the Syriac Version of Athanasius of Nisibis</title>
-                    <title type="sub">Text, III.1 - XI.1</title>
-                    <biblScope unit="issue">II</biblScope>
-                    <ptr target="http://syriaca.org/bibl/669"/>
-                </bibl>
-            </div>
+            </listBibl>
         </back>
     </text>
 </TEI>
