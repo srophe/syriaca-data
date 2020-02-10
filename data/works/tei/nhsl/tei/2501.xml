@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <!-- Title should match English and Syriac headword titles of work. -->
+                <title level="a" xml:lang="en">Chronography, Part 1 (Chronicon Syriacum) — <foreign xml:lang="syr">ܦܠܓܘܬܐ ܩܕܡܝܬܐ ܕܟܪܘܢܘܓܪܦܝܐ</foreign>
+                </title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The International Balzan Prize Foundation</funder>
+                <funder>The National Endowment for the Humanities</funder>
+                <principal>David A. Michelson</principal>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <respStmt>
+                    <resp>Editing, data entry, and reconciling by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, proofreading, data architecture, and encoding by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="1.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/work/2501/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported
+                                License.</p>
+                    </licence>
+                </availability>
+                <date>2016-12-12-05:00</date>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="s">New Handbook of Syriac Literature</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Edited by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+                <idno type="URI">http://syriaca.org/nhsl</idno>
+                <!-- One or more volumes containing this record can go here.  -->
+                <!--<biblScope unit="vol" from="1" to="1">
+                    <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+                    <idno type="URI">http://syriaca.org/bhse</idno>
+                </biblScope>-->
+            </seriesStmt>
+            <sourceDesc>
+                <p>Born digital.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>This record created following the Syriaca.org guidelines. Documentation
+                        available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
+                <interpretation>
+                    <p>Approximate dates described in terms of centuries or partial centuries
+                            have been interpreted as documented in the Syriaca.org guidelines for
+                            date encoding <ref target="http://syriaca.org/documentation/dates.html">http://syriaca.org/documentation/dates.html</ref>.</p>
+                </interpretation>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="syriaca-headword">
+                        <catDesc>The name used by Syriaca.org for document titles, citation, and
+                                disambiguation. These names have been created according to the
+                                Syriaca.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+                    </category>
+                    <category xml:id="syriaca-anglicized">
+                        <catDesc>An anglicized version of a name created by Syriaca.org used to
+                                facilitate searching in English.</catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="ar-syr">Arabic Karshuni in Syriac Characters</language>
+                <language ident="ar">Arabic</language>
+                <language ident="cop">Coptic</language>
+                <language ident="cu">Old Church Slavonic</language>
+                <language ident="de">German</language>
+                <language ident="en-x-gedsh">Names or terms Romanized into English according to
+                        the standards adopted by the Gorgias Encyclopedic Dictionary of the Syriac
+                        Heritage</language>
+                <language ident="en">English</language>
+                <language ident="es">Spanish</language>
+                <language ident="fr-x-bhs">Names or terms Romanized into French according to the
+                        standards adopted by the Bibliotheca Hagiographica Syriaca</language>
+                <language ident="fr">French</language>
+                <language ident="gez">Ge'ez</language>
+                <language ident="gr">German</language>
+                <language ident="grc">Ancient or Medieval Greek</language>
+                <language ident="hy">Classical or Modern Armenian</language>
+                <language ident="it">Italian</language>
+                <language ident="ka">Classical or Modern Georgian</language>
+                <language ident="la">Latin</language>
+                <language ident="nl">Dutch</language>
+                <language ident="pt">Portugese</language>
+                <language ident="ru">Russian</language>
+                <language ident="sog">Soghdian</language>
+                <language ident="syr-pal">Syro-Palestinian</language>
+                <language ident="syr-Syrj">Vocalized West Syriac</language>
+                <language ident="syr-Syrn">Vocalized East Syriac</language>
+                <language ident="syr">Unvocalized Syriac of any variety or period</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-02+01:00">Separated out Budge and Bedrosian editions/translations</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-07-05+02:00">CREATED: work</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <!-- The conceptual/abstract work being described is the bibl that is the direct child of <body> -->
+            <!-- The main <bibl> entity and any of its bibl children should have an @type containing an RDF class (usually from http://lawd.info/ontology/) -->
+            <!-- @ana should contain one or more links to the @xml:id of subject & genre tags in http://syriaca.org/documentation/work-subject-classifications.xml -->
+            <bibl xml:id="work-2501" ana="http://syriaca.org/documentation/work-subject-classifications.xml#history-universal" type="lawd:ConceptualWork">
+                <!-- The English title tagged as @syriaca-tags="#syriaca-headword" should generally be the title in most common use, or used 
+                in the most recent edition/translation of the work. If a Latin title is frequently used, this should be included in parentheses. 
+                See documentation for more details. -->
+                <title xml:id="name2501-1" xml:lang="en" syriaca-tags="#syriaca-headword #syriaca-anglicized">Chronography, Part 1 (Chronicon Syriacum)</title>
+                <title xml:id="name2500-2" xml:lang="syr" source="#bib2501-2 #bib2501-9" syriaca-tags="#syriaca-headword">ܦܠܓܘܬܐ ܩܕܡܝܬܐ ܕܟܪܘܢܘܓܪܦܝܐ</title>
+                <title xml:id="name2501-3" xml:lang="la" source="#bib2501-8">Chronicon Syriacum</title>
+                <title xml:id="name2501-4" xml:lang="en" source="#bib2501-8">Syriac Chronicle</title>
+                <title xml:id="name2501-5" xml:lang="de" source="#bib2501-9">Syrische Chronik</title>
+                <title xml:id="name2501-6" xml:lang="en" source="#bib2501-5">The First Part of the Chronography</title>
+                <title xml:id="name2501-7" xml:lang="syr-Syrj" source="#bib2501-13">ܡܰܟܬܒܢܽܘܬ ܙܰܒܢ̈ܶܐ ܕܥܠܡܐ</title>
+                <title xml:id="name2501-8" xml:lang="de" source="#bib2501-13 #bib2501-25">Weltgeschichte</title>
+                <title xml:id="name2501-9" xml:lang="en" source="#bib2501-22">Universal History, Part i.</title>
+                <title xml:id="name2501-10" xml:lang="en" source="#bib2501-22">History of the World</title>
+                <title xml:id="name2501-11" xml:lang="la" source="#bib2501-24">Pars Prima [Chronographiae]</title>
+                <title xml:id="name2501-12" xml:lang="la" source="#bib2501-33">Pars I. Chronicon Patrum, &amp; Regum</title>
+                <!-- Author/Editor @ref should point to a Syriaca.org URI. 
+                Author/Editor @role can be specified (including pseudonymous, attributed, etc.) by linking to the @xml:id of an item at 
+                http://syriaca.org/documentation/author-editor-roles.xml 
+                For human-readability and easier visualization, the author's name should be included here in English and Syriac within persName elements containing language tags. -->
+                <author ref="http://syriaca.org/person/239">
+                    <persName xml:lang="en">Gregorius Bar Hebraeus</persName> — 
+                    <persName xml:lang="syr">ܓܪܝܓܘܪܝܘܣ ܒܪ ܥܒܪܝܐ</persName>
+                </author>
+                <idno type="URI">http://syriaca.org/work/2501</idno>
+                <idno type="Takahashi">B19A</idno>
+                <textLang mainLang="syr"/>
+                <!-- A viaf.org URI can go here if one exists. -->
+                <!--<idno type="URI">http://viaf.org/viaf/28146462540327770635</idno>-->
+                <!-- Identifiers from print clavises or reference works can go here. @type should contain an unambiguous label for the clavis. -->
+                <textLang mainLang="syr"/>
+                <!-- One or more dates associated with the text should be provided using attributes with standardized dates (usually @notBefore and @notAfter).
+                    The text content of the date element should be a human-readable date.
+                    @type specifies the stage in the text's production that the date refers to. Currently accepted values include "original-composition", 
+                    "revision", and "translation" but may be expanded in the future. -->
+                <date notBefore="1240" notAfter="1286" type="original-composition">mid-late 13th century</date>
+                <!-- If the work has internal divisions or some kind of statistics are available about the number of words, and so on, 
+                    these can be included in one or more <measure> elements inside a single <extent>, using whatever units are avaiable.  -->
+                <extent>
+                    <measure quantity="2" unit="part">2 parts</measure>
+                    <measure quantity="11" unit="chapter">11 chapters</measure>
+                    <measure quantity="200" unit="ff">approximately 200 folios</measure>
+                    <measure quantity="550" unit="pp">approximately 550 pages</measure>
+                </extent>
+                <!-- The abstract provides the most general brief (1-3 sentence) description of the work. 
+                    It can contain links to other entities using persName/@ref, placeName/@ref, and bibl/ptr/@target -->
+                <note type="abstract" xml:lang="en" source="#bib2501-8 #bib2501-14">The first part of <persName ref="http://syriaca.org/person/239">Bar Hebraeus</persName>' 
+                    <bibl>
+                        <title>Chronicle</title>
+                        <ptr target="http://syriaca.org/work/2500"/>
+                    </bibl>; an account of secular history from the time of <persName ref="http://syriaca.org/person/1560">Adam</persName> until 
+                    <persName ref="http://syriaca.org/person/239">Bar Hebraeus</persName>' own time (the 13th century).
+                </note>
+                <!-- When the work may be easily confused with other works, a disambiguation note should be provided. -->
+                <note type="disambiguation">This work should be distinguished from the Arabic <bibl>History of the Dynasties</bibl>, which reflects a similar structure but has significant differences, 
+                    including some additions that may be from Islamic sources.</note>
+                <!-- A content note can provide any additional information about the work's contents. -->
+                <note type="content" source="#bib2501-8 #bib2501-14">Through the 12th century, this work is largely an abridgement of 
+                    <persName ref="http://syriaca.org/person/217">Michael the Syrian</persName>'s <bibl>Chronicle</bibl>. The portion following this is 
+                    particularly valuable for its representation of events during <persName ref="http://syriaca.org/person/239">Bar Hebraeus</persName>' 
+                    own lifetime.</note>
+                <!-- A scope note can provide further information about the topical range of the work and its relation to larger works. -->
+                <note type="scope">Secular world history from Creation through the 13th century A.D. Part of a larger work which also contains 
+                    <bibl>an ecclesiastical history<ptr target="http:/syriaca.org/work/2502"/>
+                    </bibl>.</note>
+                <!-- Incipits and explicits (note/@type="explicit") should be labeled with their language and source. -->
+                <note xml:lang="syr" type="incipit" source="#bib2501-2">
+                    <quote>ܐܠܗܐ ܥܕܪ ܠܡܚܝܠܘܬܝ. ܡܒܪܟ ܐܢܬ ܗܘ ܡܪܝܐ ܘܡܪܐ ܕܟܠ ܫܘܪܝܐ ܘܫܪܝܐ: ܐܢܬ ܗܘ ܩܕܡܝܐ ܘܐܢܬ ܗܘ ܐܚܪܝܐ. ܘܠܘܬܟ ܡܬܛܝܒܐ ܟܠ ܡܪܕܝܬܐ:</quote>
+                </note>
+                <note xml:lang="en" type="incipit" source="#bib2501-5">
+                    <quote>God, help my feebleness! Blessed be Thou, Lord, and Lord of the Universe, the beginning and the end; 
+                        Thou art the First, and Thou art the last. With Thee every course of action is prepared.</quote>
+                </note>
+                <!-- EDITIONS -->
+                <!-- Each edition (bibl/@type="lawd:Edition") should be given a unique @xml:id. 
+                A title is included for human readability, but bibliographic details in the HTML record are retrieved using the ptr/@target.
+                The <citedRange> should give the volume/page/column range that specifically contains the edition. 
+                If there should be a footnote citing the source of the bibliographic information, the reference should go in @source.
+                A note may be included if needed. -->
+                <bibl type="lawd:Edition" xml:id="bib2501-1">
+                    <title level="m" xml:lang="la">Chronicon Syriacum</title>
+                    <ptr target="http://syriaca.org/bibl/2279"/>
+                    <citedRange unit="vol" from="2" to="2">2</citedRange>
+                    <note type="content">Includes continuation to the year 1297.</note>
+                    <!-- One or more relations are included to show, e.g., which manuscripts were the basis for the edition. 
+                    URIs in @passive | @active | @mutual refer to bibliographic references in this document. 
+                    @type is for categorizing the relation for display, while @ref should contain an RDF property. 
+                    Full editions should include a relation with @ref="lawd:embodies" to specify the connection between the edition and the conceptual work. -->
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-1" ref="dcterms:source" passive="#bib2501-15 #bib2501-14" source="#bib2501-7 #bib2501-16"/>
+                        <relation active="#bib2501-1" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib2501-2">
+                    <title level="m" xml:lang="la">Chronicon Syriacum</title>
+                    <ptr target="http://syriaca.org/bibl/2280"/>
+                    <note type="content">Includes continuation to the year 1297.</note>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-2" ref="dcterms:source" passive="#bib2501-1" source="#bib2501-7">
+                            <desc>With corrections from unspecified manuscripts</desc>
+                        </relation>
+                        <relation active="#bib2501-2" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib2501-3">
+                    <title level="m" xml:lang="en">The Chronography of Bar Hebraeus</title>
+                    <ptr target="http://syriaca.org/bibl/2334"/>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-3" ref="dcterms:source" passive="#bib2501-15" source="#bib2501-3 #bib2501-7">
+                            <desc>Facsimile of manuscript</desc>
+                        </relation>
+                        <relation active="#bib2501-3" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib2501-9">
+                    <title level="m" xml:lang="de">Ankuendigung und Probe einer neuen kritischen Ausgabe und neuen Uebersetzung der Syrischen Chronik des Gregor Bar-Hebraeus</title>
+                    <ptr target="http://syriaca.org/bibl/2282"/>
+                    <citedRange unit="pp" from="1" to="4">1-4 (Syr.)</citedRange>
+                    <note type="content">Contains only the first few pages of the Chronicle.</note>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib2501-11">
+                    <title level="m" xml:lang="la">De rebus gestis Richardi Angliæ regis in Palæstina: Excerptum ex Gregorii Abulpharagii chronico syriaco</title>
+                    <ptr target="http://syriaca.org/bibl/2283"/>
+                    <citedRange unit="pp">I-XI (Syr.)</citedRange>
+                    <note type="content">Contains a short excerpt from the Chronicle.</note>
+                </bibl>
+                <bibl type="lawd:Edition" xml:id="bib2501-13">
+                    <title level="m" xml:lang="syr-Syrj">ܡܰܟܬܒܢܽܘܬ ܙܰܒܢ̈ܶܐ ܕܥܠܡܐ</title>
+                    <ptr target="http://syriaca.org/bibl/2284"/>
+                    <listRelation>
+                        <relation type="mssWitnesses" active="#bib2501-13" ref="dcterms:source" passive="#bib2501-2" source="#bib2501-7"/>
+                        <relation active="#bib2501-13" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <!-- MANUSCRIPTS -->
+                <!-- Each manuscript (bibl/@type="syriaca:Manuscript") should be given a unique @xml:id. 
+                A shelfmark as <idno> is included for human readability, but the manuscript description is identified and linked using the ptr/@target.
+                The <citedRange> should give the folio/page range that specifically contains this work. 
+                If a footnote is needed citing the source of this information, the reference should go in @source.
+                A note may be included as needed. -->
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-14">
+                    <idno type="shelfmark">Oxford, Bodleian Libraries, Huntingdon 1</idno>
+                    <biblScope unit="pp" from="420" to="556">420-556</biblScope>
+                    <!-- Manuscript URI goes here. If the manuscript item (section) containing this work is identified with its own @xml:id in the manuscript record,
+                    that can be appended to the URI. -->
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <listRelation>
+                        <relation active="#bib2501-14" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-15">
+                    <idno type="shelfmark">Oxford, Bodleian Libraries, Huntingdon 52</idno>
+                    <biblScope unit="folio" from="1" to="188">1-188</biblScope>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <listRelation>
+                        <relation active="#bib2501-15" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-23" source="#bib2501-24">
+                    <idno type="shelfmark">Vatican, Sir. 166</idno>
+                    <biblScope unit="folio" from="1" to="243b">1-243v</biblScope>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <listRelation>
+                        <relation active="#bib2501-23" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-26" source="#bib2501-27">
+                    <idno type="shelfmark">Vatican, Sir. 383</idno>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <note type="content">This manuscript contains the beginning of the chronicle through the year A.D. 1034 (A.G. 1346).</note>
+                    <listRelation>
+                        <relation active="#bib2501-26" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-28" source="#bib2501-27">
+                    <idno type="shelfmark">Vatican, Sir. 384</idno>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <note type="content">This manuscript is a continuation of Vat. sir. 383, from the years A.D. 1035 (A.G. 1347) to A.D. 1201 (A.G. 1513).</note>
+                    <listRelation>
+                        <relation active="#bib2501-28" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-30" source="#bib2501-27">
+                    <idno type="shelfmark">Vatican, Sir. 385</idno>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <note type="content">This manuscript is a continuation of Vat. sir. 384, from the years A.D. 1202 (A.G. 1514) to A.D. 1288 (A.G. 1600).</note>
+                    <listRelation>
+                        <relation active="#bib2501-30" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-32" source="#bib2501-33">
+                    <idno type="shelfmark">Firenze BML Or. 366</idno>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <note type="content">Assemani does not mention which folios part 1 comprises.</note>
+                    <listRelation>
+                        <relation active="#bib2501-32" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-34" source="#bib2501-24">
+                    <idno type="shelfmark">Vatican, Sir. 167</idno>
+                    <biblScope unit="folio" from="1" to="161">1-161</biblScope>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <listRelation>
+                        <relation active="#bib2501-34" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:Manuscript" xml:id="bib2501-35" source="#bib2501-37">
+                    <idno type="shelfmark">Berlin, Staatsbibliothek, Sachau 210</idno>
+                    <biblScope unit="folio" from="1" to="128">1-128</biblScope>
+                    <!--<ptr target="http://syriaca.org/manuscript/01234#a1"/>-->
+                    <listRelation>
+                        <relation active="#bib2501-35" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>                
+                <!-- MODERN TRANSLATIONS -->
+                <!-- See notes on EDITIONS (above). 
+                Modern translations have @type="syriaca:ModernTranslation".
+                The <citedRange> should give the volume/page/column range that specifically contains the translation. 
+                The language of the translation should be designated as a machine-readable language code inside a <lang> element inside the translation <bibl>. 
+                For the language codes used by Syriaca.org, see http://syriaca.org/documentation/isostandards.html. -->
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-4">
+                    <lang>la</lang>
+                    <title level="m" xml:lang="la">Chronicon Syriacum</title>
+                    <idno type="zotero">735</idno>
+                    <citedRange unit="vol" from="1" to="1">1</citedRange>
+                    <!-- One or more relations are included to show, e.g., which editions or manuscripts were the basis for the translation. 
+                    See note on relations in the EDITIONS section.
+                    Full editions should include a relation with @ref="lawd:embodies" to specify the connection between the translation and the conceptual work. -->
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-4" ref="dcterms:source" passive="#bib2501-1" source="#bib2501-7"/>
+                        <relation active="#bib2501-4" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-5">
+                    <lang>en</lang>
+                    <title level="m" xml:lang="en">The Chronography of Bar Hebraeus</title>
+                    <ptr target="http://syriaca.org/bibl/2281"/>
+                    <note type="misc" source="#bib2501-8">Wilmshurst calls this <quote>a clotted English translation ... which has not yet been replaced by anything better.</quote>
+                    </note>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-5" ref="dcterms:source" passive="#bib2501-2" source="#bib2501-7"/>
+                        <relation active="#bib2501-5" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-37">
+                    <lang>en</lang>
+                    <title level="m" xml:lang="en">Bar Hebraeus' Chronography: Translated from Syriac</title>
+                    <ptr target="http://syriaca.org/bibl/2333"/>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-37" ref="dcterms:source" passive="#bib2501-5"/>
+                        <relation active="#bib2501-37" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-10">
+                    <lang>la</lang>
+                    <title level="m" xml:lang="de">Ankuendigung und Probe einer neuen kritischen Ausgabe und neuen Uebersetzung der Syrischen Chronik des Gregor Bar-Hebraeus</title>
+                    <ptr target="http://syriaca.org/bibl/2282"/>
+                    <citedRange unit="pp" from="1" to="4">1-4 (Lat.)</citedRange>
+                    <note type="content">Contains only the first few pages of the Chronicle.</note>
+                    <listRelation>
+                        <relation active="#bib2501-10" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-12">
+                    <lang>la</lang>
+                    <title level="m" xml:lang="la">De rebus gestis Richardi Angliæ regis in Palæstina: Excerptum ex Gregorii Abulpharagii chronico syriaco</title>
+                    <ptr target="http://syriaca.org/bibl/2283"/>
+                    <citedRange unit="pp" from="5" to="11">5-11 (Lat.)</citedRange>
+                    <note type="content">Contains a short excerpt from the Chronicle.</note>
+                    <listRelation>
+                        <relation active="#bib2501-12" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-17" source="#bib2501-7">
+                    <lang>ar</lang>
+                    <title level="m" xml:lang="ar">تاريخ الدول السرياني‮ ‬تاليف ابي‮ ‬الفرج الملطي</title>
+                    <ptr target="http://syriaca.org/bibl/2285"/>
+                    <note type="content">An excerpt beginning at Bejdan 95.4 (Dynasty 10) and continuing to the end.</note>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-17" ref="dcterms:source" passive="#bib2501-2" source="#bib2501-7"/>
+                        <relation active="#bib2501-17" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-18" source="#bib2501-7">
+                    <lang>ar</lang>
+                    <title level="m" xml:lang="ar">تاريخ الزمان</title>
+                    <ptr target="http://syriaca.org/bibl/2286"/>
+                    <note type="content">This is a republication of Ishaq Armalet's translation in al-Mashriq, but starts at Bedjan, page 122 
+                    regarding Abū al-ʿAbbās and has an added introduction by Fiey.</note>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-18" ref="dcterms:source" passive="#bib2501-2" source="#bib2501-7"/>
+                        <relation active="#bib2501-18" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-19" source="#bib2501-7">
+                    <lang>tr</lang>
+                    <title level="m" xml:lang="tr">Abûʼl Farac tarı̇hı̇</title>
+                    <ptr target="http://syriaca.org/bibl/2287"/>
+                    <listRelation>
+                        <relation type="translationSource" active="#bib2501-19" ref="dcterms:source" passive="#bib2501-5" source="#bib2501-7"/>
+                        <relation active="#bib2501-19" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-20" source="#bib2501-7">
+                    <lang>ru</lang>
+                    <title level="m" xml:lang="ru">Сирийские источники XII-XIII вв. об Азербайджане</title>
+                    <ptr target="http://syriaca.org/bibl/2288"/>
+                    <citedRange unit="pp" from="61" to="83">61-83</citedRange>
+                    <note type="content">Excerpts</note>
+                    <listRelation>
+                        <relation active="#bib2501-20" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <bibl type="syriaca:ModernTranslation" xml:id="bib2501-21" source="#bib2501-7">
+                    <lang>it</lang>
+                    <title level="m" xml:lang="it">Confronto tra il Taʾrīḫ muḫtaṣar ad-duwal e il Chonicon Syriacum di Abū l-Farağ Ibn al-ʿIbrī (Barebreo)</title>
+                    <ptr target="http://syriaca.org/bibl/2289"/>
+                    <citedRange unit="pp" from="53" to="166">53-166</citedRange>
+                    <note type="content">Excerpts of parts corresponding to Bedjan 263.25-408.2 (the period of 1097-1203)</note>
+                    <listRelation>
+                        <relation active="#bib2501-21" ref="lawd:embodies" passive="http://syriaca.org/work/2501"/>
+                    </listRelation>
+                </bibl>
+                <!-- SECONDARY LITERATURE -->
+                <!-- Secondary literature has @type="lawd:Citation". 
+                A title is included for human readability, but bibliographic details in the HTML record are retrieved using the ptr/@target. -->
+                <bibl type="lawd:Citation" xml:id="bib2501-6">
+                    <title level="a" xml:lang="en">Bar ʿEbroyo, Grigorios</title>
+                    <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
+                    <ptr target="http://syriaca.org/bibl/83"/>
+                    <citedRange unit="pp" from="55" to="55">55</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-7">
+                    <title level="m" xml:lang="en">Barhebraeus: A bio-bibliography</title>
+                    <ptr target="http://syriaca.org/bibl/2278"/>
+                    <citedRange unit="pp" from="74" to="76">74-76</citedRange>
+                    <citedRange unit="pp" from="277" to="288">277-288</citedRange>
+                    <note type="misc">See here for additional secondary literature on the Chronicle and other editions/translations.</note>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-8">
+                    <title level="m" xml:lang="en">The Ecclesiastical Chronicle: An English translation</title>
+                    <ptr target="http://syriaca.org/bibl/2277"/>
+                    <citedRange unit="pp">vii-lx</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-16">
+                    <title level="m" xml:lang="la">Catalogi codicum manuscriptorum bibliothecae Bodleianae, VI: Codices syriacos, carshunicos, mendaeos complectens</title>
+                    <ptr target="http://syriaca.org/bibl/1306"/>
+                    <citedRange unit="entry">122.9</citedRange>
+                    <citedRange unit="column" from="395" to="398">395-398</citedRange>
+                    <citedRange unit="entry">167</citedRange>
+                    <citedRange unit="column" from="548" to="550">548-550</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-22">
+                    <title level="m" xml:lang="en">A Short History of Syriac Literature</title>
+                    <ptr target="http://syriaca.org/bibl/639"/>
+                    <citedRange unit="pp" from="278" to="279" target="https://archive.org/stream/shorthistoryofsy00wrig#page/278">278-279</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2500-25">
+                    <title level="m" xml:lang="de">Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
+                    <ptr target="http://syriaca.org/bibl/638"/>
+                    <citedRange unit="pp" from="318" to="319">318-319</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-24">
+                    <title level="m" xml:lang="la">Bibliothecae apostolicae vaticanae codicum manuscriptorum catalogus</title>
+                    <ptr target="http://syriaca.org/bibl/2290"/>
+                    <citedRange unit="pp" from="338" to="342" target="https://archive.org/stream/AssemaniBAVI3/Assemani_BAV_I-3#page/n343">338-342</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-27">
+                    <title level="m" xml:lang="la">Codices chaldaici sive syriaci Vaticani Assemaniani</title>
+                    <ptr target="http://syriaca.org/bibl/2291"/>
+                    <citedRange unit="pp" from="48" to="49" target="https://archive.org/stream/AssemaniAndAssemaniCodicesChaldaiciSiveSyriaciVaticaniAssemanianianotherVersion/assemani%20and%20assemani%20codices%20chaldaici%20sive%20syriaci%20vaticani%20assemaniani%20%28another%20version%29#page/n47">48</citedRange>
+                    <citedRange unit="entry" from="126" to="128" target="https://archive.org/stream/AssemaniAndAssemaniCodicesChaldaiciSiveSyriaciVaticaniAssemanianianotherVersion/assemani%20and%20assemani%20codices%20chaldaici%20sive%20syriaci%20vaticani%20assemaniani%20%28another%20version%29#page/n47">126-128</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-33">
+                    <title level="m" xml:lang="la">Bibliothecae Mediceae Lavrentianae et Palatinae codicum mms. orientalium catalogus</title>
+                    <ptr target="http://syriaca.org/bibl/2292"/>, 
+                    <citedRange unit="pp" from="190" to="197" target="https://archive.org/stream/AssemaniBML/Assemani_BML#page/n323">190-197</citedRange>
+                    <citedRange unit="entry" from="118" to="118" target="https://archive.org/stream/AssemaniBML/Assemani_BML#page/n323">118</citedRange>
+                </bibl>
+                <bibl type="lawd:Citation" xml:id="bib2501-37">
+                    <title level="m" xml:lang="de">Verzeichniss der syrischen handschriften der Königlichen bibliothek zu Berlin</title>
+                    <ptr target="http://syriaca.org/bibl/1394"/>
+                    <citedRange unit="vol" from="2" to="2">2</citedRange>
+                    <citedRange unit="pp" from="721" to="721" target="https://archive.org/stream/diehandschriften232preu#page/721">721</citedRange>
+                    <citedRange unit="entry" from="237" to="237" target="https://archive.org/stream/diehandschriften232preu#page/721">237</citedRange>
+                </bibl>
+                <!-- RELATIONS -->
+                <!-- Relations of the conceptual work as a whole to other entities should go here. 
+                Some of the most relevant for works as follows (see http://syriaca.org/documentation/relations.html below): 
+                    Work to containing work: @type="part" and ref="dcterms:isPartOf"
+                    Work to containing tradition: @ref="syriaca:isPartOfTradition"
+                    Work to commemorated person: @ref="syriaca:commemorated"
+                    Work to liturgical designation (date/feast in liturgical calendar): @ref="syriaca:hasLiturgicalDesignation" (plus link to controlled vocabulary) -->
+                <listRelation>
+                    <relation xml:id="relation2501-1" type="part" active="http://syriaca.org/work/2501" ref="dcterms:isPartOf" passive="http://syriaca.org/work/2500">
+                        <!-- If the placement of this work within a larger work follows a certain order, use a label with human-readable text content plus 
+                            @type="order", @subtype with the unit, and @n with the machine-readable number. If there are multiple orders that differ by source 
+                            (e.g., a different arrangement in manuscripts or editions), use multiple labels and include @source attributes. -->
+                        <desc>
+                            <label type="order" subtype="part" n="1">part 1</label>
+                        </desc>
+                    </relation>
+                </listRelation>
+            </bibl>
+        </body>
+    </text>
+</TEI>
