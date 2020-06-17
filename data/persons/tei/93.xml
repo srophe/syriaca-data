@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -10,7 +12,6 @@
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <principal>David A. Michelson</principal>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
@@ -107,7 +108,7 @@
                                     <ptr target="#bib93-3"/>
                                 </bibl>
                             </listBibl>
-                            <note>used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
                         </p>
                     </licence>
@@ -203,17 +204,11 @@
         </encodingDesc>
         <profileDesc>
             <langUsage>
-                <language ident="syr">Unvocalized Syriac of any variety or period</language>
-                <language ident="syr-Syrj">Vocalized West Syriac</language>
-                <language ident="syr-Syrn">Vocalized East Syriac</language>
-                <language ident="en">English</language>
-                <language ident="en-x-gedsh">Names or terms Romanized into English according to the standards 
-                        adopted by the Gorgias Encyclopedic Dictionary of the Syriac Heritage</language>
-                <language ident="ar">Arabic</language>
-                <language ident="fr">French</language>
-                <language ident="de">German</language>
-                <language ident="la">Latin</language>
-            </langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Add relations and attestations for saints-overlap.</change>
@@ -277,13 +272,13 @@
                     <idno type="URI">http://viaf.org/viaf/224478732</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=M&amp;sK=Marutha of Tagrit&amp;sT=keywords</idno>
                     <idno type="FIEY">304</idno>
-                    <note type="abstract" xml:id="abstract-en-93">
+                    <note xml:lang="en" type="abstract" xml:id="abstract-en-93">
                         <quote source="#bib93-1">Metropolitan of <placeName ref="http://syriaca.org/place/2617">Tagrit</placeName>.</quote>
                     </note>
                     <sex value="M" source="#bib93-7">male</sex>
                     <death when="0649" syriaca-computed-start="0649-01-01" source="#bib93-1 #bib93-7">649</death>
-                    <note type="description">In hagiography: Marutha of Tagrit was born near <placeName ref="http://syriaca.org/place/42">Balad</placeName> and became a monk of the monastery of <placeName ref="http://syriaca.org/place/356">Mar Zakkay</placeName> and then at <placeName ref="http://syriaca.org/place/227">Mor Matay</placeName>. He became the first Maphrian of the Syrian Orthodox Church in the <placeName ref="http://syriaca.org/place/150">Sasanian empire</placeName>.</note>
-                    <note type="deprecation" xml:id="name93-5-deprecation">Dolabani's spelling of "Marutha" in Syriac should have an 'a' vowel instead of an 'e' vowel at the end: ܡܰܪܘܬܶܐ ܕܬܰܓܪܝܬ</note>
+                    <note xml:lang="en" type="description">In hagiography: Marutha of Tagrit was born near <placeName ref="http://syriaca.org/place/42">Balad</placeName> and became a monk of the monastery of <placeName ref="http://syriaca.org/place/356">Mar Zakkay</placeName> and then at <placeName ref="http://syriaca.org/place/227">Mor Matay</placeName>. He became the first Maphrian of the Syrian Orthodox Church in the <placeName ref="http://syriaca.org/place/150">Sasanian empire</placeName>.</note>
+                    <note xml:lang="en" type="deprecation" xml:id="name93-5-deprecation">Dolabani's spelling of "Marutha" in Syriac should have an 'a' vowel instead of an 'e' vowel at the end: ܡܰܪܘܬܶܐ ܕܬܰܓܪܝܬ</note>
                     <state type="confession" source="#bib93-1">
                         <desc>Syr. Orth.</desc>
                     </state>

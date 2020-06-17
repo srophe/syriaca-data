@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -8,7 +10,6 @@
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <principal>David A. Michelson</principal>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
@@ -96,18 +97,11 @@
         </encodingDesc>
         <profileDesc>
             <langUsage>
-                <language ident="syr">Unvocalized Syriac of any variety or period</language>
-                <language ident="syr-Syrj">Vocalized West Syriac</language>
-                <language ident="syr-Syrn">Vocalized East Syriac</language>
-                <language ident="en">English</language>
-                <language ident="en-x-gedsh">Names or terms Romanized into English according to
-                        the standards adopted by the Gorgias Encyclopedic Dictionary of the Syriac
-                        Heritage</language>
-                <language ident="ar">Arabic</language>
-                <language ident="fr">French</language>
-                <language ident="de">German</language>
-                <language ident="la">Latin</language>
-            </langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change79-3">Merged in data from [duplicate record with same URI].</change>
@@ -141,7 +135,9 @@
                 <idno type="URI">https://en.wikipedia.org/wiki/Second_Epistle_to_the_Corinthians</idno>
                 <idno type="URI">https://www.wikidata.org/wiki/Q123808</idno>
                 <textLang mainLang="syr"/>
-                <note type="abstract"><bibl>2 Corinthians (Peshitta version)<ptr target="http://syriaca.org/work/79"/></bibl> is extant as early as the 5th-6th century 
+                <note xml:lang="en" type="abstract">
+          <bibl>2 Corinthians (Peshitta version)<ptr target="http://syriaca.org/work/79"/>
+          </bibl> is extant as early as the 5th-6th century 
                     and consistently circulates as one of the <bibl>Pauline Epistles (Peshitta version)<ptr target="http://syriaca.org/work/159"/>
                     </bibl>.</note>
                 <note xml:lang="syr" type="incipit" source="#bib79-3">ܦܿܘܠܘܣ ܫܠܝܚܐ ܕܿܝܫܘܼܥ ܡܫܝܚܐ ܒܿܨܒܼܝܢܗ ܕܿܐܠܗܐ܂ ܘܛܝܡܬܼܐܘܣ ܐܚܐ܃ ܠܥܕ̱ܿܬܿܐ ܕܿܐܠܗܐ ܕܿܐܝܬܼ ܒܿܩܘܪܢܬܼܘܣ܃ ܘܠܟܼܠܗܘܼܢ ܩܕܿܝܫܐ̈ ܕܿܐܝܬܼ ܒܿܐܟܼܐܝܐ ܟܿܠܗ܂</note>
@@ -149,23 +145,20 @@
                     <title level="m">The Oxford-BYU Syriac
                         Corpus</title>
                     <ptr target="http://syriaca.org/bibl/2331"/>
-                    <citedRange
-                        unit="entry" target="http://wwwb.library.vanderbilt.edu/exist/apps/syriac-corpus/125">2 Corinthians (Peshitta Version) -
-                        <foreign xml:lang="syr">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܩܘܪ̈ܝܢܬܝܐ ܕܬܪܬܝܢ</foreign></citedRange>
+                    <citedRange unit="entry" target="http://wwwb.library.vanderbilt.edu/exist/apps/syriac-corpus/125">2 Corinthians (Peshitta Version) -
+                        <foreign xml:lang="syr">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܩܘܪ̈ܝܢܬܝܐ ܕܬܪܬܝܢ</foreign>
+          </citedRange>
                     <listRelation>
                         <relation active="#bib79-70" ref="dcterms:source" passive="#bib79-71"/>
-                        <relation active="#bib79-70" ref="lawd:embodies"
-                            passive="http://syriaca.org/work/79"/>
+                        <relation active="#bib79-70" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
                 </bibl>
                 <bibl xml:id="bib79-71" type="lawd:Edition">
                     <title level="m">The New Testament in Syriac [ܕܝܬܝܩܐ ܚܕܬܐ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ]</title>
                     <ptr target="http://syriaca.org/bibl/2491"/>
-                    <citedRange
-                        unit="pp" from="101" to="113">101-113</citedRange>
+                    <citedRange unit="pp" from="101" to="113">101-113</citedRange>
                     <listRelation>
-                        <relation active="#bib79-71" ref="lawd:embodies"
-                            passive="http://syriaca.org/work/79"/>
+                        <relation active="#bib79-71" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
                 </bibl>
                 <bibl xml:id="bib79-66" type="lawd:Edition">
@@ -173,7 +166,7 @@
                     <title level="m">Das Neue Testament in syrischer Überlieferung</title>
                     <ptr target="http://syriaca.org/bibl/2450"/>
                     <citedRange unit="pp" from="57" to="180">57-180</citedRange>
-                    <note>Peshitta (P), Harqlean (H), and patristic quotations shown in parallel.</note>
+                    <note xml:lang="en">Peshitta (P), Harqlean (H), and patristic quotations shown in parallel.</note>
                     <listRelation>
                         <relation active="#bib79-65" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
@@ -296,7 +289,7 @@
                     <listRelation>
                         <relation active="#bib79-14" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
-                    <note>defective</note>
+                    <note xml:lang="en">defective</note>
                 </bibl>
                 <bibl type="syriaca:Manuscript" xml:id="bib79-15" source="#bib79-43">
                     <title type="shelfmark">London, British Library, Add MS 17124</title>
@@ -315,7 +308,7 @@
                     <listRelation>
                         <relation active="#bib79-16" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
-                    <note>defective</note>
+                    <note xml:lang="en">defective</note>
                 </bibl>
                 <bibl type="syriaca:Manuscript" xml:id="bib79-17" source="#bib79-47">
                     <title type="shelfmark">London, British Library, Add MS 17228</title>
@@ -343,7 +336,7 @@
                     <listRelation>
                         <relation active="#bib79-19" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
-                    <note>defective</note>
+                    <note xml:lang="en">defective</note>
                 </bibl>
                 <bibl type="syriaca:Manuscript" xml:id="bib79-20" source="#bib79-53">
                     <title type="shelfmark">London, British Library, Add MS 14669</title>
@@ -352,7 +345,7 @@
                     <listRelation>
                         <relation active="#bib79-20" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
-                    <note>defective</note>
+                    <note xml:lang="en">defective</note>
                 </bibl>
                 <bibl type="syriaca:Manuscript" xml:id="bib79-21" source="#bib79-55">
                     <title type="shelfmark">London, British Library, Add MS 14479</title>
@@ -371,7 +364,7 @@
                     <listRelation>
                         <relation active="#bib79-22" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
-                    <note>defective</note>
+                    <note xml:lang="en">defective</note>
                 </bibl>
                 <bibl type="syriaca:Manuscript" xml:id="bib79-23" source="#bib79-59">
                     <title type="shelfmark">London, British Library, Add MS 14478</title>
@@ -381,7 +374,7 @@
                     <listRelation>
                         <relation active="#bib79-23" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>
-                    <note>defective</note>
+                    <note xml:lang="en">defective</note>
                 </bibl>
                 <bibl type="syriaca:Manuscript" xml:id="bib79-24" source="#bib79-61">
                     <title type="shelfmark">London, British Library, Add MS 14475</title>
@@ -393,7 +386,7 @@
                     </listRelation>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-25">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14666</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/459"/>
@@ -421,7 +414,7 @@
                     <citedRange unit="entry">BL Add MS 14666</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-27">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14477</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/162"/>
@@ -448,7 +441,7 @@
                     <citedRange unit="entry">BL Add MS 14477</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-29">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14474</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/159"/>
@@ -475,7 +468,7 @@
                     <citedRange unit="entry">BL Add MS 14474</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-31">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 17123</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/752"/>
@@ -502,7 +495,7 @@
                     <citedRange unit="entry">BL Add MS 17123</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-33">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14480</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/1179"/>
@@ -529,7 +522,7 @@
                     <citedRange unit="entry">BL Add MS 14480</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-35">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14476</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/161"/>
@@ -556,7 +549,7 @@
                     <citedRange unit="entry">BL Add MS 14476</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-37">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14470</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/153"/>
@@ -583,7 +576,7 @@
                     <citedRange unit="entry">BL Add MS 14470</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-39">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add Ms 14468</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/150"/>
@@ -611,7 +604,7 @@
                     <citedRange unit="entry">BL Add Ms 14468</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-41">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add Ms 14468</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/151"/>
@@ -639,7 +632,7 @@
                     <citedRange unit="entry">BL Add Ms 14468</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-43">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 17124</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/753"/>
@@ -666,7 +659,7 @@
                     <citedRange unit="entry">BL Add MS 17124</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-45">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14448</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/120"/>
@@ -693,7 +686,7 @@
                     <citedRange unit="entry">BL Add MS 14448</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-47">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 17228</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/1006"/>
@@ -720,7 +713,7 @@
                     <citedRange unit="entry">BL Add MS 17228</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-49">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
           Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 17227</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
@@ -749,7 +742,7 @@
                     <citedRange unit="entry">BL Add MS 17227</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-51">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14481</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/166"/>
@@ -776,7 +769,7 @@
                     <citedRange unit="entry">BL Add MS 14481</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-53">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
           Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14669</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
@@ -806,7 +799,7 @@
                     <citedRange unit="entry">BL Add MS 14669</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-55">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14479</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/164"/>
@@ -833,7 +826,7 @@
                     <citedRange unit="entry">BL Add MS 14479</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-57">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 17122</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/751"/>
@@ -860,7 +853,7 @@
                     <citedRange unit="entry">BL Add MS 17122</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-59">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14478</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/163"/>
@@ -887,7 +880,7 @@
                     <citedRange unit="entry">BL Add MS 14478</citedRange>
                 </bibl>
                 <bibl type="syriaca:DigitalCatalogue" xml:id="bib79-61">
-                    <editor role="general-editor" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                    <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                     <title level="a" xml:lang="en">BL Add MS 14475</title>
                     <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
                     <ptr target="http://syriaca.org/manuscript/160"/>
@@ -923,7 +916,7 @@
                 <bibl type="syriaca:Manuscript" xml:id="bib79-64">
                     <title>Manchester, John Rylands University Library, Syriac 11 (=Harris Syriac 137) (1905)</title>
                     <citedRange unit="fol">93a-102</citedRange>
-                    <note>Includes introduction</note>
+                    <note xml:lang="en">Includes introduction</note>
                     <listRelation>
                         <relation active="#bib79-64" ref="lawd:embodies" passive="http://syriaca.org/work/79"/>
                     </listRelation>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -10,7 +12,6 @@
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <principal>David A. Michelson</principal>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
@@ -97,7 +98,7 @@
                                     <ptr target="#bib655-3"/>
                                 </bibl>
                             </listBibl>
-                            <note>used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
                         </p>
                     </licence>
@@ -193,17 +194,11 @@
         </encodingDesc>
         <profileDesc>
             <langUsage>
-                <language ident="syr">Unvocalized Syriac of any variety or period</language>
-                <language ident="syr-Syrj">Vocalized West Syriac</language>
-                <language ident="syr-Syrn">Vocalized East Syriac</language>
-                <language ident="en">English</language>
-                <language ident="en-x-gedsh">Names or terms Romanized into English according to the standards 
-                        adopted by the Gorgias Encyclopedic Dictionary of the Syriac Heritage</language>
-                <language ident="ar">Arabic</language>
-                <language ident="fr">French</language>
-                <language ident="de">German</language>
-                <language ident="la">Latin</language>
-            </langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Add relations and attestations for saints-overlap.</change>
@@ -280,10 +275,10 @@
                     <idno type="URI">http://viaf.org/viaf/203443617</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=N&amp;sK=Nestorius&amp;sT=keywords</idno>
                     <idno type="FIEY">328</idno>
-                    <note type="abstract" xml:id="abstract-en-655">
+                    <note xml:lang="en" type="abstract" xml:id="abstract-en-655">
                         <quote source="#bib655-1">Bp. of Constantinople from 428 to 431.</quote>
                     </note>
-                    <note type="description">In hagiography: In hagiography: Nestorius of <placeName ref="http://syriaca.org/place/2290">Constantinople</placeName> was a doctor of the Church
+                    <note xml:lang="en" type="description">In hagiography: In hagiography: Nestorius of <placeName ref="http://syriaca.org/place/2290">Constantinople</placeName> was a doctor of the Church
           of the East.</note>
                     <sex value="M" source="#bib655-9">male</sex>
                     <birth>
@@ -294,8 +289,8 @@
                         <date when="0450" syriaca-computed-start="0450-01-01" source="#bib655-9">450</date>
                         <date notBefore="0435" notAfter="0465" syriaca-computed-end="0465-01-01" syriaca-computed-start="0435-01-01" source="#bib655-1">ca. 450</date>
                     </death>
-                    <note type="description">In hagiography: </note>
-                    <note>N/A</note>
+                    <note xml:lang="en" type="description">In hagiography: </note>
+                    <note xml:lang="en">N/A</note>
                     <event type="attestation" xml:id="attestation655-1" source="bib655-8">
                         <p xml:lang="en">
                             <persName ref="http://syriaca.org/person/655">Nestorius</persName> is commemorated in <title ref="http://syriaca.org/work/790">Nestorius (text) — </title>.</p>

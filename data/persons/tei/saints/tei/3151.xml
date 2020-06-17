@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -10,7 +12,6 @@
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <principal>David A. Michelson</principal>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
@@ -147,17 +148,11 @@
         </encodingDesc>
         <profileDesc>
             <langUsage>
-                <language ident="syr">Unvocalized Syriac of any variety or period</language>
-                <language ident="syr-Syrj">Vocalized West Syriac</language>
-                <language ident="syr-Syrn">Vocalized East Syriac</language>
-                <language ident="en">English</language>
-                <language ident="en-x-gedsh">Names or terms Romanized into English according to the standards
-                    adopted by the Gorgias Encyclopedic Dictionary of the Syriac Heritage</language>
-                <language ident="ar">Arabic</language>
-                <language ident="fr">French</language>
-                <language ident="de">German</language>
-                <language ident="la">Latin</language>
-            </langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
             <change who="http://syriaca.org/documentation/editors.xml#jwalters" when="2016-08-17-04:00">CREATED: Split from person/1958</change>
@@ -178,7 +173,7 @@
                     <persName xml:id="name3151-4" xml:lang="fr-x-bhs" source="#bib3151-1">Yūlyānōs</persName>
                     <persName xml:id="name3151-5" xml:lang="fr" source="#bib3151-1">Julien</persName>
                     <idno type="URI">http://syriaca.org/person/3151</idno>
-                    <note type="abstract" xml:id="abstract-en-3151" source="#bib3151-1" subtype="auto-formatted">
+                    <note xml:lang="en" type="abstract" xml:id="abstract-en-3151" source="#bib3151-1" subtype="auto-formatted">
                         <persName ref="http://syriaca.org/person/1958">Pamphilus</persName>, 
                         <persName ref="http://syriaca.org/person/3146">Vales</persName>, 
                         <persName ref="http://syriaca.org/person/3147">Seleucus</persName>, 
@@ -190,13 +185,14 @@
                             Theophilus, Julianus, and an Egyptian (text)</title>, a work surviving in at least 2
                         manuscripts including <bibl type="MSS" xml:id="witness2">ms London, British Library, Add. 12150, f.
                             247-250</bibl>.</note>
-                    <note type="disambiguation">With <persName ref="http://syriaca.org/person/1958">Pamphilus</persName>, 
+                    <note xml:lang="en" type="disambiguation">With <persName ref="http://syriaca.org/person/1958">Pamphilus</persName>, 
                         <persName ref="http://syriaca.org/person/3146">Vales</persName>, 
                         <persName ref="http://syriaca.org/person/3147">Seleucus</persName>, 
                         <persName ref="http://syriaca.org/person/3148">Paul</persName>, 
                         <persName ref="http://syriaca.org/person/3149">Porphyry</persName>, 
                         <persName ref="http://syriaca.org/person/3150">Theophilus</persName>, 
-                        and <persName ref="http://syriaca.org/person/3152">One Egyptian</persName></note>
+                        and <persName ref="http://syriaca.org/person/3152">One Egyptian</persName>
+          </note>
                     <event type="attestation" xml:id="attestation3151-1" source="#bib3151-1">
                         <p xml:lang="en">Pamphilus is commemorated in <title ref="http://syriaca.org/work/245">Pamphilus, Vales, Seleucus, Paulus, Porphyrius, Theophilus, Julianus, and an Egyptian (text)</title>.</p>
                     </event>

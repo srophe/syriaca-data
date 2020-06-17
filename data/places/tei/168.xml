@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:svg="http://www.w3.org/2000/svg" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:syriaca="http://syriaca.org" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xmlns:svg="http://www.w3.org/2000/svg" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Rabban Hormizd — <foreign xml:lang="syr">ܪܒܢ ܗܘܪܡܝܙܕ ܥܓ̰ܡܝܐ</foreign>
                 </title>
-                <title level="m" xml:lang="en">The Syriac Gazetteer</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <principal>David A. Michelson</principal>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
                 <respStmt>
                     <resp>Data merging, Pleiades and Wikipedia linking, and XML by</resp>
@@ -22,9 +20,21 @@
                     <resp>Wilmshurst index information entry by</resp>
                     <name ref="http://syriaca.org/documentation/editors.xml#adavis">Anthony Davis</name>
                 </respStmt>
-            </titleStmt>
+            <respStmt>
+          <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+        </respStmt>
+        <respStmt>
+          <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#wpotter">William L. Potter</name>
+        </respStmt>
+        <respStmt>
+          <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
+        </respStmt>
+      </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -36,18 +46,38 @@
                 </availability>
                 <date>2016-12-09+01:00</date>
             </publicationStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">The Syriac Gazetteer</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">
+          <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#wpotter">
+          <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
+        <editor role="past-general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">
+          <persName>Thomas A. Carlson</persName>, <date from="2014" to="2018">2014-2018</date>
+        </editor>
+        <editor role="technical" ref="http://syriaca.org/documentation/editors.xml#dmichelson">
+          <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
+        <editor role="technical" ref="http://syriaca.org/documentation/editors.xml#dschwartz">
+          <persName>Daniel L. Schwartz</persName>, <date from="2019">2019-present</date>.</editor>
+        <editor role="technical" ref="http://syriaca.org/documentation/editors.xml#wpotter">
+          <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
+        <idno type="URI">http://syriaca.org/geo</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
         </fileDesc>
         <encodingDesc>
             <editorialDecl>
-                <p>This record created following the Syriaca.org guidelines. Documentation available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
-                <p>The capitalization of names from GEDSH (<idno type="URI">http://syriaca.org/bibl/1</idno>) was normalized (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
-                <p>The unchanging parts of alternate names from Barsoum (<idno type="URI">http://syriaca.org/bibl/2</idno>, <idno type="URI">http://syriaca.org/bibl/3</idno>, or <idno type="URI">http://syriaca.org/bibl/4</idno>) have been supplied to each alternate.</p>
-                <p>Names from the English translation of Barsoum (<idno type="URI">http://syriaca.org/bibl/4</idno>) were put in sentence word order rather than fronting a dictionary headword.  Any commas in the Barsoum name in English were removed.</p>
-                <p>The <gi>state</gi> element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  Natural features always in existence have no <gi>state</gi> element of @type="existence".</p>
-            </editorialDecl>
+        <p>This record has been created following the Syriaca.org editorial guidelines. Documentation is available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>. <title>The Syriac Gazetteer</title> was encoded using both the general editorial guidelines for all publications of Syriaca.org and an encoding schema specific to <title>The Syriac Gazetteer</title>.</p>
+        <p>Approximate dates described in terms of centuries or partial centuries have been interpreted into quantitative values as documented in the Syriaca.org guidelines for normalization of dates. See <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org Guidelines for Approximate Dates</ref>.</p>
+        <p>The <gi>state</gi> element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  While it is possible to indicate a source for this date, this date is usually based on the estimate of the editors and provided as an aid to searching. As a practice, attested dates for a place based on historical sources have instead been encoded more precisely using <gi>event</gi> of @type="attestation". Natural features which have always existed have no date on the <gi>state</gi> element of @type="existence" since they are are presumed to have always existed throughout recorded history.</p>
+        <p>In some cases, maps from print publications have been used as the basis for coordinate data in <title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) or to <title>The Syriac World</title> (<ref target="http://syriaca.org/bibl/PUTG99V4">http://syriaca.org/bibl/PUTG99V4</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the <title>The Syriac Gazetteer</title> are grateful to the editors of <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> and <title>The Syriac World</title> for providing these coordinate files.</p>
+        <p>The editors have silently normalized data from other sources in some cases. The primary instances are listed below.</p>
+        <p>The capitalization of names from <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
+        <p>The unchanging parts of alternate names from the editions and translations of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/2">http://syriaca.org/bibl/2</ref>, <ref target="http://syriaca.org/bibl/3">http://syriaca.org/bibl/3</ref>, or <ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) have been supplied silently.</p>
+        <p>Names from the English translation of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
+      </editorialDecl>
             <classDecl>
                 <taxonomy>
                     <category xml:id="syriaca-headword">
@@ -58,14 +88,14 @@
         </encodingDesc>
         <profileDesc>
             <langUsage>
-                <language ident="syr">Unvocalized Syriac of any variety or period</language>
-                <language ident="syr-Syrj">Vocalized West Syriac</language>
-                <language ident="syr-Syrn">Vocalized East Syriac</language>
-                <language ident="en">English</language>
-                <language ident="ar">Arabic</language>
-            </langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
         </profileDesc>
         <revisionDesc status="published">
+      <change who="http://syriaca.org/documentation/editors.xml#wpotter" when="2020-06-16-05:00">CHANGED: Implemented May 2019 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes">https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes</ref>. The issues labeled were #742, #743, #746, #747, #749, #752, #754, #757, #759, #761, #763, #765, #766, #767, #768, #769, #770, #771, #772, #773, #774, #792, #793, #794, #797, #802, #803, #804, #806, #807, #815, #816, #817, #818, #819, #820, #821, #822, #823, #824, #825, #826, #827, #829, #831, #832, #833, #834, #836, #843, #847, #848, #849, #850, #851, #852, #853</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-09+01:00">Changed @xml:lang 'en-xsrp1' to 'en-x-srp1'</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-11-05-05:00">ADDED: Add alternate names for search functionality.</change>
             <change who="http://syriaca.org/documentation/editors.xml#tcarlson" when="2014-06-07">ADDED: Syriac headword and 1683 attestation</change>
@@ -79,15 +109,15 @@
     <text>
         <body>
             <listPlace>
-                <place xml:id="place-168" type="monastery">
-                    <placeName xml:id="name168-1" xml:lang="en" syriaca-tags="#syriaca-headword" source="#bib168-2">Rabban Hormizd</placeName>
+                <place type="monastery">
+                    <placeName xml:id="name168-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib168-2">Rabban Hormizd</placeName>
                     <placeName xml:id="name168-2" xml:lang="en" source="#bib168-3">monastery of Rabban Hormizd</placeName>
                     <placeName xml:id="name168-3" xml:lang="en" source="#bib168-4">Rabban Hormizd the Persian</placeName>
-                    <placeName xml:id="name168-4" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib168-6">ܪܒܢ ܗܘܪܡܝܙܕ ܥܓ̰ܡܝܐ</placeName>
+                    <placeName xml:id="name168-4" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib168-6">ܪܒܢ ܗܘܪܡܝܙܕ ܥܓ̰ܡܝܐ</placeName>
                     <placeName xml:id="name168-5" xml:lang="syr-Syrn" source="#bib168-6">ܪܲܒ̇ܢ ܗܘܿܪܡܝܼܙܕ ܥܲܓ̰ܡܵܝܐ</placeName>
-                    <placeName xml:id="name168-6" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Rabban Bar Edta</placeName>
-                    <placeName xml:id="name168-7" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Rabban Bar ‘Edta</placeName>
-                    <desc xml:id="abstract-en-168" xml:lang="en">
+                    <placeName resp="http://syriaca.org" xml:id="name168-6" xml:lang="en-x-srp1">Rabban Bar Edta</placeName>
+                    <placeName resp="http://syriaca.org" xml:id="name168-7" xml:lang="en-x-srp1">Rabban Bar ‘Edta</placeName>
+                    <desc type="abstract" xml:id="abstract168-1" xml:lang="en">
                         <quote source="#bib168-1">The Chaldean monastery of Rabban Hormizd, built upon a mountain ridge northeast of Alqosh in northern Iraq, is famous not only for its magnificent location and impressive buildings, but also for its central role in the history of the transmission of E.-Syr. literature and its importance in the struggles between the Chald. Church and the Ch. of E., to which the monastery originally belonged.</quote>
                     </desc>
                     <desc xml:lang="en">
@@ -100,86 +130,86 @@
                         <settlement ref="http://syriaca.org/place/19">Alqōsh</settlement>
                         <region ref="http://syriaca.org/place/722">Mosul region</region>
                     </location>
-                    <event when="0650" source="#bib168-1" syriaca-computed-start="0650-01-01" syriaca-computed-end="0650-01-01">
+                    <event type="other" when="0650" source="#bib168-1" srophe:computed-start="0650-01-01" srophe:computed-end="0650-01-01">
                         <p xml:lang="en">Monastery founded by <persName>Rabban Hormizd</persName> of <placeName ref="http://syriaca.org/place/35">Beth Lapaṭ</placeName>, formerly of the monastery of <placeName ref="http://syriaca.org/place/167">Rabban Bar ʿEdta</placeName>
                         </p>
-                        <precision match="@when" notAfter="0700" notBefore="0600" syriaca-computed-end="0700-01-01" syriaca-computed-start="0600-01-01"/>
+                        <precision match="@when" notAfter="0700" notBefore="0600" srophe:computed-end="0700-01-01" srophe:computed-start="0600-01-01"/>
                     </event>
-                    <event when="1485" source="#bib168-5" syriaca-computed-start="1485-01-01" syriaca-computed-end="1485-01-01">
+                    <event type="other" when="1485" source="#bib168-5" srophe:computed-start="1485-01-01" srophe:computed-end="1485-01-01">
                         <p xml:lang="en">Repair of the monastery gate.</p>
                     </event>
-                    <event when="1508" source="#bib168-1" syriaca-computed-start="1508-01-01" syriaca-computed-end="1508-01-01">
+                    <event type="other" when="1508" source="#bib168-1" srophe:computed-start="1508-01-01" srophe:computed-end="1508-01-01">
                         <p xml:lang="en">The monastery was attacked by <persName>Murād Bey</persName>.</p>
                     </event>
-                    <event when="1706" source="#bib168-1" syriaca-computed-start="1706-01-01" syriaca-computed-end="1706-01-01">
+                    <event type="other" when="1706" source="#bib168-1" srophe:computed-start="1706-01-01" srophe:computed-end="1706-01-01">
                         <p xml:lang="en">The monastery was attacked by Kurdish raiders.</p>
                     </event>
-                    <event when="1717" source="#bib168-1" syriaca-computed-start="1717-01-01" syriaca-computed-end="1717-01-01">
+                    <event type="other" when="1717" source="#bib168-1" srophe:computed-start="1717-01-01" srophe:computed-end="1717-01-01">
                         <p xml:lang="en">The monastery was attacked by Kurdish raiders.</p>
                     </event>
-                    <event when="1743" source="#bib168-1" syriaca-computed-start="1743-01-01" syriaca-computed-end="1743-01-01">
+                    <event type="other" when="1743" source="#bib168-1" srophe:computed-start="1743-01-01" srophe:computed-end="1743-01-01">
                         <p xml:lang="en">The monastery was attacked by <persName>Nādir Shāh</persName>.</p>
                     </event>
-                    <event when="1800" source="#bib168-1 #bib168-5" syriaca-computed-start="1800-01-01" syriaca-computed-end="1800-01-01">
+                    <event type="other" when="1800" source="#bib168-1 #bib168-5" srophe:computed-start="1800-01-01" srophe:computed-end="1800-01-01">
                         <p xml:lang="en">The monastery was abandoned.</p>
-                        <precision match="@when" notBefore="1773" notAfter="1800" syriaca-computed-end="1800-01-01" syriaca-computed-start="1773-01-01"/>
+                        <precision match="@when" notBefore="1773" notAfter="1800" srophe:computed-end="1800-01-01" srophe:computed-start="1773-01-01"/>
                     </event>
-                    <event when="1808" source="#bib168-5" syriaca-computed-start="1808-01-01" syriaca-computed-end="1808-01-01">
+                    <event type="other" when="1808" source="#bib168-5" srophe:computed-start="1808-01-01" srophe:computed-end="1808-01-01">
                         <p xml:lang="en">The monastery was re-founded by <persName>Gabriel Dambo</persName>.</p>
                     </event>
-                    <event when="1842" source="#bib168-1" syriaca-computed-start="1842-01-01" syriaca-computed-end="1842-01-01">
+                    <event type="other" when="1842" source="#bib168-1" srophe:computed-start="1842-01-01" srophe:computed-end="1842-01-01">
                         <p xml:lang="en">The monastery was attacked by Kurdish raiders.</p>
                     </event>
-                    <event when="1850" source="#bib168-1" syriaca-computed-start="1850-01-01" syriaca-computed-end="1850-01-01">
+                    <event type="other" when="1850" source="#bib168-1" srophe:computed-start="1850-01-01" srophe:computed-end="1850-01-01">
                         <p xml:lang="en">The monastery was attacked by Kurdish raiders.</p>
                     </event>
-                    <event type="attestation" xml:id="attestation168-1" when="1497-02-20" source="#bib168-5" syriaca-computed-start="1497-02-20" syriaca-computed-end="1497-02-20">
-                        <p xml:lang="en">Attestation of East Syrian <persName>Catholicos Shemʿon</persName> who died on <date when="1497-02-20" syriaca-computed-start="1497-02-20" syriaca-computed-end="1497-02-20">20 Shebaṭ 1808 A. G. (20 February 1497)</date> according to tomb inscription.</p>
+                    <event type="attestation" xml:id="attestation168-1" when="1497-02-20" source="#bib168-5" srophe:computed-start="1497-02-20" srophe:computed-end="1497-02-20">
+                        <p xml:lang="en">Attestation of East Syrian <persName>Catholicos Shemʿon</persName> who died on <date when="1497-02-20" srophe:computed-start="1497-02-20" srophe:computed-end="1497-02-20">20 Shebaṭ 1808 A. G. (20 February 1497)</date> according to tomb inscription.</p>
                         <link target="#confession168-1 #attestation168-1"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-2" when="1773" source="#bib168-5" syriaca-computed-start="1773-01-01" syriaca-computed-end="1773-01-01">
-                        <p xml:lang="en">Attestation of death in <date when="1773" syriaca-computed-start="1773-01-01" syriaca-computed-end="1773-01-01">2084 A.G. (1773)</date> of <persName>Deacon Yawsep</persName>, brother of Church of the East <persName>Catholicos Eliya X</persName>, in an inscription</p>
+                    <event type="attestation" xml:id="attestation168-2" when="1773" source="#bib168-5" srophe:computed-start="1773-01-01" srophe:computed-end="1773-01-01">
+                        <p xml:lang="en">Attestation of death in <date when="1773" srophe:computed-start="1773-01-01" srophe:computed-end="1773-01-01">2084 A.G. (1773)</date> of <persName>Deacon Yawsep</persName>, brother of Church of the East <persName>Catholicos Eliya X</persName>, in an inscription</p>
                         <link target="#confession168-2 #attestation168-2"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-3" when="1883" source="#bib168-5" syriaca-computed-start="1883-01-01" syriaca-computed-end="1883-01-01">
+                    <event type="attestation" xml:id="attestation168-3" when="1883" source="#bib168-5" srophe:computed-start="1883-01-01" srophe:computed-end="1883-01-01">
                         <p xml:lang="en">Attestation of inscription with single qnoma confession.</p>
                         <link target="#confession168-3 #attestation168-3"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-4" when="1559" source="#bib168-5" syriaca-computed-start="1559-01-01" syriaca-computed-end="1559-01-01">
+                    <event type="attestation" xml:id="attestation168-4" when="1559" source="#bib168-5" srophe:computed-start="1559-01-01" srophe:computed-end="1559-01-01">
                         <p xml:lang="en">Attestation of allegiance to the traditionalist <persName>Catholicos Eliya VII</persName> in an inscription.</p>
                         <link target="#confession168-2 #attestation168-4"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-5" when="1818" source="#bib168-5" syriaca-computed-start="1818-01-01" syriaca-computed-end="1818-01-01">
+                    <event type="attestation" xml:id="attestation168-5" when="1818" source="#bib168-5" srophe:computed-start="1818-01-01" srophe:computed-end="1818-01-01">
                         <p xml:lang="en">Attestation of allegiance to <persName>Pope Pius VII</persName> in an inscription.</p>
                         <link target="#confession168-3 #attestation168-5"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-6" when="1485" source="#bib168-5" syriaca-computed-start="1485-01-01" syriaca-computed-end="1485-01-01">
+                    <event type="attestation" xml:id="attestation168-6" when="1485" source="#bib168-5" srophe:computed-start="1485-01-01" srophe:computed-end="1485-01-01">
                         <p xml:lang="en">Attestation of allegiance to <persName>Catholicos Shemʿon</persName> in an inscription.</p>
                         <link target="#confession168-1 #attestation168-6"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-7" when="1538-08-05" source="#bib168-5" syriaca-computed-start="1538-08-05" syriaca-computed-end="1538-08-05">
-                        <p xml:lang="en">Attestation of allegiance to <persName>Catholicos Shemʿon</persName> who died <date when="1538-08-05" syriaca-computed-start="1538-08-05" syriaca-computed-end="1538-08-05">5 Ab 1849 A.G. (5 August 1538)</date> in an inscription.</p>
+                    <event type="attestation" xml:id="attestation168-7" when="1538-08-05" source="#bib168-5" srophe:computed-start="1538-08-05" srophe:computed-end="1538-08-05">
+                        <p xml:lang="en">Attestation of allegiance to <persName>Catholicos Shemʿon</persName> who died <date when="1538-08-05" srophe:computed-start="1538-08-05" srophe:computed-end="1538-08-05">5 Ab 1849 A.G. (5 August 1538)</date> in an inscription.</p>
                         <link target="#confession168-1 #attestation168-7"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-8" when="1558-11" source="#bib168-5" syriaca-computed-start="1558-11-01" syriaca-computed-end="1558-11-01">
-                        <p xml:lang="en">Attestation of allegiance to <persName>Catholicos Shemʿon</persName> who died <date when="1558-11" syriaca-computed-start="1558-11-01" syriaca-computed-end="1558-11-01">the start of Tishri I 1570 (November 1558)</date> in an inscription.</p>
+                    <event type="attestation" xml:id="attestation168-8" when="1558-11" source="#bib168-5" srophe:computed-start="1558-11-01" srophe:computed-end="1558-11-01">
+                        <p xml:lang="en">Attestation of allegiance to <persName>Catholicos Shemʿon</persName> who died <date when="1558-11" srophe:computed-start="1558-11-01" srophe:computed-end="1558-11-01">the start of Tishri I 1570 (November 1558)</date> in an inscription.</p>
                         <link target="#confession168-2 #attestation168-8"/>
                     </event>
-                    <event type="attestation" xml:id="attestation168-9" when="1683-06-21" source="#bib168-6" syriaca-computed-end="1683-06-21" syriaca-computed-start="1683-06-21">
+                    <event type="attestation" xml:id="attestation168-9" when="1683-06-21" source="#bib168-6" srophe:computed-end="1683-06-21" srophe:computed-start="1683-06-21">
                         <p xml:lang="en">Attestation of name <foreign xml:lang="syr">ܪܲܒ̇ܢ ܗܘܿܪܡܝܼܙܕ ܥܲܓ̰ܡܵܝܐ</foreign> in the colophon of <title>Mardin, Chaldean Cathedral Ms. Macomber 32,19 [HMML CCM 00168]</title>.</p>
-                        <link targets="#name168-5 #attestation168-9"/>
+                        <link target="#name168-5 #attestation168-9"/>
                     </event>
-                    <state type="existence" from="0700" to="2013" syriaca-computed-end="2013-01-01" syriaca-computed-start="0700-01-01">
-                        <precision match="@from" notAfter="0700" notBefore="0600" syriaca-computed-end="0700-01-01" syriaca-computed-start="0600-01-01"/>
-                        <precision match="@to" notBefore="2013" syriaca-computed-start="2013-01-01"/>
+          <state resp="http://syriaca.org" type="existence" from="0700" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="0700-01-01">
+                        <precision match="@from" notAfter="0700" notBefore="0600" srophe:computed-end="0700-01-01" srophe:computed-start="0600-01-01"/>
+                        <precision match="@to" notBefore="2013" srophe:computed-start="2013-01-01"/>
                     </state>
-                    <state type="confession" xml:id="confession168-1" ref="http://syriaca.org/documentation/confessions.xml#east-syrian" from="0600" source="#bib168-1" syriaca-computed-start="0600-01-01">
+                    <state type="confession" xml:id="confession168-1" ref="http://syriaca.org/documentation/confessions.xml#east-syrian" from="0600" source="#bib168-1" srophe:computed-start="0600-01-01">
                         <label>East Syrian</label>
                     </state>
-                    <state type="confession" xml:id="confession168-2" ref="http://syriaca.org/documentation/confessions.xml#church-of-the-east" from="1552" to="1800" source="#bib168-1" syriaca-computed-end="1800-01-01" syriaca-computed-start="1552-01-01">
+                    <state type="confession" xml:id="confession168-2" ref="http://syriaca.org/documentation/confessions.xml#church-of-the-east" from="1552" to="1800" source="#bib168-1" srophe:computed-end="1800-01-01" srophe:computed-start="1552-01-01">
                         <label>Church of the East</label>
                     </state>
-                    <state type="confession" xml:id="confession168-3" ref="http://syriaca.org/documentation/confessions.xml#chaldean-catholic" from="1808" source="#bib168-5" syriaca-computed-start="1808-01-01">
+                    <state type="confession" xml:id="confession168-3" ref="http://syriaca.org/documentation/confessions.xml#chaldean-catholic" from="1808" source="#bib168-5" srophe:computed-start="1808-01-01">
                         <label>Chaldean Catholic</label>
                     </state>
                     <idno type="URI">http://syriaca.org/place/168</idno>
@@ -192,14 +222,14 @@
                         <author>H. L. Murre-van den Berg</author>
                         <title level="a" xml:lang="en">264. Hormizd, Monastery of Rabban</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
-                        <ptr target="http://syriaca.org/bibl/1"/>
-                        <citedRange unit="pp">203-205</citedRange>
+                        <ptr target="http://syriaca.org/bibl/273"/>
+                        <citedRange unit="p">203-205</citedRange>
                     </bibl>
                     <bibl xml:id="bib168-2">
                         <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/1"/>
-                        <citedRange unit="pp">17, 113, 203–205 (with fig. 57), 210, 226, 265, 349, 359, 379, 398, 436, 443, 451 (fig. 3c), 456 (fig. 56c)</citedRange>
-                        <citedRange unit="maps">Map II C1, IV</citedRange>
+                        <citedRange unit="p">17, 113, 203–205 (with fig. 57), 210, 226, 265, 349, 359, 379, 398, 436, 443, 451 (fig. 3c), 456 (fig. 56c)</citedRange>
+                        <citedRange unit="map">Map II C1, IV</citedRange>
                     </bibl>
                     <bibl xml:id="bib168-3">
                         <title xml:lang="en">The Comprehensive Bibliography on Syriac Christianity</title>
@@ -209,18 +239,18 @@
                     <bibl xml:id="bib168-4">
                         <author>David Wilmshurst</author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
-                        <citedRange unit="pp">6, 8, 10, 12, 13, 14, 21, 22, 24, 26, 28, 30, 31, 32, 33, 34, 35, 42, 47, 59-60, 78, 79, 89, 94, 96, 106, 121, 122, 125, 127, 129, 130, 134, 138, 140, 143, 145, 146, 147, 156, 163, 164, 171, 173, 176, 181, 186, 188, 189, 190, 191, 193, 197, 201, 205, 210, 213, 220, 226, 227, 228, 229, 231, 232, 236, 239, 241, 242, 243, 245, 246, 250, 256, 257, 258-270, 272, 273, 274, 297, 318, 326, 348, 351, 353, 354, 355, 358, 359, 363</citedRange>
+                        <citedRange unit="p">6, 8, 10, 12, 13, 14, 21, 22, 24, 26, 28, 30, 31, 32, 33, 34, 35, 42, 47, 59-60, 78, 79, 89, 94, 96, 106, 121, 122, 125, 127, 129, 130, 134, 138, 140, 143, 145, 146, 147, 156, 163, 164, 171, 173, 176, 181, 186, 188, 189, 190, 191, 193, 197, 201, 205, 210, 213, 220, 226, 227, 228, 229, 231, 232, 236, 239, 241, 242, 243, 245, 246, 250, 256, 257, 258-270, 272, 273, 274, 297, 318, 326, 348, 351, 353, 354, 355, 358, 359, 363</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                     <bibl xml:id="bib168-5">
                         <author>Jacques Marie Vosté</author>
                         <title level="a" xml:lang="fr">Les inscriptions de Rabban Hormizd et de N.-D. des Semences près d’Alqoš (Iraq)</title>
-                        <citedRange unit="pp">266-268, 271-272, 274-276, 281-284, 286-287</citedRange>
+                        <citedRange unit="p">266-268, 271-272, 274-276, 281-284, 286-287</citedRange>
                         <ptr target="http://syriaca.org/bibl/635"/>
                     </bibl>
-                    <bibl xml:id="bib168-6">
+                    <bibl type="syriaca:Manuscript" xml:id="bib168-6">
                         <title xml:lang="en">Mardin, Chaldean Cathedral Ms. Macomber 32,19 [HMML CCM 00168]</title>
-                        <citedRange unit="ff">93v</citedRange>
+                        <citedRange unit="fol">93v</citedRange>
                     </bibl>
                 </place>
             </listPlace>
