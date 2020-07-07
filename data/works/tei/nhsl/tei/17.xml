@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change17-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
@@ -113,10 +113,10 @@
     <text>
         <body>
             <bibl xml:id="work-17" type="lawd:ConceptualWork">
-                <title xml:id="name17-1" xml:lang="en" syriaca-tags="#syriaca-headword">Esther (Peshitta version)</title>
-                <title xml:id="name17-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib17-1">ܣܦܪܐ ܕܐܣܬܝܪ</title>
+                <title xml:id="name17-1" xml:lang="en" srophe:tags="#syriaca-headword">Esther (Peshitta version)</title>
+                <title xml:id="name17-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib17-1">ܣܦܪܐ ܕܐܣܬܝܪ</title>
                 <title xml:id="name17-3" xml:lang="syr" source="#bib17-1">ܟܬܒܐ ܕܐܣܬܝܪ</title>
-                <title xml:id="name17-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib17-9">Esth</title>
+                <title xml:id="name17-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib17-9">Esth</title>
                 <title xml:id="name17-5" xml:lang="en" source="#bib17-9 #bib17-16">Esther</title>
                 <title xml:lang="en" xml:id="name17-6" source="#bib17-14">The book of Esther</title>
                 <title xml:lang="syr" xml:id="name17-7" source="#bib17-14">ܢܨܚ̈ܢܐ ܕܐܣܬܝܪ.</title>
@@ -282,10 +282,10 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/17" passive="http://syriaca.org/work/9534"/>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/17" passive="http://syriaca.org/work/56" xml:id="relation17-1" source="#bib17-14 #bib17-16">
                         <desc>
-                            <label type="order" subtype="book" n="1">book 1</label>
-                            <label type="order" subtype="book" n="2">book 2</label>
-                            <label type="order" subtype="part" n="2" source="#bib17-14">part 2</label>
-                            <label type="order" subtype="part" n="1" source="#bib17-16">part 1</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="1">book 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="2">book 2</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="2" source="#bib17-14">part 2</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib17-16">part 1</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

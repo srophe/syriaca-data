@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change67-2">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-17+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change67-1">Merged in data from [duplicate record with same URI].</change>
@@ -116,10 +116,10 @@
     <text>
         <body>
             <bibl xml:id="work-67" type="lawd:ConceptualWork">
-                <title xml:id="name67-1" xml:lang="en" syriaca-tags="#syriaca-headword">Baruch (Second Epistle of Baruch) (Peshitta version)</title>
-                <title xml:id="name67-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib67-1">ܐܓܪܬܐ ܕܬܪܬܝܢ ܕܒܪܘܟ ܣܦܪܐ</title>
+                <title xml:id="name67-1" xml:lang="en" srophe:tags="#syriaca-headword">Baruch (Second Epistle of Baruch) (Peshitta version)</title>
+                <title xml:id="name67-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib67-1">ܐܓܪܬܐ ܕܬܪܬܝܢ ܕܒܪܘܟ ܣܦܪܐ</title>
                 <title xml:id="name67-3" xml:lang="syr" source="#bib67-1">ܐܓܪܬܐ ܕܬܪܬܝܢ ܕܒܪܘܟ</title>
-                <title xml:id="name67-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib67-8">Bar</title>
+                <title xml:id="name67-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib67-8">Bar</title>
                 <title xml:id="name67-5" xml:lang="en" source="#bib67-8">Baruch</title>
                 <title xml:lang="en" xml:id="name67-6" source="#bib67-14 #bib67-18">The second epistle of Baruch.</title>
                 <title xml:lang="syr" xml:id="name67-7" source="#bib67-14">ܐܓܪܬܐ ܕܬܪ̈ܬܝܢ</title>
@@ -318,9 +318,9 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/67" passive="http://syriaca.org/work/9584"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation67-1" active="http://syriaca.org/work/67" passive="http://syriaca.org/work/65" source="#bib67-14 #bib67-16 #bib67-18">
                         <desc>
-                            <label type="order" subtype="book" n="2">book 2</label>
-                            <label type="order" subtype="part" n="2" source="#bib67-14 #bib67-16">part 2</label>
-                            <label type="order" subtype="part" n="1" source="#bib67-18">part 1</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="2">book 2</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="2" source="#bib67-14 #bib67-16">part 2</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib67-18">part 1</tei:label>
                         </desc>
                     </relation>
                     <relation type="disambiguation" ref="syriaca:different-from" xml:id="relation67-2" active="http://syriaca.org/work/67" passive="http://syriaca.org/work/10508 http://syriaca.org/work/66">

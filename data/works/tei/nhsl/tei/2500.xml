@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dcterms="http://purl.org/dc/terms/" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -96,6 +95,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-07-05+02:00">CREATED: work</change>
         </revisionDesc>
@@ -105,13 +105,13 @@
             <!-- using @type on bibl for lawd class -->
             <bibl xml:id="work-2500" ana="http://syriaca.org/documentation/work-subject-classifications.xml#history-universal" type="lawd:ConceptualWork">
                 <!-- We should decide whetehr we want to use "kthaba d-" on the beginning of Syriac titles -->
-                <title xml:id="name2500-1" xml:lang="syr" source="#bib2500-1 #bib2500-2 #bib2500-12" syriaca-tags="#syriaca-headword">ܡܟܬܒܢܘܬ ܙܒ̈ܢܐ</title>
-                <title xml:id="name2500-2" xml:lang="en" source="#bib2500-6 #bib2500-8" syriaca-tags="#syriaca-headword #syriaca-anglicized">Chronicle</title>
+                <title xml:id="name2500-1" xml:lang="syr" source="#bib2500-1 #bib2500-2 #bib2500-12" srophe:tags="#syriaca-headword">ܡܟܬܒܢܘܬ ܙܒ̈ܢܐ</title>
+                <title xml:id="name2500-2" xml:lang="en" source="#bib2500-6 #bib2500-8" srophe:tags="#syriaca-headword #syriaca-anglicized">Chronicle</title>
                 <title xml:id="name2500-3" xml:lang="en-x-gedsh" source="#bib2500-6">Maktbonut zabne</title>
                 <title xml:id="name2500-4" xml:lang="en" source="#bib2500-8">Maktbanuth zabne</title>
-                <title xml:id="name2500-5" xml:lang="en" source="#bib2500-9" syriaca-tags="#syriaca-anglicized">Chronography</title>
+                <title xml:id="name2500-5" xml:lang="en" source="#bib2500-9" srophe:tags="#syriaca-anglicized">Chronography</title>
                 <title xml:id="name2500-6" xml:lang="syr" source="#bib2500-10">ܟܪܘܢܘܓܪܦܝܐ</title>
-                <title xml:id="name2500-7" xml:lang="en" source="#bib2500-9" syriaca-tags="#syriaca-anglicized">The Book of the Chronicle of the Generations [of Kings]</title>
+                <title xml:id="name2500-7" xml:lang="en" source="#bib2500-9" srophe:tags="#syriaca-anglicized">The Book of the Chronicle of the Generations [of Kings]</title>
                 <title xml:id="name2500-8" xml:lang="la" source="#bib2500-12 #bib2500-15">Chronicon Syriacum</title>
         <!-- This is confusing, should we include it? -->
                 <title xml:id="name2500-9" xml:lang="la" source="#bib2500-12">Chronographia</title>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -94,6 +93,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-02+01:00">Separated out Budge and Bedrosian editions/translations</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-12-12-05:00">Updated to match new NHSL format.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-07-05+02:00">CREATED: work</change>
@@ -105,11 +105,11 @@
             <!-- The main <bibl> entity and any of its bibl children should have an @type containing an RDF class (usually from http://lawd.info/ontology/) -->
             <!-- @ana should contain one or more links to the @xml:id of subject & genre tags in http://syriaca.org/documentation/work-subject-classifications.xml -->
             <bibl xml:id="work-2501" ana="http://syriaca.org/documentation/work-subject-classifications.xml#history-universal" type="lawd:ConceptualWork">
-                <!-- The English title tagged as @syriaca-tags="#syriaca-headword" should generally be the title in most common use, or used 
+                <!-- The English title tagged as @srophe:tags="#syriaca-headword" should generally be the title in most common use, or used 
                 in the most recent edition/translation of the work. If a Latin title is frequently used, this should be included in parentheses. 
                 See documentation for more details. -->
-                <title xml:id="name2501-1" xml:lang="en" syriaca-tags="#syriaca-headword #syriaca-anglicized">Chronography, Part 1 (Chronicon Syriacum)</title>
-                <title xml:id="name2500-2" xml:lang="syr" source="#bib2501-2 #bib2501-9" syriaca-tags="#syriaca-headword">ܦܠܓܘܬܐ ܩܕܡܝܬܐ ܕܟܪܘܢܘܓܪܦܝܐ</title>
+                <title xml:id="name2501-1" xml:lang="en" srophe:tags="#syriaca-headword #syriaca-anglicized">Chronography, Part 1 (Chronicon Syriacum)</title>
+                <title xml:id="name2500-2" xml:lang="syr" source="#bib2501-2 #bib2501-9" srophe:tags="#syriaca-headword">ܦܠܓܘܬܐ ܩܕܡܝܬܐ ܕܟܪܘܢܘܓܪܦܝܐ</title>
                 <title xml:id="name2501-3" xml:lang="la" source="#bib2501-8">Chronicon Syriacum</title>
                 <title xml:id="name2501-4" xml:lang="en" source="#bib2501-8">Syriac Chronicle</title>
                 <title xml:id="name2501-5" xml:lang="de" source="#bib2501-9">Syrische Chronik</title>
@@ -503,7 +503,7 @@
                             @type="order", @subtype with the unit, and @n with the machine-readable number. If there are multiple orders that differ by source 
                             (e.g., a different arrangement in manuscripts or editions), use multiple labels and include @source attributes. -->
                         <desc>
-                            <label type="order" subtype="part" n="1">part 1</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1">part 1</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

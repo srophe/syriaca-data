@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -152,6 +150,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-09+01:00">Changed @xml:lang 'en-xsrp1' to 'en-x-srp1'</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-08-16+02:00">CREATED: Split person from erroneously merged one at http://syriaca.org/person/709.</change>
@@ -164,11 +163,11 @@
                     <persName xml:id="name3138-1" xml:lang="en-x-gedsh">
                         <forename sort="1">Sabrishoʿ</forename>
                     </persName>
-                    <persName xml:id="name3138-5" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Sabrisho</persName>
-                    <persName xml:id="name3138-6" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Sabrisho‘</persName>
-                    <persName xml:id="name3138-7" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script"/>
-                    <persName xml:id="name3138-8" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script"/>
-                    <persName xml:lang="syr" xml:id="name3138-9" resp="http://syriaca.org/" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name3138-5" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">Sabrisho</persName>
+                    <persName xml:id="name3138-6" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">Sabrisho‘</persName>
+                    <persName xml:id="name3138-7" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script"/>
+                    <persName xml:id="name3138-8" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script"/>
+                    <persName xml:lang="syr" xml:id="name3138-9" resp="http://syriaca.org/" srophe:tags="#syriaca-headword">
                         <forename>ܣܒܪܝܫܘܥ</forename>
                         <addName type="untagged-title">ܕ<placeName ref="http://syriaca.org/place/33">ܒܝܬ ܓܪ̈ܡܝ </placeName>
                         </addName>
@@ -176,7 +175,7 @@
                     <persName xml:lang="en-x-gedsh" xml:id="name3138-10">Sabrishōʿ</persName>
                     <persName xml:lang="en" xml:id="name3138-12">Sawrisho</persName>
                     <persName xml:lang="fr-x-fiey" xml:id="name3138-15" source="#bib3138-1">SAWRĪŠŌ'</persName>
-                    <persName xml:lang="en" xml:id="name3138-16" resp="http://syriaca.org/" syriaca-tags="#syriaca-headword">
+                    <persName xml:lang="en" xml:id="name3138-16" resp="http://syriaca.org/" srophe:tags="#syriaca-headword">
                         <forename>Sabrishoʿ</forename>, <addName type="untagged-title">metropolitan of <placeName ref="http://syriaca.org/place/33">Beth Garmai</placeName>
                         </addName>
                     </persName>
@@ -192,7 +191,7 @@
                     <sex value="M" source="#bib3138-1">male</sex>
                     <floruit notBefore="0500" syriaca-computed-start="0500" notAfter="0700" syriaca-computed-end="0700" source="#bib3138-1">500-700</floruit>
                     <state type="office" source="#bib3138-1">
-                        <label>metropolitan</label>
+                        <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0">metropolitan</tei:label>
                         <desc>metropolitan of <placeName ref="http://syriaca.org/place/33">Beth Garmai</placeName>
                         </desc>
                     </state>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change94-3">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change94-2">Merged in data from [duplicate record with same URI].</change>
@@ -117,9 +117,9 @@
     <text>
         <body>
             <bibl xml:id="work-94" type="lawd:ConceptualWork">
-                <title xml:id="name94-1" xml:lang="en" syriaca-tags="#syriaca-headword">1 John (Peshitta version)</title>
-                <title xml:id="name94-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib94-1 #bib94-20">ܐܓܪܬܐ ܕܝܘܚܢܢ ܫܠܝܚܐ</title>
-                <title xml:id="name94-3" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib94-5 #bib94-26 #bib94-28 #bib94-30">1 John</title>
+                <title xml:id="name94-1" xml:lang="en" srophe:tags="#syriaca-headword">1 John (Peshitta version)</title>
+                <title xml:id="name94-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib94-1 #bib94-20">ܐܓܪܬܐ ܕܝܘܚܢܢ ܫܠܝܚܐ</title>
+                <title xml:id="name94-3" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib94-5 #bib94-26 #bib94-28 #bib94-30">1 John</title>
                 <title xml:id="name94-3" xml:lang="en" source="#bib94-5 #bib94-26 #bib94-28 #bib94-30">1 John</title>
                 <title xml:id="name94-5" xml:lang="syr-Syrj" source="#bib94-4">ܐܶܓܰܪܬܳܐ ܕܝܘܽܚܰܢܳܢ ܫܠܺܝܚܳܐ</title>
                 <title xml:lang="en" xml:id="name94-6" source="#bib94-20 #bib94-22 #bib94-24 #bib94-34 #bib94-36 #bib94-38 #bib94-40 #bib94-42 #bib94-46">The first Epistle of S. John</title>
@@ -700,15 +700,15 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/94" passive="http://syriaca.org/work/9704"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation94-1" active="http://syriaca.org/work/94" passive="http://syriaca.org/work/160" source="#bib94-20 #bib94-22 #bib94-24 #bib94-26 #bib94-30 #bib94-32 #bib94-34 #bib94-36 #bib94-38 #bib94-40 #bib94-42 #bib94-46 #bib94-28 #bib94-44">
                         <desc>
-                            <label type="order" subtype="book" n="3">book 3</label>
-                            <label type="order" subtype="part" n="3" source="#bib94-20 #bib94-22 #bib94-24 #bib94-26 #bib94-30 #bib94-32 #bib94-34 #bib94-36 #bib94-38 #bib94-40 #bib94-42 #bib94-46">part 3</label>
-                            <label type="order" subtype="part" n="5" source="#bib94-28">part 5</label>
-                            <label type="order" subtype="part" n="4" source="#bib94-44">part 4</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="3">book 3</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="3" source="#bib94-20 #bib94-22 #bib94-24 #bib94-26 #bib94-30 #bib94-32 #bib94-34 #bib94-36 #bib94-38 #bib94-40 #bib94-42 #bib94-46">part 3</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="5" source="#bib94-28">part 5</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="4" source="#bib94-44">part 4</tei:label>
                         </desc>
                     </relation>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation94-2" active="http://syriaca.org/work/94" passive="http://syriaca.org/work/10513" source="#bib94-50">
                         <desc>
-                            <label type="order" subtype="book" n="5" source="#bib94-50">5</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="5" source="#bib94-50">5</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:syriaca="http://syriaca.org" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -96,6 +95,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-03+02:00">Added relation to literary tradition</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-03+02:00">Added relation to literary tradition</change>
@@ -105,7 +105,7 @@
     <text>
         <body>
             <bibl xml:id="work-51" type="lawd:ConceptualWork">
-                <title xml:lang="en" syriaca-tags="#syriaca-headword" xml:id="name51-1">"Jeremiah (Peshitta Jeremiah composed of Jeremiah, Prayer of Jeremiah, and Lamentations) "</title>
+                <title xml:lang="en" srophe:tags="#syriaca-headword" xml:id="name51-1">"Jeremiah (Peshitta Jeremiah composed of Jeremiah, Prayer of Jeremiah, and Lamentations) "</title>
                 <title xml:lang="en" source="#bib51-1 #bib51-7" xml:id="name51-2">Jeremiah, according to the Peshitta version</title>
                 <title xml:lang="en" source="#bib51-3" xml:id="name51-3">The book of Jeremiah, including the Lamentations, and the Prayer of Jeremiah, (Lament. ch. v.), according to the Peshitta version.</title>
                 <title xml:lang="syr" type="final-rubric" source="#bib51-3" xml:id="name51-4">ܘ:ܘ .ܫܠܡ ܠܡܟܬܒ ܢܒܝܘܬܗ ܕܐܪܡܝܐ ܢܒܝܐ</title>
@@ -262,7 +262,7 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/51" passive="http://syriaca.org/work/9568"/>
                     <relation type="part" active="http://syriaca.org/work/51" ref="dcterms:isPartOf" passive="http://syriaca.org/work/69" source="#bib51-5" xml:id="relation51-1">
                         <desc>
-                            <label type="order" subtype="part" n="15" source="#bib51-5">part 15</label>
+                            <tei:label type="order" subtype="part" n="15" source="#bib51-5">part 15</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

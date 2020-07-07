@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change8-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
@@ -113,10 +113,10 @@
     <text>
         <body>
             <bibl xml:id="work-8" type="lawd:ConceptualWork">
-                <title xml:id="name8-1" xml:lang="en" syriaca-tags="#syriaca-headword">Ruth (Peshitta version)</title>
-                <title xml:id="name8-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib8-1">ܣܦܪܐ ܕܪܥܘܬ ܡܘܐܒܝܬܐ</title>
+                <title xml:id="name8-1" xml:lang="en" srophe:tags="#syriaca-headword">Ruth (Peshitta version)</title>
+                <title xml:id="name8-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib8-1">ܣܦܪܐ ܕܪܥܘܬ ܡܘܐܒܝܬܐ</title>
                 <title xml:id="name8-3" xml:lang="syr" source="#bib8-1">ܟܬܒܐ ܕܪܥܘܬ ܡܘܐܒܝܬܐ</title>
-                <title xml:id="name8-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib8-10 #bib8-15">Ruth</title>
+                <title xml:id="name8-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib8-10 #bib8-15">Ruth</title>
                 <title xml:id="name8-4" xml:lang="en" source="#bib8-10 #bib8-15">Ruth</title>
                 <title xml:lang="en" xml:id="name8-5" source="#bib8-17">The book of Ruth, according to the Peshitta version</title>
                 <title xml:lang="syr" xml:id="name8-6" source="#bib8-17">ܟܬܒܐ ܕܪܥܘܬ</title>
@@ -293,9 +293,9 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/8" passive="http://syriaca.org/work/9651"/>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/8" passive="http://syriaca.org/work/48" xml:id="relation8-1" source="#bib8-15 #bib8-17">
                         <desc>
-                            <label type="order" subtype="book" n="1">book 1</label>
-                            <label type="order" subtype="part" n="1" source="#bib8-15">part 1</label>
-                            <label type="order" subtype="part" n="8" source="#bib8-17">part 8</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="1">book 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib8-15">part 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="8" source="#bib8-17">part 8</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

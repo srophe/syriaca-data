@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change22-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
@@ -113,9 +113,9 @@
     <text>
         <body>
             <bibl xml:id="work-22" type="lawd:ConceptualWork">
-                <title xml:id="name22-1" xml:lang="en" syriaca-tags="#syriaca-headword">Song of Songs (Peshitta version)</title>
-                <title xml:id="name22-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib22-1">ܣܦܪܐ ܕܬܫܒܚܬ ܬܫܒ̈ܚܬܐ</title>
-                <title xml:id="name22-3" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib22-9">Song</title>
+                <title xml:id="name22-1" xml:lang="en" srophe:tags="#syriaca-headword">Song of Songs (Peshitta version)</title>
+                <title xml:id="name22-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib22-1">ܣܦܪܐ ܕܬܫܒܚܬ ܬܫܒ̈ܚܬܐ</title>
+                <title xml:id="name22-3" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib22-9">Song</title>
                 <title xml:id="name22-4" xml:lang="en" type="abbreviation" source="#bib22-9">Cant</title>
                 <title xml:id="name22-5" xml:lang="en" source="#bib22-9 #bib22-14">Song of Songs</title>
                 <title xml:id="name22-6" xml:lang="en" source="#bib22-9">Song of Solomon</title>
@@ -287,8 +287,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/22" passive="http://syriaca.org/work/9539"/>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/22" passive="http://syriaca.org/work/69" xml:id="relation22-1" source="#bib22-14 #bib22-16">
                         <desc>
-                            <label type="order" subtype="part" n="10" source="#bib22-14">part 10</label>
-                            <label type="order" subtype="part" n="9" source="#bib22-16">part 9</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="10" source="#bib22-14">part 10</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="9" source="#bib22-16">part 9</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

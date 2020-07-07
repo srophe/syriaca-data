@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -101,6 +100,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change50-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
@@ -110,8 +110,8 @@
     <text>
         <body>
             <bibl xml:id="work-50" type="lawd:ConceptualWork">
-                <title xml:id="name50-1" xml:lang="en" syriaca-tags="#syriaca-headword">The Twelve Minor Prophets (Peshitta version)</title>
-                <title xml:id="name50-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib50-1">ܟܬܒܐ ܕܬܪ̈ܥܣܪ ܢܒ̈ܝܝܢ</title>
+                <title xml:id="name50-1" xml:lang="en" srophe:tags="#syriaca-headword">The Twelve Minor Prophets (Peshitta version)</title>
+                <title xml:id="name50-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib50-1">ܟܬܒܐ ܕܬܪ̈ܥܣܪ ܢܒ̈ܝܝܢ</title>
                 <title xml:id="name50-3" xml:lang="syr" type="final-rubric" source="#bib50-1">ܫܠܡ ܟܬܒܐ ܕܬܪ̈ܥܣܪ ܢܒ̈ܝܝܢ܀</title>
                 <title xml:id="name50-4" xml:lang="syr" source="#bib50-18">ܟܬܒܐ ܕܬܪ̈ܥܣܪ ܢܒܝ̈ܐ</title>
                 <title xml:lang="en" xml:id="name50-5" source="#bib50-10">Fragments of the twelve minor Prophets, according to the Peshitta version</title>
@@ -315,8 +315,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/50" passive="http://syriaca.org/work/9567"/>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/50" passive="http://syriaca.org/work/69" xml:id="relation50-1" source="#bib50-12 #bib50-14">
                         <desc>
-                            <label type="order" subtype="part" n="14" source="#bib50-12">part 14</label>
-                            <label type="order" subtype="part" n="2" source="#bib50-14">part 2</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="14" source="#bib50-12">part 14</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="2" source="#bib50-14">part 2</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

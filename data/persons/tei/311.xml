@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -154,6 +152,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-09+01:00">Changed @xml:lang 'en-xsrp1' to 'en-x-srp1'</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#jwalters" when="2016-08-08-04:00">Moved headword back to GEDSH name</change>
@@ -174,7 +173,7 @@
         <body>
             <listPerson>
                 <person xml:id="person-311" ana="#syriaca-author">
-                    <persName xml:id="name311-1" xml:lang="en-x-gedsh" source="#bib311-1" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name311-1" xml:lang="en-x-gedsh" source="#bib311-1" srophe:tags="#syriaca-headword">
                         <forename sort="1">ʿAbdishoʿ</forename>
                         <addName type="untagged-title" sort="2">of Gazarta</addName>
                     </persName>
@@ -186,7 +185,7 @@
                         <forename sort="1">عبد يشوع</forename>
                         <addName type="untagged-title" sort="2">اسقف الجزيرة</addName>
                     </persName>
-                    <persName xml:id="name311-4" xml:lang="syr" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name311-4" xml:lang="syr" resp="http://syriaca.org" srophe:tags="#syriaca-headword">
                         <forename sort="1">ܥܒܕܝܫܘܥ</forename>
                         <addName type="untagged-title" sort="2">ܕܓܙܪܬܐ</addName>
                     </persName>
@@ -210,10 +209,10 @@
                         <forename sort="1">ܥܒܕܝܫܘܥ</forename>
                         <roleName type="office" sort="2">ܡܝܛܪܦܘܠܝܛܐ ܕܓܙܪܬܐ</roleName>
                     </persName>
-                    <persName xml:id="name311-6" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Abdisho of Gazarta</persName>
-                    <persName xml:id="name311-7" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">‘Abdisho‘ of Gazarta</persName>
-                    <persName xml:id="name311-8" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Abd Yeshu of the Jazira</persName>
-                    <persName xml:id="name311-9" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">‘Abd Yeshu‘ of the Jazira</persName>
+                    <persName xml:id="name311-6" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">Abdisho of Gazarta</persName>
+                    <persName xml:id="name311-7" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">‘Abdisho‘ of Gazarta</persName>
+                    <persName xml:id="name311-8" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">Abd Yeshu of the Jazira</persName>
+                    <persName xml:id="name311-9" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">‘Abd Yeshu‘ of the Jazira</persName>
                     <persName xml:lang="fr" xml:id="name311-14" source="#bib311-6">
                         <forename>‘Abdishô‘</forename>
                         <addName type="untagged-title">de Gâzarta</addName>
@@ -229,7 +228,7 @@
                         <forename>‘Abdîshô‘</forename>
                     </persName>
                     <persName xml:lang="en" xml:id="name311-18">ʿAbdishoʿ IV John of Gazarta</persName>
-                    <persName xml:id="name311-19" xml:lang="en" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name311-19" xml:lang="en" srophe:tags="#syriaca-headword">
                         <forename sort="1">ʿAbdishoʿ</forename>
                         <addName type="untagged-title" sort="2">of Gazarta</addName>
                     </persName>

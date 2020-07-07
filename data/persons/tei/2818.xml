@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:syriaca="http://syriaca.org" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -116,6 +114,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Add relations and attestations for saints-overlap.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-08-05:00">Create English headword from Gedesh headword.</change>
@@ -127,12 +126,12 @@
         <body>
             <listPerson>
                 <person xml:id="person-2818">
-                    <persName xml:id="name2818-0" xml:lang="en" syriaca-tags="#syriaca-headword"/>
-                    <persName xml:lang="syr" resp="http://syriaca.org" syriaca-tags="#syriaca-headword" xml:id="name2818-1">
+                    <persName xml:id="name2818-0" xml:lang="en" srophe:tags="#syriaca-headword"/>
+                    <persName xml:lang="syr" resp="http://syriaca.org" srophe:tags="#syriaca-headword" xml:id="name2818-1">
                         <forename sort="1">ܐܝܫܝ</forename>
                         <roleName sort="2" type="office">ܩܫܝܫܐ ܘܡܠܦܢܐ</roleName>
                     </persName>
-                    <persName xml:lang="en" resp="http://syriaca.org" syriaca-tags="#syriaca-headword #syriaca-anglicized" xml:id="name2818-2">
+                    <persName xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword #syriaca-anglicized" xml:id="name2818-2">
                         <forename sort="1">Jesse</forename>, <roleName sort="2" type="office">priest and doctor</roleName>
                     </persName>
                     <persName xml:lang="syr" source="#bib2818-3" xml:id="name2818-3">
@@ -163,7 +162,7 @@
                     <floruit notBefore="0500" notAfter="0600" source="#bib2818-3">mid-6th century</floruit>
                     <death notBefore="0570" source="#bib2818-3">after 570</death>
                     <state type="confession" ref="http://syriaca.org/documentation/confessions.xml#church-of-the-east" source="#bib2818-3">
-                        <label>Church of the East</label>
+                        <tei:label>Church of the East</tei:label>
                     </state>
                     <event type="attestation" xml:id="attestation2818-1" source="bib2818-1">
                         <p xml:lang="en">

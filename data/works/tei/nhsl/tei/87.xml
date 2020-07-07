@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change87-3">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change87-2">Merged in data from [duplicate record with same URI].</change>
@@ -117,10 +117,10 @@
     <text>
         <body>
             <bibl xml:id="work-87" type="lawd:ConceptualWork">
-                <title xml:id="name87-1" xml:lang="en" syriaca-tags="#syriaca-headword">2 Timothy (Peshitta version)</title>
-                <title xml:id="name87-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib87-1">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܛܝܡܬܐܘܣ ܕܬܪܬܝܢ</title>
+                <title xml:id="name87-1" xml:lang="en" srophe:tags="#syriaca-headword">2 Timothy (Peshitta version)</title>
+                <title xml:id="name87-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib87-1">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܛܝܡܬܐܘܣ ܕܬܪܬܝܢ</title>
                 <title xml:id="name87-3" xml:lang="syr" source="#bib87-1">ܐܓܪܬܐ ܕܠܘܬ ܛܝܡܬܐܘܣ ܕܬܪ̈ܬܝܢ</title>
-                <title xml:id="name87-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib87-5">2 Tim</title>
+                <title xml:id="name87-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib87-5">2 Tim</title>
                 <title xml:id="name87-5" xml:lang="en" source="#bib87-5 #bib87-21 #bib87-25 #bib87-27 #bib87-29 #bib87-31 #bib87-33 #bib87-37 #bib87-39 #bib87-43 #bib87-45 #bib87-49">2 Timothy</title>
                 <title xml:id="name87-6" xml:lang="syr-Syrj" source="#bib87-4">ܐܶܓܰܪܬܳܐ ܕܦܰܘܠܳܘܣ ܕܰܠܘܳܬ ܛܺܝܡܳܬܶܐܳܘܣ ܕܬܰܪܬܶܝܢ</title>
                 <title xml:lang="syr" type="final-rubric" xml:id="name87-7" source="#bib87-21">ܫܠܡ̣ܬ ܐܓܪܬܐ ܕܠܘܬ ܛܝܡܬܐܘܣ ܕܬܪܬܝܢ ܕܗܘ̣ܐ ܐܦܣܩܘܦܐ ܩܕܡܝܐ ܒܥܕܬܐ ܕܐܦܣܘܣ. ܕܐܬܟ̣ܬܒܬ݂ ܡܢ ܪܗܘܡܐ. ܟܕ ܙܒ̣ܢܬܐ ܕܬܪܬܝܢ ܩܡ ܦܘܠܘܣ ܩܕܡ ܢܐܪܘܢ ܩܣܪ. ܘܐܫ̣ܬܕܪܬ݂ ܒܝܕ ܠܘܩܐ ܬܠܡܝܕܗ. ܕܐܝܬ ܒܗ̇ ܦܬܓܡ̈ܐ ܡܐܬܝܢ ܘܬܠܬܝ̣ܢ ܘܫܬܐ .ܘ:ܘ.</title>
@@ -797,9 +797,9 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/87" passive="http://syriaca.org/work/9604"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation87-1" active="http://syriaca.org/work/87" passive="http://syriaca.org/work/159" source="#bib87-21 #bib87-23 #bib87-25 #bib87-27 #bib87-29 #bib87-31 #bib87-33 #bib87-39 #bib87-41 #bib87-43 #bib87-45 #bib87-47 #bib87-49 #bib87-35 #bib87-37">
                         <desc>
-                            <label type="order" subtype="book" n="11" source="#bib87-21 #bib87-23 #bib87-25 #bib87-27 #bib87-29 #bib87-31 #bib87-33 #bib87-39 #bib87-41 #bib87-43 #bib87-45 #bib87-47 #bib87-49">11</label>
-                            <label type="order" subtype="part" n="6" source="#bib87-35">6</label>
-                            <label type="order" subtype="part" n="10" source="#bib87-37">10</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="11" source="#bib87-21 #bib87-23 #bib87-25 #bib87-27 #bib87-29 #bib87-31 #bib87-33 #bib87-39 #bib87-41 #bib87-43 #bib87-45 #bib87-47 #bib87-49">11</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="6" source="#bib87-35">6</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="10" source="#bib87-37">10</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

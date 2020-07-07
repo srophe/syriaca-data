@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:syriaca="http://syriaca.org" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -92,6 +91,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-05+02:00">Added part-whole relations based on corresponding branch texts</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-29+02:00">CREATED: work</change>
         </revisionDesc>
@@ -99,16 +99,16 @@
     <text>
         <body>
             <bibl xml:id="work-9526" type="syriaca:LiteraryTradition">
-                <title xml:id="name9526-1" xml:lang="en" syriaca-tags="#syriaca-headword">1 Samuel (literary tradition)</title>
-                <title xml:id="name9526-2" xml:lang="syr" syriaca-tags="#syriaca-headword">ܣܦܪܐ ܕܫܡܘܐܝܠ ܢܒܝܐ ܩܕܡܝܐ</title>
+                <title xml:id="name9526-1" xml:lang="en" srophe:tags="#syriaca-headword">1 Samuel (literary tradition)</title>
+                <title xml:id="name9526-2" xml:lang="syr" srophe:tags="#syriaca-headword">ܣܦܪܐ ܕܫܡܘܐܝܠ ܢܒܝܐ ܩܕܡܝܐ</title>
                 <idno type="URI">http://syriaca.org/work/9526</idno>
                 <textLang mainLang="syr"/>
                 <listRelation>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/9526" passive="http://syriaca.org/work/9635">
                         <desc>
-                            <label type="order" subtype="book" n="1">book 1</label>
-                            <label type="order" subtype="part" n="2">part 2</label>
-                            <label type="order" subtype="part" n="1">part 1</label>
+                            <tei:label type="order" subtype="book" n="1">book 1</tei:label>
+                            <tei:label type="order" subtype="part" n="2">part 2</tei:label>
+                            <tei:label type="order" subtype="part" n="1">part 1</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

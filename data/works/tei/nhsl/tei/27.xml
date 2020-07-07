@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change27-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
@@ -113,10 +113,10 @@
     <text>
         <body>
             <bibl xml:id="work-27" type="lawd:ConceptualWork">
-                <title xml:id="name27-1" xml:lang="en" syriaca-tags="#syriaca-headword">Daniel (SBL)</title>
-                <title xml:id="name27-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib27-1 #bib27-2">ܣܦܪܐ ܕܕܢܝܐܠ ܢܒܝܐ</title>
+                <title xml:id="name27-1" xml:lang="en" srophe:tags="#syriaca-headword">Daniel (SBL)</title>
+                <title xml:id="name27-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib27-1 #bib27-2">ܣܦܪܐ ܕܕܢܝܐܠ ܢܒܝܐ</title>
                 <title xml:id="name27-3" xml:lang="syr" source="#bib27-1">ܢܒܝܘܬܗ ܕܕܢܝܐܠ ܢܒܝܐ</title>
-                <title xml:id="name27-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib27-8">Dan</title>
+                <title xml:id="name27-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib27-8">Dan</title>
                 <title xml:id="name27-5" xml:lang="en" source="#bib27-8 #bib27-15">Daniel</title>
                 <title xml:lang="en" xml:id="name27-6" source="#bib27-13">The book of Daniel, according to the Peshitta version.</title>
                 <title xml:lang="syr" xml:id="name27-7" source="#bib27-13">ܢܒܝܘܬܗ ܕܕܢܝܐܝܠ</title>
@@ -273,8 +273,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/27" passive="http://syriaca.org/work/9570"/>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/27" passive="http://syriaca.org/work/53" xml:id="relation27-1" source="#bib27-13 #bib27-15">
                         <desc>
-                            <label type="order" subtype="book" n="1">book 1</label>
-                            <label type="order" subtype="part" n="1" source="#bib27-13 #bib27-15">part 1</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="1">book 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib27-13 #bib27-15">part 1</tei:label>
                         </desc>
                     </relation>
                 </listRelation>
