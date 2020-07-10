@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change88-3">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change88-2">Merged in data from [duplicate record with same URI].</change>
@@ -117,10 +117,10 @@
     <text>
         <body>
             <bibl xml:id="work-88" type="lawd:ConceptualWork">
-                <title xml:id="name88-1" xml:lang="en" syriaca-tags="#syriaca-headword">Titus (Peshitta version)</title>
-                <title xml:id="name88-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib88-1">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܛܝܛܘܣ</title>
+                <title xml:id="name88-1" xml:lang="en" srophe:tags="#syriaca-headword">Titus (Peshitta version)</title>
+                <title xml:id="name88-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib88-1">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܛܝܛܘܣ</title>
                 <title xml:id="name88-3" xml:lang="syr" source="#bib88-1">ܐܓܪܬܐ ܕܠܘܬ ܛܛܘܣ</title>
-                <title xml:id="name88-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib88-5">Titus</title>
+                <title xml:id="name88-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib88-5">Titus</title>
                 <title xml:id="name88-5" xml:lang="en" source="#bib88-5 #bib88-22 #bib88-26 #bib88-28 #bib88-30 #bib88-32 #bib88-34 #bib88-36 #bib88-40 #bib88-42 #bib88-46 #bib88-48 #bib88-52">Titus</title>
                 <title xml:id="name88-6" xml:lang="syr-Syrj" source="#bib88-4">ܐܶܓܰܪܬܳܐ ܕܦܰܘܠܳܘܣ ܕܰܠܘܳܬ ܛܺܛܳܘܣ</title>
                 <title xml:lang="syr" type="final-rubric" xml:id="name88-7" source="#bib88-22">ܫܠܡ̣ܬ ܐܓܪܬܐ ܕܠܘܬ ܛܛܘܣ ܕܗ̣ܘ ܩܕܡܝܐ ܗܘ̣ܐ ܐܦܣܩܦܐ ܕܥܕܬܐ ܕܩܪܛܐ. ܕܐܬܟܬܒܬ݂ ܡܢ ܢܝܩܦܘܠܝܣ. ܒܝܕ ܐܪܛܡܐ ܬܠܡܝܕܗ. ܕܐܝܬ ܒܗ̇ ܦܬ̈ܓܡܐ ܡܐܐ ܘܐܪܒܥܝ̣ܢ ܘܬܫܥܐ .ܘ:ܘ.</title>
@@ -833,14 +833,14 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/88" passive="http://syriaca.org/work/9605"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation88-1" active="http://syriaca.org/work/88" passive="http://syriaca.org/work/159" source="#bib88-22 #bib88-24 #bib88-26 #bib88-28 #bib88-30 #bib88-32 #bib88-36 #bib88-42 #bib88-44 #bib88-46 #bib88-48 #bib88-50 #bib88-52 #bib88-34 #bib88-38 #bib88-40">
                         <desc>
-                            <label type="order" subtype="book" n="12" source="#bib88-22 #bib88-24 #bib88-26 #bib88-28 #bib88-30 #bib88-32 #bib88-36 #bib88-42 #bib88-44 #bib88-46 #bib88-48 #bib88-50 #bib88-52">12</label>
-                            <label type="order" subtype="part" n="7" source="#bib88-38">7</label>
-                            <label type="order" subtype="part" n="11" source="#bib88-40">11</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="12" source="#bib88-22 #bib88-24 #bib88-26 #bib88-28 #bib88-30 #bib88-32 #bib88-36 #bib88-42 #bib88-44 #bib88-46 #bib88-48 #bib88-50 #bib88-52">12</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="7" source="#bib88-38">7</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="11" source="#bib88-40">11</tei:label>
                         </desc>
                     </relation>
                     <relation type="part" ref="syriaca:sometimesCirculatesWith" xml:id="relation88-2" active="http://syriaca.org/work/88" passive="http://syriaca.org/work/210" source="#bib88-34">
                         <desc>
-                            <label type="order" subtype="part" n="1" source="#bib88-34">1</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib88-34">1</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

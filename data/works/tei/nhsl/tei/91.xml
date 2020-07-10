@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change91-3">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change91-2">Merged in data from [duplicate record with same URI].</change>
@@ -117,9 +117,9 @@
     <text>
         <body>
             <bibl xml:id="work-91" type="lawd:ConceptualWork">
-                <title xml:id="name91-1" xml:lang="en" syriaca-tags="#syriaca-headword">James (Peshitta version)</title>
-                <title xml:id="name91-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib91-1 #bib91-21">ܐܓܪܬܐ ܕܝܥܩܘܒ ܫܠܝܚܐ</title>
-                <title xml:id="name91-3" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib91-5">Jas</title>
+                <title xml:id="name91-1" xml:lang="en" srophe:tags="#syriaca-headword">James (Peshitta version)</title>
+                <title xml:id="name91-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib91-1 #bib91-21">ܐܓܪܬܐ ܕܝܥܩܘܒ ܫܠܝܚܐ</title>
+                <title xml:id="name91-3" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib91-5">Jas</title>
                 <title xml:id="name91-4" xml:lang="en" source="#bib91-5 #bib91-27 #bib91-29 #bib91-31">James</title>
                 <title xml:id="name91-5" xml:lang="syr-Syrj" source="#bib91-4">ܐܶܓܰܪܬܳܐ ܕܝܰܥܩܘܽܒ ܫܠܺܝܚܳܐ</title>
                 <title xml:lang="en" xml:id="name91-6" source="#bib91-21 #bib91-23 #bib91-25 #bib91-35 #bib91-37 #bib91-39 #bib91-41 #bib91-43 #bib91-45 #bib91-47">The Epistle of S. James</title>
@@ -738,15 +738,15 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/91" passive="http://syriaca.org/work/9702"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation91-1" active="http://syriaca.org/work/91" passive="http://syriaca.org/work/160" source="#bib91-21 #bib91-23 #bib91-25 #bib91-27 #bib91-31 #bib91-33 #bib91-35 #bib91-37 #bib91-39 #bib91-41 #bib91-43 #bib91-45 #bib91-47 #bib91-29 #bib91-49">
                         <desc>
-                            <label type="order" subtype="book" n="1">book 1</label>
-                            <label type="order" subtype="part" n="1" source="#bib91-21 #bib91-23 #bib91-25 #bib91-27 #bib91-31 #bib91-33 #bib91-35 #bib91-37 #bib91-39 #bib91-41 #bib91-43 #bib91-45 #bib91-47">part 1</label>
-                            <label type="order" subtype="part" n="3" source="#bib91-29">part 3</label>
-                            <label type="order" subtype="part" n="2" source="#bib91-49">part 2</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="1">book 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib91-21 #bib91-23 #bib91-25 #bib91-27 #bib91-31 #bib91-33 #bib91-35 #bib91-37 #bib91-39 #bib91-41 #bib91-43 #bib91-45 #bib91-47">part 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="3" source="#bib91-29">part 3</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="2" source="#bib91-49">part 2</tei:label>
                         </desc>
                     </relation>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation91-2" active="http://syriaca.org/work/91" passive="http://syriaca.org/work/10513" source="#bib91-53">
                         <desc>
-                            <label type="order" subtype="book" n="2" source="#bib91-53">2</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="2" source="#bib91-53">2</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

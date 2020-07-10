@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -101,6 +100,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change66-2">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-17+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change66-1">Merged in data from [duplicate record with same URI].</change>
@@ -113,8 +113,8 @@
     <text>
         <body>
             <bibl xml:id="work-66" type="lawd:ConceptualWork">
-                <title xml:id="name66-1" xml:lang="en" syriaca-tags="#syriaca-headword">Epistle of Baruch (Peshitta version)</title>
-                <title xml:id="name66-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib66-1">ܐܓܪܬܐ ܕܒܪܘܟ ܣܦܪܐ</title>
+                <title xml:id="name66-1" xml:lang="en" srophe:tags="#syriaca-headword">Epistle of Baruch (Peshitta version)</title>
+                <title xml:id="name66-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib66-1">ܐܓܪܬܐ ܕܒܪܘܟ ܣܦܪܐ</title>
                 <title xml:id="name66-3" xml:lang="syr" source="#bib66-1">ܐܓܪܬܐ ܕܒܪܘܟ ܣܦܪܐ ܕܫܕܪ ܡ̣ܢ ܐܘܪܫܠܡ ܠܒܒܝܠ</title>
                 <title xml:id="name66-4" xml:lang="syr" source="#bib66-4">ܐܓܪܬܐ ܩܕܡܝܬܐ ܕܒܪܘܟ ܣܦܪܐ ܕܫܕܪ ܡܢ ܓܘ ܐܘܪܫܠܡ ܠܒܒܠ</title>
                 <title xml:lang="en" xml:id="name66-5" source="#bib66-16">The first epistle of Baruch</title>
@@ -366,8 +366,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/66" passive="http://syriaca.org/work/9583"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation66-1" active="http://syriaca.org/work/66" passive="http://syriaca.org/work/65" source="#bib66-18 #bib66-20 #bib66-22">
                         <desc>
-                            <label type="order" subtype="book" n="1">book 1</label>
-                            <label type="order" subtype="part" n="1" source="#bib66-18 #bib66-20 #bib66-22">part 1</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="1">book 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib66-18 #bib66-20 #bib66-22">part 1</tei:label>
                         </desc>
                     </relation>
                     <relation type="disambiguation" ref="syriaca:different-from" xml:id="relation66-2" active="http://syriaca.org/work/66" passive="http://syriaca.org/work/67">

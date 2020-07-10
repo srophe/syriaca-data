@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change14-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
@@ -113,10 +113,10 @@
     <text>
         <body>
             <bibl xml:id="work-14" type="lawd:ConceptualWork">
-                <title xml:id="name14-1" xml:lang="en" syriaca-tags="#syriaca-headword">2 Chronicles (Peshitta version)</title>
-                <title xml:id="name14-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib14-1">ܣܦܪܐ ܬܪܝܢ ܕܒܪܝܡܝܢ</title>
+                <title xml:id="name14-1" xml:lang="en" srophe:tags="#syriaca-headword">2 Chronicles (Peshitta version)</title>
+                <title xml:id="name14-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib14-1">ܣܦܪܐ ܬܪܝܢ ܕܒܪܝܡܝܢ</title>
                 <title xml:id="name14-3" xml:lang="syr" source="#bib14-1">ܦܠܓܘܬܐ ܬܪܝܢܝܬܐ ܕܣܦܪ ܕܒܪܝܡܝܢ</title>
-                <title xml:id="name14-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib14-9">2 Chr</title>
+                <title xml:id="name14-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib14-9">2 Chr</title>
                 <title xml:id="name14-5" xml:lang="en" source="#bib14-9">2 Chronicles</title>
                 <title xml:lang="en" xml:id="name14-6" source="#bib14-14">2nd Chronicles</title>
                 <title xml:lang="en" xml:id="name14-7" source="#bib14-16">The second book of Chronicles, according to the Peshitta version.</title>
@@ -282,8 +282,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/14" passive="http://syriaca.org/work/9531"/>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/14" passive="http://syriaca.org/work/46" xml:id="relation14-1" source="#bib14-14 #bib14-16">
                         <desc>
-                            <label type="order" subtype="book" n="2">book 2</label>
-                            <label type="order" subtype="part" n="2" source="#bib14-14 #bib14-16">part 2</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="2">book 2</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="2" source="#bib14-14 #bib14-16">part 2</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

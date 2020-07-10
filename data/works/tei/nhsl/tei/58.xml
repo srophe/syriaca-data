@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change58-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
@@ -113,9 +113,9 @@
     <text>
         <body>
             <bibl xml:id="work-58" type="lawd:ConceptualWork">
-                <title xml:id="name58-1" xml:lang="en" syriaca-tags="#syriaca-headword">Sirach/Ecclesiasticus (Peshitta version)</title>
-                <title xml:id="name58-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib58-1">ܣܦܪܐ ܕܝܫܘܥ ܒܪ ܐܣܝܪܐ</title>
-                <title xml:id="name58-3" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib58-9">Sir</title>
+                <title xml:id="name58-1" xml:lang="en" srophe:tags="#syriaca-headword">Sirach/Ecclesiasticus (Peshitta version)</title>
+                <title xml:id="name58-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib58-1">ܣܦܪܐ ܕܝܫܘܥ ܒܪ ܐܣܝܪܐ</title>
+                <title xml:id="name58-3" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib58-9">Sir</title>
                 <title xml:id="name58-4" xml:lang="en" source="#bib58-9">Sirach</title>
                 <title xml:id="name58-5" xml:lang="en" source="#bib58-9">Ecclesiasticus</title>
                 <title xml:lang="en" xml:id="name58-6" source="#bib58-15">The book of Ecclesiasticus, or the Wisdom of Jesus son of Sirach</title>
@@ -324,8 +324,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/58" passive="http://syriaca.org/work/9575"/>
                     <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/58" passive="http://syriaca.org/work/69" xml:id="relation58-1" source="#bib58-17 #bib58-19">
                         <desc>
-                            <label type="order" subtype="part" n="20" source="#bib58-17">part 20</label>
-                            <label type="order" subtype="part" n="6" source="#bib58-19">part 6</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="20" source="#bib58-17">part 20</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="6" source="#bib58-19">part 6</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

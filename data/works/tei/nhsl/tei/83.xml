@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change83-3">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change83-2">Merged in data from [duplicate record with same URI].</change>
@@ -117,10 +117,10 @@
     <text>
         <body>
             <bibl xml:id="work-83" type="lawd:ConceptualWork">
-                <title xml:id="name83-1" xml:lang="en" syriaca-tags="#syriaca-headword">Colossians (Peshitta version)</title>
-                <title xml:id="name83-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib83-1">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܩܘܠ̈ܣܝܐ</title>
+                <title xml:id="name83-1" xml:lang="en" srophe:tags="#syriaca-headword">Colossians (Peshitta version)</title>
+                <title xml:id="name83-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib83-1">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܩܘܠ̈ܣܝܐ</title>
                 <title xml:id="name83-3" xml:lang="syr" source="#bib83-1">ܐܓܪܬܐ ܕܠܘܬ ܩܘܠܣܝ̈ܐ</title>
-                <title xml:id="name83-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib83-5">Col</title>
+                <title xml:id="name83-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib83-5">Col</title>
                 <title xml:id="name83-5" xml:lang="en" source="#bib83-5 #bib83-21 #bib83-25 #bib83-27 #bib83-29 #bib83-31 #bib83-33 #bib83-35 #bib83-37 #bib83-39 #bib83-43 #bib83-45 #bib83-49">Colossians</title>
                 <title xml:id="name83-6" xml:lang="syr-Syrj" source="#bib83-4">ܐܶܓܰܪܬܳܐ ܕܦܰܘܠܳܘܣ ܕܰܠܘܳܬ ܩܘܽܠܰܣܳܝ̈ܶܐ</title>
                 <title xml:lang="syr" type="final-rubric" xml:id="name83-7" source="#bib83-21">ܫܠܡ̣ܬ ܐܓܪܬܐ ܕܠܘܬ ܩܘ̈ܠܣܝܐ ܕܐܬܟܬ݂ܒܬ ܡܢ ܪܗܘܡܐ. ܘܐܫܬܕܪܬ݂ ܒܝܕ ܛܘܟܝܩܘܣ ܘܐܢܘܣܝܡܘܣ. ܕܐܝܬ ܒܗ̇ ܦܬܓ̈ܡܐ̇ ܡܐܬܝܢ ܘܐܪܒܥܝ̣ܢ ܘܬܠܬܐ .ܘ:ܘ.</title>
@@ -799,8 +799,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/83" passive="http://syriaca.org/work/9600"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation83-1" active="http://syriaca.org/work/83" passive="http://syriaca.org/work/159" source="#bib83-21 #bib83-23 #bib83-25 #bib83-27 #bib83-31 #bib83-33 #bib83-35 #bib83-39 #bib83-41 #bib83-43 #bib83-45 #bib83-47 #bib83-49 #bib83-29 #bib83-37">
                         <desc>
-                            <label type="order" subtype="book" n="7" source="#bib83-21 #bib83-23 #bib83-25 #bib83-27 #bib83-31 #bib83-33 #bib83-35 #bib83-39 #bib83-41 #bib83-43 #bib83-45 #bib83-47 #bib83-49">7</label>
-                            <label type="order" subtype="part" n="6" source="#bib83-37">6</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" n="7" source="#bib83-21 #bib83-23 #bib83-25 #bib83-27 #bib83-31 #bib83-33 #bib83-35 #bib83-39 #bib83-41 #bib83-43 #bib83-45 #bib83-47 #bib83-49">7</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="6" source="#bib83-37">6</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

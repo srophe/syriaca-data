@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -115,6 +113,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-12-09+01:00">Changed @xml:lang 'en-xsrp1' to 'en-x-srp1'</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-08-05:00">Create English headword from Gedesh headword.</change>
@@ -128,11 +127,11 @@
         <body>
             <listPerson>
                 <person xml:id="person-906" ana="#syriaca-author">
-                    <persName xml:id="name906-0" xml:lang="en" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name906-0" xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword">
                         <forename sort="1">Daniel</forename>
                         <addName type="untagged-title" sort="2">of Reshʿayna</addName>
                     </persName>
-                    <persName xml:id="name906-1" corresp="#name906-2 #name906-3 #name906-4" xml:lang="syr" source="#bib906-1" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name906-1" corresp="#name906-2 #name906-3 #name906-4" xml:lang="syr" source="#bib906-1" srophe:tags="#syriaca-headword">
                         <forename sort="1">ܕܢܝܐܝܠ</forename>
                         <addName type="untagged-title" sort="2">ܕܪܫܥܝܢܐ</addName>
                     </persName>
@@ -148,12 +147,12 @@
                         <forename sort="1">ܕܳܢܺܝܶܐܠ</forename>
                         <addName type="untagged-title" sort="2">ܕܪܺܝܫܥܰܝܢܳܐ</addName>
                     </persName>
-                    <persName xml:id="name906-5" xml:lang="en-x-gedsh" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">
+                    <persName xml:id="name906-5" xml:lang="en-x-gedsh" resp="http://syriaca.org" srophe:tags="#syriaca-headword">
                         <forename sort="1">Daniel</forename>
                         <addName type="untagged-title" sort="2">of Reshʿayna</addName>
                     </persName>
-                    <persName xml:id="name906-6" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Daniel of Reshayna</persName>
-                    <persName xml:id="name906-7" xml:lang="en-x-srp1" syriaca-tags="#syriaca-simplified-script">Daniel of Resh‘ayna</persName>
+                    <persName xml:id="name906-6" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">Daniel of Reshayna</persName>
+                    <persName xml:id="name906-7" xml:lang="en-x-srp1" srophe:tags="#syriaca-simplified-script">Daniel of Resh‘ayna</persName>
                     <note xml:lang="en" type="abstract" xml:id="abstract-en-906"/>
                     <idno type="URI">http://syriaca.org/person/906</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_906</idno>

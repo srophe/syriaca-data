@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -153,6 +151,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#jwalters" when="2016-07-20-04:00">Standardized anonymous record, marked as group</change>
             <change who="http://syriaca.org/documentation/editors.xml#jwalters" when="2016-06-23-04:00">Standardized anonymous record in title and headword</change>
@@ -167,12 +166,12 @@
         <body>
             <listPerson>
                 <person xml:id="saint-2141" ana="#syriaca-saint">
-                    <persName xml:id="name2141-1" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib2141-1">ܒܬܘܠܬܐ ܘܡܓܝܣܛܪܝܢܘܣ</persName>
+                    <persName xml:id="name2141-1" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib2141-1">ܒܬܘܠܬܐ ܘܡܓܝܣܛܪܝܢܘܣ</persName>
                     <persName xml:id="name2141-2" xml:lang="en-x-gedsh">Bthūltā w-Magīsṭrīyānōs</persName>
-                    <persName xml:id="name2141-3" xml:lang="en" syriaca-tags="#anonymous-description">Virgin and the Magistrinus</persName>
+                    <persName xml:id="name2141-3" xml:lang="en" srophe:tags="#anonymous-description">Virgin and the Magistrinus</persName>
                     <persName xml:id="name2141-4" xml:lang="fr-x-zanetti" source="#bib2141-1">bṯūlṯā w-Magīsṭrīyānōs</persName>
                     <persName xml:id="name2141-5" xml:lang="fr" source="#bib2141-1">Vierge  et le magistrien</persName>
-                    <persName xml:id="name2141-6" xml:lang="en" resp="http://syriaca.org" syriaca-tags="#syriaca-headword">Anonymi 2141</persName>
+                    <persName xml:id="name2141-6" xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword">Anonymi 2141</persName>
                     <idno type="URI">http://syriaca.org/person/2141</idno>
                     <note xml:lang="en" type="abstract" xml:id="abstract-en-2141" source="#bib2141-1" subtype="auto-formatted">
                         <persName ref="http://syriaca.org/person/2141">Anonymi 2141</persName> is
@@ -180,7 +179,7 @@
             (text)</title>, a work surviving in at least 4 manuscripts including <bibl type="MSS" xml:id="witness3">ms Lady Meux 6</bibl>.</note>
                     <state type="group" source="#bib2141-1"/>
                     <trait xml:lang="en">
-                        <label>anonymous</label>
+                        <tei:label>anonymous</tei:label>
                     </trait>
                     <event type="attestation" xml:id="attestation2141-1" source="#bib2141-1">
                         <p xml:lang="en">

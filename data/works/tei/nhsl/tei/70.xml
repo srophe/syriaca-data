@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -101,6 +100,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change70-2">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change70-1">Merged in data from [duplicate record with same URI].</change>
@@ -112,8 +112,8 @@
     <text>
         <body>
             <bibl xml:id="work-70" type="lawd:ConceptualWork">
-                <title xml:id="name70-1" xml:lang="en" syriaca-tags="#syriaca-headword">New Testament (Peshitta version)</title>
-                <title xml:id="name70-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib70-1">ܟܬܒܐ ܕܕܝܬܩܐ ܚ̇ܕܬܐ</title>
+                <title xml:id="name70-1" xml:lang="en" srophe:tags="#syriaca-headword">New Testament (Peshitta version)</title>
+                <title xml:id="name70-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib70-1">ܟܬܒܐ ܕܕܝܬܩܐ ܚ̇ܕܬܐ</title>
                 <title xml:id="name70-3" xml:lang="syr" source="#bib70-1">ܟܬܒܐ ܕܐܘܢܓܠܝܘܢ ܩܕܝܫܐ</title>
                 <title xml:id="name70-4" xml:lang="en" source="#bib70-2 #bib70-25">New Testament</title>
                 <title xml:lang="en" xml:id="name70-5">The Peshitta New Testament (Peshitta version)</title>
@@ -745,7 +745,7 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/70" passive="http://syriaca.org/work/9587"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation70-1" active="http://syriaca.org/work/70" passive="http://syriaca.org/manuscript/753#a1" source="#bib70-33">
                         <desc>
-                            <label type="order" subtype="part" n="2" source="#bib70-33">part 2</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="2" source="#bib70-33">part 2</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -101,6 +100,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change163-1">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-03+02:00">Added relation to literary tradition</change>
@@ -112,8 +112,8 @@
     <text>
         <body>
             <bibl xml:id="work-163" type="lawd:ConceptualWork">
-                <title xml:lang="en" xml:id="name163-1" syriaca-tags="#syriaca-headword">Mark (Harqlean version)</title>
-                <title xml:lang="syr" xml:id="name163-4" syriaca-tags="#syriaca-headword">ܐܘܐܢܓܐܠܝܘܢ ܩܕܝܫܐ ܕܡܪܩܘܣ (ܕܚܪܩܠܝܛܐ)</title>
+                <title xml:lang="en" xml:id="name163-1" srophe:tags="#syriaca-headword">Mark (Harqlean version)</title>
+                <title xml:lang="syr" xml:id="name163-4" srophe:tags="#syriaca-headword">ܐܘܐܢܓܐܠܝܘܢ ܩܕܝܫܐ ܕܡܪܩܘܣ (ܕܚܪܩܠܝܛܐ)</title>
                 <title xml:lang="syr" xml:id="name163-5" source="#bib163-6">ܐܘܐܢܓܐܠܝܘܢ ܩܕܝܫܐ ܕܡܪܩܘܣ</title>
                 <title xml:lang="en" xml:id="name163-2" source="#bib163-1">The Gospel of S. Mark, according to the Harklensian version</title>
                 <title xml:lang="en" xml:id="name163-6" source="#bib163-17">S. Mark</title>
@@ -310,7 +310,7 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/163" passive="http://syriaca.org/work/9647"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation163-1" active="http://syriaca.org/work/163" passive="http://syriaca.org/work/161" source="#bib163-2">
                         <desc>
-                            <label type="order" subtype="book" source="#bib163-2" n="2">2</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="book" source="#bib163-2" n="2">2</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

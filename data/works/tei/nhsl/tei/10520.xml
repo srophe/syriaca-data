@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -100,14 +99,15 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-20+02:00">CREATED: work</change>
         </revisionDesc>
     </teiHeader>
     <text>
         <body>
             <bibl xml:id="work-10520" type="lawd:ConceptualWork">
-                <title xml:id="name10520-1" xml:lang="en" syriaca-tags="#syriaca-headword">Pauline Epistles (Harqlean version)</title>
-                <title xml:id="name10520-2" xml:lang="syr" syriaca-tags="#syriaca-headword">ܐܓܪ̈ܬܐ ܕܦܘܠܘܣ</title>
+                <title xml:id="name10520-1" xml:lang="en" srophe:tags="#syriaca-headword">Pauline Epistles (Harqlean version)</title>
+                <title xml:id="name10520-2" xml:lang="syr" srophe:tags="#syriaca-headword">ܐܓܪ̈ܬܐ ܕܦܘܠܘܣ</title>
                 <title xml:id="name10520-3" xml:lang="syr">ܐܓܪ̈ܬܐ ܕܦܘܠܘܣ ܫܠܝܚܐ</title>
                 <title xml:lang="en" xml:id="name10520-4">The Epistles of Paul</title>
                 <idno type="URI">http://syriaca.org/work/10520</idno>
@@ -187,7 +187,7 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/10520" passive="http://syriaca.org/work/9643"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation10520-1" active="http://syriaca.org/work/10520" passive="http://syriaca.org/work/10519">
                         <desc>
-                            <label type="order" subtype="collection" n="3">3</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="collection" n="3">3</tei:label>
                         </desc>
                     </relation>
                 </listRelation>

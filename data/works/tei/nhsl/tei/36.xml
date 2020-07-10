@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -104,6 +103,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="uncorrected-draft">
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change36-2">Merged in data from [duplicate record with same URI].</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-17+02:00">CREATED: work [duplicate record with same URI]</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change36-1">Merged in data from [duplicate record with same URI].</change>
@@ -115,10 +115,10 @@
     <text>
         <body>
             <bibl xml:id="work-36" type="lawd:ConceptualWork">
-                <title xml:id="name36-1" xml:lang="en" syriaca-tags="#syriaca-headword">Haggai (Peshitta version)</title>
-                <title xml:id="name36-2" xml:lang="syr" syriaca-tags="#syriaca-headword" source="#bib36-1">ܣܦܪܐ ܕܚܓܝ ܢܒܝܐ</title>
+                <title xml:id="name36-1" xml:lang="en" srophe:tags="#syriaca-headword">Haggai (Peshitta version)</title>
+                <title xml:id="name36-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib36-1">ܣܦܪܐ ܕܚܓܝ ܢܒܝܐ</title>
                 <title xml:id="name36-3" xml:lang="syr" source="#bib36-1">ܢܒܝܘܬܗ ܕܚܓܝ ܢܒܝܐ</title>
-                <title xml:id="name36-4" xml:lang="en" type="abbreviation" syriaca-tags="#canonical" source="#bib36-10">Hag</title>
+                <title xml:id="name36-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib36-10">Hag</title>
                 <title xml:id="name36-5" xml:lang="en" source="#bib36-10">Haggai</title>
                 <title xml:lang="en" xml:id="name36-6" source="#bib36-15">Haggai, ch. i. 1—11, according to the Peshitta version</title>
                 <title xml:lang="en" xml:id="name36-7" source="#bib36-17">Haggai, according to the Peshitta version.</title>
@@ -299,8 +299,8 @@
                     <relation ref="skos:broadMatch" active="http://syriaca.org/work/36" passive="http://syriaca.org/work/9553"/>
                     <relation type="part" ref="dcterms:isPartOf" xml:id="relation36-1" active="http://syriaca.org/work/36" passive="http://syriaca.org/work/50" source="#bib36-15 #bib36-17">
                         <desc>
-                            <label type="order" subtype="part" n="1" source="#bib36-15">part 1</label>
-                            <label type="order" subtype="part" n="4" source="#bib36-17">part 4</label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="1" source="#bib36-15">part 1</tei:label>
+                            <tei:label xmlns:tei="http://www.tei-c.org/ns/1.0" type="order" subtype="part" n="4" source="#bib36-17">part 4</tei:label>
                         </desc>
                     </relation>
                 </listRelation>
