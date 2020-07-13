@@ -1,0 +1,784 @@
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" type="main"> John of Ephesus, Simeon and Sergius, in the Lives of the Eastern
+                    Saints</title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The National Endowment for the Humanities</funder>
+                <funder>Texas A&amp;M University</funder>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ktorabi">Katayoun Torabi</editor>
+                <respStmt>
+                    <resp>Data architecture, data entry, editing, proofreading, and revision
+                        by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L.
+                        Schwartz</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#ktorabi">Katayoun
+                        Torabi</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="1.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/spear/797/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/"><p>Distributed under a Creative Commons Attribution 3.0 Unported
+                            License.</p></licence>
+                </availability>
+                <date>2020-01-03-05:00</date>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear</idno>
+            </seriesStmt>
+            <seriesStmt>
+                <title level="m" xml:lang="en">The Lives of the Eastern Saints</title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear/lives-eastern-saints</idno>
+                <biblScope unit="volume">
+                    <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                    <idno type="URI">http://syriaca.org/spear</idno>
+                </biblScope>
+            </seriesStmt>
+            <sourceDesc>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary"><title>Lives of the Eastern Saints I</title><title>Simeon
+                            and Sergius</title><author><persName ref="http://syriaca.org/person/74">John of Ephesus</persName></author><editor><persName ref="http://syriaca.org/person/403">E. W.
+                            Brooks</persName></editor><ptr target="http://syriaca.org/bibl/1409"/></bibl>
+                    <bibl type="primary"><title>Simeon and Sergius</title><author><persName ref="http://syriaca.org/person/74">John of
+                            Ephesus</persName></author><ptr target="http://syriaca.org/work/797"/></bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/797" name="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p><!-- POINT USERS TO WIKI DOCUMENTATION WHEN COMPLETED. --></p>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="calculated">
+                        <catDesc> Used to denote a date calculated by the editor from a regnal year
+                            or some other dating method given in the text. </catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc/>
+        <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#srophe-util" when="2020-01-03-05:00">CHANGED: Add a human readable version or the tei:relation element in a tei:desc.</change><change who="http://syriaca.org/documentation/editors.xml#ktorabi http://syriaca.org/documentation/editors.xml#rdurmaz http://syriaca.org/documentation/editors.xml#nelder http://syriaca.org/documentation/editors.xml#jfalconer http://syriaca.org/documentation/editors.xml#rtrupiano http://syriaca.org/documentation/editors.xml#jwickes" status="draft">Initial data collected by Katayoun Torabi.</change>
+        </revisionDesc>
+    </teiHeader>
+    <text><!-- MAKE SURE THAT PERSON URIS THAT APPEAR IN THIS DOCUMENT ARE IN SBD. -->
+        <body>
+            <div type="factoid" subtype="event" xml:id="factoid-1" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-1</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/asceticism http://syriaca.org/keyword/stylites">
+                        <desc><persName ref="http://syriaca.org/person/2095">Simeon</persName> was a
+                            recluse who lived in a walled monastery. He spent much of his time
+                            standing on a wall in order to fulfill two purposes: seclusion and the
+                            entertainment of strangers. He began living as a recluse in <date when="0483" calendar="Gregorian"> 483. </date></desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">84-86</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">84-86</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-2" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-2</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/2095"> Simeon </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">84-85</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">84-85</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="gender" xml:id="factoid-3" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-3</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/2095"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2095">Simeon</persName>was male.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">84-85</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">84-85</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-4" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-4</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/2095"/>
+                        <occupation ana="http://syriaca.org/keyword/monastic-heads"><note type="desc"><persName ref="http://syriaca.org/person/2095">Simeon</persName>was an archimandrite.</note></occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">84-85</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">84-85</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="sanctity" xml:id="factoid-5" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-5</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/2095"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2095">Simeon</persName>was a saint.</note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">84-85</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">84-85</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="sanctity" xml:id="factoid-6" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-6</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/2095"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/hermits">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2095">Simeon</persName> was a recluse.</note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">84-85</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">84-85</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-7" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-7</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/asceticism http://syriaca.org/keyword/fasting http://syriaca.org/keyword/chartiy http://syriaca.org/keyword/prayer http://syriaca.org/keyword/hospitality">
+                        <desc> Whenever a stranger came to <persName ref="http://syriaca.org/person/2095">Simeon</persName>'s door, he
+                            would demonstrate great hospitality and feast with his guest as if he
+                            were Christ. However, when he was not in the presence of strangers
+                            seeking shelter, he fasted for up to ten days at a time and dedicated
+                            his efforts to praying all day and most of the night, rarely sleeping
+                            more than two hours a night. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">87-88</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">87-88</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-8" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-8</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/death">
+                        <desc> After serving God for forty-seven years,<persName ref="http://syriaca.org/person/2095">Simeon</persName> died. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">88</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">88</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-9" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-9</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/asceticism http://syriaca.org/keyword/monasicism http://syriaca.org/keyword/teaching http://syriaca.org/keyword/monks">
+                        <desc><persName ref="http://syriaca.org/person/3154">Sergius</persName>, who
+                            was the disciple of <persName ref="http://syriaca.org/person/2095">Simeon</persName>was also a monk and a recluse, who lived an
+                            aescetic life in an enclosure. In order to avoid idleness, <persName ref="http://syriaca.org/person/2095">Simeon</persName> and <persName ref="http://syriaca.org/person/3154">Sergius</persName> taught young
+                            boys and infants from their enclosure through a window. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">89-90</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">89-90</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-10" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-10</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"> Sergius </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">89</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">89</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="gender" xml:id="factoid-11" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-11</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName>was male.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">89</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">89</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-12" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-12</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <occupation ana="http://syriaca.org/keyword/monks"><note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName>was a monk.</note></occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">89</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">89</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="sanctity" xml:id="factoid-13" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-13</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName>was a saint.</note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">89</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">89</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="sanctity" xml:id="factoid-14" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-14</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/hermits">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName>was a recluse.</note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">89</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">89</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-15" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-15</idno>
+                <listRelation>
+                    <relation name="syriaca:MonasticHeadOver" active="http://syriaca.org/person/2095" passive="http://syriaca.org/person/3154"><desc><persName ref="http://syriaca.org/person/2095">Simeon</persName> was a monastic authority over <persName ref="http://syriaca.org/person/3154">Sergius</persName>.</desc></relation>
+                </listRelation>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">89</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">89</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-16" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-16</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/asceticism http://syriaca.org/keyword/monasticism http://syriaca.org/keyword/hermits http://syriaca.org/keyword/students">
+                        <desc> After twenty years, <persName ref="http://syriaca.org/person/3154">Sergius</persName> received permission from <persName ref="http://syriaca.org/person/2095">Simeon</persName> to leave the
+                            monastery and shut himself up in a certain place close to the village.
+                        </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">90-91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">90-91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-17" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-17</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/anti-Jewish http://syriaca.org/keyword/arson">
+                        <desc>Before <persName ref="http://syriaca.org/person/3154">Sergius</persName> shut himself away, he contended with <persName ref="http://syriaca.org/person/3686">Jews</persName> in the village
+                            by upbraiding them and burning down their synagogue with the help of
+                                <persName ref="http://syriaca.org/person/3698">twenty
+                                disciples</persName>.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">90-91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">90-91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-18" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-18</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3686"> The Jews who were harassed
+                            by <persName ref="http://syriaca.org/person/3154">Sergius</persName></persName>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">90-91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">90-91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-19" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-19</idno>
+                <listRelation>
+                    <relation name="snap:EnmityFor" active="http://syriaca.org/person/3154" passive="http://syriaca.org/person/3686"><desc><persName ref="http://syriaca.org/person/3154">Sergius</persName> had enmity for <persName ref="http://syriaca.org/person/3686">Anonymi 3686</persName>.</desc></relation>
+                </listRelation>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">90-91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">90-91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-20" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-20</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3698"> Disciples of <persName ref="http://syriaca.org/person/3154">Sergius</persName> who assisted
+                            him in burning down the synagogue of the <persName ref="http://syriaca.org/person/3686">Jews</persName></persName>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">90-91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">90-91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="gender" xml:id="factoid-21" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-21</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3698"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3698">
+                                    Anonymi 3698 </persName> were male.</note>
+                        </trait>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">90-91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">90-91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-22" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-22</idno>
+                <listRelation>
+                    <relation name="syriaca:StudentOf" active="http://syriaca.org/person/3698" passive="http://syriaca.org/person/3154"><desc><persName ref="http://syriaca.org/person/3698">Anonymous 3698</persName> studied under <persName ref="http://syriaca.org/person/3154">Sergius</persName>.</desc></relation>
+                </listRelation>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">90-91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">90-91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-23" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-23</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/arson http://syriaca.org/keyword/persecution http://syriaca.org/keyword/anti-Jewish">
+                        <desc><persName ref="http://syriaca.org/person/3687">Members of the church
+                                of <placeName ref="http://syriaca.org/place/2737">Amida</placeName></persName>defended the <persName ref="http://syriaca.org/person/3686">Jews</persName> and prefered
+                            accusation against <persName ref="http://syriaca.org/person/3154">Sergius</persName> and <persName ref="http://syriaca.org/person/3698">Anonymi 3698</persName>.
+                        </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-24" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-24</idno>
+                <listRelation>
+                    <relation name="snap:AllianceWith" mutual="http://syriaca.org/person/3686 http://syriaca.org/person/3687"><desc><persName ref="http://syriaca.org/person/3686">Anonymi 3686</persName> and <persName ref="http://syriaca.org/person/3687">Anonymi 3687</persName> formed an alliance.</desc></relation>
+                </listRelation>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">91</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">91</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-25" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-25</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/religious-conflict http://syriaca.org/keyword/arson http://syriaca.org/keyword/anti-Jewish">
+                        <desc><persName ref="http://syriaca.org/person/3154">Sergius</persName> and
+                                <persName ref="http://syriaca.org/person/3698">Anonymi
+                                3698</persName>put out the fire and built a martyr's chapel on the
+                            site of the synagogue. <persName ref="http://syriaca.org/person/3686">Anonymi 3686</persName> burned down the huts in response and
+                                <persName ref="http://syriaca.org/person/3154">Sergius</persName>
+                            rebuilt them.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">91-92</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">91-92</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-26" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-26</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/religious-conflict http://syriaca.org/keyword/arson http://syriaca.org/keyword/anti-Jewish">
+                        <desc><persName ref="http://syriaca.org/person/3154">Sergius</persName> and
+                                <persName ref="http://syriaca.org/person/3698">Anonymi
+                                3698</persName>tore down the synagogue that <persName ref="http://syriaca.org/person/3686">Anonymi 3686</persName> rebuilt
+                            two more times before <persName ref="http://syriaca.org/person/3154">Sergius</persName> secluded himself in an enclosure.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">92-93</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">92-93</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-27" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-27</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/illness http://syriaca.org/keyword/asceticism">
+                        <desc>Over the next forty years <persName ref="http://syriaca.org/person/3154">Sergius</persName> grew ill and
+                            frail in his enclosure.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">93-94</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">93-94</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-28" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-28</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/illness http://syriaca.org/keyword/affective-piety http://syriaca.org/keyword/blessing http://syriaca.org/keyword/prayer http://syriaca.org/keyword/tears">
+                        <desc><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName> visited <persName ref="http://syriaca.org/person/3154">Sergius</persName>in his later
+                            years and received a blessing from him as he wept over what he stated
+                            was his unworthiness to serve Christ. <persName ref="http://syriaca.org/person/3154">Sergius</persName>continued to
+                            receive visitors in his old age, despite his illness.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">94</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">94</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="mentalState" xml:id="factoid-29" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-29</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <state type="mental" ana="http://syriaca.org/keyword/affective-piety http://syriaca.org/keyword/tears">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName> wept violently about what he said was his
+                                unworthiness to serve Christ </note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">94</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">94</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="physicalTrait" xml:id="factoid-30" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-30</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <trait type="physical" ana="http://syriaca.org/keyword/illness">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName> was ill and frail towards the end of his
+                                life. </note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">93-94</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">93-94</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-31" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-31</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/persecution http://syriaca.org/keyword/anathema">
+                        <desc>The supporters of the synod of Chalcedon used troops to expell people
+                            from their homes, and to arrest, imprison, plunder, torture, and kill
+                            those who did not support the synod. The persecutors then turned their
+                            attention to <persName ref="http://syriaca.org/person/3154">Sergius</persName>, first using honeyed words and then threats when
+                            he refused to leave his enclosure. <persName ref="http://syriaca.org/person/3154">Sergius</persName> anathemized
+                            the persecutors as they pulled him out of his enclosure and expelled him
+                            from the community. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">95-97</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">95-97</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-32" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-32</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/council-of-chalcedon-451 http://syriaca.org/keyword/persecution http://syriaca.org/keyword/exile">
+                        <desc><persName ref="http://syriaca.org/person/3154">Sergius</persName> set
+                            out to visit <persName ref="http://syriaca.org/person/1885">Maro the
+                                stylite</persName>, whom the synod supporters left alone until
+                                <persName ref="http://syriaca.org/person/3688">a certain
+                                bishop</persName> visited him and tried unsuccessfully to convert
+                            him to the Chalcedonian heresy.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">98-99</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">98-99</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-33" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-33</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3688"> A certain bishop who visted <persName ref="http://syriaca.org/person/1885">Maro the stylite</persName> to convert him to the Chalcedonian heresy
+                        </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">98-99</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">98-99</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="gender" xml:id="factoid-34" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-34</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3688"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3688">
+                                    Anonymous 3688 </persName> was male.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">98-99</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">98-99</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-35" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-35</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3688"/>
+                        <occupation ana="http://syriaca.org/keyword/bishops"><note type="desc"><persName ref="http://syriaca.org/person/3688">Anonymous
+                                    3688</persName> was a bishop. </note></occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">98-99</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">98-99</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-36" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-36</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1885"> Maro the stylite </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">98-99</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">98-99</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="gender" xml:id="factoid-37" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-37</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1885"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1885"> Maro
+                                </persName> was male.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">98-99</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">98-99</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-38" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-38</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1885"/>
+                        <occupation ana="http://syriaca.org/keyword/monastic-heads"><note type="desc"><persName ref="http://syriaca.org/person/1885">Maro</persName> was an archimandrite. </note></occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">98-99</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">98-99</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-39" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-39</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/exile http://syriaca.org/keyword/persecution http://syriaca.org/keyword/expulsion http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/tears">
+                        <desc><persName ref="http://syriaca.org/person/3154">Sergius</persName> was
+                            greatly distressed by the treatment of believers by the persecutors and
+                            wept unceasingly in the presence of <persName ref="http://syriaca.org/person/1885">Maro</persName>, who had given
+                            him refuge. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">99-100</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">99-100</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="mentalState" xml:id="factoid-40" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-40</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <state type="mental" ana="http://syriaca.org/keyword/tears http://syriaca.org/keyword/exile">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName> was greatly distressed by the treatment of
+                                believers by the persecutors and wept unceasingly in the presence of
+                                    <persName ref="http://syriaca.org/person/1885">Maro</persName>,
+                                who had given him refuge. </note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">99-100</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">99-100</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-41" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-41</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/anathema http://syriaca.org/keyword/religious-disputes http://syriaca.org/keyword/violence http://syriaca.org/keyword/persecution">
+                        <desc><persName ref="http://syriaca.org/person/3154">Sergius</persName>
+                            received a blessing from <persName ref="http://syriaca.org/person/1885">Maro</persName> and then set out to visit the churh in <placeName ref="http://syriaca.org/place/8">Amida</placeName>. <persName ref="http://syriaca.org/person/3154">Sergius</persName> walked into
+                            the church in <placeName ref="http://syriaca.org/place/8">Amida</placeName>, carrying a cross, and planted his cross on the
+                            chancel steps before seizing the preacher, <persName ref="http://syriaca.org/person/3184">Bishop Abraham</persName>, by
+                            the neck and throwing him to the ground. <persName ref="http://syriaca.org/person/3154">Sergius</persName> mounted the
+                            steps and addressed the crowd: “Cursed are the renegades; cursed are the
+                            persecutors; cursed is the synod of Chaledon, and whosoever assents to
+                            it. Cursed is every soul that receives the oblation from you and assents
+                            to your opinion unless he repents.” The crowd, a mixture of believers
+                            and synod supporters, responded with praise and anger.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">101-103</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">101-103</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-42" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-42</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3184"> Abraham, bishop of
+                                <placeName ref="http://syriaca.org/place/2737">Amida</placeName></persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">101-103</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">101-103</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="gender" xml:id="factoid-43" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-43</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3184"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3184">
+                                    Abraham </persName> was male.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">101-103</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">101-103</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-44" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-44</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3184"/>
+                        <occupation ana="http://syriaca.org/keyword/bishops"><note type="desc"><persName ref="http://syriaca.org/person/3184">Abraham</persName> was a bishop. </note></occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">101-103</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">101-103</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-45" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-45</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/religous-conflict http://syriaca.org/keyword/violence http://syriaca.org/keyword/imprisonment http://syriaca.org/keyword/torture http://syriaca.org/keyword/martyrdom http://syriaca.org/keyword/asceticism">
+                        <desc><persName ref="http://syriaca.org/person/3184">Abraham</persName>
+                            calmed the angry mob and sent them away by telling them that he would
+                            examine <persName ref="http://syriaca.org/person/3154">Sergius</persName> inside the church. Once inside, <persName ref="http://syriaca.org/person/3184">Abraham</persName> and
+                                <persName ref="http://syriaca.org/person/3689">Anonymi 3689</persName> beat <persName ref="http://syriaca.org/person/3154">Sergius</persName> severely before shaving off his hair, which
+                            marked his ascetic profession, and putting him in irons in order to
+                            transport him to the <placeName ref="http://syriaca.org/place/2867">monastery of 'Tryz</placeName>.</desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">103-104</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">103-104</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-46" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-46</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3689"> The men who assisted
+                                <persName ref="http://syriaca.org/person/3184">Abraham</persName> in
+                            beating <persName ref="http://syriaca.org/person/3154">Sergius</persName></persName>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">103-104</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">103-104</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="gender" xml:id="factoid-47" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-47</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3689"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3689">
+                                    Anonymi 3689 </persName> were male.</note>
+                        </trait>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">103-104</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">103-104</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-48" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-48</idno>
+                <listRelation>
+                    <relation name="snap:AllianceWith" mutual="http://syriaca.org/person/3184 http://syriaca.org/person/3689"><desc><persName ref="http://syriaca.org/person/3184">Abraham</persName> and <persName ref="http://syriaca.org/person/3689">Anonymous 3689</persName> formed an alliance.</desc></relation>
+                </listRelation>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">103-104</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">103-104</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-49" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-49</idno>
+                <listRelation>
+                    <relation name="snap:EnmityFor" active="http://syriaca.org/person/3184 http://syriaca.org/person/3689" passive="http://syriaca.org/person/3154"><desc><persName ref="http://syriaca.org/person/3184">Abraham</persName> and <persName ref="http://syriaca.org/person/3689">Anonymous 3689</persName> had enmity for <persName ref="http://syriaca.org/person/3154">Sergius</persName>.</desc></relation>
+                </listRelation>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">103-104</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">103-104</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="physicalTrait" xml:id="factoid-50" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-50</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/2095"/>
+                        <trait type="physical" ana="http://syriaca.org/keyword/ascetic http://syriaca.org/keyword/anchorite http://syriaca.org/keyword/hair http://syriaca.org/keyword/habit">
+                            <note type="desc"><persName ref="http://syriaca.org/person/2095">Simeon</persName> had long hair that marked his ascetic
+                                profession and wore a habit that marked him as an anchorite. </note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">104</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">104</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="physicalTrait" xml:id="factoid-51" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-51</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <trait type="physical" ana="http://syriaca.org/keyword/hair">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName> had long hair that marked his ascetic
+                                profession and wore a habit that marked him as an anchorite. </note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">104</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">104</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-52" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-52</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/prison http://syriaca.org/keyword/torture http://syriaca.org/keyword/escape">
+                        <desc><persName ref="http://syriaca.org/person/3154">Sergius</persName> was
+                            confined on the third floor in the middle of the <placeName ref="http://syriaca.org/place/2867">monastery of 'Tryz</placeName>
+                            and tortured. After some time, <persName ref="http://syriaca.org/person/3154">Sergius</persName> managed to
+                            escape by slipping out of his irons and jumping from the third-floor
+                            window. <persName ref="http://syriaca.org/person/3154">Sergius</persName> returned to <persName ref="http://syriaca.org/person/2095">Simeon</persName> and received
+                            permission to build a monastery in the settlement of <placeName ref="http://syriaca.org/place/2836">Qlwfyte</placeName>. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">105-106</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">105-106</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-53" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-53</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/monasteries http://syriaca.org/keyword/religious-conflict http://syriaca.org/keyword/asceticism http://syriaca.org/keyword/death">
+                        <desc>Shortly after <persName ref="http://syriaca.org/person/3154">Sergius</persName> established the <placeName ref="http://syriaca.org/place/2837">monastery of
+                            Qlwfyte</placeName>, his adversaries came to pull it down. <persName ref="http://syriaca.org/person/3154">Sergius</persName> told his
+                            enemies that he would rebuild it each time it was destroyed, so they
+                            finally left him alone. <persName ref="http://syriaca.org/person/3154">Sergius</persName> rebuilt the <placeName ref="http://syriaca.org/place/2837">monastery of Qlwfyte</placeName>
+                            and invited <persName ref="http://syriaca.org/person/2095">Simeon</persName> to stay with him. <persName ref="http://syriaca.org/person/3154">Sergius</persName> died after
+                            Simeon's arrival. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">106-108</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">106-108</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="deathPlace" xml:id="factoid-54" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-54</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3154"/>
+                        <death><placeName ref="http://syriaca.org/place/2837"/><note type="desc"><persName ref="http://syriaca.org/person/3154">Sergius</persName> died in <placeName ref="http://syriaca.org/place/2837">the monastery of
+                                    Qlwfyte</placeName>. </note></death>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">108</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">108</citedRange></bibl>
+            </div>
+            <div type="factoid" subtype="deathPlace" xml:id="factoid-55" resp="#ktorabi">
+                <idno type="URI">http://syriaca.org/spear/797-55</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/2095"/>
+                        <death><placeName ref="http://syriaca.org/place/2837"/><note type="desc"><persName ref="http://syriaca.org/person/2095">Simeon</persName> died in <placeName ref="http://syriaca.org/place/2837">the monastery of
+                                    Qlwfyte.</placeName>. </note></death>
+                    </person>
+                </listPerson>
+                <bibl type="primary"><ptr target="http://syriaca.org/work/797"/><citedRange unit="pp">108</citedRange></bibl>
+                <bibl type="primary"><ptr target="http://syriaca.org/bibl/1409"/><citedRange unit="pp">108</citedRange></bibl>
+            </div>
+        </body>
+        <back>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl797-1"><title>Lives of the Eastern Saints
+                        I</title><title>Simeon and Sergius</title><author><persName ref="http://syriaca.org/person/74">John of
+                            Ephesus</persName></author><editor><persName ref="http://syriaca.org/person/403">E. W. Brooks</persName></editor><ptr target="http://syriaca.org/bibl/1409"/></bibl>
+                <bibl type="primary" xml:id="bibl797-2"><title>Simeon and
+                            Sergius</title><author><persName ref="http://syriaca.org/person/74">John
+                            of Ephesus</persName></author><ptr target="http://syriaca.org/work/797"/></bibl>
+            </listBibl>
+        </back>
+    </text>
+</TEI>

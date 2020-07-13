@@ -1,0 +1,509 @@
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" type="main">John of Ephesus, <title ref="http://syriaca.org/work/831">Abraham the Presbyter</title>, in <title>The Lives of the Eastern
+                    Saints</title></title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The National Endowment for the Humanities</funder>
+                <funder>Texas A&amp;M University</funder>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#egibes"
+                    >Elizabeth Gibes</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#sgross"
+                    >Simcha Gross</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ekeogh"
+                    >Edward Keogh</editor>
+                <respStmt>
+                    <resp>Data architecture, data entry, editing, proofreading, and revision
+                        by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#dschwartz"
+                       >Daniel L. Schwartz</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#egibes"
+                       >Elizabeth Gibes</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#sgross"
+                       >Simcha Gross</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#ekeogh"
+                       >Edward Keogh</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="1.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/spear/831/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported
+                            License.</p>
+                    </licence>
+                </availability>
+                <date>2020-01-03-05:00</date>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear</idno>
+            </seriesStmt>
+            <seriesStmt>
+                <title level="m" xml:lang="en">The Lives of the Eastern Saints</title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear/lives-eastern-saints</idno>
+                <biblScope unit="volume">
+                    <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                    <idno type="URI">http://syriaca.org/spear</idno>
+                </biblScope>
+            </seriesStmt>
+            <sourceDesc>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints II</title>
+                        <title>Abraham the Presbyter</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W.
+                                Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2032"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Abraham the Presbyter</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/831"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/831"
+                        name="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>The prosopographical data in this document was encoded from E. W.
+                    Brooks' edition and English translation of John of Ephesus’s Lives of the
+                    Eastern Saints, Patrologia Orientalis, volume 18, 1924. </p>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="calculated">
+                        <catDesc> Used to denote a date calculated by the editor from a regnal year
+                            given in the text. </catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc/>
+        <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#srophe-util"
+                when="2020-01-03-05:00" status="draft">CHANGED: Add a human readable version or the
+                tei:relation element in a tei:desc.</change>
+            <change
+                who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#ekeogh http://syriaca.org/documentation/editors.xml#egarret http://syriaca.org/documentation/editors.xml#egibes http://syriaca.org/documentation/editors.xml#mdebie http://syriaca.org/documentation/editors.xml#sgross http://syriaca.org/documentation/editors.xml #upossekel"
+                status="draft">Initial data collected by David A. Michelson, Muriel Debie, Eric
+                Garret, Elizabeth Gibes, Simcha Gross, and Ute Possekel at "Mapping Ancient Lives
+                &amp; Social Networks: A Digital Workshop," held at Marquette University, 23-24 May
+                2017.</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-1"
+                resp="#sgross #egibes #ekeogh">
+                <idno type="URI">http://syriaca.org/spear/831-1</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1554"> Abraham </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-2"
+                resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-2</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1554"> Abraham the Old Man </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-3"
+                resp="#sgross #egibes #ekeogh">
+                <idno type="URI">http://syriaca.org/spear/831-3</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1554"/>
+                        <occupation ana="http://syriaca.org/keyword/priests">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1554">Abraham</persName> was a presbyter. </note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="birthPlace" xml:id="factoid-4"
+                resp="#sgross #egibes #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-4</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1554"/>
+                        <birth>
+                            <placeName ref="http://syriaca.org/place/493"/>
+                            <note type="desc">
+                                <persName ref="http://syriaca.org/person/1554">Abraham</persName> 
+                                was born in <placeName ref="http://syriaca.org/place/493">Sophanene</placeName>, in the
+                                village of <placeName ref="http://syriaca.org/place/2756">Beth Rwmntʾ</placeName>. </note>
+                        </birth>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+                <note type="incerta"> District name filled based on the Life of Tribunus. Wording
+                    identical apart from "such-and-such." <bibl type="secondary">
+                        <ptr target="http://syriaca.org/work/835"/>
+                        <citedRange unit="pp"> 459</citedRange>
+                        <citedRange unit="pp"> 661</citedRange>
+                    </bibl></note>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-6"
+                resp="#sgross #egibes #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-6</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3270"> Zwtʾ </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-7" resp="#sgross #egibes #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-7</idno>
+                <listRelation>
+                    <relation name="snap:ChildOf" passive="http://syriaca.org/person/1554"
+                        active="http://syriaca.org/person/3270">
+                        <desc> <persName ref="http://syriaca.org/person/3270">Zwtʾ</persName> was the child of  <persName ref="http://syriaca.org/person/1554">Abraham the
+                                Priest</persName>.</desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-8"
+                resp="#sgross #egibes #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-8</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3270"/>
+                        <occupation ana="http://syriaca.org/keyword/presbyters">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3270">Zwtʾ</persName> was a presbyter. </note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="nameVariant" xml:id="factoid-9"
+                resp="#sgross #egibes #ekeogh">
+                <idno type="URI">http://syriaca.org/spear/831-9</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3204"> Daniel </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="occupation" xml:id="factoid-10"
+                resp="#sgross #egibes #ekeogh">
+                <idno type="URI">http://syriaca.org/spear/831-10</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3204"/>
+                        <occupation ana="http://syriaca.org/keyword/deacons">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3204"
+                                    >Daniel</persName> was a deacon. </note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="relation" xml:id="factoid-11"
+                resp="#sgross #egibes #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-11</idno>
+                <listRelation>
+                    <relation name="snap:ChildOfSiblingOf" passive="http://syriaca.org/person/1554"
+                        active="http://syriaca.org/person/3204">
+                        <desc><persName ref="http://syriaca.org/person/3204">Daniel</persName> was the child of the sibling of <persName ref="http://syriaca.org/person/1554">Abraham the
+                                Priest</persName>.</desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-12" resp="#sgross #egibes #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-12</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/monks http://syriaca.org/keyword/ascetism http://syriaca.org/keyword/monasticism http://syriaca.org/keyword/probation">
+                        <desc><persName ref="http://syriaca.org/person/1554">Abraham</persName>
+                            comes to <placeName ref="http://syriaca.org/place/586"
+                                >Constantinople</placeName> to petition <persName
+                                ref="http://syriaca.org/person/74">John of Ephesus</persName> to
+                            become a monk. He experiences a period of probation before being
+                            accepted. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">445</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">647</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-13" resp="#sgross #egibes #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-13</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/probation http://syriaca.org/keyword/monks http://syriaca.org/keyword/monasticism">
+                        <desc> After a period of some years, <persName
+                            ref="http://syriaca.org/person/3270">Zwtʾ</persName> and
+                                <persName ref="http://syriaca.org/person/3204">Daniel</persName>
+                            were also accepted as deacons </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">448</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">660</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-14" resp="#sgross #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-14</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/mission">
+                        <desc><persName ref="http://syriaca.org/person/1554">Abraham</persName>
+                            and <persName ref="http://syriaca.org/person/3270">Zwtʾ</persName> and <persName ref="http://syriaca.org/person/3204"
+                                >Daniel</persName> and <persName
+                                ref="http://syriaca.org/person/1533">Aaron</persName> and <persName
+                                ref="http://syriaca.org/person/1853">Leontius</persName> missionize
+                            in the district of <placeName ref="http://syriaca.org/place/2747"
+                                >Asia</placeName>. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">448</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">650</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="deathPlace" xml:id="factoid-15" resp="#sgross #ekeogh">
+                <idno type="URI">http://syriaca.org/spear/831-15</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3204"/>
+                        <death>
+                            <placeName ref="http://syriaca.org/place/2782"/>
+                            <note type="desc"><persName ref="http://syriaca.org/person/3204"
+                                    >Daniel</persName> died in <placeName ref="http://syriaca.org/place/2782">Gordiana the Monastery</placeName>. </note>
+                        </death>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">448</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">650</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="deathPlace" xml:id="factoid-16" resp="#sgross #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-16</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1554"/>
+                        <death>
+                            <placeName ref="http://syriaca.org/place/586"/>
+                            <note type="desc"><persName ref="http://syriaca.org/person/1554">Abraham</persName> died in <placeName
+                                    ref="http://syriaca.org/place/586">Constantinople</placeName>
+                                with <persName ref="http://syriaca.org/person/1533">Aaron</persName>
+                                and <persName ref="http://syriaca.org/person/1853"
+                                    >Leontius</persName>. </note>
+                        </death>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">448</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">650</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-17" resp="#sgross #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-17</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/priests">
+                        <desc><persName ref="http://syriaca.org/person/3270">Zwtʾ</persName>
+                            is promoted to Presbyter </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">449</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">651</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="event" xml:id="factoid-18" resp="#sgross #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-18</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/architecture">
+                        <desc> <persName ref="http://syriaca.org/person/3270">Zwtʾ</persName> restores the martyr chapel </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">449</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">651</citedRange>
+                </bibl>
+            </div>
+            <div type="factoid" subtype="deathPlace" xml:id="factoid-19" resp="#sgross #ekeogh #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/831-19</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3270"/>
+                        <death>
+                            <placeName ref="http://syriaca.org/place/586"/>
+                            <note type="desc"><persName ref="http://syriaca.org/person/3270">Zwtʾ</persName> dies and is buried along with his father in
+                                    <placeName ref="http://syriaca.org/place/586"
+                                    >Constantinople</placeName>. </note>
+                        </death>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/831"/>
+                    <citedRange unit="pp">449</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="pp">651</citedRange>
+                </bibl>
+            </div>
+        </body>
+        <back>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl831-1">
+                    <title>Lives of the Eastern Saints II</title>
+                    <title>Abraham the Presbyter</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of
+                        Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W.
+                        Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl831-2">
+                    <title>Abraham the Presbyter</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of
+                        Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/831"/>
+                </bibl>
+            </listBibl>
+        </back>
+    </text>
+</TEI>
