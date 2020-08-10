@@ -78,7 +78,7 @@
                     <xsl:for-each
                         select="collection(iri-to-uri(concat($dir, '?select=*.xml')))/TEI//listRelation/relation[@passive = 'http://syriaca.org/keyword/event-relationships']">
                         <uri>
-                            <xsl:apply-templates select="ancestor::entryFree/idno[@type = 'SPEAR']"/>
+                            <xsl:apply-templates select="ancestor::entryFree/idno[@type = 'URI']"/>
 
                         </uri>
                     </xsl:for-each>
