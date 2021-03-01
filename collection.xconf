@@ -1,30 +1,44 @@
-<collection xmlns="http://exist-db.org/collection-config/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <index xmlns:tei="http://www.tei-c.org/ns/1.0">
-        <fulltext default="none" attributes="no"/>
-        <!-- Full text search configuration  -->
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+    <index xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app">
         <lucene diacritics="no">
-            <!-- Does not currently search tei header info, other then title -->
-            <text qname="tei:body"/>
+            <module uri="http://srophe.org/srophe/facets" prefix="sf" at="xmldb:exist:////db/apps/srophe/modules/lib/facets.xql"/>
+            <text qname="tei:body">
+                <facet dimension="sex" expression="descendant::tei:person/tei:sex"/>
+                <facet dimension="literaryConnection" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'literaryConnection')"/>
+                <facet dimension="broadMatch" expression="descendant::tei:relation[@ref='skos:broadMatch']/@passive"/>
+                <facet dimension="bornAt" expression="descendant::tei:relation[@name='born-at']/@passive"/>
+                <facet dimension="series" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'series')"/>
+                <facet dimension="syriacaComputedStart" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'syriacaComputedStart')"/>
+                <facet dimension="office" expression="descendant::tei:person/tei:state[@type='office']/@role"/>
+                <facet dimension="unspecifiedConnection" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'unspecifiedConnection')"/>
+                <facet dimension="diedAt" expression="descendant::tei:relation[@name='died-at']/@passive"/>
+                <facet dimension="persNameLang" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'persNameLang')"/>
+                <facet dimension="type" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/geo/facet-def.xml', 'type')"/><!-- Predetermined sort fields -->
+                <field name="title" expression="sf:field(descendant-or-self::tei:body,'title')"/>
+                <field name="titleSyriac" expression="sf:field(descendant-or-self::tei:body, 'titleSyriac')"/>
+                <field name="titleArabic" expression="sf:field(descendant-or-self::tei:body, 'titleArabic')"/>
+                <field name="author" expression="sf:field(descendant-or-self::tei:body, 'author')"/>
+            </text>
+            <text qname="tei:fileDesc"/>
             <text qname="tei:biblStruct"/>
             <text qname="tei:div"/>
-            <text qname="tei:author" boost="2.0"/>
-            <text qname="tei:persName" boost="2.0"/>
-            <text qname="tei:placeName" boost="2.0"/>
-            <text qname="tei:title" boost="2.5"/>
+            <text qname="tei:author" boost="5.0"/>
+            <text qname="tei:persName" boost="5.0"/>
+            <text qname="tei:placeName" boost="5.0"/>
+            <text qname="tei:title" boost="10.5"/>
             <text qname="tei:location"/>
-            <text qname="tei:desc" boost="1.0"/>
+            <text qname="tei:desc" boost="2.0"/>
             <text qname="tei:event"/>
             <text qname="tei:note"/>
             <text qname="tei:term"/>
         </lucene>
-        
-        <!-- Range indexes -->
         <range>
             <create qname="@syriaca-computed-start" type="xs:date"/>
             <create qname="@syriaca-computed-end" type="xs:date"/>
             <create qname="@type" type="xs:string"/>
             <create qname="@ana" type="xs:string"/>
             <create qname="@syriaca-tags" type="xs:string"/>
+            <create qname="@srophe:tags" type="xs:string"/>
             <create qname="@when" type="xs:string"/>
             <create qname="@target" type="xs:string"/>
             <create qname="@who" type="xs:string"/>
@@ -36,6 +50,7 @@
             <create qname="@mutual" type="xs:string"/>
             <create qname="@name" type="xs:string"/>
             <create qname="@xml:lang" type="xs:string"/>
+            <create qname="@level" type="xs:string"/>
             <create qname="@status" type="xs:string"/>
             <create qname="tei:idno" type="xs:string"/>
             <create qname="tei:title" type="xs:string"/>
