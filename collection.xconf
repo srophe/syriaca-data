@@ -3,6 +3,7 @@
         <lucene diacritics="no">
             <module uri="http://srophe.org/srophe/facets" prefix="sf" at="xmldb:exist:////db/apps/srophe/modules/lib/facets.xql"/>
             <text qname="tei:body">
+                <!--
                 <facet dimension="sex" expression="descendant::tei:person/tei:sex"/>
                 <facet dimension="literaryConnection" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'literaryConnection')"/>
                 <facet dimension="broadMatch" expression="descendant::tei:relation[@ref='skos:broadMatch']/@passive"/>
@@ -13,7 +14,9 @@
                 <facet dimension="unspecifiedConnection" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'unspecifiedConnection')"/>
                 <facet dimension="diedAt" expression="descendant::tei:relation[@name='died-at']/@passive"/>
                 <facet dimension="persNameLang" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/persons/facet-def.xml', 'persNameLang')"/>
-                <facet dimension="type" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/geo/facet-def.xml', 'type')"/><!-- Predetermined sort fields -->
+                <facet dimension="type" expression="sf:facet(descendant-or-self::tei:body, '/db/apps/srophe/geo/facet-def.xml', 'type')"/>
+                -->
+                <!-- Predetermined sort fields -->
                 <field name="title" expression="sf:field(descendant-or-self::tei:body,'title')"/>
                 <field name="titleSyriac" expression="sf:field(descendant-or-self::tei:body, 'titleSyriac')"/>
                 <field name="titleArabic" expression="sf:field(descendant-or-self::tei:body, 'titleArabic')"/>
