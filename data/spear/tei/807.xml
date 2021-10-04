@@ -1,0 +1,624 @@
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/2008-08-31_SPEAR_updates/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/2008-08-31_SPEAR_updates/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" type="main">John of Ephesus, <title ref="http://syriaca.org/work/807">Two Monks</title>, in <title>The Lives of the Eastern Saints</title></title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The National Endowment for the Humanities</funder>
+                <funder>Texas A&amp;M University</funder>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tmcneir"
+                    >Taylor McNeir</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent"
+                    >Jeanne-Nicole Mellon Saint-Laurent</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#syoung"
+                    >Sam Young</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tbaillargeon"
+                    >Tara Baillargeon</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#rtrupiano"
+                    >Rose Trupiano</editor>
+                <respStmt>
+                    <resp>Data architecture, data entry, editing, proofreading, and revision
+                        by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#dschwartz"
+                        >Daniel L. Schwartz</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#tmcneir"
+                        >Taylor McNeir</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#tbaillargeon"
+                        >Tara Baillargeon</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent"
+                        >Jeanne-Nicole Mellon Saint-Laurent</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#syoung"
+                        >Samuel Young</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#rtrupiano"
+                        >Rose Trupiano</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="1.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/spear/807/tei</idno>
+                <!-- Add URI -->
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported
+                            License.</p>
+                    </licence>
+                </availability>
+                <date>2020-01-03-05:00</date>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear</idno>
+            </seriesStmt>
+            <seriesStmt>
+                <title level="m" xml:lang="en">The Lives of the Eastern Saints</title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear/lives-eastern-saints</idno>
+                <biblScope unit="volume">
+                    <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                    <idno type="URI">http://syriaca.org/spear</idno>
+                </biblScope>
+            </seriesStmt>
+            <sourceDesc>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints I</title>
+                        <title>Two Monks</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W.
+                                Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/1409"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>Two Monks</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/807"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/807"
+                        name="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>The prosopographical data in this document was encoded from E. W.
+                    Brooks' edition and English translation of John of Ephesus’s Lives of the
+                    Eastern Saints, Patrologia Orientalis, volume 17, 1923. </p>
+                <!-- Fix volume number -->
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="calculated">
+                        <catDesc> Used to denote a date calculated by the editor from a regnal year
+                            given in the text. </catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc/>
+        <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#srophe-util"
+                when="2020-01-03-05:00" status="draft">CHANGED: Add a human readable version or the
+                tei:relation element in a tei:desc.</change>
+            <change status="draft"/>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <ab type="factoid" subtype="relation" xml:id="factoid-1" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-1</idno>
+                <listRelation>
+                    <relation type="person" ref="http://syriaca.org/keyword/commemorates" active="http://syriaca.org/person/74" passive="http://syriaca.org/person/1933">
+                        <desc>
+                            <persName ref="http://syriaca.org/person/74">John of Ephesus</persName> 
+                            commemorated
+                            <persName ref="http://syriaca.org/person/1933"> James </persName>.
+                        </desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">220-28</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">220-28</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="sanctity" xml:id="factoid-19" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-19</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1933"> James </persName>
+                                was a saint.
+                            </note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="relation" xml:id="factoid-23" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-23</idno>
+                <listRelation>
+                    <relation type="person" ref="http://syriaca.org/keyword/commemorates" active="http://syriaca.org/person/74" passive="http://syriaca.org/person/3760">
+                        <desc>
+                            <persName ref="http://syriaca.org/person/74">John of Ephesus</persName> 
+                            commemorated
+                            <persName ref="http://syriaca.org/person/3760">Anonymous 3760</persName>.
+                        </desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">220-28</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">220-28</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="sanctity" xml:id="factoid-27" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-27</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3760"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3760">Anonymous 3760</persName>
+                                was a saint.
+                            </note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">220</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">220</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="residence" xml:id="factoid-2"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano">
+                <idno type="URI">http://syriaca.org/spear/807-2</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <residence>
+                            <placeName ref="http://syriaca.org/place/1528"/>
+                            <note type="desc"><persName ref="http://syriaca.org/person/1933"
+                                    >James</persName> resided in <placeName
+                                    ref="http://syriaca.org/place/1528">Convent of the
+                                    Eddessens</placeName> near <placeName
+                                    ref="http://syriaca.org/place/2736"> Amida</placeName>. </note>
+                        </residence>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="gender" xml:id="factoid-3"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano">
+                <idno type="URI">http://syriaca.org/spear/807-3</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1933"
+                                    >James</persName> was male.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="sanctity" xml:id="factoid-4"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano">
+                <idno type="URI">http://syriaca.org/spear/807-4</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1933"
+                                    >James</persName> was a saint. </note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">220</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">220</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="occupation" xml:id="factoid-5"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano">
+                <idno type="URI">http://syriaca.org/spear/807-5</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <occupation ana="http://syriaca.org/keyword/monks">
+                            <note type="desc"><persName ref="http://syriaca.org/person/1933"
+                                    >James</persName> practiced asceticism. </note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            
+            <ab type="factoid" subtype="residence" xml:id="factoid-21"
+                resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-21</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <residence>
+                            <placeName ref="http://syriaca.org/place/1528"/>
+                            <note type="desc">
+                                <persName ref="http://syriaca.org/person/3760">Anonymous 3760</persName> resided in 
+                                <placeName ref="http://syriaca.org/place/1528">Convent of the Eddessens</placeName> near 
+                                <placeName ref="http://syriaca.org/place/2736"> Amida</placeName>. </note>
+                        </residence>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="gender" xml:id="factoid-22"
+                resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-22</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3760">Anonymous 3760</persName> was male.</note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="occupation" xml:id="factoid-24"
+                resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-24</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <occupation ana="http://syriaca.org/keyword/monks">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3760">Anonymous 3760</persName> practiced asceticism. </note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="relation" xml:id="factoid-20" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-20</idno>
+                <listRelation>
+                    <relation type="person" ref="http://syriaca.org/keyword/intimate-relationship-with" mutual="http://syriaca.org/person/74 http://syriaca.org/person/3760">
+                        <desc>
+                            <persName ref="http://syriaca.org/person/74">John of Ephesus</persName> and 
+                            <persName ref="http://syriaca.org/person/3760">Anonymous 3760</persName> 
+                            had an intimate relationship.
+                        </desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="relation" xml:id="factoid-25" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-25</idno>
+                <listRelation>
+                    <relation type="person" ref="http://syriaca.org/keyword/sibling-of" mutual="http://syriaca.org/person/1933 http://syriaca.org/person/3760">
+                        <desc>
+                            <persName ref="http://syriaca.org/person/1933">James</persName> and <persName ref="http://syriaca.org/person/3760">Anonymous 3760</persName> were siblings. 
+                            
+                        </desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">221</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-7"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano">
+                <idno type="URI">http://syriaca.org/spear/807-7</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/exorcism">
+                        <desc><persName ref="http://syriaca.org/person/1933">James</persName> 
+                            exorcized demons. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">222</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">222</citedRange>
+                </bibl>
+            </ab>
+            
+            <ab type="factoid" subtype="event" xml:id="factoid-8"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano">
+                <idno type="URI">http://syriaca.org/spear/807-8</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/travel http://syriaca.org/keyword/monasticism">
+                        <desc>
+                            <persName ref="http://syriaca.org/person/1933">James</persName> withdrew from 
+                            <placeName ref="http://syriaca.org/place/1528">Convent of the Eddessens</placeName> and received the 
+                            <placeName ref="http://syriaca.org/place/2754">monastery of Beth Musika</placeName>. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">224</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">224</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="residence" xml:id="factoid-9" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-9</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/1933"/>
+                        <residence>
+                            <placeName ref="http://syriaca.org/place/2754"/>
+                            <note type="desc">
+                                <persName ref="http://syriaca.org/person/1933">James</persName>
+                                resided in 
+                                <placeName ref="http://syriaca.org/place/2754">monastery of Beth Musika</placeName>. 
+                            </note>
+                        </residence>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">224</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">224</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="gender" xml:id="factoid-26" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-26</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3761"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/female">
+                            <note type="desc">
+                                <persName ref="http://syriaca.org/person/3761">Anonymous 3761</persName> 
+                                was female.
+                            </note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">224</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">224</citedRange>
+                </bibl>
+            </ab>
+            
+            <ab type="factoid" subtype="event" xml:id="factoid-10"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-10</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/demonology http://syriaca.org/keyword/women">
+                        <desc>
+                            <persName ref="http://syriaca.org/person/3761">Anonymous 3761</persName> 
+                            was possessed by demons in order to tempt 
+                            <persName ref="http://syriaca.org/person/1933">James</persName>.
+                        </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">224-25</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">224-25</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-11"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-11</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/demonology http://syriaca.org/keyword/angels http://syriaca.org/keyword/women http://syriaca.org/keyword/bishops http://syriaca.org/keyword/ordination http://syriaca.org/keyword/priests">
+                        <desc> 
+                            Demons caused <persName ref="http://syriaca.org/person/3761">Anonymous 3761</persName> 
+                            to appear as an angel of light and placed her on the bishop's throne and identified her as
+                            <persName ref="http://syriaca.org/person/624">Virgin Mary</persName>. 
+                            <persName ref="http://syriaca.org/person/1933">James</persName> and the monks ascent to ordination as priests by 
+                            <persName ref="http://syriaca.org/person/3761">Anonymous 3761</persName>.
+                        </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">225-26</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">225-26</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="nameVariant" xml:id="factoid-12" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-12</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/624">Holy Mary, the God-bearer</persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">225</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">225</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-17"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano #dschwartz">
+                <idno type="URI">http://syriaca.org/spear/807-17</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/laughter http://syriaca.org/keyword/monks http://syriaca.org/keyword/demonology">
+                        <desc>
+                            The demons reveal their deception and mock the monks.
+                        </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">227</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">227</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-18"
+                resp="#tmcneir #jnsaint-laurent #syoung #tbaillargeon #rtrupiano">
+                <idno type="URI">http://syriaca.org/spear/807-18</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/monks http://syriaca.org/keyword/travel http://syriaca.org/keyword/repentance http://syriaca.org/keyword/penitence">
+                        <desc> 
+                            <persName ref="http://syriaca.org/person/1933">James</persName> and his fellow monks travel to 
+                            <placeName ref="http://syriaca.org/place/762">Marde</placeName> to receive forgiveness from 
+                            <persName ref="http://syriaca.org/person/50">John of Thella</persName>. He instructs them to make
+                            penance for three years before they may take communion again.
+                        </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/807"/>
+                    <citedRange unit="p">228</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                    <citedRange unit="p">228</citedRange>
+                </bibl>
+            </ab>
+        </body>
+        <back>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl807-1">
+                    <title>Lives of the Eastern Saints I</title>
+                    <title>Two Monks</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of
+                        Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W.
+                        Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/1409"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl807-2">
+                    <title>Two Monks</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of
+                        Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/807"/>
+                </bibl>
+            </listBibl>
+        </back>
+    </text>
+</TEI>

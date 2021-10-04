@@ -1,0 +1,597 @@
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/2008-08-31_SPEAR_updates/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/2008-08-31_SPEAR_updates/documentation/SPEARschema/out/SPEAR.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" type="main">John of Ephesus, <title ref="http://syriaca.org/work/824">A Monk who Stole</title>, in <title>The Lives of the Eastern
+                    Saints</title></title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The National Endowment for the Humanities</funder>
+                <funder>Texas A&amp;M University</funder>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dschwartz"
+                    >Daniel L. Schwartz</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#rdurmaz"
+                    >Reyhan Durmaz</editor>
+                <respStmt>
+                    <resp>Data architecture, data entry, editing, proofreading, and revision
+                        by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#dschwartz"
+                       >Daniel L. Schwartz</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Text analysis and data encoding by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#rdurmaz"
+                       >Reyhan Durmaz</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="1.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/spear/824/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported
+                            License.</p>
+                    </licence>
+                </availability>
+                <date>2020-01-03-05:00</date>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear</idno>
+            </seriesStmt>
+            <seriesStmt>
+                <title level="m" xml:lang="en">The Lives of the Eastern Saints</title>
+                <title type="sub">A SPEAR Prosopography</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+                <idno type="URI">http://syriaca.org/spear/lives-eastern-saints</idno>
+                <biblScope unit="volume">
+                    <title level="s">SPEAR: Syriac Persons, Events, and Relations</title>
+                    <idno type="URI">http://syriaca.org/spear</idno>
+                </biblScope>
+            </seriesStmt>
+            <sourceDesc>
+                <listBibl>
+                    <head>Sources for the Data in this Born Digital Prosopography</head>
+                    <bibl type="primary">
+                        <title>Lives of the Eastern Saints II</title>
+                        <title>A Monk who Stole</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName></author>
+                        <editor><persName ref="http://syriaca.org/person/403">E. W.
+                                Brooks</persName></editor>
+                        <ptr target="http://syriaca.org/bibl/2032"/>
+                    </bibl>
+                    <bibl type="primary">
+                        <title>A Monk who Stole</title>
+                        <author><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName></author>
+                        <ptr target="http://syriaca.org/work/824"/>
+                    </bibl>
+                </listBibl>
+                <listRelation>
+                    <relation type="part" active="http://syriaca.org/work/824"
+                        name="dcterms:isPartOf" passive="http://syriaca.org/work/9501"/>
+                </listRelation>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>The prosopographical data in this document was encoded from E. W.
+                    Brooks' edition and English translation of John of Ephesus’s Lives of the
+                    Eastern Saints, Patrologia Orientalis, volume 18, 1924. </p>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="calculated">
+                        <catDesc> Used to denote a date calculated by the editor from a regnal year
+                            given in the text. </catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc/>
+        <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#srophe-util"
+                when="2020-01-03-05:00" status="draft">CHANGED: Add a human readable version or the
+                tei:relation element in a tei:desc.</change>
+            <change
+                who="http://syriaca.org/documentation/editors.xml#ktorabi http://syriaca.org/documentation/editors.xml#rdurmaz http://syriaca.org/documentation/editors.xml#nelder http://syriaca.org/documentation/editors.xml#jfalconer http://syriaca.org/documentation/editors.xml#rtrupiano http://syriaca.org/documentation/editors.xml#jwickes"
+                status="draft">Initial data collected by Katayoun Torabi, Reyhan Durmaz, Nick Elder,
+                Joshua Falconer, Rose Trupiano, and Jeffrey Wickes at "Mapping Ancient Lives &amp;
+                Social Networks: A Digital Workshop," held at Marquette University, 23-24 May
+                2017.</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <ab type="factoid" subtype="relation" xml:id="factoid-1" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/824-1</idno>
+                <listRelation>
+                    <relation type="person" ref="http://syriaca.org/keyword/commemorates" active="http://syriaca.org/person/74" passive="http://syriaca.org/person/3718">
+                        <desc>
+                            <persName ref="http://syriaca.org/person/74">John of Ephesus</persName> 
+                            commemorated
+                            <persName ref="http://syriaca.org/person/3718">Anonymous 3718</persName>.
+                        </desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384-90</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586-92</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="sanctity" xml:id="factoid-24" resp="#dschwartz">
+                <idno type="URI">http://syriaca.org/spear/824-24</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3718"/>
+                        <state type="sanctity" ana="http://syriaca.org/keyword/saints">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3718">Anonymous 3718</persName>
+                                was a saint.
+                            </note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="gender" xml:id="factoid-2" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-2</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3717"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3717"
+                                    >Anonymous 3717</persName> was male. </note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="occupation" xml:id="factoid-3" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-3</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3717"/>
+                        <occupation ana="http://syriaca.org/keyword/anchorites">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3717">
+                                    Anonymous 3717 </persName> was a solitary. </note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="nameVariant" xml:id="factoid-4" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-4</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3716"> Two disciples </persName>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="gender" xml:id="factoid-5" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-5</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3716"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3716">Anonymi 3716</persName> were males. </note>
+                        </trait>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="occupation" xml:id="factoid-6" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-6</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3716"/>
+                        <occupation ana="http://syriaca.org/keyword/students">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3716">the two
+                                    monks </persName> were disciples. </note>
+                        </occupation>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="relation" xml:id="factoid-7" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-7</idno>
+                <listRelation>
+                    <relation type="person" ref="http://syriaca.org/keyword/follower-of" active="http://syriaca.org/person/3716"
+                        passive="http://syriaca.org/person/3717">
+                        <desc><persName ref="http://syriaca.org/person/3716">Anonymi 3716</persName> were followers of
+                                <persName ref="http://syriaca.org/person/3717">Anonymous 3717</persName>.</desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="residence" xml:id="factoid-8" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-8</idno>
+                <listPerson>
+                    <personGrp>
+                        <persName ref="http://syriaca.org/person/3717"/>
+                        <residence>
+                            <placeName ref="http://syriaca.org/place/473"/>
+                            <note type="desc"><persName ref="http://syriaca.org/person/3717">the
+                                    blessed man </persName> resided in <placeName
+                                    ref="http://syriaca.org/place/473">Ennaton</placeName> in
+                                    <placeName ref="http://syriaca.org/place/572"
+                                    >Alexandria</placeName>. </note>
+                        </residence>
+                    </personGrp>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="nameVariant" xml:id="factoid-9" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-9</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3718"> The monk who stole
+                        </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="gender" xml:id="factoid-10" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-10</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3718"/>
+                        <trait type="gender" ana="http://syriaca.org/keyword/male">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3718"
+                                    >Anonymous 3526</persName> was male. </note>
+                        </trait>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="occupation" xml:id="factoid-11" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-11</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3718"/>
+                        <occupation ana="http://syriaca.org/keyword/monks">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3718"
+                                    >Anonymous 3526 </persName> was a monk. </note>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-12" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-12</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/travel http://syriaca.org/keyword/discipleship">
+                        <desc><persName ref="http://syriaca.org/person/3718">The monk who stole
+                            </persName> visited <persName ref="http://syriaca.org/person/3717">the
+                                blessed man </persName> who was living with <persName
+                                ref="http://syriaca.org/person/3716">two disciples</persName> in
+                                <placeName ref="http://syriaca.org/place/473">Ennaton</placeName> in
+                                <placeName ref="http://syriaca.org/place/572"
+                            >Alexandria</placeName>. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-13" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-13</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/books http://syriaca.org/keyword/travel">
+                        <desc><persName ref="http://syriaca.org/person/3718">The monk who stole
+                            </persName> started living with <persName
+                                ref="http://syriaca.org/person/3717">the blessed man </persName>.
+                            After a while, tempted by <persName ref="http://syriaca.org/person/3651"
+                                >Satan</persName>, he stole his possessions and fled. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-14" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-14</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/travel">
+                        <desc><persName ref="http://syriaca.org/person/3718">The monk who stole
+                            </persName> took all of the possessions of <persName
+                                ref="http://syriaca.org/person/3717">the blessed man </persName> and
+                            went to <placeName ref="http://syriaca.org/place/2766">Cellia</placeName> in the desert above <placeName
+                                ref="http://syriaca.org/place/2810">Libya</placeName>. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">384</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">586</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-15" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-15</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/monasticism">
+                        <desc><persName ref="http://syriaca.org/person/3718">The monk who stole
+                            </persName> found a cell for himself, and lived in it for a week.
+                        </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">385</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">587</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-16" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-16</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/repentance http://syriaca.org/keyword/tears">
+                        <desc><persName
+                                ref="http://syriaca.org/person/3718">the monk who stole </persName>
+                            repented, and spent one week in penitence. Other monks in the community
+                            rebuked him. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">385</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">587</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-17" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-17</idno>
+                <listEvent>
+                    <event ana="http://syriaca.org/keyword/travel">
+                        <desc><persName
+                                ref="http://syriaca.org/person/3718">the monk who stole </persName>
+                            was ashamed, and left everything he stole, and went to <placeName
+                                ref="http://syriaca.org/place/2821">the desert of
+                            Mendia</placeName>, to <placeName ref="http://syriaca.org/place/2738">the convent of Andrew </placeName>, near <placeName
+                                ref="http://syriaca.org/place/2819"> the monastery of holy Mar Menas
+                            </placeName>. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">387</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">589</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="nameVariant" xml:id="factoid-18" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-18</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/74"> John of Ephesus </persName>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">387</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">589</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="relation" xml:id="factoid-19" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-19</idno>
+                <listRelation>
+                    <relation type="person" ref="http://syriaca.org/keyword/casual-intimate-relationship-with"
+                        mutual="http://syriaca.org/person/74 http://syriaca.org/person/3718">
+                        <desc><persName ref="http://syriaca.org/person/74">John of
+                                Ephesus</persName> and <persName
+                                ref="http://syriaca.org/person/3718">the monk who stole</persName>
+                            had a casual intimate relationship.</desc>
+                    </relation>
+                </listRelation>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">387</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">589</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="mentalState" xml:id="factoid-21" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-21</idno>
+                <listPerson>
+                    <person>
+                        <persName ref="http://syriaca.org/person/3718"/>
+                        <state type="mental" ana="http://syriaca.org/keyword/shame">
+                            <note type="desc"><persName ref="http://syriaca.org/person/3718"> the
+                                    monk who stole </persName> was in great sorrow and humility.
+                            </note>
+                        </state>
+                    </person>
+                </listPerson>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">387</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">589</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-22" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-22</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/tears http://syriaca.org/keyword/repentance">
+                        <desc><persName
+                                ref="http://syriaca.org/person/3718"> the monk who stole </persName>
+                            narrated his story, in great sorrow and humility, to <persName
+                                ref="http://syriaca.org/person/74"> John of Ephesus. </persName> And
+                            John comforted him, and advised the monk to go with him to <persName
+                                ref="http://syriaca.org/person/3717"> the blessed man </persName> to
+                            ask for his repentance. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">387</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">589</citedRange>
+                </bibl>
+            </ab>
+            <ab type="factoid" subtype="event" xml:id="factoid-23" resp="#rdurmaz">
+                <idno type="URI">http://syriaca.org/spear/824-23</idno>
+                <listEvent>
+                    <event
+                        ana="http://syriaca.org/keyword/redemption http://syriaca.org/keyword/repentance http://syriaca.org/keyword/tears">
+                        <desc><persName
+                                ref="http://syriaca.org/person/3718"> the monk who stole </persName>
+                            went up to the <persName ref="http://syriaca.org/person/3717"> the
+                                blessed man </persName>, and asked for his forgiveness. The old
+                            blessed man gave him penance to do and absolved him. The monk brought
+                            everything he stole back to the blessed man. </desc>
+                    </event>
+                </listEvent>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/work/824"/>
+                    <citedRange unit="p">389-290</citedRange>
+                </bibl>
+                <bibl type="primary">
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                    <citedRange unit="p">591-592</citedRange>
+                </bibl>
+            </ab>
+        </body>
+        <back>
+            <listBibl>
+                <head>Works Cited</head>
+                <bibl type="primary" xml:id="bibl824-1">
+                    <title>Lives of the Eastern Saints II</title>
+                    <title>A Monk who Stole</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of
+                        Ephesus</persName></author>
+                    <editor><persName ref="http://syriaca.org/person/403">E. W.
+                        Brooks</persName></editor>
+                    <ptr target="http://syriaca.org/bibl/2032"/>
+                </bibl>
+                <bibl type="primary" xml:id="bibl824-2">
+                    <title>A Monk who Stole</title>
+                    <author><persName ref="http://syriaca.org/person/74">John of
+                        Ephesus</persName></author>
+                    <ptr target="http://syriaca.org/work/824"/>
+                </bibl>
+            </listBibl>
+        </back>
+    </text>
+</TEI>
