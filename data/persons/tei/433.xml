@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../syriaca/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../syriaca/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -11,8 +13,6 @@
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
@@ -72,30 +72,15 @@
                 </availability>
                 <date>2016-12-09+01:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">The Syriac Biographical Dictionary</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
-                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.  Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
-                </respStmt>
-                <idno type="URI">http://syriaca.org/persons</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">The Syriac Biographical Dictionary</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+        <idno type="URI">http://syriaca.org/persons</idno>
+      </seriesStmt>
+            
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -177,10 +162,10 @@
                     <idno type="URI">http://syriaca.org/person/433</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_433</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=D&amp;sK=Dadisho&amp;sT=keywords</idno>
-                    <note xml:lang="en" type="abstract" xml:id="abstract-en-433">
+                    <note xml:lang="en" type="abstract" xml:id="abstract433-1">
                         <quote source="#bib433-1">Bp. of Seleucia-Ctesiphon and Cath, also known as ‘Dadishoʿ the Aramean’.</quote>
                     </note>
-                    <death when="0456" syriaca-computed-start="0456-01-01" source="#bib433-1">456</death>
+                    <death when="0456" srophe:computed-start="0456-01-01" source="#bib433-1">456</death>
                     <state type="confession" source="#bib433-1">
                         <desc>Ch. of E.</desc>
                     </state>
@@ -194,12 +179,12 @@
                         <title level="a" xml:lang="en">Dadishoʿ I</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/155"/>
-                        <citedRange unit="pp">110</citedRange>
+                        <citedRange unit="p">110</citedRange>
                     </bibl>
                     <bibl xml:id="bib433-2">
                         <title level="m" xml:lang="la">Bibliotheca Orientalis Clementino-Vaticana</title>
                         <ptr target="http://syriaca.org/bibl/7"/>
-                        <citedRange unit="pp">III:214</citedRange>
+                        <citedRange unit="p">III:214</citedRange>
                     </bibl>
                     <bibl xml:id="bib433-3">
                         <title level="m" xml:lang="en">A Comprehensive Bibliography on Syriac Christianity</title>
@@ -209,7 +194,7 @@
                     <bibl xml:id="bib433-4">
                         <title xml:lang="de">Baumstark, Geschichte der syrischen Literatur mit Ausschluß der christlich-palästinensischen Texte</title>
                         <ptr target="http://syriaca.org/bibl/638"/>
-                        <citedRange unit="pp">55</citedRange>
+                        <citedRange unit="p">55</citedRange>
                     </bibl>
                 </person>
                 <listRelation>
