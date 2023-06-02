@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../../../syriaca/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../syriaca/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -9,8 +11,6 @@
                 <funder>The Andrew W. Mellon Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
@@ -33,34 +33,15 @@
                 </availability>
                 <date>2016-08-17-04:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">The Syriac Biographical Dictionary</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
-                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
-                <editor role="associate" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.  Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
-                </respStmt>
-                <idno type="URI">http://syriaca.org/persons</idno>
-                <biblScope unit="vol" from="2" to="2">
-                    <title level="m">A Guide to Syriac Authors</title>
-                    <idno type="URI">http://syriaca.org/authors</idno>
-                </biblScope>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">The Syriac Biographical Dictionary</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
+        <idno type="URI">http://syriaca.org/persons</idno>
+      </seriesStmt>
+            
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -106,7 +87,7 @@
         </p>
       </langUsage>
         </profileDesc>
-        <revisionDesc>
+        <revisionDesc status="underReview">
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-16-04:00">Insert new headwords, new headword id ends with '-h'.</change>
@@ -117,31 +98,31 @@
         <body>
             <listPerson>
                 <person xml:id="person-2822">
-                    <persName xml:id="name2822-h" xml:lang="en" source="" srophe:tags="#syriaca-headword">
+                    <persName xml:id="name2822-6" xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword">
                         <forename sort="1">Sliba</forename>
                         <addName sort="2" type="untagged-title">of Hah</addName>, <addName sort="2" type="untagged-title">Rabban</addName>
                     </persName>
-                    <persName xml:id="name2822-1" xml:lang="en" source="">
+                    <persName xml:id="name2822-1" xml:lang="en" resp="http://syriaca.org">
                         <addName sort="2" type="untagged-title">Rabban</addName>
                         <forename sort="1">Sliba</forename>
                         <addName sort="3" type="untagged-title">of Hah</addName>
                     </persName>
-                    <persName xml:id="nam2822-2" xml:lang="en-x-gedsh" source="bib2822-1">
+                    <persName xml:id="name2822-2" xml:lang="en-x-gedsh" source="#bib2822-1">
                         <addName type="untagged-title" sort="1">Rabban</addName>
                         <forename sort="2">Ṣalība</forename>
                         <addName type="untagged-title" sort="3">of Ḥaḥ</addName>
                     </persName>
-                    <persName xml:id="name2822-3" xml:lang="fr" source="bib2822-1">Rabban Sliba de Hah</persName>
-                    <persName xml:id="name2822-4" xml:lang="syr-Syrj" source="bib2822-1" srophe:tags="#syriaca-headword">ܪܒܢ ܨܠܝܒܐ ܚܐܚܝܐ</persName>
+                    <persName xml:id="name2822-3" xml:lang="fr" source="#bib2822-1">Rabban Sliba de Hah</persName>
+                    <persName xml:id="name2822-4" xml:lang="syr-Syrj" source="#bib2822-1" srophe:tags="#syriaca-headword">ܪܒܢ ܨܠܝܒܐ ܚܐܚܝܐ</persName>
                     <persName xml:id="name2822-5" xml:lang="en">Rabban Saliba</persName>
                     <idno type="URI">http://syriaca.org/person/2822</idno>
-                    <note xml:lang="en" type="abstract" source="bib2822-1">Rabban Sliba (father of <persName>Rabban Joshua</persName>) was a monastic author who composed a martyrology in the late thirteenth century or early fourteenth century (some time after the death of <persName ref="http://syriaca.org/person/239">Bar ʿEbroyo</persName>). One source describes him as being from <placeName ref="http://syriaca.org/place/217">Ḥaḥ</placeName>.</note>
-                    <floruit notAfter="1400" from="1286" source="bib2822-1">1286-1364</floruit>
-                    <sex value="M" source="bib2822-1">male</sex>
+                    <note xml:lang="en" type="abstract" xml:id="abstract2822-1" source="#bib2822-1">Rabban Sliba (father of <persName>Rabban Joshua</persName>) was a monastic author who composed a martyrology in the late thirteenth century or early fourteenth century (some time after the death of <persName ref="http://syriaca.org/person/239">Bar ʿEbroyo</persName>). One source describes him as being from <placeName ref="http://syriaca.org/place/217">Ḥaḥ</placeName>.</note>
+                    <floruit notAfter="1400" from="1286" source="#bib2822-1">1286-1364</floruit>
+                    <sex value="M" source="#bib2822-1">male</sex>
                     <bibl xml:id="bib2822-1">
                         <title>Le martyrologe de Rabban Ṣalība</title>
                         <ptr target="http://syriaca.org/bibl/1396"/>
-                        <citedRange unit="pp">129, 130, 162</citedRange>
+                        <citedRange unit="p">129, 130, 162</citedRange>
                     </bibl>
                 </person>
                 <listRelation>
