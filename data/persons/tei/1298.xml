@@ -118,7 +118,8 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="incomplete">
-            <change who="http://syriaca.org/documentation/editors.xml#dschwartz" when="2023-06">Major updates to data model in conjunction with schema work requiring some updates to data as well.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2023-07">Cleaned up record as part of revision to schema (see github issue <ref target="https://github.com/srophe/srophe-app-data/issues/1059">https://github.com/srophe/srophe-app-data/issues/1059</ref>.</change>
+<change who="http://syriaca.org/documentation/editors.xml#dschwartz" when="2023-06">Major updates to data model in conjunction with schema work requiring some updates to data as well.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2016-08-12-05:00">Add bibl ptr elements.</change>
@@ -133,25 +134,56 @@
         <body>
             <listPerson>
                 <person xml:id="person-1298" ana="#syriaca-saint">
-                    <persName xml:id="name1298-2" xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword">Jacob the Reclus</persName>
+                    <persName xml:id="name1298-1" xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword">Jacob the Reclus</persName>
+                    <persName xml:id="name1298-7" xml:lang="en" resp="http://syriaca.org">Jacob of Seert</persName>
+                    <persName xml:id="name1298-2" xml:lang="fr" source="#bib1298-7">Jaʿqūb le reclus</persName>
                     <persName xml:id="name1298-3" xml:lang="fr-x-fiey" source="#bib1298-1">JACQUES LE RECLUS</persName>
+                    <persName xml:id="name1298-4" xml:lang="en-x-gedsh" resp="http://syriaca.org">Yaʿqub Ḥbisha</persName>
+                    <persName xml:id="name1298-5" xml:lang="fr" source="#bib1298-7">Yaʿqub Ḥebīša</persName>
+                    <persName xml:id="name1298-6" xml:lang="fr" source="#bib1298-5">Jacques de Seert</persName>
                     <idno type="URI">http://syriaca.org/person/1298</idno>
                     <idno type="FIEY">226</idno>
                     <gender ana="http://syriaca.org/keyword/male" source="#bib1298-1">male</gender>
-                    <note xml:lang="en" type="abstract" xml:id="abstract1298-1">In hagiography: This Jacob the Recluse is mentioned as the founder of a monastery in <placeName ref="http://syriaca.org/place/188">Siirt</placeName> together with <persName>Mar Hwisa</persName> at an unknown date.</note>
+                    <note xml:lang="en" type="abstract" xml:id="abstract1298-1">A certain Jacob of Seert is mentioned in some East Syrian sources as a disciple of <persName ref="http://syriaca.org/person/320">Abraham of Kashkar</persName> and described as the co-founder of a monastery near <placeName ref="http://syriaca.org/place/188">Siirt</placeName> and <placeName ref="http://syriaca.org/place/285">Arzun</placeName> (in the region of <placeName ref="http://syriaca.org/place/58">Bohtan</placeName>) which he established together with an otherwise unidentified monk, <persName>Mar Ḥbisha</persName>, at an unknown date in the sixth century.</note>
+                    <note xml:lang="en" type="description" >In hagiography: Over time the identities of <persName>Mar Ḥbisha</persName> (which means "recluse") and Jacob became conflated into a single saint, "Jacob the Recluse", commemorated by the Church of the East on October 19.</note>
+                    <state type="status" ref="http://syriaca.org/keyword/saints">
+                        <desc xml:lang="en">Saint</desc></state>
                     <bibl xml:id="bib1298-1">
                         <title level="m" xml:lang="fr">Saints Syriaques</title>
                         <title level="a" xml:lang="fr">JACQUES LE RECLUS</title>
                         <ptr target="http://syriaca.org/bibl/650"/>
                         <citedRange unit="entry">226</citedRange>
                     </bibl>
-                    <note xml:lang="en">Liber castitatis, n ° 24.</note><!-- mystery note -->
-                    <note xml:lang="en">Chronique de Seert, II, 151.</note><!-- mystery note -->
-                    <note xml:lang="en">Šuhadā', II, 320.</note><!-- mystery note -->
-                    <note xml:lang="en">Fiey, Nisibe, 205.</note>
-                    <state type="status" ref="http://syriaca.org/keyword/saints">
-                        <desc xml:lang="en">Saint</desc></state><!-- mystery note -->
-                    <bibl xml:id="bib1298-7">
+                    <bibl xml:id="bib1298-2">
+                        <title xml:lang="fr">Le livre de la chasteté</title>
+                        <ptr target="http://syriaca.org/bibl/1310"/>
+                        <citedRange unit="entry">n° 24</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1298-3">
+                        <title xml:lang="fr">Chronique de Seert</title>
+                        <ptr target="http://syriaca.org/bibl/1345"/>
+                        <citedRange unit="vol">II</citedRange>
+                        <citedRange unit="p">151</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1298-4">
+                        <title xml:lang="en-x-srp1">Šuhadā'</title>
+                        <ptr target="http://syriaca.org/bibl/1340"/>
+                        <citedRange unit="vol">II</citedRange>
+                        <citedRange unit="p">320</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1298-5">
+                        <author>
+                            <persName>
+                                <forename>J.M.</forename>
+                                <surname>Fiey</surname>
+                            </persName>
+                        </author>
+                        <title xml:lang="fr">Nisibe, métropole syriaque orientale et ses suffragants des origines à nos jours</title>
+                        <ptr target="http://syriaca.org/bibl/1309"/>
+                        <citedRange unit="p">205</citedRange>
+                        <citedRange unit="entry">B.1</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1298-6">
                         <author>
                             <persName>
                                 <forename>J.M.</forename>
@@ -162,6 +194,17 @@
                         <ptr target="http://syriaca.org/bibl/1426"/>
                         <citedRange unit="vol">I</citedRange>
                         <citedRange unit="p">1023</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1298-7">
+                        <author>
+                            <persName>
+                                <forename>Florence</forename>
+                                <surname>Jullien</surname>
+                            </persName>
+                        </author>
+                        <title xml:lang="fr">Le monachisme en Perse: la réforme d’Abraham le Grand, père des moines de l’Orient</title>
+                        <ptr target="http://syriaca.org/cbss/MCP6AT36"/>
+                        <citedRange unit="p">179-180, 248</citedRange>
                     </bibl>
                 </person>
             </listPerson>
