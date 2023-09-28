@@ -150,10 +150,7 @@
                     <location type="gps" source="#bib339-6">
                         <geo>37.187038 41.409741</geo>
                     </location>
-                    <location type="nested" source="#bib339-5">
-                        <region ref="http://syriaca.org/place/723">Nisibis region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="0600" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="0600-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0600" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="0600-01-01">
                         <precision match="@from" notAfter="0600" notBefore="0300" srophe:computed-end="0600-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notBefore="2013" srophe:computed-start="2013-01-01"/>
                     </state>
@@ -195,10 +192,13 @@
                         <ptr target="http://pleiades.stoa.org/places/874579"/>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/339 http://syriaca.org/place/1871 http://syriaca.org/place/1872"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation name="share-a-name" mutual="http://syriaca.org/place/339 http://syriaca.org/place/1871 http://syriaca.org/place/1872"/>
+                    <relation type="contained-within" ref="skos:broader" active="" passive="" source="#bib339-5">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/723">Nisibis region</placeName></desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

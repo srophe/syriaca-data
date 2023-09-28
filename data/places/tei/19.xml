@@ -118,14 +118,11 @@
                     <location type="gps" source="#bib19-2">
                         <geo>36.735278 43.096389</geo>
                     </location>
-                    <location type="nested" source="#bib19-4">
-                        <region ref="http://syriaca.org/place/722">Mosul region</region>
-                    </location>
                     <event type="attestation" xml:id="attestation19-1" when="1683-06-21" source="#bib19-5" srophe:computed-end="1683-06-21" srophe:computed-start="1683-06-21">
                         <desc xml:lang="en">Attestation of name <foreign xml:lang="syr">ܐܲܠܩܘܿܫ</foreign> in the colophon of <title>Mardin, Chaldean Cathedral Ms. Macomber 32,19 [HMML CCM 00168]</title>.</desc>
                         <link target="#name19-4 #attestation19-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="-0750">
+                    <state resp="http://syriaca.org" type="existence" from="-0750">
                         <precision match="@from" notAfter="-0750"/>
                     </state>
                     <idno type="URI">http://syriaca.org/place/19</idno>
@@ -163,10 +160,13 @@
                         <citedRange unit="fol">93r</citedRange>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/19 http://syriaca.org/place/2247"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="" passive="" source="#bib19-4">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/722">Mosul region</placeName></desc>
+                    </relation>
+                    <relation name="share-a-name" mutual="http://syriaca.org/place/19 http://syriaca.org/place/2247"/>
+                </listRelation> 
+            </listPlace>
         </body>
     </text>
 </TEI>

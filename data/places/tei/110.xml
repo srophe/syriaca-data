@@ -116,14 +116,11 @@
                     <location type="gps" source="#bib110-2">
                         <geo>36.303611 43.412778</geo>
                     </location>
-                    <location type="nested" source="#bib110-3">
-                        <region ref="http://syriaca.org/place/722">Mosul region</region>
-                    </location>
                     <event type="attestation" xml:id="attestation110-1" notBefore="1224" notAfter="1228" source="#bib110-4" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
                         <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">كرمليس</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name110-3 #attestation110-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="1317" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="1317-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="1317" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="1317-01-01">
                         <precision match="@from" notAfter="1317" srophe:computed-end="1317-01-01"/>
                         <precision match="@to" notBefore="2013" srophe:computed-start="2013-01-01"/>
                     </state>
@@ -156,10 +153,15 @@
                         <citedRange unit="p">IV:518</citedRange>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/110 http://syriaca.org/place/2335"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="" passive="" source="#bib110-3">
+                        <desc xml:lang="en">
+                            <placeName ref="http://syriaca.org/place/722">Mosul region</placeName>
+                        </desc>
+                    </relation>
+                    <relation name="share-a-name" mutual="http://syriaca.org/place/110 http://syriaca.org/place/2335"/>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>
