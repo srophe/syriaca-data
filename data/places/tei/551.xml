@@ -126,7 +126,6 @@
                         <precision match="@from" notAfter="1943" notBefore="0300" srophe:computed-end="1943-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notAfter="1943" srophe:computed-end="1943-01-01"/>
                     </state>
-                    <note xml:lang="en" type="disambiguation">Not the same place as <placeName ref="http://syriaca.org/place/346">St. Barbara</placeName>.</note>
                     <idno type="URI">http://syriaca.org/place/551</idno>
                     <bibl xml:id="bib551-1">
                         <title xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
@@ -144,10 +143,13 @@
                         <citedRange unit="p">561</citedRange>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/551 http://syriaca.org/place/346 http://syriaca.org/place/1487"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="disambiguation" ref="syriaca:distinct-entity" mutual="http://syriaca.org/place/551 http://syriaca.org/place/346" resp="http://syriaca.org">
+                        <desc type="note" xml:lang="en">Not the same place as <placeName ref="http://syriaca.org/place/346">St. Barbara</placeName>.</desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="syriaca:share-a-name" mutual="http://syriaca.org/place/551 http://syriaca.org/place/346 http://syriaca.org/place/1487" resp="http://syriaca.org"/>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

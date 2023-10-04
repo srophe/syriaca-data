@@ -116,7 +116,6 @@
                         <precision match="@from" notAfter="0270" srophe:computed-end="0270-01-01"/>
                         <precision match="@to" notAfter="1200" notBefore="0694" srophe:computed-end="1200-01-01" srophe:computed-start="0694-01-01"/>
                     </state>
-                    <note xml:lang="en" type="disambiguation">Not the same conceptual place as <placeName ref="http://syriaca.org/place/509">al-Wāsiṭ</placeName>.</note>
                     <idno type="URI">http://syriaca.org/place/111</idno>
                     <idno type="URI">http://pleiades.stoa.org/places/912880</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Kashkar</idno>
@@ -148,10 +147,13 @@
                         <citedRange unit="p">IV:523</citedRange>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/111 http://syriaca.org/place/2323"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="disambiguation" ref="syriaca:distinct-entity" mutual="http://syriaca.org/place/111 http://syriaca.org/place/509" resp="http://syriaca.org">
+                        <desc type="note" xml:lang="en">Not the same conceptual place as <placeName ref="http://syriaca.org/place/509">al-Wāsiṭ</placeName>.</desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="syriaca:share-a-name" mutual="http://syriaca.org/place/111 http://syriaca.org/place/2323" resp="http://syriaca.org"/>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>
