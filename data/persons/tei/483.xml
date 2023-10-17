@@ -237,6 +237,8 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#dschwartz" when="2023-10-17">
+                Delete tei:link with @target indicating a name deprecation and put pointer on target of tei:note type="deprecation".</change>
             <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2023-07"
                 >Cleaned up record as part of revision to schema (see github issue <ref
                     target="https://github.com/srophe/srophe-app-data/issues/1083"
@@ -338,9 +340,6 @@
                     <persName xml:lang="de-x-baumstrk" xml:id="name483-13" source="#bib483-9">
                         <forename>Euagrios</forename>
                     </persName>
-                    <link target="#name483-4 #name483-4-deprecation"/>
-                    <link target="#name483-5 #name483-4-deprecation"/>
-                    <link target="#name483-2 #name483-2-deprecation"/>
                     <idno type="URI">http://syriaca.org/person/483</idno>
                     <idno type="deprecated" change="#change483-1">http://syriaca.org/person/1729</idno>
                     <idno type="URI">http://viaf.org/viaf/sourceID/SRP|person_483</idno>
@@ -353,9 +352,9 @@
                         <quote source="#bib483-1">Greek monastic author originating from
                             Pontus.</quote>
                     </note>
-                    <note xml:lang="en" type="deprecation" xml:id="name483-4-deprecation">"Pontius"
+                    <note xml:lang="en" type="deprecation" target="#name483-4 #name483-5">"Pontius"
                         should read "Ponticus": ܐܘܓܪܝܣ ܦܘܐܝܛܐ ܐܶܘܰܓܪܺܝܣ ܦܘܐܝܺܛܐ</note>
-                    <note xml:lang="en" type="deprecation" xml:id="name483-2-deprecation">"Pontius"
+                    <note xml:lang="en" type="deprecation" target="#name483-2">"Pontius"
                         should read "Ponticus": Euagrius Pontius which have ids name483-2</note>
                     <birth>
                         <date when="0345" srophe:computed-start="0345-01-01" source="#bib483-1"
