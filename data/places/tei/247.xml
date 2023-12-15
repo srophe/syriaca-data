@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -104,12 +104,9 @@
                     <placeName xml:id="name247-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib247-1">Gawilan</placeName>
                     <placeName xml:id="name247-2" xml:lang="en" source="#bib247-2">Gāwīlan</placeName>
                     <placeName xml:id="name247-3" xml:lang="en" source="#bib247-2">Anzel</placeName>
-                    <desc type="abstract" xml:id="abstract247-1" xml:lang="en">A village north of <placeName ref="http://syriaca.org/place/206">Urmia</placeName> and southeast of <placeName ref="http://syriaca.org/place/177">Salmas</placeName>.</desc>
-                    <location type="nested" source="#bib247-2">
-                        <region ref="http://syriaca.org/place/839">Anzel district</region>
-                        <region ref="http://syriaca.org/place/729">Ūrmī region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="1735" to="1877" srophe:computed-end="1877-01-01" srophe:computed-start="1735-01-01">
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A village north of <placeName ref="http://syriaca.org/place/206">Urmia</placeName> and southeast of <placeName ref="http://syriaca.org/place/177">Salmas</placeName>.</desc>
+                    
+                    <state resp="http://syriaca.org" type="existence" from="1735" to="1877" srophe:computed-end="1877-01-01" srophe:computed-start="1735-01-01">
                         <precision match="@from" notAfter="1735" srophe:computed-end="1735-01-01"/>
                         <precision match="@to" notBefore="1877" srophe:computed-start="1877-01-01"/>
                     </state>
@@ -120,12 +117,20 @@
                         <citedRange unit="map">Map IV</citedRange>
                     </bibl>
                     <bibl xml:id="bib247-2">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">296, 319, 322, 326, 327, 328, 329, 331, 332, 349, 365</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/247" passive="http://syriaca.org/place/839" source="#bib247-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/839">Anzel district</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/247" passive="http://syriaca.org/place/729" source="#bib247-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/729">Ūrmī region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -102,20 +102,23 @@
             <listPlace>
                 <place type="settlement">
                     <placeName xml:id="name1332-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib1332-1">Ḥinnō</placeName>
-                    <desc type="abstract" xml:id="abstract1332-1" xml:lang="en"/>
-                    <location type="nested" source="#bib1332-1">
-                        <region ref="http://syriaca.org/place/784">Taimar district</region>
-                        <region ref="http://syriaca.org/place/90">Hakkārī region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/1332</idno>
                     <bibl xml:id="bib1332-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">310, 311</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/1332" passive="http://syriaca.org/place/784" source="#bib1332-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/784">Taimar district</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/1332" passive="http://syriaca.org/place/90" source="#bib1332-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/90">Hakkārī region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

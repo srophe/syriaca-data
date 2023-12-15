@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -141,7 +141,7 @@
                     <placeName resp="http://syriaca.org" xml:id="name233-11" xml:lang="en-x-srp1">Tell ‘Ada</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name233-12" xml:lang="en-x-srp1">Talada Monastery</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name233-13" xml:lang="en-x-srp1">Tal‘ada Monastery</placeName>
-                    <desc type="abstract" xml:id="abstract233-1" xml:lang="en">
+                    <desc type="abstract" xml:lang="en" corresp="http://syriaca.org/geo">
                         <quote source="#bib233-1">The Monastery of Tell ʿAda, also known as the ‘Great Monastery’, is located just over 48 km. from Aleppo; 1500 m. north of the present village of Tell ʿAda.</quote>
                     </desc>
                     <desc xml:lang="en">
@@ -156,18 +156,18 @@
                     <desc xml:lang="en">
                         <quote source="#bib233-5">also known as the Great Monastery, is situated south of Siman mountain, a twenty-minute walk north of the village of Talʿada, in the province of Antioch. It was built before 340 by Amian the ascetic and in it resided Eusebius the ascetic (both men are mentioned above). This monastery is mentioned by chroniclers Theodoret of Cyrus and John of Ephesus. In 942, Patriarch John built a tower there. It produced nine bishops. Its remains can still be seen today.</quote>
                     </desc>
-          <state resp="http://syriaca.org" type="existence" from="0400" to="0941" srophe:computed-end="0941-01-01" srophe:computed-start="0400-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0400" to="0941" srophe:computed-end="0941-01-01" srophe:computed-start="0400-01-01">
                         <precision match="@from" notAfter="0400" notBefore="0300" srophe:computed-end="0400-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notAfter="2013" notBefore="0941" srophe:computed-end="2013-01-01" srophe:computed-start="0941-01-01"/>
                     </state>
-                    <note xml:lang="en" type="corrigenda">GEDSH Map II displays the location too far to the south, east of <placeName ref="http://syriaca.org/place/91">Ḥama</placeName> rather than west of <placeName ref="http://syriaca.org/place/18">Aleppo</placeName>.</note>
+                    <note xml:lang="en" type="corrigenda" resp="http://syriaca.org">GEDSH Map II displays the location too far to the south, east of <placeName ref="http://syriaca.org/place/91">Ḥama</placeName> rather than west of <placeName ref="http://syriaca.org/place/18">Aleppo</placeName>.</note>
                     <note xml:lang="en" type="corrigenda">In Dolabani's translation of Barsoum's description <quote xml:lang="syr-Syrj">ܕܐܶܦܶܣܘܣ</quote> should read <quote xml:lang="syr-Syrj">ܕܶܐܦܶܣܘܣ</quote>.</note>
                     <idno type="URI">http://syriaca.org/place/233</idno>
                     <idno type="URI">
                                             http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=m&amp;sK=monastery of Tell Ada&amp;sT=keywords
                                         </idno>
                     <bibl xml:id="bib233-1">
-                        <author>J. A. Loopstra </author>
+                        <author><persName>J. A. Loopstra </persName></author>
                         <title level="a" xml:lang="en">537. Tell ʿAda, Monastery of</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/546"/>
@@ -201,7 +201,9 @@
                     </bibl>
                 </place>
             <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/233 http://syriaca.org/place/198"/>
+          <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name" mutual="http://syriaca.org/place/233 http://syriaca.org/place/198" resp="http://syriaca.org">
+              <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+          </relation>
         </listRelation>
       </listPlace>
         </body>

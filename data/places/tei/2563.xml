@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -104,13 +104,9 @@
 					<placeName xml:id="name2563-2" xml:lang="en" source="#bib2563-1">St. Kirik</placeName>
 					<placeName xml:id="name2563-3" xml:lang="en" source="#bib2563-1">St. Kirik and St. Yulita</placeName>
 					<placeName xml:id="name2563-4" xml:lang="en" source="#bib2563-1">St. Cyril</placeName>
-					<desc type="abstract" xml:id="abstract2563-1" xml:lang="en">A church in <placeName ref="http://syriaca.org/place/2552">Dimitrov</placeName>
+					<desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A church in <placeName ref="http://syriaca.org/place/2552">Dimitrov</placeName>
           </desc>
-                    <location type="nested" source="#bib2563-1">
-                        <settlement ref="http://syriaca.org/place/2552">Dimitrov</settlement>
-						<region ref="http://syriaca.org/place/576">Armenia</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="1840" srophe:computed-start="1840-01-01"/>
+                    <state resp="http://syriaca.org" type="existence" from="1840" srophe:computed-start="1840-01-01"/>
                     <idno type="URI">http://syriaca.org/place/2563</idno>
                     <bibl xml:id="bib2563-1">
                         <title xml:lang="en">Assyrians in Armenia: An Interdisciplinary Study</title>
@@ -118,6 +114,14 @@
 						<ptr target="http://syriaca.org/bibl/656"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2563" passive="http://syriaca.org/place/2552" source="#bib2563-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/2552">Dimitrov</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2563" passive="http://syriaca.org/place/576" source="#bib2563-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/576">Armenia</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

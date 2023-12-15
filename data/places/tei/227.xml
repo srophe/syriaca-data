@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -142,7 +142,7 @@
                     <placeName xml:id="name227-6" xml:lang="en" source="#bib227-6">monastery of Mar Mattay</placeName>
                     <placeName xml:id="name227-7" xml:lang="en" source="#bib227-7">Mār Mattai</placeName>
                     <placeName xml:id="name227-8" xml:lang="ar" source="#bib227-9">دير متى</placeName>
-                    <desc type="abstract" xml:id="abstract227-1" xml:lang="en">
+                    <desc type="abstract" xml:lang="en" corresp="http://syriaca.org/geo">
                         <quote source="#bib227-1">Located on the Alfof Mountain, known in Arabic as Jabal Maqlūb, 35 km. northeast of Mosul, the monastery is mostly known by its Arabic name Dayr Mār Mattā.</quote>
                     </desc>
                     <desc xml:lang="en">
@@ -160,14 +160,11 @@
                     <location type="gps" source="#bib227-8">
                         <geo>36.491605 43.392187</geo>
                     </location>
-                    <location type="nested" source="#bib227-7">
-                        <region ref="http://syriaca.org/place/722">Mosul region</region>
-                    </location>
                     <event type="attestation" xml:id="attestation227-1" notBefore="1224" notAfter="1228" source="#bib227-9" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">دير متى</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">دير متى</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name227-8 #attestation227-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="0628" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="0628-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0628" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="0628-01-01">
                         <precision match="@from" notAfter="0628" notBefore="0300" srophe:computed-end="0628-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notBefore="2013" srophe:computed-start="2013-01-01"/>
                     </state>
@@ -179,7 +176,7 @@
                                             http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=m&amp;sK=monastery of Mar Mattay&amp;sT=keywords
                                         </idno>
                     <bibl xml:id="bib227-1">
-                        <author>G. A. Kiraz </author>
+                        <author><persName>G. A. Kiraz </persName></author>
                         <title level="a" xml:lang="en">364. Matay, Dayro d-Mor</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/373"/>
@@ -212,7 +209,7 @@
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=m&amp;sK=monastery of Mar Mattay&amp;sT=keywords">monastery of Mar Mattay</citedRange>
                     </bibl>
                     <bibl xml:id="bib227-7">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">188, 200, 201, 202, 258</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
@@ -223,11 +220,16 @@
                     </bibl>
                     <bibl xml:id="bib227-9">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">II:602</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/227" passive="http://syriaca.org/place/722" source="#bib227-7">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/722">Mosul region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

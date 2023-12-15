@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
    <teiHeader>
       <fileDesc>
@@ -107,14 +107,14 @@
       <body>
          <listPlace>
             <place type="region">
-               <placeName resp="http://syriaca.org" xml:id="name2818-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib2818-1">Melitene</placeName>
+               <placeName xml:id="name2818-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib2818-1">Melitene</placeName>
               <placeName xml:id="name2818-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib2818-3">ܡܝܠܝܛܝܢܝ</placeName>
-              <desc resp="http://syriaca.org" type="abstract" xml:id="abstract2818-1" xml:lang="en">The region around <placeName ref="http://syriaca.org/place/136">the city of Melitene</placeName> in eastern <placeName ref="http://syriaca.org/place/504">Anatolia</placeName>
+              <desc resp="http://syriaca.org" type="abstract" xml:lang="en" corresp="http://syriaca.org/geo">The region around <placeName ref="http://syriaca.org/place/136">the city of Melitene</placeName> in eastern <placeName ref="http://syriaca.org/place/504">Anatolia</placeName>
                     </desc>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                <idno type="URI">http://syriaca.org/place/2818</idno>
               <bibl xml:id="bib2818-1">
-                <author>H. Takahashi </author>
+                <author><persName>H. Takahashi </persName></author>
                 <title level="a" xml:lang="en">367. Melitene</title>
                 <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                 <ptr target="http://syriaca.org/bibl/376"/>
@@ -142,21 +142,22 @@
                 <citedRange unit="p">556</citedRange>
               </bibl>
               <bibl xml:id="bib2818-6">
-                <author>David Wilmshurst</author>
+                <author><persName>David Wilmshurst</persName></author>
                 <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                 <citedRange unit="p">62-63, 65</citedRange>
                 <ptr target="http://syriaca.org/bibl/9"/>
               </bibl>
               <bibl xml:id="bib2818-7">
                 <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                <author>Yāqūt al-Ḥamawī</author>
+                <author><persName>Yāqūt al-Ḥamawī</persName></author>
                 <ptr target="http://syriaca.org/bibl/636"/>
                 <citedRange unit="p">V:223</citedRange>
               </bibl>
             </place>
            <listRelation>
-             <relation mutual="http://syriaca.org/place/504 http://syriaca.org/place/2818" name="share-a-name"/>
-             <relation mutual="http://syriaca.org/place/504 http://syriaca.org/place/2818" name="see-also"/>
+             <relation type="see-also" ref="skos:related" mutual="http://syriaca.org/place/504 http://syriaca.org/place/2818" resp="http://syriaca.org">
+                 <desc xml:lang="en">See also one or more related places.</desc>
+             </relation>
            </listRelation>
          </listPlace>
       </body>

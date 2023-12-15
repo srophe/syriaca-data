@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -104,24 +104,27 @@
                 <place type="church">
                     <placeName resp="http://syriaca.org" xml:id="name2108-1" xml:lang="en" srophe:tags="#syriaca-headword">Mar Toma</placeName>
                     <placeName xml:id="name2108-2" xml:lang="en" source="#bib2108-1">Mār Thomas</placeName>
-                    <desc type="abstract" xml:id="abstract2108-1" xml:lang="en"/>
-                    <location type="nested" source="#bib2108-1">
-                        <settlement ref="http://syriaca.org/place/259">Shaqlāwā</settlement>
-                        <region ref="http://syriaca.org/place/993">Erbil region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/2108</idno>
                     <bibl xml:id="bib2108-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">171</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/2108 http://syriaca.org/place/2102 http://syriaca.org/place/2103 http://syriaca.org/place/2104 http://syriaca.org/place/2105 http://syriaca.org/place/2106 http://syriaca.org/place/2107"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2108" passive="http://syriaca.org/place/259" source="#bib2108-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/259">Shaqlāwā</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2108" passive="http://syriaca.org/place/993" source="#bib2108-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/993">Erbil region</placeName></desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name" mutual="http://syriaca.org/place/2108 http://syriaca.org/place/2102 http://syriaca.org/place/2103 http://syriaca.org/place/2104 http://syriaca.org/place/2105 http://syriaca.org/place/2106 http://syriaca.org/place/2107" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -137,7 +137,7 @@
                     <placeName xml:id="name408-3" xml:lang="syr-Syrj" source="#bib408-2">ܙܰܪܓܠ</placeName>
                     <placeName xml:id="name408-4" xml:lang="ar" source="#bib408-3">زرجل</placeName>
                     <placeName xml:id="name408-5" xml:lang="en" source="#bib408-4">Zarjal</placeName>
-                    <desc type="abstract" xml:id="abstract408-1" xml:lang="en">A village near <placeName ref="http://syriaca.org/place/92">Ḥesno d-Kifo</placeName>.</desc>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A village near <placeName ref="http://syriaca.org/place/92">Ḥesno d-Kifo</placeName>.</desc>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib408-2">ܩܪܝܬܳܐ ܪܰܒܬܐ ܕܰܒܒܶܝܬ ܫܺܐܪ̈ܳܝܐ ܕܒܐܘܚܕܳܢܳܐ ܕܰܣܥܶܪܬ.</quote>
                     </desc>
@@ -147,7 +147,7 @@
                     <desc xml:lang="en">
                         <quote source="#bib408-4">a large village in al-Bushayriyya, in the province of Diyarbakir.</quote>
                     </desc>
-          <state resp="http://syriaca.org" type="existence" from="1481" to="1481" srophe:computed-end="1481-01-01" srophe:computed-start="1481-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="1481" to="1481" srophe:computed-end="1481-01-01" srophe:computed-start="1481-01-01">
                         <precision match="@from" notAfter="1481" srophe:computed-end="1481-01-01"/>
                         <precision match="@to" notBefore="1481" srophe:computed-start="1481-01-01"/>
                     </state>
@@ -173,16 +173,18 @@
                         <citedRange unit="p">560</citedRange>
                     </bibl>
                     <bibl xml:id="bib408-5">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">93</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/408 http://syriaca.org/place/2413"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name-co-located" mutual="http://syriaca.org/place/408 http://syriaca.org/place/2413" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

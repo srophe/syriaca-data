@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -107,21 +107,24 @@
                     <placeName xml:id="name712-2" xml:lang="en" source="#bib712-1">Gāzartā</placeName>
                     <placeName xml:id="name712-3" xml:lang="en" source="#bib712-1">Beṯ Zabdaï</placeName>
                     <placeName xml:id="name712-4" xml:lang="en" source="#bib712-1">Qardū</placeName>
-                    <desc type="abstract" xml:id="abstract712-1" xml:lang="en"/>
-          <state resp="http://syriaca.org" type="existence"/>
-                    <note xml:lang="en" type="disambiguation">Not the same place as <placeName ref="http://syriaca.org/place/321">Upper Jazira</placeName>, which is only west of the <placeName ref="http://syriaca.org/place/202">Tigris</placeName>.</note>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/712</idno>
                     <bibl xml:id="bib712-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">3, 5, 8, 14, 20, 38, 39, 40, 50, 57, 70, 71, 73, 83, 100-124, 138, 164, 165, 179, 215, 219, 284, 351, 354, 355, 358, 359, 360, 365, 366</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/712 http://syriaca.org/place/88 http://syriaca.org/place/2304"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="disambiguation" ref="http://syriaca.org/keyword/distinct-entity" mutual="http://syriaca.org/place/712 http://syriaca.org/place/321" resp="http://syriaca.org">
+                        <desc type="note" xml:lang="en">Not the same place as <placeName ref="http://syriaca.org/place/321">Upper Jazira</placeName>, which is only west of the <placeName ref="http://syriaca.org/place/202">Tigris</placeName>.</desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name-co-located" mutual="http://syriaca.org/place/712 http://syriaca.org/place/88 http://syriaca.org/place/2304" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

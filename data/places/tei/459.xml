@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -144,7 +144,6 @@
                     <placeName resp="http://syriaca.org" xml:id="name459-7" xml:lang="en-x-srp1">Ma‘dan</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name459-8" xml:lang="en-x-srp1">Mādan</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name459-9" xml:lang="en-x-srp1">Mā‘dan</placeName>
-                    <desc type="abstract" xml:id="abstract459-1" xml:lang="en"/>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib459-1">ܐܰܬܪܰܐ ܗܘ ܕܒܰܦܢܺܝܬ ܫܝܪܘܢ ܕܒܐܘܚܕܳܢ ܣܥܶܪܬ ܗܘܳܬ ܩܪܺܝܬܳܐ ܡܶܢ ܩܘܪ̈ܝܳܐ ܕܡܰܪܕܝܢ ܡܰܪܕܶܐ ܫܶܬ ܫܳܥܝ̈ܢ ܠܓܰܪܒܝܳܗ̇.</quote>
                     </desc>
@@ -154,10 +153,7 @@
                     <desc xml:lang="en">
                         <quote source="#bib459-3">a town in the vicinity of Sherwan, in the province of Seʿert; now a village.</quote>
                     </desc>
-                    <location type="nested" source="#bib459-4">
-                        <region ref="http://syriaca.org/place/724">Seert region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="1417" to="1800" srophe:computed-end="1800-01-01" srophe:computed-start="1417-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="1417" to="1800" srophe:computed-end="1800-01-01" srophe:computed-start="1417-01-01">
                         <precision match="@from" notAfter="1417" srophe:computed-end="1417-01-01"/>
                         <precision match="@to" notBefore="1800" srophe:computed-start="1800-01-01"/>
                     </state>
@@ -178,16 +174,22 @@
                         <citedRange unit="p">555</citedRange>
                     </bibl>
                     <bibl xml:id="bib459-4">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">98</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/459 http://syriaca.org/place/2336"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/459" passive="http://syriaca.org/place/724" source="#bib459-4">
+                        <desc xml:lang="en">
+                            <placeName ref="http://syriaca.org/place/724">Seert region</placeName></desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name-co-located" mutual="http://syriaca.org/place/459 http://syriaca.org/place/2336" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

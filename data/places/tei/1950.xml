@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -108,29 +108,31 @@
                     <placeName xml:id="name1950-3" xml:lang="en" source="#bib1950-1">Dartā d'Rōmāye</placeName>
                     <placeName xml:id="name1950-4" xml:lang="en" source="#bib1950-1">Dār al-Rūm</placeName>
                     <placeName xml:id="name1950-5" xml:lang="ar" source="#bib1950-2">دير الروم</placeName>
-                    <desc type="abstract" xml:id="abstract1950-1" xml:lang="en">A residence of the Catholicos of the Church of the East.</desc>
-                    <location type="nested" source="#bib1950-1">
-                        <settlement ref="http://syriaca.org/place/41">Baghdad</settlement>
-                    </location>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A residence of the Catholicos of the Church of the East.</desc>
                     <event type="attestation" xml:id="attestation1950-1" notBefore="1224" notAfter="1228" source="#bib1950-2" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">دير الروم</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">دير الروم</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name1950-5 #attestation1950-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/1950</idno>
                     <bibl xml:id="bib1950-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">16, 183, 184</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                     <bibl xml:id="bib1950-2">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">V:580</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/1950" passive="http://syriaca.org/place/41" source="#bib1950-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/41">Baghdad</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

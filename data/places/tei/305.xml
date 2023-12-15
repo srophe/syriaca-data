@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -128,7 +128,6 @@
                     <placeName resp="http://syriaca.org" xml:id="name305-2" xml:lang="syr" srophe:tags="#syriaca-headword">ܒܝܬ ܐܪܫܡ</placeName>
                     <placeName xml:id="name305-3" xml:lang="syr-Syrj" source="#bib305-1">ܒܶܝܬ ܐܰܪܩܡ</placeName>
                     <placeName xml:id="name305-4" xml:lang="ar" source="#bib305-2">بيث ارشم</placeName>
-                    <desc type="abstract" xml:id="abstract305-1" xml:lang="en"/>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib305-1">ܐܰܬܪܐ ܕܩܰܪܝܒ ܠܰܡܕܝܢ̈ܬܐ (ܣܠܝܩ ܘܩܰܛܝܣܦܘܢ) ܠܬܰܝܡܢܗ̇ ܕܒܓܕܕ ܘܠܐ ܝܺܕܝܺܥܐ ܕܘܟܬܗ̇.</quote>
                     </desc>
@@ -138,13 +137,12 @@
                     <desc xml:lang="en">
                         <quote source="#bib305-3">an extinct town south of Baghdad, near Ctesiphon. Its exact location is unknown.</quote>
                     </desc>
-          <state resp="http://syriaca.org" type="existence" from="0505" to="0440" srophe:computed-end="0440-01-01" srophe:computed-start="0505-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0505" to="0440" srophe:computed-end="0440-01-01" srophe:computed-start="0505-01-01">
                         <precision match="@from" notAfter="0505" srophe:computed-end="0505-01-01"/>
                         <precision match="@to" notAfter="1943" notBefore="0440" srophe:computed-end="1943-01-01" srophe:computed-start="0440-01-01"/>
                     </state>
-                    <note xml:lang="en" type="disambiguation">Not the same place as <placeName ref="http://syriaca.org/place/925">Arsham</placeName>.</note>
-                    <note target="#name305-3" xml:lang="en" type="deprecation">Dolabani's printer misread his shin as a qoph.</note>
-          <idno type="URI">http://syriaca.org/place/305</idno>
+                    <note target="#name305-3" xml:lang="en" type="deprecation" resp="http://syriaca.org">Dolabani's printer misread his shin as a qoph.</note>
+                    <idno type="URI">http://syriaca.org/place/305</idno>
                     <bibl xml:id="bib305-1">
                         <title xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
                         <ptr target="http://syriaca.org/bibl/3"/>
@@ -161,6 +159,11 @@
                         <citedRange unit="p">552</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="disambiguation" ref="http://syriaca.org/keyword/distinct-entity" mutual="http://syriaca.org/place/305 http://syriaca.org/place/925" resp="http://syriaca.org">
+                        <desc type="note" xml:lang="en">Not the same place as <placeName ref="http://syriaca.org/place/925">Arsham</placeName>.</desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

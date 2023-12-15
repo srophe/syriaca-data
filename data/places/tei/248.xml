@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -108,12 +108,9 @@
                     <placeName xml:id="name248-3" xml:lang="en" source="#bib248-2">‘Beʿellawin'</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name248-4" xml:lang="en-x-srp1">‘Beellawin'</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name248-5" xml:lang="en-x-srp1">‘Be‘ellawin'</placeName>
-                    <desc type="abstract" xml:id="abstract248-1" xml:lang="en">A village west of <placeName ref="http://syriaca.org/place/206">Urmia</placeName>.</desc>
-                    <location type="nested" source="#bib248-2">
-                        <region ref="http://syriaca.org/place/250">Tergāwār district</region>
-                        <region ref="http://syriaca.org/place/90">Hakkārī region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="1824" to="1903" srophe:computed-end="1903-01-01" srophe:computed-start="1824-01-01">
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A village west of <placeName ref="http://syriaca.org/place/206">Urmia</placeName>.</desc>
+                    
+                    <state resp="http://syriaca.org" type="existence" from="1824" to="1903" srophe:computed-end="1903-01-01" srophe:computed-start="1824-01-01">
                         <precision match="@from" notAfter="1824" srophe:computed-end="1824-01-01"/>
                         <precision match="@to" notBefore="1903" srophe:computed-start="1903-01-01"/>
                     </state>
@@ -125,12 +122,20 @@
                         <citedRange unit="map">Map IV</citedRange>
                     </bibl>
                     <bibl xml:id="bib248-2">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">307, 308, 310, 313</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/248" passive="http://syriaca.org/place/250" source="#bib248-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/250">Tergāwār district</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/248" passive="http://syriaca.org/place/90" source="#bib248-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/90">Hakkārī region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

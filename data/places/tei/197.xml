@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -105,7 +105,7 @@
                     <placeName xml:id="name197-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib197-2 #bib197-3">Telkepe</placeName>
                     <placeName xml:id="name197-2" xml:lang="en" source="#bib197-2">Tell Kaif</placeName>
                     <placeName xml:id="name197-3" xml:lang="en" source="#bib197-2">Talkef</placeName>
-                    <desc type="abstract" xml:id="abstract197-1" xml:lang="en">
+                    <desc type="abstract" xml:lang="en" corresp="http://syriaca.org/geo">
                         <quote source="#bib197-1">Town 15 km. north of Mosul, it is a populous Chald. settlement, seat of a bishopric., with a conspicuous diaspora in Iraq (Mosul, Baghdad, Baṣra, etc.) as well as in the USA, especially in San Diego and Detroit.</quote>
                     </desc>
                     <desc xml:lang="en">
@@ -114,10 +114,7 @@
                     <location type="gps" source="#bib197-2">
                         <geo>36.489444 43.119167</geo>
                     </location>
-                    <location type="nested" source="#bib197-3">
-                        <region ref="http://syriaca.org/place/722">Mosul region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="1100" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="1100-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="1100" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="1100-01-01">
                         <precision match="@from" notAfter="1100" srophe:computed-end="1100-01-01"/>
                         <precision match="@to" notBefore="2013" srophe:computed-start="2013-01-01"/>
                     </state>
@@ -125,7 +122,7 @@
                     <idno type="URI">http://en.wikipedia.org/wiki/Tel_Keppe</idno>
                     <idno type="URI">http://dbpedia.org/resource/Tel_Keppe</idno>
                     <bibl xml:id="bib197-1">
-                        <author>A. Mengozzi </author>
+                        <author><persName>A. Mengozzi </persName></author>
                         <title level="a" xml:lang="en">536. Telkepe</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/545"/>
@@ -138,16 +135,21 @@
                         <citedRange unit="map">Map IV</citedRange>
                     </bibl>
                     <bibl xml:id="bib197-3">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">9-10, 12, 13, 14, 26, 32, 52, 59, 71-72, 78, 79, 89, 94, 106, 108, 121, 123, 129, 130, 143, 144, 145, 159, 165, 176, 177, 179, 180, 181, 188, 189, 190, 197, 198, 199, 204, 205, 212, 219, 220, 222, 223-232, 233, 234, 237, 238, 240, 245, 246, 250, 256, 257, 262, 263, 264, 265, 266, 267, 269, 270, 271, 272, 273, 274, 349, 350, 355</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/197 http://syriaca.org/place/2388"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/197" passive="http://syriaca.org/place/722" source="#bib197-3">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/722">Mosul region</placeName></desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name-co-located" mutual="http://syriaca.org/place/197 http://syriaca.org/place/2388" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

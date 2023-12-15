@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -115,30 +115,36 @@
                     <placeName resp="http://syriaca.org" xml:id="name2504-5" xml:lang="en-x-srp1">Shaykh ‘Adī</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name2504-6" xml:lang="en-x-srp1">Mār Yōḥannān and Mār Īshōsabrān</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name2504-7" xml:lang="en-x-srp1">Mār Yōḥannān and Mār Īshō‘sabrān</placeName>
-                    <desc type="abstract" xml:id="abstract2504-1" xml:lang="en">The main Yezidi shrine in <placeName ref="http://syriaca.org/place/1399">Lālish</placeName>, which according to a Syriac text forged in the 19th century was originally a monastery.</desc>
-                    <location type="nested" source="#bib2504-2">
-                        <settlement ref="http://syriaca.org/place/1399">Lālish</settlement>
-                        <region ref="http://syriaca.org/place/777">Shemkān district</region>
-                        <region ref="http://syriaca.org/place/703">ʿAmādīyā region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">The main Yezidi shrine in <placeName ref="http://syriaca.org/place/1399">Lālish</placeName>, which according to a Syriac text forged in the 19th century was originally a monastery.</desc>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <state type="confession" xml:id="confession2504-1" ref="http://syriaca.org/documentation/confessions.xml#yezidis" from="1160" source="#bib2504-1">
-                        <label>Yezidis</label>
+                        <desc xml:lang="en">Yezidis</desc>
                     </state>
                     <idno type="URI">http://syriaca.org/place/2504</idno>
                     <bibl xml:id="bib2504-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">188, 203</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                     <bibl xml:id="bib2504-2">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">203-204</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2504" passive="http://syriaca.org/place/1399" source="#bib2504-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/1399">Lālish</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2504" passive="http://syriaca.org/place/777" source="#bib2504-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/777">Shemkān district</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2504" passive="http://syriaca.org/place/703" source="#bib2504-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/703">ʿAmādīyā region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -107,32 +107,33 @@
                     <placeName resp="http://syriaca.org" xml:id="name825-1" xml:lang="en" srophe:tags="#syriaca-headword">Ḥadita</placeName>
                     <placeName xml:id="name825-2" xml:lang="en" source="#bib825-1">Ḥadīṯā</placeName>
                     <placeName xml:id="name825-3" xml:lang="ar" source="#bib825-2">حَدِيْثة الموصل</placeName>
-                    <desc type="abstract" xml:id="abstract825-1" xml:lang="en"/>
                     <event type="attestation" xml:id="attestation825-1" notBefore="1224" notAfter="1228" source="#bib825-2" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">حَدِيْثة الموصل</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">حَدِيْثة الموصل</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name825-3 #attestation825-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/825</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Hdatta</idno>
                     <idno type="URI">http://dbpedia.org/resource/Hdatta</idno>
                     <bibl xml:id="bib825-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">63, 168</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                     <bibl xml:id="bib825-2">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">II:265</citedRange>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/825 http://syriaca.org/place/2311"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name-co-located" mutual="http://syriaca.org/place/825 http://syriaca.org/place/2311" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

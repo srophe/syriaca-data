@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -127,15 +127,12 @@
                     <placeName xml:id="name2578-4" xml:lang="en" source="#bib2578-4">St. John's Monastery in Beth Zaghba</placeName>
                     <placeName xml:id="name2578-5" xml:lang="en" source="#bib2578-6">Beth Mar John of Beth Zagba</placeName>
                     <placeName xml:id="name2578-6" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib2578-5">ܒܝܬ ܡܪܝ ܝܘܚܢܢ ܕܒܝܬ ܙܓܒܐ</placeName>
-                    <desc type="abstract" xml:id="abstract2578-1" xml:lang="en">The monastery where the Rabbula Gospels were copied, probably located north of <placeName ref="http://syriaca.org/place/11">Apamea</placeName>.</desc>
-                    <location resp="http://syriaca.org" type="nested">
-                        <settlement ref="http://syriaca.org/place/582">Beth Zagba</settlement>
-                    </location>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">The monastery where the Rabbula Gospels were copied, probably located north of <placeName ref="http://syriaca.org/place/11">Apamea</placeName>.</desc>
                     <event type="attestation" xml:id="attestation2578-1" when="0586" srophe:computed-start="0586-01-01" srophe:computed-end="0586-12-31" source="#bib2578-5">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="syr">ܒܝܬ ܡܪܝ ܝܘܚܢܢ ܕܒܝܬ ܙܓܒܐ</foreign> in the <title>Rabbula Gospels, Florence, Biblioteca Mediceo-Laurenziana, Pluteus 1.56</title>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="syr">ܒܝܬ ܡܪܝ ܝܘܚܢܢ ܕܒܝܬ ܙܓܒܐ</foreign> in the <title>Rabbula Gospels, Florence, Biblioteca Mediceo-Laurenziana, Pluteus 1.56</title>.</desc>
                         <link target="#name2578-6 #attestation2578-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="0568" to="0586" srophe:computed-end="0586-01-01" srophe:computed-start="0568-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0568" to="0586" srophe:computed-end="0586-01-01" srophe:computed-start="0568-01-01">
                         <precision match="@from" notAfter="0568" srophe:computed-end="0568-01-01"/>
                         <precision match="@to" notBefore="0586" srophe:computed-start="0586-01-01"/>
                     </state>
@@ -160,7 +157,7 @@
                         <ptr target="http://syriaca.org/bibl/4"/>
                         <citedRange unit="p">13</citedRange>
                     </bibl>
-                    <bibl type="syriaca:Manuscript" xml:id="bib2578-5">
+                    <bibl type="syriaca-ms" xml:id="bib2578-5">
                         <title xml:lang="en">Florence, Biblioteca Mediceo-Laurenziana, Pluteus 1.56</title>
                         <citedRange unit="fol">292r-v</citedRange>
                     </bibl>
@@ -170,6 +167,11 @@
                         <citedRange unit="p">405-430</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2578" passive="http://syriaca.org/place/582" resp="http://syriaca.org">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/582">Beth Zagba</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

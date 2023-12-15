@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -138,7 +138,7 @@
                     <placeName xml:id="name136-3" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib136-3">ܡܝܠܝܛܝܢܝ</placeName>
                     <placeName xml:id="name136-4" xml:lang="ar" source="#bib136-4">ملطية</placeName>
                     <placeName xml:id="name136-5" xml:lang="ar" source="#bib136-7">مَلَطْية</placeName>
-                    <desc type="abstract" xml:id="abstract136-1" xml:lang="en">
+                    <desc type="abstract" xml:lang="en" corresp="http://syriaca.org/geo">
                         <quote source="#bib136-1">City in eastern Anatolia, located near the right bank of the Euphrates and to the north of the main range of the Eastern Taurus.</quote>
                     </desc>
                     <desc xml:lang="en">
@@ -157,10 +157,10 @@
                         <geo>38.34767 38.31463</geo>
                     </location>
                     <event type="attestation" xml:id="attestation136-1" notBefore="1224" notAfter="1228" source="#bib136-7" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">مَلَطْية</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">مَلَطْية</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name136-5 #attestation136-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="-0712" to="2013" srophe:computed-end="2013-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="-0712" to="2013" srophe:computed-end="2013-01-01">
                         <precision match="@from" notAfter="-0712"/>
                         <precision match="@to" notBefore="2013" srophe:computed-start="2013-01-01"/>
                     </state>
@@ -169,7 +169,7 @@
                     <idno type="URI">http://en.wikipedia.org/wiki/Malatya</idno>
                     <idno type="URI">http://dbpedia.org/resource/Malatya</idno>
                     <bibl xml:id="bib136-1">
-                        <author>H. Takahashi </author>
+                        <author><persName>H. Takahashi </persName></author>
                         <title level="a" xml:lang="en">367. Melitene</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/376"/>
@@ -197,18 +197,25 @@
                         <citedRange unit="p">556</citedRange>
                     </bibl>
                     <bibl xml:id="bib136-6">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">62-63, 65</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                     <bibl xml:id="bib136-7">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">V:223</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/136" passive="http://syriaca.org/place/504" resp="http://syriaca.org">
+                        <desc xml:lang="en">
+                            <placeName ref="http://syriaca.org/place/504">Anatolia</placeName>
+                        </desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

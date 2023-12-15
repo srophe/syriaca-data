@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -110,12 +110,8 @@
                     <placeName xml:id="name613-4" xml:lang="en" source="#bib613-2">Dair Saʿīd</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name613-5" xml:lang="en-x-srp1">Dair Saīd</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name613-6" xml:lang="en-x-srp1">Dair Sa‘īd</placeName>
-                    <desc type="abstract" xml:id="abstract613-1" xml:lang="en">A monastery in the <placeName ref="http://syriaca.org/place/722">Mosul region</placeName>.</desc>
-                    <location type="nested" source="#bib613-2">
-                        <region ref="http://syriaca.org/place/722">Mosul region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence"/>
-                    <note xml:lang="en" type="disambiguation">Not the same place as <placeName ref="http://syriaca.org/place/403">Dayr Ilyā</placeName>.</note>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A monastery in the <placeName ref="http://syriaca.org/place/722">Mosul region</placeName>.</desc>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/613</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Dair_Mar_Elia</idno>
                     <idno type="URI">http://dbpedia.org/resource/Dair_Mar_Elia</idno>
@@ -128,12 +124,20 @@
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=m&amp;sK=monastery of Mar Eliya&amp;sT=keywords">monastery of Mar Eliya</citedRange>
                     </bibl>
                     <bibl xml:id="bib613-2">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">190, 201, 209, 211, 217-218, 242, 353, 354</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="disambiguation" ref="http://syriaca.org/keyword/distinct-entity" mutual="http://syriaca.org/place/613 http://syriaca.org/place/403" resp="http://syriaca.org">
+                        <desc type="note" xml:lang="en">Not the same place as <placeName ref="http://syriaca.org/place/403">Dayr Ilyā</placeName>.</desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/613" passive="http://syriaca.org/place/722" source="#bib613-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/722">Mosul region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

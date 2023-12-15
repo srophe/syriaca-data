@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -146,7 +146,6 @@
                     <placeName xml:id="name384-12" xml:lang="en" source="#bib384-4">Bet Gaugal</placeName>
                     <placeName xml:id="name384-13" xml:lang="en" source="#bib384-5">Mār Abraham of Kashkar</placeName>
                     <placeName xml:id="name384-14" xml:lang="en" source="#bib384-5">ʻGreat Monastery’</placeName>
-                    <desc type="abstract" xml:id="abstract384-1" xml:lang="en"/>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib384-1">ܒܛܘܪܥܰܒܕܝܢ ܡܶܣܬܒܰܪ ܘܡܶܬܐܡܰܪ ܗܘܐ ܠܗ ܕܒܶܝܬ ܓܘܳܓܝ ܘܥܰܡܝܪ ܗܘܳܐ ܒܪܝܫܳܐ ܕܡܰܐܬܐ ܫܬܝܬܳܝܬܐ. ܘܥܰܠ ܫܶܬܶܐܣܰܘ̈ܗܝ ܐܶܬܒܢܺܝ ܕܰܝܪܳܐ ܕܐܰܒܪܗܡ ܟܰܫܟܳܪܝܐ ܢܰܣܛܘܽܪܝܢܳܐ. ܟܶܢ ܐܰܚܕܽܘܗܝ ܣܘܪ̈ܝܳܝܐ ܒܪܝܫܗ ܕܕܳܪܐ ܕܰܬܫܰܥܣܪ ܐܰܟܡܳܐ ܕܐܶܚܰܕܘ ܕܰܝܪܐ ܕܡܳܪܝ ܝܘܚܰܢܢ ܛܰܝܳܝܐ ܕܩܰܪܝܒ ܠܕܰܝܪܐ ܕܡܳܪܝ ܐܰܘܓܝܢ ܒܳܬܪ ܕܐܶܣܬܰܦܰܩܘ ܗܘܰܘ ܘܰܚܪܶܒܘ ܘܫܰܟܠܶܠܘ ܐܢܘܢ</quote>
                     </desc>
@@ -159,10 +158,7 @@
                     <location type="gps" source="#bib384-6">
                         <geo>37.211579 41.473406</geo>
                     </location>
-                    <location type="nested" source="#bib384-5">
-                        <region ref="http://syriaca.org/place/723">Nisibis region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="0500" to="1800" srophe:computed-end="1800-01-01" srophe:computed-start="0500-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0500" to="1800" srophe:computed-end="1800-01-01" srophe:computed-start="0500-01-01">
                         <precision match="@from" notAfter="0500" notBefore="0300" srophe:computed-end="0500-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notBefore="1800" srophe:computed-start="1800-01-01"/>
                     </state>
@@ -192,7 +188,7 @@
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=B&amp;sK=Bet Gaugal&amp;sT=keywords">Bet Gaugal</citedRange>
                     </bibl>
                     <bibl xml:id="bib384-5">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">38, 43, 353, 354</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
@@ -202,6 +198,11 @@
                         <ptr target="http://pleiades.stoa.org/places/874578"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/384" passive="http://syriaca.org/place/723" source="#bib384-5">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/723">Nisibis region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

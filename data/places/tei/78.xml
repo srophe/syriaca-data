@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -121,7 +121,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="published">
-      <change who="http://syriaca.org/documentation/editors.xml#wpotter" when="2020-06-16-05:00">CHANGED: Implemented May 2019 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes">https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes</ref>. The issues labeled were #742, #743, #746, #747, #749, #752, #754, #757, #759, #761, #763, #765, #766, #767, #768, #769, #770, #771, #772, #773, #774, #792, #793, #794, #797, #802, #803, #804, #806, #807, #815, #816, #817, #818, #819, #820, #821, #822, #823, #824, #825, #826, #827, #829, #831, #832, #833, #834, #836, #843, #847, #848, #849, #850, #851, #852, #853</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wpotter" when="2020-06-16-05:00">CHANGED: Implemented May 2019 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes">https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes</ref>. The issues labeled were #742, #743, #746, #747, #749, #752, #754, #757, #759, #761, #763, #765, #766, #767, #768, #769, #770, #771, #772, #773, #774, #792, #793, #794, #797, #802, #803, #804, #806, #807, #815, #816, #817, #818, #819, #820, #821, #822, #823, #824, #825, #826, #827, #829, #831, #832, #833, #834, #836, #843, #847, #848, #849, #850, #851, #852, #853</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-06-30-04:00">CHANGED tei:author element to tei:persName under tei:event element.</change>
             <change who="http://syriaca.org/documentation/editors.xml#tcarlson" when="2014-06-12-05:00">ADDED: Yaqut citation and attestation</change>
             <change who="http://syriaca.org/documentation/editors.xml#tcarlson" when="2014-04-10">ADDED: markup around Syriac name in attestation event</change>
@@ -174,7 +174,7 @@
                     <placeName xml:id="name78-10" xml:lang="en" source="#bib78-1">Urhay</placeName>
                     <placeName xml:id="name78-11" xml:lang="ar" source="#bib78-12">الرُّهاء</placeName>
                     <placeName xml:id="name78-12" xml:lang="ar" source="#bib78-12">أَذاسا</placeName>
-                    <desc type="abstract" xml:id="abstract78-1" xml:lang="en">A city of <placeName ref="http://syriaca.org/place/124">Mesopotamia</placeName>, the capital of the ancient kingdom of <placeName ref="http://syriaca.org/place/145">Osrhoene</placeName>, modern Urfa.</desc>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A city of <placeName ref="http://syriaca.org/place/124">Mesopotamia</placeName>, the capital of the ancient kingdom of <placeName ref="http://syriaca.org/place/145">Osrhoene</placeName>, modern Urfa.</desc>
                     <desc xml:lang="en">
                         <quote source="#bib78-1">183. Edessa</quote>
                     </desc>
@@ -190,107 +190,105 @@
                     <location type="gps" source="#bib78-2">
                         <geo>37.15 38.8</geo>
                     </location>
-                    <location type="relative" subtype="quote" source="#bib78-5">
-                        <measure unit="days-journey" quantity="5">five day journey</measure>
-                        <offset>eastward from</offset>
-                        <placeName ref="http://syriaca.org/place/18">Aleppo</placeName>
-                    </location>
-                    <location type="nested" source="#bib78-1" to="0641">
-                        <region ref="http://syriaca.org/place/145">Osrhoene</region>
-                        <country ref="http://syriaca.org/place/166">Roman Empire</country>
+                    <location type="relative">
+                        <desc xml:lang="en">
+                            <quote source="#bib78-5">
+                                <measure unit="days-journey" quantity="5">five day journey</measure>
+                                <offset>eastward from</offset>
+                                <placeName ref="http://syriaca.org/place/18">Aleppo</placeName></quote></desc>
                     </location>
                     <event type="other" when="-0304" source="#bib78-1">
-                        <p xml:lang="en">Renamed Edessa by Seleucus I Nicator.</p>
+                        <desc xml:lang="en">Renamed Edessa by Seleucus I Nicator.</desc>
                     </event>
                     <event type="other" when="0201" source="#bib78-1" srophe:computed-start="0201-01-01" srophe:computed-end="0201-01-01">
-                        <p xml:lang="en">Flood of the river <placeName ref="http://syriaca.org/place/191">Daiṣan</placeName> destroyed part of city.</p>
+                        <desc xml:lang="en">Flood of the river <placeName ref="http://syriaca.org/place/191">Daiṣan</placeName> destroyed part of city.</desc>
                     </event>
                     <event type="other" when="0213" source="#bib78-1" srophe:computed-start="0213-01-01" srophe:computed-end="0213-01-01">
-                        <p xml:lang="en">Full incorporation into the <placeName ref="http://syriaca.org/place/166">Roman Empire</placeName>.</p>
+                        <desc xml:lang="en">Full incorporation into the <placeName ref="http://syriaca.org/place/166">Roman Empire</placeName>.</desc>
                     </event>
                     <event type="other" when="0489" source="#bib78-1" srophe:computed-start="0489-01-01" srophe:computed-end="0489-01-01">
-                        <p xml:lang="en">Closure of the "School of the Persians."</p>
+                        <desc xml:lang="en">Closure of the "School of the Persians."</desc>
                     </event>
                     <event type="other" when="0641" source="#bib78-1" srophe:computed-start="0641-01-01" srophe:computed-end="0641-01-01">
-                        <p xml:lang="en">Edessa conquered by the Arabs.</p>
+                        <desc xml:lang="en">Edessa conquered by the Arabs.</desc>
                     </event>
                     <event type="other" when="1098" source="#bib78-1" srophe:computed-start="1098-01-01" srophe:computed-end="1098-01-01">
-                        <p xml:lang="en">Edessa conquered by the Crusaders.</p>
+                        <desc xml:lang="en">Edessa conquered by the Crusaders.</desc>
                     </event>
                     <event type="other" when="1144" source="#bib78-1" srophe:computed-start="1144-01-01" srophe:computed-end="1144-01-01">
-                        <p xml:lang="en">Edessa conquered by Zengi of Mosul.</p>
+                        <desc xml:lang="en">Edessa conquered by Zengi of Mosul.</desc>
                     </event>
                     <event type="other" when="1517" source="#bib78-1" srophe:computed-start="1517-01-01" srophe:computed-end="1517-01-01">
-                        <p xml:lang="en">Edessa incorporated into the <placeName ref="http://syriaca.org/place/631">Ottoman Empire</placeName>.</p>
+                        <desc xml:lang="en">Edessa incorporated into the <placeName ref="http://syriaca.org/place/631">Ottoman Empire</placeName>.</desc>
                     </event>
                     <event type="other" notBefore="1913" notAfter="1919" source="#bib78-1" srophe:computed-end="1919-01-01" srophe:computed-start="1913-01-01">
-                        <p xml:lang="en">Massacres of some of Armenian and Syriac Christians during World War I.</p>
+                        <desc xml:lang="en">Massacres of some of Armenian and Syriac Christians during World War I.</desc>
                     </event>
                     <event type="other" when="1924" source="#bib78-1" srophe:computed-start="1924-01-01" srophe:computed-end="1924-01-01">
-                        <p xml:lang="en">Emigration of remaining Armenian and Syrian Christians to <placeName ref="http://syriaca.org/place/18">Aleppo</placeName>.</p>
+                        <desc xml:lang="en">Emigration of remaining Armenian and Syrian Christians to <placeName ref="http://syriaca.org/place/18">Aleppo</placeName>.</desc>
                     </event>
                     <event type="attestation" xml:id="attestation78-1" notBefore="1146" notAfter="1234" source="#bib78-9" srophe:computed-end="1234-01-01" srophe:computed-start="1146-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="syr">ܐܘܪܗܝ</foreign> in the anonymous <title ref="http://syriaca.org/work/113">Chronicle of 1234</title>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="syr">ܐܘܪܗܝ</foreign> in the anonymous <title ref="http://syriaca.org/work/113">Chronicle of 1234</title>.</desc>
                         <link target="#name78-3 #attestation78-1"/>
                     </event>
                     <event type="attestation" xml:id="attestation78-2" when="1146" source="#bib78-9" srophe:computed-start="1146-01-01" srophe:computed-end="1146-01-01">
-                        <p xml:lang="en">Attestation of Syrian Orthodox church in Edessa in the anonymous <title ref="http://syriaca.org/work/113">Chronicle of 1234</title>.</p>
+                        <desc xml:lang="en">Attestation of Syrian Orthodox church in Edessa in the anonymous <title ref="http://syriaca.org/work/113">Chronicle of 1234</title>.</desc>
                         <link target="#confession78-1 #attestation78-2"/>
                     </event>
                     <event type="attestation" xml:id="attestation78-3" when="0201" source="#bib78-10" srophe:computed-start="0201-01-01" srophe:computed-end="0201-01-01">
-                        <p xml:lang="en">Attestation of Christian church in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</p>
+                        <desc xml:lang="en">Attestation of Christian church in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</desc>
                         <link target="#confession78-2 #attestation78-3"/>
                     </event>
                     <event type="attestation" xml:id="attestation78-4" notBefore="0540" source="#bib78-10" srophe:computed-start="0540-01-01">
-                        <p xml:lang="en">Attestation of Chalcedonian author in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</p>
+                        <desc xml:lang="en">Attestation of Chalcedonian author in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</desc>
                         <link target="#confession78-3 #attestation78-4"/>
                     </event>
                     <event type="attestation" xml:id="attestation78-5" when="0522" source="#bib78-10" srophe:computed-start="0522-01-01" srophe:computed-end="0522-01-01">
-                        <p xml:lang="en">Attestation of Chalcedonian bishop in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</p>
+                        <desc xml:lang="en">Attestation of Chalcedonian bishop in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</desc>
                         <link target="#confession78-3 #attestation78-5"/>
                     </event>
                     <event type="attestation" xml:id="attestation78-6" when="0520" source="#bib78-10" srophe:computed-start="0520-01-01" srophe:computed-end="0520-01-01">
-                        <p xml:lang="en">Attestation of anti-Chalcedonian bishop in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</p>
+                        <desc xml:lang="en">Attestation of anti-Chalcedonian bishop in Edessa according to the <title ref="http://syriaca.org/work/119">Chronicle of Edessa</title>.</desc>
                         <link target="#confession78-1 #attestation78-6"/>
                     </event>
                     <event type="attestation" xml:id="attestation78-7" when="1624" source="#bib78-5" srophe:computed-start="1624-01-01" srophe:computed-end="1624-01-01">
-                        <p xml:lang="en">Attestation of Syrian Orthodox metropolitan for Edessa according to <persName ref="http://syriaca.org/person/372">Barsoum</persName>'s <title ref="http://syriaca.org/work/215">Scattered Pearls</title>.</p>
+                        <desc xml:lang="en">Attestation of Syrian Orthodox metropolitan for Edessa according to <persName ref="http://syriaca.org/person/372">Barsoum</persName>'s <title ref="http://syriaca.org/work/215">Scattered Pearls</title>.</desc>
                         <link target="#confession78-1 #attestation78-7"/>
                     </event>
                     <event type="attestation" xml:id="attestation78-8" notBefore="1224" notAfter="1228" source="#bib78-12" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of names <foreign xml:lang="ar">الرُّهاء</foreign> and <foreign xml:lang="ar">أَذاسا</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of names <foreign xml:lang="ar">الرُّهاء</foreign> and <foreign xml:lang="ar">أَذاسا</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name78-11 #attestation78-8"/>
                         <link target="#name78-12 #attestation78-8"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="-0304"/>
+                    <state resp="http://syriaca.org" type="existence" from="-0304"/>
                     <state type="confession" xml:id="confession78-2" ref="http://syriaca.org/documentation/confessions.xml#christians" from="0030" to="1924" source="#bib78-1" srophe:computed-end="1924-01-01" srophe:computed-start="0030-01-01">
-                        <label>Christians</label>
+                        <desc xml:lang="en">Christians</desc>
                     </state>
                     <state type="confession" xml:id="confession78-1" ref="http://syriaca.org/documentation/confessions.xml#syrian-orthodox" from="0451" to="1924" source="#bib78-1" srophe:computed-end="1924-01-01" srophe:computed-start="0451-01-01">
-                        <label>Syrian Orthodox</label>
+                        <desc xml:lang="en">Syrian Orthodox</desc>
                     </state>
-                    <state type="confession" xml:id="confession78-3" ref="http://syriaca.org/documentation/confessions.xml#melkite" from="0451" to="0641" srophe:computed-end="0641-01-01" srophe:computed-start="0451-01-01">
-                        <label>Melkite</label>
+                    <state type="confession" xml:id="confession78-3" ref="http://syriaca.org/documentation/confessions.xml#melkite" from="0451" to="0641" srophe:computed-end="0641-01-01" srophe:computed-start="0451-01-01" resp="http://syriaca.org">
+                        <desc xml:lang="en">Melkite</desc>
                     </state>
                     <state type="confession" xml:id="confession78-4" ref="http://syriaca.org/documentation/confessions.xml#muslims" from="0641" source="#bib78-1" srophe:computed-start="0641-01-01">
-                        <label>Muslims</label>
+                        <desc xml:lang="en">Muslims</desc>
                     </state>
                     <state type="confession" xml:id="confession78-5" ref="http://syriaca.org/documentation/confessions.xml#latin" from="1098" to="1144" source="#bib78-1" srophe:computed-end="1144-01-01" srophe:computed-start="1098-01-01">
-                        <label>Latin</label>
+                        <desc xml:lang="en">Latin</desc>
                     </state>
                     <state type="confession" xml:id="confession78-6" ref="http://syriaca.org/documentation/confessions.xml#jews" from="0050" to="0424" source="#bib78-11" srophe:computed-end="0424-01-01" srophe:computed-start="0050-01-01">
-                        <label>Jews</label>
+                        <desc xml:lang="en">Jews</desc>
                         <precision match="@from" notAfter="0100" srophe:computed-end="0100-01-01"/>
                         <precision match="@to" notBefore="0412" srophe:computed-start="0412-01-01"/>
                     </state>
-                    <note xml:lang="en" type="incerta">GEDSH article identifies its river as the <placeName ref="http://syriaca.org/place/43">Balikh</placeName>, but the identification is contested.</note>
+                    <note xml:lang="en" type="incerta" resp="http://syriaca.org">GEDSH article identifies its river as the <placeName ref="http://syriaca.org/place/43">Balikh</placeName>, but the identification is contested.</note>
                     <idno type="URI">http://syriaca.org/place/78</idno>
                     <idno type="URI">http://pleiades.stoa.org/places/658457</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Edessa</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Şanlıurfa</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=E&amp;sK=Edessa&amp;sT=keywords</idno>
                     <bibl xml:id="bib78-1">
-                        <author>A. Harrak</author>
+                        <author><persName>A. Harrak</persName></author>
                         <title level="a" xml:lang="en">183. Edessa</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/192"/>
@@ -323,7 +321,7 @@
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=E&amp;sK=Edessa&amp;sT=keywords">Edessa</citedRange>
                     </bibl>
                     <bibl xml:id="bib78-7">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">53, 65, 361, 362</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
@@ -346,17 +344,31 @@
                     </bibl>
                     <bibl xml:id="bib78-11">
                         <title xml:lang="en" level="a">Jews and Christians at Edessa</title>
-                        <author>Han J. W. Drijvers</author>
+                        <author><persName>Han J. W. Drijvers</persName></author>
                         <ptr target="http://syriaca.org/bibl/634"/>
                         <citedRange unit="p">90, 102</citedRange>
                     </bibl>
                     <bibl xml:id="bib78-12">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">I:155; III:120</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/78" passive="http://syriaca.org/place/145" source="#bib78-1" to="0641">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/145">Osrhoene</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/78" passive="http://syriaca.org/place/166" source="#bib78-1" to="0641">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/166">Roman Empire</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/78" passive="http://syriaca.org/place/2775" resp="http://syriaca.org">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/2775">Edessa (region)</placeName></desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name-co-located" mutual="http://syriaca.org/place/78 http://syriaca.org/place/2775" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

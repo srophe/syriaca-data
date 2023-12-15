@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -132,7 +132,7 @@
                     <placeName resp="http://syriaca.org" xml:id="name68-5" xml:lang="syr" srophe:tags="#syriaca-headword">ܕܝܪܐ ܕܨܠܝܒܐ</placeName>
                     <placeName xml:id="name68-6" xml:lang="syr-Syrj" source="#bib68-3">ܕܰܝܪܐ ܕܰܨܠܝܒܐ</placeName>
                     <placeName xml:id="name68-7" xml:lang="ar" source="#bib68-4">دير الصليب</placeName>
-                    <desc type="abstract" xml:id="abstract68-1" xml:lang="en">
+                    <desc type="abstract" xml:lang="en" corresp="http://syriaca.org/geo">
                         <quote source="#bib68-1">Monastery and village in Ṭur ʿAbdin.</quote>
                     </desc>
                     <desc xml:lang="en">
@@ -147,14 +147,14 @@
                     <desc xml:lang="en">
                         <quote source="#bib68-5">between Zāz and Ḥiṣn Kifa in Tur ʿAbdin, was first mentioned in history in 775. It was the see of the bishops of Ḥaḥ from 1089 to 1873. One Patriarch of Tur ʿAbdin, a Maphryono and six bishops graduated from it. In the middle of the last century it became the site of a small village, but its church still exists.</quote>
                     </desc>
-          <state resp="http://syriaca.org" type="existence" from="0775" to="2005" srophe:computed-end="2005-01-01" srophe:computed-start="0775-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0775" to="2005" srophe:computed-end="2005-01-01" srophe:computed-start="0775-01-01">
                         <precision match="@from" notAfter="0775" notBefore="0300" srophe:computed-end="0775-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notBefore="2005" srophe:computed-start="2005-01-01"/>
                     </state>
                     <note xml:lang="en" type="corrigenda">In Dolabani's translation of Barsoum's description <quote xml:lang="syr-Syrj">ܥܕܺܬܗ</quote> should read <quote xml:lang="syr-Syrj">ܥܺܕܬܗ</quote>.</note>
                     <idno type="URI">http://syriaca.org/place/68</idno>
                     <bibl xml:id="bib68-1">
-                        <author>H. Takahashi</author>
+                        <author><persName>H. Takahashi</persName></author>
                         <title level="a" xml:lang="en">466. al-Ṣalīb, Dayr</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/475"/>
@@ -183,7 +183,9 @@
                     </bibl>
                 </place>
             <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/68 http://syriaca.org/place/367"/>
+          <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name" mutual="http://syriaca.org/place/68 http://syriaca.org/place/367" resp="http://syriaca.org">
+              <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+          </relation>
         </listRelation>
       </listPlace>
         </body>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
    <teiHeader>
       <fileDesc>
@@ -122,9 +122,8 @@
                <placeName resp="http://syriaca.org" xml:id="name2653-2" xml:lang="syr" srophe:tags="#syriaca-headword">ܟܢܘܫܝܐ ܕܡܝܘܡܐ</placeName>
                <placeName xml:id="name2653-3" xml:lang="en" source="#bib2653-1">Convent of Majuma</placeName>
                <placeName xml:id="name2653-4" xml:lang="syr" source="#bib2653-2">ܟܢܘܫܝܐ ܕܡܝܘܡܐ</placeName>
-          <desc type="abstract" xml:id="abstract2653-1" xml:lang="en"/>
           <state resp="http://syriaca.org" type="existence"/>
-               <note xml:lang="en" type="incerta">This might be the same monastery as <placeName ref="http://syriaca.org/place/1466">;Dayro d-Mor Rumanos - ܕܝܪܐ ܕܡܪܝ ܪܘܡܐܢܘܣ</placeName>.</note>
+               <note xml:lang="en" type="incerta" resp="http://syriaca.org">This might be the same monastery as <placeName ref="http://syriaca.org/place/1466">;Dayro d-Mor Rumanos - ܕܝܪܐ ܕܡܪܝ ܪܘܡܐܢܘܣ</placeName>.</note>
                <idno type="URI">http://syriaca.org/place/2653</idno>
                <bibl xml:id="bib2653-1">
                   <ptr target="http://syriaca.org/bibl/668"/>
@@ -136,7 +135,9 @@
                </bibl>
             </place>
             <listRelation>
-               <relation name="see-also" mutual="http://syriaca.org/place/2653 http://syriaca.org/place/1466"/>
+               <relation type="see-also" ref="skos:related" mutual="http://syriaca.org/place/2653 http://syriaca.org/place/1466" resp="http://syriaca.org">
+                   <desc xml:lang="en">See also one or more related places.</desc>
+               </relation>
             </listRelation>
          </listPlace>
       </body>

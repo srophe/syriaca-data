@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -143,7 +143,7 @@
                     <placeName xml:id="name388-9" xml:lang="en" source="#bib388-5">Monastery of the Syrians</placeName>
                     <placeName xml:id="name388-10" xml:lang="en" source="#bib388-6">monastery of St Mark</placeName>
                     <placeName xml:id="name388-11" xml:lang="en" source="#bib388-7">Saint Mark's (West Syrian)</placeName>
-                    <desc type="abstract" xml:id="abstract388-1" xml:lang="en">
+                    <desc type="abstract" xml:lang="en" corresp="http://syriaca.org/geo">
                         <quote source="#bib388-1">Said to be located on the site of the Last Supper and named after the Evangelist, the monastery is situated on Mount Zion in Jerusalem.</quote>
                     </desc>
                     <desc xml:lang="en">
@@ -158,20 +158,17 @@
                     <desc xml:lang="en">
                         <quote source="#bib388-5">both located in Jerusalem. St. Mark is also known as the Monastery of the Syrians. It is an old monastery, built in the fifth or sixth century, according to an Estrangelo Syriac inscription on a stone discovered in 1940. Today it is the see of our metropolitan and it has been the home of our monks since 1472. The monastery has a magnificent library and a press. It has produced seven bishops.</quote>
                     </desc>
-                    <location type="nested" source="#bib388-7">
-                        <settlement ref="http://syriaca.org/place/104">Jerusalem</settlement>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="1472" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="1472-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="1472" to="2013" srophe:computed-end="2013-01-01" srophe:computed-start="1472-01-01">
                         <precision match="@from" notAfter="1472" notBefore="0300" srophe:computed-end="1472-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notBefore="2013" srophe:computed-start="2013-01-01"/>
                     </state>
-                    <note xml:lang="en" type="errata">Moosa's English translation of Barsoum's description erroneously implies "Mark the Evangelist Monastery" and "Monastery of the Virgin" are two separate monasteries, when they are two names for the same monastery.</note>
+                    <note xml:lang="en" type="errata" resp="http://syriaca.org">Moosa's English translation of Barsoum's description erroneously implies "Mark the Evangelist Monastery" and "Monastery of the Virgin" are two separate monasteries, when they are two names for the same monastery.</note>
                     <idno type="URI">http://syriaca.org/place/388</idno>
                     <idno type="URI">
                                             http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=m&amp;sK=monastery of St Mark&amp;sT=keywords
                                         </idno>
                     <bibl xml:id="bib388-1">
-                        <author>G. A. Kiraz </author>
+                        <author><persName>G. A. Kiraz </persName></author>
                         <title level="a" xml:lang="en">354. Mark, Monastery of St.</title>
                         <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/bibl/363"/>
@@ -203,12 +200,17 @@
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=m&amp;sK=monastery of St Mark&amp;sT=keywords">monastery of St Mark</citedRange>
                     </bibl>
                     <bibl xml:id="bib388-7">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">13, 68</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/388" passive="http://syriaca.org/place/104" source="#bib388-7">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/104">Jerusalem</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

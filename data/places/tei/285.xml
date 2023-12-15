@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -135,7 +135,6 @@
                     <placeName xml:id="name285-7" xml:lang="ar" source="#bib285-3">غورزان</placeName>
                     <placeName xml:id="name285-8" xml:lang="en" source="#bib285-4">Ghurzān</placeName>
                     <placeName xml:id="name285-9" xml:lang="ar" source="#bib285-5">أَرْزَن</placeName>
-                    <desc type="abstract" xml:id="abstract285-1" xml:lang="en"/>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib285-2">ܡܕܝܺܢܬܐ ܪܒܬܐ ܕܢܳܦܠܐ ܠܓܰܪܒܰܝ ܡܰܥܪܰܒ ܣܥܶܪܬ ܚܰܪ̈ܒܳܬܗ̇ ܩܝ̈ܡܳܢ</quote>
                     </desc>
@@ -146,15 +145,15 @@
                         <quote source="#bib285-4">a large city, formerly northwest of Seʿert. Its ruins can still be seen.</quote>
                     </desc>
                     <event type="attestation" xml:id="attestation285-1" notBefore="1224" notAfter="1228" source="#bib285-5" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">أَرْزَن</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">أَرْزَن</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name285-9 #attestation285-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="0410" to="1281" srophe:computed-end="1281-01-01" srophe:computed-start="0410-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0410" to="1281" srophe:computed-end="1281-01-01" srophe:computed-start="0410-01-01">
                         <precision match="@from" notAfter="0410" srophe:computed-end="0410-01-01"/>
                         <precision match="@to" notBefore="1281" srophe:computed-start="1281-01-01"/>
                     </state>
-                    <note target="#name285-5 #name285-7 #name285-8" xml:lang="en" type="deprecation">Barsoum also refers to this place in his description for Philoxenus of Mabbug as "Ghurzān" erroneously.</note>
-          <idno type="URI">http://syriaca.org/place/285</idno>
+                    <note target="#name285-5 #name285-7 #name285-8" xml:lang="en" type="deprecation" resp="http://syriaca.org">Barsoum also refers to this place in his description for Philoxenus of Mabbug as "Ghurzān" erroneously.</note>
+                    <idno type="URI">http://syriaca.org/place/285</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Nisibis_(East_Syrian_Ecclesiastical_Province)#The_diocese_of_Arzun</idno>
                     <bibl xml:id="bib285-1">
                         <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
@@ -178,15 +177,17 @@
                     </bibl>
                     <bibl xml:id="bib285-5">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">I:180</citedRange>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/285 http://syriaca.org/place/2256"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name-co-located" mutual="http://syriaca.org/place/285 http://syriaca.org/place/2256" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

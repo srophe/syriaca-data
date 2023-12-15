@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -144,7 +144,6 @@
                     <placeName xml:id="name467-8" xml:lang="en" source="#bib467-3">Antakh</placeName>
                     <placeName xml:id="name467-9" xml:lang="en" source="#bib467-4">Ḥattāḥ</placeName>
                     <placeName xml:id="name467-10" xml:lang="ar" source="#bib467-6">الهَتّاخ</placeName>
-                    <desc type="abstract" xml:id="abstract467-1" xml:lang="en"/>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib467-1">ܩܶܠܥܳܐ ܘܐܰܬܪܳܐ ܕܰܒܓܰܪܒܰܝ ܡܝܺܦܰܪܩܰܛ ܒܰܐܬܪܳܐ ܕܨܘܦܢܳܝ̈ܐ ܡܫܰܡܗܝܢ ܠܳܗ̇ ܐܢܳܫ̈ܐ ܐܰܢܛܰܐܟ.</quote>
                     </desc>
@@ -157,14 +156,11 @@
                     <location type="gps" source="#bib467-5">
                         <geo>38.347032 40.752181</geo>
                     </location>
-                    <location type="nested" source="#bib467-4">
-                        <region ref="http://syriaca.org/place/707">Āmid region</region>
-                    </location>
                     <event type="attestation" xml:id="attestation467-1" notBefore="1224" notAfter="1228" source="#bib467-6" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">الهَتّاخ</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">الهَتّاخ</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name467-10 #attestation467-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="0640" to="1913" srophe:computed-end="1913-01-01" srophe:computed-start="0640-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0640" to="1913" srophe:computed-end="1913-01-01" srophe:computed-start="0640-01-01">
                         <precision match="@from" notAfter="0640" srophe:computed-end="0640-01-01"/>
                         <precision match="@to" notBefore="1913" srophe:computed-start="1913-01-01"/>
                     </state>
@@ -186,7 +182,7 @@
                         <citedRange unit="p">553</citedRange>
                     </bibl>
                     <bibl xml:id="bib467-4">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">53</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
@@ -197,11 +193,16 @@
                     </bibl>
                     <bibl xml:id="bib467-6">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">V:451</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/467" passive="http://syriaca.org/place/707" source="#bib467-4">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/707">Āmid region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

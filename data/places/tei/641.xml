@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -125,15 +125,15 @@
                     <placeName xml:id="name641-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib641-1 #bib641-4 #bib641-5 #bib641-6">Rome</placeName>
                     <placeName xml:id="name641-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib641-2">ܪܘܡܝ</placeName>
                     <placeName xml:id="name641-3" xml:lang="ar" source="#bib641-3 #bib641-8">رومية</placeName>
-                    <desc type="abstract" xml:id="abstract641-1" xml:lang="en">The capital city of <placeName ref="http://syriaca.org/place/592">Italy</placeName> and formerly the capital of the <placeName ref="http://syriaca.org/place/166">Roman Empire</placeName>.</desc>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">The capital city of <placeName ref="http://syriaca.org/place/592">Italy</placeName> and formerly the capital of the <placeName ref="http://syriaca.org/place/166">Roman Empire</placeName>.</desc>
                     <location type="gps" source="#bib641-7">
                         <geo>41.8917375 12.4861685</geo>
                     </location>
                     <event type="attestation" xml:id="attestation641-1" notBefore="1224" notAfter="1228" source="#bib641-8" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">رومية</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">رومية</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name641-3 #attestation641-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/641</idno>
                     <idno type="URI">http://pleiades.stoa.org/places/423025</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Rome</idno>
@@ -167,7 +167,7 @@
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=R&amp;sK=Rome&amp;sT=keywords">Rome</citedRange>
                     </bibl>
                     <bibl xml:id="bib641-6">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">10, 17, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 50, 51, 52, 53, 55, 56, 58, 59, 63, 74, 75, 81, 87, 89, 106, 112, 210, 211, 267, 267, 327, 351, 352, 358, 362, 363, 364</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
@@ -178,15 +178,17 @@
                     </bibl>
                     <bibl xml:id="bib641-8">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">III:113</citedRange>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/641 http://syriaca.org/place/2360"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name" mutual="http://syriaca.org/place/641 http://syriaca.org/place/2360" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

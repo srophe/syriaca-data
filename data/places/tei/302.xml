@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -137,7 +137,6 @@
                     <placeName xml:id="name302-8" xml:lang="ar" source="#bib302-3">اللام</placeName>
                     <placeName xml:id="name302-9" xml:lang="en" source="#bib302-4">Bushayriyya</placeName>
                     <placeName xml:id="name302-10" xml:lang="en" source="#bib302-5">Bshīr</placeName>
-                    <desc type="abstract" xml:id="abstract302-1" xml:lang="en"/>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib302-2">ܘܝܰܘܡܳܢ ܡܶܫܬܰܡܗܐ ܒܶܫܶܝܪܺܝܶܗ ܠܓܰܪܒܰܝ ܐܳܡܝܕ. ܡܰܪܕܶܐ ܬܪܝܢ ܝܰܘܡ̈ܝܢ.</quote>
                     </desc>
@@ -147,10 +146,7 @@
                     <desc xml:lang="en">
                         <quote source="#bib302-4">a town two day journey north of Diyarbakir.</quote>
                     </desc>
-                    <location type="nested" source="#bib302-5">
-                        <region ref="http://syriaca.org/place/724">Seert region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="1526" to="1943" srophe:computed-end="1943-01-01" srophe:computed-start="1526-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="1526" to="1943" srophe:computed-end="1943-01-01" srophe:computed-start="1526-01-01">
                         <precision match="@from" notAfter="1526" srophe:computed-end="1526-01-01"/>
                         <precision match="@to" notBefore="1943" srophe:computed-start="1943-01-01"/>
                     </state>
@@ -176,12 +172,17 @@
                         <citedRange unit="p">552</citedRange>
                     </bibl>
                     <bibl xml:id="bib302-5">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">85, 86, 92-93, 99</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/302" passive="http://syriaca.org/place/724" source="#bib302-5">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/724">Seert region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

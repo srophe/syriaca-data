@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -106,30 +106,31 @@
                     <placeName xml:id="name1369-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib1369-1">Karsāpā</placeName>
                     <placeName xml:id="name1369-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib1369-2">ܟܪܣܒܐ</placeName>
                     <placeName xml:id="name1369-3" xml:lang="syr-Syrn" source="#bib1369-2">ܟܲܪܣܵܒ̣ܐ</placeName>
-                    <desc type="abstract" xml:id="abstract1369-1" xml:lang="en"/>
-                    <location type="nested" source="#bib1369-1">
-                        <region ref="http://syriaca.org/place/722">Mosul region</region>
-                    </location>
                     <event type="attestation" xml:id="attestation1369-1" when="1683-06-21" source="#bib1369-2" srophe:computed-end="1683-06-21" srophe:computed-start="1683-06-21">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="syr">ܟܲܪܣܵܒ̣ܐ</foreign> in the colophon of <title>Mardin, Chaldean Cathedral Ms. Macomber 32,19 [HMML CCM 00168]</title>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="syr">ܟܲܪܣܵܒ̣ܐ</foreign> in the colophon of <title>Mardin, Chaldean Cathedral Ms. Macomber 32,19 [HMML CCM 00168]</title>.</desc>
                         <link target="#name1369-3 #attestation1369-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="1683" to="1683" srophe:computed-end="1683-01-01" srophe:computed-start="1683-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="1683" to="1683" srophe:computed-end="1683-01-01" srophe:computed-start="1683-01-01">
                         <precision match="@from" notAfter="1683" srophe:computed-end="1683-01-01"/>
                         <precision match="@to" notBefore="1683" srophe:computed-start="1683-01-01"/>
                     </state>
                     <idno type="URI">http://syriaca.org/place/1369</idno>
                     <bibl xml:id="bib1369-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">189, 199, 240, 261</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
-                    <bibl type="syriaca:Manuscript" xml:id="bib1369-2">
+                    <bibl type="syriaca-ms" xml:id="bib1369-2">
                         <title xml:lang="en">Mardin, Chaldean Cathedral Ms. Macomber 32,19 [HMML CCM 00168]</title>
                         <citedRange unit="fol">94r</citedRange>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/1369" passive="http://syriaca.org/place/722" source="#bib1369-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/722">Mosul region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

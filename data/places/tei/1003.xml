@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -110,12 +110,7 @@
                     <placeName resp="http://syriaca.org" xml:id="name1003-4" xml:lang="en-x-srp1">Beth ‘Aynatha</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name1003-5" xml:lang="en-x-srp1">Beṯ Aïnāṯā</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name1003-6" xml:lang="en-x-srp1">Beṯ ‘Aïnāṯā</placeName>
-                    <desc type="abstract" xml:id="abstract1003-1" xml:lang="en"/>
-                    <location type="nested" source="#bib1003-2">
-                        <region ref="http://syriaca.org/place/777">Shemkān district</region>
-                        <region ref="http://syriaca.org/place/703">ʿAmādīyā region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/1003</idno>
                     <bibl xml:id="bib1003-1">
                         <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
@@ -123,12 +118,20 @@
                         <citedRange unit="p">49</citedRange>
                     </bibl>
                     <bibl xml:id="bib1003-2">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">131, 133, 156, 157</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/1003" passive="http://syriaca.org/place/777" source="#bib1003-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/777">Shemkān district</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/1003" passive="http://syriaca.org/place/703" source="#bib1003-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/703">ʿAmādīyā region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -111,25 +111,30 @@
                     <placeName resp="http://syriaca.org" xml:id="name2112-4" xml:lang="en-x-srp1">Mar Ya‘qob</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name2112-5" xml:lang="en-x-srp1">Mār Yaqōb</placeName>
                     <placeName resp="http://syriaca.org" xml:id="name2112-6" xml:lang="en-x-srp1">Mār Ya‘qōb</placeName>
-                    <desc type="abstract" xml:id="abstract2112-1" xml:lang="en"/>
-                    <location type="nested" source="#bib2112-1">
-                        <settlement ref="http://syriaca.org/place/1147">Darband</settlement>
-                        <region ref="http://syriaca.org/place/250">Tergāwār district</region>
-                        <region ref="http://syriaca.org/place/90">Hakkārī region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence"/>
+                    <state resp="http://syriaca.org" type="existence"/>
                     <idno type="URI">http://syriaca.org/place/2112</idno>
                     <bibl xml:id="bib2112-1">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">308, 369</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
-            <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/2112 http://syriaca.org/place/2495 http://syriaca.org/place/2496 http://syriaca.org/place/1433 http://syriaca.org/place/2113 http://syriaca.org/place/2114"/>
-        </listRelation>
-      </listPlace>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2112" passive="http://syriaca.org/place/1147" source="#bib2112-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/1147">Darband</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2112" passive="http://syriaca.org/place/250" source="#bib2112-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/250">Tergāwār district</placeName></desc>
+                    </relation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2112" passive="http://syriaca.org/place/90" source="#bib2112-1">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/90">Hakkārī region</placeName></desc>
+                    </relation>
+                    <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name" mutual="http://syriaca.org/place/2112 http://syriaca.org/place/2495 http://syriaca.org/place/2496 http://syriaca.org/place/1433 http://syriaca.org/place/2113 http://syriaca.org/place/2114" resp="http://syriaca.org">
+                        <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+                    </relation>
+                </listRelation>
+            </listPlace>
         </body>
     </text>
 </TEI>

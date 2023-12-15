@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -134,7 +134,7 @@
                     <placeName resp="http://syriaca.org" xml:id="name456-3" xml:lang="syr" srophe:tags="#syriaca-headword">ܡܐܝܘܡܐ</placeName>
                     <placeName xml:id="name456-4" xml:lang="syr-Syrj" source="#bib456-2">ܡܰܐܝܘܡܰܐ</placeName>
                     <placeName xml:id="name456-5" xml:lang="ar" source="#bib456-3">مايوما</placeName>
-                    <desc type="abstract" xml:id="abstract456-1" xml:lang="en">The port city of <placeName ref="http://syriaca.org/place/87">Gaza</placeName>.</desc>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">The port city of <placeName ref="http://syriaca.org/place/87">Gaza</placeName>.</desc>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib456-2">ܠܡܺܐܢܳܐ ܚܰܪܝܒܳܐ ܒܩܘܪܒܳܐ ܕܥܰܙܐ ܥܰܠ ܝܰܕ ܝܰܡܳܐ ܡܶܨܥܳܝܐ.</quote>
                     </desc>
@@ -147,11 +147,10 @@
                     <location type="gps" source="#bib456-5">
                         <geo>31.530845 34.433158</geo>
                     </location>
-          <state resp="http://syriaca.org" type="existence" from="-0030" to="0743" srophe:computed-end="0743-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="-0030" to="0743" srophe:computed-end="0743-01-01">
                         <precision match="@from" notAfter="-0030"/>
                         <precision match="@to" notBefore="0743" srophe:computed-start="0743-01-01"/>
                     </state>
-                    <note xml:lang="en" type="disambiguation">Not the same conceptual place as <placeName ref="http://syriaca.org/place/87">Gaza</placeName>.</note>
                     <idno type="URI">http://syriaca.org/place/456</idno>
                     <idno type="URI">http://pleiades.stoa.org/places/687903</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Maiuma</idno>
@@ -181,6 +180,11 @@
                         <ptr target="http://pleiades.stoa.org/places/687903"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="disambiguation" ref="http://syriaca.org/keyword/distinct-entity" mutual="http://syriaca.org/place/456 http://syriaca.org/place/87" resp="http://syriaca.org">
+                        <desc type="note" xml:lang="en">Not the same conceptual place as <placeName ref="http://syriaca.org/place/87">Gaza</placeName>.</desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

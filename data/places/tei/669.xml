@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -103,11 +103,8 @@
                 <place type="monastery">
                     <placeName xml:id="name669-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib669-1">Mar Aphnimaran</placeName>
                     <placeName xml:id="name669-2" xml:lang="en" source="#bib669-2">Mār Apnī-māran</placeName>
-                    <desc type="abstract" xml:id="abstract669-1" xml:lang="en">A monastery frequented by <persName ref="http://syriaca.org/person/826">Yoḥannan of Dalyatha</persName>.</desc>
-                    <location type="nested" source="#bib669-2">
-                        <region ref="http://syriaca.org/place/722">Mosul region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="0800" to="1092" srophe:computed-end="1092-01-01" srophe:computed-start="0800-01-01">
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A monastery frequented by <persName ref="http://syriaca.org/person/826">Yoḥannan of Dalyatha</persName>.</desc>
+                    <state resp="http://syriaca.org" type="existence" from="0800" to="1092" srophe:computed-end="1092-01-01" srophe:computed-start="0800-01-01">
                         <precision match="@from" notAfter="0800" notBefore="0300" srophe:computed-end="0800-01-01" srophe:computed-start="0300-01-01"/>
                         <precision match="@to" notAfter="1899" notBefore="1092" srophe:computed-end="1899-01-01" srophe:computed-start="1092-01-01"/>
                     </state>
@@ -118,12 +115,17 @@
                         <citedRange unit="p">441</citedRange>
                     </bibl>
                     <bibl xml:id="bib669-2">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">223, 237</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/669" passive="http://syriaca.org/place/722" source="#bib669-2">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/722">Mosul region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

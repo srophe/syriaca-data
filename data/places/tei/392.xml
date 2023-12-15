@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -139,7 +139,6 @@
                     <placeName xml:id="name392-5" xml:lang="en" source="#bib392-4">Malke Monastery</placeName>
                     <placeName xml:id="name392-6" xml:lang="en" source="#bib392-5">monastery of Mar Malkha</placeName>
                     <placeName xml:id="name392-7" xml:lang="en" source="#bib392-6">Mār Malke</placeName>
-                    <desc type="abstract" xml:id="abstract392-1" xml:lang="en"/>
                     <desc xml:lang="syr-Syrj">
                         <quote source="#bib392-2">ܒܛܘܪܥܰܒܕܝܢ ܒܶܝܬ ܩܘܪ̈ܝܳܐ ܕܐܰܪܟܰܚ ܘܒܶܝܬ ܕܶܒܶܐ. ܐܶܬܒܢܝ ܚܕܳܪ̈ܝ ܕܳܪܐ ܫܬܝܬܳܝܐ. ܘܰܗܘܐ ܟܘܪܣܝܳܐ ܐܶܦܝܣܩܘܦܳܝܐ ܒܕܳܪܐ ܕܐܰܪܒܰܥܣܪ. ܐܶܣܬܚܦ ܫܢܰܬ  1926  ܘܬܘܒ ܒܰܪ ܕܪܝܫ ܐܶܬܚܰܕܰܬ ܘܐܶܬܝܰܬܒ. ܢܰܦܶܩ ܥܣܪܐ ܐܶܦܝܣܩܘ̈ܦܐ</quote>
                     </desc>
@@ -152,10 +151,7 @@
                     <location type="gps" source="#bib392-7">
                         <geo>37.231912 41.411144</geo>
                     </location>
-                    <location type="nested" source="#bib392-6">
-                        <region ref="http://syriaca.org/place/723">Nisibis region</region>
-                    </location>
-          <state resp="http://syriaca.org" type="existence" from="0600" to="1926" srophe:computed-end="1926-01-01" srophe:computed-start="0600-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="0600" to="1926" srophe:computed-end="1926-01-01" srophe:computed-start="0600-01-01">
                         <precision match="@from" notAfter="0600" notBefore="0500" srophe:computed-end="0600-01-01" srophe:computed-start="0500-01-01"/>
                     </state>
                     <idno type="URI">http://syriaca.org/place/392</idno>
@@ -189,7 +185,7 @@
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=m&amp;sK=monastery of Mar Malkha&amp;sT=keywords">monastery of Mar Malkha</citedRange>
                     </bibl>
                     <bibl xml:id="bib392-6">
-                        <author>David Wilmshurst</author>
+                        <author><persName>David Wilmshurst</persName></author>
                         <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
                         <citedRange unit="p">43</citedRange>
                         <ptr target="http://syriaca.org/bibl/9"/>
@@ -199,6 +195,11 @@
                         <ptr target="http://pleiades.stoa.org/places/874582"/>
                     </bibl>
                 </place>
+                <listRelation>
+                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/392" passive="http://syriaca.org/place/723" source="#bib392-6">
+                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/723">Nisibis region</placeName></desc>
+                    </relation>
+                </listRelation>
             </listPlace>
         </body>
     </text>

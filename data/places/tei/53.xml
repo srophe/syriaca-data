@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -102,15 +102,15 @@
                 <place type="settlement">
                     <placeName xml:id="name53-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib53-1">Caesarea</placeName>
                     <placeName xml:id="name53-2" xml:lang="ar" source="#bib53-2">قَيْساريّة</placeName>
-                    <desc type="abstract" xml:id="abstract53-1" xml:lang="en">A port city in Palaestina north of Gaza.</desc>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A port city in Palaestina north of Gaza.</desc>
                     <location type="gps" source="#bib53-1">
                         <geo>32.5 34.89972</geo>
                     </location>
                     <event type="attestation" xml:id="attestation53-1" notBefore="1224" notAfter="1228" source="#bib53-2" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">قَيْساريّة</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">قَيْساريّة</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name53-2 #attestation53-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="-0013" to="1265" srophe:computed-end="1265-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="-0013" to="1265" srophe:computed-end="1265-01-01">
                         <precision match="@from" notAfter="-0013" notBefore="-0025"/>
                     </state>
                     <idno type="URI">http://syriaca.org/place/53</idno>
@@ -125,13 +125,15 @@
                     </bibl>
                     <bibl xml:id="bib53-2">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
+                        <author><persName>Yāqūt al-Ḥamawī</persName></author>
                         <ptr target="http://syriaca.org/bibl/636"/>
                         <citedRange unit="p">IV:478</citedRange>
                     </bibl>
                 </place>
             <listRelation>
-          <relation name="share-a-name" mutual="http://syriaca.org/place/53 http://syriaca.org/place/60"/>
+          <relation type="disambiguation" subtype="share-a-name" ref="http://syriaca.org/keyword/share-a-name" mutual="http://syriaca.org/place/53 http://syriaca.org/place/60" resp="http://syriaca.org">
+              <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+          </relation>
         </listRelation>
       </listPlace>
         </body>
