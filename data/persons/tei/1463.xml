@@ -13,6 +13,11 @@
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole
                     Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#sroggo">Silvio Roggo</editor>
+                <respStmt>
+                    <resp>URI minted and initial data collected by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#sroggo">Silvio Roggo</name>
+                </respStmt>
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -53,7 +58,7 @@
                             License.</p>
                     </licence>
                 </availability>
-                <date>2016-08-17-04:00</date>
+                <date>2024-01-12-06:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s" xml:lang="en">The Syriac Biographical Dictionary</title>
@@ -78,6 +83,13 @@
                     Mellon Saint-Laurent</editor>
                 <biblScope unit="volume" n="1">I</biblScope>
                 <idno type="URI">http://syriaca.org/q</idno>
+            </seriesStmt>
+            <seriesStmt>
+                <title level="m" xml:lang="en">Prosopography to John of Ephesus’s Ecclesiastical History</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
+                    <persName>Silvio Roggo</persName>,<date from="2023">2023-present</date>.</editor>
+                <biblScope unit="volume" n="4">IV</biblScope>
+                <idno type="URI">http://syriaca.org/johnofephesus/persons</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>This is a born digital project. However, our starting point for collecting this
@@ -126,9 +138,13 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="incomplete">
+<<<<<<< HEAD:data/persons/tei/1463.xml
             <change who="http://syriaca.org/documentation/editors.xml#dschwartz" when="2023-10">Significant updates to syriacaAll and syriacaPersons schemas have required updates to data and fixing of errors in the data. The most significant updates were to the relation, status, and seriesStmt elements and to the @ana att on person and personGrp.</change>
             <change who="http://syriaca.org/documentation/editors.xml#dschwartz" when="2023-06">Major updates to data model in conjunction with schema work requiring some updates
                 to data as well.</change>
+=======
+            <change when="2024-01-12-06:00" who="http://syriaca.org/documentation/editors.xml#sroggo">ADDED: John of Ephesus Guide data</change>
+>>>>>>> ff92edfd39e7d0d0c76c9bd22bb53edd72556bb3:data/persons/tei/saints/tei/1463.xml
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-08-17-04:00">Update persName texts nodes from new headwords.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-07-27-04:00">Add bibl ptr elements.</change>
@@ -148,17 +164,26 @@
                 <person ana="#syriaca-saint">
                     <persName xml:id="name1463-2" xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword">Sergius of Tella</persName>
                     <persName xml:id="name1463-3" xml:lang="fr-x-fiey" source="#bib1463-1">SERGE</persName>
+                    <persName xml:lang="syr" xml:id="name1463-4" srophe:tags="#syriaca-headword" source="#bib1463-6">ܣܪܓܝܣ</persName>
                     <idno type="URI">http://syriaca.org/person/1463</idno>
+                    <idno type="URI">http://syriaca.org/johnofephesus/persons/1463</idno>
+                    <idno type="URI">https://en.wikipedia.org/wiki/Sergius_of_Tella</idno>
                     <idno type="FIEY">400</idno>
                     <note xml:lang="en" type="abstract" resp="http://syriaca.org" corresp="http://syriaca.org/persons http://syriaca.org/q http://syriaca.org/saints">In hagiography:
                         Sergius of <placeName ref="http://syriaca.org/place/1889">Tella</placeName> was the successor of <persName ref="http://syriaca.org/person/69">Jacob
                             Baradaeus</persName>. He accompanied his teacher to <placeName ref="http://syriaca.org/place/586">Constantinople</placeName> where he
                         was received by <persName ref="http://syriaca.org/person/779">the Empress
                             Theodora</persName>.</note>
+                    <note type="abstract" xml:lang="en" corresp="http://syriaca.org/johnofephesus/persons">
+                        <quote source="#bib1463-7">Sergius was a close collaborator of the miaphysite bishop Jacob Burd'oyo. He resided in Constantinople for a large part of his life and was eventually ordained miaphysite bishop of Antioch. However, it seems that he remained in Constantinople where he died around 560. During the last years of his life, he became an adherent of the tritheist doctrine.</quote>
+                    </note>
                     <floruit>
                         <date source="#bib1463-1" when="0550" srophe:computed-start="0550">550</date>
                     </floruit>
-                    <gender ana="http://syriaca.org/keyword/male" source="#bib1463-1">male</gender>
+                    <floruit>
+                        <date source="#bib1463-7" notBefore="0558-01-01">558-560</date>
+                    </floruit>
+                    <gender ana="http://syriaca.org/keyword/male" source="#bib1463-1 #bib1463-8">male</gender>
                     <state type="status" ref="http://syriaca.org/keyword/saints" resp="http://syriaca.org">
                         <desc xml:lang="en">Saint</desc>
                     </state>
@@ -202,6 +227,19 @@
                         <ptr target="http://syriaca.org/bibl/1426"/>
                         <citedRange unit="vol">II</citedRange>
                         <citedRange unit="p">1001</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1463-6">
+                        <ptr target="http://syriaca.org/bibl/9KL93RUC"/>
+                        <citedRange unit="p">50</citedRange>
+                        <citedRange unit="chapter">3.1.41</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1463-7">
+                        <ptr target="http://syriaca.org/bibl/MBTEGB67"/>
+                        <citedRange unit="p">192-195</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1463-8">
+                        <ptr target="http://syriaca.org/bibl/9KL93RUC"/>
+                        <citedRange unit="p">50</citedRange>
                     </bibl>
                 </person>
             </listPerson>
