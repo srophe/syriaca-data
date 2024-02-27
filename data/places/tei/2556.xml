@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -9,17 +11,9 @@
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
-                <respStmt>
-                    <resp>XML by</resp>
-                    <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Data submission review by</resp>
-                    <name ref="http://syriaca.org/documentation/editors.xml#aschmidt">Andrea Schmidt</name>
-                </respStmt>
-            <respStmt>
+      <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
-          <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+          <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
         </respStmt>
         <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
@@ -27,8 +21,16 @@
         </respStmt>
         <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
-          <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
+          <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
         </respStmt>
+        <respStmt>
+                    <resp>Data submission review by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#aschmidt">Andrea Schmidt</name>
+                </respStmt>
+        <respStmt>
+                    <resp>XML by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+                </respStmt>
       </titleStmt>
             <editionStmt>
                 <edition n="2.0"/>
@@ -101,7 +103,8 @@
             <listPlace>
                 <place type="settlement">
                     <placeName xml:id="name2556-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib2556-1">Gel</placeName>
-                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">An Assyrian settlement in Eastern Ararat province of <placeName ref="http://syriaca.org/place/576">Armenia</placeName></desc>
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">An Assyrian settlement in Eastern Ararat province of <placeName ref="http://syriaca.org/place/576">Armenia</placeName>
+          </desc>
                     <state resp="http://syriaca.org" type="existence" from="1859" to="1958" srophe:computed-end="1958-01-01" srophe:computed-start="1849-01-01">
                         <precision match="@from" notBefore="1850-01-01" notAfter="1859-12-31" srophe:computed-start="1850-01-01" srophe:computed-end="1859-12-31"/>
 						<precision match="@to" notAfter="1958-12-31" srophe:computed-end="1958-12-31"/>
@@ -114,8 +117,10 @@
                     </bibl>
                 </place>
                 <listRelation>
-                    <relation type="contained-within" ref="skos:broader" active="http://syriaca.org/place/2556" passive="http://syriaca.org/place/576" source="#bib2556-1">
-                        <desc xml:lang="en"><placeName ref="http://syriaca.org/place/576">Armenia</placeName></desc>
+                    <relation type="contained-within" ref="http://www.w3.org/2004/02/skos/core#broader" active="http://syriaca.org/place/2556" passive="http://syriaca.org/place/576" source="#bib2556-1">
+                        <desc xml:lang="en">
+              <placeName ref="http://syriaca.org/place/576">Armenia</placeName>
+            </desc>
                     </relation>
                 </listRelation>
             </listPlace>
