@@ -15,6 +15,11 @@
                     Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jwalters">James E. Walters</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#sroggo">Silvio Roggo</editor>
+                <respStmt>
+                    <resp>URI minted and initial data collected by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#sroggo">Silvio Roggo</name>
+                </respStmt>
                 <respStmt>
                     <resp>Editing, proofreading, data entry and revision by</resp>
                     <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
@@ -60,7 +65,7 @@
                             License.</p>
                     </licence>
                 </availability>
-                <date>2016-08-17-04:00</date>
+                <date>2024-01-12-06:00</date>
             </publicationStmt>
             <seriesStmt>
                 <title level="s" xml:lang="en">The Syriac Biographical Dictionary</title>
@@ -85,6 +90,13 @@
                     Mellon Saint-Laurent</editor>
                 <biblScope unit="volume" n="1">I</biblScope>
                 <idno type="URI">http://syriaca.org/q</idno>
+            </seriesStmt>
+            <seriesStmt>
+                <title level="m" xml:lang="en">Prosopography to John of Ephesus’s Ecclesiastical History</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
+                    <persName>Silvio Roggo</persName>,<date from="2023">2023-present</date>.</editor>
+                <biblScope unit="volume" n="4">IV</biblScope>
+                <idno type="URI">http://syriaca.org/johnofephesus/persons</idno>
             </seriesStmt>
             <sourceDesc>
                 <p>This is a born digital project. However, our starting point for collecting this
@@ -133,6 +145,7 @@
             </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change when="2024-01-12-06:00" who="http://syriaca.org/documentation/editors.xml#sroggo">ADDED: John of Ephesus Guide data</change>
             <change who="http://syriaca.org/documentation/editors.xml#dschwartz" when="2023-10">Significant updates to syriacaAll and syriacaPersons schemas have required updates to data and fixing of errors in the data. The most significant updates were to the relation, status, and seriesStmt elements and to the @ana att on person and personGrp.</change>
             <change who="http://syriaca.org/documentation/editors.xml#dschwartz" when="2023-06">Major updates to data model in conjunction with schema work requiring some updates
                 to data as well.</change>
@@ -154,18 +167,31 @@
         <body>
             <listPerson>
                 <person ana="#syriaca-saint">
-                    <persName xml:id="name1910-1" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib1910-1">ܡܘܪܝܩܐ</persName>
+                    <persName xml:id="name1910-1" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib1910-1 #bib1910-3">ܡܘܪܝܩܐ</persName>
                     <persName xml:id="name1910-2" xml:lang="en-x-gedsh" resp="http://syriaca.org">Mawrīqē</persName>
                     <persName xml:id="name1910-3" xml:lang="en" resp="http://syriaca.org" srophe:tags="#syriaca-headword">Maurice, Roman emperor</persName>
                     <persName xml:id="name1910-4" xml:lang="fr-x-zanetti" source="#bib1910-1">Mawrīqē</persName>
-                    <persName xml:id="name1910-5" xml:lang="fr" source="#bib1910-1">Maurice
-                        l’empereur</persName>
-                    <persName xml:lang="en" xml:id="name1910-6" source="#bib1910-2">Maurice the
-                        Emperor</persName>
+                    <persName xml:id="name1910-5" xml:lang="fr" source="#bib1910-1">Maurice l’empereur</persName>
+                    <persName xml:lang="en" xml:id="name1910-6" source="#bib1910-2">Maurice the Emperor</persName>
+                    <persName xml:lang="en" xml:id="name1910-7" resp="http://syriaca.org">Maurice</persName>
+                    <persName xml:lang="syr" xml:id="name1910-8" resp="http://syriaca.org" srophe:tags="#anonymous-description">ܡܠܟܐ</persName>
+                    <persName xml:lang="en" xml:id="name1910-9" source="#bib1910-4">Mauricius</persName>
                     <idno type="URI">http://syriaca.org/person/1910</idno>
+                    <idno type="URI">http://syriaca.org/johnofephesus/persons/1910</idno>
                     <idno type="URI">http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=M&amp;sK=Maurice&amp;sT=keywords</idno>
+                    <idno type="URI">https://en.wikipedia.org/wiki/Maurice_(emperor)</idno>
                     <note xml:lang="en" type="abstract" source="#bib1910-1" corresp="http://syriaca.org/persons http://syriaca.org/q http://syriaca.org/saints">The Emperor Maurice was Byzantine emperor at the end of the sixth century
                         and beginning of the seventh century. </note>
+                    <note type="abstract" xml:lang="en" corresp="http://syriaca.org/johnofephesus/persons">
+                        <quote source="#bib1910-5">Maurice was commander of the imperial bodyguard in the late 570s and led the Roman troops in the east in the war against the Sasanian Empire. The emperor Tiberius elevated him to the rank of Caesar shortly before his death, thereby designating him as his successor. During his reign, Maurice brought the war with the Sasanians to a successful completion in 591 and restored Roman rule in the Balkan provinces. He was a committed Chalcedonian, yet John of Ephesus is quite positive towards him since he did not embark on a policy of persecution towards the miaphysites. Maurice was overthrown and murdered after an army mutiny in November 602.</quote>
+                    </note>
+                    <floruit>
+                        <date source="#bib1910-5" notBefore="0582-08-13">582-602</date>
+                    </floruit>
+                    <death>
+                        <date source="#bib1910-5">0602-11-27</date>
+                    </death>
+                    <gender source="#bib1910-6" ana="http://syriaca.org/keyword/male">male</gender>
                     <state type="status" ref="http://syriaca.org/keyword/saints" resp="http://syriaca.org">
                         <desc xml:lang="en">Saint</desc>
                     </state>
@@ -185,6 +211,24 @@
                             Christianity</title>
                         <ptr target="http://syriaca.org/bibl/5"/>
                         <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=M&amp;sK=Maurice&amp;sT=keywords">Maurice the Emperor</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1910-3">
+                        <ptr target="http://syriaca.org/bibl/9KL93RUC"/>
+                        <citedRange unit="p">115; 167; 173; 174; 251; 252; 253; 262; 263; 264; 265; 268; 269; 270; 271; 273; 274; 275; 276; 309; 310; 311; 312; 313; 330; 331; 338; 339</citedRange>
+                        <citedRange unit="chapter">3.2.49; 3.3.34; 3.3.40; 3.5.13; 3.5.14; 3.5.15; 3.5.18; 3.5.19; 3.5.20; 3.5.21; 3.5.22; 3.5.23; 3.6.14; 3.6.15; 3.6.16; 3.6.17; 3.6.27; 3.6.34; 3.6.35</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1910-4">
+                        <ptr target="http://syriaca.org/bibl/7K28WD3W"/>
+                        <citedRange unit="entry">Fl. Mauricius Tiberius 4</citedRange>
+                        <citedRange unit="p">855-860</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1910-5">
+                        <ptr target="http://syriaca.org/bibl/7K28WD3W"/>
+                        <citedRange unit="p">855-860</citedRange>
+                    </bibl>
+                    <bibl xml:id="bib1910-6">
+                        <ptr target="http://syriaca.org/bibl/9KL93RUC"/>
+                        <citedRange unit="p">115; 167; 173; 174; 251; 252; 253; 262; 263; 264; 265; 268; 269; 270; 271; 273; 274; 275; 276; 309; 310; 311; 312; 313; 330; 331; 338; 339</citedRange>
                     </bibl>
                 </person>
             </listPerson>
