@@ -1,0 +1,93 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+            <index xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app">
+                        <lucene diacritics="no">
+                                    <module uri="http://srophe.org/srophe/facets" prefix="sf"
+                                                at="xmldb:exist:////db/apps/syriaca/modules/lib/facets.xql"/>
+                                    <text qname="tei:TEI">
+                                                <facet dimension="cbssPublicationDate"
+                                                  expression="descendant::tei:biblStruct/descendant::tei:imprint/tei:date"/>
+                                                <facet dimension="date"
+                                                  expression="sf:facet(., '/db/apps/syriaca/facet-def.xml', 'date')"/>
+                                                <facet dimension="broadMatch"
+                                                  expression="descendant::tei:relation[@ref='skos:broadMatch']/@passive"/>
+                                                <facet dimension="series"
+                                                  expression="ancestor::tei:TEI/descendant::tei:seriesStmt/tei:title"/>
+                                                <facet dimension="cbssKeywords"
+                                                  expression="sf:facet(., '/db/apps/syriaca/cbss/facet-def.xml', 'cbssKeywords')"/>
+                                                <facet dimension="cbssPubType"
+                                                  expression="sf:facet(., '/db/apps/syriaca/cbss/facet-def.xml', 'cbssPubType')"/>
+                                                <facet dimension="bibl"
+                                                  expression="descendant::tei:bibl/tei:ptr/@target"/>
+                                                <field name="title"
+                                                  expression="sf:field(descendant-or-self::tei:body,'title')"/>
+                                                <field name="idno"
+                                                  expression="sf:field(descendant-or-self::tei:body,'idno')"/>
+                                                <field name="titleSyriac"
+                                                  expression="sf:field(descendant-or-self::tei:body,'titleSyriac')"/>
+                                                <field name="titleArabic"
+                                                  expression="sf:field(descendant-or-self::tei:body,'titleArabic')"/>
+                                                <field name="titleFrench"
+                                                  expression="sf:field(descendant-or-self::tei:body,'titleFrench')"/>
+                                                <field name="titleTransliteration"
+                                                  expression="sf:field(descendant-or-self::tei:body,'titleTransliteration')"/>
+                                                <field name="author"
+                                                  expression="sf:field(descendant-or-self::tei:body,'author')"/>
+                                                <field name="publicationDate"
+                                                  expression="ancestor-or-self::tei:TEI/descendant::tei:sourceDesc/tei:bibl/tei:date/@when"/>
+                                                <field name="cbssPublicationDate"
+                                                  expression="sf:field(descendant-or-self::tei:body,'cbssPublicationDate')"/>
+                                                <field name="cbssPubPlace"
+                                                  expression="sf:field(descendant-or-self::tei:body,'cbssPubPlace')"/>
+                                                <field name="cbssLangFilter"
+                                                  expression="sf:field(descendant-or-self::tei:body,'cbssLangFilter')"
+                                                />
+                                    </text>
+                                    <text qname="tei:fileDesc"/>
+                                    <text qname="tei:biblStruct"/>
+                                    <!--<text qname="tei:div"/>-->
+                                    <text qname="tei:author" boost="5.0"/>
+                                    <text qname="tei:persName" boost="5.0"/>
+                                    <text qname="tei:placeName" boost="5.0"/>
+                                    <text qname="tei:title" boost="10.5"/>
+                                    <text qname="tei:location"/>
+                                    <text qname="tei:desc" boost="2.0"/>
+                                    <!--<text qname="tei:event"/> -->
+                                    <text qname="tei:note"/>
+                                    <text qname="tei:pubPlace"/>
+                                    <text qname="tei:publisher"/>
+                                    <!--<text qname="tei:term"/>-->
+                        </lucene>
+                        <range>
+                                    <create qname="@syriaca-computed-start" type="xs:date"/>
+                                    <create qname="@syriaca-computed-end" type="xs:date"/>
+                                    <create qname="@type" type="xs:string"/>
+                                    <create qname="@ana" type="xs:string"/>
+                                    <create qname="@syriaca-tags" type="xs:string"/>
+                                    <create qname="@srophe:tags" type="xs:string"/>
+                                    <create qname="@when" type="xs:string"/>
+                                    <create qname="@target" type="xs:string"/>
+                                    <create qname="@who" type="xs:string"/>
+                                    <create qname="@ref" type="xs:string"/>
+                                    <create qname="@uri" type="xs:string"/>
+                                    <create qname="@where" type="xs:string"/>
+                                    <create qname="@active" type="xs:string"/>
+                                    <create qname="@passive" type="xs:string"/>
+                                    <create qname="@mutual" type="xs:string"/>
+                                    <create qname="@name" type="xs:string"/>
+                                    <create qname="@xml:lang" type="xs:string"/>
+                                    <create qname="@level" type="xs:string"/>
+                                    <create qname="@status" type="xs:string"/>
+                                    <create qname="tei:idno" type="xs:string"/>
+                                    <!--
+            <create qname="tei:title" type="xs:string"/>
+            -->
+                                    <create qname="tei:geo" type="xs:string"/>
+                                    <create qname="tei:relation" type="xs:string"/>
+                                    <create qname="tei:persName" type="xs:string"/>
+                                    <create qname="tei:placeName" type="xs:string"/>
+                                    <!--
+            <create qname="tei:author" type="xs:string"/>
+            -->
+                        </range>
+            </index>
+</collection>
