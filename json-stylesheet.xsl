@@ -11,6 +11,12 @@
     exclude-result-prefixes="xs t x saxon local" version="3.0">
     
     <xsl:output method="text" encoding="utf-8"/>
+    <xsl:param name="configPath" select="concat($staticSitePath, '/siteGenerator/components/repo-config.xml')"/>
+    <xsl:variable name="config">
+        <xsl:if test="doc-available(xs:anyURI($configPath))">
+            <xsl:sequence select="document(xs:anyURI($configPath))"/>
+        </xsl:if>
+    </xsl:variable>
     
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
