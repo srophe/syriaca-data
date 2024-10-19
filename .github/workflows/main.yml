@@ -13,11 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Install Saxon and dependencies for XSLT
-      - name: Install Saxon and dependencies
+      # Step 2: Install Java and Saxon and dependencies for XSLT
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          
+      - name: Download Saxon from GitHub
         run: |
-          wget https://www.saxonica.com/download/hej/SaxonHE10-6J.zip -O saxon.zip
-          unzip saxon.zip
+          wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
+
+      # - name: Install Saxon and dependencies
+      #   run: |
+      #     wget https://www.saxonica.com/download/hej/SaxonHE10-6J.zip -O saxon.zip
+      #     unzip saxon.zip
 
       # Step 3: Find updated XML files
       # - name: Identify updated XML files
