@@ -1,0 +1,85 @@
+name: Process XML to JSON and HTML
+
+on:
+  push:
+    branches:
+      - 'development_backup_cbss-bibls'  # current data branch
+
+jobs:
+  process_and_transform:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Install Saxon and dependencies for XSLT
+      - name: Install Saxon and dependencies
+        run: |
+          wget https://sourceforge.net/projects/saxon/files/latest/download -O saxon.zip
+          unzip saxon.zip
+
+      # Step 3: Find updated XML files
+      # - name: Identify updated XML files
+      #   run: |
+      #     UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '.xml')
+      #     echo "Updated XML files: $UPDATED_FILES"
+      #     echo "::set-output name=updated_files::$UPDATED_FILES"
+      #   id: files
+      # Find all XML files (for the first run)
+      - name: Identify all XML files 
+        run: |
+          UPDATED_FILES=$(find . -name '*.xml')
+          echo "Updated XML files: $UPDATED_FILES"
+          echo "::set-output name=updated_files::$UPDATED_FILES"
+        id: files
+
+      # Step 4: Run XSLT Transformations for XML to JSON and HTML
+      - name: Run XSLT Transformations
+        run: |
+          for file in ${{ steps.files.outputs.updated_files }}; do
+            echo "Processing $file"
+            # Apply XSLT for JSON conversion
+            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:${file%.xml}.json
+            # Apply XSLT for HTML conversion
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${file%.xml}.html
+          done
+
+      # Step 5: Configure AWS credentials
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_INTERIM_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-frontend
+          
+      # Step 6: Upload JSON files to S3 for inspection
+      - name: Upload JSON files to S3 for testing
+        run: |
+          for json_file in $(find . -name "*.json"); do
+            aws s3 cp $json_file s3://srophe-syriaca-front-end/json-data/ --acl public-read
+          done
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: us-east-1  
+
+      # Step 7: Upload HTML files to S3
+      # - name: Sync HTML files to S3
+      #   run: |
+      #     for html_file in $(find . -name "*.html"); do
+      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/ --acl public-read
+      #     done
+      #   env:
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #     AWS_REGION: us-east-1
+
+      # Step 8: Index JSON files into OpenSearch
+      # - name: Index JSON files to OpenSearch
+      #   run: |
+      #     for json_file in $(find . -name "*.json"); do
+      #       curl -X POST "https://your-opensearch-endpoint/_bulk" \
+      #       -H "Content-Type: application/json" \
+      #       --data-binary "@$json_file"
+      #     done
+      #   env:
+      #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
