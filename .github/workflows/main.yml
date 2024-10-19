@@ -61,17 +61,17 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_INTERIM_ROLE }}
           aws-region: us-east-1
-          role-session-name: GitHub-OIDC-frontend
-          
+          role-session-name: GitHub-OIDC-data
+       
       # Step 6: Upload JSON files to S3 for inspection
       - name: Upload JSON files to S3 for testing
         run: |
           for json_file in $(find . -name "*.json"); do
-            aws s3 cp $json_file s3://srophe-syriaca-front-end/json-data/ --acl public-read
+            aws s3 cp $json_file s3://srophe-syriaca-front-end/json-data
           done
         env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          AWS_REGION: us-east-1  
 
       # Step 7: Upload HTML files to S3
       # - name: Sync HTML files to S3
