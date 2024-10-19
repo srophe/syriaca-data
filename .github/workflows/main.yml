@@ -52,7 +52,7 @@ jobs:
             # Apply XSLT for JSON conversion
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:${file%.xml}.json
             # Apply XSLT for HTML conversion
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${file%.xml}.html
+            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${file%.xml}.html
           done
 
       # Step 5: Configure AWS credentials
