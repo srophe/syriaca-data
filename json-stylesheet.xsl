@@ -12,6 +12,13 @@
     
     <xsl:output method="text" encoding="utf-8"/>
     
+    <xsl:param name="configPath" select="'./repo-config.xml'"/>
+    <xsl:variable name="config">
+        <xsl:if test="doc-available(xs:anyURI($configPath))">
+            <xsl:sequence select="document(xs:anyURI($configPath))"/>
+        </xsl:if>
+    </xsl:variable>
+    
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
         <xsl:value-of select="replace(normalize-space($string),'^\s+|^[‘|ʻ|ʿ|ʾ]|^[tT]he\s+[^\p{L}]+|^[dD]e\s+|^[dD]e-|^[oO]n\s+[aA]\s+|^[oO]n\s+|^[aA]l-|^[aA]n\s|^[aA]\s+|^\d*\W|^[^\p{L}]','')"/>
