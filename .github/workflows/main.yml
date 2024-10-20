@@ -56,7 +56,7 @@ jobs:
             # Apply XSLT for JSON conversion
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:${file%.xml}.json
             # Apply XSLT for HTML conversion
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${file%.xml}.html
+            java -jar saxon.jar -s:$file -xsl:./siteGenerator/xsl/json.xsl -o:./json-data/${file%.xml}.json || echo "Error processing $file"
           done
 
       # Step 5: Configure AWS credentials
@@ -70,9 +70,7 @@ jobs:
       # Step 6: Upload JSON files to S3 for inspection
       - name: Upload JSON files to S3 for testing
         run: |
-          for json_file in $(find . -name "*.json"); do
-            aws s3 cp $json_file s3://srophe-syriaca-front-end/json-data
-          done
+          aws s3 cp ./json-data/ s3://srophe-syriaca-front-end/json-data/ --recursive --exclude "*" --include "*.json"
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
