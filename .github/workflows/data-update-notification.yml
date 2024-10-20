@@ -6,6 +6,10 @@ on:
       - development_backup_cbss-bibls  
     paths:
       - 'data/**'  # Trigger only on changes to data files
+permissions:
+  id-token: write
+  contents: read  # Current repository access
+  actions: write  # Needed to trigger workflows in another repository
 
 jobs:
   trigger_application_repo:
