@@ -54,9 +54,8 @@ jobs:
           for file in ${{ steps.files.outputs.updated_files }}; do
             echo "Processing $file"
             # Apply XSLT for JSON conversion
-            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:${file%.xml}.json
+            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:./json-data/${file%.xml}.json || echo "Error processing $file"
             # Apply XSLT for HTML conversion
-            java -jar saxon.jar -s:$file -xsl:./siteGenerator/xsl/json.xsl -o:./json-data/${file%.xml}.json || echo "Error processing $file"
           done
 
       # Step 5: Configure AWS credentials
