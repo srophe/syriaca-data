@@ -40,23 +40,23 @@ jobs:
       #     echo "Updated XML files: $UPDATED_FILES"
       #     echo "::set-output name=updated_files::$UPDATED_FILES"
       #   id: files
-      # Find all XML files (for the first run)
+      # Step 3: Find all XML files for first run
       - name: Identify all XML files 
         run: |
-          UPDATED_FILES=$(find . -name '*.xml')
-          echo "Updated XML files: $UPDATED_FILES"
-          echo "::set-output name=updated_files::$UPDATED_FILES"
+          find . -name '*.xml' > xml_files.txt
+          echo "List of XML files to process:"
+          cat xml_files.txt
         id: files
 
       # Step 4: Run XSLT Transformations for XML to JSON and HTML
       - name: Run XSLT Transformations
         run: |
-          for file in ${{ steps.files.outputs.updated_files }}; do
+          mkdir -p json-data  # Ensure the output folder exists
+          while IFS= read -r file; do
             echo "Processing $file"
             # Apply XSLT for JSON conversion
-            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:./json-data/${file%.xml}.json || echo "Error processing $file"
-            # Apply XSLT for HTML conversion
-          done
+            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:./json-data/$(basename ${file%.xml}).json || echo "Error processing $file"
+          done < xml_files.txt
 
       # Step 5: Configure AWS credentials
       - name: Configure AWS credentials from AWS account
