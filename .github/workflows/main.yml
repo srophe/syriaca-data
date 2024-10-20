@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-
+      
+permissions:
+  id-token: write
+  contents: read
+  
 jobs:
   process_and_transform:
     runs-on: ubuntu-latest
