@@ -59,9 +59,9 @@ jobs:
       - name: Configure AWS credentials from AWS account
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ secrets.AWS_INTERIM_ROLE }}
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
-          role-session-name: GitHub-OIDC-frontend
+          role-session-name: GitHub-OIDC-data
        
       # Step 6: Upload JSON files to S3 for inspection
       - name: Upload JSON files to S3 for testing
