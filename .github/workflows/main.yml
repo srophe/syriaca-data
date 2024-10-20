@@ -41,21 +41,30 @@ jobs:
       #     echo "::set-output name=updated_files::$UPDATED_FILES"
       #   id: files
       # Step 3: Find all XML files for first run
-      - name: Identify all XML files 
+      # Step 3: Identify the first 5 XML files
+      - name: Identify first 5 XML files 
         run: |
-          find . -name '*.xml' > xml_files.txt
-          echo "List of XML files to process:"
+          find ./data -name '*.xml' | head -n 5 > xml_files.txt
+          echo "Processing the first 5 XML files:"
           cat xml_files.txt
-        id: files
 
-      # Step 4: Run XSLT Transformations for XML to JSON and HTML
-      - name: Run XSLT Transformations
+      # Step 4: Run XSLT Transformations and Merge into Single JSON
+      - name: Run XSLT Transformations and Create Bulk JSON
         run: |
           mkdir -p json-data  # Ensure the output folder exists
+          touch bulk_data.json  # Create the bulk JSON file
+          
           while IFS= read -r file; do
             echo "Processing $file"
-            # Apply XSLT for JSON conversion
-            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:./json-data/$(basename ${file%.xml}).json || echo "Error processing $file"
+            
+            # Create the index header for OpenSearch bulk format
+            filename=$(basename ${file%.xml})
+            echo "{\"index\":{\"_index\":\"syriaca-index-1\",\"_id\":\"$filename\"}}" >> bulk_data.json
+            
+            # Apply XSLT for JSON conversion and append it to bulk_data.json
+            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:temp.json
+            cat temp.json >> bulk_data.json
+            echo "" >> bulk_data.json  # Ensure newline between documents
           done < xml_files.txt
 
       # Step 5: Configure AWS credentials
@@ -66,10 +75,10 @@ jobs:
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
        
-      # Step 6: Upload JSON files to S3 for inspection
-      - name: Upload JSON files to S3 for testing
+      # Step 6: Upload JSON files to S3 
+      - name: Upload JSON files to S3 
         run: |
-          aws s3 cp ./json-data/ s3://srophe-syriaca-front-end/json-data/ --recursive --exclude "*" --include "*.json"
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
