@@ -164,7 +164,7 @@
             </string>    
         </xsl:if>
     </xsl:template>
-    <!-- ASK ERIN about arrays? and figure out how to do them with this damn strucutre -->
+    <!-- Arrays appear to be properly formatted. Verify -->
     <xsl:template match="*:fields[@function = 'series']">
         <xsl:param name="doc"/>
         <!-- seriesStmt multiple -->
@@ -381,6 +381,17 @@
         <xsl:if test="$doc/descendant::tei:persName">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
                 <xsl:for-each select="$doc/descendant::tei:persName">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="*:fields[@function = 'placeName']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:placeName">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:placeName">
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
                 </xsl:for-each>
             </array>
