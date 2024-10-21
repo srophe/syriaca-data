@@ -38,7 +38,7 @@ jobs:
       # Step 3: Identify the first 5 XML files for testing
       - name: Identify first 5 XML files 
         run: |
-          find ./data/spear/tei -name '*.xml' | head -n 5 > xml_files.txt
+          find ./data/persons/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
 
@@ -61,9 +61,23 @@ jobs:
             echo "" >> bulk_data.json  # Add a newline after the document entry
             
           done < xml_files.txt
+          
+      # Step 5: Create a directory for static HTML files (staticSitePath)
+      - name: Create static HTML directory
+        run: |
+          mkdir -p data-html  # staticSitePath in html-stylesheet
+          echo "Created HTML directory"
 
-
-      # Step 5: Configure AWS credentials
+      # Step 6
+      - name: Run XSLT Transformations for HTML
+        run: |
+          while IFS= read -r file; do
+            echo "Processing $file for HTML"
+            # Generate HTML files and store them in static-html directory
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/$(basename ${file%.xml}.html)
+          done < xml_files.txt
+          
+      # Step 7: 
       - name: Configure AWS credentials from AWS account
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -71,22 +85,22 @@ jobs:
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
        
-      # Step 6: Upload JSON files to S3 
+      # Step 6: Upload files to S3 
       - name: Upload JSON files to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_spear.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_persons.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
-      # - name: Upload HTML files to S3
-      #   run: |
-      #     for html_file in $(find . -name "*.html"); do
-      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml 
-      #     done
-      #   env:
-      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-      #     AWS_REGION: us-east-1
+      - name: Upload HTML files to S3
+        run: |
+          for html_file in $(find ./data-html -name "*.html"); do
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml 
+          done
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
 
       # - name: JSON file to OpenSearch
       #   run: |
