@@ -388,9 +388,6 @@
             </array>
         </xsl:if>
     </xsl:template>
-    
-    <xsl:template match="*:fields"/>
-
     <xsl:template match="*:fields[@function = 'persName']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:persName">
@@ -400,13 +397,14 @@
                 </xsl:for-each>
             </array>
         </xsl:if>
-
     </xsl:template>
     <xsl:template match="t:TEI" mode="title">
         <xsl:choose>
             <xsl:when test="descendant::t:title"><xsl:value-of select="descendant::t:title[1]"/></xsl:when>
         </xsl:choose>
     </xsl:template>
+        <xsl:template match="*:fields"/>
+
     <!-- Output Data as json for OpenSearch  -->
     <!-- Indexes, use facet-config files -->
     <xsl:template name="docJSON">
