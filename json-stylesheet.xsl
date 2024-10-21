@@ -120,16 +120,20 @@
     
     <!-- Named functions, should match search fields in repo-config.xml -->
     <xsl:template match="*:fields[@function = 'fullText']">
-        <xsl:param name="doc"/>
-        <xsl:variable name="field">
-            <xsl:apply-templates select="$doc/descendant::text()"/>
-        </xsl:variable>
-        <xsl:if test="$field != ''">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="$field"/>
-            </string>    
-        </xsl:if>
+       <xsl:param name="doc"/>
+       <xsl:variable name="field">
+           <!-- Apply templates specifically to tei:body -->
+           <xsl:apply-templates select="$doc/tei:body/descendant::text()"/>
+       </xsl:variable>
+       <!-- Add an xsl:message for debugging -->
+       <xsl:message>Field content: <xsl:value-of select="normalize-space($field)"/></xsl:message>
+       <xsl:if test="normalize-space($field) != ''">
+           <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+               <xsl:value-of select="$field"/>
+           </string>    
+       </xsl:if>
     </xsl:template>
+
     <xsl:template match="*:fields[@function = 'title']">
         <xsl:param name="doc"/>
         <xsl:variable name="field">
