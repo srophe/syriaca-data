@@ -122,7 +122,7 @@
     <xsl:template match="*:fields[@function = 'fullText']">
         <xsl:param name="doc"/>
         <xsl:variable name="field">
-            <xsl:apply-templates select="$doc/descendant::text()"/>
+            <xsl:apply-templates select="$doc/tei:body/descendant::text()"/>
         </xsl:variable>
         <xsl:if test="$field != ''">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
