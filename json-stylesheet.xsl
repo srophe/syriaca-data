@@ -381,7 +381,7 @@
     <!--
     <xsl:template match="*:fields[@function = 'fullText']">
         <xsl:param name="doc"/>
-        <xsl:apply-templates select="$doc/descendant::text()"/> 
+        <xsl:apply-templates select="descendant::tei:body/descendant::text()"/>
     </xsl:template>
     -->
     
