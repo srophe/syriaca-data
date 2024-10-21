@@ -165,17 +165,6 @@
         </xsl:if>
     </xsl:variable>
     <xsl:variable name="collection" select="$collectionValues/@name"/>
-
-       <!-- TEST vars -->
-        <!--
-        resource-id : <xsl:value-of select="$resource-id"/>
-        collection-pattern : <xsl:value-of select="$collectionURIPattern"/>
-        resource-path : <xsl:value-of select="$resource-path"/>
-        config: <xsl:sequence select="$config/descendant::*:collection[matches(@record-URI-pattern,concat('^',$collectionURIPattern))][1]"/>
-        collectionValues : <xsl:sequence select="$collectionValues"/>
-        collectionTemplate: <xsl:value-of select="concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template))"/>
-        Doc <xsl:sequence select="$collectionTemplate"></xsl:sequence>
-        -->
         <xsl:result-document href="{replace($path,'.xml','.html')}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
@@ -193,17 +182,7 @@
                 </xsl:otherwise>    
             </xsl:choose>
         </xsl:result-document>
-          <!--  
-        <xsl:if test="$fileType = 'TEI'">
-            <xsl:result-document href="{replace(replace($path,'/data/','/json/'),'.xml','.json')}">
-                <xsl:call-template name="docJSON">
-                    <xsl:with-param name="doc" select="root(.)/descendant-or-self::t:TEI"/>
-                </xsl:call-template>
-            </xsl:result-document>
-        </xsl:if>
-        -->
     </xsl:template>
-    
     <xsl:template name="htmlPage">
         <xsl:param name="pageType"/>
         <!-- <xsl:apply-templates/> -->
@@ -340,7 +319,6 @@
     </xsl:template>
     <xsl:template match="html:link | html:script | html:a">
         <xsl:element name="{name()}">
-            <!--<link rel="stylesheet" type="text/css" href="$nav-base/resources/css/syr-icon-fonts.css"/>-->
             <xsl:copy-of select="@*[not(local-name() = 'href')]"/>
             <xsl:if test="@href">
                 <xsl:variable name="href">
@@ -468,16 +446,12 @@
                             -->
                             <!-- Relationsips listed in the TEI record  display: list/sentence -->
                             <!-- WS:ToDo Relationships -->
-<!--                            <div data-template="app:internal-relationships" data-template-label="Internal Relationships"/>-->
                             <!-- Relationships referencing this TEI record -->
                             <!--                    <div data-template="app:external-relationships" data-template-label="External Relationships"/>    -->
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Modal email form-->
-            <!-- WS:ToDo Contact form?  -->
-<!--            <div data-template="app:contact-form" data-template-collection="places"/>-->
             <xsl:if test="t:TEI/descendant::t:geo">
                 <script type="text/javascript" src="/resources/leaflet/leaflet.js"/>
                 <script type="text/javascript" src="/resources/js/maps.js"/>                
@@ -715,28 +689,9 @@
         </xsl:if>
     </xsl:template>
 <!--     <xsl:template name="syriacaSharedLinks">
-        <xsl:if test="doc-available(concat($applicationPath,'/','templates/shared-links.html'))">
+        <xsl:if test="doc-available('./shared-links.html')">
             <xsl:copy-of select="doc(concat($applicationPath,'/','templates/shared-links.html'))"/>
         </xsl:if>
     </xsl:template> -->
-    
-    <!--WS:NOTE I do not think this is working correctly: Copy all other HTML elements -->
-   <!--
-    <xsl:template match="html:*">
-        <xsl:choose>
-            <xsl:when test="element()">
-                <xsl:element name="{name(.)}" namespace="http://www.w3.org/1999/xhtml">
-                    <xsl:for-each select="@*">
-                        <xsl:attribute name="{name(.)}"><xsl:value-of select="."/></xsl:attribute>
-                    </xsl:for-each>
-                    <xsl:apply-templates/>
-                </xsl:element>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    -->
     
 </xsl:stylesheet>
