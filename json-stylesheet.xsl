@@ -29,7 +29,7 @@
             replace(
             replace(
             replace(
-            replace($string,'^\s+',''), 
+            replace($string[1],'^\s+',''), 
             '[ً-ٖ]',''), 
             '(^|\s)(ال|أل|ٱل)',''), 
             'آ|إ|أ|ٱ','ا'), 
