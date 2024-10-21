@@ -130,19 +130,6 @@
             </string>    
         </xsl:if>
     </xsl:template>
-    <!-- Match the root and extract body content for fullTextTest -->
-    <!--  
-    <xsl:template match="/">
-        <xsl:variable name="fullTextTest">
-            <xsl:apply-templates select="tei:TEI/tei:text/tei:body/descendant::text()"/>
-        </xsl:variable>
-        <xsl:if test="normalize-space($fullTextTest) != ''">
-            <xsl:text>{ "fullTextTest": "</xsl:text>
-            <xsl:value-of select="$fullTextTest"/>
-            <xsl:text>" }</xsl:text>
-        </xsl:if>
-   </xsl:template> -->
-
     <xsl:template match="*:fields[@function = 'title']">
         <xsl:param name="doc"/>
         <xsl:variable name="field">
@@ -389,23 +376,23 @@
             </array>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'persName']">
+    
+    <xsl:template match="*:fields"/>
+    <!--
+    <xsl:template match="*:fields[@function = 'fullText']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:persName">
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
-                <xsl:for-each select="$doc/descendant::tei:persName">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
-            </array>
-        </xsl:if>
+        <xsl:apply-templates select="descendant::tei:body/descendant::text()"/>
+    </xsl:template>
+    -->
+    
+    <xsl:template match="t:TEI" mode="fullText">
+        <xsl:apply-templates select="descendant::tei:body/descendant::text()"/>
     </xsl:template>
     <xsl:template match="t:TEI" mode="title">
         <xsl:choose>
             <xsl:when test="descendant::t:title"><xsl:value-of select="descendant::t:title[1]"/></xsl:when>
         </xsl:choose>
     </xsl:template>
-        <xsl:template match="*:fields"/>
-
     <!-- Output Data as json for OpenSearch  -->
     <!-- Indexes, use facet-config files -->
     <xsl:template name="docJSON">
@@ -420,16 +407,9 @@
                         <xsl:when test="@xpath != ''">
                             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
                                 <xsl:variable name="xpath" select="string(@xpath)"/>
-<!--                                <xsl:evaluate xpath="$xpath"/>-->
                                 <xsl:apply-templates select="$doc" mode="index">
                                     <xsl:with-param name="xpath" select="$xpath"></xsl:with-param>
                                 </xsl:apply-templates>
-                                <!--
-                                <xsl:for-each select="$doc/descendant-or-self::t:TEI">
-                                    <xsl:evaluate xpath="$xpath"/>
-                                    <xsl:value-of select="local-name(.)"/> :: <xsl:value-of select="local-name(child::*[1])"/>
-                                </xsl:for-each>
-                                -->
                             </string> 
                         </xsl:when>
                         <xsl:otherwise>
@@ -438,24 +418,6 @@
                     </xsl:choose>
                 </xsl:for-each>
             </map>
-            <!-- 
-                <map xmlns="http://www.w3.org/2005/xpath-functions">
-                    <map key="mappings">
-                        <map key="properties">
-                            <xsl:for-each select="$config/descendant::*:searchFields/*:fields">
-                                <map key="{.}">
-                                    <string key="type">
-                                        <xsl:choose>
-                                            <xsl:when test="@type"><xsl:value-of select="string(@type)"/></xsl:when>
-                                            <xsl:otherwise>text</xsl:otherwise>
-                                        </xsl:choose>
-                                    </string>
-                                </map>
-                            </xsl:for-each>
-                        </map>
-                    </map>
-                </map>
-            -->
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml, map { 'indent' : true() })"/>
     </xsl:template>
