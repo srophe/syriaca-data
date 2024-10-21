@@ -136,7 +136,7 @@
             <xsl:apply-templates select="tei:TEI/tei:text/tei:body/descendant::text()"/>
         </xsl:variable>
         <xsl:if test="normalize-space($fullTextTest) != ''">
-            <xsl:text>{ "fullText": "</xsl:text>
+            <xsl:text>{ "fullTextTest": "</xsl:text>
             <xsl:value-of select="$fullTextTest"/>
             <xsl:text>" }</xsl:text>
         </xsl:if>
