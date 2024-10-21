@@ -28,11 +28,6 @@ jobs:
         run: |
           wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
-      # - name: Install Saxon and dependencies
-      #   run: |
-      #     wget https://www.saxonica.com/download/hej/SaxonHE10-6J.zip -O saxon.zip
-      #     unzip saxon.zip
-
       # Step 3: Find updated XML files
       # - name: Identify updated XML files
       #   run: |
@@ -40,11 +35,10 @@ jobs:
       #     echo "Updated XML files: $UPDATED_FILES"
       #     echo "::set-output name=updated_files::$UPDATED_FILES"
       #   id: files
-      # Step 3: Find all XML files for first run
-      # Step 3: Identify the first 5 XML files
+      # Step 3: Identify the first 5 XML files for testing
       - name: Identify first 5 XML files 
         run: |
-          find ./data/spear/tei -name '*.xml' | head -n 5 > xml_files.txt
+          find ./data/persons/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
 
@@ -80,28 +74,24 @@ jobs:
       # Step 6: Upload JSON files to S3 
       - name: Upload JSON files to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_spear.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_persons.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
-      # Step 7: Upload HTML files to S3
-      # - name: Sync HTML files to S3
+      # - name: Upload HTML files to S3
       #   run: |
       #     for html_file in $(find . -name "*.html"); do
-      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/ --acl public-read
+      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml 
       #     done
       #   env:
       #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       #     AWS_REGION: us-east-1
 
-      # Step 8: Index JSON files into OpenSearch
-      # - name: Index JSON files to OpenSearch
+      # - name: JSON file to OpenSearch
       #   run: |
-      #     for json_file in $(find . -name "*.json"); do
-      #       curl -X POST "https://your-opensearch-endpoint/_bulk" \
-      #       -H "Content-Type: application/json" \
-      #       --data-binary "@$json_file"
-      #     done
+      #     curl -X POST "${OPENSEARCH_URL}/_bulk" \
+      #     -H "Content-Type: application/json" \
+      #     --data-binary "@bulk_data.json"
       #   env:
       #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
