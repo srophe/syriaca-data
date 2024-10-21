@@ -65,8 +65,8 @@
     
     <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
     <!-- Not needed? -->
-<!--     <xsl:param name="data-root" select="$dataPath"/>
-    <!-- eXist app root for app deployment--> -->
+    <xsl:param name="data-root" select="$dataPath"/> 
+    <!-- eXist app root for app deployment--> 
     <!-- Not needed? -->
 <!--     <xsl:param name="app-root" select="$applicationPath"/> -->
     <!-- Root of app for building dynamic links. Default is eXist app root -->
