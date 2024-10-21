@@ -389,9 +389,9 @@
     </xsl:template>
     -->
     
-    <xsl:template match="t:TEI" mode="fullText">
+<!--     <xsl:template match="t:TEI" mode="fullText">
         <xsl:apply-templates select="descendant::tei:body/descendant::text()"/>
-    </xsl:template>
+    </xsl:template> -->
     <xsl:template match="t:TEI" mode="title">
         <xsl:choose>
             <xsl:when test="descendant::t:title"><xsl:value-of select="descendant::t:title[1]"/></xsl:when>
