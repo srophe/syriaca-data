@@ -44,27 +44,30 @@ jobs:
       # Step 3: Identify the first 5 XML files
       - name: Identify first 5 XML files 
         run: |
-          find ./data/subjects/tei -name '*.xml' | head -n 5 > xml_files.txt
+          find ./data/spear/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
 
       # Step 4: Run XSLT Transformations and Merge into Single JSON
       - name: Run XSLT Transformations and Create Bulk JSON
         run: |
-          mkdir -p json-data  # Ensure the output folder exists
           touch bulk_data.json  # Create the bulk JSON file
-          
           while IFS= read -r file; do
             echo "Processing $file"
-            
-            # Create the index header for OpenSearch bulk format
+      
+            # Extract the document type from the file path
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|spear|bibl')
+      
+            # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
-            echo "{\"index\":{\"_index\":\"syriaca-index-1\",\"_id\":\"$filename\"}}" >> bulk_data.json
+            printf "{\"index\":{\"_index\":\"syriaca-index-1\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+      
+            # Apply XSLT for JSON conversion and append it to bulk_data.json directly
+            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl | tr -d '\n' >> bulk_data.json
+            echo "" >> bulk_data.json  # Add a newline after the document entry
             
-            # Apply XSLT for JSON conversion and append it to bulk_data.json
-            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl -o:temp.json
-            cat temp.json >> bulk_data.json
           done < xml_files.txt
+
 
       # Step 5: Configure AWS credentials
       - name: Configure AWS credentials from AWS account
@@ -77,7 +80,7 @@ jobs:
       # Step 6: Upload JSON files to S3 
       - name: Upload JSON files to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_subjects.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_spear.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
