@@ -376,6 +376,16 @@
             </array>
         </xsl:if>
     </xsl:template>
+    <xsl:template match="*:fields[@function = 'persName']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:persName">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:persName">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:template>
     
     <xsl:template match="*:fields"/>
     <!--
