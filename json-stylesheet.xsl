@@ -405,16 +405,8 @@
     </xsl:template>
     -->
     
-    <xsl:template match="*:fields[@function = 'fullText']">
-        <xsl:param name="doc"/>
-        <xsl:variable name="field">
-            <xsl:apply-templates select="$doc::tei:body/descendant::text()"/>
-        </xsl:variable>
-        <xsl:if test="not(preceding-sibling::text() = .)">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="$field"/>
-            </string>    
-        </xsl:if>
+    <xsl:template match="t:TEI" mode="fullText">
+       <xsl:apply-templates select="descendant::tei:body/descendant::text()"/>
     </xsl:template>
 
     <xsl:template match="t:TEI" mode="title">
