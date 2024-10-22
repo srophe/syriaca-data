@@ -210,6 +210,8 @@
         <xsl:variable name="filename">
             <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()], '.xml', '.html')"/>
         </xsl:variable>
+        <xsl:message>Last Token: <xsl:value-of select="tokenize(document-uri(.),'/')[last()]"/></xsl:message>
+
         <!-- Tokenize the path -->
         <xsl:variable name="tokens" select="tokenize($resource-path, '/')"/>
 
@@ -221,8 +223,12 @@
 
         <xsl:value-of select="$last-three-folders"/>
 
-        <xsl:variable name="type" select="replace($last-three-folders, '.*/(person|work|place|subject|spear|bibl)/.*', '$1')" />
-
+        <xsl:variable name="type" select="replace(replace($last-three-folders, '^([^/]*/)*(person|work|place|subject|spear|bibl)(/.*)?$', '$2'), '/', '')" />
+        <xsl:variable name="filename">
+            <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()], '.xml', '.html')"/>
+        </xsl:variable>
+        <xsl:message>Resource Path: <xsl:value-of select="$resource-path"/></xsl:message>
+        <xsl:message>Result Document Path: <xsl:value-of select="concat($type, '/', $filename)"/></xsl:message>
         <!-- Output the HTML to the appropriate folder (work, person, place) -->
         <xsl:result-document href="{$type}/${filename}">
             <xsl:choose>
