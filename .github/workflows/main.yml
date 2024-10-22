@@ -110,7 +110,7 @@ jobs:
             # Extract the document type from the file path
             
 
-            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | head -n 1)
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
             echo "HTML type $type"
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
@@ -133,7 +133,7 @@ jobs:
         run: |
         
           for html_file in $(find ./data-html -name "*.html"); do
-            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | head -n 1)
+            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
             echo "type $type"
 
             aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml/$(basename ${html_file%.html}.html)
