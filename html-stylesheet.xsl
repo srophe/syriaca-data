@@ -27,8 +27,8 @@
  <!-- =================================================================== -->
  <!-- import component stylesheets for HTML page portions -->
  <!-- =================================================================== -->
-    <xsl:import href="syriaca/resources/xsl/tei2html.xsl"/>
-    <xsl:import href="./maps.xsl"/>
+    <xsl:import href="tei2html.xsl"/>
+    <xsl:import href="maps.xsl"/>
 <!--    <xsl:import href="json.xsl"/>-->
 <!--    <xsl:import href="relationships.xsl"/>-->
     
@@ -53,17 +53,15 @@
     <!-- Parameters for tei2HTML -->
     <!-- =================================================================== -->
     
-    <xsl:param name="applicationPath" select="'syriaca'"/> <!-- Refers to the syriaca repo -->
-    <xsl:param name="staticSitePath" select="'syriaca/siteGenerator'"/>  
-    <xsl:param name="dataPath" select="'data/'"/>  <!-- Points to the data folder -->
-    <xsl:param name="configPath" select="'syriaca/siteGenerator/components/repo-config.xml'"/>  <!-- Path to config file in syriaca repo -->
-
+    <xsl:param name="applicationPath" select="'syriaca'"/>
+    <xsl:param name="staticSitePath" select="'syriaca'"/>
+    <xsl:param name="dataPath" select="'data-html/'"/>
+    <xsl:param name="configPath" select="concat($staticSitePath, '/siteGenerator/components/repo-config.xml')"/>
     <xsl:variable name="config">
         <xsl:if test="doc-available(xs:anyURI($configPath))">
             <xsl:sequence select="document(xs:anyURI($configPath))"/>
         </xsl:if>
     </xsl:variable>
-
     
     <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
     <!-- Not needed? -->
@@ -162,8 +160,8 @@
     </xsl:variable>
     <xsl:variable name="collectionValues" select="$config/descendant::*:collection[matches(@record-URI-pattern,concat('^',$collectionURIPattern))][1]"/>
     <xsl:variable name="collectionTemplate">
-        <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/components/',string($collectionValues/@template),'.html')))">
-            <xsl:sequence select="document(xs:anyURI(concat($staticSitePath,'/components/',string($collectionValues/@template),'.html')))"/>
+        <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html')))">
+            <xsl:sequence select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html')))"/>
         </xsl:if>
     </xsl:variable>
     <xsl:variable name="collection" select="$collectionValues/@name"/>
@@ -185,52 +183,16 @@
         <xsl:variable name="path">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
-                    <xsl:value-of select="$resource-path"/>
+                    <xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/>
                 </xsl:when>
                 <xsl:when test="$fileType = 'TEI'">
-                    <xsl:value-of select="$resource-path"/>
+                    <xsl:value-of select="$dataPath"/>
                 </xsl:when>
                 <xsl:otherwise><xsl:message>Unrecognizable file type <xsl:value-of select="$fileType"/> [<xsl:value-of select="$documentURI"/>]</xsl:message></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-       <!-- TEST vars -->
-        <!--
-        resource-id : <xsl:value-of select="$resource-id"/>
-        collection-pattern : <xsl:value-of select="$collectionURIPattern"/>
-        resource-path : <xsl:value-of select="$resource-path"/>
-        config: <xsl:sequence select="$config/descendant::*:collection[matches(@record-URI-pattern,concat('^',$collectionURIPattern))][1]"/>
-        collectionValues : <xsl:sequence select="$collectionValues"/>
-        collectionTemplate: <xsl:value-of select="concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template))"/>
-        Doc <xsl:sequence select="$collectionTemplate"></xsl:sequence>
-        -->
-       
-      
 
-        <!-- Extract the filename and replace .xml with .html -->
-        <xsl:variable name="filename">
-            <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()], '.xml', '.html')"/>
-        </xsl:variable>
-        <xsl:message>Last Token: <xsl:value-of select="tokenize(document-uri(.),'/')[last()]"/></xsl:message>
-
-        <!-- Tokenize the path -->
-        <xsl:variable name="tokens" select="tokenize($resource-path, '/')"/>
-
-        <!-- Find the second word -->
-        <xsl:variable name="second-token" select="$tokens[2]"/>
-
-        <!-- Find the last three folders -->
-        <xsl:variable name="last-three-folders" select="concat($tokens[last()-2], '/', $tokens[last()-1], '/', $tokens[last()])"/>
-
-        <xsl:value-of select="$last-three-folders"/>
-
-        <xsl:variable name="type" select="replace(replace($last-three-folders, '^([^/]*/)*(person|work|place|subject|spear|bibl)(/.*)?$', '$2'), '/', '')" />
-        <xsl:variable name="filename">
-            <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()], '.xml', '.html')"/>
-        </xsl:variable>
-        <xsl:message>Resource Path: <xsl:value-of select="$resource-path"/></xsl:message>
-        <xsl:message>Result Document Path: <xsl:value-of select="concat($type, '/', $filename)"/></xsl:message>
-        <!-- Output the HTML to the appropriate folder (work, person, place) -->
-        <xsl:result-document href="${filename}">
+        <xsl:result-document href="{$filename}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
@@ -247,15 +209,7 @@
                 </xsl:otherwise>    
             </xsl:choose>
         </xsl:result-document>
-          <!--  
-        <xsl:if test="$fileType = 'TEI'">
-            <xsl:result-document href="{replace(replace($path,'/data/','/json/'),'.xml','.json')}">
-                <xsl:call-template name="docJSON">
-                    <xsl:with-param name="doc" select="root(.)/descendant-or-self::t:TEI"/>
-                </xsl:call-template>
-            </xsl:result-document>
-        </xsl:if>
-        -->
+
     </xsl:template>
     
     <xsl:template name="htmlPage">
@@ -267,8 +221,8 @@
                 <xsl:choose>
                     <xsl:when test="$pageType = 'HTML'">
                         <xsl:variable name="templatePath"><xsl:value-of select="string(/*:div/@data-template-with)"/></xsl:variable>
-                        <xsl:if test="doc-available(concat($staticSitePath,replace($templatePath,'/templates/','/components/')))">
-                            <xsl:sequence select="document(concat($staticSitePath,replace($templatePath,'/templates/','/components/')))"/>
+                        <xsl:if test="doc-available(concat($staticSitePath,replace($templatePath,'/templates/','/siteGenerator/components/')))">
+                            <xsl:sequence select="document(concat($staticSitePath,replace($templatePath,'/templates/','/siteGenerator/components/')))"/>
                         </xsl:if>    
                     </xsl:when>
                     <xsl:when test="$pageType = 'TEI'">
@@ -332,8 +286,8 @@
                         </xsl:call-template>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/components/footer.html')))">
-                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/components/footer.html')))"/>
+                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))">
+                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))"/>
                 </xsl:if>
             </body>
             <xsl:if test="$template/child::*[1]/html:script">
@@ -346,8 +300,8 @@
         <xsl:choose>
             <xsl:when test="@data-template='app:shared-content'">
                 <xsl:variable name="sharedContent" select="@data-template-path"/>
-                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/components/',tokenize($sharedContent,'/')[last()])))">
-                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/components/',tokenize($sharedContent,'/')[last()])))"/>
+                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',tokenize($sharedContent,'/')[last()])))">
+                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',tokenize($sharedContent,'/')[last()])))"/>
                 </xsl:if>
             </xsl:when>
             <xsl:otherwise>
