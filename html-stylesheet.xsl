@@ -162,8 +162,8 @@
     </xsl:variable>
     <xsl:variable name="collectionValues" select="$config/descendant::*:collection[matches(@record-URI-pattern,concat('^',$collectionURIPattern))][1]"/>
     <xsl:variable name="collectionTemplate">
-        <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html')))">
-            <xsl:sequence select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html')))"/>
+        <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/components/',string($collectionValues/@template),'.html')))">
+            <xsl:sequence select="document(xs:anyURI(concat($staticSitePath,'/components/',string($collectionValues/@template),'.html')))"/>
         </xsl:if>
     </xsl:variable>
     <xsl:variable name="collection" select="$collectionValues/@name"/>
@@ -240,8 +240,8 @@
                 <xsl:choose>
                     <xsl:when test="$pageType = 'HTML'">
                         <xsl:variable name="templatePath"><xsl:value-of select="string(/*:div/@data-template-with)"/></xsl:variable>
-                        <xsl:if test="doc-available(concat($staticSitePath,replace($templatePath,'/templates/','/siteGenerator/components/')))">
-                            <xsl:sequence select="document(concat($staticSitePath,replace($templatePath,'/templates/','/siteGenerator/components/')))"/>
+                        <xsl:if test="doc-available(concat($staticSitePath,replace($templatePath,'/templates/','/components/')))">
+                            <xsl:sequence select="document(concat($staticSitePath,replace($templatePath,'/templates/','/components/')))"/>
                         </xsl:if>    
                     </xsl:when>
                     <xsl:when test="$pageType = 'TEI'">
@@ -305,8 +305,8 @@
                         </xsl:call-template>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))">
-                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))"/>
+                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/components/footer.html')))">
+                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/components/footer.html')))"/>
                 </xsl:if>
             </body>
             <xsl:if test="$template/child::*[1]/html:script">
@@ -319,8 +319,8 @@
         <xsl:choose>
             <xsl:when test="@data-template='app:shared-content'">
                 <xsl:variable name="sharedContent" select="@data-template-path"/>
-                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',tokenize($sharedContent,'/')[last()])))">
-                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',tokenize($sharedContent,'/')[last()])))"/>
+                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/components/',tokenize($sharedContent,'/')[last()])))">
+                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/components/',tokenize($sharedContent,'/')[last()])))"/>
                 </xsl:if>
             </xsl:when>
             <xsl:otherwise>
