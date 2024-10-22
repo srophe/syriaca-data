@@ -13,11 +13,18 @@ jobs:
   process_and_transform:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out the repository
+      # Step 1: Check out the repositories
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Install Java and Saxon and dependencies for XSLT
+      - name: Checkout syriaca repository (code repo)
+        uses: actions/checkout@v3
+        with:
+          repository: srophe/syriaca
+          ref: staticSite
+          path: syriaca  # Check it out into a subfolder        
+
+      # Step 2: Install Java and Saxon for XSLT 
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
@@ -73,8 +80,15 @@ jobs:
         run: |
           while IFS= read -r file; do
             echo "Processing $file for HTML"
-            # Generate HTML files and store them in static-html directory
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/$(basename ${file%.xml}.html)
+            # Run the XSLT transformation located in the root of syriaca-data repository
+            # Reference the resources and sitegenerator folders from the syriaca repository
+            java -jar saxon.jar \
+              -s:$file \
+              -xsl:./staticHTML.xsl \  # Run XSLT in root of data repo
+              -o:data-html/$(basename ${file%.xml}.html) \
+              -ext:on \
+              -resources:syriaca/resources/ \
+              -siteGenerator:syriaca/siteGenerator/
           done < xml_files.txt
           
       # Step 7: 
