@@ -83,8 +83,19 @@ jobs:
             #Apply XSLT for HTML conversion and upload to S3
             # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:- | \
             # aws s3 cp - s3://srophe-syriaca-front-end/${type}/${filename}.html
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
+            # Apply XSLT for HTML conversion and capture any error
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html 2>&1 | tee saxon_error.log
+  
+            # Check if the HTML file was created
+            if [ ! -f "data-html/${filename}.html" ]; then
+              echo "Error: HTML file for $filename was not created."
+              cat saxon_error.log
+              exit 1
+            fi
+
+            # Upload the HTML file to S3
             aws s3 cp data-html/${filename}.html s3://srophe-syriaca-front-end/${type}/${filename}.html
+  
 
           done < xml_files.txt
         env:
