@@ -131,7 +131,7 @@ jobs:
           for html_file in $(find ./data-html -name "*.html"); do
             type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
             echo "html_file $html_file"
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html}).html
           done
           
           for xml_file in $(find ./data-html -name "*.xml"); do
