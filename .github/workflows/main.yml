@@ -63,6 +63,7 @@ jobs:
       - name: Run XSLT Transformations and Create Bulk JSON
         run: |
           touch bulk_data.json  # Create the bulk JSON file
+          mkdir -p data-html
           echo "Created HTML directory"
           
           while IFS= read -r file; do
@@ -80,9 +81,11 @@ jobs:
             echo "" >> bulk_data.json  # Add a newline after the document entry
 
             #Apply XSLT for HTML conversion and upload to S3
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:- | \
-            aws s3 cp - s3://srophe-syriaca-front-end/${type}/${filename}.html
-            
+            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:- | \
+            # aws s3 cp - s3://srophe-syriaca-front-end/${type}/${filename}.html
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html)
+            aws s3 cp data-html/${filename}.html) s3://srophe-syriaca-front-end/${type}/${filename}.html)
+
           done < xml_files.txt
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
