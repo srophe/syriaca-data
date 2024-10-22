@@ -35,7 +35,16 @@ jobs:
         run: |
           wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
-      # Step 3: Find updated XML files
+      # Step 3: 
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data          
+          
+          
+      # Step 4: Find updated XML files
       # - name: Identify updated XML files
       #   run: |
       #     UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '.xml')
@@ -48,11 +57,14 @@ jobs:
           find ./data/persons/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
+          
 
-      # Step 4: Run XSLT Transformations and Merge into Single JSON
+      # Step 5: Run XSLT Transformations and Merge into Single JSON
       - name: Run XSLT Transformations and Create Bulk JSON
         run: |
           touch bulk_data.json  # Create the bulk JSON file
+          echo "Created HTML directory"
+          
           while IFS= read -r file; do
             echo "Processing $file"
       
@@ -66,48 +78,56 @@ jobs:
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl | tr -d '\n' >> bulk_data.json
             echo "" >> bulk_data.json  # Add a newline after the document entry
+
+            #Apply XSLT for HTML conversion and upload to S3
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:- | \
+            aws s3 cp - s3://srophe-syriaca-front-end/${type}/${filename}.html
             
           done < xml_files.txt
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}          
+
+     
+          
           
       # Step 5: Create a directory for static HTML files (staticSitePath)
-      - name: Create static HTML directory
-        run: |
-          mkdir -p data-html  # staticSitePath in html-stylesheet
-          echo "Created HTML directory"
+      # - name: Create static HTML directory
+      #   run: |
+      #     mkdir -p data-html  # staticSitePath in html-stylesheet
+      #     echo "Created HTML directory"
 
       # Step 6
-      - name: Run XSLT Transformations for HTML
-        run: |
-          while IFS= read -r file; do
-            echo "Processing $file for HTML"
-            # Run the XSLT transformation located in the root of syriaca-data repository
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/$(basename ${file%.xml}.html)
-          done < xml_files.txt
+      # - name: Run XSLT Transformations for HTML
+      #   run: |
+      #     while IFS= read -r file; do
+      #       echo "Processing $file for HTML"
+      #       # Extract the document type from the file path
+      #       type=$(echo "$file" | grep -o -E 'work|subject|person|place|spear|bibl')
+      
+      #       # Extract the filename and create the index header for OpenSearch bulk format
+      #       filename=$(basename ${file%.xml})
+      #       # Run the XSLT transformation located in the root of syriaca-data repository
+      #       java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/$(basename ${file%.xml}.html)
+      #     done < xml_files.txt
           
-      # Step 7: 
-      - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data
        
       # Step 6: Upload files to S3 
-      - name: Upload JSON files to S3 
+      - name: Upload JSON file to S3 
         run: |
           aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_persons.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
-      - name: Upload HTML files to S3
-        run: |
-          for html_file in $(find ./data-html -name "*.html"); do
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml/$(basename $html_file)
-          done
-        env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+      # - name: Upload HTML files to S3
+      #   run: |
+      #     for html_file in $(find ./data-html -name "*.html"); do
+      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml/$(basename $html_file)
+      #     done
+      #   env:
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
 
       # - name: JSON file to OpenSearch
       #   run: |
