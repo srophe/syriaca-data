@@ -203,7 +203,24 @@
         collectionTemplate: <xsl:value-of select="concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template))"/>
         Doc <xsl:sequence select="$collectionTemplate"></xsl:sequence>
         -->
-        <xsl:result-document href="{replace('.xml','.html')}">
+        <xsl:template match="/">
+        <!-- Extract the document type from the file path (work, person, etc.) -->
+        <xsl:variable name="type">
+            <xsl:choose>
+                <xsl:when test="contains(document-uri(.), 'work')">work</xsl:when>
+                <xsl:when test="contains(document-uri(.), 'person')">person</xsl:when>
+                <xsl:when test="contains(document-uri(.), 'place')">place</xsl:when>
+                <xsl:otherwise>unknown</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <!-- Extract the filename and replace .xml with .html -->
+        <xsl:variable name="filename">
+            <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()],'.xml','.html')"/>
+        </xsl:variable>
+
+        <!-- Output the HTML to the appropriate folder (work, person, place) -->
+        <xsl:result-document href="{$type}/{$filename}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
