@@ -210,9 +210,21 @@
         <xsl:variable name="filename">
             <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()],'.xml','.html')"/>
         </xsl:variable>
-       
+        <!-- Tokenize the path -->
+        <xsl:variable name="tokens" select="tokenize($resource-path, '/')"/>
+
+        <!-- Find the second word -->
+        <xsl:variable name="second-token" select="$tokens[2]"/>
+
+        <!-- Find the last three folders -->
+        <xsl:variable name="last-three-folders" select="concat($tokens[last()-2], '/', $tokens[last()-1], '/', $tokens[last()])"/>
+
+        <xsl:value-of select="$last-three-folders"/>
+
+        <xsl:variable name="type" select="replace($last-three-folders, '.*/(person|work|place|subject|spear|bibl)/.*', '$1')" />
+
         <!-- Output the HTML to the appropriate folder (work, person, place) -->
-        <xsl:result-document href="{$filename}">
+        <xsl:result-document href="{$type}/${filename}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
