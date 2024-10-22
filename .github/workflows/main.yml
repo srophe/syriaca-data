@@ -74,6 +74,7 @@ jobs:
       
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
+            echo "Processing $filename for JSON"
             printf "{\"index\":{\"_index\":\"syriaca-index-1\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
@@ -84,7 +85,8 @@ jobs:
             # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:- | \
             # aws s3 cp - s3://srophe-syriaca-front-end/${type}/${filename}.html
             # Apply XSLT for HTML conversion and capture any error
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html 2>&1 | tee saxon_error.log
+            echo "Processing $file for HTML $filename"
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/$(basename ${file%.xml}.html) 2>&1 | tee saxon_error.log
   
             # Check if the HTML file was created
             if [ ! -f "data-html/${filename}.html" ]; then
@@ -94,7 +96,7 @@ jobs:
             fi
 
             # Upload the HTML file to S3
-            aws s3 cp data-html/${filename}.html s3://srophe-syriaca-front-end/${type}/${filename}.html
+            aws s3 cp data-html/$(basename ${file%.xml}.html) s3://srophe-syriaca-front-end/${type}/${filename}.html
   
 
           done < xml_files.txt
