@@ -210,7 +210,16 @@
         <xsl:variable name="filename">
             <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()],'.xml','.html')"/>
         </xsl:variable>
-        <xsl:variable name="type" select="replace($resource-path, '.*/(person|work|place|subject|spear|bibl)/.*', '$1')" />
+        <xsl:variable name="documentURI" select="document-uri(.)"/>
+        <xsl:variable name="tokens" select="tokenize($documentURI, '/')"/>
+        <xsl:variable name="type">
+          <xsl:for-each select="$tokens">
+            <!-- Find the last occurrence of the type in the path -->
+            <xsl:if test="regex:matches(., 'work|subject|person|place|spear|bibl') and position() = last()">
+              <xsl:value-of select="."/>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:variable>
 
         <!-- Output the HTML to the appropriate folder (work, person, place) -->
         <xsl:result-document href="{$type}/{$filename}">
