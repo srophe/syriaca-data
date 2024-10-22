@@ -108,13 +108,12 @@ jobs:
           while IFS= read -r file; do
             echo "Processing $file for HTML"
             # Extract the document type from the file path
-            type=$(echo "$file" | grep -o -E 'work|subject|person|place|spear|bibl')
+            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | head -n 1)
       
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             # Run the XSLT transformation located in the root of syriaca-data repository
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/$(basename ${file%.xml}.html)
-            aws s3 cp data-html/$(basename ${file%.xml}.html) s3://srophe-syriaca-front-end/${type}/$(basename $file)
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/$(basename ${file%.xml}.html)
 
           done < xml_files.txt
           
@@ -129,8 +128,10 @@ jobs:
 
       - name: Upload HTML files to S3
         run: |
+        
           for html_file in $(find ./data-html -name "*.html"); do
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml/$(basename $html_file)
+            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | head -n 1)
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml/$html_file
           done
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
