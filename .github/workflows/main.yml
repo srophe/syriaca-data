@@ -103,7 +103,7 @@ jobs:
       - name: Upload HTML files to S3
         run: |
           for html_file in $(find ./data-html -name "*.html"); do
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml 
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/testHtml/$(basename $html_file)
           done
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
