@@ -185,10 +185,10 @@
         <xsl:variable name="path">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
-                    <xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/>
+                    <xsl:value-of select="$resource-path"/>
                 </xsl:when>
                 <xsl:when test="$fileType = 'TEI'">
-                    <xsl:value-of select="concat($staticSitePath,'/data/',replace($resource-path,$dataPath,''))"/>
+                    <xsl:value-of select="$resource-path"/>
                 </xsl:when>
                 <xsl:otherwise><xsl:message>Unrecognizable file type <xsl:value-of select="$fileType"/> [<xsl:value-of select="$documentURI"/>]</xsl:message></xsl:otherwise>
             </xsl:choose>
@@ -203,16 +203,8 @@
         collectionTemplate: <xsl:value-of select="concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template))"/>
         Doc <xsl:sequence select="$collectionTemplate"></xsl:sequence>
         -->
-        <xsl:template match="/">
-        <!-- Extract the document type from the file path (work, person, etc.) -->
-        <xsl:variable name="type">
-            <xsl:choose>
-                <xsl:when test="contains(document-uri(.), 'work')">work</xsl:when>
-                <xsl:when test="contains(document-uri(.), 'person')">person</xsl:when>
-                <xsl:when test="contains(document-uri(.), 'place')">place</xsl:when>
-                <xsl:otherwise>unknown</xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
+       
+      
 
         <!-- Extract the filename and replace .xml with .html -->
         <xsl:variable name="filename">
