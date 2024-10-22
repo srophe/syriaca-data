@@ -138,6 +138,13 @@ jobs:
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html}.html)
 
           done
+          for xml_file in $(find ./data-html -name "*.xml"); do
+            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
+            echo "xml_file $xml_file"
+            filename = $(basename ${html_file%.xml}
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$filename.html)
+
+          done
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
