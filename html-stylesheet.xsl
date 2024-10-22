@@ -230,7 +230,7 @@
         <xsl:message>Resource Path: <xsl:value-of select="$resource-path"/></xsl:message>
         <xsl:message>Result Document Path: <xsl:value-of select="concat($type, '/', $filename)"/></xsl:message>
         <!-- Output the HTML to the appropriate folder (work, person, place) -->
-        <xsl:result-document href="{$type}/${filename}">
+        <xsl:result-document href="${filename}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
