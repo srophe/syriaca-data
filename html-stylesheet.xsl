@@ -212,7 +212,7 @@
         </xsl:variable>
 
         <!-- Output the HTML to the appropriate folder (work, person, place) -->
-        <xsl:result-document href="{$type}/{$filename}">
+        <xsl:result-document href="{$filename}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
