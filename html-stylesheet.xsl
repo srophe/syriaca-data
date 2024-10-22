@@ -203,7 +203,7 @@
         collectionTemplate: <xsl:value-of select="concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template))"/>
         Doc <xsl:sequence select="$collectionTemplate"></xsl:sequence>
         -->
-        <xsl:result-document href="{replace($path,'.xml','.html')}">
+        <xsl:result-document href="{replace('.xml','.html')}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
