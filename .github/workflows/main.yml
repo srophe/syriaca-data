@@ -81,14 +81,7 @@ jobs:
           while IFS= read -r file; do
             echo "Processing $file for HTML"
             # Run the XSLT transformation located in the root of syriaca-data repository
-            # Reference the resources and sitegenerator folders from the syriaca repository
-            java -jar saxon.jar \
-              -s:$file \
-              -xsl:./staticHTML.xsl \  # Run XSLT in root of data repo
-              -o:data-html/$(basename ${file%.xml}.html) \
-              -ext:on \
-              -resources:syriaca/resources/ \
-              -siteGenerator:syriaca/siteGenerator/
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:output.html
           done < xml_files.txt
           
       # Step 7: 
