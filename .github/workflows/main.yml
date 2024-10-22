@@ -54,7 +54,7 @@ jobs:
       # Step 4: Identify the first 5 XML files for testing
       - name: Identify first 5 XML files 
         run: |
-          find ./data/bibl/tei -name '*.xml' | head -n 5 > xml_files.txt
+          find ./data/subjects/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
           
@@ -120,7 +120,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_biblF.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_subjectF.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -131,7 +131,7 @@ jobs:
           for html_file in $(find ./data-html -name "*.html"); do
             type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
             echo "html_file $html_file"
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html}).html
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
           done
           
           for xml_file in $(find ./data-html -name "*.xml"); do
