@@ -96,7 +96,7 @@ jobs:
      
           
           
-      # Step 5: Create a directory for static HTML files 
+      # Step 5: HTML files 
       - name: Create static HTML directory
         run: |
           mkdir -p data-html  
@@ -108,8 +108,6 @@ jobs:
           while IFS= read -r file; do
             echo "Processing $file for HTML"
             # Extract the document type from the file path
-            
-
             type=$(echo "$file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
             echo "HTML type $type"
             # Extract the filename and create the index header for OpenSearch bulk format
@@ -138,13 +136,15 @@ jobs:
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html}.html)
 
           done
+          
+          # Process all XML files and convert their extensions to .html
           for xml_file in $(find ./data-html -name "*.xml"); do
-            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
-            echo "xml_file $xml_file"
-            filename = $(basename ${html_file%.xml}
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$filename.html)
-
+            type=$(echo "$xml_file" | grep -o -E 'work|subject|person|place|spear|bibl' | head -n 1)
+            filename=$(basename ${xml_file%.xml}.html)  # Change XML extension to HTML
+            echo "Uploading improperly labeled xml_file as HTML $xml_file"
+            aws s3 cp $xml_file s3://srophe-syriaca-front-end/${type}/$filename
           done
+          
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
