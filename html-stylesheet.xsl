@@ -27,8 +27,8 @@
  <!-- =================================================================== -->
  <!-- import component stylesheets for HTML page portions -->
  <!-- =================================================================== -->
-    <xsl:import href="tei2html.xsl"/>
-    <xsl:import href="maps.xsl"/>
+    <xsl:import href="syriaca/resources/tei2html.xsl"/>
+    <xsl:import href="syriaca/resources/maps.xsl"/>
 <!--    <xsl:import href="json.xsl"/>-->
 <!--    <xsl:import href="relationships.xsl"/>-->
     
@@ -53,22 +53,24 @@
     <!-- Parameters for tei2HTML -->
     <!-- =================================================================== -->
     
-<!--     <xsl:param name="applicationPath" select="'/Users/wsalesky/syriaca/syriaca/syriaca'"/> -->
-    <xsl:param name="staticSitePath" select="'./data-html'"/> 
-    <xsl:param name="dataPath" select="./data/"/>
-    <xsl:param name="configPath" select="./repo-config.xml"/>
+    <xsl:param name="applicationPath" select="'syriaca'"/> <!-- Refers to the syriaca repo -->
+    <xsl:param name="staticSitePath" select="'syriaca/siteGenerator'"/>  
+    <xsl:param name="dataPath" select="'data/'"/>  <!-- Points to the data folder -->
+    <xsl:param name="configPath" select="'syriaca/siteGenerator/components/repo-config.xml'"/>  <!-- Path to config file in syriaca repo -->
+
     <xsl:variable name="config">
         <xsl:if test="doc-available(xs:anyURI($configPath))">
             <xsl:sequence select="document(xs:anyURI($configPath))"/>
         </xsl:if>
     </xsl:variable>
+
     
     <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
     <!-- Not needed? -->
-    <xsl:param name="data-root" select="$dataPath"/> 
-    <!-- eXist app root for app deployment--> 
+    <xsl:param name="data-root" select="$dataPath"/>
+    <!-- eXist app root for app deployment-->
     <!-- Not needed? -->
-<!--     <xsl:param name="app-root" select="$applicationPath"/> -->
+    <xsl:param name="app-root" select="$applicationPath"/>
     <!-- Root of app for building dynamic links. Default is eXist app root -->
     <!-- Not needed? -->
     <xsl:param name="nav-base" select="'/'"/>
@@ -165,6 +167,42 @@
         </xsl:if>
     </xsl:variable>
     <xsl:variable name="collection" select="$collectionValues/@name"/>
+
+    <!-- Figure out if document is HTML or TEI -->
+    <xsl:template match="/">
+        <xsl:variable name="documentURI" select="document-uri(.)"/>
+        <xsl:variable name="fileType">
+            <xsl:choose>
+                <xsl:when test="/html:div[@data-template-with]">HTML</xsl:when>
+                <xsl:when test="/t:TEI">TEI</xsl:when>
+                <xsl:when test="/t:TEI">TEI</xsl:when>
+                <xsl:otherwise>OTHER: <xsl:value-of select="name(root(.))"/></xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="filename">
+            <xsl:value-of select="replace(tokenize($documentURI,'/')[last()],'.xml','.html')"/>
+        </xsl:variable>
+        <xsl:variable name="path">
+            <xsl:choose>
+                <xsl:when test="$fileType = 'HTML'">
+                    <xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/>
+                </xsl:when>
+                <xsl:when test="$fileType = 'TEI'">
+                    <xsl:value-of select="concat($staticSitePath,'/data/',replace($resource-path,$dataPath,''))"/>
+                </xsl:when>
+                <xsl:otherwise><xsl:message>Unrecognizable file type <xsl:value-of select="$fileType"/> [<xsl:value-of select="$documentURI"/>]</xsl:message></xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+       <!-- TEST vars -->
+        <!--
+        resource-id : <xsl:value-of select="$resource-id"/>
+        collection-pattern : <xsl:value-of select="$collectionURIPattern"/>
+        resource-path : <xsl:value-of select="$resource-path"/>
+        config: <xsl:sequence select="$config/descendant::*:collection[matches(@record-URI-pattern,concat('^',$collectionURIPattern))][1]"/>
+        collectionValues : <xsl:sequence select="$collectionValues"/>
+        collectionTemplate: <xsl:value-of select="concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template))"/>
+        Doc <xsl:sequence select="$collectionTemplate"></xsl:sequence>
+        -->
         <xsl:result-document href="{replace($path,'.xml','.html')}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
@@ -182,7 +220,17 @@
                 </xsl:otherwise>    
             </xsl:choose>
         </xsl:result-document>
+          <!--  
+        <xsl:if test="$fileType = 'TEI'">
+            <xsl:result-document href="{replace(replace($path,'/data/','/json/'),'.xml','.json')}">
+                <xsl:call-template name="docJSON">
+                    <xsl:with-param name="doc" select="root(.)/descendant-or-self::t:TEI"/>
+                </xsl:call-template>
+            </xsl:result-document>
+        </xsl:if>
+        -->
     </xsl:template>
+    
     <xsl:template name="htmlPage">
         <xsl:param name="pageType"/>
         <!-- <xsl:apply-templates/> -->
@@ -319,6 +367,7 @@
     </xsl:template>
     <xsl:template match="html:link | html:script | html:a">
         <xsl:element name="{name()}">
+            <!--<link rel="stylesheet" type="text/css" href="$nav-base/resources/css/syr-icon-fonts.css"/>-->
             <xsl:copy-of select="@*[not(local-name() = 'href')]"/>
             <xsl:if test="@href">
                 <xsl:variable name="href">
@@ -340,7 +389,7 @@
         </xsl:element>
     </xsl:template>
     
-<!--     <xsl:template name="otherDataFormats">
+    <xsl:template name="otherDataFormats">
         <xsl:param name="node"/>
         <xsl:param name="formats"/>
         <xsl:variable name="dataPath" select="substring-before(concat($staticSitePath,'/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
@@ -397,7 +446,7 @@
                 </xsl:for-each>
             </div>
         </xsl:if>
-    </xsl:template> -->
+    </xsl:template>
     <xsl:template name="genericTEIPage">
         <xsl:param name="config"/>
         <xsl:param name="repository-title"/>
@@ -446,12 +495,16 @@
                             -->
                             <!-- Relationsips listed in the TEI record  display: list/sentence -->
                             <!-- WS:ToDo Relationships -->
+<!--                            <div data-template="app:internal-relationships" data-template-label="Internal Relationships"/>-->
                             <!-- Relationships referencing this TEI record -->
                             <!--                    <div data-template="app:external-relationships" data-template-label="External Relationships"/>    -->
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Modal email form-->
+            <!-- WS:ToDo Contact form?  -->
+<!--            <div data-template="app:contact-form" data-template-collection="places"/>-->
             <xsl:if test="t:TEI/descendant::t:geo">
                 <script type="text/javascript" src="/resources/leaflet/leaflet.js"/>
                 <script type="text/javascript" src="/resources/js/maps.js"/>                
@@ -688,10 +741,29 @@
             </span>
         </xsl:if>
     </xsl:template>
-<!--     <xsl:template name="syriacaSharedLinks">
-        <xsl:if test="doc-available('./shared-links.html')">
+    <xsl:template name="syriacaSharedLinks">
+        <xsl:if test="doc-available(concat($applicationPath,'/','templates/shared-links.html'))">
             <xsl:copy-of select="doc(concat($applicationPath,'/','templates/shared-links.html'))"/>
         </xsl:if>
-    </xsl:template> -->
+    </xsl:template>
+    
+    <!--WS:NOTE I do not think this is working correctly: Copy all other HTML elements -->
+   <!--
+    <xsl:template match="html:*">
+        <xsl:choose>
+            <xsl:when test="element()">
+                <xsl:element name="{name(.)}" namespace="http://www.w3.org/1999/xhtml">
+                    <xsl:for-each select="@*">
+                        <xsl:attribute name="{name(.)}"><xsl:value-of select="."/></xsl:attribute>
+                    </xsl:for-each>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    -->
     
 </xsl:stylesheet>
