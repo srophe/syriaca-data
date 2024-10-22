@@ -27,8 +27,8 @@
  <!-- =================================================================== -->
  <!-- import component stylesheets for HTML page portions -->
  <!-- =================================================================== -->
-    <xsl:import href="syriaca/resources/tei2html.xsl"/>
-    <xsl:import href="syriaca/resources/maps.xsl"/>
+    <xsl:import href="syriaca/resources/xsl/tei2html.xsl"/>
+    <xsl:import href="syriaca/resources/xsl/maps.xsl"/>
 <!--    <xsl:import href="json.xsl"/>-->
 <!--    <xsl:import href="relationships.xsl"/>-->
     
