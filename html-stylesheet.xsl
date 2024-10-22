@@ -213,7 +213,7 @@
         <xsl:variable name="type" select="replace($resource-path, '.*/(person|work|place|subject|spear|bibl)/.*', '$1')" />
 
         <!-- Output the HTML to the appropriate folder (work, person, place) -->
-        <xsl:result-document href="{$type/$filename}">
+        <xsl:result-document href="{$type}/{$filename}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
