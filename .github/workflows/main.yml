@@ -83,8 +83,8 @@ jobs:
             #Apply XSLT for HTML conversion and upload to S3
             # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:- | \
             # aws s3 cp - s3://srophe-syriaca-front-end/${type}/${filename}.html
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html)
-            aws s3 cp data-html/${filename}.html) s3://srophe-syriaca-front-end/${type}/${filename}.html)
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
+            aws s3 cp data-html/${filename}.html s3://srophe-syriaca-front-end/${type}/${filename}.html
 
           done < xml_files.txt
         env:
