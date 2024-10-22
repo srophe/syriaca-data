@@ -210,10 +210,10 @@
         <xsl:variable name="filename">
             <xsl:value-of select="replace(tokenize(document-uri(.),'/')[last()],'.xml','.html')"/>
         </xsl:variable>
-
+        <xsl:variable name="output-path" select="concat($resource-path, '/', $filename)"/>
 
         <!-- Output the HTML to the appropriate folder (work, person, place) -->
-        <xsl:result-document href="{$filename}">
+        <xsl:result-document href="{$output-path}">
             <xsl:choose>
                 <xsl:when test="$fileType = 'HTML'">
                     <xsl:call-template name="htmlPage">
