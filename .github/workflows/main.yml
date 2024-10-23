@@ -130,20 +130,14 @@ jobs:
       - name: Upload HTML files to S3
         run: |
         
-          for html_file in ./data-html; do
+          for html_file in $(find ./data-html -name "*.html"); do
             type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
             echo "html_file $html_file"
             if [ "$type" == "subject" ]; then
               type="keyword"
             fi
-            
+            # Copy html file to S3 with the idno path
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-          done
-          
-          for xml_file in $(find ./data-html -name "*.xml"); do
-            
-            echo "error for xml_file $xml_file"
-            
           done
           
         env:
