@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    paths:
-      - 'data/**'  # Trigger only on changes to data files   
+    # paths:
+    #   - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -72,7 +72,7 @@ jobs:
             echo "Processing $file"
       
             # Extract the document type from the file path
-            type=$(echo "$file" | grep -o -E 'work|subject|person|place|spear|bibl')
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
             echo "Json type $type"
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
@@ -108,7 +108,7 @@ jobs:
           while IFS= read -r file; do
             echo "Processing $file for HTML"
             # Extract the document type from the file path
-            type=$(echo "$file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
             echo "HTML type $type"
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
@@ -122,7 +122,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_subjectF.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_subject-1.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -131,7 +131,7 @@ jobs:
         run: |
         
           for html_file in $(find ./data-html -name "*.html"); do
-            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|spear|bibl' | tail -n 1)
+            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
             echo "html_file $html_file"
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
           done
