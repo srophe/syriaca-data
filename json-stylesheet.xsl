@@ -380,7 +380,7 @@
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:persName">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
-                <xsl:if test="$doc/descendant::tei:body/descendant::tei:persName">
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:persName">
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
                 </xsl:for-each>
             </array>
@@ -389,7 +389,7 @@
     
     <xsl:template match="*:fields[@function = 'placeName']">
         <xsl:param name="doc"/>
-        <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:placeName">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:placeName">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
                 <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:placeName">
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
