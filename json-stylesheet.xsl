@@ -12,6 +12,7 @@
     
     <xsl:output method="text" encoding="utf-8"/>
     <xsl:param name="docType" />
+    <xsl:message select="concat('docType parameter value: ', $docType)" />
     <xsl:param name="configPath" select="'./repo-config.xml'"/>
     <xsl:variable name="config">
         <xsl:if test="doc-available(xs:anyURI($configPath))">
