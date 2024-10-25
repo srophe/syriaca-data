@@ -12,7 +12,6 @@
     
     <xsl:output method="text" encoding="utf-8"/>
     <xsl:param name="docType" />
-    <xsl:message select="concat('docType parameter value: ', $docType)" />
     <xsl:param name="configPath" select="'./repo-config.xml'"/>
     <xsl:variable name="config">
         <xsl:if test="doc-available(xs:anyURI($configPath))">
@@ -424,6 +423,7 @@
                 <string key="docType" xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:value-of select="$docType"/>
                 </string>
+                <xsl:message select="concat('docType parameter value: ', $docType)" />
                 <xsl:for-each select="$config/descendant::*:searchFields/*:fields">
                     <xsl:choose>
                         <xsl:when test="@function != ''">Function
