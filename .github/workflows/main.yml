@@ -80,7 +80,7 @@ jobs:
             printf "{\"index\":{\"_index\":\"syriaca-index-1\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
-            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
+            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="'$type'" | tr -d '\n' >> bulk_data.json
             echo "" >> bulk_data.json  # Add a newline after the document entry
 
             # Apply XSLT for HTML conversion and capture any error
