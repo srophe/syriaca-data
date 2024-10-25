@@ -113,6 +113,9 @@ jobs:
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             echo "html filename: $filename"
+            if [ "$type" == "bibl" ]; then
+              type="cbss"
+            fi
             # Run the XSLT transformation located in the root of syriaca-data repository
             java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html
 
@@ -136,6 +139,9 @@ jobs:
             if [ "$type" == "subject" ]; then
               type="keyword"
             fi
+            # if [ "$type" == "bibl" ]; then
+            #   type="cbss"
+            # fi
             # Copy html file to S3 with the idno path
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
           done
