@@ -61,7 +61,7 @@ jobs:
           cat xml_files.txt
           
 
-      # Step 5: Run XSLT Transformations and Merge into Single JSON
+      # Step 5: Run XSLT Transformations and Merge into Single JSON 
       - name: Run XSLT Transformations and Create Bulk JSON
         run: |
           touch bulk_data.json  # Create the bulk JSON file
@@ -73,6 +73,9 @@ jobs:
       
             # Extract the document type from the file path
             type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
+            if [ "$type" == "bibl" ]; then
+              type="cbss"
+            fi
             echo "Json type $type"
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
