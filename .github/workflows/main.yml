@@ -56,7 +56,7 @@ jobs:
       # Step 4: Identify the first 5 XML files for testing
       - name: Identify first 5 XML files 
         run: |
-          find ./data/persons/tei -name '*.xml' | head -n 5 > xml_files.txt
+          find ./data/places/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
           
@@ -122,7 +122,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_persons-1.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_places.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -143,14 +143,45 @@ jobs:
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          
+# - name: Install aws-es-curl
+#   run: |
+#     sudo apt-get update
+#     sudo apt-get install -y libwww-perl libcrypt-ssleay-perl
+#     curl -L https://github.com/mediafreakch/aws-es-curl/releases/download/v0.2.1/aws-es-curl.pl -o aws-es-curl
+#     chmod +x aws-es-curl
+# - name: Upload JSON file to OpenSearch using aws-es-curl
+#   run: |
+#     ./aws-es-curl --region us-east-1 --service es \
+#     --profile default \
+#     -XPOST "${OPENSEARCH_URL}/_bulk" \
+#     --data-binary "@bulk_data.json"
+#   env:
+#     OPENSEARCH_ENDPOINT: ${{ secrets.OPENSEARCH_URL }}
 
-      # - name: JSON file to OpenSearch
+
+          
+
+      - name: JSON file to OpenSearch
       #   run: |
       #     curl -X POST "${OPENSEARCH_URL}/_bulk" \
       #     -H "Content-Type: application/json" \
       #     --data-binary "@bulk_data.json"
-      #   env:
-      #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
-      #     OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
-      #     OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+        env:
+          OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
+          OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
+          OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+        run: |
+          RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_ENDPOINT/_bulk" \
+          -H "Content-Type: application/json" \
+          -u "$OPENSEARCH_USERNAME:$OPENSEARCH_PASSWORD" \
+          --data-binary "@bulk_data.json")
+          echo "HTTP response code: $RESPONSE"
+          cat response.json
+
+          # Check for errors in the response
+          if grep -q '"errors":true' response.json; then
+            echo "Errors occurred during bulk upload"
+            exit 1
+          fi
 
