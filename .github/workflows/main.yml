@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    # paths:
-    #   - 'data/**'  # Trigger only on changes to data files   
+    paths:
+      - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -151,3 +151,6 @@ jobs:
       #     --data-binary "@bulk_data.json"
       #   env:
       #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
+      #     OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
+      #     OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+
