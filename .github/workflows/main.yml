@@ -57,7 +57,7 @@ jobs:
       # Step 4: Identify the first 5 XML files for testing
       - name: Identify first 5 XML files 
         run: |
-          find ./data/places/tei -name '*.xml' | head -n 5 > xml_files.txt
+          find ./data/works/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
 
@@ -130,7 +130,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_places.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_works.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
