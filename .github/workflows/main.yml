@@ -57,7 +57,7 @@ jobs:
       # Step 4: Identify the first 5 XML files for testing
       - name: Identify first 5 XML files 
         run: |
-          find ./data/subjects/tei -name '*.xml' | head -n 5 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | head -n 5 > xml_files.txt
           echo "Processing the first 5 XML files:"
           cat xml_files.txt
 
@@ -113,13 +113,14 @@ jobs:
             echo "Processing $file for HTML"
             # Extract the document type from the file path
             type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
-            echo "HTML type $type"
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             echo "html filename: $filename"
             if [ "$type" == "bibl" ]; then
               type="cbss"
             fi
+            echo "HTML type $type"
+
             # Run the XSLT transformation located in the root of syriaca-data repository
             java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html
             # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
@@ -130,7 +131,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_subjects.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/bulk_data_bibl.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -154,30 +155,12 @@ jobs:
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          
-# - name: Install aws-es-curl #Need V4 Authentication?
-#   run: |
-#     sudo apt-get update
-#     sudo apt-get install -y libwww-perl libcrypt-ssleay-perl
-#     curl -L https://github.com/mediafreakch/aws-es-curl/releases/download/v0.2.1/aws-es-curl.pl -o aws-es-curl
-#     chmod +x aws-es-curl
-# - name: Upload JSON file to OpenSearch using aws-es-curl
-#   run: |
-#     ./aws-es-curl --region us-east-1 --service es \
-#     --profile default \
-#     -XPOST "${OPENSEARCH_URL}/_bulk" \
-#     --data-binary "@bulk_data.json"
-#   env:
-#     OPENSEARCH_ENDPOINT: ${{ secrets.OPENSEARCH_URL }}
 
 
-          
+      # Step 8: Upload JSON data to OpenSearch 
 
       - name: JSON file to OpenSearch
-        # run: |
-        #   curl -X POST "${OPENSEARCH_URL}/_bulk" \
-        #   -H "Content-Type: application/json" \
-        #   --data-binary "@bulk_data.json"
+
         env:
           OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
           OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
