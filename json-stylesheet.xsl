@@ -95,6 +95,7 @@
         <xsl:variable name="doc">
             <xsl:sequence select="."/>
         </xsl:variable>
+        <xsl:variable name="id" select="replace($doc/descendant::tei:publicationStmt/tei:idno[@type='URI'][1],'/tei','')"/>
         <xsl:variable name="xml">
             <map xmlns="http://www.w3.org/2005/xpath-functions">
                 <string key="docType">
@@ -107,6 +108,7 @@
                             <xsl:variable name="function" select="@function"/>
                                 <xsl:apply-templates select=".[@function = $function]">
                                     <xsl:with-param select="$doc" name="doc"/>
+                                    <xsl:with-param select="$id" name="id"/>
                                 </xsl:apply-templates>
                         </xsl:when>
                         <xsl:when test="@xpath != ''">
@@ -402,6 +404,356 @@
             </array>
         </xsl:if>
     </xsl:template>
+        <xsl:template match="*:fields[@function = 'location']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:location">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:location">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'event']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:event[@type != 'attestation']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:event[@type != 'attestation']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'attestations']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:event[@type = 'attestation']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:event[@type = 'attestation']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'religiousCommunities']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type = 'confession']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:state[@type = 'confession']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'existence']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type = 'existence']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:state[@type = 'existence']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'related']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:listRelation/tei:relation[@passive or @mutual]">
+            <xsl:variable name="relatedString" select="$doc/descendant::tei:body/descendant::tei:listRelation/tei:relation/@passive | $doc/descendant::tei:body/descendant::tei:listRelation/tei:relation/@mutual"/>
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="tokenize(string-join($relatedString,' '),' ')">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'sex']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/person')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:sex">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:sex">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'personType']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/person')">
+        <xsl:variable name="field">
+            <xsl:value-of select="$doc/descendant::tei:body/tei:listPerson/tei:person/@ana"/>
+        </xsl:variable>
+            <xsl:if test="$doc/descendant::tei:body/tei:listPerson/tei:person/@ana[. != '']">
+                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                    <xsl:for-each select="tokenize($field,' ')">
+                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="substring-after(., '-')"/></string>
+                    </xsl:for-each>
+                </array>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'prologue']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='prologue']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='prologue']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'incipit']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='incipit']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='incipit']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'explicit']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='explicit']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='explicit']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'editions']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='lawd:Edition']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='lawd:Edition']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'modernTranslations']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='syriaca:ModernTranslation']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='syriaca:ModernTranslation']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'ancientVersion']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='syriaca:AncientVersion']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='syriaca:AncientVersion']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'manuscripts']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='syriaca:Manuscript']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl[@type='syriaca:Manuscript']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'reference']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'bhseType']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/work')">
+            <xsl:if test="$doc/descendant::tei:body/descendant::tei:idno/@type[. != 'URI']">
+                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                    <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:idno/@type[. != 'URI']">
+                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                    </xsl:for-each>
+                </array>
+           </xsl:if>            
+        </xsl:if>
+    </xsl:template>
+    <!-- DATES start and end  -->
+    <xsl:template match="*:fields[@function = 'cbssPubDate']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:imprint/tei:date">  
+            <array key="cbssPubDateStart" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:imprint/tei:date">
+                    <xsl:variable name="date" select="."/>
+                    <xsl:variable name="startDate">
+                        <xsl:choose>
+                            <xsl:when test="matches($date,'\d[4]-\d[4]')">
+                                <xsl:value-of select="substring-before($date,'-')"/>
+                            </xsl:when>
+                            <xsl:otherwise><xsl:value-of select="$date"/></xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                </xsl:for-each>
+            </array>
+            <array key="cbssPubDateEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:imprint/tei:date">
+                    <xsl:variable name="date" select="."/>
+                    <xsl:variable name="endDate">
+                        <xsl:choose>
+                            <xsl:when test="matches($date,'\d[4]-\d[4]')">
+                                <xsl:value-of select="substring-after($date,'-')"/>
+                            </xsl:when>
+                            <xsl:otherwise><xsl:value-of select="$date"/></xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'eventDates']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+            <xsl:if test="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start]">
+            <array key="eventDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation']">
+                    <xsl:variable name="startDate" select="@srophe:computed-start"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                </xsl:for-each>
+            </array>
+            <array key="eventDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation']">
+                    <xsl:variable name="endDate" select="@srophe:computed-end"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'attestationsDates']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+            <xsl:if test="$doc/descendant::tei:event[@type = 'attestation'][@srophe:computed-start]">
+            <array key="attestationsDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:event[@type = 'attestation']">
+                    <xsl:variable name="startDate" select="@srophe:computed-start"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                </xsl:for-each>
+            </array>
+            <array key="attestationsDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation']">
+                    <xsl:variable name="endDate" select="@srophe:computed-end"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'religiousCommunitiesDates']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+            <xsl:if test="$doc/descendant::tei:state[@type = 'confession'][@srophe:computed-start]">
+            <array key="religiousCommunitiesDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:state[@type = 'confession']">
+                    <xsl:variable name="startDate" select="@srophe:computed-start"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                </xsl:for-each>
+            </array>
+            <array key="religiousCommunitiesDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:state[@type = 'confession']">
+                    <xsl:variable name="endDate" select="@srophe:computed-end"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'existenceDates']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+            <xsl:if test="$doc/descendant::tei:state[@type = 'existence'][@srophe:computed-start]">
+            <array key="existenceDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:state[@type = 'existence']">
+                    <xsl:variable name="startDate" select="@srophe:computed-start"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                </xsl:for-each>
+            </array>
+            <array key="existenceDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$doc/descendant::tei:state[@type = 'existence']">
+                    <xsl:variable name="endDate" select="@srophe:computed-end"/>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'birth']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:birth">     
+            <xsl:for-each select="$doc/descendant::tei:birth">
+                <string xmlns="http://www.w3.org/2005/xpath-functions" key="birth"><xsl:value-of select="."/></string>
+            </xsl:for-each>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'death']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:death">     
+            <xsl:for-each select="$doc/descendant::tei:death">
+                <string xmlns="http://www.w3.org/2005/xpath-functions" key="death"><xsl:value-of select="."/></string>
+            </xsl:for-each>
+        </xsl:if>
+    </xsl:template>
+    
     
     <xsl:template match="*:fields"/>
     <!--
