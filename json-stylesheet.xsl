@@ -479,17 +479,13 @@
     </xsl:template>
     <xsl:template match="*:fields[@function = 'gender']">
         <xsl:param name="doc"/>
-        <xsl:param name="id"/>
-        <xsl:if test="contains($id, '/person')">
         <xsl:if test="$doc/descendant::tei:person/tei:gender">
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <xsl:for-each select="$doc/descendant::tei:person/tei:gender/@ana">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
-            </array>
-        </xsl:if>
+            <string key="gender">
+                <xsl:value-of select="$doc/descendant::tei:person/tei:gender/@ana"/>
+            </string>
         </xsl:if>
     </xsl:template>
+
     <xsl:template match="*:fields[@function = 'personType']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
