@@ -404,7 +404,7 @@
             </array>
         </xsl:if>
     </xsl:template>
-        <xsl:template match="*:fields[@function = 'location']">
+    <xsl:template match="*:fields[@function = 'location']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:location">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
