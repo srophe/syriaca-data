@@ -479,12 +479,13 @@
     </xsl:template>
     <xsl:template match="*:fields[@function = 'gender']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:person/tei:gender">
-            <string key="gender">
-                <xsl:value-of select="$doc/descendant::tei:person/tei:gender/@ana"/>
+        <xsl:if test="$doc//tei:person/tei:gender">
+            <string key="gender" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:value-of select="$doc//tei:person/tei:gender/@ana"/>
             </string>
         </xsl:if>
     </xsl:template>
+
 
     <xsl:template match="*:fields[@function = 'personType']">
         <xsl:param name="doc"/>
