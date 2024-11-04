@@ -107,25 +107,25 @@ jobs:
           echo "Created HTML directory"
 
      
-      - name: Run XSLT Transformations for HTML
-        run: |
-          while IFS= read -r file; do
-            echo "Processing $file for HTML"
-            # Extract the document type from the file path
-            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
-            # Extract the filename and create the index header for OpenSearch bulk format
-            filename=$(basename ${file%.xml})
-            echo "html filename: $filename"
-            # if [ "$type" == "bibl" ]; then
-            #   type="cbss"
-            # fi
-            echo "HTML type $type"
+      # - name: Run XSLT Transformations for HTML
+      #   run: |
+      #     while IFS= read -r file; do
+      #       echo "Processing $file for HTML"
+      #       # Extract the document type from the file path
+      #       type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+      #       # Extract the filename and create the index header for OpenSearch bulk format
+      #       filename=$(basename ${file%.xml})
+      #       echo "html filename: $filename"
+      #       # if [ "$type" == "bibl" ]; then
+      #       #   type="cbss"
+      #       # fi
+      #       echo "HTML type $type"
 
-            # Run the XSLT transformation located in the root of syriaca-data repository
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
+      #       # Run the XSLT transformation located in the root of syriaca-data repository
+      #       java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html
+      #       # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
 
-          done < xml_files.txt
+      #     done < xml_files.txt
           
        
       # Step 7: Upload files to S3 
@@ -136,46 +136,46 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
-      - name: Upload HTML files to S3
-        run: |
+      # - name: Upload HTML files to S3
+      #   run: |
         
-          for html_file in $(find ./data-html -name "*.html"); do
-            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
-            echo "html_file $html_file"
-            if [ "$type" == "subject" ]; then
-              type="keyword"
-            fi
-            if [ "$type" == "bibl" ]; then
-              type="cbss"
-            fi
-            # Copy html file to S3 with the idno path
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-          done
+      #     for html_file in $(find ./data-html -name "*.html"); do
+      #       type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+      #       echo "html_file $html_file"
+      #       if [ "$type" == "subject" ]; then
+      #         type="keyword"
+      #       fi
+      #       if [ "$type" == "bibl" ]; then
+      #         type="cbss"
+      #       fi
+      #       # Copy html file to S3 with the idno path
+      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+      #     done
           
-        env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+      #   env:
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
 
 
       # Step 8: Upload JSON data to OpenSearch 
 
-      - name: JSON file to OpenSearch
+      # - name: JSON file to OpenSearch
 
-        env:
-          OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
-          OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
-          OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
-        run: |
-          RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
-          -H "Content-Type: application/json" \
-          -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
-          --data-binary "@bulk_data.json")
-          echo "HTTP response code: $RESPONSE"
-          cat response.json
+      #   env:
+      #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
+      #     OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
+      #     OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+      #   run: |
+      #     RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
+      #     -H "Content-Type: application/json" \
+      #     -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
+      #     --data-binary "@bulk_data.json")
+      #     echo "HTTP response code: $RESPONSE"
+      #     cat response.json
 
-          # Check for errors in the response
-          if grep -q '"errors":true' response.json; then
-            echo "Errors occurred during bulk upload"
-            exit 1
-          fi
+      #     # Check for errors in the response
+      #     if grep -q '"errors":true' response.json; then
+      #       echo "Errors occurred during bulk upload"
+      #       exit 1
+      #     fi
 
