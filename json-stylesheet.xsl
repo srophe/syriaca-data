@@ -737,12 +737,12 @@
         </xsl:if>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'birth']">
+    <xsl:template match="*:fields[@function = 'birthDate']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:birth">     
-            <xsl:for-each select="$doc/descendant::tei:birth">
-                <string xmlns="http://www.w3.org/2005/xpath-functions" key="birth"><xsl:value-of select="."/></string>
-            </xsl:for-each>
+        <xsl:if test="$doc/descendant::tei:birth/tei:date">
+            <string key="birthDate">
+                <xsl:value-of select="$doc/descendant::tei:birth/tei:date/@when"/>
+            </string>
         </xsl:if>
     </xsl:template>
     <xsl:template match="*:fields[@function = 'death']">
