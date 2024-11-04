@@ -316,7 +316,7 @@
             </array>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'cbssPublicationDate']">
+<!--     <xsl:template match="*:fields[@function = 'cbssPublicationDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:imprint/tei:date">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
@@ -325,7 +325,7 @@
                 </xsl:for-each>
             </array>
         </xsl:if>
-    </xsl:template>
+    </xsl:template> -->
     <xsl:template match="*:fields[@function = 'cbssPubPlace']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:imprint/tei:pubPlace">
