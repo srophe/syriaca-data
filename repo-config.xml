@@ -122,6 +122,8 @@
             <fields function="titleTransliteration">titleTransliteration</fields>
             <fields function="author" boost="8">author</fields>
             <fields function="cbssPublicationDate">cbssPublicationDate</fields>
+            <fields function="cbssPubDate">cbssPublicationDate</fields>
+
             <fields function="cbssPubPlace">cbssPubPlace</fields>
             <fields function="cbssPubLang">cbssLangFilter</fields>
             <fields function="publisher">publisher</fields>
@@ -130,6 +132,35 @@
             <fields function="gender">gender</fields>
             <fields function="birthDate">birthDate</fields>
             <fields function="birthPlace">birthPlace</fields>
+            <fields function="location" xpath="tei:location">location</fields>
+
+            <fields function="event" xpath="tei:event[@type != 'attestation']">event</fields>
+            <fields function="eventDates" xpath="tei:event[@type != 'attestation'][@syriaca-computed-start or @syriaca-computed-end]">eventDates</fields>
+            <fields function="attestations" xpath="tei:event[@type = 'attestation']">attestations</fields>
+            <fields function="attestationsDates" xpath="tei:event[@type = 'attestation'][@syriaca-computed-start or @syriaca-computed-end]">attestationsDates</fields>
+            <fields function="religiousCommunities" xpath="tei:state[@type = 'confession']">religiousCommunities</fields>
+            <fields function="religiousCommunitiesDates" xpath="tei:state[@type = 'confession'][@syriaca-computed-start or @syriaca-computed-end]">religiousCommunitiesDates</fields>
+            <fields function="existence" xpath="tei:state[@type = 'existence']">existence</fields>
+            <fields function="existenceDates" xpath="tei:state[@type = 'confession'][@syriaca-computed-start or @syriaca-computed-end]">existenceDates</fields>
+            <fields function="related" xpath="tei:listRelation/tei:relation[@passive or @mutual]">related</fields>
+            <!-- Persons -->
+            <fields function="birth" xpath="tei:birth">birth</fields>
+            <fields function="death" xpath="tei:death">death</fields>
+\            <fields function="personType" xpath="tei:person[contains(@ana, '#syriaca-',$persons:type,'')]]">personType</fields>
+            <!-- BHSE -->
+            <fields function="prologue" xpath="tei:bibl/tei:note[@type='prologue']">prologue</fields>
+            <fields function="incipit" xpath="tei:bibl/tei:note[@type='incipit']">incipit</fields>
+            <fields function="explicit" xpath="tei:bibl/tei:note[@type='explicit']">explicit</fields>
+            <fields function="editions" xpath="tei:bibl/tei:bibl[@type='lawd:Edition']">editions</fields>
+            <fields function="modernTranslations" xpath="tei:bibl/tei:bibl[@type='syriaca:ModernTranslation']">modernTranslations</fields>
+            <fields function="ancientVersion" xpath="tei:bibl/tei:bibl[@type='syriaca:AncientVersion']">ancientVersion</fields>
+            <fields function="manuscripts" xpath="tei:bibl/tei:bibl[@type='syriaca:Manuscript']">manuscripts</fields>
+            <fields function="reference" xpath="tei:bibl/tei:bibl">reference</fields>
+            <fields function="bhseType" xpath="tei:idno[@type]">bhseType</fields>
+            <!-- CBSS -->
+            <fields function="subject" xpath="tei:relation[@ref='dc:subject']/tei:desc">subject</fields>
+            <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields>
+            <fields function="cbssType" xpath="tei:biblStruct[@type]">cbssType</fields>
 
             <!--
             <text xpath="/tei:TEI/descendant::tei:persName" boost="5.0">persName</text>
