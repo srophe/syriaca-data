@@ -758,20 +758,12 @@
             </string>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'death']">
-        <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:death/tei:date">
-            <string key="deathDate">
-                <xsl:value-of select="normalize-space(string-join($doc/descendant::tei:death/tei:date/@when,' '))"/>
-            </string>
-        </xsl:if>
-    </xsl:template>
     
     <xsl:template match="*:fields[@function = 'death']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:death">     
             <xsl:for-each select="$doc/descendant::tei:death">
-                <string xmlns="http://www.w3.org/2005/xpath-functions" key="death"><xsl:value-of select="normalize-space(string-join($doc/descendant::tei:death/tei:date/@when,' '))"/></string>
+                <string xmlns="http://www.w3.org/2005/xpath-functions" key="death"><xsl:value-of select="."/></string>
             </xsl:for-each>
         </xsl:if>
     </xsl:template>
