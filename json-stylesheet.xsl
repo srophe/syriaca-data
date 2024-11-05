@@ -316,7 +316,7 @@
             </array>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'cbssPublicationDate']">
+<!--     <xsl:template match="*:fields[@function = 'cbssPublicationDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:imprint/tei:date">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
@@ -325,7 +325,7 @@
                 </xsl:for-each>
             </array>
         </xsl:if>
-    </xsl:template>
+    </xsl:template> -->
     <xsl:template match="*:fields[@function = 'cbssPubPlace']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:imprint/tei:pubPlace">
@@ -742,15 +742,7 @@
             </string>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'birthPlace']">
-        <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:birth/tei:placeName">
-            <string key="birthDate">
-                <xsl:value-of select="$doc/descendant::tei:birth/tei:date/@when"/>
-            </string>
-        </xsl:if>
-    </xsl:template>
-    <xsl:template match="*:fields[@function = 'deathDate']">
+        <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:death/tei:date">
             <string key="birthDate">
@@ -758,7 +750,6 @@
             </string>
         </xsl:if>
     </xsl:template>
-    
     <xsl:template match="*:fields[@function = 'death']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:death">     
@@ -770,7 +761,12 @@
     
     
     <xsl:template match="*:fields"/>
-
+    <!--
+    <xsl:template match="*:fields[@function = 'fullText']">
+        <xsl:param name="doc"/>
+        <xsl:apply-templates select="descendant::tei:body/descendant::text()"/>
+    </xsl:template>
+    -->
     
     <xsl:template match="t:TEI" mode="fullText">
         <xsl:value-of select="normalize-space(string-join(descendant::tei:body/descendant::text(),' '))"/>
