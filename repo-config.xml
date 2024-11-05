@@ -128,10 +128,11 @@
             <fields function="publisher">publisher</fields>
             <fields function="persName">persName</fields>
             <fields function="placeName">placeName</fields>
+            <fields function="gender">gender</fields>
 
-            <fields function="gender" xpath="tei:gender">gender</fields>
-            <fields function="birthDate">birthDate</fields>
-            <fields function="birthPlace">birthPlace</fields>
+            <fields function="birthDate" xpath="tei:birth/tei:date/@when">birthDate</fields>
+            <fields function="birthPlace" xpath="tei:birth/tei:placeName">birthPlace</fields>
+            <fields function="deathDate" xpath="tei:death/tei:date/@when">deathDate</fields>
             <!-- Gazetteer fields -->
             <fields function="location" xpath="tei:location">location</fields>
             <fields function="event" xpath="tei:event[@type != 'attestation']">event</fields>
