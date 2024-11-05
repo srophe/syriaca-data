@@ -9,8 +9,13 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:local="http://syriaca.org/ns" 
     exclude-result-prefixes="xs t x saxon local" version="3.0">
+
+    <!-- Strip all whitespace from elements -->
+    <xsl:strip-space elements="*"/>
+
+    <!-- Output settings -->
+    <xsl:output method="text" encoding="utf-8" indent="no"/>
     
-    <xsl:output method="text" encoding="utf-8"/>
     <xsl:param name="docType" />
     <xsl:param name="configPath" select="'./repo-config.xml'"/>
     <xsl:variable name="config">
