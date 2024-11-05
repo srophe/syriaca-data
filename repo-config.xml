@@ -128,9 +128,10 @@
             <fields function="publisher">publisher</fields>
             <fields function="persName">persName</fields>
             <fields function="placeName">placeName</fields>
-            <fields function="gender">gender</fields>
 
-
+            <fields function="gender" xpath="tei:gender">gender</fields>
+            <fields function="birthDate">birthDate</fields>
+            <fields function="birthPlace">birthPlace</fields>
             <!-- Gazetteer fields -->
             <fields function="location" xpath="tei:location">location</fields>
             <fields function="event" xpath="tei:event[@type != 'attestation']">event</fields>
@@ -145,9 +146,6 @@
             <!-- Persons -->
             <fields function="birth" xpath="tei:birth">birth</fields>
             <fields function="death" xpath="tei:death">death</fields>
-<!--             <fields function="birthDate" xpath="tei:birth/tei:date/@when">birthDate</fields>
-            <fields function="birthPlace" xpath="tei:birth/tei:placeName">birthPlace</fields>
-            <fields function="deathDate" xpath="tei:death/tei:date/@when">deathDate</fields> -->
             <fields function="personType" xpath="tei:person[contains(@ana, '#syriaca-',$persons:type,'')]]">personType</fields>
             <!-- BHSE -->
             <fields function="prologue" xpath="tei:bibl/tei:note[@type='prologue']">prologue</fields>
@@ -163,6 +161,15 @@
             <fields function="subject" xpath="tei:relation[@ref='dc:subject']/tei:desc">subject</fields>
             <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields>
             <fields function="cbssType" xpath="tei:biblStruct[@type]">cbssType</fields>
+            
+
+            <!--
+            <text xpath="/tei:TEI/descendant::tei:persName" boost="5.0">persName</text>
+            <text xpath="/tei:TEI/descendant::tei:placeName" boost="5.0">placeName</text>
+            <text xpath="/tei:TEI/descendant::tei:pubPlace">publPlace</text>
+            <text xpath="/tei:TEI/descendant::tei:publisher">publisher</text>
+            -->
+            <!--            <fields xpath="/tei:TEI/descendant::tei:sourceDesc/tei:bibl/tei:date/@when" type="date">publicationDate</fields>-->
             
         </searchFields>
         <facet-fields>
