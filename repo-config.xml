@@ -123,17 +123,17 @@
             <fields function="author" boost="8">author</fields>
             <fields function="cbssPublicationDate">cbssPublicationDate</fields>
             <fields function="cbssPubDate">cbssPublicationDate</fields>
-
             <fields function="cbssPubPlace">cbssPubPlace</fields>
             <fields function="cbssPubLang">cbssLangFilter</fields>
             <fields function="publisher">publisher</fields>
             <fields function="persName">persName</fields>
             <fields function="placeName">placeName</fields>
-            <fields function="gender">gender</fields>
+
+            <fields function="gender" xpath="tei:gender">gender</fields>
             <fields function="birthDate">birthDate</fields>
             <fields function="birthPlace">birthPlace</fields>
+            <!-- Gazetteer fields -->
             <fields function="location" xpath="tei:location">location</fields>
-
             <fields function="event" xpath="tei:event[@type != 'attestation']">event</fields>
             <fields function="eventDates" xpath="tei:event[@type != 'attestation'][@syriaca-computed-start or @syriaca-computed-end]">eventDates</fields>
             <fields function="attestations" xpath="tei:event[@type = 'attestation']">attestations</fields>
@@ -146,7 +146,7 @@
             <!-- Persons -->
             <fields function="birth" xpath="tei:birth">birth</fields>
             <fields function="death" xpath="tei:death">death</fields>
-\            <fields function="personType" xpath="tei:person[contains(@ana, '#syriaca-',$persons:type,'')]]">personType</fields>
+            <fields function="personType" xpath="tei:person[contains(@ana, '#syriaca-',$persons:type,'')]]">personType</fields>
             <!-- BHSE -->
             <fields function="prologue" xpath="tei:bibl/tei:note[@type='prologue']">prologue</fields>
             <fields function="incipit" xpath="tei:bibl/tei:note[@type='incipit']">incipit</fields>
@@ -161,6 +161,7 @@
             <fields function="subject" xpath="tei:relation[@ref='dc:subject']/tei:desc">subject</fields>
             <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields>
             <fields function="cbssType" xpath="tei:biblStruct[@type]">cbssType</fields>
+            
 
             <!--
             <text xpath="/tei:TEI/descendant::tei:persName" boost="5.0">persName</text>
