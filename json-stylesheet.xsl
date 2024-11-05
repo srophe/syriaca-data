@@ -739,17 +739,29 @@
         </xsl:if>
         </xsl:if>
     </xsl:template>
+    <!-- Template for Birth Date -->
     <xsl:template match="*:fields[@function = 'birthDate']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:birth/tei:date">
-            <string key="birthDate">
-                <xsl:value-of select="$doc/descendant::tei:birth/tei:date/@when"/>
+            <xsl:if test="$doc/descendant::tei:birth/tei:date">
+                <string key="birthDate" xmlns="http://www.w3.org/2005/xpath-functions">
+                    <xsl:value-of select="$doc/descendant::tei:birth/tei:date/@when"/>
+                </string>
+            </xsl:if>
+    </xsl:template>
+
+    <!-- Template for Birth Place -->
+    <xsl:template match="*:fields[@function = 'birthPlace']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:birth/tei:placeName">
+            <string key="birthPlace" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:value-of select="$doc/descendant::tei:birth/tei:placeName"/>
             </string>
         </xsl:if>
     </xsl:template>
-        <xsl:template match="*:fields[@function = 'deathDate']">
+
+    <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:death/tei:date">
+            <xsl:if test="$doc/descendant::tei:death/tei:date">
             <string key="deathDate">
                 <xsl:value-of select="$doc/descendant::tei:death/tei:date/@when"/>
             </string>
@@ -776,6 +788,11 @@
             <xsl:for-each select="$doc/descendant::tei:death">
                 <string xmlns="http://www.w3.org/2005/xpath-functions" key="death"><xsl:value-of select="."/></string>
             </xsl:for-each>
+            <xsl:if test="$doc/descendant::tei:death/tei:date/@when">
+                <string key="deathDate">
+                    <xsl:value-of select="$doc/descendant::tei:death/tei:date/@when"/>
+                </string>
+            </xsl:if>
         </xsl:if>
     </xsl:template>
     
