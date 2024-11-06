@@ -74,10 +74,11 @@ jobs:
       - name: Specify specific Place XML files
         run: |
           echo "./data/places/tei/10.xml" > xml_files.txt
-          echo "./data/places/tei/100.xml" >> xml_files.txt
-          echo "./data/places/tei/1000.xml" >> xml_files.txt
-          echo "./data/places/tei/1002.xml" >> xml_files.txt
+          echo "./data/places/tei/78.xml" >> xml_files.txt
+          echo "./data/places/tei/1507.xml" >> xml_files.txt
+          echo "./data/places/tei/1486.xml" >> xml_files.txt
           echo "./data/places/tei/104.xml" >> xml_files.txt
+          echo "./data/places/tei/602.xml" >> xml_files.txt
           echo "Processing specified XML files:"
           cat xml_files.txt          
 
@@ -151,7 +152,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_places_attestationTest.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_places_typeEventsTest.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
