@@ -23,11 +23,6 @@
             <xsl:sequence select="document(xs:anyURI($configPath))"/>
         </xsl:if>
     </xsl:variable>
-    <xsl:message select="concat('Config file available: ', exists($config))"/>
-    <xsl:message select="concat('Config file loaded: ', not(empty($config)))"/>
-    <xsl:message select="concat('docType parameter value: ', $docType)"/>
-
-
     
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
@@ -133,9 +128,6 @@
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml, map { 'indent' : true() })"/>
     </xsl:template>
-    <xsl:message select="concat('Document ID: ', $id)"/>
-    <xsl:message select="concat('Document Root Exists: ', exists($doc))"/>
-
     
     <!-- Named functions, should match search fields in repo-config.xml -->
     <xsl:template match="*:fields[@function = 'fullText']">
@@ -747,8 +739,49 @@
         </xsl:if>
         </xsl:if>
     </xsl:template>
+<!--     <xsl:template match="*:fields[@function = 'birthDate']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:birth/tei:date">
+            <string key="birthDate">
+                <xsl:value-of select="$doc/descendant::tei:birth/tei:date/@when"/>
+            </string>
+        </xsl:if>
+    </xsl:template> -->
+<!--     <xsl:template match="tei:birth">
+        <xsl:if test="tei:date/@when">
+            <string key="birthDate">
+                <xsl:value-of select="tei:date/@when"/>
+            </string>
+        </xsl:if>
+        <xsl:if test="tei:placeName">
+            <string key="birthPlace">
+                <xsl:value-of select="tei:placeName"/>
+            </string>
+        </xsl:if>
+    </xsl:template> -->
+<!--     Pattern matching birth search field  -->
+        <xsl:template match="*:fields[@function = 'birthPlace']">
 
+        <xsl:param name="doc"/>
 
+        <xsl:if test="$doc/descendant::tei:birth">     
+
+            <xsl:if test="tei:placeName">
+
+                <string xmlns="http://www.w3.org/2005/xpath-functions" key="birthPlace"><xsl:value-of select="."/></string>
+
+             </xsl:if>
+        </xsl:if>
+
+    </xsl:template>
+        <xsl:template match="*:fields[@function = 'deathDate']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:death/tei:date">
+            <string key="deathDate">
+                <xsl:value-of select="$doc/descendant::tei:death/tei:date/@when"/>
+            </string>
+        </xsl:if>
+    </xsl:template>
     
     <xsl:template match="*:fields[@function = 'birth']">
 
