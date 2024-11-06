@@ -739,39 +739,21 @@
         </xsl:if>
         </xsl:if>
     </xsl:template>
-
-<!--     Pattern matching birth search field  -->
-
-<!-- Template for birth information -->
-<!-- <xsl:template match="*:fields[@function = 'birth']">
-    <xsl:param name="doc"/>
-    <xsl:if test="$doc/descendant::tei:birth">
-        <string xmlns="http://www.w3.org/2005/xpath-functions" key="birth">
-            <xsl:value-of select="$doc/descendant::tei:birth"/>
-        </string>
-    </xsl:if>
-</xsl:template> -->
-
-<!-- Template for birthPlace information -->
-<!-- <xsl:template match="*:fields[@function = 'birthPlace']">
-    <xsl:param name="doc"/>
-    <xsl:if test="$doc/descendant::tei:birth/tei:placeName">
-        <string xmlns="http://www.w3.org/2005/xpath-functions" key="birthPlace">
-            <xsl:value-of select="$doc/descendant::tei:birth/tei:placeName"/>
-        </string>
-    </xsl:if>
-</xsl:template> -->
-
-
-    
-    <xsl:template match="*:fields[@function = 'deathDate']">
+    <xsl:template match="*:fields[@function = 'birthDate']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:birth/tei:date">
+            <string key="birthDate">
+                <xsl:value-of select="$doc/descendant::tei:birth/tei:date/@when"/>
+            </string>
+        </xsl:if>
+    </xsl:template>
+        <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:death/tei:date">
             <string key="deathDate">
                 <xsl:value-of select="$doc/descendant::tei:death/tei:date/@when"/>
             </string>
         </xsl:if>
-        
     </xsl:template>
     
     <xsl:template match="*:fields[@function = 'birth']">
