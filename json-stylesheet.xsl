@@ -665,14 +665,24 @@
         <xsl:if test="contains($id, '/place')">
             <xsl:if test="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start]">
             <array key="eventDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation']">
-                    <xsl:variable name="startDate" select="@srophe:computed-start"/>
+               <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start]">
+                    <xsl:variable name="startDate">
+                        <xsl:choose>
+                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
+                            <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
+                        </xsl:choose>
+                    </xsl:variable>
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
                 </xsl:for-each>
             </array>
             <array key="eventDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation']">
-                    <xsl:variable name="endDate" select="@srophe:computed-end"/>
+                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start]">
+                    <xsl:variable name="endDate">
+                        <xsl:choose>
+                            <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
+                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
+                        </xsl:choose>
+                    </xsl:variable>
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
                 </xsl:for-each>
             </array>
