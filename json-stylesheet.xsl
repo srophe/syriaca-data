@@ -747,6 +747,7 @@
             </string>
         </xsl:if>
     </xsl:template> -->
+
 <!--     <xsl:template match="tei:birth">
         <xsl:if test="tei:date/@when">
             <string key="birthDate">
@@ -760,7 +761,7 @@
         </xsl:if>
     </xsl:template> -->
 <!--     Pattern matching birth search field  -->
-        <xsl:template match="*:fields[@function = 'birthPlace']">
+    <xsl:template match="*:fields[@function = 'birthPlace']">
 
         <xsl:param name="doc"/>
 
@@ -774,7 +775,7 @@
         </xsl:if>
 
     </xsl:template>
-        <xsl:template match="*:fields[@function = 'deathDate']">
+    <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:death/tei:date">
             <string key="deathDate">
