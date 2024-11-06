@@ -23,6 +23,11 @@
             <xsl:sequence select="document(xs:anyURI($configPath))"/>
         </xsl:if>
     </xsl:variable>
+    <xsl:message select="concat('Config file available: ', exists($config))"/>
+    <xsl:message select="concat('Config file loaded: ', not(empty($config)))"/>
+    <xsl:message select="concat('docType parameter value: ', $docType)"/>
+
+
     
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
@@ -128,6 +133,9 @@
         </xsl:variable>
         <xsl:value-of select="xml-to-json($xml, map { 'indent' : true() })"/>
     </xsl:template>
+    <xsl:message select="concat('Document ID: ', $id)"/>
+    <xsl:message select="concat('Document Root Exists: ', exists($doc))"/>
+
     
     <!-- Named functions, should match search fields in repo-config.xml -->
     <xsl:template match="*:fields[@function = 'fullText']">
