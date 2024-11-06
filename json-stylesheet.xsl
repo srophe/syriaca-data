@@ -740,14 +740,7 @@
         </xsl:if>
     </xsl:template>
 
-<!--     <xsl:template match="*:fields[@function = 'deathDate']">
-        <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:death/tei:date">
-            <string key="deathDate">
-                <xsl:value-of select="$doc/descendant::tei:death/tei:date/@when"/>
-            </string>
-        </xsl:if>
-    </xsl:template> -->
+
     
     <xsl:template match="*:fields[@function = 'birth']">
 
