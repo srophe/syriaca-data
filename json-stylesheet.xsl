@@ -761,7 +761,7 @@
         </xsl:if>
     </xsl:template> -->
 <!--     Pattern matching birth search field  -->
-    <xsl:template match="*:fields[@function = 'birthPlace']">
+<!--     <xsl:template match="*:fields[@function = 'birthPlace']">
 
         <xsl:param name="doc"/>
 
@@ -774,7 +774,17 @@
              </xsl:if>
         </xsl:if>
 
+    </xsl:template> -->
+    <xsl:template match="*:fields[@function = 'birthPlace']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:birth/tei:placeName">
+            <xsl:message select="concat('birthPlace found: ', normalize-space(string-join($doc/descendant::tei:birth/tei:placeName, ' ')))"/>
+            <string key="birthPlace" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:value-of select="normalize-space(string-join($doc/descendant::tei:birth/tei:placeName, ' '))"/>
+            </string>
+        </xsl:if>
     </xsl:template>
+
     <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:death/tei:date">
