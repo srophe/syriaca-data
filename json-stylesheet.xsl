@@ -199,6 +199,55 @@
             </string>    
         </xsl:if>
     </xsl:template>
+        <xsl:template match="*:fields[@function = 'type']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:choose>
+            <xsl:when test="contains($id, '/place')">
+                <xsl:variable name="field">
+                    <xsl:value-of select="$doc/descendant::tei:place/@type"/>
+                </xsl:variable>
+                <xsl:if test="$field != ''">
+                    <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                        <xsl:value-of select="$field"/>
+                    </string>    
+                </xsl:if>
+            </xsl:when>
+            <xsl:when test="contains($id, '/person')">
+                <xsl:variable name="field">
+                    <xsl:value-of select="$doc/descendant::tei:body/tei:listPerson/tei:person/@ana"/>
+                </xsl:variable>
+                <xsl:if test="$doc/descendant::tei:body/tei:listPerson/tei:person/@ana[. != '']">
+                    <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                        <xsl:for-each select="tokenize($field,' ')">
+                            <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="substring-after(., '-')"/></string>
+                        </xsl:for-each>
+                    </array>
+                </xsl:if>
+            </xsl:when>
+            <xsl:when test="contains($id, '/work')">
+                <xsl:if test="$doc/descendant::tei:body/descendant::tei:idno/@type[. != 'URI']">
+                    <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
+                        <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:idno/@type[. != 'URI']">
+                            <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                        </xsl:for-each>
+                    </array>
+                </xsl:if> 
+            </xsl:when>
+            <xsl:when test="contains($id, '/cbss') or contains($id, '/bibl')">
+                <xsl:if test="$doc/descendant::tei:body/descendant::tei:biblStruct/@type">
+                    <xsl:variable name="field">
+                        <xsl:value-of select="$doc/descendant::tei:biblStruct/@type"/>
+                    </xsl:variable>
+                    <xsl:if test="$field != ''">
+                        <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                            <xsl:value-of select="$field"/>
+                        </string>    
+                    </xsl:if>
+                </xsl:if> 
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
     <xsl:template match="*:fields[@function = 'titleSyriac']">
         <xsl:param name="doc"/>
         <xsl:variable name="field">
