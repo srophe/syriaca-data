@@ -753,14 +753,14 @@
 </xsl:template> -->
 
 <!-- Template for birthPlace information -->
-<xsl:template match="*:fields[@function = 'birthPlace']">
+<!-- <xsl:template match="*:fields[@function = 'birthPlace']">
     <xsl:param name="doc"/>
     <xsl:if test="$doc/descendant::tei:birth/tei:placeName">
         <string xmlns="http://www.w3.org/2005/xpath-functions" key="birthPlace">
             <xsl:value-of select="$doc/descendant::tei:birth/tei:placeName"/>
         </string>
     </xsl:if>
-</xsl:template>
+</xsl:template> -->
 
 
     
