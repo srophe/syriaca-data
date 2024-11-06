@@ -651,12 +651,15 @@
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:if test="contains($id, '/place')">
-            <xsl:if test="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start]">
+            <xsl:if test="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start or @from or @when or @to]">
             <array key="eventDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
-               <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start]">
+                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start or @from or @when or @to]">
                     <xsl:variable name="startDate">
                         <xsl:choose>
                             <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
+                            <xsl:when test="@from"><xsl:value-of select="@from"/></xsl:when>
+                            <xsl:when test="@when"><xsl:value-of select="@when"/></xsl:when>
+                            <xsl:when test="@to"><xsl:value-of select="@to"/></xsl:when>
                             <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
@@ -664,10 +667,13 @@
                 </xsl:for-each>
             </array>
             <array key="eventDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start]">
+                <xsl:for-each select="$doc/descendant::tei:event[@type != 'attestation'][@srophe:computed-start or @from or @when or @to]">
                     <xsl:variable name="endDate">
                         <xsl:choose>
                             <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
+                            <xsl:when test="@to"><xsl:value-of select="@to"/></xsl:when>
+                            <xsl:when test="@when"><xsl:value-of select="@when"/></xsl:when>
+                            <xsl:when test="@from"><xsl:value-of select="@from"/></xsl:when>
                             <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
