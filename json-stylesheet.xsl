@@ -458,19 +458,7 @@
         </xsl:if>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'existence']">
-        <xsl:param name="doc"/>
-        <xsl:param name="id"/>
-        <xsl:if test="contains($id, '/place')">
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type = 'existence']">
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:state[@type = 'existence']">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
-            </array>
-        </xsl:if>
-        </xsl:if>
-    </xsl:template>
+
     <xsl:template match="*:fields[@function = 'related']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:listRelation/tei:relation[@passive or @mutual]">
