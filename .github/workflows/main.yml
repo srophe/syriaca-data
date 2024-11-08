@@ -61,21 +61,21 @@ jobs:
       #     echo "Processing the first 25 XML files:"
       #     cat xml_files.txt
 
-      - name: Specify specific Person XML files
-        run: |
-          echo "./data/persons/tei/25.xml" > xml_files.txt
+      # - name: Specify specific Person XML files
+      #   run: |
+      #     echo "./data/persons/tei/25.xml" > xml_files.txt
 
-          echo "./data/persons/tei/110.xml" > xml_files.txt
-          echo "./data/persons/tei/106.xml" >> xml_files.txt
-          echo "./data/persons/tei/109.xml" >> xml_files.txt
-          echo "./data/persons/tei/101.xml" >> xml_files.txt
-          echo "./data/persons/tei/100.xml" >> xml_files.txt
-          echo "./data/persons/tei/102.xml" >> xml_files.txt
-          echo "./data/persons/tei/1021.xml" >> xml_files.txt
-          echo "./data/persons/tei/320.xml" >> xml_files.txt
-          echo "./data/persons/tei/67.xml" >> xml_files.txt
-          echo "./data/persons/tei/544.xml" >> xml_files.txt
-          echo "./data/persons/tei/732.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/110.xml" > xml_files.txt
+      #     echo "./data/persons/tei/106.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/109.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/101.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/100.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/102.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/1021.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/320.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/67.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/544.xml" >> xml_files.txt
+      #     echo "./data/persons/tei/732.xml" >> xml_files.txt
       #     echo "Processing specified XML files:"
       #     cat xml_files.txt
       
@@ -88,7 +88,18 @@ jobs:
       #     echo "./data/places/tei/104.xml" >> xml_files.txt
       #     echo "./data/places/tei/602.xml" >> xml_files.txt
       #     echo "Processing specified XML files:"
-      #     cat xml_files.txt          
+      #     cat xml_files.txt   
+      - name: Specify specific Works XML files
+        run: |
+          echo "./data/works/tei/315.xml" > xml_files.txt
+          echo "./data/works/tei/9501.xml" > xml_files.txt
+          echo "./data/works/tei/9723.xml" > xml_files.txt
+          echo "./data/works/tei/9724.xml" > xml_files.txt
+          echo "./data/works/tei/10510.xml" > xml_files.txt
+          echo "./data/works/tei/10511.xml" > xml_files.txt
+          echo "./data/works/tei/10543.xml" > xml_files.txt
+          echo "Processing specified XML files:"
+          cat xml_files.txt   
 
       # Step 5: Run XSLT Transformations and Merge into Single JSON 
       - name: Run XSLT Transformations and Create Bulk JSON
@@ -126,9 +137,6 @@ jobs:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}          
 
-     
-          
-          
       # Step 6: Convert HTML files
       - name: Create static HTML directory
         run: |
@@ -160,7 +168,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_persons_state_floruit.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_works_.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
