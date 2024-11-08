@@ -55,9 +55,9 @@ jobs:
       #   id: files
       
       # Step 4: Identify 25 XML files for testing
-      - name: Identify first 250 XML files 
+      - name: Identify first 25 XML files 
         run: |
-          find ./data/bibl/tei -name '*.xml' | head -n 25 > xml_files.txt
+          find ./data/subjects/tei -name '*.xml' | head -n 25 > xml_files.txt
           echo "Processing 25 XML files:"
           cat xml_files.txt
 
@@ -168,7 +168,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_bibl_.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_subjects_.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
