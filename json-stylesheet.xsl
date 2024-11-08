@@ -741,7 +741,7 @@
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
                 <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:bibl">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(descendant-or-self::text(),' '))"/></string>
                 </xsl:for-each>
             </array>
         </xsl:if>
