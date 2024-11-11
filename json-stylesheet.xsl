@@ -545,7 +545,7 @@
             </xsl:if>
         </xsl:if>
     </xsl:template>
-        <xsl:template match="*:fields[@function = 'stateType']">
+    <xsl:template match="*:fields[@function = 'stateType']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type]">
@@ -605,6 +605,23 @@
             </array>
         </xsl:if>
     </xsl:template>
+      <!-- Identity template to copy all other nodes -->
+  <xsl:template match="node()|@*">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Template to handle specific fields where duplicates and empty values are removed -->
+  <xsl:template match="stateType | state | stateDatesStart | stateDatesEnd">
+    <xsl:copy>
+      <xsl:for-each select="distinct-values(*[normalize-space() != ''])">
+        <xsl:copy-of select="."/>
+      </xsl:for-each>
+    </xsl:copy>
+  </xsl:template>
+
+</xsl:stylesheet>
     <xsl:template match="*:fields[@function = 'floruitDates']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
