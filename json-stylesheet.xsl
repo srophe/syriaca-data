@@ -545,7 +545,7 @@
             </xsl:if>
         </xsl:if>
     </xsl:template>
-<!--     <xsl:template match="*:fields[@function = 'stateType']">
+        <xsl:template match="*:fields[@function = 'stateType']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type]">
@@ -566,41 +566,8 @@
                 </xsl:for-each>
             </array>
         </xsl:if>
-    </xsl:template> -->
-    <xsl:template match="*:fields[@function = 'stateType']">
-    <xsl:param name="doc"/>
-    <xsl:param name="id"/>
-    <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type]">
-        <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-            <!-- Group by distinct @type values and exclude empty strings -->
-            <xsl:for-each-group select="$doc/descendant::tei:body/descendant::tei:state[@type]" group-by="normalize-space(string-join(@type, ' '))">
-                <xsl:if test="current-grouping-key() != ''">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions">
-                        <xsl:value-of select="current-grouping-key()"/>
-                    </string>
-                </xsl:if>
-            </xsl:for-each-group>
-        </array>
-    </xsl:if>
-</xsl:template>
-
-    <xsl:template match="*:fields[@function = 'state']">
-        <xsl:param name="doc"/>
-        <xsl:param name="id"/>
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:state">
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <!-- Group by distinct text values and exclude empty strings -->
-                <xsl:for-each-group select="$doc/descendant::tei:body/descendant::tei:state" group-by="normalize-space(string-join(descendant-or-self::text(), ' '))">
-                    <xsl:if test="current-grouping-key() != ''">
-                        <string xmlns="http://www.w3.org/2005/xpath-functions">
-                            <xsl:value-of select="current-grouping-key()"/>
-                        </string>
-                    </xsl:if>
-                </xsl:for-each-group>
-            </array>
-        </xsl:if>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'stateDates']">
+        <xsl:template match="*:fields[@function = 'stateDates']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
             <xsl:if test="$doc/descendant::tei:state[@srophe:computed-start or @from or @when or @to or @notBefore or @notAfter]">
@@ -620,7 +587,7 @@
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
                 </xsl:for-each>
             </array>
-            <array key="stateDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+                <array key="stateDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:for-each select="$doc/descendant::tei:state[@srophe:computed-start or @from or @when or @to or @notBefore or @notAfter]">
                     <xsl:variable name="endDate">
                         <xsl:choose>
@@ -638,8 +605,6 @@
             </array>
         </xsl:if>
     </xsl:template>
-
-</xsl:stylesheet>
     <xsl:template match="*:fields[@function = 'floruitDates']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
