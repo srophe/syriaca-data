@@ -920,13 +920,29 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="*:fields[@function = 'deathDate']">
+<!--     <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:death/tei:date">
             <xsl:message select="concat('deathDate found: ', normalize-space(string-join($doc/descendant::tei:death/tei:date, ' ')))"/>
             <string key="deathDate" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:value-of select="normalize-space(string-join($doc/descendant::tei:death/tei:date, ' '))"/>
             </string>
+        </xsl:if>
+    </xsl:template> -->
+    <xsl:template match="*:fields[@function = 'deathDate']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:death/tei:date">     
+            <array key="deathDate" xmlns="http://www.w3.org/2005/xpath-functions">
+            <xsl:for-each select="$doc/descendant::tei:death/tei:date">
+                <xsl:variable name="date">
+                    <xsl:choose>
+                        <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
+                        <xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space($date)"/></string>
+            </xsl:for-each>
+            </array>
         </xsl:if>
     </xsl:template>
     
