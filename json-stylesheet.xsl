@@ -930,17 +930,23 @@
     <xsl:if test="$doc/descendant::tei:birth/tei:date">     
         <array key="birthDate" xmlns="http://www.w3.org/2005/xpath-functions">
             <xsl:for-each select="$doc/descendant::tei:birth/tei:date">
+                <xsl:variable name="date">
+                    <xsl:choose>
+                        <xsl:when test="@srophe:computed-start">
+                            <xsl:value-of select="local:format-date(@srophe:computed-start)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="local:format-date(normalize-space(.))"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
                 <string xmlns="http://www.w3.org/2005/xpath-functions">
-                    <xsl:value-of select="local:format-date(.)"/>
+                    <xsl:value-of select="$date"/>
                 </string>
             </xsl:for-each>
         </array>
     </xsl:if>
 </xsl:template>
-
-
-
-
 
 <!--     <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
