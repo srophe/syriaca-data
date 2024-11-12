@@ -461,9 +461,9 @@
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:location">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:location">
+                <xsl:for-each-group select="$doc/descendant::tei:body/descendant::tei:location" group-by="text()">
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
+                </xsl:for-each-group>
             </array>
         </xsl:if>
     </xsl:template>
