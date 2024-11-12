@@ -438,32 +438,38 @@
     </xsl:template>
     <xsl:template match="*:fields[@function = 'persName']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:persName">
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:persName">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
-            </array>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/person')">
+            <xsl:if test="$doc/descendant::tei:body/tei:listPerson/tei:persName or $doc/descendant::tei:body/tei:listPerson/tei:personGrp/tei:persName">
+                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions"> 
+                    <xsl:for-each-group select="$doc/descendant::tei:body/tei:listPerson/tei:persName[. != ''] | $doc/descendant::tei:body/tei:listPerson/tei:personGrp/tei:persName[. != '']" group-by="text()">
+                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                    </xsl:for-each-group>
+                </array>
+            </xsl:if>
         </xsl:if>
     </xsl:template>
     
     <xsl:template match="*:fields[@function = 'placeName']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:placeName">
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:placeName">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
-            </array>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+            <xsl:if test="$doc/descendant::tei:body/tei:listPlace/tei:placeName">
+                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions"> 
+                    <xsl:for-each-group select="$doc/descendant::tei:body/tei:listPlace/tei:placeName[. != '']" group-by="text()">
+                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                    </xsl:for-each-group>
+                </array>
+           </xsl:if>
         </xsl:if>
     </xsl:template>
     <xsl:template match="*:fields[@function = 'location']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:location">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:location">
+                <xsl:for-each-group select="$doc/descendant::tei:body/descendant::tei:location" group-by="text()">
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
+                </xsl:for-each-group>
             </array>
         </xsl:if>
     </xsl:template>
@@ -560,9 +566,9 @@
         <xsl:param name="id"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:state">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:state">
+                <xsl:for-each-group select="$doc/descendant::tei:body/descendant::tei:state[@type]" group-by="@type">
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(descendant-or-self::text(),' '))"/></string>
-                </xsl:for-each>
+                </xsl:for-each-group>
             </array>
         </xsl:if>
     </xsl:template>
