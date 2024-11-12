@@ -439,14 +439,12 @@
     <xsl:template match="*:fields[@function = 'persName']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
-        <xsl:if test="contains($id, '/person')">
-            <xsl:if test="$doc/descendant::tei:body/tei:listPerson/tei:persName or $doc/descendant::tei:body/tei:listPerson/tei:personGrp/tei:persName">
-                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions"> 
-                    <xsl:for-each-group select="$doc/descendant::tei:body/tei:listPerson/tei:persName[. != ''] | $doc/descendant::tei:body/tei:listPerson/tei:personGrp/tei:persName[. != '']" group-by="text()">
-                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                    </xsl:for-each-group>
-                </array>
-            </xsl:if>
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:persName">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each-group select="$doc/descendant::tei:body/descendant::tei:persName" group-by="text()>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each-group>
+            </array>
         </xsl:if>
     </xsl:template>
     
