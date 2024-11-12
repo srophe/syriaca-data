@@ -921,6 +921,42 @@
             </string>
         </xsl:if>
     </xsl:template> -->
+<xsl:template match="*:fields[@function = 'birthDate']">
+    <xsl:param name="doc"/>
+    <xsl:if test="$doc/descendant::tei:birth/tei:date">     
+        <array key="birthDate" xmlns="http://www.w3.org/2005/xpath-functions">
+            <xsl:for-each select="$doc/descendant::tei:birth/tei:date">
+                <xsl:variable name="rawDate">
+                    <!-- Check if computed-start is available; otherwise use the date value itself -->
+                    <xsl:choose>
+                        <xsl:when test="@srophe:computed-start">
+                            <xsl:value-of select="@srophe:computed-start"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                
+                <!-- Format the date to always have YYYY format -->
+                <string xmlns="http://www.w3.org/2005/xpath-functions">
+                    <xsl:choose>
+                        <!-- For BCE dates, which start with '-' -->
+                        <xsl:when test="starts-with(normalize-space($rawDate))">
+                            <xsl:value-of select="concat(substring($rawDate, 1, 5), ' BCE')"/>
+                        </xsl:when>
+                        <!-- For CE dates (no '-') -->
+                        <xsl:otherwise>
+                            <xsl:value-of select="format-number(number($rawDate), '0000')"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </string>
+            </xsl:for-each>
+        </array>
+    </xsl:if>
+</xsl:template>
+
+<!-- </xsl:template>
         <xsl:template match="*:fields[@function = 'birthDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:birth/tei:date">     
@@ -936,7 +972,7 @@
             </xsl:for-each>
             </array>
         </xsl:if>
-    </xsl:template>
+    </xsl:template> -->
 
 <!--     <xsl:template match="*:fields[@function = 'deathDate']">
         <xsl:param name="doc"/>
