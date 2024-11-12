@@ -146,17 +146,17 @@
         <xsl:variable name="field">
          <xsl:choose>
              <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
-                 <xsl:variable name="en" select="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]"/>
+                 <xsl:variable name="en" select="string-join($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]//text(),' ')"/>
                  <xsl:variable name="syr" select="string-join($doc/descendant::*[contains(@syriaca-tags,'#syriaca-headword')][matches(@xml:lang,'^syr')][1],' ')"/>
                  <xsl:value-of select="local:sortStringEn(concat($en, if($syr != '') then  concat(' - ', $syr) else ()))"/>
              </xsl:when>
              <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'en')][not(empty(node()))]">
-                 <xsl:variable name="en" select="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]"/>
+                 <xsl:variable name="en" select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]//text(),' ')"/>
                  <xsl:variable name="syr" select="string-join($doc/descendant::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^syr')][1],' ')"/>
                  <xsl:value-of select="local:sortStringEn(concat($en, if($syr != '') then  concat(' - ', $syr) else ()))"/>
              </xsl:when>
              <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
-                 <xsl:variable name="en" select="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]"/>
+                 <xsl:variable name="en" select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]//text(),' ')"/>
                  <xsl:variable name="syr" select="string-join($doc/descendant::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^syr')][1],' ')"/>
                  <xsl:value-of select="local:sortStringEn(concat($en, if($syr != '') then  concat(' - ', $syr) else ()))"/>
              </xsl:when>
@@ -183,7 +183,7 @@
         <xsl:if test="$doc/descendant::tei:seriesStmt">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">            
                 <xsl:for-each select="$doc/descendant::tei:seriesStmt">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="tei:title"/></string>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="string-join(tei:title,' ')"/></string>
                 </xsl:for-each>    
             </array>
         </xsl:if>
@@ -265,7 +265,7 @@
         </xsl:variable>
         <xsl:if test="$field != ''">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="$field"/>
+                <xsl:value-of select="normalize-space($field)"/>
             </string>    
         </xsl:if>
     </xsl:template>
@@ -283,22 +283,22 @@
                 <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^ar')][not(empty(node()))][1],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:person/tei:persName[@xml:lang = 'ar']">
-                <xsl:value-of select="local:sortStringAr($doc/descendant::tei:person/tei:persName[@xml:lang = 'ar'])"/>
+                <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::tei:person/tei:persName[@xml:lang = 'ar'],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:place/tei:placeName[@xml:lang = 'ar']">
-                <xsl:value-of select="local:sortStringAr($doc/descendant::tei:place/tei:placeName[@xml:lang = 'ar'])"/>
+                <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::tei:place/tei:placeName[@xml:lang = 'ar'],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:bibl/tei:title[@xml:lang = 'ar']">
-                <xsl:value-of select="local:sortStringAr($doc/descendant::tei:bibl/tei:title[@xml:lang = 'ar'])"/>
+                <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::tei:bibl/tei:title[@xml:lang = 'ar'],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:teiHeader/tei:title[@xml:lang = 'ar']">
-                <xsl:value-of select="local:sortStringAr($doc/descendant::tei:teiHeader/tei:title[@xml:lang = 'ar'])"/>
+                <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::tei:teiHeader/tei:title[@xml:lang = 'ar'],' '))"/>
             </xsl:when>
         </xsl:choose> 
         </xsl:variable>
         <xsl:if test="$field != ''">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="$field"/>
+                <xsl:value-of select="normalize-space($field)"/>
             </string>    
         </xsl:if>
     </xsl:template>
@@ -307,8 +307,7 @@
         <xsl:variable name="field">
         <xsl:choose>
             <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][@xml:lang = 'fr']">
-                <xsl:value-of select="local:sortStringEn($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][@xml:lang = 'fr'])"/>
-            </xsl:when>
+                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][@xml:lang = 'fr'],' '))"/>            </xsl:when>
             <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][@xml:lang = 'fr']">
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::*[contains(@srophe:tags,'#headword')][@xml:lang = 'fr'][not(empty(node()))],' '))"/>
             </xsl:when>
@@ -322,7 +321,7 @@
         </xsl:variable>
         <xsl:if test="$field != ''">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="$field"/>
+                <xsl:value-of select="normalize-space($field)"/>
             </string>    
         </xsl:if>
     </xsl:template>
@@ -331,7 +330,7 @@
         <xsl:variable name="field">
         <xsl:choose>
             <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][@xml:lang = 'en-x-gedsh']">
-                <xsl:value-of select="local:sortStringEn($doc/descendant::*[contains(@syriaca-tags,'#syriaca-headword')][@xml:lang = 'en-x-gedsh'])"/>
+                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::*[contains(@syriaca-tags,'#syriaca-headword')][@xml:lang = 'en-x-gedsh'],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][@xml:lang = 'en-x-gedsh']">
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::*[contains(@srophe:tags,'#headword')][@xml:lang = 'en-x-gedsh'][not(empty(node()))],' '))"/>
@@ -346,7 +345,7 @@
         </xsl:variable>
         <xsl:if test="$field != ''">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="$field"/>
+                <xsl:value-of select="normalize-space($field)"/>
             </string>    
         </xsl:if>
     </xsl:template>
@@ -365,7 +364,7 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$lastNameFirst"/></string>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space($lastNameFirst)"/></string>
                 </xsl:for-each>
             </array>
         </xsl:if>
