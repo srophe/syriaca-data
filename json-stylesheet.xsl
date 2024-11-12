@@ -549,7 +549,6 @@
         <xsl:param name="id"/>
         <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type]">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:state[@type]">
                 <xsl:for-each-group select="$doc/descendant::tei:body/descendant::tei:state[@type]" group-by="@type">
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(@type,' '))"/></string>
                 </xsl:for-each-group>
