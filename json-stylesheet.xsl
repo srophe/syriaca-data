@@ -942,7 +942,7 @@
                 <string xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:choose>
                         <!-- For BCE dates, which start with '-' -->
-                        <xsl:when test="starts-with(normalize-space($rawDate))">
+                        <xsl:when test="starts-with(normalize-space($rawDate), '-')">
                             <xsl:value-of select="concat(substring($rawDate, 1, 5), ' BCE')"/>
                         </xsl:when>
                         <!-- For CE dates (no '-') -->
