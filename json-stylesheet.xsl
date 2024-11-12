@@ -336,7 +336,7 @@
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::*[contains(@srophe:tags,'#headword')][@xml:lang = 'en-x-gedsh'][not(empty(node()))],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:person/tei:persName[@xml:lang = 'en-x-gedsh']">
-                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:person/tei:[@xml:lang = 'en-x-gedsh'][1],' '))"/>
+                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:person/tei:persName[@xml:lang = 'en-x-gedsh'][1],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:place/tei:placeName[@xml:lang = 'en-x-gedsh']">
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:place/tei:placeName[@xml:lang = 'en-x-gedsh'][1],' '))"/>
