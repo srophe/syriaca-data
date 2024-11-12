@@ -23,6 +23,22 @@
             <xsl:sequence select="document(xs:anyURI($configPath))"/>
         </xsl:if>
     </xsl:variable>
+
+ <xsl:function name="local:format-date">
+    <xsl:param name="dateElement" as="element()"/>
+
+    <xsl:choose>
+        <!-- Use computed date if available and strip hyphens -->
+        <xsl:when test="$dateElement/@srophe:computed-start">
+            <xsl:value-of select="translate($dateElement/@srophe:computed-start, '-', '')"/>
+        </xsl:when>
+        <!-- Otherwise, use the element value itself, stripping hyphens -->
+        <xsl:otherwise>
+            <xsl:value-of select="translate(normalize-space($dateElement), '-', '')"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:function>
+
     
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
@@ -926,6 +942,20 @@
     <xsl:if test="$doc/descendant::tei:birth/tei:date">     
         <array key="birthDate" xmlns="http://www.w3.org/2005/xpath-functions">
             <xsl:for-each select="$doc/descendant::tei:birth/tei:date">
+                <string xmlns="http://www.w3.org/2005/xpath-functions">
+                    <!-- Call the format-date function directly on each date element -->
+                    <xsl:value-of select="local:format-date(.)"/>
+                </string>
+            </xsl:for-each>
+        </array>
+    </xsl:if>
+</xsl:template>
+
+<!-- <xsl:template match="*:fields[@function = 'birthDate']">
+    <xsl:param name="doc"/>
+    <xsl:if test="$doc/descendant::tei:birth/tei:date">     
+        <array key="birthDate" xmlns="http://www.w3.org/2005/xpath-functions">
+            <xsl:for-each select="$doc/descendant::tei:birth/tei:date">
                 <xsl:variable name="rawDate">
                     <!-- Check if computed-start is available; otherwise use the date value itself -->
                     <xsl:choose>
@@ -954,7 +984,7 @@
             </xsl:for-each>
         </array>
     </xsl:if>
-</xsl:template>
+</xsl:template> -->
 
 <!-- </xsl:template>
         <xsl:template match="*:fields[@function = 'birthDate']">
