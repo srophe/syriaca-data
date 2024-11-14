@@ -889,19 +889,19 @@
                     <xsl:variable name="startDate">
                         <xsl:choose>
                             <xsl:when test="@srophe:computed-start">
-                                <xsl:value-of select="local:date-format(@srophe:computed-start)"/>
+                                <xsl:value-of select="local:format-date(@srophe:computed-start)"/>
                             </xsl:when>
                             <xsl:when test="@from">
-                                <xsl:value-of select="local:date-format(@from)"/>
+                                <xsl:value-of select="local:format-date(@from)"/>
                             </xsl:when>
                             <xsl:when test="@when">
-                                <xsl:value-of select="local:date-format(@when)"/>
+                                <xsl:value-of select="local:format-date(@when)"/>
                             </xsl:when>
                             <xsl:when test="@to">
-                                <xsl:value-of select="local:date-format(@to)"/>
+                                <xsl:value-of select="local:format-date(@to)"/>
                             </xsl:when>
                             <xsl:when test="@srophe:computed-end">
-                                <xsl:value-of select="local:date-format(@srophe:computed-end)"/>
+                                <xsl:value-of select="local:format-date(@srophe:computed-end)"/>
                             </xsl:when>
                         </xsl:choose>
                     </xsl:variable>
@@ -915,19 +915,19 @@
                     <xsl:variable name="endDate">
                         <xsl:choose>
                             <xsl:when test="@srophe:computed-end">
-                                <xsl:value-of select="local:date-format(@srophe:computed-end)"/>
+                                <xsl:value-of select="local:format-date(@srophe:computed-end)"/>
                             </xsl:when>
                             <xsl:when test="@to">
-                                <xsl:value-of select="local:date-format(@to)"/>
+                                <xsl:value-of select="local:format-date(@to)"/>
                             </xsl:when>
                             <xsl:when test="@when">
-                                <xsl:value-of select="local:date-format(@when)"/>
+                                <xsl:value-of select="local:format-date(@when)"/>
                             </xsl:when>
                             <xsl:when test="@from">
-                                <xsl:value-of select="local:date-format(@from)"/>
+                                <xsl:value-of select="local:format-date(@from)"/>
                             </xsl:when>
                             <xsl:when test="@srophe:computed-start">
-                                <xsl:value-of select="local:date-format(@srophe:computed-start)"/>
+                                <xsl:value-of select="local:format-date(@srophe:computed-start)"/>
                             </xsl:when>
                         </xsl:choose>
                     </xsl:variable>
