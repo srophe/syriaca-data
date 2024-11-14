@@ -1024,7 +1024,7 @@
                     <xsl:variable name="endDate">
                         <xsl:choose>
                             <xsl:when test="@srophe:computed-end"><xsl:value-of select="local:format-date(@srophe:computed-end)"/></xsl:when>
-                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="local:format-date(@srophe:computed-start"/></xsl:when>
+                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="local:format-date(@srophe:computed-start)"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
