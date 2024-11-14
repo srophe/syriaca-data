@@ -24,7 +24,7 @@
         </xsl:if>
     </xsl:variable>
 
-   <xsl:function name="local:format-date">
+<!--    <xsl:function name="local:format-date">
         <xsl:param name="date"/>
         <xsl:choose>
             <xsl:when test="starts-with($date, '-')">
@@ -34,7 +34,28 @@
                 <xsl:value-of select="replace($date, '-', '')"/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:function>
+    </xsl:function> -->
+<xsl:function name="local:format-date">
+    <xsl:param name="date"/>
+    <xsl:choose>
+        <!-- If the date is a four-digit year (like "0342"), append "0000" -->
+        <xsl:when test="string-length($date) = 4">
+            <xsl:value-of select="concat($date, '0000')"/>
+        </xsl:when>
+        <!-- If the date is in the form of "YYYY-MM-DD", remove hyphens to make it eight digits -->
+        <xsl:when test="string-length($date) = 10">
+            <xsl:value-of select="replace($date, '-', '')"/>
+        </xsl:when>
+        <!-- Handle BCE dates starting with "-" -->
+        <xsl:when test="starts-with($date, '-') and string-length($date) = 5">
+            <xsl:value-of select="concat('-', replace(substring($date, 2), '-', ''), '0000')"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$date"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:function>
+
     
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
