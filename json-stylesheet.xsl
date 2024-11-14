@@ -1012,8 +1012,8 @@
                 <xsl:for-each select="$doc/descendant::tei:event[@type = 'attestation'][@srophe:computed-start]">
                     <xsl:variable name="startDate">
                         <xsl:choose>
-                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
-                            <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
+                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="local:format-date(@srophe:computed-start)"/></xsl:when>
+                            <xsl:when test="@srophe:computed-end"><xsl:value-of select="local:format-date(@srophe:computed-end)"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
@@ -1023,8 +1023,8 @@
                 <xsl:for-each select="$doc/descendant::tei:event[@type = 'attestation'][@srophe:computed-start]">
                     <xsl:variable name="endDate">
                         <xsl:choose>
-                            <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
-                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
+                            <xsl:when test="@srophe:computed-end"><xsl:value-of select="local:format-date(@srophe:computed-end)"/></xsl:when>
+                            <xsl:when test="@srophe:computed-start"><xsl:value-of select="local:format-date(@srophe:computed-start"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
@@ -1040,13 +1040,13 @@
             <xsl:if test="$doc/descendant::tei:state[@type = 'confession'][@srophe:computed-start]">
             <array key="religiousCommunitiesDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:for-each select="$doc/descendant::tei:state[@type = 'confession']">
-                    <xsl:variable name="startDate" select="@srophe:computed-start"/>
+                    <xsl:variable name="startDate" select="local:format-date(@srophe:computed-start)"/>
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
                 </xsl:for-each>
             </array>
             <array key="religiousCommunitiesDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:for-each select="$doc/descendant::tei:state[@type = 'confession']">
-                    <xsl:variable name="endDate" select="@srophe:computed-end"/>
+                    <xsl:variable name="endDate" select="local:format-date(@srophe:computed-end)"/>
                     <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
                 </xsl:for-each>
             </array>
@@ -1060,13 +1060,13 @@
             <xsl:if test="$doc/descendant::tei:state[@type = 'existence'][@srophe:computed-start]">
                 <array key="existenceDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:for-each select="$doc/descendant::tei:state[@type = 'existence']">
-                        <xsl:variable name="startDate" select="@srophe:computed-start"/>
+                        <xsl:variable name="startDate" select="local:format-date(@srophe:computed-start)"/>
                         <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
                     </xsl:for-each>
                 </array>
                 <array key="existenceDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:for-each select="$doc/descendant::tei:state[@type = 'existence']">
-                        <xsl:variable name="endDate" select="@srophe:computed-end"/>
+                        <xsl:variable name="endDate" select="local:format-date(@srophe:computed-end)"/>
                         <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
                     </xsl:for-each>
                 </array>
