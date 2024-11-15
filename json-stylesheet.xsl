@@ -24,23 +24,28 @@
         </xsl:if>
     </xsl:variable>
 
-<xsl:function name="local:format-date" as="xs:integer">
-    <xsl:param name="date" as="xs:string"/>
+<xsl:function name="local:format-date">
+    <xsl:param name="date"/>
     <xsl:choose>
+        <!-- If the date starts with '-' (BCE) in 'YYYY-MM-DD' format, remove hyphens but keep the negative sign -->
         <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}-\d{2}-\d{2}$')">
-            <xsl:sequence select="xs:integer(concat('-', replace(substring($date, 2), '-', '')))"/>
+            <xsl:value-of select="concat('-', replace(substring($date, 2), '-', ''))"/>
         </xsl:when>
+        <!-- If the date is BCE in 'YYYY' format, convert to '-YYYY0000' -->
         <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}$')">
-            <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
+            <xsl:value-of select="concat($date, '0000')"/>
         </xsl:when>
+        <!-- If the date is CE in 'YYYY-MM-DD' format, remove hyphens -->
         <xsl:when test="matches($date, '^\d{4}-\d{2}-\d{2}$')">
-            <xsl:sequence select="xs:integer(replace($date, '-', ''))"/>
+            <xsl:value-of select="replace($date, '-', '')"/>
         </xsl:when>
+        <!-- If the date is CE in 'YYYY' format, convert to 'YYYY0000' -->
         <xsl:when test="matches($date, '^\d{4}$')">
-            <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
+            <xsl:value-of select="concat($date, '0000')"/>
         </xsl:when>
+        <!-- For any other format, pass the value through unchanged -->
         <xsl:otherwise>
-            <xsl:sequence select="xs:integer(fn:number($date))"/> 
+            <xsl:value-of select="$date"/>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:function>
@@ -859,10 +864,10 @@
         <xsl:if test="$doc/descendant::tei:imprint/tei:date">  
             <array key="cbssPubDateStart" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:for-each select="$doc/descendant::tei:imprint/tei:date">
-                    <xsl:variable name="date" select="."/>
+                    <xsl:variable name="date" select="normalize-space(.)"/>
                     <xsl:variable name="startDate">
                         <xsl:choose>
-                            <xsl:when test="matches($date,'\d[4]-\d[4]')">
+                            <xsl:when test="matches($date,'\d{4}-\d{4}')">
                                 <xsl:value-of select="substring-before($date,'-')"/>
                             </xsl:when>
                             <xsl:otherwise><xsl:value-of select="$date"/></xsl:otherwise>
@@ -876,7 +881,7 @@
                     <xsl:variable name="date" select="."/>
                     <xsl:variable name="endDate">
                         <xsl:choose>
-                            <xsl:when test="matches($date,'\d[4]-\d[4]')">
+                            <xsl:when test="matches($date,'\d{4}-\d{4}')">
                                 <xsl:value-of select="substring-after($date,'-')"/>
                             </xsl:when>
                             <xsl:otherwise><xsl:value-of select="$date"/></xsl:otherwise>
