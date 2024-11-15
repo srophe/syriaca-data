@@ -24,28 +24,26 @@
         </xsl:if>
     </xsl:variable>
 
-
 <xsl:function name="local:format-date" as="xs:integer">
     <xsl:param name="date" as="xs:string"/>
     <xsl:choose>
         <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}-\d{2}-\d{2}$')">
-            <xsl:sequence select="number(concat('-', replace(substring($date, 2), '-', '')))"/>
+            <xsl:sequence select="xs:integer(concat('-', replace(substring($date, 2), '-', '')))"/>
         </xsl:when>
         <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}$')">
-            <xsl:sequence select="number(concat($date, '0000'))"/>
+            <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
         </xsl:when>
         <xsl:when test="matches($date, '^\d{4}-\d{2}-\d{2}$')">
-            <xsl:sequence select="number(replace($date, '-', ''))"/>
+            <xsl:sequence select="xs:integer(replace($date, '-', ''))"/>
         </xsl:when>
         <xsl:when test="matches($date, '^\d{4}$')">
-            <xsl:sequence select="number(concat($date, '0000'))"/>
+            <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:sequence select="number($date)"/>
+            <xsl:sequence select="xs:integer(fn:number($date))"/> 
         </xsl:otherwise>
     </xsl:choose>
 </xsl:function>
-
     
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
