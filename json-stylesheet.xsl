@@ -35,7 +35,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function> -->
-<xsl:function name="local:format-date">
+<!-- <xsl:function name="local:format-date">
     <xsl:param name="date"/>
     <xsl:choose>
         <!-- If the date starts with '-' (BCE) in 'YYYY-MM-DD' format, remove hyphens but keep the negative sign -->
@@ -60,7 +60,32 @@
         </xsl:otherwise>
     </xsl:choose>
 </xsl:function>
-
+ -->
+<xsl:function name="local:format-date" as="xs:integer">
+    <xsl:param name="date" as="xs:string"/>
+    <xsl:choose>
+        <!-- If the date starts with '-' (BCE) in 'YYYY-MM-DD' format, remove hyphens but keep the negative sign -->
+        <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}-\d{2}-\d{2}$')">
+            <xsl:sequence select="number(concat('-', replace(substring($date, 2), '-', '')))"/>
+        </xsl:when>
+        <!-- If the date is BCE in 'YYYY' format, convert to '-YYYY0000' -->
+        <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}$')">
+            <xsl:sequence select="number(concat($date, '0000'))"/>
+        </xsl:when>
+        <!-- If the date is CE in 'YYYY-MM-DD' format, remove hyphens -->
+        <xsl:when test="matches($date, '^\d{4}-\d{2}-\d{2}$')">
+            <xsl:sequence select="number(replace($date, '-', ''))"/>
+        </xsl:when>
+        <!-- If the date is CE in 'YYYY' format, convert to 'YYYY0000' -->
+        <xsl:when test="matches($date, '^\d{4}$')">
+            <xsl:sequence select="number(concat($date, '0000'))"/>
+        </xsl:when>
+        <!-- For any other format, pass the value through unchanged as a number -->
+        <xsl:otherwise>
+            <xsl:sequence select="number($date)"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:function>
 
     
     <xsl:function name="local:sortStringEn">
