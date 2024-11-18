@@ -645,7 +645,7 @@
                             <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                    <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></number>
                 </xsl:for-each>
             </array>
             <array key="floruitDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
@@ -661,7 +661,7 @@
                             <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                    <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></number>
                 </xsl:for-each>
             </array>
         </xsl:if>
@@ -697,7 +697,7 @@
                         </xsl:when>
                     </xsl:choose>
                 </xsl:variable>
-                <string xmlns="http://www.w3.org/2005/xpath-functions">
+                <number xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:value-of select="$startDate"/>
                 </string>
             </xsl:for-each>
@@ -729,9 +729,9 @@
                         </xsl:when>
                     </xsl:choose>
                 </xsl:variable>
-                <string xmlns="http://www.w3.org/2005/xpath-functions">
+                <number xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:value-of select="$endDate"/>
-                </string>
+                </number>
             </xsl:for-each>
         </array>
     </xsl:if>
