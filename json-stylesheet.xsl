@@ -197,6 +197,41 @@
             </string>    
         </xsl:if>
     </xsl:template>
+        <xsl:template match="*:fields[@function = 'titleEnglish']">
+        <xsl:param name="doc"/>
+        <xsl:variable name="field">
+         <xsl:choose>
+             <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
+                 <xsl:variable name="en" select="string-join($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]//text(),' ')"/>
+                 <xsl:variable name="syr" select="string-join($doc/descendant::*[contains(@syriaca-tags,'#syriaca-headword')][matches(@xml:lang,'^syr')][1],' ')"/>
+                 <xsl:value-of select="local:sortStringEn(concat($en, if($syr != '') then  concat(' - ', $syr) else ()))"/>
+             </xsl:when>
+             <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'en')][not(empty(node()))]">
+                 <xsl:variable name="en" select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]//text(),' ')"/>
+                 <xsl:variable name="syr" select="string-join($doc/descendant::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^syr')][1],' ')"/>
+                 <xsl:value-of select="local:sortStringEn(concat($en, if($syr != '') then  concat(' - ', $syr) else ()))"/>
+             </xsl:when>
+             <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
+                 <xsl:variable name="en" select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))][1]//text(),' ')"/>
+                 <xsl:variable name="syr" select="string-join($doc/descendant::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^syr')][1],' ')"/>
+                 <xsl:value-of select="local:sortStringEn(concat($en, if($syr != '') then  concat(' - ', $syr) else ()))"/>
+             </xsl:when>
+             <xsl:when test="$doc/descendant::tei:biblStruct">
+                 <xsl:variable name="title" select="$doc/descendant::tei:biblStruct/descendant::tei:title"/>
+                 <xsl:value-of select="local:sortStringEn(string-join($title,' '))"/>
+             </xsl:when>
+             <xsl:otherwise>
+                 <xsl:variable name="title" select="$doc/descendant::tei:titleStmt/descendant::tei:title"/>
+                 <xsl:value-of select="local:sortStringEn(string-join($title,' '))"/>
+             </xsl:otherwise>
+         </xsl:choose> 
+        </xsl:variable>
+        <xsl:if test="$field != ''">
+            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:value-of select="$field"/>
+            </string>    
+        </xsl:if>
+    </xsl:template>
     <!-- Arrays appear to be properly formatted. Verify -->
     <xsl:template match="*:fields[@function = 'series']">
         <xsl:param name="doc"/>
