@@ -699,7 +699,7 @@
                 </xsl:variable>
                 <number xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:value-of select="$startDate"/>
-                </string>
+                </number>
             </xsl:for-each>
         </array>
         <array key="floruitDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
