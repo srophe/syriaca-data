@@ -943,7 +943,7 @@
         </xsl:if>
     </xsl:template>
     
-<xsl:template match="*:fields[@function = 'religiousCommunitiesDates']">
+<!-- <xsl:template match="*:fields[@function = 'religiousCommunitiesDates']">
     <xsl:param name="doc"/>
     <xsl:param name="id"/>
     <xsl:if test="contains($id, '/place')">
@@ -978,7 +978,7 @@
             </array>
         </xsl:if>
     </xsl:if>
-</xsl:template>
+</xsl:template> -->
 
     <xsl:template match="*:fields[@function = 'existenceDates']">
         <xsl:param name="doc"/>
