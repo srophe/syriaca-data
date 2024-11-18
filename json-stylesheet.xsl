@@ -435,6 +435,16 @@
             </array>
         </xsl:if>
     </xsl:template> -->
+        <xsl:template match="*:fields[@function = 'subject']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:relation[@ref='dc:subject']/tei:desc[. != '']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:relation[@ref='dc:subject']/tei:desc[. != '']">
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:template>
     <xsl:template match="*:fields[@function = 'cbssPubPlace']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:imprint/tei:pubPlace">
