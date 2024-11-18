@@ -953,13 +953,15 @@
                     <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></number>
                 </xsl:for-each>
             </array>
+            <xsl:if test="$doc/descendant::tei:state[@type = 'confession'][@srophe:computed-end]">
             <array key="religiousCommunitiesDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:for-each select="$doc/descendant::tei:state[@type = 'confession']">
                     <xsl:variable name="endDate" select="local:format-date(@srophe:computed-end)"/>
                     <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></number>
                 </xsl:for-each>
             </array>
-        </xsl:if>
+            </xsl:if>
+            </xsl:if>
         </xsl:if>
     </xsl:template>
     <xsl:template match="*:fields[@function = 'existenceDates']">
@@ -973,12 +975,14 @@
                         <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></number>
                     </xsl:for-each>
                 </array>
+                <xsl:if test="$doc/descendant::tei:state[@type = 'existence'][@srophe:computed-end]">
                 <array key="existenceDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:for-each select="$doc/descendant::tei:state[@type = 'existence']">
                         <xsl:variable name="endDate" select="local:format-date(@srophe:computed-end)"/>
                         <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></number>
                     </xsl:for-each>
                 </array>
+                </xsl:if>
             </xsl:if>
         </xsl:if>
     </xsl:template>
