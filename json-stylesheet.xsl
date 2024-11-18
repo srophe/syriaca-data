@@ -24,28 +24,27 @@
         </xsl:if>
     </xsl:variable>
     
-<xsl:function name="local:format-date" as="xs:integer">
-    <xsl:param name="date" as="xs:string"/>
-    <xsl:choose>
-        <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}-\d{2}-\d{2}$')">
-            <xsl:sequence select="xs:integer(concat('-', replace(substring($date, 2), '-', '')))"/>
-        </xsl:when>
-        <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}$')">
-            <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
-        </xsl:when>
-        <xsl:when test="matches($date, '^\d{4}-\d{2}-\d{2}$')">
-            <xsl:sequence select="xs:integer(replace($date, '-', ''))"/>
-        </xsl:when>
-        <xsl:when test="matches($date, '^\d{4}$')">
-            <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:sequence select="0"/> <!-- Replace with a fallback number if necessary -->
-        </xsl:otherwise>
-    </xsl:choose>
-</xsl:function>
+    <xsl:function name="local:format-date" as="xs:integer">
+        <xsl:param name="date" as="xs:string"/>
+        <xsl:choose>
+            <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}-\d{2}-\d{2}$')">
+                <xsl:sequence select="xs:integer(concat('-', replace(substring($date, 2), '-', '')))"/>
+            </xsl:when>
+            <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}$')">
+                <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
+            </xsl:when>
+            <xsl:when test="matches($date, '^\d{4}-\d{2}-\d{2}$')">
+                <xsl:sequence select="xs:integer(replace($date, '-', ''))"/>
+            </xsl:when>
+            <xsl:when test="matches($date, '^\d{4}$')">
+                <xsl:sequence select="xs:integer(concat($date, '0000'))"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:sequence select="0"/> <!-- Replace with a fallback number if necessary -->
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 
-    
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
         <xsl:value-of select="replace(normalize-space($string),'^\s+|^[‘|ʻ|ʿ|ʾ]|^[tT]he\s+[^\p{L}]+|^[dD]e\s+|^[dD]e-|^[oO]n\s+[aA]\s+|^[oO]n\s+|^[aA]l-|^[aA]n\s|^[aA]\s+|^\d*\W|^[^\p{L}]','')"/>
@@ -697,9 +696,9 @@
                         </xsl:when>
                     </xsl:choose>
                 </xsl:variable>
-                <number xmlns="http://www.w3.org/2005/xpath-functions">
+                <integer xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:value-of select="$startDate"/>
-                </number>
+                </integer>
             </xsl:for-each>
         </array>
         <array key="floruitDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
@@ -729,9 +728,9 @@
                         </xsl:when>
                     </xsl:choose>
                 </xsl:variable>
-                <number xmlns="http://www.w3.org/2005/xpath-functions">
+                <integer xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:value-of select="$endDate"/>
-                </number>
+                </integer>
             </xsl:for-each>
         </array>
     </xsl:if>
