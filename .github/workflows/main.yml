@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    # paths:
-    #   - 'data/**'  # Trigger only on changes to data files   
+    paths:
+      - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -67,7 +67,7 @@ jobs:
           # find ./data/persons/tei -name '*.xml' | head -n 25 > xml_files.txt
           # find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
 
           # echo "./data/persons/tei/25.xml" > xml_files.txt
@@ -88,12 +88,12 @@ jobs:
           echo "./data/places/tei/1486.xml" >> xml_files.txt
           # echo "./data/places/tei/104.xml" >> xml_files.txt
           echo "./data/places/tei/602.xml" >> xml_files.txt
-          # echo "./data/works/tei/315.xml" >> xml_files.txt
-          # echo "./data/works/tei/9501.xml" >> xml_files.txt
-          # echo "./data/works/tei/nhsl/tei/9723.xml" >> xml_files.txt
-          # echo "./data/works/tei/nhsl/tei/9724.xml" >> xml_files.txt
-          # echo "./data/works/tei/10510.xml" >> xml_files.txt
-          # echo "./data/works/tei/nhsl/tei/10511.xml" >> xml_files.txt 
+          echo "./data/works/tei/315.xml" >> xml_files.txt
+          echo "./data/works/tei/9501.xml" >> xml_files.txt
+          echo "./data/works/tei/nhsl/tei/9723.xml" >> xml_files.txt
+          echo "./data/works/tei/nhsl/tei/9724.xml" >> xml_files.txt
+          echo "./data/works/tei/10510.xml" >> xml_files.txt
+          echo "./data/works/tei/nhsl/tei/10511.xml" >> xml_files.txt 
           # echo "Processing specified XML files:"
           
           cat xml_files.txt   
@@ -166,7 +166,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_places_selected_index_4.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_works_bibl_index_4.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
