@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    # paths:
-    #   - 'data/**'  # Trigger only on changes to data files   
+    paths:
+      - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -67,8 +67,8 @@ jobs:
           # find ./data/persons/tei -name '*.xml' | head -n 25 > xml_files.txt
           # find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          # find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
 
           # echo "./data/persons/tei/25.xml" > xml_files.txt
           # echo "./data/persons/tei/110.xml" >> xml_files.txt
