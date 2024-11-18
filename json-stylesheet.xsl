@@ -425,6 +425,26 @@
             </array>
         </xsl:if>
     </xsl:template>
+        <xsl:template match="*:fields[@function = 'authorKey']">
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:biblStruct/descendant-or-self::tei:author or $doc/descendant::tei:biblStruct/descendant-or-self::tei:editor">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                <xsl:for-each select="$doc/descendant::tei:biblStruct/descendant-or-self::tei:author | $doc/descendant::tei:biblStruct/descendant-or-self::tei:editor">
+                    <xsl:variable name="lastNameFirst">
+                        <xsl:choose>
+                            <xsl:when test="tei:surname">
+                                <xsl:value-of select="concat(tei:surname, ' ', tei:forename)"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="string-join(child::*,' ')"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space($lastNameFirst)"/></string>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:template>
 <!--     <xsl:template match="*:fields[@function = 'cbssPublicationDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:imprint/tei:date">
