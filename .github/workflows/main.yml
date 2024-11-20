@@ -119,7 +119,7 @@ jobs:
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             echo "Processing $filename for JSON"
-            printf "{\"index\":{\"_index\":\"syriaca-index-1\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+            printf "{\"index\":{\"_index\":\"syriaca-index-7\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
@@ -166,7 +166,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_1.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_7.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
