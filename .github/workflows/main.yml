@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    paths:
-      - 'data/**'  # Trigger only on changes to data files   
+    # paths:
+    #   - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -66,28 +66,29 @@ jobs:
         run: |
           # find ./data/persons/tei -name '*.xml' | head -n 25 > xml_files.txt
           # find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          find ./data/works/tei -name '*.xml' | head -n 25 > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          # find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          # find ./data/works/tei -name '*.xml' | head -n 25 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | head -n 25 > xml_files.txt
+          
+          find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
 
-          # echo "./data/persons/tei/25.xml" >> xml_files.txt
-          # echo "./data/persons/tei/110.xml" >> xml_files.txt
-          # echo "./data/persons/tei/106.xml" >> xml_files.txt
-          # echo "./data/persons/tei/109.xml" >> xml_files.txt
-          # echo "./data/persons/tei/101.xml" >> xml_files.txt
-          # echo "./data/persons/tei/100.xml" >> xml_files.txt
-          # echo "./data/persons/tei/102.xml" >> xml_files.txt
-          # echo "./data/persons/tei/1021.xml" >> xml_files.txt
-          # echo "./data/persons/tei/320.xml" >> xml_files.txt
-          # echo "./data/persons/tei/67.xml" >> xml_files.txt
-          # echo "./data/persons/tei/544.xml" >> xml_files.txt
-          # echo "./data/persons/tei/732.xml" >> xml_files.txt
-          # echo "./data/places/tei/10.xml" >> xml_files.txt
-          # echo "./data/places/tei/78.xml" >> xml_files.txt
-          # echo "./data/places/tei/1507.xml" >> xml_files.txt
-          # echo "./data/places/tei/1486.xml" >> xml_files.txt
-          # echo "./data/places/tei/104.xml" >> xml_files.txt
-          # echo "./data/places/tei/602.xml" >> xml_files.txt
+          echo "./data/persons/tei/25.xml" >> xml_files.txt
+          echo "./data/persons/tei/110.xml" >> xml_files.txt
+          echo "./data/persons/tei/106.xml" >> xml_files.txt
+          echo "./data/persons/tei/109.xml" >> xml_files.txt
+          echo "./data/persons/tei/101.xml" >> xml_files.txt
+          echo "./data/persons/tei/100.xml" >> xml_files.txt
+          echo "./data/persons/tei/102.xml" >> xml_files.txt
+          echo "./data/persons/tei/1021.xml" >> xml_files.txt
+          echo "./data/persons/tei/320.xml" >> xml_files.txt
+          echo "./data/persons/tei/67.xml" >> xml_files.txt
+          echo "./data/persons/tei/544.xml" >> xml_files.txt
+          echo "./data/persons/tei/732.xml" >> xml_files.txt
+          echo "./data/places/tei/10.xml" >> xml_files.txt
+          echo "./data/places/tei/78.xml" >> xml_files.txt
+          echo "./data/places/tei/1507.xml" >> xml_files.txt
+          echo "./data/places/tei/1486.xml" >> xml_files.txt
+          echo "./data/places/tei/104.xml" >> xml_files.txt
+          echo "./data/places/tei/602.xml" >> xml_files.txt
           echo "./data/works/tei/315.xml" >> xml_files.txt
           echo "./data/works/tei/9501.xml" >> xml_files.txt
           echo "./data/works/tei/nhsl/tei/9723.xml" >> xml_files.txt
@@ -119,7 +120,7 @@ jobs:
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             echo "Processing $filename for JSON"
-            printf "{\"index\":{\"_index\":\"syriaca-index-5\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+            printf "{\"index\":{\"_index\":\"syriaca-index-6\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
@@ -166,7 +167,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_author_index_5.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_6.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -194,23 +195,23 @@ jobs:
 
       # Step 8: Upload JSON data to OpenSearch 
 
-      - name: JSON file to OpenSearch
+      # - name: JSON file to OpenSearch
 
-        env:
-          OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
-          OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
-          OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
-        run: |
-          RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
-          -H "Content-Type: application/json" \
-          -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
-          --data-binary "@bulk_data.json")
-          echo "HTTP response code: $RESPONSE"
-          cat response.json
+      #   env:
+      #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
+      #     OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
+      #     OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+      #   run: |
+      #     RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
+      #     -H "Content-Type: application/json" \
+      #     -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
+      #     --data-binary "@bulk_data.json")
+      #     echo "HTTP response code: $RESPONSE"
+      #     cat response.json
 
-          # Check for errors in the response
-          if grep -q '"errors":true' response.json; then
-            echo "Errors occurred during bulk upload"
-            exit 1
-          fi
+      #     # Check for errors in the response
+      #     if grep -q '"errors":true' response.json; then
+      #       echo "Errors occurred during bulk upload"
+      #       exit 1
+      #     fi
 
