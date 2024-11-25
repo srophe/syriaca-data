@@ -1003,12 +1003,12 @@
 </xsl:template>
 
 
-    <xsl:template match="*:fields[@function = 'attestationsDates']">
+    <xsl:template match="*:fields[@function = 'attestationDates']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:if test="contains($id, '/place')">
             <xsl:if test="$doc/descendant::tei:event[@type = 'attestation'][@srophe:computed-start]">
-            <array key="attestationsDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
+            <array key="attestationDatesStart" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:for-each select="$doc/descendant::tei:event[@type = 'attestation'][@srophe:computed-start]">
                     <xsl:variable name="startDate">
                         <xsl:choose>
@@ -1019,7 +1019,7 @@
                     <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></number>
                 </xsl:for-each>
             </array>
-            <array key="attestationsDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+            <array key="attestationDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:for-each select="$doc/descendant::tei:event[@type = 'attestation'][@srophe:computed-start]">
                     <xsl:variable name="endDate">
                         <xsl:choose>
