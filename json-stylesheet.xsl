@@ -207,7 +207,7 @@
             </string>    
         </xsl:if>
     </xsl:template>
-        <xsl:template match="*:fields[@function = 'titleEnglish']">
+<!--         <xsl:template match="*:fields[@function = 'titleEnglish']">
         <xsl:param name="doc"/>
         <xsl:variable name="field">
          <xsl:choose>
@@ -241,7 +241,7 @@
                 <xsl:value-of select="$field"/>
             </string>    
         </xsl:if>
-    </xsl:template>
+    </xsl:template> -->
     <!-- Arrays appear to be properly formatted. Verify -->
     <xsl:template match="*:fields[@function = 'series']">
         <xsl:param name="doc"/>
