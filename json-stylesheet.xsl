@@ -324,32 +324,35 @@
 <xsl:template match="*:fields[@function = 'abstract']">
     <xsl:param name="doc"/>
     <xsl:param name="id"/>
+    
     <xsl:choose>
         <!-- Check for 'abstract' in <desc> -->
-        <xsl:when test="$doc//tei:desc[@type='abstract']">
+        <xsl:when test="$doc//tei:desc[@type='abstract' and normalize-space(tei:quote) != '']">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:value-of select="normalize-space(string-join($doc//tei:desc[@type='abstract']/tei:quote, ' '))"/>
             </string>
         </xsl:when>
         <!-- Check for 'abstract' in <note> -->
-        <xsl:when test="$doc//tei:note[@type='abstract']">
+        <xsl:when test="$doc//tei:note[@type='abstract' and normalize-space(.) != '']">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:value-of select="normalize-space(string-join($doc//tei:note[@type='abstract']//tei:quote, ' '))"/>
             </string>
         </xsl:when>
-        <xsl:when test="$doc/descendant::*[starts-with(@xml:id,'abstract')]">
+        <!-- Check for abstract in elements with xml:id starting with 'abstract' -->
+        <xsl:when test="$doc/descendant::*[starts-with(@xml:id, 'abstract') and normalize-space(.) != '']">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[starts-with(@xml:id,'abstract')],' '))"/>
-            </string>   
-        </xsl:when>  
-        <xsl:when test="$doc/descendant::*[@type='abstract']">
+                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[starts-with(@xml:id, 'abstract')], ' '))"/>
+            </string>
+        </xsl:when>
+        <!-- Check for abstract in elements with type='abstract' -->
+        <xsl:when test="$doc/descendant::*[@type='abstract' and normalize-space(.) != '']">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[@type='abstract'],' '))"/>
+                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[@type='abstract'], ' '))"/>
             </string>
         </xsl:when>
     </xsl:choose>
-
 </xsl:template>
+
 
 
     <xsl:template match="*:fields[@function = 'titleSyriac']">
