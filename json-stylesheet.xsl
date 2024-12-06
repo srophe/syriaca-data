@@ -321,35 +321,37 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
+    
 <xsl:template match="*:fields[@function = 'abstract']">
     <xsl:param name="doc"/>
     <xsl:param name="id"/>
     
     <xsl:choose>
-        <!-- Check for 'abstract' in <desc> -->
+        <!-- Specific case: Check for 'abstract' in <desc> -->
         <xsl:when test="$doc//tei:desc[@type='abstract' and normalize-space(tei:quote) != '']">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:value-of select="normalize-space(string-join($doc//tei:desc[@type='abstract']/tei:quote, ' '))"/>
             </string>
         </xsl:when>
-        <!-- Check for 'abstract' in <note> -->
+        
+        <!-- Specific case: Check for 'abstract' in <note> -->
         <xsl:when test="$doc//tei:note[@type='abstract' and normalize-space(.) != '']">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:value-of select="normalize-space(string-join($doc//tei:note[@type='abstract']//tei:quote, ' '))"/>
             </string>
         </xsl:when>
-        <!-- Check for abstract in elements with xml:id starting with 'abstract' -->
-        <xsl:when test="$doc/descendant::*[starts-with(@xml:id, 'abstract') and normalize-space(.) != '']">
+        
+        <!-- Fallback: Check for other elements with @type='abstract' -->
+        <xsl:when test="$doc/descendant::*[@type='abstract' and normalize-space(.) != '' and not(self::tei:desc or self::tei:note)]">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[starts-with(@xml:id, 'abstract')], ' '))"/>
+                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[@type='abstract' and not(self::tei:desc or self::tei:note)], ' '))"/>
             </string>
         </xsl:when>
-        <!-- Check for abstract in elements with type='abstract' -->
-        <xsl:when test="$doc/descendant::*[@type='abstract' and normalize-space(.) != '']">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[@type='abstract'], ' '))"/>
-            </string>
-        </xsl:when>
+        
+        <!-- No abstract content found -->
+        <xsl:otherwise>
+            <xsl:message terminate="no">No abstract content found for ID <xsl:value-of select="$id"/>.</xsl:message>
+        </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
 
