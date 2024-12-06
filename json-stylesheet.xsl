@@ -321,27 +321,23 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-    
-<xsl:template match="*:fields[@function = 'abstract']">
-    <xsl:param name="doc"/>
-    <xsl:param name="id"/>
-    <xsl:choose>
-        <xsl:when test="$doc/descendant::*[starts-with(@xml:id,'abstract') and normalize-space(.) != '']">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[starts-with(@xml:id,'abstract')], ' '))"/>
-            </string>
-        </xsl:when>
-        <xsl:when test="$doc/descendant::*[@type='abstract' and normalize-space(.) != '' and not(self::tei:desc or self::tei:note)]">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="normalize-space(string-join($doc/descendant::*[@type='abstract' and not(self::tei:desc or self::tei:note)], ' '))"/>
-            </string>
-        </xsl:when>
-        <!-- No abstract content found -->
-        <xsl:otherwise>
-            <xsl:message terminate="no">No abstract content found for ID <xsl:value-of select="$id"/>.</xsl:message>
-        </xsl:otherwise>
-    </xsl:choose>
-</xsl:template>
+<!--    winona's version  -->
+   <xsl:template match="*:fields[@function = 'abstract']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:choose>
+            <xsl:when test="$doc/descendant::*[starts-with(@xml:id,'abstract')]">
+                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                    <xsl:value-of select="normalize-space(string-join($doc/descendant::*[starts-with(@xml:id,'abstract')],' '))"/>
+                </string>  
+            </xsl:when>
+            <xsl:when test="$doc/descendant::*[@type='abstract']">
+                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                    <xsl:value-of select="normalize-space(string-join($doc/descendant::*[@type='abstract'],' '))"/>
+                </string>
+            </xsl:when>
+        </xsl:choose>    
+    </xsl:template>
 
 
     <xsl:template match="*:fields[@function = 'titleSyriac']">
