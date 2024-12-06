@@ -116,7 +116,17 @@
         </xsl:choose>
         <!--  <xsl:value-of select="string(number($date))"/>-->
     </xsl:function>
-    
+    <xsl:template match="*:fields[@function = 'cbssCitation']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/cbss')">
+            <xsl:if test="$doc/descendant::tei:bibl[@type='formatted'][@subtype='citation']">
+                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                    <xsl:value-of select="normalize-space(string-join($doc/descendant::tei:bibl[@type='formatted'][@subtype='citation'],' '))"/>
+                </string>   
+            </xsl:if>            
+        </xsl:if>
+    </xsl:template>
     <xsl:template match="/">
         <xsl:variable name="doc">
             <xsl:sequence select="."/>
