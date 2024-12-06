@@ -64,10 +64,10 @@ jobs:
       
       - name: Specify specific XML files and 25 per category 
         run: |
-          # find ./data/persons/tei -name '*.xml' | head -n 25 > xml_files.txt
-          # find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          find ./data/persons/tei -name '*.xml' | head -n 25 > xml_files.txt
+          find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          # find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
 
           # echo "./data/persons/tei/25.xml" >> xml_files.txt
@@ -194,23 +194,23 @@ jobs:
 
       # Step 8: Upload JSON data to OpenSearch 
 
-      - name: JSON file to OpenSearch
+      # - name: JSON file to OpenSearch
 
-        env:
-          OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
-          OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
-          OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
-        run: |
-          RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
-          -H "Content-Type: application/json" \
-          -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
-          --data-binary "@bulk_data.json")
-          echo "HTTP response code: $RESPONSE"
-          cat response.json
+      #   env:
+      #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
+      #     OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
+      #     OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+      #   run: |
+      #     RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
+      #     -H "Content-Type: application/json" \
+      #     -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
+      #     --data-binary "@bulk_data.json")
+      #     echo "HTTP response code: $RESPONSE"
+      #     cat response.json
 
-          # Check for errors in the response
-          if grep -q '"errors":true' response.json; then
-            echo "Errors occurred during bulk upload"
-            exit 1
-          fi
+      #     # Check for errors in the response
+      #     if grep -q '"errors":true' response.json; then
+      #       echo "Errors occurred during bulk upload"
+      #       exit 1
+      #     fi
 
