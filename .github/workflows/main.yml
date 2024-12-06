@@ -64,9 +64,9 @@ jobs:
       
       - name: Specify specific XML files and 25 per category 
         run: |
-          find ./data/persons/tei -name '*.xml' | head -n 25 > xml_files.txt
-          find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          # find ./data/persons/tei -name '*.xml' | head -n 25 > xml_files.txt
+          # find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
 
@@ -82,7 +82,7 @@ jobs:
           # echo "./data/persons/tei/67.xml" >> xml_files.txt
           # echo "./data/persons/tei/544.xml" >> xml_files.txt
           # echo "./data/persons/tei/732.xml" >> xml_files.txt
-          # echo "./data/places/tei/10.xml" >> xml_files.txt
+          echo "./data/places/tei/10.xml" > xml_files.txt
           # echo "./data/places/tei/78.xml" >> xml_files.txt
           # echo "./data/places/tei/1507.xml" >> xml_files.txt
           # echo "./data/places/tei/1486.xml" >> xml_files.txt
@@ -166,7 +166,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_7.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_7_place10.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
