@@ -324,13 +324,20 @@
 <xsl:template match="*:fields[@function = 'abstract']">
     <xsl:param name="doc"/>
     <xsl:param name="id"/>
-        <!-- Find the 'abstract' field within the document -->
+        <!-- Check for 'abstract' in <desc> -->
         <xsl:if test="$doc//tei:desc[@type='abstract']">
             <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
                 <xsl:value-of select="normalize-space(string-join($doc//tei:desc[@type='abstract']/tei:quote, ' '))"/>
             </string>
         </xsl:if>
+        <!-- Check for 'abstract' in <note> -->
+        <xsl:if test="$doc//tei:note[@type='abstract']">
+            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:value-of select="normalize-space(string-join($doc//tei:note[@type='abstract']//tei:quote, ' '))"/>
+            </string>
+        </xsl:if>
 </xsl:template>
+
 
     <xsl:template match="*:fields[@function = 'titleSyriac']">
         <xsl:param name="doc"/>
