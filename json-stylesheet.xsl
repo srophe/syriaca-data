@@ -236,13 +236,20 @@
     <xsl:template match="*:fields[@function = 'series']">
         <xsl:param name="doc"/>
         <!-- seriesStmt multiple -->
-        <xsl:if test="$doc/descendant::tei:seriesStmt">
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">            
-                <xsl:for-each select="$doc/descendant::tei:seriesStmt">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="string-join(tei:title,' ')"/></string>
-                </xsl:for-each>    
-            </array>
-        </xsl:if>
+        <xsl:choose>
+            <xsl:when test="$doc/descendant::tei:seriesStmt">
+                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">            
+                    <xsl:for-each select="$doc/descendant::tei:seriesStmt">
+                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="string-join(tei:title,' ')"/></string>
+                    </xsl:for-each>    
+                </array>
+            </xsl:when>
+            <xsl:when test="$doc/descendant::tei:publicationStmt/tei:idno[starts-with(. , 'http://syriaca.org/cbss/')]">
+                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">            
+                    <string xmlns="http://www.w3.org/2005/xpath-functions">Comprehensive Bibliography on Syriac Studies</string>    
+                </array>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="*:fields[@function = 'idno']">
         <xsl:param name="doc"/>
@@ -250,12 +257,21 @@
         <xsl:value-of select="replace($doc/descendant::tei:publicationStmt/tei:idno[@type='URI'][1],'/tei','')"/>
         </xsl:variable>
         <xsl:if test="$field != ''">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:value-of select="$field"/>
-            </string>    
+            <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="."/></string>
         </xsl:if>
     </xsl:template>
-        <xsl:template match="*:fields[@function = 'type']">
+    <xsl:template match="*:fields[@function = 'cbssCitation']">
+        <xsl:param name="doc"/>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/cbss')">
+            <xsl:if test="$doc/descendant::tei:bibl[@type='formatted'][@subtype='citation']">
+                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                    <xsl:value-of select="normalize-space(string-join($doc/descendant::tei:bibl[@type='formatted'][@subtype='citation'],' '))"/>
+                </string>   
+            </xsl:if>            
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="*:fields[@function = 'type']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:choose>
