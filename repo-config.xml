@@ -74,8 +74,7 @@
             <collection template="bhse" name="bhse" title="Bibliotheca Hagiographica Syriaca Electronica" collection-URI="http://syriaca.org/q" series="New Handbook of Syriac Literature" app-root="/bhse/" data-root="works" record-URI-pattern="http://syriaca.org/work/"/>
             <collection template="bhse" name="nhsl" title="New Handbook of Syriac Literature" collection-URI="http://syriaca.org/nhsl" series="New Handbook of Syriac Literature" app-root="/nhsl/" data-root="works" record-URI-pattern="http://syriaca.org/work/"/>
             <collection template="bible" name="bible" title="A Guide to the Bible in Syriac" collection-URI="http://syriaca.org/bible" series="New Handbook of Syriac Literature" app-root="/bible/" data-root="works" record-URI-pattern="http://syriaca.org/work/"/>
-            <collection template="bibl" name="bibl" title="The Center for the Study of Christianity" app-root="/cbss/" data-root="bibl" record-URI-pattern="http://syriaca.org/cbss/"/>
-            <collection template="manuscripts" name="bl" title="A Digital Catalogue of Syriac Manuscripts in the British Library: A Linked Data Encoding of the Catalogue of William Wright" collection-URI="http://syriaca.org/bl" app-root="/bl/" data-root="manuscripts" record-URI-pattern="http://syriaca.org/manuscript/"/>
+            <collection template="bibl" name="bibl" title="Comprehensive Bibliography on Syriac Studies" app-root="/cbss/" data-root="bibl" record-URI-pattern="http://syriaca.org/cbss/"/>            <collection template="manuscripts" name="bl" title="A Digital Catalogue of Syriac Manuscripts in the British Library: A Linked Data Encoding of the Catalogue of William Wright" collection-URI="http://syriaca.org/bl" app-root="/bl/" data-root="manuscripts" record-URI-pattern="http://syriaca.org/manuscript/"/>
             <collection template="subjects" name="subjects" title="A Taxonomy of Syriac Studies" app-root="/taxonomy/" data-root="subjects" record-URI-pattern="http://syriaca.org/keyword/"/>
             <collection template="spear" name="spear" title="SPEAR: Syriac Persons Events and Relations [Beta]" app-root="/spear/" data-root="spear" record-URI-pattern="http://syriaca.org/spear/"/>
             <collection template="johnofephesus" name="johnofephesus" title="A Guide to John of Ephesus [Beta]" app-root="/johnofephesus/" data-root="" record-URI-pattern="http://syriaca.org/johnofephesus/"/>
@@ -83,8 +82,7 @@
             <collection template="johnofephesusPlaces" name="johnofephesusPlaces" title="Gazetteer to John of Ephesus’s Ecclesiastical History" series="Gazetteer to John of Ephesus’s Ecclesiastical History" app-root="/johnofephesus/places/" collection-URI="http://syriaca.org/johnofephesus/places" data-root="places" record-URI-pattern="http://syriaca.org/johnofephesus/places/"/>
         </collections>
         <!-- Configure Search fields for the whole app. 
-            Sort fields are used for sorting in browse and search. Facets should be defined separately in a facet-conf.xml document.
-            If no fields are defined the default fields will be used: 
+            Sort fields are used for sorting in browse and search: 
             title, author, titleSyriac, titleArabic
             
             If the field is a straight xpath, include it below (see publicationDate for an example), 
@@ -103,7 +101,7 @@
         
             Available types: 
                 text
-                keyword (for facets?)
+                keyword (for sorting and faster whole term queries)
                 date
                 integer
         -->
@@ -122,12 +120,14 @@
             <fields function="titleFrench">titleFrench</fields>
             <fields function="titleTransliteration">titleTransliteration</fields>
             <fields function="author" boost="8">author</fields>
-            <fields function="authorKey">authorKey</fields>
 
+<!--             <fields function="cbssCitation">cbssCitation</fields>
+             -->
             <fields function="cbssPublicationDate">cbssPublicationDate</fields>
             <fields function="cbssPubDate">cbssPubDate</fields>
             <fields function="cbssPubPlace">cbssPubPlace</fields>
             <fields function="cbssPubLang">cbssPubLang</fields>
+            
             <fields function="publisher">publisher</fields>
             <fields function="persName">persName</fields>
             <fields function="placeName">placeName</fields>
@@ -135,24 +135,26 @@
 
             <fields function="gender" xpath="tei:gender">gender</fields>
             <!-- Gazetteer fields --> 
-            <fields function="location" xpath="tei:location">location</fields>
-            <fields function="event" xpath="tei:event[@type != 'attestation']">event</fields>
+<!--             <fields function="location" xpath="tei:location">location</fields> -->
+            
+            <fields function="event" xpath="tei:event[@type != 'attestation']">event</fields> 
             <fields function="eventDates" xpath="tei:event[@type != 'attestation'][@syriaca-computed-start or @syriaca-computed-end]">eventDates</fields>
             <fields function="attestations" xpath="tei:event[@type = 'attestation']">attestations</fields>
             <fields function="attestationDates" xpath="tei:event[@type = 'attestation'][@syriaca-computed-start or @syriaca-computed-end]">attestationDates</fields>
-            <fields function="religiousCommunities" xpath="tei:state[@type = 'confession']">religiousCommunities</fields>
-            <fields function="religiousCommunitiesDates" xpath="tei:state[@type = 'confession'][@syriaca-computed-start or @syriaca-computed-end]">religiousCommunitiesDates</fields>
-            <fields function="existenceDates" xpath="tei:state[@type = 'existence'][@syriaca-computed-start or @syriaca-computed-end]">existenceDates</fields>
+<!--             <fields function="religiousCommunities" xpath="tei:state[@type = 'confession']">religiousCommunities</fields>
+            <fields function="religiousCommunitiesDates" xpath="tei:state[@type = 'confession'][@syriaca-computed-start or @syriaca-computed-end]">religiousCommunitiesDates</fields> -->
+            
+            <fields function="existenceDates" xpath="tei:state[@type = 'existence'][@syriaca-computed-start or @syriaca-computed-end]">existenceDates</fields> 
 
-            <fields function="related" xpath="tei:listRelation/tei:relation[@passive or @mutual]">related</fields>
+<!--             <fields function="related" xpath="tei:listRelation/tei:relation[@passive or @mutual]">related</fields>
+             -->
             <!-- Persons -->
             <fields function="birth" xpath="tei:birth">birth</fields>
             <fields function="birthPlace" xpath="tei:birth/tei:placeName">birthPlace</fields>
             <fields function="birthDate" xpath="tei:birth/tei:date" >birthDate</fields> 
             <fields function="deathDate" xpath="tei:death/tei:date" >deathDate</fields> 
             <fields function="death" xpath="tei:death">death</fields>
-<!--             <fields function="personType" xpath="tei:person[contains(@ana, '#syriaca-',$persons:type,'')]]">personType</fields> -->
-            <!-- types = office confession saint martyr group occupation fallen apostle animal --> 
+            
             <fields function="stateType" xpath="tei:state/@type">stateType</fields>
             <fields function="state" xpath="tei:state">state</fields>
             <fields function="stateDates" xpath="tei:state/@type">stateDates</fields>
@@ -162,51 +164,19 @@
             <fields function="prologue" xpath="tei:bibl/tei:note[@type='prologue']">prologue</fields>
             <fields function="incipit" xpath="tei:bibl/tei:note[@type='incipit']">incipit</fields>
             <fields function="explicit" xpath="tei:bibl/tei:note[@type='explicit']">explicit</fields>
-            <fields function="editions" xpath="tei:bibl/tei:bibl[@type='lawd:Edition']">editions</fields>
+            
+<!--             <fields function="editions" xpath="tei:bibl/tei:bibl[@type='lawd:Edition']">editions</fields>
             <fields function="modernTranslations" xpath="tei:bibl/tei:bibl[@type='syriaca:ModernTranslation']">modernTranslations</fields>
             <fields function="ancientVersion" xpath="tei:bibl/tei:bibl[@type='syriaca:AncientVersion']">ancientVersion</fields>
             <fields function="manuscripts" xpath="tei:bibl/tei:bibl[@type='syriaca:Manuscript']">manuscripts</fields>
-            <fields function="reference" xpath="tei:bibl/tei:bibl">reference</fields>
-<!--             <fields function="bhseType" xpath="tei:idno[@type]">bhseType</fields> -->
+            <fields function="reference" xpath="tei:bibl/tei:bibl">reference</fields> -->
+
             <!-- CBSS --> 
             <fields function="subject" xpath="tei:relation[@ref='dc:subject']/tei:desc">subject</fields>
-            <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields>
-<!--             <fields function="cbssType" xpath="tei:biblStruct[@type]">cbssType</fields>  -->
-            
+            <fields function="cbssCitation" xpath="tei:bibl[@type='formatted'][@subtype='citation']">citation</fields>
 
-            <!--
-            <text xpath="/tei:TEI/descendant::tei:persName" boost="5.0">persName</text>
-            <text xpath="/tei:TEI/descendant::tei:placeName" boost="5.0">placeName</text>
-            <text xpath="/tei:TEI/descendant::tei:pubPlace">publPlace</text>
-            <text xpath="/tei:TEI/descendant::tei:publisher">publisher</text>
-            -->
-            <!--            <fields xpath="/tei:TEI/descendant::tei:sourceDesc/tei:bibl/tei:date/@when" type="date">publicationDate</fields>-->
+            <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields>
             
         </searchFields>
-        <facet-fields>
-            <!-- 
-                <facet-definition name="cbssPublicationDate" label="Publication Date" display="slider">
-                <group-by>
-                    <sub-path>descendant::tei:biblStruct/descendant::tei:imprint/tei:date</sub-path>
-                </group-by>
-                <max-values show="5">40</max-values>
-                <order-by direction="descending">value</order-by>
-                </facet-definition>
-                <facet-definition name="cbssPubType" label="Publication Type">
-                    <group-by function="cbssPubType">
-                        <sub-path>descendant::tei:biblStruct/@type</sub-path>
-                    </group-by>
-                    <max-values show="5">40</max-values>
-                    <order-by direction="ascending">value</order-by>
-                </facet-definition>
-                    <facet-definition name="cbssKeywords" label="Keywords">
-                        <group-by function="cbssKeywords">
-                            <sub-path>descendant::tei:relation[@ref="dc:subject"]</sub-path>
-                        </group-by>
-                        <max-values show="5">40</max-values>
-                        <order-by direction="ascending">value</order-by>
-                    </facet-definition>
-            -->
-        </facet-fields>
     </config>
 </meta>
