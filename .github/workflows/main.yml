@@ -37,14 +37,14 @@ jobs:
         run: |
           wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
+          
       # Step 3: 
       - name: Configure AWS credentials from AWS account
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data          
-          
+          role-session-name: GitHub-OIDC-data    
           
       # Step 4: Find updated XML files
       # - name: Identify updated XML files
@@ -161,6 +161,14 @@ jobs:
       #       # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
 
       #     done < xml_files.txt
+
+      # Step 6: 
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data    
           
        
       # Step 7: Upload files to S3 
