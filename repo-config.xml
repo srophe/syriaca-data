@@ -175,8 +175,9 @@
             <fields function="subject" xpath="tei:relation[@ref='dc:subject']/tei:desc">subject</fields>
             <fields function="cbssCitation" xpath="tei:bibl[@type='formatted'][@subtype='citation']">citation</fields>
 
-            <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields>
-            
+<!--             <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields> -->
+            <fields function="abstract" xpath="descendant::*[starts-with(@xml:id,'abstract')]">abstract</fields> 
+
         </searchFields>
     </config>
 </meta>
