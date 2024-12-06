@@ -321,15 +321,17 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="*:fields[@function = 'abstract']">
-        <xsl:param name="doc"/>
-        <xsl:param name="id"/>
-            <xsl:if test="$doc/descendant::*[starts-with(@xml:id,'abstract')]">
-                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                    <xsl:value-of select="normalize-space(string-join($doc/descendant::*[starts-with(@xml:id,'abstract')],' '))"/>
-                </string>   
-            </xsl:if>            
-    </xsl:template>
+<xsl:template match="*:fields[@function = 'abstract']">
+    <xsl:param name="doc"/>
+    <xsl:param name="id"/>
+        <!-- Find the 'abstract' field within the document -->
+        <xsl:if test="$doc//tei:desc[@type='abstract']">
+            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:value-of select="normalize-space(string-join($doc//tei:desc[@type='abstract']/tei:quote, ' '))"/>
+            </string>
+        </xsl:if>
+</xsl:template>
+
     <xsl:template match="*:fields[@function = 'titleSyriac']">
         <xsl:param name="doc"/>
         <xsl:variable name="field">
