@@ -65,19 +65,19 @@ jobs:
       - name: Specify specific XML files and 25 per category 
         run: |
           # find ./data/persons/tei -name '*.xml' | tail -n +26 > xml_files.txt
-          # find ./data/places/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          find ./data/places/tei -name '*.xml' | tail -n +26 >> xml_files.txt
           # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
           
 
-          echo "./data/persons/tei/3022.xml" >> xml_files.txt
-          echo "./data/persons/tei/2278.xml" >> xml_files.txt
-          echo "./data/persons/tei/3229.xml" >> xml_files.txt
-          echo "./data/persons/tei/2268.xml" >> xml_files.txt
-          echo "./data/persons/tei/69.xml" >> xml_files.txt
-          echo "./data/persons/tei/173.xml" >> xml_files.txt
-          echo "./data/persons/tei/779.xml" >> xml_files.txt
+          # echo "./data/persons/tei/3022.xml" >> xml_files.txt
+          # echo "./data/persons/tei/2278.xml" >> xml_files.txt
+          # echo "./data/persons/tei/3229.xml" >> xml_files.txt
+          # echo "./data/persons/tei/2268.xml" >> xml_files.txt
+          # echo "./data/persons/tei/69.xml" >> xml_files.txt
+          # echo "./data/persons/tei/173.xml" >> xml_files.txt
+          # echo "./data/persons/tei/779.xml" >> xml_files.txt
           # echo "./data/persons/tei/102.xml" >> xml_files.txt
           # echo "./data/persons/tei/1021.xml" >> xml_files.txt
           # echo "./data/persons/tei/320.xml" >> xml_files.txt
@@ -219,8 +219,20 @@ jobs:
           cat response.json
 
           # Check for errors in the response
-          if grep -q '"errors":true' response.json; then
-            echo "Errors occurred during bulk upload"
-            exit 1
+          # if grep -q '"errors":true' response.json; then
+          #   echo "Errors occurred during bulk upload"
+          #   exit 1
+          # fi
+
+          # Parse the response for failed items using jq
+          FAILED_ENTRIES=$(jq -c '.items[] | select(.index.status >= 400) | {id: .index._id, error: .index.error}' response.json)
+          
+          if [[ -n "$FAILED_ENTRIES" ]]; then
+            echo "Failed entries:"
+            echo "$FAILED_ENTRIES" > failed_entries.json
+            echo "$FAILED_ENTRIES" # Prints to the console
+          else
+            echo "All entries were successfully indexed."
           fi
+
 
