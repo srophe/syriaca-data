@@ -1185,7 +1185,7 @@
     </xsl:if>
 </xsl:template>
     
-    <xsl:template match="*:fields[@function = 'birth']">
+<!--     <xsl:template match="*:fields[@function = 'birth']">
 
         <xsl:param name="doc"/>
 
@@ -1206,7 +1206,7 @@
                 <string xmlns="http://www.w3.org/2005/xpath-functions" key="death"><xsl:value-of select="."/></string>
             </xsl:for-each>
         </xsl:if>
-    </xsl:template>
+    </xsl:template> -->
     
     
     <xsl:template match="*:fields"/>
