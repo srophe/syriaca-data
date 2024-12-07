@@ -65,8 +65,8 @@ jobs:
       - name: Specify specific XML files and 25 per category 
         run: |
           # find ./data/persons/tei -name '*.xml' | tail -n +26 > xml_files.txt
-          find ./data/places/tei -name '*.xml' | tail -n +26 >> xml_files.txt
-          # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
+          # find ./data/places/tei -name '*.xml' | tail -n +26 >> xml_files.txt
+          find ./data/works/tei -name '*.xml' | tail -n +26 >> xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | head -n 25 >> xml_files.txt
           # find ./data/subjects/tei -name '*.xml' | head -n 25 >> xml_files.txt
           
@@ -176,7 +176,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_Persons_Errata.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_Works.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
