@@ -67,8 +67,8 @@ jobs:
           # find ./data/persons/tei -name '*.xml' | tail -n +26 > xml_files.txt
           # find ./data/places/tei -name '*.xml' | tail -n +26 >> xml_files.txt
           # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | tail -n +26 >> xml_files.txt
-          find ./data/subjects/tei -name '*.xml' | tail -n +26 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | tail -n +26 | head -n 5026 > xml_files.txt
+          # find ./data/subjects/tei -name '*.xml' | tail -n +26 > xml_files.txt
           
 
           # echo "./data/persons/tei/3022.xml" >> xml_files.txt
@@ -176,7 +176,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_subjects.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_bibl_5000.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -204,19 +204,19 @@ jobs:
 
       # Step 8: Upload JSON data to OpenSearch 
 
-      - name: JSON file to OpenSearch
+      # - name: JSON file to OpenSearch
 
-        env:
-          OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
-          OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
-          OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
-        run: |
-          RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
-          -H "Content-Type: application/json" \
-          -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
-          --data-binary "@bulk_data.json")
-          echo "HTTP response code: $RESPONSE"
-          cat response.json
+      #   env:
+      #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
+      #     OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
+      #     OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+      #   run: |
+      #     RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
+      #     -H "Content-Type: application/json" \
+      #     -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
+      #     --data-binary "@bulk_data.json")
+      #     echo "HTTP response code: $RESPONSE"
+      #     cat response.json
 
           # Check for errors in the response
           # if grep -q '"errors":true' response.json; then
@@ -225,14 +225,14 @@ jobs:
           # fi
 
           # Parse the response for failed items using jq
-          FAILED_ENTRIES=$(jq -c '.items[] | select(.index.status >= 400) | {id: .index._id, error: .index.error}' response.json)
+          # FAILED_ENTRIES=$(jq -c '.items[] | select(.index.status >= 400) | {id: .index._id, error: .index.error}' response.json)
           
-          if [[ -n "$FAILED_ENTRIES" ]]; then
-            echo "Failed entries:"
-            echo "$FAILED_ENTRIES" > failed_entries.json
-            echo "$FAILED_ENTRIES" # Prints to the console
-          else
-            echo "All entries were successfully indexed."
-          fi
+          # if [[ -n "$FAILED_ENTRIES" ]]; then
+          #   echo "Failed entries:"
+          #   echo "$FAILED_ENTRIES" > failed_entries.json
+          #   echo "$FAILED_ENTRIES" # Prints to the console
+          # else
+          #   echo "All entries were successfully indexed."
+          # fi
 
 
