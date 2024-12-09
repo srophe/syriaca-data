@@ -67,7 +67,7 @@ jobs:
           # find ./data/persons/tei -name '*.xml' | tail -n +26 > xml_files.txt
           # find ./data/places/tei -name '*.xml' | tail -n +26 >> xml_files.txt
           # find ./data/works/tei -name '*.xml' | head -n 25 >> xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | tail -n +5027 | head -n 10000 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | tail -n +10001 | head -n 15001 > xml_files.txt
           # find ./data/subjects/tei -name '*.xml' | tail -n +26 > xml_files.txt
           
           cat xml_files.txt   
@@ -86,13 +86,16 @@ jobs:
       
             # Extract the document type from the file path
             type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
-            if [ "$type" == "bibl" ]; then
+            # Prioritize 'subject' over other types
+            if [[ "$type" == *"subject"* ]]; then
+              type="subject"
+            elif [[ "$type" == *"bibl"* ]]; then
               type="cbss"
             fi
-            # echo "Json type $type"
+            echo "Json type $type"
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
-            # echo "Processing $filename for JSON"
+            echo "Processing $filename for JSON"
             printf "{\"index\":{\"_index\":\"syriaca-index-8\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
@@ -148,7 +151,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_bibl_10000.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_bibl_15000.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
