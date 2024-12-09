@@ -137,7 +137,6 @@
                 <string key="docType">
                     <xsl:value-of select="$docType"/>
                 </string>
-                <xsl:message select="concat('docType parameter value: ', $docType)" />
                 <xsl:for-each select="$config/descendant::*:searchFields/*:fields">
                     <xsl:choose>
                         <xsl:when test="@function != ''">
@@ -1234,7 +1233,6 @@
                 <string key="docType" xmlns="http://www.w3.org/2005/xpath-functions">
                     <xsl:value-of select="$docType"/>
                 </string>
-                <xsl:message select="concat('docType parameter value: ', $docType)" />
                 <xsl:for-each select="$config/descendant::*:searchFields/*:fields">
                     <xsl:choose>
                         <xsl:when test="@function != ''">Function
