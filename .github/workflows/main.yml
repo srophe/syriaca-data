@@ -48,11 +48,31 @@ jobs:
           
       # Step 4: Find updated XML files
       - name: Identify updated XML files
-        run: |
-          UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '.xml')
-          echo "Updated XML files: $UPDATED_FILES"
-          echo "::set-output name=updated_files::$UPDATED_FILES"
         id: files
+        run: |
+          # Check if there is at least one previous commit
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            # Find updated files between the last commit and the current HEAD
+            UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
+          else
+            # Fallback to checking all changes if there is no HEAD~1
+            UPDATED_FILES=$(git ls-files -m | grep '\.xml$')
+          fi
+      
+          # Check if there are any updated files
+          if [ -z "$UPDATED_FILES" ]; then
+            echo "No XML files were updated."
+            echo "::set-output name=updated_files::"
+            exit 0
+          fi
+      
+          # Output the list of updated files
+          echo "$UPDATED_FILES" > xml_files.txt
+          echo "Updated XML files:"
+          cat xml_files.txt
+          echo "::set-output name=updated_files::$UPDATED_FILES"
+
+
       
       # Step 4: Identify XML files for testing
       # - name: Identify XML files 
@@ -65,6 +85,10 @@ jobs:
       # Step 5: Run XSLT Transformations and Merge into Single JSON 
       - name: Run XSLT Transformations and Create Bulk JSON
         run: |
+          if [ ! -s xml_files.txt ]; then
+            echo "No XML files to process."
+            exit 0
+          fi
           touch bulk_data.json  # Create the bulk JSON file
           # Commented out code in this section for possible optimization of code
           # mkdir -p data-html
