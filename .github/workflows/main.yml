@@ -50,16 +50,19 @@ jobs:
       - name: Identify updated XML files
         id: files
         run: |
-          # Check if there is at least one previous commit
-          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+          echo "Ensuring commit history is fetched..."
+          git fetch --unshallow || echo "Repository is already fully cloned."
+      
+          echo "Checking for updated XML files..."
+          if git rev-list --count HEAD > 1; then
             # Find updated files between the last commit and the current HEAD
             UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
           else
-            # Fallback to checking all changes if there is no HEAD~1
-            UPDATED_FILES=$(git ls-files -m | grep '\.xml$')
+            # If there's no prior commit, process all XML files
+            UPDATED_FILES=$(git ls-files | grep '\.xml$')
           fi
       
-          # Check if there are any updated files
+          # Check if any XML files were updated
           if [ -z "$UPDATED_FILES" ]; then
             echo "No XML files were updated."
             echo "::set-output name=updated_files::"
@@ -71,6 +74,7 @@ jobs:
           echo "Updated XML files:"
           cat xml_files.txt
           echo "::set-output name=updated_files::$UPDATED_FILES"
+        shell: bash
 
 
       
