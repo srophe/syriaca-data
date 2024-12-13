@@ -28,7 +28,9 @@ declare function local:mkcol($collection, $path) {
 };
 
 (: store the collection configuration :)
-local:mkcol("/db/system/config", $target),
+(local:mkcol("/db/system/config", $target),
 xdb:store-files-from-pattern(concat("/system/config", $target), $dir, "*.xconf"),
 local:mkcol(concat("/db/system/config", $target), '/data/deprecated'),
-xdb:store-files-from-pattern(concat("/db/system/config", $target, '/data/deprecated'), concat($dir,'/data/deprecated'), "*.xconf")
+xdb:store-files-from-pattern(concat("/db/system/config", $target, '/data/deprecated'), concat($dir,'/data/deprecated'), "*.xconf"),
+local:mkcol(concat("/db/system/config", $target), '/data/bibl'),
+xdb:store-files-from-pattern(concat("/db/system/config", $target, '/data/bibl'), concat($dir,'/data/bibl'), "*.xconf"))
