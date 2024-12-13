@@ -1,0 +1,228 @@
+name: Process XML to JSON and HTML
+
+on:
+  push:
+    branches:
+      - 'development_backup_cbss-bibls'  # current data branch
+    paths:
+      - 'data/**'  # Trigger only on changes to data files   
+      
+permissions:
+  id-token: write
+  contents: read
+  
+jobs:
+  process_and_transform:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out the repositories
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Checkout syriaca repository (code repo)
+        uses: actions/checkout@v3
+        with:
+          repository: srophe/syriaca
+          ref: staticSite
+          path: syriaca  # Check it out into a subfolder        
+
+      # Step 2: Install Java and Saxon for XSLT 
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          
+      - name: Download Saxon from GitHub
+        run: |
+          wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
+
+          
+      # Step 3: 
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data    
+          
+      # Step 4: Find updated XML files
+      - name: Identify updated XML files
+        id: files
+        run: |
+          echo "Ensuring commit history is fetched..."
+          git fetch --unshallow || echo "Repository is already fully cloned."
+      
+          echo "Checking for updated XML files..."
+          if git rev-list --count HEAD > 1; then
+            # Find updated files between the last commit and the current HEAD
+            UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
+          else
+            # If there's no prior commit, process all XML files
+            UPDATED_FILES=$(git ls-files | grep '\.xml$')
+          fi
+      
+          # Check if any XML files were updated
+          if [ -z "$UPDATED_FILES" ]; then
+            echo "No XML files were updated."
+            echo "::set-output name=updated_files::"
+            exit 0
+          fi
+      
+          # Output the list of updated files
+          echo "$UPDATED_FILES" > xml_files.txt
+          echo "Updated XML files:"
+          cat xml_files.txt
+          echo "::set-output name=updated_files::$UPDATED_FILES"
+        shell: bash
+
+
+      
+      # Step 4: Identify XML files for testing
+      # - name: Identify XML files 
+      #   run: |
+      #     find ./data/persons/tei -name '*.xml' > xml_files.txt
+      #     echo "Processing 25 XML files:"
+      #     cat xml_files.txt
+          
+
+      # Step 5: Run XSLT Transformations and Merge into Single JSON 
+      - name: Run XSLT Transformations and Create Bulk JSON
+        run: |
+          if [ ! -s xml_files.txt ]; then
+            echo "No XML files to process."
+            exit 0
+          fi
+          touch bulk_data.json  # Create the bulk JSON file
+          # Commented out code in this section for possible optimization of code
+          # mkdir -p data-html
+          # echo "Created HTML directory"
+          
+          while IFS= read -r file; do
+      
+            # Extract the document type from the file path
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
+            # Fix bible/subject/worker conflict: choose 'subject' over other types
+            if [[ "$type" == *"subject"* ]]; then
+              type="subject"
+            elif [[ "$type" == *"bibl"* ]]; then
+              type="cbss"
+            fi
+            # Extract the filename and create the index header for OpenSearch bulk format
+            filename=$(basename ${file%.xml})
+            echo "Processing $filename for JSON"
+            printf "{\"index\":{\"_index\":\"syriaca-index-8\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+      
+            # Apply XSLT for JSON conversion and append it to bulk_data.json directly
+            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
+            echo "" >> bulk_data.json  # Add a newline after the document entry
+
+            # Apply XSLT for HTML conversion and capture any error
+            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${filename}.html 2>&1 | tee saxon_error.log
+            # # Upload the HTML file to S3
+            # aws s3 cp $(basename ${file%.xml}.html) s3://srophe-syriaca-front-end/${type}/${filename}.html
+
+          done < xml_files.txt
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}          
+
+      # Step 6: Convert HTML files
+      - name: Create static HTML directory
+        run: |
+          mkdir -p data-html  
+          echo "Created HTML directory"
+
+     
+      - name: Run XSLT Transformations for HTML
+        run: |
+          while IFS= read -r file; do
+            echo "Processing $file for HTML"
+            # Extract the document type from the file path
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+            # Extract the filename and create the index header for OpenSearch bulk format
+            filename=$(basename ${file%.xml})
+            echo "html filename: $filename"
+            # if [ "$type" == "bibl" ]; then
+            #   type="cbss"
+            # fi
+            echo "HTML type $type"
+
+            # Run the XSLT transformation located in the root of syriaca-data repository
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html
+            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
+
+          done < xml_files.txt
+
+      # Step 6: 
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data    
+          
+       
+      # Step 7: Upload files to S3 
+      - name: Upload JSON file to S3 
+        run: |
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_data_update.json
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+
+      - name: Upload HTML files to S3
+        run: |
+        
+          for html_file in $(find ./data-html -name "*.html"); do
+            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+            echo "html_file $html_file"
+            if [ "$type" == "subject" ]; then
+              type="taxonomy"
+            fi
+            if [ "$type" == "bibl" ]; then
+              type="cbss"
+            fi
+            # Copy html file to S3 with the idno path
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+          done
+          
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+
+
+      # Step 8: Upload JSON data to OpenSearch 
+
+      - name: JSON file to OpenSearch
+
+        env:
+          OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
+          OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
+          OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
+        run: |
+          RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
+          -H "Content-Type: application/json" \
+          -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
+          --data-binary "@bulk_data.json")
+          echo "HTTP response code: $RESPONSE"
+          cat response.json
+
+          # Check for errors in the response
+          if grep -q '"errors":true' response.json; then
+            echo "Errors occurred during bulk upload"
+            exit 1
+          fi
+
+          # Parse the response for failed items using jq
+          FAILED_ENTRIES=$(jq -c '.items[] | select(.index.status >= 400) | {id: .index._id, error: .index.error}' response.json)
+          
+          if [[ -n "$FAILED_ENTRIES" ]]; then
+            echo "Failed entries:"
+            echo "$FAILED_ENTRIES" > failed_entries.json
+            echo "$FAILED_ENTRIES" # Prints to the console
+          else
+            echo "All entries were successfully indexed."
+          fi
+
+
