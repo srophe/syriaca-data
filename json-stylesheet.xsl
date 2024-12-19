@@ -656,15 +656,26 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="*:fields[@function = 'related']">
+    <xsl:template match="*:fields[@function = 'coordinates']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:listRelation/tei:relation[@passive or @mutual]">
-            <xsl:variable name="relatedString" select="$doc/descendant::tei:body/descendant::tei:listRelation/tei:relation/@passive | $doc/descendant::tei:body/descendant::tei:listRelation/tei:relation/@mutual"/>
-            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <xsl:for-each select="tokenize(string-join($relatedString,' '),' ')">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="normalize-space(string-join(.,' '))"/></string>
-                </xsl:for-each>
-            </array>
+        <xsl:param name="id"/>
+        <xsl:if test="contains($id, '/place')">
+            <xsl:variable name="coords">
+                <xsl:choose>
+                    <xsl:when test="$doc/descendant::tei:location[@subtype = 'preferred']">
+                        <xsl:value-of select="$doc/descendant::tei:location[@subtype = 'preferred']/tei:geo"/>
+                    </xsl:when>
+                    <xsl:when test="$doc/descendant::tei:geo">
+                        <xsl:value-of select="$doc/descendant::tei:geo[1]"/>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:variable>
+            <xsl:if test="$coords != ''">
+                <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                    <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="tokenize($coords,' ')[2]"/></number>
+                    <number xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="tokenize($coords,' ')[1]"/></number>
+                </array>
+            </xsl:if>
         </xsl:if>
     </xsl:template>
     <xsl:template match="*:fields[@function = 'gender']">
