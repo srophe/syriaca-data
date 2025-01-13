@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    # paths:
-    #   - 'data/**'  # Trigger only on changes to data files   
+    paths:
+      - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -111,7 +111,7 @@ jobs:
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             echo "Processing $filename for JSON"
-            printf "{\"index\":{\"_index\":\"syriaca-index-8\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+            printf "{\"index\":{\"_index\":\"syriaca-index-9\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
