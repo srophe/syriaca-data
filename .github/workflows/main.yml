@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    paths:
-      - 'data/**'  # Trigger only on changes to data files   
+    # paths:
+    #   - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -81,7 +81,7 @@ jobs:
       # Step 4: Identify XML files for batch conversions
       - name: Identify XML files 
         run: |
-          find ./data/places/tei -name '*.xml' > xml_files.txt
+          find ./data/persons/tei -name '*.xml' > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
           
@@ -111,7 +111,7 @@ jobs:
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             echo "Processing $filename for JSON"
-            printf "{\"index\":{\"_index\":\"syriaca-index-9\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+            printf "{\"index\":{\"_index\":\"syriaca-index-8\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
@@ -166,7 +166,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_geo_coordinates.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/bulk_data_index_8_gender_update_persons.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
