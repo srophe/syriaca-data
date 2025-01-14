@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'development_backup_cbss-bibls'  # current data branch
-    paths:
-      - 'data/**'  # Trigger only on changes to data files   
+    # paths:
+    #   - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -81,7 +81,8 @@ jobs:
       # Step 4: Identify XML files for batch conversions
       - name: Identify XML files 
         run: |
-          find ./data/works/tei -name '*.xml' > xml_files.txt
+          find ./data/persons/tei -name '*.xml' | head -n 10 > xml_files.txt
+          # find ./data/persons/tei -name '*.xml' > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
           
