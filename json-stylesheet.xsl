@@ -383,8 +383,8 @@
             <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^ar')]">
                 <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^ar')][not(empty(node()))][1],' '))"/>
             </xsl:when>
-            <xsl:when test="$doc/descendant::tei:person/tei:persName[@xml:lang = 'ar']">
-                <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::tei:person/tei:persName[@xml:lang = 'ar'],' '))"/>
+            <xsl:when test="$doc/descendant::tei:personGrp/tei:persName[@xml:lang = 'ar']">
+                <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::tei:personGrp/tei:persName[@xml:lang = 'ar'],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:place/tei:placeName[@xml:lang = 'ar']">
                 <xsl:value-of select="local:sortStringAr(string-join($doc/descendant::tei:place/tei:placeName[@xml:lang = 'ar'],' '))"/>
@@ -412,8 +412,8 @@
             <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][@xml:lang = 'fr']">
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::*[contains(@srophe:tags,'#headword')][@xml:lang = 'fr'][not(empty(node()))],' '))"/>
             </xsl:when>
-            <xsl:when test="$doc/descendant::tei:person/tei:persName[@xml:lang = 'fr']">
-                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:person/tei:persName[@xml:lang = 'fr'][1],' '))"/>
+             <xsl:when test="$doc/descendant::tei:personGrp/tei:persName[@xml:lang = 'fr']">
+                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:personGrp/tei:persName[@xml:lang = 'fr'][1],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:place/tei:placeName[@xml:lang = 'fr']">
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:place/tei:placeName[@xml:lang = 'fr'][1],' '))"/>
@@ -436,8 +436,8 @@
             <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][@xml:lang = 'en-x-gedsh']">
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::*[contains(@srophe:tags,'#headword')][@xml:lang = 'en-x-gedsh'][not(empty(node()))],' '))"/>
             </xsl:when>
-            <xsl:when test="$doc/descendant::tei:person/tei:persName[@xml:lang = 'en-x-gedsh']">
-                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:person/tei:persName[@xml:lang = 'en-x-gedsh'][1],' '))"/>
+            <xsl:when test="$doc/descendant::tei:personGrp/tei:persName[@xml:lang = 'en-x-gedsh']">
+                <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:personGrp/tei:persName[@xml:lang = 'en-x-gedsh'][1],' '))"/>
             </xsl:when>
             <xsl:when test="$doc/descendant::tei:place/tei:placeName[@xml:lang = 'en-x-gedsh']">
                 <xsl:value-of select="local:sortStringEn(string-join($doc/descendant::tei:place/tei:placeName[@xml:lang = 'en-x-gedsh'][1],' '))"/>
