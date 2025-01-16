@@ -3,7 +3,7 @@ name: Process XML to JSON and HTML
 on:
   push:
     branches:
-      - 'development_backup_cbss-bibls'  # current data branch
+      - 'gaddel_development'  # current data branch
     # paths:
     #   - 'data/**'  # Trigger only on changes to data files   
       
@@ -82,7 +82,9 @@ jobs:
       - name: Identify XML files 
         run: |
           # find ./data/places/tei -name '*.xml' | head -n 10 > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' > xml_files.txt
+          # find ./data/bibl/tei -name '*.xml' | tail -n +15027 | head -n 5000 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          # find ./data/bibl/tei -name '*.xml' > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
           
@@ -167,7 +169,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_10_bibl_test.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_10_bibl_5000.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
