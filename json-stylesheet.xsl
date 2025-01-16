@@ -1093,38 +1093,68 @@
     </xsl:template>
     <!-- DATES start and end  -->
     <xsl:template match="*:fields[@function = 'cbssPubDate']">
-        <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:imprint/tei:date">  
+    <xsl:param name="doc"/>
+    <xsl:variable name="dates" select="$doc/descendant::tei:imprint/tei:date"/>
+
+    <xsl:if test="$dates">
+        <!-- Start Date Array -->
+        <xsl:if test="$dates[normalize-space(.)]">
             <array key="cbssPubDateStart" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:for-each select="$doc/descendant::tei:imprint/tei:date">
+                <xsl:for-each select="$dates[normalize-space(.)]">
                     <xsl:variable name="date" select="normalize-space(.)"/>
                     <xsl:variable name="startDate">
                         <xsl:choose>
-                            <xsl:when test="matches($date,'\d{4}-\d{4}')">
-                                <xsl:value-of select="substring-before($date,'-')"/>
+                            <!-- Case: Start and end date separated by a slash -->
+                            <xsl:when test="contains($date, '/')">
+                                <xsl:value-of select="substring-before($date, '/')"/>
                             </xsl:when>
-                            <xsl:otherwise><xsl:value-of select="$date"/></xsl:otherwise>
+                            <!-- Case: Date range (YYYY-YYYY) -->
+                            <xsl:when test="matches($date, '\d{4}-\d{4}')">
+                                <xsl:value-of select="substring-before($date, '-')"/>
+                            </xsl:when>
+                            <!-- Case: Single year or other format -->
+                            <xsl:otherwise>
+                                <xsl:value-of select="$date"/>
+                            </xsl:otherwise>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
-                </xsl:for-each>
-            </array>
-            <array key="cbssPubDateEnd" xmlns="http://www.w3.org/2005/xpath-functions">
-                <xsl:for-each select="$doc/descendant::tei:imprint/tei:date">
-                    <xsl:variable name="date" select="."/>
-                    <xsl:variable name="endDate">
-                        <xsl:choose>
-                            <xsl:when test="matches($date,'\d{4}-\d{4}')">
-                                <xsl:value-of select="substring-after($date,'-')"/>
-                            </xsl:when>
-                            <xsl:otherwise><xsl:value-of select="$date"/></xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                    <xsl:if test="string($startDate) != ''">
+                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                    </xsl:if>
                 </xsl:for-each>
             </array>
         </xsl:if>
-    </xsl:template>
+
+        <!-- End Date Array -->
+        <xsl:if test="$dates[normalize-space(.)]">
+            <array key="cbssPubDateEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+                <xsl:for-each select="$dates[normalize-space(.)]">
+                    <xsl:variable name="date" select="normalize-space(.)"/>
+                    <xsl:variable name="endDate">
+                        <xsl:choose>
+                            <!-- Case: Start and end date separated by a slash -->
+                            <xsl:when test="contains($date, '/')">
+                                <xsl:value-of select="substring-after($date, '/')"/>
+                            </xsl:when>
+                            <!-- Case: Date range (YYYY-YYYY) -->
+                            <xsl:when test="matches($date, '\d{4}-\d{4}')">
+                                <xsl:value-of select="substring-after($date, '-')"/>
+                            </xsl:when>
+                            <!-- Case: Single year or other format -->
+                            <xsl:otherwise>
+                                <xsl:value-of select="$date"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <xsl:if test="string($endDate) != ''">
+                        <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                    </xsl:if>
+                </xsl:for-each>
+            </array>
+        </xsl:if>
+    </xsl:if>
+</xsl:template>
+
     
     <xsl:template match="*:fields[@function = 'eventDates']">
     <xsl:param name="doc"/>
