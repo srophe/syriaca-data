@@ -82,7 +82,7 @@ jobs:
       - name: Identify XML files 
         run: |
           # find ./data/places/tei -name '*.xml' | head -n 10 > xml_files.txt
-          find ./data/places/tei -name '*.xml' > xml_files.txt
+          find ./data/subjects/tei -name '*.xml' > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
           
@@ -167,7 +167,7 @@ jobs:
       # Step 7: Upload files to S3 
       - name: Upload JSON file to S3 
         run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_10_places.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_10_subjects.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
