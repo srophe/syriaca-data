@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'gaddel_development'  # current data branch
-    paths:
-      - 'data/**'  # Trigger only on changes to data files   
+    # paths:
+    #   - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -47,88 +47,85 @@ jobs:
           role-session-name: GitHub-OIDC-data    
           
       # Step 4: Find updated XML files
-      - name: Identify updated XML files
-        id: files
-        run: |
-          echo "Ensuring commit history is fetched..."
-          git fetch --unshallow || echo "Repository is already fully cloned."
+      # - name: Identify updated XML files
+      #   id: files
+      #   run: |
+      #     echo "Ensuring commit history is fetched..."
+      #     git fetch --unshallow || echo "Repository is already fully cloned."
       
-          echo "Checking for updated XML files..."
-          if git rev-list --count HEAD > 1; then
-            # Find updated files between the last commit and the current HEAD
-            UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
-          else
-            # If there's no prior commit, process all XML files
-            UPDATED_FILES=$(git ls-files | grep '\.xml$')
-          fi
+      #     echo "Checking for updated XML files..."
+      #     if git rev-list --count HEAD > 1; then
+      #       # Find updated files between the last commit and the current HEAD
+      #       UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
+      #     else
+      #       # If there's no prior commit, process all XML files
+      #       UPDATED_FILES=$(git ls-files | grep '\.xml$')
+      #     fi
       
-          # Check if any XML files were updated
-          if [ -z "$UPDATED_FILES" ]; then
-            echo "No XML files were updated."
-            echo "::set-output name=updated_files::"
-            exit 0
-          fi
+      #     # Check if any XML files were updated
+      #     if [ -z "$UPDATED_FILES" ]; then
+      #       echo "No XML files were updated."
+      #       echo "::set-output name=updated_files::"
+      #       exit 0
+      #     fi
       
-          Output the list of updated files
-          echo "$UPDATED_FILES" > xml_files.txt
-          echo "Updated XML files:"
-          cat xml_files.txt
-          echo "::set-output name=updated_files::$UPDATED_FILES"
-        shell: bash
+      #     Output the list of updated files
+      #     echo "$UPDATED_FILES" > xml_files.txt
+      #     echo "Updated XML files:"
+      #     cat xml_files.txt
+      #     echo "::set-output name=updated_files::$UPDATED_FILES"
+      #   shell: bash
 
 
       
       # # Step 4: Identify XML files for batch conversions
-      # - name: Identify XML files 
-      #   run: |
-      #     # find ./data/places/tei -name '*.xml' | head -n 10 > xml_files.txt
-      #     # find ./data/bibl/tei -name '*.xml' | tail -n +15000 | head -n 5000 > xml_files.txt
-      #     find ./data/bibl/tei -name '*.xml' | tail -n +10000 | head -n 5000 > xml_files.txt
-      #     # find ./data/bibl/tei -name '*.xml' > xml_files.txt
-      #     echo "Processing XML files:"
-      #     cat xml_files.txt
+      - name: Identify XML files 
+        run: |
+          find ./data/places/tei -name '*.xml' | head -n 10 > xml_files.txt
+          echo "Processing XML files:"
+          cat xml_files.txt
           
 
       # Step 5: Run XSLT Transformations and Merge into Single JSON 
-      - name: Run XSLT Transformations and Create Bulk JSON
-        run: |
-          if [ ! -s xml_files.txt ]; then
-            echo "No XML files to process."
-            exit 0
-          fi
-          touch bulk_data.json  # Create the bulk JSON file
-          # Commented out code in this section for possible optimization of code
-          # mkdir -p data-html
-          # echo "Created HTML directory"
+      # - name: Run XSLT Transformations and Create Bulk JSON
+      #   run: |
+      #     if [ ! -s xml_files.txt ]; then
+      #       echo "No XML files to process."
+      #       exit 0
+      #     fi
+      #     touch bulk_data.json  # Create the bulk JSON file
+      #     # Commented out code in this section for possible optimization of code
+      #     # mkdir -p data-html
+      #     # echo "Created HTML directory"
           
-          while IFS= read -r file; do
+      #     while IFS= read -r file; do
       
-            # Extract the document type from the file path
-            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
-            # Fix bible/subject/worker conflict: choose 'subject' over other types
-            if [[ "$type" == *"subject"* ]]; then
-              type="subject"
-            elif [[ "$type" == *"bibl"* ]]; then
-              type="cbss"
-            fi
-            # Extract the filename and create the index header for OpenSearch bulk format
-            filename=$(basename ${file%.xml})
-            echo "Processing $filename for JSON"
-            printf "{\"index\":{\"_index\":\"syriaca-index-10\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+      #       # Extract the document type from the file path
+      #       type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
+      #       # Fix bible/subject/worker conflict: choose 'subject' over other types
+      #       if [[ "$type" == *"subject"* ]]; then
+      #         type="subject"
+      #       elif [[ "$type" == *"bibl"* ]]; then
+      #         type="cbss"
+      #       fi
+      #       # Extract the filename and create the index header for OpenSearch bulk format
+      #       filename=$(basename ${file%.xml})
+      #       echo "Processing $filename for JSON"
+      #       printf "{\"index\":{\"_index\":\"syriaca-index-10\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
-            # Apply XSLT for JSON conversion and append it to bulk_data.json directly
-            java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
-            echo "" >> bulk_data.json  # Add a newline after the document entry
+      #       # Apply XSLT for JSON conversion and append it to bulk_data.json directly
+      #       java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
+      #       echo "" >> bulk_data.json  # Add a newline after the document entry
 
-            # Apply XSLT for HTML conversion and capture any error
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${filename}.html 2>&1 | tee saxon_error.log
-            # # Upload the HTML file to S3
-            # aws s3 cp $(basename ${file%.xml}.html) s3://srophe-syriaca-front-end/${type}/${filename}.html
+      #       # Apply XSLT for HTML conversion and capture any error
+      #       # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${filename}.html 2>&1 | tee saxon_error.log
+      #       # # Upload the HTML file to S3
+      #       # aws s3 cp $(basename ${file%.xml}.html) s3://srophe-syriaca-front-end/${type}/${filename}.html
 
-          done < xml_files.txt
-        env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}          
+      #     done < xml_files.txt
+      #   env:
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}          
 
       # Step 6: Convert HTML files
       - name: Create static HTML directory
@@ -165,14 +162,14 @@ jobs:
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data    
           
-      # Step 7: Upload files to S3
-      - name: Upload JSON file to S3
-        run: |
-          TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_10_$TIMESTAMP.json
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      # Step 7: Upload Json files to S3
+      # - name: Upload JSON file to S3
+      #   run: |
+      #     TIMESTAMP=$(date +%Y%m%d%H%M%S)
+      #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_10_$TIMESTAMP.json
+      #   env:
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
 
       - name: Upload HTML files to S3
