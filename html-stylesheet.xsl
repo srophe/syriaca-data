@@ -130,7 +130,7 @@
     <!-- Resource title -->
     <xsl:variable name="resource-title">
         <xsl:choose>
-            <xsl:when test="/descendant::t:text/t:body[descendant::*[@srophe:tags = '#syriaca-headword2']]">
+            <xsl:when test="/descendant::t:text/t:body[descendant::*[@srophe:tags = '#syriaca-headword']]">
                 <xsl:apply-templates select="/descendant::t:text/t:body[descendant::*[@srophe:tags = '#syriaca-headword']][@xml:lang = 'en']/text()"/>
             </xsl:when>
             <!--
@@ -564,7 +564,7 @@
                 // change layout based on link ID
                 kb.options.layout = this.id
                 // open keyboard if layout is different, or time from it last closing is &gt; 200 ms
-                if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime)) < 200) {
+                if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200)) {
                 kb.reveal();
                 }
                 });
