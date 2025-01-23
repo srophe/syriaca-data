@@ -240,7 +240,6 @@
                     <xsl:choose>
                         <xsl:when test="$template/descendant::*:head">
                              <xsl:copy-of select="$template/descendant::*:head"/>
-<!--                            <xsl:apply-templates select="$template/descendant::html:head"/>-->
                         </xsl:when>
                         <xsl:otherwise><xsl:message>Error in template, check template for html:head </xsl:message></xsl:otherwise>
                     </xsl:choose>
@@ -253,7 +252,7 @@
                         <xsl:choose>
                             <xsl:when test="$template/descendant::html:nav">
                                 <xsl:copy-of select="$template/descendant::html:nav"/>
-<!--                                <xsl:apply-templates select="$template/descendant::html:nav"/>-->
+
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:call-template name="genericNav"/>
@@ -269,20 +268,11 @@
                         <xsl:copy-of select="."></xsl:copy-of>
                     </xsl:when>
                     <xsl:otherwise>
-                        <!--
-                        <xsl:choose>
-                            <xsl:when test="$collectionTemplate">
-                                <xsl:apply-templates select="t:TEI"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:call-template name="genericTEIPage"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                -->
                         <xsl:call-template name="genericTEIPage">
                             <xsl:with-param name="config" select="$config"></xsl:with-param>
                             <xsl:with-param name="repository-title" select="$repository-title"/>
                             <xsl:with-param name="collection-title" select="$collection-title"/>
+                            <xsl:with-param name="idno" select="$idno"/>
                         </xsl:call-template>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -542,51 +532,44 @@
             <script type="text/javascript">
                 <xsl:text disable-output-escaping="yes">
                     <![CDATA[
-                        $(document).ready(function () {
-                            // Initialize tooltips
-                            $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
-                    
-                            // Initialize keyboard
-                            $('.keyboard').keyboard({
-                                openOn: null,
-                                stayOpen: false,
-                                alwaysOpen: false,
-                                autoAccept: true,
-                                usePreview: false,
-                                initialFocus: true,
-                                rtl: true,
-                                layout: 'syriac-phonetic',
-                                hidden: function(event, keyboard, el) {
-                                    // Example placeholder for hidden event
-                                    // keyboard.destroy();
-                                }
-                            });
-                    
-                            // Handle keyboard layout changes
-                            $('.keyboard-select').click(function () {
-                                var keyboardID = '#' + $(this).data("keyboard-id");
-                                var kb = $(keyboardID).getkeyboard();
+                    $(document).ready(function () {
+                        $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
             
-                                // Change layout based on link ID
-                                kb.options.layout = this.id;
-            
-                                // Open keyboard if layout is different or if the time since last closing is < 200 ms
-                                if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200) {
-                                    kb.reveal();
-                                }
-                            });
-                    
-                            // Change fonts
-                            $('.swap-font').on('click', function () {
-                                var selectedFont = $(this).data("font-id");
-                                $('.selectableFont').not('.syr').css('font-family', selectedFont);
-                                $("*:lang(syr)").css('font-family', selectedFont);
-                            });
+                        $('.keyboard').keyboard({
+                            openOn: null,
+                            stayOpen: false,
+                            alwaysOpen: false,
+                            autoAccept: true,
+                            usePreview: false,
+                            initialFocus: true,
+                            rtl: true,
+                            layout: 'syriac-phonetic',
+                            hidden: function(event, keyboard, el){
+                                //  keyboard.destroy();
+                            }
                         });
+            
+                        $('.keyboard-select').click(function () {
+                            var keyboardID = '#' + $(this).data("keyboard-id");
+                            var kb = $(keyboardID).getkeyboard();
+                            // change layout based on link ID
+                            kb.options.layout = this.id;
+                            // open keyboard if layout is different, or if the time since last closing is < 200 ms
+                            if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200) {
+                                kb.reveal();
+                            }
+                        });
+            
+                        // Change fonts
+                        $('.swap-font').on('click', function(){
+                            var selectedFont = $(this).data("font-id");
+                            $('.selectableFont').not('.syr').css('font-family', selectedFont);
+                            $("*:lang(syr)").css('font-family', selectedFont);
+                        });
+                    });
                     ]]>
                 </xsl:text>
             </script>
-
         </head>
     </xsl:template>
     <xsl:template name="genericNav">
