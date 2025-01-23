@@ -564,7 +564,7 @@
                 // change layout based on link ID
                 kb.options.layout = this.id
                 // open keyboard if layout is different, or time from it last closing is &gt; 200 ms
-                if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200)) {
+                if ((kb.last.layout !== kb.options.layout) || ((new Date().getTime() - kb.last.eventTime) < 200)) {
                 kb.reveal();
                 }
                 });
