@@ -432,11 +432,13 @@
         <xsl:param name="config"/>
         <xsl:param name="repository-title"/>
         <xsl:param name="collection-title"/>
+        <xsl:param name="idno"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div class="main-content-block">
                 <div class="interior-content">
                     <xsl:call-template name="otherDataFormats">
                         <xsl:with-param name="node" select="t:TEI"/>
+                         <xsl:with-param name="idno" select="$idno"/>
 <!--                        <xsl:with-param name="formats" select="'print,tei,rdf,text'"/>-->
                         <xsl:with-param name="formats" select="'print,tei'"/>
                     </xsl:call-template>
@@ -494,7 +496,7 @@
     </xsl:template>
     <xsl:template name="genericHeader">
         <head xmlns="http://www.w3.org/1999/xhtml">
-            <title>Generic Header:: <xsl:value-of select="$resource-title"/></title>
+            <title>Generic Header: <xsl:value-of select="$resource-title"/></title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <meta name="DC.type" property="dc.type" content="Text"/>
             <meta name="DC.isPartOf" property="dc.ispartof" content="{$config/html:title[1]}"/>
@@ -600,7 +602,7 @@
                     <span class="syriaca-icon syriaca-syriaca banner-icon">
                         <span class="path1"/><span class="path2"/><span class="path3"/><span class="path4"/>
                     </span>
-                    <span class="banner-text"><xsl:value-of select="$config/html:title[1]"/>T1</span>
+                    <span class="banner-text"><xsl:value-of select="$config/html:title[1]"/></span>
                 </a>
             </div>
             <div class="navbar-collapse collapse pull-right" id="navbar-collapse-1">
