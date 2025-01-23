@@ -540,40 +540,41 @@
             <script type="text/javascript">
                 <xsl:text disable-output-escaping="yes">
                     <![CDATA[
-                $(document).ready(function () {
-                $('[data-toggle="tooltip"]').tooltip({ container: 'body' })
-                
-                $('.keyboard').keyboard({
-                openOn: null,
-                stayOpen: false,
-                alwaysOpen: false,
-                autoAccept: true,
-                usePreview: false,
-                initialFocus: true,
-                rtl : true,
-                layout: 'syriac-phonetic',
-                hidden: function(event, keyboard, el){
-                //  keyboard.destroy();
-                }
-                });
-                
-                $('.keyboard-select').click(function () {
-                var keyboardID = '#' + $(this).data("keyboard-id")
-                var kb = $(keyboardID).getkeyboard();
-                //var kb = $('#searchField').getkeyboard();
-                // change layout based on link ID
-                kb.options.layout = this.id
-                // open keyboard if layout is different, or time from it last closing is &gt; 200 ms
-                if ((kb.last.layout !== kb.options.layout) || ((new Date().getTime() - kb.last.eventTime) < 200)) {
-                kb.reveal();
-                }
-                });
-                //Change fonts
-                $('.swap-font').on('click', function(){
-                var selectedFont = $(this).data("font-id")
-                $('.selectableFont').not('.syr').css('font-family', selectedFont);
-                $("*:lang(syr)").css('font-family', selectedFont)
-                });
+                        $(document).ready(function () {
+             $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
+     
+             $('.keyboard').keyboard({
+                 openOn: null,
+                 stayOpen: false,
+                 alwaysOpen: false,
+                 autoAccept: true,
+                 usePreview: false,
+                 initialFocus: true,
+                 rtl: true,
+                 layout: 'syriac-phonetic',
+                 hidden: function(event, keyboard, el){
+                    //  keyboard.destroy();
+                 }
+             });
+     
+             $('.keyboard-select').click(function () {
+                 var keyboardID = '#' + $(this).data("keyboard-id");
+                 var kb = $(keyboardID).getkeyboard();
+                 // change layout based on link ID
+                 kb.options.layout = this.id;
+                 // open keyboard if layout is different, or if the time since last closing is < 200 ms
+                 if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200) {
+                     kb.reveal();
+                 }
+             });
+     
+             // Change fonts
+             $('.swap-font').on('click', function(){
+                 var selectedFont = $(this).data("font-id");
+                 $('.selectableFont').not('.syr').css('font-family', selectedFont);
+                 $("*:lang(syr)").css('font-family', selectedFont);
+             });
+         });
                 
                 })]]>
                 </xsl:text>
@@ -727,24 +728,5 @@
             <xsl:copy-of select="doc(concat($applicationPath,'/','templates/shared-links.html'))"/>
         </xsl:if>
     </xsl:template>
-    
-    <!--WS:NOTE I do not think this is working correctly: Copy all other HTML elements -->
-   <!--
-    <xsl:template match="html:*">
-        <xsl:choose>
-            <xsl:when test="element()">
-                <xsl:element name="{name(.)}" namespace="http://www.w3.org/1999/xhtml">
-                    <xsl:for-each select="@*">
-                        <xsl:attribute name="{name(.)}"><xsl:value-of select="."/></xsl:attribute>
-                    </xsl:for-each>
-                    <xsl:apply-templates/>
-                </xsl:element>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    -->
     
 </xsl:stylesheet>
