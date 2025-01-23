@@ -147,7 +147,7 @@ jobs:
             #   type="cbss"
             # fi
             echo "HTML type $type"
-
+      
             java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html dataPath=./data/
 
             # Run the XSLT transformation located in the root of syriaca-data repository
@@ -188,6 +188,7 @@ jobs:
               type="cbss"
             fi
             # Copy html file to S3 with the idno path
+            echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
           done
           
