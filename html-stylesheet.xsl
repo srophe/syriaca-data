@@ -56,11 +56,53 @@
     <xsl:param name="applicationPath" select="'syriaca'"/>
     <xsl:param name="staticSitePath" select="'syriaca'"/>
     <xsl:param name="dataPath" select="'data-html/'"/>
-    <xsl:param name="configPath" select="concat($staticSitePath, '/siteGenerator/components/repo-config.xml')"/>
+ <xsl:param name="applicationPath" select="'../../'"/>
+    <xsl:param name="staticSitePath" select="'../../'"/>
+    <xsl:param name="dataPath" select="'data-html/'"/>
+    
+    <!-- Example: generate new index.html page for places collection -->
+    <xsl:param name="convert" select="'false'"/>
+    <xsl:param name="outputFile" select="''"/>
+    <xsl:param name="outputCollection" select="''"/>
+    
+    <!-- Generate new TEI page, run over any TEI. 
+    <xsl:param name="outputFile" select="''"/>
+    <xsl:param name="outputCollection" select="''"/>
+    -->
+    
+    <!-- Find repo-config to find collection style values and page stubs -->
+    <xsl:variable name="configPath">
+        <xsl:choose>
+            <xsl:when test="$staticSitePath != ''">
+                <xsl:value-of select="concat($staticSitePath, '/siteGenerator/components/repo-config.xml')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'../components/repo-config.xml'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    
+    <!-- Get configuration file.  -->
     <xsl:variable name="config">
         <xsl:if test="doc-available(xs:anyURI($configPath))">
             <xsl:sequence select="document(xs:anyURI($configPath))"/>
         </xsl:if>
+    </xsl:variable>
+      
+    <!-- Root of app for building dynamic links. Default is eXist app root -->
+    <!-- Not needed? -->
+    <xsl:variable name="nav-base" select="'/'"/>
+    
+    <!-- Base URI for identifiers in app data -->
+    <xsl:variable name="base-uri">
+        <xsl:choose>
+            <xsl:when test="$config/descendant::*:base_uri">
+                <xsl:value-of select="$config/descendant::*:base_uri"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'http://syriaca.org'"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:variable>
     
     <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
@@ -69,12 +111,7 @@
     <!-- eXist app root for app deployment-->
     <!-- Not needed? -->
     <xsl:param name="app-root" select="$applicationPath"/>
-    <!-- Root of app for building dynamic links. Default is eXist app root -->
-    <!-- Not needed? -->
-    <xsl:param name="nav-base" select="'/'"/>
     
-    <!-- Base URI for identifiers in app data -->
-    <xsl:param name="base-uri" select="'http://syriaca.org'"/>
     
     <!-- Hard coded values-->
     <xsl:param name="normalization">NFKC</xsl:param>
