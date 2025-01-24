@@ -27,14 +27,16 @@
  <!-- =================================================================== -->
  <!-- import component stylesheets for HTML page portions -->
  <!-- =================================================================== -->
+    <xsl:message>Importing stylesheet: tei2html.xsl</xsl:message>
     <xsl:import href="tei2html.xsl"/>
     <xsl:import href="maps.xsl"/>
+    <xsl:message>Imported stylesheet: maps.xsl</xsl:message>
 
     
  <!-- =================================================================== -->
  <!-- set output for indented HTML -->
  <!-- =================================================================== -->
-    <xsl:output name="html" encoding="UTF-8" method="html" indent="no" omit-xml-declaration="yes"/>    
+    <xsl:output name="html" encoding="UTF-8" method="xhtml" indent="no" omit-xml-declaration="yes"/>    
     
     <!-- 
     Step 1: 
@@ -342,11 +344,13 @@
                     <xsl:otherwise>
                         <xsl:choose>
                             <xsl:when test="$collectionTemplate">
+                                <xsl:message>Applying template for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
                                 <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
                                     <xsl:with-param name="collection" select="$collection"/>
                                 </xsl:apply-templates>
                             </xsl:when>
                             <xsl:otherwise>
+                                <xsl:message>Calling genericTEIPage for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
                                 <xsl:call-template name="genericTEIPage">
                                     <xsl:with-param name="config" select="$config"></xsl:with-param>
                                     <xsl:with-param name="repository-title" select="$repository-title"/>
@@ -444,6 +448,11 @@
         <xsl:param name="node"/>
         <xsl:param name="formats"/>
         <xsl:param name="idno"/>
+        <xsl:message>otherDataFormats invoked with:</xsl:message>
+        <xsl:message>Node: <xsl:value-of select="$node/name()"/></xsl:message>
+        <xsl:message>Formats: <xsl:value-of select="$formats"/></xsl:message>
+        <xsl:message>IDNO: <xsl:value-of select="$idno"/></xsl:message>
+
         <!-- WS: Needs work -->
         <xsl:variable name="dataPath" select="substring-before(concat($staticSitePath,'/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
         <xsl:if test="$formats != ''">
@@ -505,9 +514,15 @@
         <xsl:param name="repository-title"/>
         <xsl:param name="collection-title"/>
         <xsl:param name="idno"/>
+        <xsl:message>Entering genericTEIPage template</xsl:message>
+        <xsl:message>Config: <xsl:value-of select="$config"/></xsl:message>
+        <xsl:message>Repository Title: <xsl:value-of select="$repository-title"/></xsl:message>
+        <xsl:message>Collection Title: <xsl:value-of select="$collection-title"/></xsl:message>
+        <xsl:message>IDNO: <xsl:value-of select="$idno"/></xsl:message>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div class="main-content-block">
                 <div class="interior-content">
+                    <xsl:message>Calling otherDataFormats for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
                     <xsl:call-template name="otherDataFormats">
                         <xsl:with-param name="node" select="t:TEI"/>
                         <xsl:with-param name="idno" select="$idno"/>
