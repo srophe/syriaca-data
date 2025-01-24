@@ -150,8 +150,7 @@ jobs:
             
             # Run the XSLT transformation located in the siteGenerator of syriaca repository
 
-            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html dataPath=./data/
-
+            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html 
             # verified that no html is created with syriaca repository resource
             if [ -f data-html/${type}/${filename}.html ]; then
               echo "✅ Successfully created: data-html/${type}/${filename}.html"
