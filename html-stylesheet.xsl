@@ -27,11 +27,8 @@
  <!-- =================================================================== -->
  <!-- import component stylesheets for HTML page portions -->
  <!-- =================================================================== -->
-    <xsl:message>Importing stylesheet: tei2html.xsl</xsl:message>
     <xsl:import href="tei2html.xsl"/>
     <xsl:import href="maps.xsl"/>
-    <xsl:message>Imported stylesheet: maps.xsl</xsl:message>
-
     
  <!-- =================================================================== -->
  <!-- set output for indented HTML -->
