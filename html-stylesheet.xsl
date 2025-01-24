@@ -341,7 +341,10 @@
                     <xsl:otherwise>
                         <xsl:choose>
                             <xsl:when test="$collectionTemplate">
-                                <xsl:message>Applying template for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
+                                <xsl:message>Applying collection template for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
+                                <xsl:message>
+                                    Collection name: <xsl:value-of select="$collection"/> | Template path: <xsl:value-of select="document-uri($collectionTemplate)"/>
+                                </xsl:message>
                                 <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
                                     <xsl:with-param name="collection" select="$collection"/>
                                 </xsl:apply-templates>
