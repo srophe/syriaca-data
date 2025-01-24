@@ -151,17 +151,17 @@ jobs:
             
             # Run the XSLT transformation located in the siteGenerator of syriaca repository: did not work
 
-            # java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html 
+            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html 
             # verified that no html is created with syriaca repository resource
-            # if [ -f data-html/${type}/${filename}.html ]; then
-            #   echo "✅ Successfully created: data-html/${type}/${filename}.html"
-            # else
-            #   echo "❌ Failed to create: data-html/${type}/${filename}.html"
-            # fi
+            if [ -f data-html/${type}/${filename}.html ]; then
+              echo "✅ Successfully created: data-html/${type}/${filename}.html"
+            else
+              echo "❌ Failed to create: data-html/${type}/${filename}.html"
+            fi
 
             # Run the XSLT transformation located in the root of syriaca-data repository
             
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
+            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
 
           done < xml_files.txt
 
