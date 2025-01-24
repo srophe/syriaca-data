@@ -259,6 +259,7 @@
         <xsl:variable name="collectionValues" select="$config/descendant::*:collection[@record-URI-pattern = $collectionURIPattern][1]"/>        
         <xsl:variable name="collectionTemplate">
             <xsl:variable name="templatePath" select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/>
+            <xsl:message>Template path being resolved: <xsl:value-of select="$templatePath"/></xsl:message>
             <xsl:if test="doc-available(xs:anyURI($templatePath))">
                 <xsl:sequence select="document(xs:anyURI($templatePath))"/>
             </xsl:if>
@@ -343,7 +344,7 @@
                             <xsl:when test="$collectionTemplate">
                                 <xsl:message>Applying collection template for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
                                 <xsl:message>
-                                    Collection name: <xsl:value-of select="$collection"/> | Template path: <xsl:value-of select="document-uri($collectionTemplate)"/>
+                                    Collection name: <xsl:value-of select="$collection"/> | Template path: <xsl:value-of select="$collectionTemplate"/>
                                 </xsl:message>
                                 <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
                                     <xsl:with-param name="collection" select="$collection"/>
