@@ -128,6 +128,7 @@ jobs:
       #     AWS_REGION: ${{ secrets.AWS_REGION }}          
 
       # Step 6: Convert HTML files
+      # Create directory to save the HTML files into
       - name: Create static HTML directory
         run: |
           mkdir -p data-html  
@@ -148,20 +149,19 @@ jobs:
             # fi
             echo "HTML type $type"
             
-            # Run the XSLT transformation located in the siteGenerator of syriaca repository
+            # Run the XSLT transformation located in the siteGenerator of syriaca repository: did not work
 
-            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html 
+            # java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html 
             # verified that no html is created with syriaca repository resource
-            if [ -f data-html/${type}/${filename}.html ]; then
-              echo "✅ Successfully created: data-html/${type}/${filename}.html"
-            else
-              echo "❌ Failed to create: data-html/${type}/${filename}.html"
-            fi
+            # if [ -f data-html/${type}/${filename}.html ]; then
+            #   echo "✅ Successfully created: data-html/${type}/${filename}.html"
+            # else
+            #   echo "❌ Failed to create: data-html/${type}/${filename}.html"
+            # fi
 
             # Run the XSLT transformation located in the root of syriaca-data repository
             
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
 
           done < xml_files.txt
 
@@ -186,11 +186,6 @@ jobs:
 
       - name: Upload HTML files to S3
         run: |
-          # Count XML files
-          find ./data/places/tei/ -type f -name "*.xml" | wc -l
-          
-          # Count HTML files
-          find ./data-html/place/ -type f -name "*.html" | wc -l
 
           for html_file in $(find ./data-html -name "*.html"); do
             type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
