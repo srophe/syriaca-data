@@ -147,12 +147,14 @@ jobs:
             #   type="cbss"
             # fi
             echo "HTML type $type"
-      
-            #java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html dataPath=./data/
+            
+            # Run the XSLT transformation located in the siteGenerator of syriaca repository
+
+            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html dataPath=./data/ 2> error.log
 
             # Run the XSLT transformation located in the root of syriaca-data repository
             
-            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
+            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
             # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
 
           done < xml_files.txt
@@ -177,7 +179,12 @@ jobs:
 
       - name: Upload HTML files to S3
         run: |
-        
+          # Count XML files
+          find ./data/places/tei/ -type f -name "*.xml" | wc -l
+          
+          # Count HTML files
+          find ./data-html/places/ -type f -name "*.html" | wc -l
+
           for html_file in $(find ./data-html -name "*.html"); do
             type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
             echo "html_file $html_file"
