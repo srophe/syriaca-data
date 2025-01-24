@@ -29,13 +29,12 @@
  <!-- =================================================================== -->
     <xsl:import href="tei2html.xsl"/>
     <xsl:import href="maps.xsl"/>
-<!--    <xsl:import href="json.xsl"/>-->
-<!--    <xsl:import href="relationships.xsl"/>-->
+
     
  <!-- =================================================================== -->
- <!-- set output so we get (mostly) indented HTML -->
+ <!-- set output for indented HTML -->
  <!-- =================================================================== -->
-    <xsl:output name="html" encoding="UTF-8" method="xhtml" indent="no" omit-xml-declaration="yes"/>    
+    <xsl:output name="html" encoding="UTF-8" method="html" indent="no" omit-xml-declaration="yes"/>    
     
     <!-- 
     Step 1: 
@@ -612,46 +611,45 @@
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Russian.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Arabic.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Hebrew.min.js"/>
-            <script type="text/javascript">
-                <xsl:text disable-output-escaping="yes">
-                    <![CDATA[
+<!--             Changed from syriaca repo version to eliminate improper formatting -->
+            <script type="text/javascript"> 
+                <![CDATA[
                 $(document).ready(function () {
-                $('[data-toggle="tooltip"]').tooltip({ container: 'body' })
-                
-                $('.keyboard').keyboard({
-                openOn: null,
-                stayOpen: false,
-                alwaysOpen: false,
-                autoAccept: true,
-                usePreview: false,
-                initialFocus: true,
-                rtl : true,
-                layout: 'syriac-phonetic',
-                hidden: function(event, keyboard, el){
-                //  keyboard.destroy();
-                }
+                    $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
+                    
+                    $('.keyboard').keyboard({
+                        openOn: null,
+                        stayOpen: false,
+                        alwaysOpen: false,
+                        autoAccept: true,
+                        usePreview: false,
+                        initialFocus: true,
+                        rtl: true,
+                        layout: 'syriac-phonetic',
+                        hidden: function(event, keyboard, el) {
+                            // keyboard.destroy();
+                        }
+                    });
+                    
+                    $('.keyboard-select').click(function () {
+                        var keyboardID = '#' + $(this).data("keyboard-id");
+                        var kb = $(keyboardID).getkeyboard();
+                        // Change layout based on link ID
+                        kb.options.layout = this.id;
+                        // Open keyboard if layout is different or time from it last closing is < 200 ms
+                        if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200) {
+                            kb.reveal();
+                        }
+                    });
+            
+                    // Change fonts
+                    $('.swap-font').on('click', function () {
+                        var selectedFont = $(this).data("font-id");
+                        $('.selectableFont').not('.syr').css('font-family', selectedFont);
+                        $("*:lang(syr)").css('font-family', selectedFont);
+                    });
                 });
-                
-                $('.keyboard-select').click(function () {
-                var keyboardID = '#' + $(this).data("keyboard-id")
-                var kb = $(keyboardID).getkeyboard();
-                //var kb = $('#searchField').getkeyboard();
-                // change layout based on link ID
-                kb.options.layout = this.id
-                // open keyboard if layout is different, or time from it last closing is &gt; 200 ms
-                if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200) {
-                kb.reveal();
-                }
-                });
-                //Change fonts
-                $('.swap-font').on('click', function(){
-                var selectedFont = $(this).data("font-id")
-                $('.selectableFont').not('.syr').css('font-family', selectedFont);
-                $("*:lang(syr)").css('font-family', selectedFont)
-                });
-                
-                })]]>
-                </xsl:text>
+                ]]>
             </script>
         </head>
     </xsl:template>
