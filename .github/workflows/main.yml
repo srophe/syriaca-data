@@ -183,7 +183,7 @@ jobs:
           find ./data/places/tei/ -type f -name "*.xml" | wc -l
           
           # Count HTML files
-          find ./data-html/places/ -type f -name "*.html" | wc -l
+          find ./data-html/place/ -type f -name "*.html" | wc -l
 
           for html_file in $(find ./data-html -name "*.html"); do
             type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
