@@ -180,13 +180,31 @@
         <xsl:variable name="filename">
             <xsl:value-of select="replace(tokenize($documentURI,'/')[last()],'.xml','.html')"/>
         </xsl:variable>
-        <xsl:variable name="path">
+      <xsl:variable name="path">
             <xsl:choose>
+                <xsl:when test="$convert = 'false' and $outputFile != '' and $fileType = 'HTML'">
+                    <path><xsl:value-of select="concat($staticSitePath,$filename)"/></path>
+                </xsl:when>
                 <xsl:when test="$fileType = 'HTML'">
-                    <xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/>
+                    <path idno=""><xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/></path>
                 </xsl:when>
                 <xsl:when test="$fileType = 'TEI'">
-                    <xsl:value-of select="$dataPath"/>
+                    <xsl:variable name="idno" select="replace(descendant::t:publicationStmt/t:idno[@type='URI'],'/tei','')"/>
+                    <!-- Output a version for JoE and Syriaca.org -->
+                    <xsl:if test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons'] or descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
+                        <xsl:variable name="altIdno">
+                            <xsl:choose>
+                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons']">
+                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/persons/')]"/>
+                                </xsl:when>
+                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
+                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/places/')]"/>
+                                </xsl:when>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <path idno="{$altIdno}"><xsl:value-of select="concat(replace($altIdno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
+                    </xsl:if>
+                    <path idno="{$idno}"><xsl:value-of select="concat(replace($idno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
                 </xsl:when>
                 <xsl:otherwise><xsl:message>Unrecognizable file type <xsl:value-of select="$fileType"/> [<xsl:value-of select="$documentURI"/>]</xsl:message></xsl:otherwise>
             </xsl:choose>
