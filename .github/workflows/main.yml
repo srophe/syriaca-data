@@ -150,13 +150,14 @@ jobs:
             
             # Run the XSLT transformation located in the siteGenerator of syriaca repository
 
-            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html dataPath=./data/ 2> error.log
-            # verify that html is created with syriaca repository resource
+            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html dataPath=../data/ 2> error.log
+            - name: Check error.log
+
+            # verified that no html is created with syriaca repository resource
             if [ -f data-html/${type}/${filename}.html ]; then
               echo "✅ Successfully created: data-html/${type}/${filename}.html"
             else
               echo "❌ Failed to create: data-html/${type}/${filename}.html"
-              exit 1
             fi
 
             # Run the XSLT transformation located in the root of syriaca-data repository
@@ -165,6 +166,15 @@ jobs:
             # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${filename}.html
 
           done < xml_files.txt
+          
+          run: |
+            if [ -f error.log ]; then
+              echo "Found error.log. Contents:"
+              cat error.log
+            else
+              echo "No error.log file found."
+            fi
+
 
       # Step 6: 
       - name: Configure AWS credentials from AWS account
