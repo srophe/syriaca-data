@@ -86,7 +86,7 @@ jobs:
           cat xml_files.txt
           
 
-      # Step 5: Run XSLT Transformations and Merge into Single JSON 
+      # Step 5: Run XSLT Transformations and Merge into Single JSON for OpenSearch
       # - name: Run XSLT Transformations and Create Bulk JSON
       #   run: |
       #     if [ ! -s xml_files.txt ]; then
@@ -127,7 +127,7 @@ jobs:
       #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       #     AWS_REGION: ${{ secrets.AWS_REGION }}          
 
-      # Step 6: Convert HTML files
+      # Step 6: Convert TEI to HTML files for front-end hosting
       # Create directory to save the HTML files into
       - name: Create static HTML directory
         run: |
@@ -141,27 +141,16 @@ jobs:
             echo "Processing $file for HTML"
             # Extract the document type from the file path
             type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+            
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
-            echo "html filename: $filename"
-            # if [ "$type" == "bibl" ]; then
-            #   type="cbss"
-            # fi
-            echo "HTML type $type"
             
-            # Run the XSLT transformation located in the siteGenerator of syriaca repository: did not work
-
-            java -jar saxon.jar -s:$file -xsl:syriaca/siteGenerator/xsl/staticHTML.xsl -o:data-html/${type}/${filename}.html 
-            # verified that no html is created with syriaca repository resource
-            if [ -f data-html/${type}/${filename}.html ]; then
-              echo "✅ Successfully created: data-html/${type}/${filename}.html"
-            else
-              echo "❌ Failed to create: data-html/${type}/${filename}.html"
-            fi
+            echo "html filename: $filename"
+            echo "HTML conversion type $type"
 
             # Run the XSLT transformation located in the root of syriaca-data repository
             
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
 
           done < xml_files.txt
 
