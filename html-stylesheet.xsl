@@ -346,9 +346,18 @@
                                 <xsl:message>
                                     Collection name: <xsl:value-of select="$collection"/> | Template: <xsl:value-of select="$collectionTemplate"/>
                                 </xsl:message>
-                                <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
-                                    <xsl:with-param name="collection" select="$collection"/>
-                                </xsl:apply-templates>
+                                <div class="main-content-block">
+                                    <div class="interior-content">
+                                        <xsl:call-template name="otherDataFormats">
+                                        <xsl:with-param name="node" select="t:TEI"/>
+                                        <xsl:with-param name="idno" select="$idno"/>
+                                            <xsl:with-param name="formats" select="'print,tei,rdf'"/>
+                                        </xsl:call-template>
+                                        <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
+                                            <xsl:with-param name="collection" select="$collection"/>
+                                        </xsl:apply-templates>
+                                    </div>
+                                </div>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:message>Calling genericTEIPage for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
@@ -627,46 +636,7 @@
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Russian.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Arabic.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Hebrew.min.js"/>
-<!--             Changed from syriaca repo version to eliminate improper formatting -->
-            <script type="text/javascript"> 
-                <![CDATA[
-                $(document).ready(function () {
-                    $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
-                    
-                    $('.keyboard').keyboard({
-                        openOn: null,
-                        stayOpen: false,
-                        alwaysOpen: false,
-                        autoAccept: true,
-                        usePreview: false,
-                        initialFocus: true,
-                        rtl: true,
-                        layout: 'syriac-phonetic',
-                        hidden: function(event, keyboard, el) {
-                            // keyboard.destroy();
-                        }
-                    });
-                    
-                    $('.keyboard-select').click(function () {
-                        var keyboardID = '#' + $(this).data("keyboard-id");
-                        var kb = $(keyboardID).getkeyboard();
-                        // Change layout based on link ID
-                        kb.options.layout = this.id;
-                        // Open keyboard if layout is different or time from it last closing is < 200 ms
-                        if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200) {
-                            kb.reveal();
-                        }
-                    });
-            
-                    // Change fonts
-                    $('.swap-font').on('click', function () {
-                        var selectedFont = $(this).data("font-id");
-                        $('.selectableFont').not('.syr').css('font-family', selectedFont);
-                        $("*:lang(syr)").css('font-family', selectedFont);
-                    });
-                });
-                ]]>
-            </script>
+            <script type="text/javascript" src="/resources/js/keyboard.js"/>
         </head>
     </xsl:template>
     <xsl:template name="genericNav">
