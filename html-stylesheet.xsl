@@ -371,10 +371,10 @@
                                                     <!-- Maps for related places -->
                                                 </xsl:choose>
                                                 <span class="rdfRelationships" data-recordID="{$idno}"/>
-                                        
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:message>Calling genericTEIPage for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
