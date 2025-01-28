@@ -73,7 +73,7 @@
     <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
     <xsl:param name="data-root" select="'/data'"/>
     <!-- eXist app root for app deployment-->
-    <xsl:param name="app-root" select="'/db/apps/srophe'"/>
+    <xsl:param name="app-root" select="'/syriaca'"/>
     <!-- Root of app for building dynamic links. Default is eXist app root -->
     <xsl:param name="nav-base" select="''"/>
     <!-- Base URI for identifiers in app data -->
@@ -84,8 +84,9 @@
     <xsl:param name="normalization">NFKC</xsl:param>
     <!-- Repo-config -->
     <xsl:variable name="config">
-        <xsl:if test="doc-available(concat('xmldb:exist://',$app-root,'/repo-config.xml'))">
-            <xsl:sequence select="doc(concat('xmldb:exist://',$app-root,'/repo-config.xml'))"/>
+        <xsl:if test="doc-available(concat('/repo-config.xml'">
+            <xsl:sequence select="'/repo-config.xml'"/>
+            <xsl:message>repo-config found</xsl:message>
         </xsl:if>
     </xsl:variable>  
     <!-- Repository Title -->
