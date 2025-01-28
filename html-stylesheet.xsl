@@ -479,14 +479,20 @@
         <xsl:message>Node: <xsl:value-of select="$node/name()"/></xsl:message>
         <xsl:message>Formats: <xsl:value-of select="$formats"/></xsl:message>
         <xsl:message>IDNO: <xsl:value-of select="$idno"/></xsl:message>
+        <xsl:message>Debugging: The current value of dataPath is '<xsl:value-of select="$dataPath"/>'</xsl:message>
+
 
         <!-- WS: Needs work -->
         <xsl:variable name="dataPath" select="substring-before(concat($staticSitePath,'/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
+        <xsl:message>Debugging: Resolved dataPath for this resource = '<xsl:value-of select="$dataPath"/>'</xsl:message>
+
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
                 <xsl:for-each select="tokenize($formats,',')">
                     <xsl:choose>
                         <xsl:when test=". = 'geojson'">
+                            <xsl:message>Debugging: Resolved dataPath for this resource = '<xsl:value-of select="{concat($dataPath,'.geojson')}"/>'</xsl:message>
+
                             <a href="{concat($dataPath,'.geojson')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> GeoJSON
                             </a><xsl:text>&#160;</xsl:text>
