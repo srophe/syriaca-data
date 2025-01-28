@@ -485,6 +485,23 @@
         <!-- WS: Needs work -->
         <xsl:variable name="dataPath" select="substring-before(concat('/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
         <xsl:message>Debugging: Resolved dataPath for this resource = '<xsl:value-of select="$dataPath"/>'</xsl:message>
+        <!-- Normalize the resource path -->
+<xsl:variable name="normalizedPath" select="replace($resource-path, '^.*/data/', 'data/')"/>
+
+<!-- Construct the resolved path -->
+<xsl:variable name="resolvedPath" select="concat($dataPath, substring-after($normalizedPath, 'data/'))"/>
+
+<!-- Debugging Messages -->
+<xsl:message>
+    Debugging: The current value of dataPath is '<xsl:value-of select="$dataPath"/>'.
+</xsl:message>
+<xsl:message>
+    Debugging: Normalized resource-path = '<xsl:value-of select="$normalizedPath"/>'.
+</xsl:message>
+<xsl:message>
+    Debugging: Resolved dataPath for this resource = '<xsl:value-of select="$resolvedPath"/>'.
+</xsl:message>
+
 
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
