@@ -302,7 +302,7 @@
                             <xsl:when test="$collectionTemplate/child::*">
                                 <xsl:sequence select="$collectionTemplate"/> 
                             </xsl:when>
-                            <xsl:otherwise><xsl:message>Error Can not find matching template for TEI page </xsl:message></xsl:otherwise>
+                            <xsl:otherwise><xsl:otherwise><xsl:message>Error Can not find matching template for TEI page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise></xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
                 </xsl:choose>
@@ -484,6 +484,19 @@
 <xsl:message>
     Debugging: The normalized value of dataPath is '<xsl:value-of select="$dataPath"/>'.
 </xsl:message>
+            <!-- Normalize the resource path -->
+    <xsl:variable name="resolvedPath" select="concat($dataPath, substring-after($idno, 'data/'))"/>
+    <xsl:message>
+        Debugging: The resolved dataPath for this resource is '<xsl:value-of select="$resolvedPath"/>'.
+    </xsl:message>
+
+    <!-- Verify if the file exists -->
+    <xsl:if test="doc-available(xs:anyURI($resolvedPath))">
+        <xsl:message>Debugging: File found at '<xsl:value-of select="$resolvedPath"/>'</xsl:message>
+    </xsl:if>
+    <xsl:if test="not(doc-available(xs:anyURI($resolvedPath)))">
+        <xsl:message>Warning: File not found at '<xsl:value-of select="$resolvedPath"/>'</xsl:message>
+    </xsl:if>
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
                 <xsl:for-each select="tokenize($formats,',')">
