@@ -483,13 +483,9 @@
 
 
         <!-- WS: Needs work -->
-        <xsl:variable name="dataPath" select="substring-before(concat('/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
-        <xsl:message>Debugging: Resolved dataPath for this resource = '<xsl:value-of select="$dataPath"/>'</xsl:message>
-        <!-- Normalize the resource path -->
-<xsl:variable name="normalizedPath" select="replace($resource-path, '^.*/data/', 'data/')"/>
 
-<!-- Construct the resolved path -->
-<xsl:variable name="resolvedPath" select="concat($dataPath, substring-after($normalizedPath, 'data/'))"/>
+        <!-- Normalize the resource path --> -->
+<xsl:variable name="dataPath" select="replace($resource-path, '^.*/data/', 'data/')"/>
 
 <!-- Debugging Messages -->
 <xsl:message>
@@ -498,23 +494,12 @@
 <xsl:message>
     Debugging: Normalized resource-path = '<xsl:value-of select="$normalizedPath"/>'.
 </xsl:message>
-<xsl:message>
-    Debugging: Resolved dataPath for this resource = '<xsl:value-of select="$resolvedPath"/>'.
-</xsl:message>
-
-
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
                 <xsl:for-each select="tokenize($formats,',')">
                     <xsl:choose>
                         <xsl:when test=". = 'geojson'">
-                        <xsl:variable name="resolvedPath" select="concat($dataPath, '.geojson')"/>
-
-                        <!-- Debugging Message -->
-                        <xsl:message>
-                            Debugging: Resolved dataPath for this resource = 
-                                <xsl:value-of select="$resolvedPath"/>
-                        </xsl:message>
+                        <xsl:variable name="dataPath" select="concat($dataPath, '.geojson')"/>
                             <a href="{concat($dataPath,'.geojson')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> GeoJSON
                             </a><xsl:text>&#160;</xsl:text>
