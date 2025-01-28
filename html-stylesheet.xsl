@@ -342,9 +342,6 @@
                     <xsl:otherwise>
                         <xsl:choose>
                             <xsl:when test="$collectionTemplate">
-                                <xsl:message>
-                                    Collection name: <xsl:value-of select="$collection"/> | Template: <xsl:value-of select="$collectionTemplate"/>
-                                </xsl:message>
                                 <div class="main-content-block">
                                     <div class="interior-content">
                                         <xsl:call-template name="otherDataFormats">
@@ -387,6 +384,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))">
+                    <xsl:message>Footer component found</xsl:message>
                     <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))"/>
                 </xsl:if>
             </body>
