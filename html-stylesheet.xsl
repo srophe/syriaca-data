@@ -342,7 +342,6 @@
                     <xsl:otherwise>
                         <xsl:choose>
                             <xsl:when test="$collectionTemplate">
-                                <xsl:message>Applying collection template for resource-path: <xsl:value-of select="$resource-path"/></xsl:message>
                                 <xsl:message>
                                     Collection name: <xsl:value-of select="$collection"/> | Template: <xsl:value-of select="$collectionTemplate"/>
                                 </xsl:message>
@@ -475,23 +474,16 @@
         <xsl:param name="node"/>
         <xsl:param name="formats"/>
         <xsl:param name="idno"/>
-        <xsl:message>otherDataFormats invoked with:</xsl:message>
-        <xsl:message>Node: <xsl:value-of select="$node/name()"/></xsl:message>
-        <xsl:message>Formats: <xsl:value-of select="$formats"/></xsl:message>
         <xsl:message>IDNO: <xsl:value-of select="$idno"/></xsl:message>
-        <xsl:message>Debugging: The current value of dataPath is '<xsl:value-of select="$dataPath"/>'</xsl:message>
-
-
-        <!-- WS: Needs work -->
+        <xsl:message>Debugging: The input value of dataPath is '<xsl:value-of select="$dataPath"/>'</xsl:message>
 
         <!-- Normalize the resource path --> -->
-<xsl:variable name="dataPath" select="replace($resource-path, '^.*/data/', 'data/')"/>
+<xsl:variable name="dataPath" select="replace($resource-path, '^.*/data/', './data/')"/>
 
 <!-- Debugging Messages -->
 <xsl:message>
-    Debugging: The current value of dataPath is '<xsl:value-of select="$dataPath"/>'.
+    Debugging: The normalized value of dataPath is '<xsl:value-of select="$dataPath"/>'.
 </xsl:message>
-
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
                 <xsl:for-each select="tokenize($formats,',')">
@@ -564,7 +556,6 @@
                     <xsl:call-template name="otherDataFormats">
                         <xsl:with-param name="node" select="t:TEI"/>
                         <xsl:with-param name="idno" select="$idno"/>
-<!--                        <xsl:with-param name="formats" select="'print,tei,rdf,text'"/>-->
                         <xsl:with-param name="formats" select="'print,tei'"/>
                     </xsl:call-template>
                     <div class="row">
