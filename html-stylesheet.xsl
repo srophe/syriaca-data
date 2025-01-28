@@ -491,8 +491,13 @@
                 <xsl:for-each select="tokenize($formats,',')">
                     <xsl:choose>
                         <xsl:when test=". = 'geojson'">
-                            <xsl:message>Debugging: Resolved dataPath for this resource = '<xsl:value-of select="{concat($dataPath,'.geojson')}"/>'</xsl:message>
+                        <xsl:variable name="resolvedPath" select="concat($dataPath, '.geojson')"/>
 
+                        <!-- Debugging Message -->
+                        <xsl:message>
+                            Debugging: Resolved dataPath for this resource = 
+                                <xsl:value-of select="$resolvedPath"/>
+                        </xsl:message>
                             <a href="{concat($dataPath,'.geojson')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> GeoJSON
                             </a><xsl:text>&#160;</xsl:text>
