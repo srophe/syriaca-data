@@ -33,7 +33,6 @@
         
        code by: 
         + Winona Salesky (wsalesky@gmail.com)
-          for use with eXist-db
         + Tom Elliott (http://www.paregorios.org) 
           for the Institute for the Study of the Ancient World, New York
           University, under contract to Vanderbilt University for the
