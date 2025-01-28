@@ -53,7 +53,7 @@
     
     <xsl:param name="applicationPath" select="'syriaca'"/>
     <xsl:param name="staticSitePath" select="'syriaca'"/>
-    <xsl:param name="dataPath" select="'data/'"/>
+    <xsl:param name="dataPath" select="'../data/'"/>
     
     <!-- Example: generate new index.html page for places collection -->
     <xsl:param name="convert" select="'false'"/>
@@ -302,7 +302,7 @@
                             <xsl:when test="$collectionTemplate/child::*">
                                 <xsl:sequence select="$collectionTemplate"/> 
                             </xsl:when>
-                            <xsl:otherwise><xsl:otherwise><xsl:message>Error Can not find matching template for TEI page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise></xsl:otherwise>
+                            <xsl:otherwise><xsl:message>Error Can not find matching template for TEI page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
                 </xsl:choose>
