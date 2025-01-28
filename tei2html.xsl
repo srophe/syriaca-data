@@ -84,11 +84,17 @@
     <xsl:param name="normalization">NFKC</xsl:param>
     <!-- Repo-config -->
     <xsl:variable name="config">
-        <xsl:if test="doc-available(concat('/repo-config.xml'">
-            <xsl:sequence select="'/repo-config.xml'"/>
-            <xsl:message>repo-config found</xsl:message>
-        </xsl:if>
-    </xsl:variable>  
+        <xsl:choose>
+            <xsl:when test="doc-available('/repo-config.xml')">
+                <xsl:message>repo-config found</xsl:message>
+                <xsl:sequence select="document('/repo-config.xml')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:message>Warning: repo-config not found</xsl:message>
+                <xsl:sequence select="()" />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
     <!-- Repository Title -->
     <xsl:variable name="repository-title">
         <xsl:choose>
