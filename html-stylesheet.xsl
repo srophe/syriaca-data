@@ -491,9 +491,7 @@
 <xsl:message>
     Debugging: The current value of dataPath is '<xsl:value-of select="$dataPath"/>'.
 </xsl:message>
-<xsl:message>
-    Debugging: Normalized resource-path = '<xsl:value-of select="$normalizedPath"/>'.
-</xsl:message>
+
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
                 <xsl:for-each select="tokenize($formats,',')">
