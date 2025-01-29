@@ -257,7 +257,7 @@
                                             </xsl:if>
                                         </xsl:message>
                                                                                 <xsl:message>
-                                            <xsl:if test="doc-available('syriaca-data/data/bibl/tei/22278522.xml')">
+                                            <xsl:if test="doc-available('data/bibl/tei/N42AM4Q2.xml')">
                                                 ✅ Test Passed: 3.xml is available
                                             </xsl:if>
                                         </xsl:message>
