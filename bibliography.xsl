@@ -220,8 +220,8 @@
                                 <xsl:variable name="file" select="tokenize($target,'/')[last()]"/>
                                 <xsl:variable name="dataFilePath">
                                     <xsl:choose>
-                                        <xsl:when test="ends-with($dataPath,'/data/')"><xsl:value-of select="concat($dataPath,'bibl/tei/')"/></xsl:when>
-                                        <xsl:when test="ends-with($dataPath,'/data')"><xsl:value-of select="concat($dataPath,'/bibl/tei/')"/></xsl:when>
+                                        <xsl:when test="ends-with($dataPath,'data/')"><xsl:value-of select="concat($dataPath,'bibl/tei/')"/></xsl:when>
+                                        <xsl:when test="ends-with($dataPath,'data')"><xsl:value-of select="concat($dataPath,'/bibl/tei/')"/></xsl:when>
                                         <xsl:otherwise><xsl:value-of select="concat($dataPath,'/data/bibl/tei/')"/></xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:variable>
@@ -230,7 +230,6 @@
                                 </xsl:variable>
                                 <xsl:choose>
                                     <xsl:when test="doc-available($biblfilepath)">
-                                        <message>doc found at biblfilepath</message>
                                         <xsl:variable name="rec" select="document($biblfilepath)"/>
                                         <xsl:for-each select="$rec/descendant::t:biblStruct">
                                             <xsl:apply-templates mode="footnote"/>
@@ -246,22 +245,6 @@
                                     <xsl:otherwise>
                                         <!-- Debugging Messages -->
                                         <xsl:message>The value of biblfilepath is :'<xsl:value-of select="$biblfilepath"/>'</xsl:message>
-                                        <xsl:message>
-                                            <xsl:if test="doc-available('./data/bibl/tei/22278522.xml')">
-                                                ✅ Test Passed: 1 xml is available
-                                            </xsl:if>
-                                        </xsl:message>
-                                        <xsl:message>
-                                            <xsl:if test="doc-available('data/bibl/tei/22278522.xml')">
-                                                ✅ Test Passed: 2 xml is available
-                                            </xsl:if>
-                                        </xsl:message>
-                                                                                <xsl:message>
-                                            <xsl:if test="doc-available('data/bibl/tei/N42AM4Q2.xml')">
-                                                ✅ Test Passed: 3.xml is available
-                                            </xsl:if>
-                                        </xsl:message>
-
                                         <xsl:apply-templates mode="footnote"/>
                                         <xsl:sequence select="$passThrough"/>
                                         <xsl:if test="descendant::t:idno[@type='URI']">
