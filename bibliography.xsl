@@ -246,6 +246,12 @@
                                     <xsl:otherwise>
                                         <!-- Debugging Messages -->
                                         <xsl:message>The value of biblfilepath is ' <xsl:value-of select="$biblfilepath"/>'</xsl:message>
+                                        <xsl:message>
+                                            <xsl:if test="doc-available('data/bibl/tei/22278522.xml')">
+                                                ✅ Test Passed: 3002.xml is available
+                                            </xsl:if>
+                                        </xsl:message>
+
                                         <xsl:apply-templates mode="footnote"/>
                                         <xsl:sequence select="$passThrough"/>
                                         <xsl:if test="descendant::t:idno[@type='URI']">
