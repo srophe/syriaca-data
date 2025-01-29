@@ -473,28 +473,15 @@
         <xsl:param name="formats"/>
         <xsl:param name="idno"/>
         <xsl:message>IDNO: <xsl:value-of select="$idno"/></xsl:message>
-        <xsl:message>Debugging: The input value of dataPath is '<xsl:value-of select="$dataPath"/>'</xsl:message>
 
         <!-- Normalize the resource path --> -->
-<xsl:variable name="dataPath" select="replace($resource-path, '^.*/data/', './data/')"/>
+        <xsl:variable name="dataPath" select="replace($resource-path, '^.*/data/', './data/')"/>
 
-<!-- Debugging Messages -->
-<xsl:message>
-    Debugging: The normalized value of dataPath is '<xsl:value-of select="$dataPath"/>'.
-</xsl:message>
-            <!-- Normalize the resource path -->
-    <xsl:variable name="resolvedPath" select="concat($dataPath, substring-after($idno, 'data/'))"/>
-    <xsl:message>
-        Debugging: The resolved dataPath for this resource is '<xsl:value-of select="$resolvedPath"/>'.
-    </xsl:message>
+        <xsl:message>
+            Debugging: The normalized value of dataPath is '<xsl:value-of select="$dataPath"/>'.
+        </xsl:message>
+       
 
-    <!-- Verify if the file exists -->
-    <xsl:if test="doc-available(xs:anyURI($resolvedPath))">
-        <xsl:message>Debugging: File found at '<xsl:value-of select="$resolvedPath"/>'</xsl:message>
-    </xsl:if>
-    <xsl:if test="not(doc-available(xs:anyURI($resolvedPath)))">
-        <xsl:message>Warning: File not found at '<xsl:value-of select="$resolvedPath"/>'</xsl:message>
-    </xsl:if>
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
                 <xsl:for-each select="tokenize($formats,',')">
