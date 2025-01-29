@@ -476,14 +476,14 @@
         <xsl:message>Debugging: The input value of dataPath is '<xsl:value-of select="$dataPath"/>'</xsl:message>
 
         <!-- Normalize the resource path --> -->
-<xsl:variable name="normalizedDataPath" select="replace($resource-path, '^.*/data/', './data/')"/>
+<xsl:variable name="dataPath" select="replace($resource-path, '^.*/data/', './data/')"/>
 
 <!-- Debugging Messages -->
 <xsl:message>
-    Debugging: The normalized value of dataPath is '<xsl:value-of select="normalizedDataPath"/>'.
+    Debugging: The normalized value of dataPath is '<xsl:value-of select="$dataPath"/>'.
 </xsl:message>
             <!-- Normalize the resource path -->
-    <xsl:variable name="resolvedPath" select="concat(normalizedDataPath, substring-after($idno, 'data/'))"/>
+    <xsl:variable name="resolvedPath" select="concat($dataPath, substring-after($idno, 'data/'))"/>
     <xsl:message>
         Debugging: The resolved dataPath for this resource is '<xsl:value-of select="$resolvedPath"/>'.
     </xsl:message>
@@ -500,19 +500,19 @@
                 <xsl:for-each select="tokenize($formats,',')">
                     <xsl:choose>
                         <xsl:when test=". = 'geojson'">
-                        <xsl:variable name="normalizedDataPath" select="concat(normalizedDataPath, '.geojson')"/>
-                            <a href="{concat(normalizedDataPath,'.geojson')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
+                        <xsl:variable name="dataPath" select="concat($dataPath, '.geojson')"/>
+                            <a href="{concat($dataPath,'.geojson')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> GeoJSON
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'json'">
-                            <a href="{concat(normalizedDataPath,'.json')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
+                            <a href="{concat($dataPath,'.json')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> JSON-LD
                             </a><xsl:text>&#160;</xsl:text> 
                         </xsl:when>
                         <xsl:when test=". = 'kml'">
                             <xsl:if test="$node/descendant::t:location/t:geo">
-                                <a href="{concat(normalizedDataPath,'.kml')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the KML data for this record." >
+                                <a href="{concat($dataPath,'.kml')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the KML data for this record." >
                                     <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> KML
                                 </a><xsl:text>&#160;</xsl:text>
                             </xsl:if>
@@ -523,17 +523,17 @@
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'rdf'">
-                            <a href="{concat(normalizedDataPath,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
+                            <a href="{concat($dataPath,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> RDF/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'tei'">
-                            <a href="{concat(normalizedDataPath,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >
+                            <a href="{concat($dataPath,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> TEI/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'text'">
-                            <a href="{concat(normalizedDataPath,'.txt')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the plain text data for this record." >
+                            <a href="{concat($dataPath,'.txt')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the plain text data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Text
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
