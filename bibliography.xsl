@@ -230,6 +230,7 @@
                                 </xsl:variable>
                                 <xsl:choose>
                                     <xsl:when test="doc-available($biblfilepath)">
+                                        <message>doc found at biblfilepath</message>
                                         <xsl:variable name="rec" select="document($biblfilepath)"/>
                                         <xsl:for-each select="$rec/descendant::t:biblStruct">
                                             <xsl:apply-templates mode="footnote"/>
