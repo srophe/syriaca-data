@@ -311,6 +311,8 @@
                     </xsl:variable>
                     <xsl:choose>
                         <xsl:when test="doc-available($biblfilepath)">
+                          <message>doc found at biblfilepath</message>
+
                             <xsl:variable name="rec" select="document($biblfilepath)"/>
                             <xsl:for-each select="$rec/descendant::t:biblStruct">
                                 <xsl:apply-templates mode="footnote"/>
@@ -324,7 +326,24 @@
                             </xsl:for-each>
                         </xsl:when>
                         <xsl:otherwise> 
-                            <xsl:message>The value of biblfilepath is ' <xsl:value-of select="$biblfilepath"/>'</xsl:message>
+                            <xsl:message>The value of biblfilepath is '<xsl:value-of select="$biblfilepath"/>'</xsl:message>
+                                                                    <!-- Debugging Messages -->
+                                        <xsl:message>The value of biblfilepath is :'<xsl:value-of select="$biblfilepath"/>'</xsl:message>
+                                        <xsl:message>
+                                            <xsl:if test="doc-available('./data/bibl/tei/22278522.xml')">
+                                                ✅ Test Passed: 1 xml is available
+                                            </xsl:if>
+                                        </xsl:message>
+                                        <xsl:message>
+                                            <xsl:if test="doc-available('data/bibl/tei/22278522.xml')">
+                                                ✅ Test Passed: 2 xml is available
+                                            </xsl:if>
+                                        </xsl:message>
+                                                                                <xsl:message>
+                                            <xsl:if test="doc-available('syriaca-data/data/bibl/tei/22278522.xml')">
+                                                ✅ Test Passed: 3.xml is available
+                                            </xsl:if>
+                                        </xsl:message>
                             <xsl:apply-templates mode="footnote"/>
                             <xsl:sequence select="$passThrough"/>
                             <xsl:if test="descendant::t:idno[@type='URI']">
