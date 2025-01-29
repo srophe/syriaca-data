@@ -216,15 +216,17 @@
                         <xsl:choose>
                             <xsl:when test="descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/bibl/'))] or descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/cbss/'))]">
                                 <!-- Find file path for bibliographic record -->
-                                <xsl:variable name="biblfilepath">
+                                <xsl:variable name="target" select="descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/bibl/'))]/@target"/>
+                                <xsl:variable name="file" select="tokenize($target,'/')[last()]"/>
+                                <xsl:variable name="dataFilePath">
                                     <xsl:choose>
-                                        <xsl:when test="contains(descendant::t:ptr/@target,'/bibl/')">
-                                            <xsl:value-of select="concat($dataPath,'/bibl/tei/',substring-after(t:ptr/@target, concat($base-uri,'/bibl/')),'.xml')"/>        
-                                        </xsl:when>
-                                        <xsl:when test="contains(descendant::t:ptr/@target,'/cbss/')">
-                                            <xsl:value-of select="concat($dataPath,'/bibl/tei/',substring-after(t:ptr/@target, concat($base-uri,'/cbss/')),'.xml')"/>
-                                        </xsl:when>
+                                        <xsl:when test="ends-with($dataPath,'/data/')"><xsl:value-of select="concat($dataPath,'bibl/tei/')"/></xsl:when>
+                                        <xsl:when test="ends-with($dataPath,'/data')"><xsl:value-of select="concat($dataPath,'/bibl/tei/')"/></xsl:when>
+                                        <xsl:otherwise><xsl:value-of select="concat($dataPath,'/data/bibl/tei/')"/></xsl:otherwise>
                                     </xsl:choose>
+                                </xsl:variable>
+                                <xsl:variable name="biblfilepath">
+                                    <xsl:value-of select="concat($dataFilePath,$file,'.xml')"/>
                                 </xsl:variable>
                                 <xsl:choose>
                                     <xsl:when test="doc-available($biblfilepath)">
@@ -241,6 +243,8 @@
                                         </xsl:for-each>
                                     </xsl:when>
                                     <xsl:otherwise>
+                                        <!-- Debugging Messages -->
+                                        <xsl:message>The value of biblfilepath is ' <xsl:value-of select="$biblfilepath"/>'</xsl:message>
                                         <xsl:apply-templates mode="footnote"/>
                                         <xsl:sequence select="$passThrough"/>
                                         <xsl:if test="descendant::t:idno[@type='URI']">
@@ -276,8 +280,17 @@
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:when test="descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/bibl/'))]">
+                    <xsl:variable name="target" select="descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/bibl/'))]/@target"/>
+                    <xsl:variable name="file" select="tokenize($target,'/')[last()]"/>
+                    <xsl:variable name="dataFilePath">
+                        <xsl:choose>
+                            <xsl:when test="ends-with($dataPath,'/data/')"><xsl:value-of select="concat($dataPath,'bibl/tei/')"/></xsl:when>
+                            <xsl:when test="ends-with($dataPath,'/data')"><xsl:value-of select="concat($dataPath,'/bibl/tei/')"/></xsl:when>
+                            <xsl:otherwise><xsl:value-of select="concat($dataPath,'/data/bibl/tei/')"/></xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
                     <xsl:variable name="biblfilepath">
-                        <xsl:value-of select="concat($dataPath,'/bibl/tei/',substring-after(t:ptr/@target, concat($base-uri,'/bibl/')),'.xml')"/>
+                        <xsl:value-of select="concat($dataFilePath,$file,'.xml')"/>
                     </xsl:variable>
                     <xsl:choose>
                         <xsl:when test="doc-available($biblfilepath)">
@@ -293,7 +306,8 @@
                                 </xsl:if>
                             </xsl:for-each>
                         </xsl:when>
-                        <xsl:otherwise>
+                        <xsl:otherwise> 
+                            <xsl:message>The value of biblfilepath is ' <xsl:value-of select="$biblfilepath"/>'</xsl:message>
                             <xsl:apply-templates mode="footnote"/>
                             <xsl:sequence select="$passThrough"/>
                             <xsl:if test="descendant::t:idno[@type='URI']">
@@ -381,9 +395,21 @@
             <!--<xsl:apply-templates select="//t:bibl[@xml:id=$thistarget]" mode="footnote"/>-->
         </xsl:if>
         <xsl:if test="starts-with(@target, concat($base-uri,'/bibl/'))">
-            <xsl:variable name="biblfilepath" select="concat(replace(replace(@target,$base-uri,$dataPath),'/bibl/','/bibl/tei/'),'.xml')"/>
+            <xsl:variable name="target" select="descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/bibl/'))]/@target"/>
+            <xsl:variable name="file" select="tokenize($target,'/')[last()]"/>
+            <xsl:variable name="dataFilePath">
+                <xsl:choose>
+                    <xsl:when test="ends-with($dataPath,'/data/')"><xsl:value-of select="concat($dataPath,'bibl/tei/')"/></xsl:when>
+                    <xsl:when test="ends-with($dataPath,'/data')"><xsl:value-of select="concat($dataPath,'/bibl/tei/')"/></xsl:when>
+                    <xsl:otherwise><xsl:value-of select="concat($dataPath,'/data/bibl/tei/')"/></xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+            <xsl:variable name="biblfilepath">
+                <xsl:value-of select="concat($dataFilePath,$file,'.xml')"/>
+            </xsl:variable>
             <xsl:if test="doc-available($biblfilepath)">
-                <xsl:apply-templates select="document($biblfilepath)/descendant::t:biblStruct[1]" mode="biblist"/>
+                <xsl:apply-templates select="document($biblfilepath)/descendant::t:biblStruct[1]" mode="biblist"/> 
+                <!--<xsl:value-of select="$biblfilepath"/> -->
             </xsl:if>
         </xsl:if>
     </xsl:template>
