@@ -245,10 +245,20 @@
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <!-- Debugging Messages -->
-                                        <xsl:message>The value of biblfilepath is ' <xsl:value-of select="$biblfilepath"/>'</xsl:message>
+                                        <xsl:message>The value of biblfilepath is :'<xsl:value-of select="$biblfilepath"/>'</xsl:message>
+                                        <xsl:message>
+                                            <xsl:if test="doc-available('./data/bibl/tei/22278522.xml')">
+                                                ✅ Test Passed: 1 xml is available
+                                            </xsl:if>
+                                        </xsl:message>
                                         <xsl:message>
                                             <xsl:if test="doc-available('data/bibl/tei/22278522.xml')">
-                                                ✅ Test Passed: 3002.xml is available
+                                                ✅ Test Passed: 2 xml is available
+                                            </xsl:if>
+                                        </xsl:message>
+                                                                                <xsl:message>
+                                            <xsl:if test="doc-available('syriaca-data/data/bibl/tei/22278522.xml')">
+                                                ✅ Test Passed: 3.xml is available
                                             </xsl:if>
                                         </xsl:message>
 
