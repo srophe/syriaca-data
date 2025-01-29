@@ -474,7 +474,7 @@
         <xsl:param name="idno"/>
         <xsl:message>IDNO: <xsl:value-of select="$idno"/></xsl:message>
 
-        <!-- Normalize the resource path --> -->
+        <!-- Normalize the resource path -->
         <xsl:variable name="dataPath" select="replace($resource-path, '^.*/data/', './data/')"/>
 
         <xsl:message>
