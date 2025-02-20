@@ -122,7 +122,7 @@
         <xsl:if test="contains($id, '/cbss')">
             <xsl:if test="$doc/descendant::tei:bibl[@type='formatted'][@subtype='citation']">
                 <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                    <xsl:value-of select="normalize-space(string-join($doc/descendant::tei:bibl[@type='formatted'][@subtype='citation'],' '))"/>
+                    <xsl:apply-templates select="$doc/descendant::tei:bibl[@type='formatted'][@subtype='citation']" mode="citation"/>
                 </string>   
             </xsl:if>            
         </xsl:if>
@@ -415,6 +415,15 @@
         </xsl:choose>
     </xsl:template>
 <!--    winona's version  -->
+    <xsl:template match="tei:title" mode="citation">
+        <xsl:choose>
+            <xsl:when test="@level = 'a'"> "<xsl:value-of select="."/>" </xsl:when>
+            <xsl:otherwise> &lt;i&gt;<xsl:value-of select="."/>&lt;/i&gt; </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template match="text()" mode="citation">
+        <xsl:text> </xsl:text><xsl:value-of select="normalize-space(.)"/><xsl:text> </xsl:text>
+    </xsl:template>
    <xsl:template match="*:fields[@function = 'abstract']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
