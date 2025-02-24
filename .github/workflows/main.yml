@@ -48,7 +48,7 @@ jobs:
       # Step 3: Identify XML files for processing
       - name: Identify XML files
         run: |
-          find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | head -n 50 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +50 | head -n 51 > xml_files.txt
           echo "Processing $(wc -l < xml_files.txt) XML files"
 
@@ -56,22 +56,29 @@ jobs:
       - name: Convert XML to JSON in Parallel
         run: |
           mkdir -p logs json_output
-          > bulk_data.json  # Create the JSON output file
-      
+          > bulk_data.json  # Create an empty JSON output file
+          
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
-            filename=$(basename ${file%.xml})
+            filename=$(basename "${file%.xml}")
             type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
             [ -z "$type" ] && type="unknown"
             
             echo "Processing $filename for JSON"
-            echo "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
-            if ! java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" >> json_output/$filename.json 2>> logs/errors.log; then
+      
+            # Write index metadata on one line
+            echo -n "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}\n" >> json_output/$filename.json
+      
+            # Ensure the JSON transformation output is on a single line
+            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> json_output/$filename.json; then
               echo "::warning:: JSON transformation failed for $file, skipping..."
             fi
+      
+            echo "" >> json_output/$filename.json  # Ensure newline between entries
           ' sh {}
       
           cat json_output/*.json > bulk_data.json  # Merge all JSON files
+
           
       # Step 5: Configure AWS credentials
       - name: Configure AWS credentials
