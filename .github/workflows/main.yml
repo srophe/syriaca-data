@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'gaddel_development'  # current data branch
-    paths:
-      - 'data'
+    # paths:
+    #   - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -45,21 +45,13 @@ jobs:
         if: steps.cache-saxon.outputs.cache-hit != 'true'
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
-      # Step 3: Configure AWS credentials
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data    
-
-      # Step 4: Identify XML files for processing
+      # Step 3: Identify XML files for processing
       - name: Identify XML files
         run: |
           find ./data/cbss/tei -name '*.xml' | tail -n +50  > xml_files.txt
           echo "Processing $(wc -l < xml_files.txt) XML files"
 
-      # Step 5: Run XSLT Transformations in Parallel for JSON
+      # Step 4: Run XSLT Transformations in Parallel for JSON
       - name: Convert XML to JSON in Parallel
         run: |
           mkdir -p logs json_output
@@ -79,7 +71,14 @@ jobs:
           ' sh {}
       
           cat json_output/*.json > bulk_data.json  # Merge all JSON files
-
+          
+      # Step 5: Configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data    
 
       # Step 6: Upload JSON file to S3
       - name: Upload JSON to S3
