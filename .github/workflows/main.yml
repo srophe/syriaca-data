@@ -48,7 +48,7 @@ jobs:
       # Step 3: Identify XML files for processing
       - name: Identify XML files
         run: |
-          find ./data/cbss/tei -name '*.xml' | tail -n +50  > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | tail -n +50  > xml_files.txt
           echo "Processing $(wc -l < xml_files.txt) XML files"
 
       # Step 4: Run XSLT Transformations in Parallel for JSON
@@ -132,7 +132,7 @@ jobs:
       # Step 9: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: error-logs
           path: logs/errors.log
