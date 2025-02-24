@@ -1,53 +1,44 @@
-name: Process XML to JSON and HTML
+name: Upload Redirects CSV Updates to S3
 
 on:
   push:
     branches:
-      - 'gaddel_development'  # current data branch
-    # paths:
-      # - 'redirects.csv'  # Trigger only on changes to redirects file  
-      
+      - 'gaddel_development'  # Trigger only on changes to redirects file  
+    paths:
+      - 'redirects.csv'  # Ensure only changes to this file trigger the action  
+
 permissions:
   id-token: write
   contents: read
-  
+
 jobs:
-  process_and_transform:
+  upload_redirects:
     runs-on: ubuntu-latest
     steps:
-    
-      # Step 1: Check out the repositories
-      - name: Checkout repository
+      # Step 1: Fetch only the redirects.csv file instead of checking out the whole repo
+      - name: Checkout only redirects.csv
         uses: actions/checkout@v3
+        with:
+          sparse-checkout: redirects.csv  # Fetch only this file
+          fetch-depth: 1  # Get only the latest commit
 
-      # Step 2: Check if redirects.csv exists
-      - name: Check if redirects.csv exists
+      # Step 2: Ensure redirects.csv exists
+      - name: Check for redirects.csv
         run: |
           if [ ! -f redirects.csv ]; then
-            echo "redirects.csv not found! Skipping upload."
-            exit 1
+            echo "::warning file=redirects.csv::Redirects CSV not found. Skipping upload."
+            exit 0
           fi
-      
-      # Step 3: 
-      - name: Configure AWS credentials from AWS account
+
+      # Step 3: Configure AWS credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data    
-          
-      # Step 4: 
-      - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data    
-          
-      # Step 5: Upload files to S3
-      - name: Upload JSON file to S3
+
+      # Step 4: Upload file to S3
+      - name: Upload redirects.csv to S3
         run: |
           aws s3 cp redirects.csv s3://srophe-syriaca-front-end/redirects/redirects.csv
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
