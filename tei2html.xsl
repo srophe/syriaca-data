@@ -1768,16 +1768,6 @@
                 </p>
                 <ul>
                     <!-- Bibliography elements are processed by bibliography.xsl -->
-                    <!-- Old works model 
-                    <xsl:choose>
-                        <xsl:when test="t:bibl[@type='lawd:Citation']">
-                            <xsl:apply-templates select="t:bibl[@type='lawd:Citation']" mode="footnote"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:apply-templates select="t:bibl" mode="footnote"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    -->
                     <xsl:for-each select="t:bibl">
                     <xsl:sort select="
                         if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
@@ -1789,28 +1779,6 @@
             </div>
         </div>
     </xsl:template>
-<!--  <xsl:template name="sources">
-    <xsl:param name="node"/>
-    <div class="content-block">
-        <!-- Sources -->
-        <div id="sources">
-            <h3>Works Cited</h3>
-            <p>
-                <small>Any information without attribution has been created following the Syriaca.org 
-                <a href="http://syriaca.org/documentation/">editorial guidelines</a>.</small>
-            </p>
-            <ul>
-                <xsl:for-each select="t:bibl">
-                    <xsl:sort select="
-                        if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
-                        then number(substring-after(@xml:id, '-')) 
-                        else 0"/>
-                    <xsl:apply-templates select="." mode="footnote"/>
-                </xsl:for-each>
-            </ul>
-        </div>
-    </div>
-</xsl:template> -->
 
     
     <!-- W -->
