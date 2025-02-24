@@ -19,12 +19,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Checkout syriaca repository (code repo)
+      # - name: Checkout syriaca repository (former dev code repo)
+      #   uses: actions/checkout@v3
+      #   with:
+      #     repository: srophe/syriaca
+      #     ref: staticSite
+      #     path: syriaca  # Check it out into a subfolder  
+      
+      - name: Checkout Gaddel repository (production code repo)
         uses: actions/checkout@v3
         with:
-          repository: srophe/syriaca
-          ref: staticSite
-          path: syriaca  # Check it out into a subfolder        
+          repository: srophe/Gaddel
+          ref: main
+          path: syriaca  # Check it out into a subfolder   
 
       # Step 2: Install Java and Saxon for XSLT 
       - name: Set up JDK 11
