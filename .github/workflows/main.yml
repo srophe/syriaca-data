@@ -70,10 +70,10 @@ jobs:
             filename=$(basename "${file%.xml}")
             type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
       
-            # Fix bible/subject conflict
-            if [[ "$type" == "subject" ]]; then
+            # Fix bible/subject conflict using POSIX-compliant `test`
+            if [ "$type" = "subject" ]; then
               type="subject"
-            elif [[ "$type" == "bibl" ]]; then
+            elif [ "$type" = "bibl" ]; then
               type="cbss"
             fi
       
@@ -95,6 +95,8 @@ jobs:
           cat json_output/*.json > bulk_data.json
       
           set -e  # Re-enable stopping on error
+    
+
 
       # Step 5: Configure AWS credentials
       - name: Configure AWS credentials
