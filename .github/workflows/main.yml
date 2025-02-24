@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'gaddel_development'  # current data branch
-    paths:
-      - 'data/**'  # Trigger only on changes to data files   
+    # paths:
+    #   - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -88,73 +88,73 @@ jobs:
       # # Step 4: Identify XML files for batch conversions
       - name: Identify XML files 
         run: |
-          find ./data/subjects/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          # find ./data/cbss/tei -name '*.xml' | tail -n +20000 | head -n 25000 > xml_files.txt
+          # find ./data/subjects/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          find ./data/cbss/tei -name '*.xml' | tail -n +5000 | head -n 25000 > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
           
 
       # Step 5: Run XSLT Transformations and Merge into Single JSON for OpenSearch
-      # - name: Run XSLT Transformations and Create Bulk JSON
-      #   run: |
-      #     if [ ! -s xml_files.txt ]; then
-      #       echo "No XML files to process."
-      #       exit 0
-      #     fi
+      - name: Run XSLT Transformations and Create Bulk JSON
+        run: |
+          if [ ! -s xml_files.txt ]; then
+            echo "No XML files to process."
+            exit 0
+          fi
           
-      #     set +e  # Allow errors without stopping execution
-      #     mkdir -p logs  # Create a directory for logs
-      #     touch bulk_data.json  # Create the bulk JSON file
+          set +e  # Allow errors without stopping execution
+          mkdir -p logs  # Create a directory for logs
+          touch bulk_data.json  # Create the bulk JSON file
 
           
-      #     while IFS= read -r file; do
+          while IFS= read -r file; do
       
-      #       # Extract the document type from the file path
-      #       type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
-      #       # Fix bible/subject/worker conflict: choose 'subject' over other types
-      #       if [[ "$type" == *"subject"* ]]; then
-      #         type="subject"
-      #       elif [[ "$type" == *"bibl"* ]]; then
-      #         type="cbss"
-      #       fi
-      #       # Extract the filename and create the index header for OpenSearch bulk format
-      #       filename=$(basename ${file%.xml})
-      #       echo "Processing $filename for JSON"
-      #       printf "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+            # Extract the document type from the file path
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
+            # Fix bible/subject/worker conflict: choose 'subject' over other types
+            if [[ "$type" == *"subject"* ]]; then
+              type="subject"
+            elif [[ "$type" == *"bibl"* ]]; then
+              type="cbss"
+            fi
+            # Extract the filename and create the index header for OpenSearch bulk format
+            filename=$(basename ${file%.xml})
+            echo "Processing $filename for JSON"
+            printf "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
-      #       # Apply XSLT for JSON conversion and append it to bulk_data.json directly
-      #       # java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
-      #       # echo "" >> bulk_data.json  # Add a newline after the document entry
-      #       if ! java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json; then
-      #         echo "::warning:: XSLT JSON transformation failed for $file. Check logs/errors.log"
-      #         echo "Skipping $file due to transformation error." >> logs/errors.log
+            # Apply XSLT for JSON conversion and append it to bulk_data.json directly
+            # java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
+            # echo "" >> bulk_data.json  # Add a newline after the document entry
+            if ! java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json; then
+              echo "::warning:: XSLT JSON transformation failed for $file. Check logs/errors.log"
+              echo "Skipping $file due to transformation error." >> logs/errors.log
       
-      #       fi
+            fi
       
-      #       echo "" >> bulk_data.json  # Add newline after document entry
+            echo "" >> bulk_data.json  # Add newline after document entry
             
-      #     done < xml_files.txt
+          done < xml_files.txt
   
-      #     set -e  # Re-enable stopping on error
-      #   env:
-      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}          
-      # # Step 6: 
-      # - name: Configure AWS credentials from AWS account
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-      #     aws-region: us-east-1
-      #     role-session-name: GitHub-OIDC-data    
+          set -e  # Re-enable stopping on error
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}          
+      # Step 6: 
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data    
           
-      # # Step 7: Upload files to S3
-      # - name: Upload JSON file to S3
-      #   run: |
-      #     TIMESTAMP=$(date +%Y%m%d%H%M%S)
-      #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_persons5000_$TIMESTAMP.json
-      #   env:
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}
-      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      # Step 7: Upload files to S3
+      - name: Upload JSON file to S3
+        run: |
+          TIMESTAMP=$(date +%Y%m%d%H%M%S)
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_cbss25000_$TIMESTAMP.json
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           
       # Step 6: Convert TEI to HTML files for front-end hosting
       # Create directory to save the HTML files into
