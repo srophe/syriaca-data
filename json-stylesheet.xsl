@@ -417,14 +417,15 @@
 <!--    winona's version  -->
     <xsl:template match="tei:title" mode="citation">
         <xsl:choose>
-            <xsl:when test="@level = 'a'"> "<xsl:value-of select="."/>" </xsl:when>
-            <xsl:otherwise> &lt;i&gt;<xsl:value-of select="."/>&lt;/i&gt; </xsl:otherwise>
+            <xsl:when test="@level = 'a'"> "<xsl:apply-templates mode="citation"/>" </xsl:when>
+            <xsl:otherwise> &lt;i&gt;<xsl:apply-templates mode="citation"/>&lt;/i&gt; </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="text()" mode="citation">
-        <xsl:text> </xsl:text><xsl:value-of select="normalize-space(.)"/><xsl:text> </xsl:text>
+        <xsl:text> </xsl:text><xsl:value-of select="replace(normalize-space(.),'“|”','')"/><xsl:text> </xsl:text>    
     </xsl:template>
-   <xsl:template match="*:fields[@function = 'abstract']">
+    
+    <xsl:template match="*:fields[@function = 'abstract']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:choose>
