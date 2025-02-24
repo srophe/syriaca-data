@@ -88,7 +88,7 @@ jobs:
       # # Step 4: Identify XML files for batch conversions
       - name: Identify XML files 
         run: |
-          find ./data/persons/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          find ./data/places/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/cbss/tei -name '*.xml' | tail -n +20000 | head -n 25000 > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
@@ -168,7 +168,7 @@ jobs:
       - name: Upload JSON file to S3
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_persons5000_$TIMESTAMP.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_places5000_$TIMESTAMP.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
