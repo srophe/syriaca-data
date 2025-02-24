@@ -88,7 +88,7 @@ jobs:
       # # Step 4: Identify XML files for batch conversions
       - name: Identify XML files 
         run: |
-          find ./data/bibl/tei -name '*.xml' | head -n 10 > xml_files.txt
+          find ./data/persons/tei -name '*.xml' | head -n 5000 > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
           
@@ -118,7 +118,7 @@ jobs:
             # Extract the filename and create the index header for OpenSearch bulk format
             filename=$(basename ${file%.xml})
             echo "Processing $filename for JSON"
-            printf "{\"index\":{\"_index\":\"syriaca-index-10\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
+            printf "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
       
             # Apply XSLT for JSON conversion and append it to bulk_data.json directly
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
@@ -142,24 +142,24 @@ jobs:
       #     echo "Created HTML directory"
 
      
-      # - name: Run XSLT Transformations for HTML
-      #   run: |
-      #     while IFS= read -r file; do
-      #       echo "Processing $file for HTML"
-      #       # Extract the document type from the file path
-      #       type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+      - name: Run XSLT Transformations for HTML
+        run: |
+          while IFS= read -r file; do
+            echo "Processing $file for HTML"
+            # Extract the document type from the file path
+            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
             
-      #       # Extract the filename and create the index header for OpenSearch bulk format
-      #       filename=$(basename ${file%.xml})
+            # Extract the filename and create the index header for OpenSearch bulk format
+            filename=$(basename ${file%.xml})
             
-      #       echo "html filename: $filename"
-      #       echo "HTML conversion type $type"
+            echo "html filename: $filename"
+            echo "HTML conversion type $type"
 
-      #       # Run the XSLT transformation located in the root of syriaca-data repository
+            # Run the XSLT transformation located in the root of syriaca-data repository
             
-      #       java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
+            java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
 
-      #     done < xml_files.txt
+          done < xml_files.txt
 
 
       # Step 6: 
@@ -174,32 +174,32 @@ jobs:
       - name: Upload JSON file to S3
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_10_bibl_$TIMESTAMP.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_persons5000_$TIMESTAMP.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
 
-      # - name: Upload HTML files to S3
-      #   run: |
+      - name: Upload HTML files to S3
+        run: |
 
-      #     for html_file in $(find ./data-html -name "*.html"); do
-      #       type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
-      #       echo "html_file $html_file"
-      #       if [ "$type" == "subject" ]; then
-      #         type="taxonomy"
-      #       fi
-      #       if [ "$type" == "bibl" ]; then
-      #         type="cbss"
-      #       fi
-      #       # Copy html file to S3 with the idno path
-      #       echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-      #     done
+          for html_file in $(find ./data-html -name "*.html"); do
+            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+            echo "html_file $html_file"
+            if [ "$type" == "subject" ]; then
+              type="taxonomy"
+            fi
+            if [ "$type" == "bibl" ]; then
+              type="cbss"
+            fi
+            # Copy html file to S3 with the idno path
+            echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+          done
           
-      #   env:
-      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
 
 
       # Step 8: Upload JSON data to OpenSearch # Currently handled directly from S3
