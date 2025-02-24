@@ -128,6 +128,7 @@ jobs:
       #       if ! java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json; then
       #         echo "::warning:: XSLT JSON transformation failed for $file. Check logs/errors.log"
       #         echo "Skipping $file due to transformation error." >> logs/errors.log
+      
       #       fi
       
       #       echo "" >> bulk_data.json  # Add newline after document entry
@@ -184,6 +185,8 @@ jobs:
                   # Run the XSLT transformation
             if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
               echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
+              cat logs/errors.log  # Print the log directly in the GitHub Actions console
+
             fi
       
           done < xml_files.txt
