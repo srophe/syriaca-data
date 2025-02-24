@@ -89,6 +89,7 @@ jobs:
       - name: Identify XML files 
         run: |
           find ./data/persons/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          # find ./data/cbss/tei -name '*.xml' | tail -n +20000 | head -n 25000 > xml_files.txt
           echo "Processing XML files:"
           cat xml_files.txt
           
@@ -101,9 +102,7 @@ jobs:
             exit 0
           fi
           touch bulk_data.json  # Create the bulk JSON file
-          # Commented out code in this section for possible optimization of code
-          # mkdir -p data-html
-          # echo "Created HTML directory"
+
           
           while IFS= read -r file; do
       
@@ -124,11 +123,6 @@ jobs:
             java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
             echo "" >> bulk_data.json  # Add a newline after the document entry
 
-            # Apply XSLT for HTML conversion and capture any error
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:${filename}.html 2>&1 | tee saxon_error.log
-            # # Upload the HTML file to S3
-            # aws s3 cp $(basename ${file%.xml}.html) s3://srophe-syriaca-front-end/${type}/${filename}.html
-
           done < xml_files.txt
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -136,10 +130,10 @@ jobs:
 
       # Step 6: Convert TEI to HTML files for front-end hosting
       # Create directory to save the HTML files into
-      # - name: Create static HTML directory
-      #   run: |
-      #     mkdir -p data-html  
-      #     echo "Created HTML directory"
+      - name: Create static HTML directory
+        run: |
+          mkdir -p data-html  
+          echo "Created HTML directory"
 
      
       - name: Run XSLT Transformations for HTML
@@ -170,7 +164,7 @@ jobs:
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data    
           
-      # Step 7: Upload Json files to S3
+      # Step 7: Upload files to S3
       - name: Upload JSON file to S3
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
