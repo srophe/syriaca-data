@@ -48,7 +48,8 @@ jobs:
       # Step 3: Identify XML files for processing
       - name: Identify XML files
         run: |
-          find ./data/bibl/tei -name '*.xml' | head -n 50 > xml_files.txt
+          find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          # find ./data/bibl/tei -name '*.xml' | tail -n +50 | head -n 51 > xml_files.txt
           echo "Processing $(wc -l < xml_files.txt) XML files"
 
       # Step 4: Run XSLT Transformations in Parallel for JSON
@@ -84,7 +85,7 @@ jobs:
       - name: Upload JSON to S3
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_cbss20000_$TIMESTAMP.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_works5000_$TIMESTAMP.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
