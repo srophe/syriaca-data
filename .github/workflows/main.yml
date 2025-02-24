@@ -4,203 +4,111 @@ on:
   push:
     branches:
       - 'gaddel_development'  # current data branch
-    # paths:
-    #   - 'data/**'  # Trigger only on changes to data files   
+    paths:
+      - 'data'
       
 permissions:
   id-token: write
   contents: read
-  
+
 jobs:
   process_and_transform:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out the repositories
+    
+      # Step 1: Checkout repositories
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      # - name: Checkout syriaca repository (former dev code repo)
-      #   uses: actions/checkout@v3
-      #   with:
-      #     repository: srophe/syriaca
-      #     ref: staticSite
-      #     path: syriaca  # Check it out into a subfolder  
       
       - name: Checkout Gaddel repository (production code repo)
         uses: actions/checkout@v3
         with:
           repository: srophe/Gaddel
           ref: main
-          path: syriaca  # Check it out into a subfolder   
+          path: syriaca
 
-      # Step 2: Install Java and Saxon for XSLT 
+      # Step 2: Install Java and Saxon for XSLT
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'temurin'
-          
-      - name: Download Saxon from GitHub
-        run: |
-          wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
-          
-      # Step 3: 
-      - name: Configure AWS credentials from AWS account
+      - name: Cache Saxon JAR
+        id: cache-saxon
+        uses: actions/cache@v3
+        with:
+          path: saxon.jar
+          key: saxon-10.6
+
+      - name: Download Saxon if not cached
+        if: steps.cache-saxon.outputs.cache-hit != 'true'
+        run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
+
+      # Step 3: Configure AWS credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data    
-          
-      # Step 4: Find updated XML files
-      # - name: Identify updated XML files
-      #   id: files
-      #   run: |
-      #     echo "Ensuring commit history is fetched..."
-      #     git fetch --unshallow || echo "Repository is already fully cloned."
-      
-      #     echo "Checking for updated XML files..."
-      #     if git rev-list --count HEAD > 1; then
-      #       # Find updated files between the last commit and the current HEAD
-      #       UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
-      #     else
-      #       # If there's no prior commit, process all XML files
-      #       UPDATED_FILES=$(git ls-files | grep '\.xml$')
-      #     fi
-      
-      #     # Check if any XML files were updated
-      #     if [ -z "$UPDATED_FILES" ]; then
-      #       echo "No XML files were updated."
-      #       echo "::set-output name=updated_files::"
-      #       exit 0
-      #     fi
-      
-      #     Output the list of updated files
-      #     echo "$UPDATED_FILES" > xml_files.txt
-      #     echo "Updated XML files:"
-      #     cat xml_files.txt
-      #     echo "::set-output name=updated_files::$UPDATED_FILES"
-      #   shell: bash
 
-
-      
-      # # Step 4: Identify XML files for batch conversions
-      - name: Identify XML files 
+      # Step 4: Identify XML files for processing
+      - name: Identify XML files
         run: |
-          # find ./data/subjects/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          find ./data/cbss/tei -name '*.xml' | tail -n +5000 | head -n 25000 > xml_files.txt
-          echo "Processing XML files:"
-          cat xml_files.txt
-          
+          find ./data/cbss/tei -name '*.xml' | tail -n +50  > xml_files.txt
+          echo "Processing $(wc -l < xml_files.txt) XML files"
 
-      # Step 5: Run XSLT Transformations and Merge into Single JSON for OpenSearch
-      - name: Run XSLT Transformations and Create Bulk JSON
+      # Step 5: Run XSLT Transformations in Parallel for JSON
+      - name: Convert XML to JSON in Parallel
         run: |
-          if [ ! -s xml_files.txt ]; then
-            echo "No XML files to process."
-            exit 0
-          fi
-          
-          set +e  # Allow errors without stopping execution
-          mkdir -p logs  # Create a directory for logs
-          touch bulk_data.json  # Create the bulk JSON file
-
-          
-          while IFS= read -r file; do
+          mkdir -p logs json_output
+          > bulk_data.json  # Create the JSON output file
       
-            # Extract the document type from the file path
-            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl')
-            # Fix bible/subject/worker conflict: choose 'subject' over other types
-            if [[ "$type" == *"subject"* ]]; then
-              type="subject"
-            elif [[ "$type" == *"bibl"* ]]; then
-              type="cbss"
-            fi
-            # Extract the filename and create the index header for OpenSearch bulk format
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
             filename=$(basename ${file%.xml})
-            echo "Processing $filename for JSON"
-            printf "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}\n" >> bulk_data.json
-      
-            # Apply XSLT for JSON conversion and append it to bulk_data.json directly
-            # java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json
-            # echo "" >> bulk_data.json  # Add a newline after the document entry
-            if ! java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" | tr -d '\n' >> bulk_data.json; then
-              echo "::warning:: XSLT JSON transformation failed for $file. Check logs/errors.log"
-              echo "Skipping $file due to transformation error." >> logs/errors.log
-      
-            fi
-      
-            echo "" >> bulk_data.json  # Add newline after document entry
+            type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
+            [ -z "$type" ] && type="unknown"
             
-          done < xml_files.txt
-  
-          set -e  # Re-enable stopping on error
-        env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}          
-      # Step 6: 
-      - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data    
-          
-      # Step 7: Upload files to S3
-      - name: Upload JSON file to S3
+            echo "Processing $filename for JSON"
+            echo "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
+            if ! java -jar saxon.jar -s:$file -xsl:json-stylesheet.xsl docType="$type" >> json_output/$filename.json 2>> logs/errors.log; then
+              echo "::warning:: JSON transformation failed for $file, skipping..."
+            fi
+          ' sh {}
+      
+          cat json_output/*.json > bulk_data.json  # Merge all JSON files
+
+
+      # Step 6: Upload JSON file to S3
+      - name: Upload JSON to S3
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_cbss25000_$TIMESTAMP.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_cbss20000_$TIMESTAMP.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          
-      # Step 6: Convert TEI to HTML files for front-end hosting
-      # Create directory to save the HTML files into
-      - name: Create static HTML directory
-        run: |
-          mkdir -p data-html  
-          echo "Created HTML directory"
-          
-      - name: Run XSLT Transformations for HTML
-        run: |
-          set +e  # Allow errors without stopping execution
-          mkdir -p logs  # Create a directory for logs
 
-          while IFS= read -r file; do
-            echo "Processing $file for HTML"
-            # Extract the document type from the file path
-            type=$(echo "$file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
-            
-            # Extract the filename and create the index header for OpenSearch bulk format
+      # Step 7: Convert XML to HTML in Parallel
+      - name: Convert XML to HTML in Parallel
+        run: |
+          mkdir -p logs data-html
+          
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
             filename=$(basename ${file%.xml})
+            type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
+            [ -z "$type" ] && type="unknown"
+            mkdir -p data-html/$type
             
-            echo "html filename: $filename"
-            echo "HTML conversion type $type"
-
-            # Run the XSLT transformation located in the root of syriaca-data repository
-            
-            # java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 
-                  # Run the XSLT transformation
+            echo "Processing $filename for HTML"
             if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
               echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
-              cat logs/errors.log  # Print the log directly in the GitHub Actions console
-
             fi
-      
-          done < xml_files.txt
-          set -e  # Re-enable stopping on error
+          ' sh {}
 
-      # Step 6: 
-      - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data    
-          
-      # Step 7: Upload files to S3
+      # Step 8: Upload HTML files to S3 
       - name: Upload HTML files to S3
         run: |
 
@@ -222,38 +130,10 @@ jobs:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
-
-      # Step 8: Upload JSON data to OpenSearch # Currently handled directly from S3
-
-      # - name: JSON file to OpenSearch
-
-      #   env:
-      #     OPENSEARCH_URL: ${{ secrets.OPENSEARCH_URL }}
-      #     OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USER }}
-      #     OPENSEARCH_PASSWORD: ${{ secrets.OPENSEARCH_PASSWORD }}
-      #   run: |
-      #     RESPONSE=$(curl -s -o response.json -w "%{http_code}" -XPOST "$OPENSEARCH_URL/_bulk" \
-      #     -H "Content-Type: application/json" \
-      #     -u "$OPENSEARCH_USER:$OPENSEARCH_PASSWORD" \
-      #     --data-binary "@bulk_data.json")
-      #     echo "HTTP response code: $RESPONSE"
-      #     cat response.json
-
-      #     # Check for errors in the response
-      #     if grep -q '"errors":true' response.json; then
-      #       echo "Errors occurred during bulk upload"
-      #       exit 1
-      #     fi
-
-      #     # Parse the response for failed items using jq
-      #     FAILED_ENTRIES=$(jq -c '.items[] | select(.index.status >= 400) | {id: .index._id, error: .index.error}' response.json)
-          
-      #     if [[ -n "$FAILED_ENTRIES" ]]; then
-      #       echo "Failed entries:"
-      #       echo "$FAILED_ENTRIES" > failed_entries.json
-      #       echo "$FAILED_ENTRIES" # Prints to the console
-      #     else
-      #       echo "All entries were successfully indexed."
-      #     fi
-
-
+      # Step 9: Upload error logs as an artifact for debugging
+      - name: Upload Logs to GitHub Artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: error-logs
+          path: logs/errors.log
