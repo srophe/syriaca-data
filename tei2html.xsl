@@ -1779,13 +1779,39 @@
                     </xsl:choose>
                     -->
                     <xsl:for-each select="t:bibl">
-                        <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>
+                    <xsl:sort select="
+                        if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
+                        then number(substring-after(@xml:id, '-')) 
+                        else 0"/>
                         <xsl:apply-templates select="." mode="footnote"/>
                     </xsl:for-each>
                 </ul>
             </div>
         </div>
     </xsl:template>
+<!--  <xsl:template name="sources">
+    <xsl:param name="node"/>
+    <div class="content-block">
+        <!-- Sources -->
+        <div id="sources">
+            <h3>Works Cited</h3>
+            <p>
+                <small>Any information without attribution has been created following the Syriaca.org 
+                <a href="http://syriaca.org/documentation/">editorial guidelines</a>.</small>
+            </p>
+            <ul>
+                <xsl:for-each select="t:bibl">
+                    <xsl:sort select="
+                        if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
+                        then number(substring-after(@xml:id, '-')) 
+                        else 0"/>
+                    <xsl:apply-templates select="." mode="footnote"/>
+                </xsl:for-each>
+            </ul>
+        </div>
+    </div>
+</xsl:template> -->
+
     
     <!-- W -->
     <xsl:template match="t:work-toc">
