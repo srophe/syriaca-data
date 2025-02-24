@@ -1,3 +1,11 @@
+    <!-- ================================================================== 
+      This stylesheet takes the json.xsl file from the syriaca and gaddel repos as its model, but for cloud use. All local paths have been changed to process data files in GitHub.
+       
+       Transform TEI data as json
+       Uses repo-config.xml to build fields. If fields are not specified in repo-config.xml it will not be found in resulting json. 
+          
+       ================================================================== -->
+    
 <xsl:stylesheet  
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
@@ -417,15 +425,14 @@
 <!--    winona's version  -->
     <xsl:template match="tei:title" mode="citation">
         <xsl:choose>
-            <xsl:when test="@level = 'a'"> "<xsl:apply-templates mode="citation"/>" </xsl:when>
-            <xsl:otherwise> &lt;i&gt;<xsl:apply-templates mode="citation"/>&lt;/i&gt; </xsl:otherwise>
+            <xsl:when test="@level = 'a'"> "<xsl:value-of select="replace(normalize-space(.),'“|”','')"/>" </xsl:when>
+            <xsl:otherwise> &lt;i&gt;<xsl:value-of select="replace(normalize-space(.),'“|”','')"/>&lt;/i&gt; </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="text()" mode="citation">
-        <xsl:text> </xsl:text><xsl:value-of select="replace(normalize-space(.),'“|”','')"/><xsl:text> </xsl:text>    
+        <xsl:text> </xsl:text><xsl:value-of select="normalize-space(.)"/><xsl:text> </xsl:text>
     </xsl:template>
-    
-    <xsl:template match="*:fields[@function = 'abstract']">
+   <xsl:template match="*:fields[@function = 'abstract']">
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:choose>
