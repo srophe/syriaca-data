@@ -48,7 +48,7 @@ jobs:
       # Step 3: Identify XML files for processing
       - name: Identify XML files
         run: |
-          find ./data/bibl/tei -name '*.xml' | head -n 50 > xml_files.txt
+          find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +50 | head -n 51 > xml_files.txt
           echo "Processing $(wc -l < xml_files.txt) XML files"
 
@@ -95,8 +95,6 @@ jobs:
           cat json_output/*.json > bulk_data.json
       
           set -e  # Re-enable stopping on error
-    
-
 
       # Step 5: Configure AWS credentials
       - name: Configure AWS credentials
@@ -116,44 +114,44 @@ jobs:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
       # Step 7: Convert XML to HTML in Parallel
-      - name: Convert XML to HTML in Parallel
-        run: |
-          mkdir -p logs data-html
+      # - name: Convert XML to HTML in Parallel
+      #   run: |
+      #     mkdir -p logs data-html
           
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename ${file%.xml})
-            type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
-            [ -z "$type" ] && type="unknown"
-            mkdir -p data-html/$type
+      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+      #       file="$1"
+      #       filename=$(basename ${file%.xml})
+      #       type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
+      #       [ -z "$type" ] && type="unknown"
+      #       mkdir -p data-html/$type
             
-            echo "Processing $filename for HTML"
-            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
-              echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
-            fi
-          ' sh {}
+      #       echo "Processing $filename for HTML"
+      #       if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
+      #         echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
+      #       fi
+      #     ' sh {}
 
-      # Step 8: Upload HTML files to S3 
-      - name: Upload HTML files to S3
-        run: |
+      # # Step 8: Upload HTML files to S3 
+      # - name: Upload HTML files to S3
+      #   run: |
 
-          for html_file in $(find ./data-html -name "*.html"); do
-            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
-            echo "html_file $html_file"
-            if [ "$type" == "subject" ]; then
-              type="taxonomy"
-            fi
-            if [ "$type" == "bibl" ]; then
-              type="cbss"
-            fi
-            # Copy html file to S3 with the idno path
-            echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-          done
+      #     for html_file in $(find ./data-html -name "*.html"); do
+      #       type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+      #       echo "html_file $html_file"
+      #       if [ "$type" == "subject" ]; then
+      #         type="taxonomy"
+      #       fi
+      #       if [ "$type" == "bibl" ]; then
+      #         type="cbss"
+      #       fi
+      #       # Copy html file to S3 with the idno path
+      #       echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
+      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+      #     done
           
-        env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+      #   env:
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
 
       # Step 9: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
