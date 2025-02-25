@@ -705,6 +705,7 @@
         <xsl:param name="formats"/>
         <xsl:param name="idno"/>
         <!-- WS: Needs work -->
+        <xsl:variable name="teiRec" select="document-uri(root($node))"/>
         <xsl:variable name="dataPath" select="substring-before(concat($staticSitePath,'/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
@@ -738,8 +739,9 @@
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'tei'">
-                            <a href="{concat($dataPath,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >
-                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> TEI/XML
+                          <--  <a href="{concat($dataPath,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." > -->
+                            <a href="{concat($teiRec,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >  
+                              <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> TEI/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'text'">
