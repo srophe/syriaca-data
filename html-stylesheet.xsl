@@ -2,6 +2,7 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns:t="http://www.tei-c.org/ns/1.0" 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:x="http://www.w3.org/1999/xhtml" 
     xmlns:srophe="https://srophe.app" 
     xmlns:saxon="http://saxon.sf.net/" 
@@ -10,9 +11,9 @@
     exclude-result-prefixes="xs t x saxon local" version="3.0">
 
  <!-- ================================================================== 
-      staticHTML.xsl
+      staticHTML.xsl is the analog conversion sheet in the code repo
        
-       Generate Static HTML pages for TEI display  
+       Generate Static HTML pages of TEI Data 
         
        code by: 
         + Winona Salesky (wsalesky@gmail.com)
@@ -65,7 +66,7 @@
     <xsl:param name="outputCollection" select="''"/>
     -->
     
-    <!-- Find repo-config to find collection style values and page stubs  This looks incorrect for data conversion-->
+    <!-- Find repo-config to find collection style values and page stubs  This can also point to the repo-config file in the root directory of the data repo-->
     <xsl:variable name="configPath">
         <xsl:choose>
             <xsl:when test="$staticSitePath != ''">
@@ -84,7 +85,6 @@
         </xsl:if>
     </xsl:variable>
       
-    <!-- Root of app for building dynamic links. Default is eXist app root -->
     <!-- Not needed? -->
     <xsl:variable name="nav-base" select="'/'"/>
     
