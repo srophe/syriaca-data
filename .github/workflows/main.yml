@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'gaddel_development'  # current data branch
-    # paths:
-    #   - 'data/**'  # Trigger only on changes to data files   
+    paths:
+      - 'data/**'  # Trigger only on changes to data files   
       
 permissions:
   id-token: write
@@ -46,11 +46,41 @@ jobs:
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
       # Step 3: Identify XML files for processing
-      - name: Identify XML files
+      # - name: Identify XML files
+      #   run: |
+      #     # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+      #     find ./data/bibl/tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
+      #     echo "Processing $(wc -l < xml_files.txt) XML files"
+
+      # Alt Step 3: Find updated XML files
+      - name: Identify updated XML files
+        id: files
         run: |
-          # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
-          echo "Processing $(wc -l < xml_files.txt) XML files"
+          echo "Ensuring commit history is fetched..."
+          git fetch --unshallow || echo "Repository is already fully cloned."
+      
+          echo "Checking for updated XML files..."
+          if git rev-list --count HEAD > 1; then
+            # Find updated files between the last commit and the current HEAD
+            UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
+          else
+            # If there's no prior commit, process all XML files
+            UPDATED_FILES=$(git ls-files | grep '\.xml$')
+          fi
+      
+          # Check if any XML files were updated
+          if [ -z "$UPDATED_FILES" ]; then
+            echo "No XML files were updated."
+            echo "::set-output name=updated_files::"
+            exit 0
+          fi
+      
+          Output the list of updated files
+          echo "$UPDATED_FILES" > xml_files.txt
+          echo "Updated XML files:"
+          cat xml_files.txt
+          echo "::set-output name=updated_files::$UPDATED_FILES"
+        shell: bash
 
       # Step 4: Run XSLT Transformations in Parallel for JSON
       - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
