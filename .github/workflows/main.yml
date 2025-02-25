@@ -82,7 +82,7 @@ jobs:
           echo "::set-output name=updated_files::$UPDATED_FILES"
         shell: bash
 
-      Step 4: Run XSLT Transformations in Parallel for JSON
+      # Step 4: Run XSLT Transformations in Parallel for JSON
       - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
         run: |
           if [ ! -s xml_files.txt ]; then
@@ -172,6 +172,7 @@ jobs:
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
           
+      # For faster speed and deletion of files so the data repo matches, switch to "sync" with "--delete" if cbss code is moved to another folder or each file name (introduces fragility if new code files are added to code repo, but not to the exceptions list) listed as an exception to the delete function    
       - name: Upload HTML files to S3
         run: |
 
