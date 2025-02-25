@@ -46,11 +46,11 @@ jobs:
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
       # Step 3: Identify XML files for processing
-      # - name: Identify XML files
-      #   run: |
-      #     # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-      #     find ./data/bibl/tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
-      #     echo "Processing $(wc -l < xml_files.txt) XML files"
+      - name: Identify XML files
+        run: |
+          # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          find ./data//tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
+          echo "Processing $(wc -l < xml_files.txt) XML files"
 
       # Alt Step 3: Find updated XML files
       - name: Identify updated XML files
@@ -160,8 +160,18 @@ jobs:
               echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
             fi
           ' sh {}
+          
 
       # Step 8: Upload HTML files to S3 
+      # For long runs, it is necessary to log in again, as the eariler credentials will expire
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          
       - name: Upload HTML files to S3
         run: |
 
