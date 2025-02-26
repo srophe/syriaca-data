@@ -78,6 +78,7 @@
            <xsl:sequence select="doc(concat($applicationPath,'/documentation/editors.xml'))"/>
        </xsl:if>
    </xsl:variable>
+    
    
     <xsl:template match="t:listBibl" mode="footnote">
         <xsl:apply-templates select="t:bibl" mode="footnote"/>
@@ -720,6 +721,13 @@
 
     <!-- Series output -->
     <xsl:template match="t:series" mode="bibliography">
+                        <xsl:if test="t:biblScope">
+                    <xsl:message>t:biblScope found</xsl:message>
+                </xsl:if>
+                 <xsl:for-each select="*[local-name()='biblScope']">
+                    <xsl:message select="concat('biblScope found: ', @unit)"/>
+                </xsl:for-each>
+                <xsl:message select="concat('biblScope found in namespace: ', namespace-uri(.))"/>
         <xsl:choose>
             <xsl:otherwise>
                 <xsl:choose>
@@ -730,20 +738,15 @@
                         <xsl:apply-templates select="t:title[1]" mode="footnote"/>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:if test="t:biblScope">
-                    <xsl:message>t:biblScope found</xsl:message>
-                </xsl:if>
-                 <xsl:for-each select="*[local-name()='biblScope']">
-                    <xsl:message select="concat('biblScope found: ', @unit)"/>
-                </xsl:for-each>
-                <xsl:message select="concat('biblScope found in namespace: ', namespace-uri(.))"/>
+
+
                 <xsl:if test="t:biblScope">
                     <xsl:text>, </xsl:text>
+                    
                     <xsl:for-each select="t:biblScope[@unit='series'] | t:biblScope[@unit='vol'] | t:biblScope[@unit='tomus']">
                         <xsl:if test="normalize-space(.) != ''">
-                            <xsl:apply-templates select="." mode="footnote"/>
+                            <xsl:apply-templates select="t:biblScope/text()" mode="footnote"/>
                         </xsl:if>
-
                         <xsl:if test="position() != last()">
                             <xsl:text>, </xsl:text>
                         </xsl:if>
