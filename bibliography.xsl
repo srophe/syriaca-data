@@ -721,7 +721,6 @@
     <!-- Series output -->
     <xsl:template match="t:series" mode="bibliography">
         <xsl:choose>
-            <xsl:when test="preceding-sibling::t:monogr"/>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="t:title[starts-with(@xml:lang,'en')]">
@@ -731,6 +730,12 @@
                         <xsl:apply-templates select="t:title[1]" mode="footnote"/>
                     </xsl:otherwise>
                 </xsl:choose>
+                <xsl:if test="t:biblScope">
+                    <xsl:message>t:biblScope found</xsl:message>
+                </xsl:if>
+                 <xsl:for-each select="*[local-name()='biblScope']">
+                    <xsl:message select="concat('biblScope found: ', @unit)"/>
+                </xsl:for-each>
                 <xsl:if test="t:biblScope">
                     <xsl:text>, </xsl:text>
                     <xsl:for-each select="t:biblScope[@unit='series'] | t:biblScope[@unit='vol'] | t:biblScope[@unit='tomus']">
