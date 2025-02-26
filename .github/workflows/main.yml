@@ -49,7 +49,7 @@ jobs:
       - name: Identify XML files
         run: |
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          find ./data/places/tei -name '*.xml' | head -n 50 > xml_files.txt
+          find ./data/places/tei -name '*.xml' | tail +n 50 > xml_files.txt
           echo "Processing $(wc -l < xml_files.txt) XML files"
 
       # or Step 3: Find updated XML files
