@@ -241,9 +241,8 @@
                         </xsl:when>
                         <xsl:otherwise> 
 
-                              <xsl:variable name="redirectFile" select="concat($relativePath,'/redirects.xml')"/>
 
-                            <xsl:variable name="redirects" select="document('redirects.xml')"/>
+                            <xsl:variable name="redirects" select="document('redirects.csv')"/>
 
                             <xsl:variable name="newTarget" select="$redirects/descendant::*[*:Deprecated_URI[. = $target]]/*:Redirect_URI[1]"/>
 
