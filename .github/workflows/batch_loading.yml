@@ -56,65 +56,65 @@ jobs:
           echo "Processing $(wc -l < xml_files.txt) XML files"
           
       # Step 4: Run XSLT Transformations in Parallel for JSON
-      - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
-        run: |
-          if [ ! -s xml_files.txt ]; then
-            echo "No XML files to process."
-            exit 0
-          fi
+      # - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
+      #   run: |
+      #     if [ ! -s xml_files.txt ]; then
+      #       echo "No XML files to process."
+      #       exit 0
+      #     fi
       
-          set +e  # Allow errors without stopping execution
-          mkdir -p logs json_output  # Create log and JSON directories
-          > bulk_data.json  # Clear existing bulk JSON file
+      #     set +e  # Allow errors without stopping execution
+      #     mkdir -p logs json_output  # Create log and JSON directories
+      #     > bulk_data.json  # Clear existing bulk JSON file
       
-          # Process each XML file in parallel
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename "${file%.xml}")
-            type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
+      #     # Process each XML file in parallel
+      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+      #       file="$1"
+      #       filename=$(basename "${file%.xml}")
+      #       type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
       
-            # Fix bible/subject conflict using POSIX-compliant `test`
-            if [ "$type" = "subject" ]; then
-              type="subject"
-            elif [ "$type" = "bibl" ]; then
-              type="cbss"
-            fi
+      #       # Fix bible/subject conflict using POSIX-compliant `test`
+      #       if [ "$type" = "subject" ]; then
+      #         type="subject"
+      #       elif [ "$type" = "bibl" ]; then
+      #         type="cbss"
+      #       fi
       
-            echo "Processing $filename for JSON"
+      #       echo "Processing $filename for JSON"
       
-            # Write index metadata to a separate temp file
-            echo "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
+      #       # Write index metadata to a separate temp file
+      #       echo "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
       
-            # Run transformation, ensuring single-line output
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
-              echo "::warning:: JSON transformation failed for $file"
-              echo "Skipping $file due to transformation error." >> logs/errors.log
-            fi
+      #       # Run transformation, ensuring single-line output
+      #       if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
+      #         echo "::warning:: JSON transformation failed for $file"
+      #         echo "Skipping $file due to transformation error." >> logs/errors.log
+      #       fi
       
-            echo "" >> json_output/$filename.json  # Ensure newline between entries
-          ' sh {}
+      #       echo "" >> json_output/$filename.json  # Ensure newline between entries
+      #     ' sh {}
       
-          # Merge all JSON files into a single bulk file
-          cat json_output/*.json > bulk_data.json
+      #     # Merge all JSON files into a single bulk file
+      #     cat json_output/*.json > bulk_data.json
       
-          set -e  # Re-enable stopping on error
+      #     set -e  # Re-enable stopping on error
 
-      # Step 5: Configure AWS credentials
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data    
+      # # Step 5: Configure AWS credentials
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+      #     aws-region: us-east-1
+      #     role-session-name: GitHub-OIDC-data    
 
-      # Step 6: Upload JSON file to S3
-      - name: Upload JSON to S3
-        run: |
-          TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_bibl_5000_$TIMESTAMP.json
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      # # Step 6: Upload JSON file to S3
+      # - name: Upload JSON to S3
+      #   run: |
+      #     TIMESTAMP=$(date +%Y%m%d%H%M%S)
+      #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_bibl_5000_$TIMESTAMP.json
+      #   env:
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
       # Step 7: Convert XML to HTML in Parallel
       - name: Convert XML to HTML in Parallel
