@@ -78,7 +78,6 @@
            <xsl:sequence select="doc(concat($applicationPath,'/documentation/editors.xml'))"/>
        </xsl:if>
    </xsl:variable>
-    
    
     <xsl:template match="t:listBibl" mode="footnote">
         <xsl:apply-templates select="t:bibl" mode="footnote"/>
@@ -721,14 +720,8 @@
 
     <!-- Series output -->
     <xsl:template match="t:series" mode="bibliography">
-                        <xsl:if test="t:biblScope">
-                    <xsl:message>t:biblScope found</xsl:message>
-                </xsl:if>
-                 <xsl:for-each select="*[local-name()='biblScope']">
-                    <xsl:message select="concat('biblScope found: ', @unit)"/>
-                </xsl:for-each>
-                <xsl:message select="concat('biblScope found in namespace: ', namespace-uri(.))"/>
         <xsl:choose>
+            <xsl:when test="preceding-sibling::t:monogr"/>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="t:title[starts-with(@xml:lang,'en')]">
@@ -738,15 +731,10 @@
                         <xsl:apply-templates select="t:title[1]" mode="footnote"/>
                     </xsl:otherwise>
                 </xsl:choose>
-
-
                 <xsl:if test="t:biblScope">
                     <xsl:text>, </xsl:text>
-                    
                     <xsl:for-each select="t:biblScope[@unit='series'] | t:biblScope[@unit='vol'] | t:biblScope[@unit='tomus']">
-                        <xsl:if test="normalize-space(.) != ''">
-                            <xsl:apply-templates select="t:biblScope/text()" mode="footnote"/>
-                        </xsl:if>
+                        <xsl:apply-templates select="." mode="footnote"/>
                         <xsl:if test="position() != last()">
                             <xsl:text>, </xsl:text>
                         </xsl:if>
@@ -1049,44 +1037,39 @@
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      handle the imprint component of a biblScope
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<xsl:template match="t:biblScope" mode="footnote">
-    <xsl:variable name="unit">
+    <xsl:template match="t:biblScope" mode="footnote">
+        <xsl:variable name="unit">
+            <xsl:choose>
+                <xsl:when test="@unit = 'vol'">
+                    <xsl:value-of select="concat(@unit,'.')"/>
+                </xsl:when>
+                <xsl:when test="@unit != ''">
+                    <xsl:value-of select="@unit"/>
+                </xsl:when>
+                <xsl:when test="@type != ''">
+                    <xsl:value-of select="@type"/>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
         <xsl:choose>
-            <xsl:when test="@unit = 'vol'">
-                <xsl:value-of select="concat(@unit,'.')"/>
+            <xsl:when test="matches(text()[1],'^\d')">
+                <xsl:value-of select="concat($unit,' ',string-join(text(),''))"/>
             </xsl:when>
-            <xsl:when test="@unit != ''">
-                <xsl:value-of select="@unit"/>
-            </xsl:when>
-            <xsl:when test="@type != ''">
-                <xsl:value-of select="@type"/>
+            <xsl:when test="not(text()) and (@to or @from)">
+                <xsl:choose>
+                    <xsl:when test="@to = @from">
+                        <xsl:value-of select="concat($unit,' ',@to)"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="concat($unit,' ',@from,' - ',@to)"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:text></xsl:text> <!-- Ensure a valid empty string -->
+                <xsl:value-of select="text()"/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:variable>
-
-    <xsl:choose>
-        <xsl:when test="matches(normalize-space(text()[1]), '^\d')">
-            <xsl:value-of select="concat($unit, ' ', string-join(text(), ''))"/>
-        </xsl:when>
-        <xsl:when test="not(normalize-space(.)) and (@to or @from)">
-            <xsl:choose>
-                <xsl:when test="@to = @from">
-                    <xsl:value-of select="concat($unit, ' ', @to)"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="concat($unit, ' ', @from, ' - ', @to)"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:value-of select="string-join(text(), '')"/>
-        </xsl:otherwise>
-    </xsl:choose>
-</xsl:template>
-
+    </xsl:template>
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      handle the imprint component of a biblStruct
