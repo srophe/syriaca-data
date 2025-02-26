@@ -219,7 +219,6 @@
 
                     <xsl:variable name="relativePath" select="substring-before($currentLocation,'/data/')"/>
                     <xsl:variable name="file" select="tokenize($target,'/')[last()]"/>
-                    <---END NEW CODE-->
                     <xsl:variable name="dataFilePath">
                             <xsl:value-of select="concat($relativePath,'/data/bibl/tei/')"/>
                     </xsl:variable>
@@ -241,15 +240,6 @@
                             </xsl:for-each>
                         </xsl:when>
                         <xsl:otherwise> 
-<!--                             <xsl:message>The value of biblfilepath is '<xsl:value-of select="$biblfilepath"/>'</xsl:message>
-                            <xsl:apply-templates mode="footnote"/>
-                            <xsl:sequence select="$passThrough"/>
-                            <xsl:if test="descendant::t:idno[@type='URI']">
-                                <span class="footnote-links">
-                                    <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
-                                    <xsl:apply-templates select="descendant::t:ref[not(ancestor::note)]" mode="links"/>
-                                </span>
-                            </xsl:if> -->
 
                               <xsl:variable name="redirectFile" select="concat($relativePath,'/redirects.xml')"/>
 
@@ -269,7 +259,6 @@
 
                                 <xsl:when test="$redirects//*:Deprecated_URI[. = $target]">
 
-<!--                                    <xsl:message>redirect url <xsl:value-of select="$redirects//*:Deprecated_URI[. = $target]"/></xsl:message>-->
 
                                     <xsl:choose>
 
