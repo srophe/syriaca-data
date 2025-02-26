@@ -736,10 +736,14 @@
                  <xsl:for-each select="*[local-name()='biblScope']">
                     <xsl:message select="concat('biblScope found: ', @unit)"/>
                 </xsl:for-each>
+                <xsl:message select="concat('biblScope found in namespace: ', namespace-uri(.))"/>
                 <xsl:if test="t:biblScope">
                     <xsl:text>, </xsl:text>
                     <xsl:for-each select="t:biblScope[@unit='series'] | t:biblScope[@unit='vol'] | t:biblScope[@unit='tomus']">
-                        <xsl:apply-templates select="." mode="footnote"/>
+                        <xsl:if test="normalize-space(.) != ''">
+                            <xsl:apply-templates select="." mode="footnote"/>
+                        </xsl:if>
+
                         <xsl:if test="position() != last()">
                             <xsl:text>, </xsl:text>
                         </xsl:if>
