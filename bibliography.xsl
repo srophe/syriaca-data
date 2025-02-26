@@ -1049,39 +1049,44 @@
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      handle the imprint component of a biblScope
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <xsl:template match="t:biblScope" mode="footnote">
-        <xsl:variable name="unit">
-            <xsl:choose>
-                <xsl:when test="@unit = 'vol'">
-                    <xsl:value-of select="concat(@unit,'.')"/>
-                </xsl:when>
-                <xsl:when test="@unit != ''">
-                    <xsl:value-of select="@unit"/>
-                </xsl:when>
-                <xsl:when test="@type != ''">
-                    <xsl:value-of select="@type"/>
-                </xsl:when>
-            </xsl:choose>
-        </xsl:variable>
+<xsl:template match="t:biblScope" mode="footnote">
+    <xsl:variable name="unit">
         <xsl:choose>
-            <xsl:when test="matches(text()[1],'^\d')">
-                <xsl:value-of select="concat($unit,' ',string-join(text(),''))"/>
+            <xsl:when test="@unit = 'vol'">
+                <xsl:value-of select="concat(@unit,'.')"/>
             </xsl:when>
-            <xsl:when test="not(text()) and (@to or @from)">
-                <xsl:choose>
-                    <xsl:when test="@to = @from">
-                        <xsl:value-of select="concat($unit,' ',@to)"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="concat($unit,' ',@from,' - ',@to)"/>
-                    </xsl:otherwise>
-                </xsl:choose>
+            <xsl:when test="@unit != ''">
+                <xsl:value-of select="@unit"/>
+            </xsl:when>
+            <xsl:when test="@type != ''">
+                <xsl:value-of select="@type"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="text()"/>
+                <xsl:text></xsl:text> <!-- Ensure a valid empty string -->
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:variable>
+
+    <xsl:choose>
+        <xsl:when test="matches(normalize-space(text()[1]), '^\d')">
+            <xsl:value-of select="concat($unit, ' ', string-join(text(), ''))"/>
+        </xsl:when>
+        <xsl:when test="not(normalize-space(.)) and (@to or @from)">
+            <xsl:choose>
+                <xsl:when test="@to = @from">
+                    <xsl:value-of select="concat($unit, ' ', @to)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="concat($unit, ' ', @from, ' - ', @to)"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="string-join(text(), '')"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      handle the imprint component of a biblStruct
