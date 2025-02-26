@@ -5,7 +5,12 @@ on:
     branches:
       - 'gaddel_development'  # current data branch
     paths:
-      - 'data/**'  # Trigger only on changes to data files   
+      - 'data/persons/tei/**'  # Any file inside persons
+      - 'data/places/tei/**'  
+      - 'data/subjects/tei/**'
+      - 'data/works/tei/**'
+      - 'data/bibl/tei/**'
+      - 'data/taxonomy/tei/**'
       
 permissions:
   id-token: write
@@ -45,14 +50,7 @@ jobs:
         if: steps.cache-saxon.outputs.cache-hit != 'true'
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
-      # Step 3: Identify XML files for processing
-      # - name: Identify XML files
-      #   run: |
-      #     # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-      #     find ./data/places/tei -name '*.xml' | tail +n 50 > xml_files.txt
-      #     echo "Processing $(wc -l < xml_files.txt) XML files"
-
-      # or Step 3: Find updated XML files
+      # Step 3: Find updated XML files
       - name: Identify updated XML files
         id: files
         run: |
