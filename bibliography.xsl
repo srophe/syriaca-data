@@ -242,7 +242,7 @@
                         <xsl:otherwise> 
 
 
-                            <xsl:variable name="redirects" select="unparsed-text('redirects.csv')"/>
+                            <xsl:variable name="redirects" select="document('redirects.xml')"/>
 
                             <xsl:variable name="newTarget" select="$redirects/descendant::*[*:Deprecated_URI[. = $target]]/*:Redirect_URI[1]"/>
 
