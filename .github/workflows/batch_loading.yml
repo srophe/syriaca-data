@@ -163,6 +163,14 @@ jobs:
             echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
           done
+      #  run: |
+      # Sync only the persons folder and delete obsolete files
+      #     if [ -d "./data-html/person" ]; then
+      #       echo "Syncing persons folder to S3 and deleting obsolete files..."
+      #       aws s3 sync ./data-html/person s3://srophe-syriaca-front-end/person --delete
+      # else
+      #   echo "No persons folder found, skipping sync."
+      # fi
           
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
