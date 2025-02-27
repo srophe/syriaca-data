@@ -34,7 +34,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Cache Saxon JAR
+      - name: Check cache for Saxon JAR
         id: cache-saxon
         uses: actions/cache@v3
         with:
@@ -53,7 +53,6 @@ jobs:
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # find ./data/subjects/tei -name '*.xml' | tail -n +50 > xml_files.txt
           find ./data/taxonomy -name '*.rdf' > xml_files.txt
-
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
           
