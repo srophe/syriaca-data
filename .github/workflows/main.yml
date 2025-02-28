@@ -119,6 +119,7 @@ jobs:
           ' sh {}
       
           # Merge all JSON files into a single bulk file
+
           cat json_output/*.json > bulk_data.json
       
           set -e  # Re-enable stopping on error
@@ -135,7 +136,12 @@ jobs:
       - name: Upload JSON to S3
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_bibl_5000_$TIMESTAMP.json
+           if [ ! -s bulk_data.json ]; then
+            echo "::warning:: Skipping upload: bulk_data.json does not exist or is empty."
+            exit 0  # Exit successfully without failing the workflow
+           fi
+          
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_$TIMESTAMP.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -148,7 +154,7 @@ jobs:
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
             filename=$(basename ${file%.xml})
-            type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
+            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
             [ -z "$type" ] && type="unknown"
             mkdir -p data-html/$type
             
@@ -174,7 +180,7 @@ jobs:
         run: |
 
           for html_file in $(find ./data-html -name "*.html"); do
-            type=$(echo "$html_file" | grep -o -E 'work|subject|person|place|bibl' | tail -n 1)
+            type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
             echo "html_file $html_file"
             if [ "$type" == "subject" ]; then
               type="taxonomy"
