@@ -146,9 +146,7 @@ jobs:
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
           
-      # For faster speed and deletion of files so the data repo matches, switch to "sync" with "--delete" if cbss code is moved to another folder or each file name (introduces fragility if new code files are added to code repo, but not to the exceptions list) listed as an exception to the delete function    
-      - name: Upload HTML files to S3
-        run: |
+      # For faster speed and deletion of files so the data repo matches, switch to "sync" with "--delete" 
 
           # for html_file in $(find ./data-html -name "*.html"); do
           #   type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
