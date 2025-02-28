@@ -870,7 +870,7 @@
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Russian.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Arabic.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Hebrew.min.js"/>
-            <script type="text/javascript" src="/resources/js/keyboard.js </>
+            <script type="text/javascript" src="/resources/js/keyboard.js />
         </head>
     </xsl:template>
     <xsl:template name="genericNav">
