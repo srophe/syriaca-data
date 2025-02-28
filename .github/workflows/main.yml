@@ -49,7 +49,7 @@ jobs:
       - name: Download Saxon if not cached
         if: steps.cache-saxon.outputs.cache-hit != 'true'
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
-
+        
       # Step 3: Find updated XML files
       - name: Identify updated XML files
         id: files
@@ -60,25 +60,24 @@ jobs:
           echo "Checking for updated XML files..."
           if git rev-list --count HEAD > 1; then
             # Find updated files between the last commit and the current HEAD
-            UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$')
+            UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$' || true)
           else
             # If there's no prior commit, process all XML files
-            UPDATED_FILES=$(git ls-files | grep '\.xml$')
+            UPDATED_FILES=$(git ls-files | grep '\.xml$' || true)
           fi
       
           # Check if any XML files were updated
           if [ -z "$UPDATED_FILES" ]; then
             echo "No XML files were updated."
-            echo "updated_files=" >> $GITHUB_ENV
             exit 0
           fi
       
-          # Output the list of updated files
+          # Save updated files list
           echo "$UPDATED_FILES" > xml_files.txt
           echo "Updated XML files:"
           cat xml_files.txt
-          echo "updated_files=$UPDATED_FILES" >> $GITHUB_ENV
         shell: bash
+
 
       # Step 4: Run XSLT Transformations in Parallel for JSON
       - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
