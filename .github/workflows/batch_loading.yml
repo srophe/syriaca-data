@@ -50,8 +50,8 @@ jobs:
         run: |
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
-          # find ./data/persons/tei -name '*.xml' > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          find ./data/persons/tei -name '*.xml' > xml_files.txt
+          # find ./data/bibl/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/taxonomy -name '*.rdf' > xml_files.txt
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
@@ -130,7 +130,7 @@ jobs:
             mkdir -p data-html/$type
             
             echo "Processing $filename for HTML"
-            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename} 2>> logs/errors.log; then
+            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
               echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
             fi
           ' sh {}
@@ -149,27 +149,27 @@ jobs:
       # For faster speed and deletion of files so the data repo matches, switch to "sync" with "--delete" 
       - name: Upload HTML files to S3
         run: |
-          # for html_file in $(find ./data-html -name "*.html"); do
-          #   type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
-          #   echo "html_file $html_file"
-          #   if [ "$type" == "subject" ]; then
-          #     type="taxonomy"
-          #   fi
-          #   if [ "$type" == "bibl" ]; then
-          #     type="cbss"
-          #   fi
-          #   # Copy html file to S3 with the idno path
-          #   echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-          #   aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-          # done
+          for html_file in $(find ./data-html -name "*.html"); do
+            type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
+            echo "html_file $html_file"
+            if [ "$type" == "subject" ]; then
+              type="taxonomy"
+            fi
+            if [ "$type" == "bibl" ]; then
+              type="cbss"
+            fi
+            # Copy html file to S3 with the idno path
+            echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+          done
           
-          # Sync only the persons folder and delete obsolete files
-            if [ -d "./data-html/person" ]; then
-              echo "Syncing persons folder to S3 and deleting obsolete files..."
-              aws s3 sync ./data-html/person s3://srophe-syriaca-front-end/person --delete
-            else
-              echo "No persons folder found, skipping sync."
-            fi     
+          # Sync only the persons folder and delete obsolete files, still adding extra folder and .html
+            # if [ -d "./data-html/person" ]; then
+            #   echo "Syncing persons folder to S3 and deleting obsolete files..."
+            #   aws s3 sync ./data-html/person s3://srophe-syriaca-front-end/person --delete
+            # else
+            #   echo "No persons folder found, skipping sync."
+            # fi     
 
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
