@@ -7,7 +7,7 @@ on:
     paths:
       - 'data/persons/tei/**'  # Any file inside persons
       - 'data/places/tei/**'  
-      - 'data/subjects/tei/**'
+      - 'data/subjects/tei/**' # Deprecated
       - 'data/works/tei/**'
       - 'data/bibl/tei/**'
       - 'data/taxonomy/**'
@@ -50,33 +50,66 @@ jobs:
         if: steps.cache-saxon.outputs.cache-hit != 'true'
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
         
-      # Step 3: Find updated XML files
-      - name: Identify updated XML files
+      # # Step 3: Find updated XML files
+      # - name: Identify updated XML files
+      #   id: files
+      #   run: |
+      #     echo "Ensuring commit history is fetched..."
+      #     git fetch --unshallow || echo "Repository is already fully cloned."
+      
+      #     echo "Checking for updated XML files..."
+      #     if git rev-list --count HEAD > 1; then
+      #       # Find updated files between the last commit and the current HEAD
+      #       UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$' || true)
+      #     else
+      #       # If there's no prior commit, process all XML files
+      #       UPDATED_FILES=$(git ls-files | grep '\.xml$' || true)
+      #     fi
+      
+      #     # Check if any XML files were updated
+      #     if [ -z "$UPDATED_FILES" ]; then
+      #       echo "No XML files were updated."
+      #       exit 0
+      #     fi
+      
+      #     # Save updated files list
+      #     echo "$UPDATED_FILES" > xml_files.txt
+      #     echo "Updated XML files:"
+      #     cat xml_files.txt
+      #   shell: bash
+      # Find updated and deleted XML files: dev  
+      - name: Identify updated and deleted XML files
         id: files
         run: |
-          echo "Ensuring commit history is fetched..."
+          echo "Fetching commit history..."
           git fetch --unshallow || echo "Repository is already fully cloned."
       
-          echo "Checking for updated XML files..."
-          if git rev-list --count HEAD > 1; then
-            # Find updated files between the last commit and the current HEAD
-            UPDATED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.xml$' || true)
-          else
-            # If there's no prior commit, process all XML files
-            UPDATED_FILES=$(git ls-files | grep '\.xml$' || true)
-          fi
+          echo "Checking for updated and deleted XML files..."
       
-          # Check if any XML files were updated
-          if [ -z "$UPDATED_FILES" ]; then
-            echo "No XML files were updated."
+          # Capture newly added or modified files
+          UPDATED_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '\.xml$' || true)
+      
+          # Capture deleted files
+          DELETED_FILES=$(git diff --name-only --diff-filter=D HEAD~1 HEAD | grep '\.xml$' || true)
+      
+          # If no files were updated or deleted, exit
+          if [ -z "$UPDATED_FILES" ] && [ -z "$DELETED_FILES" ]; then
+            echo "No XML files were updated or deleted."
             exit 0
           fi
       
-          # Save updated files list
+          # Save updated and deleted file lists
           echo "$UPDATED_FILES" > xml_files.txt
-          echo "Updated XML files:"
+          echo "$DELETED_FILES" > deleted_files.txt
+      
+          # Convert deleted file paths to OpenSearch IDs
+          jq -n --argjson files "$(jq -R -s 'split("\n")[:-1]' deleted_files.txt)" '{"deleted_ids": $files}' > deleted_files.json
+      
+          echo "Updated files:"
           cat xml_files.txt
-        shell: bash
+      
+          echo "Deleted files:"
+          cat deleted_files.txt
 
 
       # Step 4: Run XSLT Transformations in Parallel for JSON
@@ -95,7 +128,7 @@ jobs:
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
             filename=$(basename "${file%.xml}")
-            type=$(echo "$file" | grep -o -E "work|subject|person|place|bibl" | tail -n 1)
+            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
       
             # Fix bible/subject conflict using POSIX-compliant `test`
             if [ "$type" = "subject" ]; then
@@ -107,7 +140,7 @@ jobs:
             echo "Processing $filename for JSON"
       
             # Write index metadata to a separate temp file
-            echo "{\"index\":{\"_index\":\"syriaca-index-11\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
+            echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
       
             # Run transformation, ensuring single-line output
             if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
@@ -141,10 +174,24 @@ jobs:
             exit 0  # Exit successfully without failing the workflow
            fi
           
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_11_$TIMESTAMP.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      # Send list of deleted files to S3 for OpenSearch removal    
+      - name: Upload deleted file list to S3
+        if: always()
+        run: |
+          if [ -s deleted_files.json ]; then
+            TIMESTAMP=$(date +%Y%m%d%H%M%S)
+            aws s3 cp deleted_files.json s3://srophe-syriaca-front-end/deleted-files/deleted_files_$TIMESTAMP.json
+          else
+            echo "No files deleted, skipping upload."
+          fi
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+
 
       # Step 7: Convert XML to HTML in Parallel
       - name: Convert XML to HTML in Parallel
