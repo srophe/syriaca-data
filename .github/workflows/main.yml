@@ -69,15 +69,15 @@ jobs:
           # Check if any XML files were updated
           if [ -z "$UPDATED_FILES" ]; then
             echo "No XML files were updated."
-            echo "::set-output name=updated_files::"
+            echo "updated_files=" >> $GITHUB_ENV
             exit 0
           fi
       
-          Output the list of updated files
+          # Output the list of updated files
           echo "$UPDATED_FILES" > xml_files.txt
           echo "Updated XML files:"
           cat xml_files.txt
-          echo "::set-output name=updated_files::$UPDATED_FILES"
+          echo "updated_files=$UPDATED_FILES" >> $GITHUB_ENV
         shell: bash
 
       # Step 4: Run XSLT Transformations in Parallel for JSON
