@@ -50,9 +50,9 @@ jobs:
         run: |
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' | tail -n +50 > xml_files.txt
-          # find ./data/persons/tei -name '*.xml' > xml_files.txt
-          # find ./data/subjects/tei -name '*.xml' | tail -n +50 > xml_files.txt
-          find ./data/taxonomy -name '*.rdf' > xml_files.txt
+          find ./data/persons/tei -name '*.xml' > xml_files.txt
+          # find ./data/bibl/tei -name '*.xml'| tail -n +50 | head -n 5000 > xml_files.txt
+          # find ./data/taxonomy -name '*.rdf' > xml_files.txt
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
           
@@ -163,15 +163,15 @@ jobs:
             echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
             aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
           done
-      #  run: |
-      # Sync only the persons folder and delete obsolete files
-      #     if [ -d "./data-html/person" ]; then
-      #       echo "Syncing persons folder to S3 and deleting obsolete files..."
-      #       aws s3 sync ./data-html/person s3://srophe-syriaca-front-end/person --delete
-      # else
-      #   echo "No persons folder found, skipping sync."
-      # fi
           
+          # Sync only the persons folder and delete obsolete files
+            # if [ -d "./data-html/person" ]; then
+            #   echo "Syncing persons folder to S3 and deleting obsolete files..."
+            #   aws s3 sync ./data-html/person s3://srophe-syriaca-front-end/person --delete
+            # else
+            #   echo "No persons folder found, skipping sync."
+            # fi     
+
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
