@@ -55,7 +55,7 @@ jobs:
           # find ./data/bibl/tei -name '*.xml' | tail -n +20000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +15000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +10000 | head -n 5000 > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | tail -n +5740 | head -n 4260 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | tail -n +5740 | head -n 60 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | head -n 5000 > xml_files.txt
 
           # find ./data/taxonomy -name '*.rdf' > xml_files.txt
@@ -145,17 +145,8 @@ jobs:
 
       # Step 8: Upload HTML files to S3 
       # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
-      - name: Upload HTML files to S3 in Batches
+      - name: Upload HTML files to S3 in Batches (with Credentials Refresh)
         run: |
-          # Function to refresh AWS credentials
-          refresh_credentials() {
-            echo "Refreshing AWS Credentials..."
-            aws-actions/configure-aws-credentials@v3 \
-              --role-to-assume=${{ secrets.AWS_SROPHE_ROLE }} \
-              --aws-region=us-east-1 \
-              --role-session-name=GitHub-OIDC-data
-          }
-      
           # Batch size (number of files per batch before refreshing credentials)
           BATCH_SIZE=500
       
@@ -167,9 +158,11 @@ jobs:
       
           # Process files in batches
           for ((i=0; i<$TOTAL_FILES; i+=$BATCH_SIZE)); do
-            # Refresh credentials every batch
-            refresh_credentials
-      
+            
+            # Refresh AWS Credentials **before each batch**
+            echo "Refreshing AWS Credentials..."
+            gh workflow run refresh-aws-credentials.yaml
+            
             echo "Uploading batch $(($i + 1)) to $(($i + $BATCH_SIZE))..."
             
             for ((j=i; j<i+$BATCH_SIZE && j<TOTAL_FILES; j++)); do
@@ -191,7 +184,6 @@ jobs:
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-
 
       # Step 9: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
