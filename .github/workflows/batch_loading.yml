@@ -48,8 +48,8 @@ jobs:
       # Step 3: Identify XML files for processing
       - name: Identify XML files
         run: |
-          # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          find ./data/places/tei -name '*.xml' > xml_files.txt
+          find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          # find ./data/places/tei -name '*.xml' > xml_files.txt
           # find ./data/persons/tei -name '*.xml' | tail -n +5 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +24969 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +19969 | head -n 5000 > xml_files.txt
@@ -92,7 +92,7 @@ jobs:
       #       # Run transformation, ensuring single-line output
       #       if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
       #         echo "::warning:: JSON transformation failed for $file"
-      #         echo "Skipping $file due to transformation error." >> logs/errors.log
+      #         echo "Skipping $type $file due to transformation error." >> logs/errors.log
       #       fi
       
       #       echo "" >> json_output/$filename.json  # Ensure newline between entries
