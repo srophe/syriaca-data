@@ -55,7 +55,7 @@ jobs:
           # find ./data/bibl/tei -name '*.xml' | tail -n +20000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +15000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +10000 | head -n 5000 > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | tail -n +5740 | head -n 2 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | tail -n +5740 | head -n 1 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | head -n 5000 > xml_files.txt
 
           # find ./data/taxonomy -name '*.rdf' > xml_files.txt
@@ -145,7 +145,7 @@ jobs:
 
       # Step 8: Upload HTML files to S3 
       # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
-      - name: Upload HTML files to S3 in Batches (with Credentials Refresh)
+      - name: Upload HTML files to S3 in Batches 
         run: |
           # Batch size (number of files per batch before refreshing credentials)
           BATCH_SIZE=500
@@ -156,24 +156,24 @@ jobs:
       
           echo "Total files to upload: $TOTAL_FILES"
       
-          # Process files in batches
           for ((i=0; i<$TOTAL_FILES; i+=$BATCH_SIZE)); do
-            
-            # Refresh AWS Credentials **before each batch**
             echo "Refreshing AWS Credentials..."
-            gh workflow run refresh_aws_credentials.yml
             
+            # Refresh AWS credentials before each batch
+            aws-actions/configure-aws-credentials@v3 \
+              --role-to-assume=${{ secrets.AWS_SROPHE_ROLE }} \
+              --aws-region=us-east-1 \
+              --role-session-name=GitHub-OIDC-data
+      
             echo "Uploading batch $(($i + 1)) to $(($i + $BATCH_SIZE))..."
-            
+      
             for ((j=i; j<i+$BATCH_SIZE && j<TOTAL_FILES; j++)); do
               html_file="${HTML_FILES[$j]}"
               type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
       
-              # Map "subject" to "taxonomy" and "bibl" to "cbss"
               [ "$type" == "subject" ] && type="taxonomy"
               [ "$type" == "bibl" ] && type="cbss"
       
-              # Upload file
               echo "Uploading: $html_file -> s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
               aws s3 cp "$html_file" "s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
             done
@@ -182,9 +182,9 @@ jobs:
           done
       
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+
 
       # Step 9: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
