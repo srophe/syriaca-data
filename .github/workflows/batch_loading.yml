@@ -55,7 +55,7 @@ jobs:
           # find ./data/bibl/tei -name '*.xml' | tail -n +20000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +15000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +10000 | head -n 5000 > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | tail -n +5740 | head -n 60 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | tail -n +5740 | head -n 2 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | head -n 5000 > xml_files.txt
 
           # find ./data/taxonomy -name '*.rdf' > xml_files.txt
@@ -161,7 +161,7 @@ jobs:
             
             # Refresh AWS Credentials **before each batch**
             echo "Refreshing AWS Credentials..."
-            gh workflow run refresh-aws-credentials.yaml
+            gh workflow run refresh_aws_credentials.yaml
             
             echo "Uploading batch $(($i + 1)) to $(($i + $BATCH_SIZE))..."
             
