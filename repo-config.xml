@@ -114,6 +114,9 @@
             
             <fields function="series">series</fields>
             <fields function="idno">idno</fields>
+            <fields function="BHO" xpath="tei:bibl/tei:idno[@type='BHO']">BHO</fields>
+            <fields function="BHS" xpath="tei:bibl/tei:idno[@type='BHS']">BHS</fields>
+            <fields function="CPG" xpath="tei:bibl/tei:idno[@type='CPG']">CPG</fields>
             <!-- Syriaca.org specific fields` -->
             <fields function="titleSyriac">titleSyriac</fields>
             <fields function="titleArabic">titleArabic</fields>
@@ -131,6 +134,10 @@
             <fields function="placeName">placeName</fields>
             <fields function="type">type</fields>
             <fields function="gender" xpath="tei:gender">gender</fields>
+
+<!--             Display fields -->
+            <fields function="displayTitleEnglish">displayTitleEnglish</fields>
+            <fields function="displayTitleSyriac">displayTitleSyriac</fields>
             
             <!-- Gazetteer fields --> 
             
@@ -151,8 +158,8 @@
 <!--        <fields function="birth" xpath="tei:birth">birth</fields>
             <fields function="death" xpath="tei:death">death</fields> -->
             
-            <fields function="birthPlace" xpath="tei:birth/tei:placeName">birthPlace</fields> 
-            <fields function="birthDate" xpath="tei:birth/tei:date" >birthDate</fields> 
+<!--             <fields function="birthPlace" xpath="tei:birth/tei:placeName">birthPlace</fields> -->
+            <fields function="birthDate" xpath="tei:birth/tei:date" >birthDate</fields>  
             <fields function="deathDate" xpath="tei:death/tei:date" >deathDate</fields> 
             
             
@@ -176,9 +183,8 @@
             <fields function="subject" xpath="tei:relation[@ref='dc:subject']/tei:desc">subject</fields>
             <fields function="cbssCitation" xpath="tei:bibl[@type='formatted'][@subtype='citation']">citation</fields>
 
-<!--             <fields function="abstract" xpath="tei:note[@type='abstract']">abstract</fields> -->
-            <fields function="abstract" xpath="descendant::*[starts-with(@xml:id,'abstract')]">abstract</fields> 
-
+            <fields function="abstract" xpath="descendant::*[starts-with(@xml:id,'abstract')]">abstract</fields>
+            <fields function="coordinates" xpath="descendant::tei:geo">coordinates</fields>
         </searchFields>
     </config>
 </meta>

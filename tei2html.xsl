@@ -33,7 +33,6 @@
         
        code by: 
         + Winona Salesky (wsalesky@gmail.com)
-          for use with eXist-db
         + Tom Elliott (http://www.paregorios.org) 
           for the Institute for the Study of the Ancient World, New York
           University, under contract to Vanderbilt University for the
@@ -71,11 +70,11 @@
  <!-- =================================================================== -->
     
     <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
-    <xsl:param name="data-root" select="'/db/apps/srophe-data'"/>
+    <xsl:param name="data-root" select="'/data'"/>
     <!-- eXist app root for app deployment-->
-    <xsl:param name="app-root" select="'/db/apps/srophe'"/>
+    <xsl:param name="app-root" select="'/syriaca'"/>
     <!-- Root of app for building dynamic links. Default is eXist app root -->
-    <xsl:param name="nav-base" select="'/exist/apps/srophe'"/>
+    <xsl:param name="nav-base" select="''"/>
     <!-- Base URI for identifiers in app data -->
     <xsl:param name="base-uri" select="'http://syriaca.org'"/>
     <!-- Add a collection parameter to make it possible to switch XSLT stylesheets, or views via collections -->
@@ -84,17 +83,24 @@
     <xsl:param name="normalization">NFKC</xsl:param>
     <!-- Repo-config -->
     <xsl:variable name="config">
-        <xsl:if test="doc-available(concat('xmldb:exist://',$app-root,'/repo-config.xml'))">
-            <xsl:sequence select="doc(concat('xmldb:exist://',$app-root,'/repo-config.xml'))"/>
-        </xsl:if>
-    </xsl:variable>  
+        <xsl:choose>
+            <xsl:when test="doc-available('/repo-config.xml')">
+                <xsl:message>repo-config found</xsl:message>
+                <xsl:sequence select="document('/repo-config.xml')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:message>Warning: repo-config not found</xsl:message>
+                <xsl:sequence select="()" />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
     <!-- Repository Title -->
     <xsl:variable name="repository-title">
         <xsl:choose>
             <xsl:when test="not(empty($config))">
                 <xsl:value-of select="$config//*:title[1]"/>
             </xsl:when>
-            <xsl:otherwise>The Srophé Application</xsl:otherwise>
+            <xsl:otherwise>The Gaddel Application</xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
     <xsl:variable name="collection-title">
@@ -459,7 +465,7 @@
                     <xsl:for-each select="//t:idno[contains(.,'pleiades')]">
                         <li>
                             <a href="{normalize-space(.)}">
-                                <img src="{$nav-base}/resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
+                                <img src="/resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
                         </li>
                     </xsl:for-each>
                     <!-- Google map links -->
@@ -472,7 +478,7 @@
                                 <xsl:value-of select="$coords[2]"/>
                             </xsl:variable>
                             <a href="https://maps.google.com/maps?q={$geoRef}+(name)&amp;z=10&amp;ll={$geoRef}">
-                                <img src="{$nav-base}/resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
+                                <img src="/resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
                             </a>
                         </li>
                     </xsl:for-each>
@@ -484,7 +490,7 @@
                         </xsl:variable>
                         <li>
                             <a href="{.}">
-                                <img src="{$nav-base}/resources/images/Wikipedia-25.png" alt="The Wikipedia icon" title="click to view {$get-title} in Wikipedia"/> "<xsl:value-of select="$get-title"/>" in Wikipedia</a>
+                                <img src="../resources/images/Wikipedia-25.png" alt="The Wikipedia icon" title="click to view {$get-title} in Wikipedia"/> "<xsl:value-of select="$get-title"/>" in Wikipedia</a>
                         </li>
                     </xsl:for-each>
                 </ul>
@@ -1762,24 +1768,18 @@
                 </p>
                 <ul>
                     <!-- Bibliography elements are processed by bibliography.xsl -->
-                    <!-- Old works model 
-                    <xsl:choose>
-                        <xsl:when test="t:bibl[@type='lawd:Citation']">
-                            <xsl:apply-templates select="t:bibl[@type='lawd:Citation']" mode="footnote"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:apply-templates select="t:bibl" mode="footnote"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    -->
                     <xsl:for-each select="t:bibl">
-                        <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>
+                    <xsl:sort select="
+                        if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
+                        then number(substring-after(@xml:id, '-')) 
+                        else 0"/>
                         <xsl:apply-templates select="." mode="footnote"/>
                     </xsl:for-each>
                 </ul>
             </div>
         </div>
     </xsl:template>
+
     
     <!-- W -->
     <xsl:template match="t:work-toc">

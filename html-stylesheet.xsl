@@ -2,6 +2,7 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns:t="http://www.tei-c.org/ns/1.0" 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:x="http://www.w3.org/1999/xhtml" 
     xmlns:srophe="https://srophe.app" 
     xmlns:saxon="http://saxon.sf.net/" 
@@ -10,9 +11,9 @@
     exclude-result-prefixes="xs t x saxon local" version="3.0">
 
  <!-- ================================================================== 
-      staticHTML.xsl
+      staticHTML.xsl is the analog conversion sheet in the code repo
        
-       Generate Static HTML pages for TEI display  
+       Generate Static HTML pages of TEI Data 
         
        code by: 
         + Winona Salesky (wsalesky@gmail.com)
@@ -29,11 +30,9 @@
  <!-- =================================================================== -->
     <xsl:import href="tei2html.xsl"/>
     <xsl:import href="maps.xsl"/>
-<!--    <xsl:import href="json.xsl"/>-->
-<!--    <xsl:import href="relationships.xsl"/>-->
     
  <!-- =================================================================== -->
- <!-- set output so we get (mostly) indented HTML -->
+ <!-- set output for indented HTML -->
  <!-- =================================================================== -->
     <xsl:output name="html" encoding="UTF-8" method="xhtml" indent="no" omit-xml-declaration="yes"/>    
     
@@ -55,36 +54,69 @@
     
     <xsl:param name="applicationPath" select="'syriaca'"/>
     <xsl:param name="staticSitePath" select="'syriaca'"/>
-    <xsl:param name="dataPath" select="'data-html/'"/>
-    <xsl:param name="configPath" select="concat($staticSitePath, '/siteGenerator/components/repo-config.xml')"/>
+    <xsl:param name="dataPath" select="'./data/'"/>
+    
+    <!-- Example: generate new index.html page for places collection -->
+    <xsl:param name="convert" select="'false'"/>
+    <xsl:param name="outputFile" select="''"/>
+    <xsl:param name="outputCollection" select="''"/>
+    
+    <!-- Generate new TEI page, run over any TEI. 
+    <xsl:param name="outputFile" select="''"/>
+    <xsl:param name="outputCollection" select="''"/>
+    -->
+    
+    <!-- Find repo-config to find collection style values and page stubs  This can also point to the repo-config file in the root directory of the data repo-->
+    <xsl:variable name="configPath">
+        <xsl:choose>
+            <xsl:when test="$staticSitePath != ''">
+                <xsl:value-of select="concat($staticSitePath, '/siteGenerator/components/repo-config.xml')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'../components/repo-config.xml'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    
+    <!-- Get configuration file.  -->
     <xsl:variable name="config">
         <xsl:if test="doc-available(xs:anyURI($configPath))">
             <xsl:sequence select="document(xs:anyURI($configPath))"/>
         </xsl:if>
     </xsl:variable>
-    
-    <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
+      
     <!-- Not needed? -->
-    <xsl:param name="data-root" select="$dataPath"/>
-    <!-- eXist app root for app deployment-->
-    <!-- Not needed? -->
-    <xsl:param name="app-root" select="$applicationPath"/>
-    <!-- Root of app for building dynamic links. Default is eXist app root -->
-    <!-- Not needed? -->
-    <xsl:param name="nav-base" select="'/'"/>
+    <xsl:variable name="nav-base" select="'/'"/>
     
     <!-- Base URI for identifiers in app data -->
-    <xsl:param name="base-uri" select="'http://syriaca.org'"/>
+    <xsl:variable name="base-uri">
+        <xsl:choose>
+            <xsl:when test="$config/descendant::*:base_uri">
+                <xsl:value-of select="$config/descendant::*:base_uri"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'http://syriaca.org'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    
+    <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
+
+    <xsl:param name="data-root" select="$dataPath"/>
+
+    <xsl:param name="app-root" select="$applicationPath"/>
     
     <!-- Hard coded values-->
     <xsl:param name="normalization">NFKC</xsl:param>
+    
+    <!-- Variables for building HTML from TEI records -->
     <!-- Repository Title -->
     <xsl:variable name="repository-title">
         <xsl:choose>
             <xsl:when test="$config/child::*">
                 <xsl:value-of select="$config/descendant::*:title[1]"/>
             </xsl:when>
-            <xsl:otherwise>The Srophé Application</xsl:otherwise>
+            <xsl:otherwise>The Gaddel Application</xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
     <xsl:variable name="collection-title">
@@ -107,183 +139,303 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    <!-- Resource id -->
-    <xsl:variable name="resource-id">
-        <xsl:choose>
-            <xsl:when test="string(/*/@id)">
-                <xsl:value-of select="string(/*/@id)"/>
-            </xsl:when>
-            <xsl:when test="/descendant::t:publicationStmt/t:idno[@type='URI'][starts-with(.,$base-uri)]">
-                <xsl:value-of select="replace(replace(/descendant::t:publicationStmt[1]/t:idno[@type='URI'][starts-with(.,$base-uri)][1],'/tei',''),'/source','')"/>
-            </xsl:when>
-            <xsl:when test="/descendant::t:publicationStmt/t:idno[@type='URI']">
-                <xsl:value-of select="replace(replace(/descendant::t:publicationStmt[1]/t:idno[@type='URI'][1],'/tei',''),'/source','')"/>
-            </xsl:when>
-            <xsl:when test="/descendant::t:idno[@type='URI'][starts-with(.,$base-uri)]">
-                <xsl:value-of select="replace(replace(/descendant::t:idno[@type='URI'][starts-with(.,$base-uri)][1],'/tei',''),'/source','')"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="concat($base-uri,'/0000')"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
+    
     <!-- Resource title -->
     <xsl:variable name="resource-title">
         <xsl:choose>
-            <xsl:when test="/descendant::t:text/t:body[descendant::*[@srophe:tags = '#syriaca-headword2']]">
+            <xsl:when test="/descendant::t:text/t:body[descendant::*[@srophe:tags = '#syriaca-headword']]">
                 <xsl:apply-templates select="/descendant::t:text/t:body[descendant::*[@srophe:tags = '#syriaca-headword']][@xml:lang = 'en']/text()"/>
             </xsl:when>
-            <!--
-            <xsl:when test="contains(/descendant::t:title[1]/text(),' — ')">
-                <xsl:apply-templates select="substring-before(/descendant::t:title[1],' — ')"/>
-            </xsl:when>
-            -->
             <xsl:otherwise>
                 <xsl:apply-templates select="/descendant-or-self::t:titleStmt/t:title[1]"/>                
             </xsl:otherwise>            
         </xsl:choose>
     </xsl:variable>
     
+    <!-- Resource id -->
     <xsl:variable name="resource-path" select="substring-after(document-uri(.),':')"/>
         
-    <!-- Collection variables from repo-config -->
-    <!-- 
-        <collection name="authors" 
-        title="A Guide to Syriac Authors" 
-        collection-URI="http://syriaca.org/authors" 
-        series="The Syriac Biographical Dictionary" 
-        app-root="/authors/" 
-        data-root="persons" 
-        record-URI-pattern="http://syriaca.org/person/"/> -->
-    <xsl:variable name="collectionURIPattern">
-        <xsl:if test="$resource-id != ''"><xsl:for-each select="tokenize($resource-id,'/')"><xsl:if test="position() != last()"><xsl:value-of select="concat(.,'/')"/></xsl:if></xsl:for-each></xsl:if>
-    </xsl:variable>
-    <xsl:variable name="collectionValues" select="$config/descendant::*:collection[matches(@record-URI-pattern,concat('^',$collectionURIPattern))][1]"/>
-    <xsl:variable name="collectionTemplate">
-        <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html')))">
-            <xsl:sequence select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html')))"/>
-        </xsl:if>
-    </xsl:variable>
-    <xsl:variable name="collection" select="$collectionValues/@name"/>
-
+    
     <!-- Figure out if document is HTML or TEI -->
     <xsl:template match="/">
         <xsl:variable name="documentURI" select="document-uri(.)"/>
+        <!-- File type for conversion or creation -->
         <xsl:variable name="fileType">
             <xsl:choose>
+                <xsl:when test="$convert = 'false' and $outputFile != ''">HTML</xsl:when>
                 <xsl:when test="/html:div[@data-template-with]">HTML</xsl:when>
                 <xsl:when test="/t:TEI">TEI</xsl:when>
-                <xsl:when test="/t:TEI">TEI</xsl:when>
+                <xsl:when test="/rdf:RDF">RDF</xsl:when>
                 <xsl:otherwise>OTHER: <xsl:value-of select="name(root(.))"/></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+        <!-- Filename for new HTML file -->
         <xsl:variable name="filename">
-            <xsl:value-of select="replace(tokenize($documentURI,'/')[last()],'.xml','.html')"/>
+            <xsl:choose>
+                <!-- For generating a new file using the templates defined in the components directory.  -->
+                <xsl:when test="$convert = 'false' and $outputFile != ''">
+                    <xsl:variable name="collectionPath">
+                        <xsl:if test="$outputCollection != ''">
+                            <xsl:value-of select="$config/descendant::*:collection[@name = $outputCollection]/@app-root"/>
+                        </xsl:if>
+                    </xsl:variable>
+                    <xsl:choose>
+                        <xsl:when test="$outputCollection != ''">
+                            <xsl:value-of select="concat($config/descendant::*:collection[@name = $outputCollection]/@app-root,'',$outputFile)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="concat('/',$outputFile)"/>        
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="replace(tokenize($documentURI,'/')[last()],'.xml','.html')"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
         <xsl:variable name="path">
             <xsl:choose>
+                <xsl:when test="$convert = 'false' and $outputFile != '' and $fileType = 'HTML'">
+                    <path><xsl:value-of select="concat($staticSitePath,$filename)"/></path>
+                </xsl:when>
                 <xsl:when test="$fileType = 'HTML'">
-                    <xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/>
+                    <!--<path idno=""><xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/></path>-->
+                    <path><xsl:value-of select="concat($staticSitePath,$filename)"/></path>
                 </xsl:when>
                 <xsl:when test="$fileType = 'TEI'">
-                    <xsl:value-of select="$dataPath"/>
+                    <xsl:variable name="idno" select="replace(descendant::t:publicationStmt/t:idno[@type='URI'],'/tei','')"/>
+                    <!-- Output a version for JoE and Syriaca.org -->
+                    <xsl:if test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons'] or descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
+                        <xsl:variable name="altIdno">
+                            <xsl:choose>
+                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons']">
+                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/persons/')]"/>
+                                </xsl:when>
+                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
+                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/places/')]"/>
+                                </xsl:when>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <path idno="{$altIdno}"><xsl:value-of select="concat(replace($altIdno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
+                    </xsl:if>
+                    <path idno="{$idno}"><xsl:value-of select="concat(replace($idno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
+                </xsl:when>
+                <xsl:when test="$fileType = 'RDF'">
+                    <!-- Output a page for each rdf:Description (with http://syriaca.org/taxonomy/) -->
+                    <xsl:for-each select="//rdf:Description[starts-with(@rdf:about,'http://syriaca.org/taxonomy/')]">
+                        <xsl:if test="replace(@rdf:about,'http://syriaca.org/taxonomy/','') != ''">
+                            <xsl:variable name="idno" select="@rdf:about"/>
+                            <xsl:choose>
+                                <xsl:when test="$idno = 'http://syriaca.org/taxonomy/syriac-taxonomy'">
+                                    <path idno="{$idno}"><xsl:value-of select="concat($staticSitePath,'/taxonomy/browse.html')"/></path>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <path idno="{$idno}"><xsl:value-of select="concat(replace($idno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>        
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:if>
+                    </xsl:for-each>                    
                 </xsl:when>
                 <xsl:otherwise><xsl:message>Unrecognizable file type <xsl:value-of select="$fileType"/> [<xsl:value-of select="$documentURI"/>]</xsl:message></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-
-        <xsl:result-document href="{$filename}">
-            <xsl:choose>
-                <xsl:when test="$fileType = 'HTML'">
-                    <xsl:call-template name="htmlPage">
-                        <xsl:with-param name="pageType" select="'HTML'"/>
-                    </xsl:call-template>
-                </xsl:when>
-                <xsl:when test="$fileType = 'TEI'">
-                    <xsl:call-template name="htmlPage">
-                        <xsl:with-param name="pageType" select="'TEI'"/>
-                    </xsl:call-template>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:message>Unrecognizable file type <xsl:value-of select="$fileType"/></xsl:message>
-                </xsl:otherwise>    
-            </xsl:choose>
-        </xsl:result-document>
-
+        <xsl:variable name="nodes" select="//t:TEI | //rdf:RDF | *"/>
+        <xsl:for-each-group select="$path/child::*" group-by=".">
+            <xsl:result-document href="{replace(.,'.xml','.html')}">
+                <xsl:choose>
+                    <xsl:when test="$fileType = 'HTML'">
+                        <xsl:call-template name="htmlPage">
+                            <xsl:with-param name="pageType" select="'HTML'"/>
+                            <xsl:with-param name="nodes" select="$nodes"/>
+                            <xsl:with-param name="idno" select="''"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:when test="$fileType = 'TEI'">
+                        <xsl:call-template name="htmlPage">
+                            <xsl:with-param name="pageType" select="'TEI'"/>
+                            <xsl:with-param name="nodes" select="$nodes"/>
+                            <xsl:with-param name="idno" select="@idno"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:when test="$fileType = 'RDF'">
+                        <xsl:call-template name="htmlPage">
+                            <xsl:with-param name="pageType" select="'RDF'"/>
+                            <xsl:with-param name="nodes" select="$nodes"/>
+                            <xsl:with-param name="idno" select="@idno"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message>Unrecognizable file type <xsl:value-of select="$fileType"/></xsl:message>
+                    </xsl:otherwise>    
+                </xsl:choose>
+            </xsl:result-document> 
+        </xsl:for-each-group>
     </xsl:template>
     
     <xsl:template name="htmlPage">
         <xsl:param name="pageType"/>
+        <xsl:param name="nodes"/>
+        <xsl:param name="idno"/>
+        <!-- Collection variables from repo-config -->
+        <xsl:variable name="collectionURIPattern">
+            <xsl:if test="$idno != ''">
+                <xsl:for-each select="tokenize($idno,'/')">
+                    <xsl:if test="position() != last()"><xsl:value-of select="concat(.,'/')"/></xsl:if>
+                </xsl:for-each>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:variable name="collectionValues" select="$config/descendant::*:collection[@record-URI-pattern = $collectionURIPattern][1]"/>        
+        <xsl:variable name="collectionTemplate">
+            <xsl:choose>
+                <xsl:when test="$idno != ''">
+                    <!--<xsl:message> TEI record with an idno: <xsl:value-of select="$idno"/></xsl:message>-->
+                    <xsl:variable name="templatePath" select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/>
+                    <xsl:if test="doc-available(xs:anyURI($templatePath))">
+                        <xsl:sequence select="document(xs:anyURI($templatePath))"/>
+                    </xsl:if>
+                </xsl:when>
+                <xsl:when test="$convert = 'false' and $outputFile != ''">
+<!--                    <xsl:message>Generate new HTML page</xsl:message>-->
+                    <xsl:variable name="templatePath">
+                        <xsl:choose>
+                            <xsl:when test="$config/descendant::*:collection[@name = $outputCollection]/@template">
+                                <xsl:value-of select="concat($config/descendant::*:collection[@name = $outputCollection]/@template,'.html')"/>        
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="'page.html'"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <xsl:variable name="fullTemplatePath"><xsl:value-of select="concat($staticSitePath,'/', replace($templatePath,'templates/','siteGenerator/components/'))"/></xsl:variable>
+                    <xsl:if test="doc-available($fullTemplatePath)">
+                        <xsl:sequence select="document($fullTemplatePath)"/>
+                    </xsl:if>
+                </xsl:when>
+                <xsl:when test="$nodes/@data-template-with != ''">
+<!--                    <xsl:message>Convert HTML from old format </xsl:message>-->
+                    <xsl:variable name="templatePath" select="replace(concat($staticSitePath,'/siteGenerator/components/',substring-after($nodes/@data-template-with,'templates/')),'//','/')"/>
+                    <xsl:if test="doc-available(xs:anyURI($templatePath))">
+                        <xsl:sequence select="document(xs:anyURI($templatePath))"/>
+                    </xsl:if>
+                </xsl:when>
+                <xsl:otherwise>
+                    <!--<xsl:message>Find generic page.html template</xsl:message>-->
+                    <xsl:variable name="templatePath" select="replace(concat($staticSitePath,'/siteGenerator/components/page.html'),'//','/')"/>
+                    <xsl:if test="doc-available(xs:anyURI($templatePath))">
+                        <xsl:sequence select="document(xs:anyURI($templatePath))"/>
+                    </xsl:if>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="collection" select="$collectionValues/@name"/>
         <!-- <xsl:apply-templates/> -->
         <html xmlns="http://www.w3.org/1999/xhtml">
-            <!-- HTML Header, use templates as already estabilished, if no template exists, use generic -->
+            <!-- HTML Header, use templates as already estabilished, if no template exists, use generic 'page.html' -->
             <xsl:variable name="template">
                 <xsl:choose>
                     <xsl:when test="$pageType = 'HTML'">
-                        <xsl:variable name="templatePath"><xsl:value-of select="string(/*:div/@data-template-with)"/></xsl:variable>
-                        <xsl:if test="doc-available(concat($staticSitePath,replace($templatePath,'/templates/','/siteGenerator/components/')))">
-                            <xsl:sequence select="document(concat($staticSitePath,replace($templatePath,'/templates/','/siteGenerator/components/')))"/>
-                        </xsl:if>    
+                        <xsl:choose>
+                            <xsl:when test="$collectionTemplate/child::*">
+                                <xsl:sequence select="$collectionTemplate"/> 
+                            </xsl:when>
+                            <xsl:otherwise><xsl:message>Error Can not find matching template for HTML page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                     <xsl:when test="$pageType = 'TEI'">
-                       <xsl:choose>
-                           <xsl:when test="$collectionTemplate/child::*">
-                               <xsl:sequence select="$collectionTemplate"/> 
-                           </xsl:when>
-                           <xsl:otherwise><xsl:message>Error Can not find matching template for TEI type </xsl:message></xsl:otherwise>
-                       </xsl:choose>
+                        <xsl:choose>
+                            <xsl:when test="$collectionTemplate/child::*">
+                                <xsl:sequence select="$collectionTemplate"/> 
+                            </xsl:when>
+                            <xsl:otherwise><xsl:message>Error Can not find matching template for TEI page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:when test="$pageType = 'RDF'">
+                        <xsl:choose>
+                            <xsl:when test="$collectionTemplate/child::*">
+                                <xsl:sequence select="$collectionTemplate"/> 
+                            </xsl:when>
+                            <xsl:otherwise><xsl:message>Error Can not find matching template for TEI page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                 </xsl:choose>
             </xsl:variable>
-            <xsl:choose>
-                <xsl:when test="$template/child::*">
-                    <xsl:choose>
-                        <xsl:when test="$template/descendant::*:head">
-                             <xsl:copy-of select="$template/descendant::*:head"/>
-<!--                            <xsl:apply-templates select="$template/descendant::html:head"/>-->
-                        </xsl:when>
-                        <xsl:otherwise><xsl:message>Error in template, check template for html:head </xsl:message></xsl:otherwise>
-                    </xsl:choose>
-                </xsl:when>
-                <xsl:otherwise><xsl:call-template name="genericHeader"/></xsl:otherwise>
-            </xsl:choose>
+                <xsl:choose>
+                    <xsl:when test="$template/descendant::*:head">
+                        <xsl:choose>
+                            <xsl:when test="$template/descendant::*:head">
+                                <xsl:copy-of select="$template/descendant::*:head"/>
+                            </xsl:when>
+                            <xsl:otherwise><xsl:message>Error in template, check template for html:head </xsl:message></xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:otherwise><xsl:message>No template found for html:head element</xsl:message></xsl:otherwise>
+                </xsl:choose>
             <body id="body">
                 <xsl:choose>
                     <xsl:when test="not(empty($template))">
                         <xsl:choose>
                             <xsl:when test="$template/descendant::html:nav">
                                 <xsl:copy-of select="$template/descendant::html:nav"/>
-<!--                                <xsl:apply-templates select="$template/descendant::html:nav"/>-->
                             </xsl:when>
                             <xsl:otherwise>
+                                <xsl:message>No template found for html:head element</xsl:message>
                                 <xsl:call-template name="genericNav"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
+                        <xsl:message>No template found for html:head element</xsl:message>
                         <xsl:call-template name="genericNav"/>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:choose>
-                    <xsl:when test="$pageType = 'html'">
-                        <xsl:copy-of select="."></xsl:copy-of>
+                    <xsl:when test="$pageType = 'HTML'">
+                        <xsl:copy-of select="$nodes"/>
+                    </xsl:when>
+                    <xsl:when test="$pageType = 'RDF'">
+                        <xsl:apply-templates select="$nodes/rdf:Description[@rdf:about = $idno]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <!--
                         <xsl:choose>
                             <xsl:when test="$collectionTemplate">
-                                <xsl:apply-templates select="t:TEI"/>
+                                <div class="main-content-block">
+                                    <div class="interior-content">
+                                        <xsl:call-template name="otherDataFormats">
+                                        <xsl:with-param name="node" select="t:TEI"/>
+                                        <xsl:with-param name="idno" select="$idno"/>
+                                            <xsl:with-param name="formats" select="'print,tei,rdf'"/>
+                                        </xsl:call-template>
+                                        <div class="row">
+                                            <div class="col-md-7 col-lg-8">
+                                        <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
+                                            <xsl:with-param name="collection" select="$collection"/>
+                                        </xsl:apply-templates>
+                                            </div>
+                                            <div class="col-md-5 col-lg-4 right-menu">
+                                                <!-- Make dynamic -->
+                                                <!-- WS:ToDo Maps -->
+                                                <xsl:choose>
+                                                    <xsl:when test="$nodes/ancestor-or-self::t:TEI/descendant::t:geo">
+                                                        <xsl:call-template name="leafletMap">
+                                                            <xsl:with-param name="nodes" select="$nodes/ancestor-or-self::t:TEI"/>
+                                                        </xsl:call-template>
+                                                    </xsl:when>
+                                                    <!-- Maps for related places -->
+                                                </xsl:choose>
+                                                <span class="rdfRelationships" data-recordID="{$idno}"/>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>  
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:call-template name="genericTEIPage"/>
+                                <xsl:call-template name="genericTEIPage">
+                                    <xsl:with-param name="config" select="$config"></xsl:with-param>
+                                    <xsl:with-param name="repository-title" select="$repository-title"/>
+                                    <xsl:with-param name="collection-title" select="$collection-title"/>
+                                </xsl:call-template>
                             </xsl:otherwise>
                         </xsl:choose>
-                -->
-                        <xsl:call-template name="genericTEIPage">
-                            <xsl:with-param name="config" select="$config"></xsl:with-param>
-                            <xsl:with-param name="repository-title" select="$repository-title"/>
-                            <xsl:with-param name="collection-title" select="$collection-title"/>
-                        </xsl:call-template>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))">
@@ -292,7 +444,7 @@
             </body>
             <xsl:if test="$template/child::*[1]/html:script">
                 <xsl:copy-of select="$template/child::*[1]/html:script"/>
-            </xsl:if>
+            </xsl:if>  
         </html>
     </xsl:template>
      
@@ -370,9 +522,188 @@
         </xsl:element>
     </xsl:template>
     
+    <xsl:template match="rdf:Description">
+        <xsl:variable name="id" select="@rdf:about"/>
+        <xsl:choose>
+            <xsl:when test="child::*:hasTopConcept">
+                <div class="main-content-block">
+                    <div class="interior-content">
+                        <h1>Browse Taxonomy</h1>
+                        <ul class="list-unstyled indent">
+                            <xsl:for-each select="*:hasTopConcept">
+                                <xsl:sort select="@rdf:resource"/>
+                                <xsl:variable name="id" select="@rdf:resource"/>
+                                <xsl:for-each select="//rdf:Description[@rdf:about = $id]">
+                                    <xsl:sort select="*:prefLabel[@xml:lang='en']"/>
+                                    <li>
+                                        <xsl:choose>
+                                            <xsl:when test="*:narrower">
+                                                <xsl:variable name="uID" select="tokenize(@rdf:about,'/')[last()]"/>
+                                                <a href="#" type="button" class="expandTerms" data-toggle="collapse" data-target="#view{$uID}" style="display:inline-block;margin:.5em .75em;">
+                                                    <span class="glyphicon glyphicon-plus-sign"></span>
+                                                </a>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <a href="#" type="button" class="expandTerms" style="display:inline-block;margin:.5em 1.25em;">
+                                                    &#160;
+                                                </a>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                        <a href="{concat(replace($id,$base-uri,concat($staticSitePath,'data')),'.html')}"><xsl:value-of select="*:prefLabel[@xml:lang='en']"/></a>
+                                            <xsl:call-template name="narrowerTerms">
+                                                <xsl:with-param name="node" select="."/>
+                                            </xsl:call-template>
+                                    </li>
+                                </xsl:for-each>
+                            </xsl:for-each>
+                        </ul>
+                    </div>
+                </div>
+            </xsl:when>
+            <xsl:otherwise>
+                <div class="main-content-block">
+                    <div class="interior-content">
+                        <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
+                            <a href="javascript:window.print();" type="button" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to send this page to the printer." >
+                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+                            </a><xsl:text>&#160;</xsl:text>
+                            <!-- WS:NOTE needs work on the link.  -->
+                            <a href="{concat($dataPath,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
+                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> RDF/XML
+                            </a><xsl:text>&#160;</xsl:text>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7 col-lg-8">
+                                <div class="title">
+                                    <h1><span id="title">
+                                        <xsl:value-of select="*:prefLabel[@xml:lang='en']"/>
+                                        <xsl:if test="*:prefLabel[@xml:lang='syr']">
+                                            <xsl:text> - </xsl:text>
+                                            <xsl:value-of select="*:prefLabel[@xml:lang='syr']"/>
+                                        </xsl:if>
+                                    </span></h1>
+                                </div>
+                                <div class="idno seriesStmt"
+                                    style="margin:0; margin-top:.25em; margin-bottom: 1em; padding:1em; color: #999999;">
+                                    <small><span class="uri"> <button type="button" class="btn btn-default btn-xs" 
+                                        id="idnoBtn" data-clipboard-action="copy" data-clipboard-target="#syriaca-id">
+                                        <span class="srp-label">URI</span></button> 
+                                        <span id="syriaca-id"><xsl:value-of select="$id"/></span><script>
+                                            var clipboard = new Clipboard('#idnoBtn');
+                                            clipboard.on('success', function(e) {
+                                            console.log(e);
+                                            });
+                                            
+                                            clipboard.on('error', function(e) {
+                                            console.log(e);
+                                            });
+                                        </script> 
+                                    </span></small>
+                                    <div>
+                                        <xsl:if test="*:scopeNote[@xml:lang='en']">
+                                            <h3>Scope Note</h3>
+                                            <p class="indent"><xsl:apply-templates select="*:scopeNote[@xml:lang='en']"/></p>
+                                        </xsl:if>
+                                        <h3>Label(s)</h3>
+                                        <xsl:for-each-group select="*:prefLabel" group-by="@xml:lang">
+                                            <h4><xsl:value-of select="local:expand-lang(current-grouping-key(),'')"/></h4>
+                                            <p class="indent"><xsl:for-each select="current-group()">
+                                                <xsl:value-of select="."/><xsl:if test="position() != last()"><xsl:text>, </xsl:text></xsl:if>
+                                            </xsl:for-each></p>
+                                        </xsl:for-each-group>
+                                        <xsl:if test="*:altLabel">
+                                            <h3>Alternate Label(s)</h3>
+                                            <xsl:for-each-group select="*:altLabel" group-by="@xml:lang">
+                                                <h4><xsl:value-of select="local:expand-lang(current-grouping-key(),'')"/></h4>
+                                                <p class="indent"><xsl:for-each select="current-group()">
+                                                    <xsl:value-of select="."/><xsl:if test="position() != last()"><xsl:text>, </xsl:text></xsl:if>
+                                                </xsl:for-each></p>
+                                            </xsl:for-each-group>
+                                        </xsl:if>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-lg-4 right-menu">
+                                <xsl:if test="*:broader">
+                                    <h4>Broader</h4>
+                                    <ul>
+                                        <xsl:for-each select="*:broader">
+                                            <xsl:variable name="broaderID" select="@rdf:resource"/>
+                                            <xsl:for-each select="//rdf:Description[@rdf:about = $broaderID]">
+                                                <li><a href="{concat(replace($broaderID,$base-uri,concat($staticSitePath,'data')),'.html')}"><xsl:value-of select="*:prefLabel[@xml:lang='en']"/></a></li>
+                                            </xsl:for-each>
+                                        </xsl:for-each>
+                                    </ul>
+                                </xsl:if>
+                                <xsl:if test="*:narrower">
+                                    <h4>Narrower</h4>
+                                    <ul>
+                                        <xsl:for-each select="*:narrower">
+                                            <xsl:variable name="narrowerID" select="@rdf:resource"/>
+                                            <xsl:for-each select="//rdf:Description[@rdf:about = $narrowerID]">
+                                                <li><a href="{concat(replace($narrowerID,$base-uri,concat($staticSitePath,'data')),'.html')}"><xsl:value-of select="*:prefLabel[@xml:lang='en']"/></a></li>
+                                            </xsl:for-each>
+                                        </xsl:for-each>
+                                    </ul>
+                                </xsl:if>
+                                <xsl:if test="*:related">
+                                    <h4>See also</h4>
+                                    <ul>
+                                        <xsl:for-each select="*:related">
+                                            <xsl:variable name="relatedID" select="@rdf:resource"/>
+                                            <xsl:for-each select="//rdf:Description[@rdf:about = $relatedID]">
+                                                <li><a href="{replace($relatedID,$base-uri,concat($staticSitePath,'data'))}"><xsl:value-of select="*:prefLabel[@xml:lang='en']"/></a></li>                                            </xsl:for-each>    
+                                        </xsl:for-each>
+                                    </ul>
+                                </xsl:if>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template name="narrowerTerms">
+        <xsl:param name="node"/>
+        <xsl:if test="$node/*:narrower">
+            <xsl:variable name="uID" select="tokenize(@rdf:about,'/')[last()]"/>
+            <ul class="collapse list-unstyled indent" id="view{$uID}">
+                <xsl:for-each select="$node/*:narrower">
+                    <xsl:sort select="@rdf:resource"/>
+                    <xsl:variable name="termID" select="@rdf:resource"/>
+                    <xsl:for-each select="//rdf:Description[@rdf:about = $termID]">
+                        <li>
+                            <xsl:choose>
+                                <xsl:when test="*:narrower">
+                                    <xsl:variable name="uID" select="tokenize(@rdf:about,'/')[last()]"/>
+                                    <a href="#" type="button" class="expandTerms" data-toggle="collapse" data-target="#view{$uID}" style="display:inline-block;margin:.5em .75em;">
+                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                    </a>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <a href="#" type="button" class="expandTerms" style="display:inline-block;margin:.5em 1.25em;">
+                                        &#160;
+                                    </a>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <a href="{replace($termID,$base-uri,concat($staticSitePath,'data'))}"><xsl:value-of select="*:prefLabel[@xml:lang='en']"/></a>                            <xsl:call-template name="narrowerTerms">
+                                <xsl:with-param name="node" select="."/>
+                            </xsl:call-template>
+                        </li>
+                    </xsl:for-each>
+                </xsl:for-each>
+            </ul>
+        </xsl:if>
+    </xsl:template>
+    
     <xsl:template name="otherDataFormats">
         <xsl:param name="node"/>
         <xsl:param name="formats"/>
+        <xsl:param name="idno"/>
+        <!-- WS: Needs work -->
+        <xsl:variable name="teiRec" select="document-uri(root($node))"/>
         <xsl:variable name="dataPath" select="substring-before(concat($staticSitePath,'/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
@@ -401,13 +732,13 @@
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'rdf'">
-                            <a href="{concat($dataPath,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
+                            <a href="{concat($idno,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> RDF/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'tei'">
-                            <a href="{concat($dataPath,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >
-                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> TEI/XML
+                            <a href="{concat($idno,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >  
+                              <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> TEI/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'text'">
@@ -418,7 +749,7 @@
                         <xsl:when test=". = 'citations'">
                             <xsl:variable name="zoteroGrp" select="$config/descendant::*:zotero/@group"/>
                             <xsl:if test="$zoteroGrp != ''">
-                                (<a href="{concat('https://api.zotero.org/groups/',$zoteroGrp,'/items/',tokenize($resource-id,'/')[last()])}" class="btn btn-default btn-xs" id="citationsBtn" data-toggle="tooltip" title="Click for additional Citation Styles." >
+                                (<a href="{concat('https://api.zotero.org/groups/',$zoteroGrp,'/items/',tokenize($idno,'/')[last()])}" class="btn btn-default btn-xs" id="citationsBtn" data-toggle="tooltip" title="Click for additional Citation Styles." >
                                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Cite
                                 </a><xsl:text>&#160;</xsl:text>
                             </xsl:if>
@@ -432,11 +763,13 @@
         <xsl:param name="config"/>
         <xsl:param name="repository-title"/>
         <xsl:param name="collection-title"/>
+        <xsl:param name="idno"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div class="main-content-block">
                 <div class="interior-content">
                     <xsl:call-template name="otherDataFormats">
                         <xsl:with-param name="node" select="t:TEI"/>
+                        <xsl:with-param name="idno" select="$idno"/>
 <!--                        <xsl:with-param name="formats" select="'print,tei,rdf,text'"/>-->
                         <xsl:with-param name="formats" select="'print,tei'"/>
                     </xsl:call-template>
@@ -494,7 +827,7 @@
     </xsl:template>
     <xsl:template name="genericHeader">
         <head xmlns="http://www.w3.org/1999/xhtml">
-            <title>Generic Header:: <xsl:value-of select="$resource-title"/></title>
+            <title>Generic Header: <xsl:value-of select="$resource-title"/></title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <meta name="DC.type" property="dc.type" content="Text"/>
             <meta name="DC.isPartOf" property="dc.ispartof" content="{$config/html:title[1]}"/>
@@ -537,47 +870,7 @@
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Russian.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Arabic.min.js"/>
             <script type="text/javascript" src="/resources/keyboard/layouts/ms-Hebrew.min.js"/>
-            <script type="text/javascript">
-                <xsl:text disable-output-escaping="yes">
-                    <![CDATA[
-                $(document).ready(function () {
-                $('[data-toggle="tooltip"]').tooltip({ container: 'body' })
-                
-                $('.keyboard').keyboard({
-                openOn: null,
-                stayOpen: false,
-                alwaysOpen: false,
-                autoAccept: true,
-                usePreview: false,
-                initialFocus: true,
-                rtl : true,
-                layout: 'syriac-phonetic',
-                hidden: function(event, keyboard, el){
-                //  keyboard.destroy();
-                }
-                });
-                
-                $('.keyboard-select').click(function () {
-                var keyboardID = '#' + $(this).data("keyboard-id")
-                var kb = $(keyboardID).getkeyboard();
-                //var kb = $('#searchField').getkeyboard();
-                // change layout based on link ID
-                kb.options.layout = this.id
-                // open keyboard if layout is different, or time from it last closing is &gt; 200 ms
-                if (kb.last.layout !== kb.options.layout || (new Date().getTime() - kb.last.eventTime) < 200) {
-                kb.reveal();
-                }
-                });
-                //Change fonts
-                $('.swap-font').on('click', function(){
-                var selectedFont = $(this).data("font-id")
-                $('.selectableFont').not('.syr').css('font-family', selectedFont);
-                $("*:lang(syr)").css('font-family', selectedFont)
-                });
-                
-                })]]>
-                </xsl:text>
-            </script>
+            <script type="text/javascript" src="/resources/js/keyboard.js" />
         </head>
     </xsl:template>
     <xsl:template name="genericNav">
@@ -593,7 +886,7 @@
                     <span class="syriaca-icon syriaca-syriaca banner-icon">
                         <span class="path1"/><span class="path2"/><span class="path3"/><span class="path4"/>
                     </span>
-                    <span class="banner-text"><xsl:value-of select="$config/html:title[1]"/>T1</span>
+                    <span class="banner-text"><xsl:value-of select="$config/html:title[1]"/></span>
                 </a>
             </div>
             <div class="navbar-collapse collapse pull-right" id="navbar-collapse-1">
@@ -679,7 +972,7 @@
                                     <a href="#" class="swap-font" id="SertoBatnanSelect" data-font-id="SertoBatnan">Serto Batnan</a>
                                 </li>
                                 <li>
-                                    <a href="$app-root/documentation/wiki.html?wiki-page=/How-to-view-Syriac-script&amp;wiki-uri=https://github.com/srophe/syriaca-data/wiki">Help <span class="glyphicon glyphicon-question-sign"/>
+                                    <a href="/documentation/wiki.html?wiki-page=/How-to-view-Syriac-script&amp;wiki-uri=https://github.com/srophe/syriaca-data/wiki">Help <span class="glyphicon glyphicon-question-sign"/>
                                     </a>
                                 </li>
                             </ul>
@@ -727,24 +1020,5 @@
             <xsl:copy-of select="doc(concat($applicationPath,'/','templates/shared-links.html'))"/>
         </xsl:if>
     </xsl:template>
-    
-    <!--WS:NOTE I do not think this is working correctly: Copy all other HTML elements -->
-   <!--
-    <xsl:template match="html:*">
-        <xsl:choose>
-            <xsl:when test="element()">
-                <xsl:element name="{name(.)}" namespace="http://www.w3.org/1999/xhtml">
-                    <xsl:for-each select="@*">
-                        <xsl:attribute name="{name(.)}"><xsl:value-of select="."/></xsl:attribute>
-                    </xsl:for-each>
-                    <xsl:apply-templates/>
-                </xsl:element>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    -->
     
 </xsl:stylesheet>
