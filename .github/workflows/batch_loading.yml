@@ -158,16 +158,12 @@ jobs:
       
           for ((i=0; i<$TOTAL_FILES; i+=$BATCH_SIZE)); do
             echo "Refreshing AWS Credentials..."
-            
-            # Refresh AWS credentials before each batch
-            aws-actions/configure-aws-credentials@v3 \
-              --role-to-assume=${{ secrets.AWS_SROPHE_ROLE }} \
-              --aws-region=us-east-1 \
-              --role-session-name=GitHub-OIDC-data
-      
+            gh workflow run refresh_aws_credentials.yml --repo $GITHUB_REPOSITORY
+
             echo "Uploading batch $(($i + 1)) to $(($i + $BATCH_SIZE))..."
       
             for ((j=i; j<i+$BATCH_SIZE && j<TOTAL_FILES; j++)); do
+            
               html_file="${HTML_FILES[$j]}"
               type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
       
@@ -184,6 +180,7 @@ jobs:
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
 
 
       # Step 9: Upload error logs as an artifact for debugging
