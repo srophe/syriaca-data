@@ -11,6 +11,7 @@ on:
       - 'data/works/tei/**'
       - 'data/bibl/tei/**'
       - 'data/taxonomy/**'
+      - 'data/cbss/**'
       
 permissions:
   id-token: write
@@ -129,7 +130,7 @@ jobs:
             file="$1"
             filename=$(basename "${file%.xml}")
             type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-      
+
             # Fix bible/subject conflict using POSIX-compliant `test`
             if [ "$type" = "subject" ]; then
               type="subject"
@@ -213,7 +214,7 @@ jobs:
           
 
       # Step 8: Upload HTML files to S3 
-      # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
+      # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire, see batch_loading.yml
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -222,7 +223,6 @@ jobs:
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
           
-      # For faster speed and deletion of files so the data repo matches, switch to "sync" with "--delete" if cbss code is moved to another folder or each file name (introduces fragility if new code files are added to code repo, but not to the exceptions list) listed as an exception to the delete function    
       - name: Upload HTML files to S3
         run: |
 
