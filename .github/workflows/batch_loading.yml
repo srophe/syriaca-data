@@ -157,7 +157,7 @@ jobs:
           echo "Total files to upload: $TOTAL_FILES"
       
           for ((i=0; i<$TOTAL_FILES; i+=$BATCH_SIZE)); do
-            echo "Refreshing AWS Credentials..."
+            echo "Refreshing AWS Credentials"
             gh workflow run refresh_aws_credentials.yml --repo $GITHUB_REPOSITORY
 
             echo "Uploading batch $(($i + 1)) to $(($i + $BATCH_SIZE))..."
