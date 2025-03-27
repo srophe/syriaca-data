@@ -11,7 +11,7 @@ on:
       - 'data/works/tei/**'
       - 'data/bibl/tei/**'
       - 'data/taxonomy/**'
-      - 'data/cbss/**'
+      - 'data/cbss/**' 
       
 permissions:
   id-token: write
@@ -104,7 +104,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
-          duration-seconds: 14400
+          role-duration-seconds: 14400
 
       - name: Upload HTML files to S3 
         run: |        
