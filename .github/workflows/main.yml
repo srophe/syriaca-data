@@ -1,4 +1,4 @@
-name: Process XML to JSON and HTML
+name: Process XML to HTML
 
 on:
   push:
@@ -51,127 +51,36 @@ jobs:
         if: steps.cache-saxon.outputs.cache-hit != 'true'
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
         
-      # Step 3: Find updated and deleted XML files
-      - name: Identify updated and deleted XML files
+      # Step 3: Find updated XML files
+      - name: Identify updated XML files
         id: files
         run: |
           echo "Fetching commit history..."
           git fetch --unshallow || echo "Repository is already fully cloned."
       
-          echo "Checking for updated and deleted XML files..."
+          echo "Checking for updated and XML files..."
       
           # Capture newly added or modified files
           UPDATED_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '\.xml$' || true)
       
-          # Capture deleted files
-          DELETED_FILES=$(git diff --name-only --diff-filter=D HEAD~1 HEAD | grep '\.xml$' || true)
       
-          # If no files were updated or deleted, exit
-          if [ -z "$UPDATED_FILES" ] && [ -z "$DELETED_FILES" ]; then
-            echo "No XML files were updated or deleted."
+          # If no files were updated, exit
+          if [ -z "$UPDATED_FILES" ] ; then
+            echo "No XML files were updated."
             exit 0
           fi
       
-          # Save updated and deleted file lists
+          # Save updated file lists
           echo "$UPDATED_FILES" > xml_files.txt
-          echo "$DELETED_FILES" > deleted_files.txt
-      
-          # Convert deleted file paths to OpenSearch IDs
-          jq -n --argjson files "$(jq -R -s 'split("\n")[:-1]' deleted_files.txt)" '{"deleted_ids": $files}' > deleted_files.json
-      
+            
           echo "Updated files:"
           cat xml_files.txt
-      
-          echo "Deleted files:"
-          cat deleted_files.txt
 
 
-      # Step 4: Run XSLT Transformations in Parallel for JSON
-      - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
-        run: |
-          if [ ! -s xml_files.txt ]; then
-            echo "No XML files to process."
-            exit 0
-          fi
-      
-          set +e  # Allow errors without stopping execution
-          mkdir -p logs json_output  # Create log and JSON directories
-          > bulk_data.json  # Clear existing bulk JSON file
-      
-          # Process each XML file in parallel
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename "${file%.xml}")
-            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-
-            # Fix bible/subject conflict using POSIX-compliant `test`
-            if [ "$type" = "subject" ]; then
-              type="subject"
-            elif [ "$type" = "bibl" ]; then
-              type="cbss"
-            fi
-      
-            echo "Processing $filename for JSON"
-      
-            # Write index metadata to a separate temp file
-            echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
-      
-            # Run transformation, ensuring single-line output
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
-              echo "::warning:: JSON transformation failed for $file"
-              echo "Skipping $file due to transformation error." >> logs/errors.log
-            fi
-      
-            echo "" >> json_output/$filename.json  # Ensure newline between entries
-          ' sh {}
-      
-          # Merge all JSON files into a single bulk file
-
-          cat json_output/*.json > bulk_data.json
-      
-          set -e  # Re-enable stopping on error
-
-      # Step 5: Configure AWS credentials
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data    
-
-      # Step 6: Upload JSON file to S3
-      - name: Upload JSON to S3
-        run: |
-          TIMESTAMP=$(date +%Y%m%d%H%M%S)
-           if [ ! -s bulk_data.json ]; then
-            echo "::warning:: Skipping upload: bulk_data.json does not exist or is empty."
-            exit 0  # Exit successfully without failing the workflow
-           fi
-          
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-      # Send list of deleted files to S3 for OpenSearch removal    
-      - name: Upload deleted file list to S3
-        if: always()
-        run: |
-          if [ -s deleted_files.json ]; then
-            TIMESTAMP=$(date +%Y%m%d%H%M%S)
-            aws s3 cp deleted_files.json s3://srophe-syriaca-front-end/deleted-files/deleted_files_$TIMESTAMP.json
-          else
-            echo "No files deleted, skipping upload."
-          fi
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-
-
-      # Step 7: Convert XML to HTML in Parallel
+      # Step 4: Convert XML to HTML in Parallel
       - name: Convert XML to HTML in Parallel
         run: |
           mkdir -p logs data-html
-          
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
             filename=$(basename ${file%.xml})
@@ -186,8 +95,8 @@ jobs:
           ' sh {}
           
 
-      # Step 8: Upload HTML files to S3 
-      # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire, see batch_loading.yml
+      # Step 5: Upload HTML files to S3 
+      # For multi-hour (more than 6) runs see batch_loading.yml
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -195,29 +104,27 @@ jobs:
           role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
-          
-      - name: Upload HTML files to S3
-        run: |
+          duration-seconds: 14400
 
-          for html_file in $(find ./data-html -name "*.html"); do
-            type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
-            echo "html_file $html_file"
-            if [ "$type" == "subject" ]; then
-              type="taxonomy"
-            fi
-            if [ "$type" == "bibl" ]; then
-              type="cbss"
-            fi
-            # Copy html file to S3 with the idno path
-            echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-          done
+      - name: Upload HTML files to S3 
+        run: |        
+          echo "Uploading $(find ./data-html -name '*.html' | wc -l) HTML files to S3..."
+      
+          find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+            html_file="$1"
+            type=$(echo "$html_file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+            [ "$type" = "subject" ] && type="taxonomy"
+            [ "$type" = "bibl" ] && type="cbss"
+            s3_path="s3://srophe-syriaca-front-end/${type}/$(basename "${html_file%.html}")"
+            echo "Uploading $html_file to $s3_path"
+            aws s3 cp "$html_file" "$s3_path"
+          ' _ {}
           
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
-      # Step 9: Upload error logs as an artifact for debugging
+      # Step 6: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
         if: always()
         uses: actions/upload-artifact@v4
