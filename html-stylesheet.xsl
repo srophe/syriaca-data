@@ -363,7 +363,37 @@
                     <xsl:when test="$template/descendant::*:head">
                         <xsl:choose>
                             <xsl:when test="$template/descendant::*:head">
-                                <xsl:copy-of select="$template/descendant::*:head"/>
+                                <xsl:choose>
+                                     <xsl:when test="$pageType = 'TEI'">
+                                             <!--<xsl:sequence select="$collectionTemplate"/>-->
+                                             <head xmlns="http://www.w3.org/1999/xhtml">
+                                                 <!--<xsl:sequence select="$collectionTemplate"/>-->
+                                                 <xsl:for-each select="$collectionTemplate/descendant::*:head/child::*">
+                                                     <xsl:choose>
+                                                         <xsl:when test="local-name() = 'title'">
+                                                            <title xmlns="http://www.w3.org/1999/xhtml">
+                                                                 <xsl:choose>
+                                                                     <xsl:when test="$nodes/descendant::t:body[descendant::*[@srophe:tags = '#syriaca-headword']]">
+                                                                         <xsl:value-of select="$nodes/descendant::t:body/descendant::*[@srophe:tags = '#syriaca-headword'][@xml:lang = 'en']"/>
+                                                                     </xsl:when>
+                                                                     <xsl:otherwise>
+                                                                        <xsl:value-of select="$nodes/descendant-or-self::t:titleStmt/t:title[1]"/>                
+                                                                     </xsl:otherwise>            
+                                                                 </xsl:choose> 
+                                                             </title> 
+                                                         </xsl:when>
+                                                         <xsl:otherwise>
+                                                             <xsl:copy-of select="."/>
+                                                         </xsl:otherwise>
+                                                     </xsl:choose>
+                                                 </xsl:for-each>
+                                             </head> 
+                                         
+                                     </xsl:when>
+                                     <xsl:otherwise>
+                                         <xsl:copy-of select="$template/descendant::*:head"/>
+                                     </xsl:otherwise>
+                                 </xsl:choose>
                             </xsl:when>
                             <xsl:otherwise><xsl:message>Error in template, check template for html:head </xsl:message></xsl:otherwise>
                         </xsl:choose>
