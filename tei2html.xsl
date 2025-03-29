@@ -27,12 +27,14 @@
        tei2html.xsl
        
        This XSLT transforms tei.xml to html.
+       This file needs to be updated separately from version in code repo for proper transformation.
        
        parameters:
             
         
-       code by: 
+       code based on code by: 
         + Winona Salesky (wsalesky@gmail.com)
+          https://github.com/srophe/Gaddel/blob/main/siteGenerator/xsl/tei2html.xsl
         + Tom Elliott (http://www.paregorios.org) 
           for the Institute for the Study of the Ancient World, New York
           University, under contract to Vanderbilt University for the
@@ -618,7 +620,7 @@
     
     <!-- P -->
     <!-- Main page modules for syriaca.org display -->
-    <xsl:template match="t:person">
+    <xsl:template match="t:person | t:personGrp">
         <xsl:if test="t:desc[@type='abstract'] | t:desc[starts-with(@xml:id, 'abstract-en')] | t:note[@type='abstract']">
             <xsl:choose>
                 <xsl:when test="$collection = 'johnofephesusPersons'">
@@ -660,7 +662,7 @@
                 </xsl:apply-templates> 
             </ul>   
         </xsl:if>
-        <xsl:apply-templates select="t:sex | t:death | t:birth | t:floruit"/>
+        <xsl:apply-templates select="t:sex | t:gender| t:death  | t:birth | t:floruit"/>
         <!-- Work in progress
         <xsl:if test="t:state">
             <xsl:for-each-group select="//t:state[not(@when) and not(@notBefore) and not(@notAfter) and not(@to) and not(@from)]" group-by="@type">
@@ -1006,7 +1008,7 @@
             <xsl:if test="@ana">
                 <xsl:for-each select="tokenize(@ana,' ')">
                     <xsl:variable name="filepath">
-                        <xsl:value-of select="concat('xmldb:exist://',substring-before(replace(.,$base-uri,$nav-base),'#'))"/>
+                      <xsl:value-of select="substring-before(replace(.,$base-uri,$nav-base),'#')"/>                    
                     </xsl:variable>
                     <xsl:variable name="ana-id" select="substring-after(.,'#')"/>
                     <xsl:if test="doc-available($filepath)">
@@ -1719,7 +1721,7 @@
             </li>  
         </xsl:if>
     </xsl:template>
-    <xsl:template match="t:state | t:birth | t:death | t:floruit | t:sex | t:langKnowledge">
+    <xsl:template match="t:state | t:birth | t:death | t:floruit | t:sex | t:gender | t:langKnowledge">
        <div class="person-details">
            <h3>
                <xsl:choose>
@@ -1727,6 +1729,7 @@
                    <xsl:when test="self::t:death">Death</xsl:when>
                    <xsl:when test="self::t:floruit">Floruit</xsl:when>
                    <xsl:when test="self::t:sex">Sex</xsl:when>
+                   <xsl:when test="self::t:gender">Sex</xsl:when>
                    <xsl:when test="self::t:langKnowledge">Language Knowledge</xsl:when>
                    <xsl:when test="@role">
                        <xsl:value-of select="concat(upper-case(substring(@role,1,1)),substring(@role,2))"/>
@@ -1769,7 +1772,8 @@
                 <ul>
                     <!-- Bibliography elements are processed by bibliography.xsl -->
                     <xsl:for-each select="t:bibl">
-                    <xsl:sort select="
+                       <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>
+                        <xsl:sort select="
                         if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
                         then number(substring-after(@xml:id, '-')) 
                         else 0"/>
@@ -1819,7 +1823,7 @@
         <!-- Variable to store the value of the confessions of current place-->
         <xsl:variable name="current-confessions">
             <xsl:for-each select="//t:state[@type='confession']">
-                <xsl:variable name="id" select="substring-after(@ref,'#')"/>
+                <xsl:variable name="id" select="substring-after(@ref,'http://syriaca.org/taxonomy/')"/>
                 <!-- outputs current confessions as a space seperated list -->
                 <xsl:value-of select="concat($id,' ')"/>
             </xsl:for-each>
