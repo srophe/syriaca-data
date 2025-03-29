@@ -50,8 +50,8 @@ jobs:
         run: |
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
-          find ./data/persons/tei/10.xml -name '*.xml' > xml_files.txt
-          find ./data/persons/tei/106.xml -name '*.xml' >> xml_files.txt
+          find ./data/places/tei/10.xml -name '*.xml' > xml_files.txt
+          find ./data/places/tei/100.xml -name '*.xml' >> xml_files.txt
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +20000 | head -n 5000 > xml_files.txt
@@ -154,7 +154,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
           role-session-name: GitHub-OIDC-data
-          duration-seconds: 14400
+          role-duration-seconds: 14400
           
       # - name: Upload HTML files to S3
       #   run: |
