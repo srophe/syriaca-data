@@ -50,9 +50,9 @@ jobs:
         run: |
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
-          # find ./data/persons/tei/10.xml -name '*.xml' > xml_files.txt
-          # find ./data/persons/tei/106.xml -name '*.xml' >> xml_files.txt
-          find ./data/persons/tei -name '*.xml' > xml_files.txt
+          find ./data/persons/tei/10.xml -name '*.xml' > xml_files.txt
+          find ./data/persons/tei/106.xml -name '*.xml' >> xml_files.txt
+          # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +20000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +15000 | head -n 5000 > xml_files.txt
@@ -125,67 +125,67 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
-      # # Step 7: Convert XML to HTML in Parallel
-      # - name: Convert XML to HTML in Parallel
-      #   run: |
-      #     mkdir -p logs data-html
+      # Step 7: Convert XML to HTML in Parallel
+      - name: Convert XML to HTML in Parallel
+        run: |
+          mkdir -p logs data-html
           
-      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-      #       file="$1"
-      #       filename=$(basename ${file%.xml})
-      #       type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-      #       [ -z "$type" ] && type="unknown"
-      #       mkdir -p data-html/$type
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename ${file%.xml})
+            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+            [ -z "$type" ] && type="unknown"
+            mkdir -p data-html/$type
             
-      #       echo "Processing $filename for HTML"
-      #       if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
-      #         echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
-      #         echo "Error processing $type file: $file" >> logs/errors.log
-      #       fi
-      #     ' sh {}
+            echo "Processing $filename for HTML"
+            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
+              echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
+              echo "Error processing $type file: $file" >> logs/errors.log
+            fi
+          ' sh {}
           
 
-      # Step 8: Upload HTML files to S3 
-      # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
+      Step 8: Upload HTML files to S3 
+      For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
       
-      # - name: Configure AWS credentials
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-      #     aws-region: us-east-1
-      #     role-session-name: GitHub-OIDC-data
-      #     duration-seconds: 14400
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          duration-seconds: 14400
           
-      # - name: Upload HTML files to S3
-      #   run: |
-        #   for html_file in $(find ./data-html -name "*.html"); do
-        #     type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
-        #     echo "html_file $html_file"
-        #     if [ "$type" == "subject" ]; then
-        #       type="taxonomy"
-        #     fi
-        #     if [ "$type" == "bibl" ]; then
-        #       type="cbss"
-        #     fi
-        #     # Copy html file to S3 with the idno path
-        #     echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-        #     aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-        #   done  
+      - name: Upload HTML files to S3
+        run: |
+          for html_file in $(find ./data-html -name "*.html"); do
+            type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
+            echo "html_file $html_file"
+            if [ "$type" == "subject" ]; then
+              type="taxonomy"
+            fi
+            if [ "$type" == "bibl" ]; then
+              type="cbss"
+            fi
+            # Copy html file to S3 with the idno path
+            echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
+            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+          done  
         
-      # - name: Upload HTML files to S3
-      #   run: |        
-      #     find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
-      #       html_file="$1"
-      #       type=$(echo "$html_file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-      #       [ "$type" = "subject" ] && type="taxonomy"
-      #       [ "$type" = "bibl" ] && type="cbss"
-      #       s3_path="s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-      #       echo "Uploading $html_file to $s3_path"
-      #       aws s3 cp "$html_file" "$s3_path"
-      #     ' sh {}
-      #   env:
-      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      - name: Upload HTML files to S3
+        run: |        
+          find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+            html_file="$1"
+            type=$(echo "$html_file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+            [ "$type" = "subject" ] && type="taxonomy"
+            [ "$type" = "bibl" ] && type="cbss"
+            s3_path="s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
+            echo "Uploading $html_file to $s3_path"
+            aws s3 cp "$html_file" "$s3_path"
+          ' sh {}
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
 
       # Step 9: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
