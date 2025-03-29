@@ -118,12 +118,12 @@ jobs:
 
       # Step 6: Upload JSON file to S3
       - name: Upload JSON to S3
-        run: |
-          TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+        run: |
+          TIMESTAMP=$(date +%Y%m%d%H%M%S)
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
 
       # Step 7: Convert XML to HTML in Parallel
       - name: Convert XML to HTML in Parallel
@@ -145,8 +145,8 @@ jobs:
           ' sh {}
           
 
-      Step 8: Upload HTML files to S3 
-      For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
+      # Step 8: Upload HTML files to S3 
+      # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -156,21 +156,21 @@ jobs:
           role-session-name: GitHub-OIDC-data
           duration-seconds: 14400
           
-      - name: Upload HTML files to S3
-        run: |
-          for html_file in $(find ./data-html -name "*.html"); do
-            type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
-            echo "html_file $html_file"
-            if [ "$type" == "subject" ]; then
-              type="taxonomy"
-            fi
-            if [ "$type" == "bibl" ]; then
-              type="cbss"
-            fi
-            # Copy html file to S3 with the idno path
-            echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-            aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
-          done  
+      # - name: Upload HTML files to S3
+      #   run: |
+      #     for html_file in $(find ./data-html -name "*.html"); do
+      #       type=$(echo "$html_file" | grep -o -E 'taxonomy|work|subject|person|place|bibl' | tail -n 1)
+      #       echo "html_file $html_file"
+      #       if [ "$type" == "subject" ]; then
+      #         type="taxonomy"
+      #       fi
+      #       if [ "$type" == "bibl" ]; then
+      #         type="cbss"
+      #       fi
+      #       # Copy html file to S3 with the idno path
+      #       echo "uploading to $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
+      #       aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
+      #     done  
         
       - name: Upload HTML files to S3
         run: |        
