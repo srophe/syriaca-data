@@ -127,7 +127,13 @@ jobs:
       
           # Merge all JSON files into a single bulk file
 
+          # Verify all files added
+          echo "Files being added to bulk_data.json:"
+          ls json_output/
+          echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)"
+          
           cat json_output/*.json > bulk_data.json
+
       
           set -e  # Re-enable stopping on error
 
