@@ -382,13 +382,13 @@
         <xsl:choose>
             <xsl:when test="contains($id, '/place')">
                 <xsl:variable name="field">
-                    <xsl:value-of select="$doc/descendant::tei:place/@type"/>
+                    <xsl:value-of select="$doc/descendant::tei:place/@ana"/>
                 </xsl:variable>
-                <xsl:if test="$field != ''">
+                <xsl:for-each select="tokenize($field,' ')">
                     <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                        <xsl:value-of select="$field"/>
-                    </string>    
-                </xsl:if>
+                    <xsl:value-of select="tokenize(.,'/')[last()]"/>
+                     </string>
+                 </xsl:for-each>
             </xsl:when>
             <xsl:when test="contains($id, '/person')">
               <xsl:if test="$doc/descendant::tei:body/descendant::tei:state[@type='status']">
