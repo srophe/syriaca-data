@@ -1,0 +1,103 @@
+name: Process John of Ephesus Persons to HTML
+
+on:
+  workflow_dispatch:  # Run manually if needed
+  push:
+    branches:
+      - 'gaddel_development'
+    paths:
+      - 'data/persons/tei/*.xml'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  johnofephesus_persons_html:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the data repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Checkout Gaddel transformation repo
+      - name: Checkout Gaddel repository (XSLT code)
+        uses: actions/checkout@v3
+        with:
+          repository: srophe/Gaddel
+          ref: main
+          path: syriaca
+
+      # Step 3: Install Java (for Saxon)
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      # Step 4: Cache Saxon
+      - name: Cache Saxon JAR
+        id: cache-saxon
+        uses: actions/cache@v3
+        with:
+          path: saxon.jar
+          key: saxon-10.6
+
+      - name: Download Saxon if not cached
+        if: steps.cache-saxon.outputs.cache-hit != 'true'
+        run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
+
+      # Step 5: Identify and convert persons XML files to HTML
+      - name: Convert XML to HTML (John of Ephesus format)
+        run: |
+          mkdir -p logs data-html/johnofephesus/persons
+
+          # find ./data/persons/tei -name '*.xml' > xml_files.txt
+          find ./data/persons/tei -name '5180.xml' > xml_files.txt
+
+          echo "Processing $(wc -l < xml_files.txt) person records..."
+
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename ${file%.xml})
+
+            echo "Converting $file to HTML"
+            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
+              echo "::warning:: HTML transformation failed for $file"
+              echo "Failed: $file" >> logs/errors.log
+            fi
+          ' sh {}
+
+      # Step 6: Configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-johnofephesus
+          role-duration-seconds: 14400
+
+      # Step 7: Upload only the johnofephesus/persons HTML files to S3
+      - name: Upload HTML to S3 (johnofephesus/persons)
+        run: |
+          find data-html/johnofephesus/persons -name '*.html' -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+            html_file="$1"
+            filename=$(basename "$html_file")
+            # s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
+            s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/${filename%.html}"
+
+            echo "Uploading $html_file to $s3_path"
+            aws s3 cp "$html_file" "$s3_path"
+          ' sh {}
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+
+      # Step 8: Upload error logs for debugging
+      - name: Upload Logs to GitHub Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: johnofephesus-persons-error-logs
+          path: logs/errors.log
