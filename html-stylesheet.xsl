@@ -202,24 +202,36 @@
                     <!--<path idno=""><xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/></path>-->
                     <path><xsl:value-of select="concat($staticSitePath,$filename)"/></path>
                 </xsl:when>
+                
                 <xsl:when test="$fileType = 'TEI'">
-                    <xsl:variable name="idno" select="replace(descendant::t:publicationStmt/t:idno[@type='URI'],'/tei','')"/>
-                    <!-- Output a version for JoE and Syriaca.org -->
-                    <xsl:if test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons'] or descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
-                        <xsl:variable name="altIdno">
-                            <xsl:choose>
-                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons']">
-                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/persons/')]"/>
-                                </xsl:when>
-                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
-                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/places/')]"/>
-                                </xsl:when>
-                            </xsl:choose>
-                        </xsl:variable>
-                        <path idno="{$altIdno}"><xsl:value-of select="concat(replace($altIdno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
-                    </xsl:if>
-                    <path idno="{$idno}"><xsl:value-of select="concat(replace($idno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
+                  <xsl:variable name="idno" select="replace((descendant::t:idno[@type='URI' and (starts-with(., 'http://syriaca.org/person/') or starts-with(., 'http://syriaca.org/place/') or starts-with(., 'http://syriaca.org/work/') or starts-with(., 'http://syriaca.org/cbss/') or starts-with(., 'http://syriaca.org/manuscript/')])[1], '/tei', '')"/>
+                
+                  <!-- New: John of Ephesus alternate idno -->
+                  <xsl:variable name="altIdno">
+                    <xsl:choose>
+                      <xsl:when test="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/persons/')]">
+                        <xsl:value-of select="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/persons/')][1]"/>
+                      </xsl:when>
+                      <xsl:when test="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/places/')]">
+                        <xsl:value-of select="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/places/')][1]"/>
+                      </xsl:when>
+                      <xsl:otherwise/>
+                    </xsl:choose>
+                  </xsl:variable>
+                
+                  <!-- Always emit standard path -->
+                  <path idno="{$idno}">
+                    <xsl:value-of select="concat(replace($idno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
+                  </path>
+                
+                  <!-- Emit alternate path for JoE pages if exists -->
+                  <xsl:if test="string-length($altIdno) &gt; 0">
+                    <path idno="{$altIdno}">
+                      <xsl:value-of select="concat(replace($altIdno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
+                    </path>
+                  </xsl:if>
                 </xsl:when>
+                
                 <xsl:when test="$fileType = 'RDF'">
                     <!-- Output a page for each rdf:Description (with http://syriaca.org/taxonomy/) -->
                     <xsl:for-each select="//rdf:Description[starts-with(@rdf:about,'http://syriaca.org/taxonomy/')]">
