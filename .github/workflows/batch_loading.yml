@@ -52,14 +52,14 @@ jobs:
           # find ./data/places/tei -name '*.xml' > xml_files.txt
           # find ./data/bibl/tei/F67YHBCA.xml -name '*.xml' > xml_files.txt
           # find ./data/places/tei/100.xml -name '*.xml' >> xml_files.txt
-          # find ./data/persons/tei -name '*.xml' > xml_files.txt
+          find ./data/persons/tei -name '*.xml' > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +20000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +15000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +10000 | head -n 5000 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | tail -n +8500 | head -n 1500 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml'  head -n 5000 > xml_files.txt
-          find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
+          # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
@@ -71,66 +71,66 @@ jobs:
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
           
-      # Step 4: Run XSLT Transformations in Parallel for JSON
-      - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
-        run: |
-          if [ ! -s xml_files.txt ]; then
-            echo "No XML files to process."
-            exit 0
-          fi
+      # # Step 4: Run XSLT Transformations in Parallel for JSON
+      # - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
+      #   run: |
+      #     if [ ! -s xml_files.txt ]; then
+      #       echo "No XML files to process."
+      #       exit 0
+      #     fi
       
-          set +e  # Allow errors without stopping execution
-          mkdir -p logs json_output  # Create log and JSON directories
-          > bulk_data.json  # Clear existing bulk JSON file
+      #     set +e  # Allow errors without stopping execution
+      #     mkdir -p logs json_output  # Create log and JSON directories
+      #     > bulk_data.json  # Clear existing bulk JSON file
       
-          # Process each XML file in parallel
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename "${file%.xml}")
-            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+      #     # Process each XML file in parallel
+      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+      #       file="$1"
+      #       filename=$(basename "${file%.xml}")
+      #       type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
       
-            # Fix bible/subject conflict using POSIX-compliant `test`
-            if [ "$type" = "subject" ]; then
-              type="subject"
-            elif [ "$type" = "bibl" ]; then
-              type="cbss"
-            fi
+      #       # Fix bible/subject conflict using POSIX-compliant `test`
+      #       if [ "$type" = "subject" ]; then
+      #         type="subject"
+      #       elif [ "$type" = "bibl" ]; then
+      #         type="cbss"
+      #       fi
       
-            echo "Processing $filename for $type JSON"
+      #       echo "Processing $filename for $type JSON"
       
-            # Write index metadata to a separate temp file
-            echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
+      #       # Write index metadata to a separate temp file
+      #       echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
       
-            # Run transformation, ensuring single-line output
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
-              echo "::warning:: JSON transformation failed for $file"
-              echo "Skipping $type $file due to transformation error." >> logs/errors.log
-            fi
+      #       # Run transformation, ensuring single-line output
+      #       if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
+      #         echo "::warning:: JSON transformation failed for $file"
+      #         echo "Skipping $type $file due to transformation error." >> logs/errors.log
+      #       fi
       
-            echo "" >> json_output/$filename.json  # Ensure newline between entries
-          ' sh {}
+      #       echo "" >> json_output/$filename.json  # Ensure newline between entries
+      #     ' sh {}
       
-          # Merge all JSON files into a single bulk file
-          cat json_output/*.json > bulk_data.json
+      #     # Merge all JSON files into a single bulk file
+      #     cat json_output/*.json > bulk_data.json
       
-          set -e  # Re-enable stopping on error
+      #     set -e  # Re-enable stopping on error
 
-      # Step 5: Configure AWS credentials
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data    
+      # # Step 5: Configure AWS credentials
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+      #     aws-region: us-east-1
+      #     role-session-name: GitHub-OIDC-data    
 
-      # Step 6: Upload JSON file to S3
-      - name: Upload JSON to S3
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-        run: |
-          TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
+      # # Step 6: Upload JSON file to S3
+      # - name: Upload JSON to S3
+      #   env:
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #   run: |
+      #     TIMESTAMP=$(date +%Y%m%d%H%M%S)
+      #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
 
       # # Step 7: Convert XML to HTML in Parallel
       # - name: Convert XML to HTML in Parallel
@@ -150,18 +150,31 @@ jobs:
       #         echo "Error processing $type file: $file" >> logs/errors.log
       #       fi
       #     ' sh {}
-          
+      - name: Convert XML to HTML (John of Ephesus)
+        run: |
+          mkdir -p logs data-html/johnofephesus/persons
 
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename ${file%.xml})
+
+            echo "Converting $file to HTML"
+            if ! java -jar saxon.jar -s:$file -xsl:syriaca/html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
+              echo "::warning:: HTML transformation failed for $file"
+              echo "Failed: $file" >> logs/errors.log
+            fi
+          ' sh {}
+          
       # # Step 8: Upload HTML files to S3 
       # # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
       
-      # - name: Configure AWS credentials
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-      #     aws-region: us-east-1
-      #     role-session-name: GitHub-OIDC-data
-      #     role-duration-seconds: 14400
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          role-duration-seconds: 14400
           
       # # - name: Upload HTML files to S3
       # #   run: |
@@ -193,6 +206,19 @@ jobs:
       #   env:
       #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      - name: Upload HTML files to S3 (johnofephesus/persons)
+        run: |
+          echo "Uploading John of Ephesus person HTML files..."
+          find data-html/johnofephesus/persons -name '*.html' -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+            html_file="$1"
+            filename=$(basename "$html_file")
+            s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
+            echo "Uploading $html_file to $s3_path"
+            aws s3 cp "$html_file" "$s3_path"
+          ' sh {}
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
 
       # Step 9: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
