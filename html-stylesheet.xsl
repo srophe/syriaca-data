@@ -204,8 +204,12 @@
                 </xsl:when>
                 
                 <xsl:when test="$fileType = 'TEI'">
+
+
                 <xsl:variable name="idno" select="replace((descendant::t:idno[@type='URI' and (starts-with(., 'http://syriaca.org/person/') or starts-with(., 'http://syriaca.org/place/') or starts-with(., 'http://syriaca.org/work/') or starts-with(., 'http://syriaca.org/cbss/') or starts-with(., 'http://syriaca.org/manuscript/'))])[1], '/tei', '')"/>
-                  <!-- New: John of Ephesus alternate idno -->
+                    <xsl:message>DEBUG: idno = <xsl:value-of select="$idno"/></xsl:message>
+
+                    <!-- New: John of Ephesus alternate idno -->
                   <xsl:variable name="altIdno">
                     <xsl:choose>
                       <xsl:when test="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/persons/')]">
@@ -217,7 +221,8 @@
                       <xsl:otherwise/>
                     </xsl:choose>
                   </xsl:variable>
-                
+                <xsl:message>DEBUG: altidno = <xsl:value-of select="$altIdno"/></xsl:message>
+
                   <!-- Always emit standard path -->
                   <path idno="{$idno}">
                     <xsl:value-of select="concat(replace($idno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
@@ -295,6 +300,8 @@
                 </xsl:for-each>
             </xsl:if>
         </xsl:variable>
+        <xsl:message>DEBUG: collectionURIPattern = <xsl:value-of select="$collectionURIPattern"/></xsl:message>
+
         <xsl:variable name="collectionValues" select="$config/descendant::*:collection[@record-URI-pattern = $collectionURIPattern][1]"/>        
         <xsl:variable name="collectionTemplate">
             <xsl:choose>
@@ -338,6 +345,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+        
         <xsl:variable name="collection" select="$collectionValues/@name"/>
         <!-- <xsl:apply-templates/> -->
         <html xmlns="http://www.w3.org/1999/xhtml">
