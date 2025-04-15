@@ -204,8 +204,7 @@
                 </xsl:when>
                 
                 <xsl:when test="$fileType = 'TEI'">
-                  <xsl:variable name="idno" select="replace((descendant::t:idno[@type='URI' and (starts-with(., 'http://syriaca.org/person/') or starts-with(., 'http://syriaca.org/place/') or starts-with(., 'http://syriaca.org/work/') or starts-with(., 'http://syriaca.org/cbss/') or starts-with(., 'http://syriaca.org/manuscript/')])[1], '/tei', '')"/>
-                
+                    <xsl:variable name="idno" select="replace(descendant::t:idno[@type='URI' and (starts-with(., 'http://syriaca.org/person/') or starts-with(., 'http://syriaca.org/place/') or starts-with(., 'http://syriaca.org/work/') or starts-with(., 'http://syriaca.org/cbss/') or starts-with(., 'http://syriaca.org/manuscript/')][1], '/tei', '')"/>
                   <!-- New: John of Ephesus alternate idno -->
                   <xsl:variable name="altIdno">
                     <xsl:choose>
