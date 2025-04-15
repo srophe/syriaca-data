@@ -49,9 +49,13 @@ jobs:
         if: steps.cache-saxon.outputs.cache-hit != 'true'
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
+      - name: Debug template path
+        run: ls -R syriaca/siteGenerator/components
+             
       # Step 5: Identify and convert persons XML files to HTML
       - name: Convert XML to HTML (John of Ephesus format)
         run: |
+          
           mkdir -p logs data-html/johnofephesus/persons
 
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
