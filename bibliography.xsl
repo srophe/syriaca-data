@@ -1270,7 +1270,7 @@
             </xsl:when>
             <!-- glyphicon glyphicon-book -->
             <xsl:when test="contains($ref,'worldcat.org/')">
-                <img src="../resources/images/worldCat-logo.png" alt="Link to Worldcat Bibliographic record" height="18px"/>
+                <img src="../../resources/images/worldCat-logo.png" alt="Link to Worldcat Bibliographic record" height="18px"/>
             </xsl:when>
             <xsl:when test="contains($ref,'hathitrust.org/')">
                 <img src="../../resources/images/htrc_logo.png" alt="Link to HathiTrust Bibliographic record" height="18px"/>
