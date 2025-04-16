@@ -87,15 +87,24 @@ jobs:
       # Step 7: Upload only the johnofephesus/persons HTML files to S3
       - name: Upload HTML to S3 (johnofephesus/persons)
         run: |
-          find data-html/johnofephesus/persons -name '*.html' -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+          # find data-html/johnofephesus/persons -name '*.html' -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+          #   html_file="$1"
+          #   filename=$(basename "$html_file")
+          #   # s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
+          #   s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/${filename%.html}"
+
+          #   echo "Uploading $html_file to $s3_path"
+          #   aws s3 cp "$html_file" "$s3_path"
+          # ' sh {}
+          find data-html/johnofephesus/persons -path '*/johnofephesus/persons/*.html' -print0 |
+          xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
             filename=$(basename "$html_file")
-            # s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
-            s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/${filename%.html}"
-
+            s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
             echo "Uploading $html_file to $s3_path"
             aws s3 cp "$html_file" "$s3_path"
           ' sh {}
+          
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
