@@ -67,7 +67,6 @@ jobs:
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
             filename=$(basename ${file%.xml})
-
             echo "Converting $file to HTML"
             if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${file%.xml}.html 2>> logs/errors.log; then
               echo "::warning:: HTML transformation failed for $file"
@@ -103,8 +102,7 @@ jobs:
           xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
             filename=$(basename "$html_file")
-            echo "uploading HTML transformation for $html_file"
-            s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
+            s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/${filename%.html}"
             echo "Uploading $html_file to $s3_path"
             aws s3 cp "$html_file" "$s3_path"
           ' sh {}
