@@ -70,7 +70,7 @@ jobs:
             echo "Converting $file to HTML using johnofephesusPersons template"
             if ! java -jar saxon.jar \
                 -s:$file \
-                -xsl:syriaca/html-stylesheet.xsl \
+                -xsl:html-stylesheet.xsl \
                 -o:data-html/johnofephesus/persons/${filename}.html \
                 outputFile="${filename}" \
                 outputCollection="johnofephesusPersons" 2>> logs/errors.log; then
