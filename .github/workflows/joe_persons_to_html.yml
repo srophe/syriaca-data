@@ -66,10 +66,11 @@ jobs:
 
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
+            echo "processing HTML transformation for $file"
             filename=$(basename ${file%.xml})
 
             echo "Converting $file to HTML"
-            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
+            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${file}.html 2>> logs/errors.log; then
               echo "::warning:: HTML transformation failed for $file"
               echo "Failed: $file" >> logs/errors.log
             fi
