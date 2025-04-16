@@ -66,7 +66,6 @@ jobs:
 
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
-            echo "processing HTML transformation for $file"
             filename=$(basename ${file%.xml})
 
             echo "Converting $file to HTML"
@@ -98,12 +97,13 @@ jobs:
           #   aws s3 cp "$html_file" "$s3_path"
           # ' sh {}
           # Delete all HTML files coming from the wrong template (standard `person/`)
-          find data-html/johnofephesus/persons -path '*/person/*.html' -delete
+          # find data-html/johnofephesus/persons -path '*/person/*.html' -delete
 
-          find */johnofephesus/persons -path '*/johnofephesus/persons/*.html' -print0 |
+          find data-html/* -path '*/johnofephesus/persons/*.html' -print0 |
           xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
             filename=$(basename "$html_file")
+            echo "uploading HTML transformation for $html_file"
             s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
             echo "Uploading $html_file to $s3_path"
             aws s3 cp "$html_file" "$s3_path"
