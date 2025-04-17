@@ -467,7 +467,7 @@
                     <xsl:for-each select="//t:idno[contains(.,'pleiades')]">
                         <li>
                             <a href="{normalize-space(.)}">
-                                <img src="/resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
+                                <img src="../../resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
                         </li>
                     </xsl:for-each>
                     <!-- Google map links -->
@@ -480,7 +480,7 @@
                                 <xsl:value-of select="$coords[2]"/>
                             </xsl:variable>
                             <a href="https://maps.google.com/maps?q={$geoRef}+(name)&amp;z=10&amp;ll={$geoRef}">
-                                <img src="/resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
+                                <img src="../../resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
                             </a>
                         </li>
                     </xsl:for-each>
@@ -492,7 +492,7 @@
                         </xsl:variable>
                         <li>
                             <a href="{.}">
-                                <img src="../resources/images/Wikipedia-25.png" alt="The Wikipedia icon" title="click to view {$get-title} in Wikipedia"/> "<xsl:value-of select="$get-title"/>" in Wikipedia</a>
+                                <img src="../../resources/images/Wikipedia-25.png" alt="The Wikipedia icon" title="click to view {$get-title} in Wikipedia"/> "<xsl:value-of select="$get-title"/>" in Wikipedia</a>
                         </li>
                     </xsl:for-each>
                 </ul>
