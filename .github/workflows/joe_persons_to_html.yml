@@ -54,16 +54,16 @@ jobs:
       - name: Debug template path
         run: ls -R syriaca/siteGenerator/components
              
-      # Step 5: Identify and convert persons XML files to HTML
+      # Step 5: Identify and convert XML files to HTML
       - name: Convert XML to HTML (John of Ephesus format)
         run: |
           
           mkdir -p logs data-html/johnofephesus/
 
-          # find ./data/places/tei -name '*.xml' > xml_files.txt
-          find ./data/persons/tei -name '*.xml' > xml_files.txt
+          find ./data/places/tei -name '*.xml' > xml_files.txt
+          # find ./data/persons/tei -name '*.xml' > xml_files.txt
 
-          echo "Processing $(wc -l < xml_files.txt) person records..."
+          echo "Processing $(wc -l < xml_files.txt) place records..."
 
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
@@ -84,10 +84,10 @@ jobs:
           role-session-name: GitHub-OIDC-johnofephesus
           role-duration-seconds: 14400
 
-      # Step 7: Upload only the johnofephesus/persons HTML files to S3
+      # Step 7: Upload only the johnofephesus HTML files to S3
       - name: Upload HTML to S3 (johnofephesus/)
         run: |
-          # find data-html/johnofephesus/persons -name '*.html' -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+          # find data-html/johnofephesus/perss -name '*.html' -print0 | xargs -0 -P $(nproc) -I {} sh -c '
           #   html_file="$1"
           #   filename=$(basename "$html_file")
           #   # s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/$filename"
@@ -99,11 +99,11 @@ jobs:
           # Delete all HTML files coming from the wrong template (standard `person/`)
           # find data-html/johnofephesus/persons -path '*/person/*.html' -delete
 
-          find data-html/* -path '*/johnofephesus/persons/*.html' -print0 |
+          find data-html/* -path '*/johnofephesus/places/*.html' -print0 |
           xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
             filename=$(basename "$html_file")
-            s3_path="s3://srophe-syriaca-front-end/johnofephesus/persons/${filename%.html}"
+            s3_path="s3://srophe-syriaca-front-end/johnofephesus/places/${filename%.html}"
             echo "Uploading $html_file to $s3_path"
             aws s3 cp "$html_file" "$s3_path"
           ' sh {}
@@ -117,5 +117,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: johnofephesus-persons-error-logs
+          name: johnofephesus-error-logs
           path: logs/errors.log
