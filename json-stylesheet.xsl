@@ -331,27 +331,30 @@
             </string>    
         </xsl:if>
     </xsl:template>
- <xsl:template match="*:fields[@function = 'displayTitleSyriac']">
-        <xsl:param name="doc"/>
-        <xsl:variable name="field">
-            <xsl:choose>
-                <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))]">
-                    <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
-                </xsl:when>
-                <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'en')][not(empty(node()))]">
-                    <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
-                </xsl:when>
-                <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
-                    <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
-                </xsl:when>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:if test="$field != ''">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-              <span lang="syr" dir="rtl"><xsl:value-of select="normalize-space($field)"/></span>
-            </string>
-        </xsl:if>
-    </xsl:template>
+<xsl:template match="*:fields[@function = 'displayTitleSyriac']">
+    <xsl:param name="doc"/>
+    <xsl:variable name="field">
+        <xsl:choose>
+            <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))]">
+                <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
+            </xsl:when>
+            <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'en')][not(empty(node()))]">
+                <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
+            </xsl:when>
+            <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
+                <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
+            </xsl:when>
+        </xsl:choose>
+    </xsl:variable>
+
+    <xsl:if test="$field != ''">
+        <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+            <xsl:text disable-output-escaping="yes">&lt;span lang="syr" dir="rtl"&gt;</xsl:text>
+            <xsl:value-of select="normalize-space($field)"/>
+            <xsl:text disable-output-escaping="yes">&lt;/span&gt;</xsl:text>
+        </string>    
+    </xsl:if>
+</xsl:template>
     <!-- Arrays appear to be properly formatted. Verify -->
     <xsl:template match="*:fields[@function = 'series']">
         <xsl:param name="doc"/>
@@ -438,23 +441,6 @@
     <xsl:template match="text()" mode="citation">
         <xsl:text> </xsl:text><xsl:value-of select="normalize-space(.)"/><xsl:text> </xsl:text>
     </xsl:template>
-   <xsl:template match="*:fields[@function = 'abstract']">
-        <xsl:param name="doc"/>
-        <xsl:param name="id"/>
-        <xsl:choose>
-            <xsl:when test="$doc/descendant::*[starts-with(@xml:id,'abstract')]">
-                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                    <xsl:value-of select="normalize-space(string-join($doc/descendant::*[starts-with(@xml:id,'abstract')],' '))"/>
-                </string>  
-            </xsl:when>
-            <xsl:when test="$doc/descendant::*[@type='abstract']">
-                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-                    <xsl:value-of select="normalize-space(string-join($doc/descendant::*[@type='abstract'],' '))"/>
-                </string>
-            </xsl:when>
-        </xsl:choose>    
-    </xsl:template>
-
 
     <xsl:template match="*:fields[@function = 'titleSyriac']">
         <xsl:param name="doc"/>
