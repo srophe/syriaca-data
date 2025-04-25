@@ -332,29 +332,30 @@
         </xsl:if>
     </xsl:template>
 <xsl:template match="*:fields[@function = 'displayTitleSyriac']">
-    <xsl:param name="doc"/>
-    <xsl:variable name="field">
-        <xsl:choose>
-            <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))]">
-                <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
-            </xsl:when>
-            <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'en')][not(empty(node()))]">
-                <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
-            </xsl:when>
-            <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
-                <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
-            </xsl:when>
-        </xsl:choose>
-    </xsl:variable>
+  <xsl:param name="doc"/>
+  <xsl:variable name="field">
+    <xsl:choose>
+      <xsl:when test="$doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))]">
+        <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@syriaca-tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
+      </xsl:when>
+      <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'en')][not(empty(node()))]">
+        <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
+      </xsl:when>
+      <xsl:when test="$doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'en')][not(empty(node()))]">
+        <xsl:value-of select="string-join($doc/descendant-or-self::*[contains(@srophe:tags,'#syriaca-headword')][contains(@xml:lang,'syr')][not(empty(node()))][1]//text(),' ')"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
 
-    <xsl:if test="$field != ''">
-        <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
-            <xsl:text disable-output-escaping="yes">&lt;span lang="syr" dir="rtl"&gt;</xsl:text>
-            <xsl:value-of select="normalize-space($field)"/>
-            <xsl:text disable-output-escaping="yes">&lt;/span&gt;</xsl:text>
-        </string>    
-    </xsl:if>
+  <xsl:if test="$field != ''">
+    <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+      <xsl:text disable-output-escaping="yes">&lt;span lang="syr" dir="rtl"&gt;</xsl:text>
+      <xsl:value-of select="normalize-space($field)"/>
+      <xsl:text disable-output-escaping="yes">&lt;/span&gt;</xsl:text>
+    </string>
+  </xsl:if>
 </xsl:template>
+
     <!-- Arrays appear to be properly formatted. Verify -->
     <xsl:template match="*:fields[@function = 'series']">
         <xsl:param name="doc"/>
