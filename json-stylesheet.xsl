@@ -347,7 +347,9 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:if test="$field != ''">
-            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">&lt;span lang="syr" dir="rtl"&gt;<xsl:value-of select="normalize-space($field)"/>&lt;/span&gt;</string>    
+            <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">
+              <span lang="syr" dir="rtl"><xsl:value-of select="normalize-space($field)"/></span>
+            </string>
         </xsl:if>
     </xsl:template>
     <!-- Arrays appear to be properly formatted. Verify -->
