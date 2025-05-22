@@ -196,20 +196,20 @@ jobs:
       # #       aws s3 cp $html_file s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})
       # #     done  
         
-      - name: Upload HTML files to S3 In Parallel
-        run: |        
-          find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
-            html_file="$1"
-            type=$(echo "$html_file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-            [ "$type" = "subject" ] && type="taxonomy"
-            [ "$type" = "bibl" ] && type="cbss"
-            s3_path="s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
-            echo "Uploading $html_file to $s3_path"
-            aws s3 cp "$html_file" "$s3_path"
-          ' sh {}
-        env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+      # - name: Upload HTML files to S3 In Parallel
+      #   run: |        
+      #     find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+      #       html_file="$1"
+      #       type=$(echo "$html_file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+      #       [ "$type" = "subject" ] && type="taxonomy"
+      #       [ "$type" = "bibl" ] && type="cbss"
+      #       s3_path="s3://srophe-syriaca-front-end/${type}/$(basename ${html_file%.html})"
+      #       echo "Uploading $html_file to $s3_path"
+      #       aws s3 cp "$html_file" "$s3_path"
+      #     ' sh {}
+      #   env:
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
       # - name: Upload HTML files to S3 (johnofephesus/persons)
       #   run: |
       #     echo "Uploading John of Ephesus person HTML files..."
@@ -223,6 +223,39 @@ jobs:
       #   env:
       #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      
+      - name: Upload HTML files to S3 (Log Uploads)
+        run: |
+          mkdir -p logs
+          > logs/uploaded_files.txt
+      
+          find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+            html_file="$1"
+            relative_path=$(realpath --relative-to=./data-html "$html_file")
+            s3_key="${relative_path%.html}"
+      
+            top_dir=$(echo "$s3_key" | cut -d/ -f1)
+            case "$top_dir" in
+              bibl) mapped_dir="cbss" ;;
+              subject) mapped_dir="taxonomy" ;;
+              *) mapped_dir="$top_dir" ;;
+            esac
+      
+            rest_of_path=$(echo "$s3_key" | cut -d/ -f2-)
+            if [ "$rest_of_path" = "$s3_key" ]; then
+              new_key="$mapped_dir"
+            else
+              new_key="${mapped_dir}/${rest_of_path}"
+            fi
+      
+            s3_path="s3://srophe-syriaca-front-end/${new_key}"
+            echo "Uploading $html_file to $s3_path"
+            aws s3 cp "$html_file" "$s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
+          ' sh {}
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+
 
       # Step 9: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
