@@ -50,7 +50,7 @@ jobs:
       - name: Identify updated XML files
         id: files
         run: |
-          find ./data/places/tei/ -name '*.xml' head -n 50 > xml_files.txt
+          find ./data/places/tei/ -name '*.xml' | head -n 50 > xml_files.txt
 
           echo "Places files:"
           cat xml_files.txt
