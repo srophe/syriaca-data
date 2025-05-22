@@ -52,6 +52,7 @@ jobs:
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
           # find ./data/bibl/tei/F67YHBCA.xml -name '*.xml' > xml_files.txt
+          find ./data/places/tei/5577.xml > xml_files.txt
           # find ./data/places/tei/ -name '*.xml'  > xml_files.txt
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # find ./data/persons/tei/1012.xml -name '*.xml' > xml_files.txt
@@ -62,8 +63,8 @@ jobs:
           # find ./data/bibl/tei -name '*.xml' | tail -n +8500 | head -n 1500 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml'  head -n 5000 > xml_files.txt
           
-          find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
-          head -n 5000 all_files.txt > xml_files.txt
+          # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
+          # head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
@@ -153,20 +154,20 @@ jobs:
               echo "Error processing $type file: $file" >> logs/errors.log
             fi
           ' sh {}
-      - name: Convert XML to HTML (John of Ephesus)
-        run: |
-          mkdir -p logs data-html/johnofephesus/persons
+      # - name: Convert XML to HTML (John of Ephesus)
+      #   run: |
+      #     mkdir -p logs data-html/johnofephesus/persons
 
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename ${file%.xml})
+      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+      #       file="$1"
+      #       filename=$(basename ${file%.xml})
 
-            echo "Converting $file to HTML"
-            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
-              echo "::warning:: HTML transformation failed for $file"
-              echo "Failed: $file" >> logs/errors.log
-            fi
-          ' sh {}
+      #       echo "Converting $file to HTML"
+      #       if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
+      #         echo "::warning:: HTML transformation failed for $file"
+      #         echo "Failed: $file" >> logs/errors.log
+      #       fi
+      #     ' sh {}
           
       # Step 8: Upload HTML files to S3 
       # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
