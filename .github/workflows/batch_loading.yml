@@ -224,16 +224,18 @@ jobs:
       #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       #     AWS_REGION: ${{ secrets.AWS_REGION }}
       
-      - name: Upload HTML files to S3 (Log Uploads)
+      - name: Upload HTML files to S3 (Strip before syriacadata, Map Prefixes, Strip .html)
         run: |
           mkdir -p logs
           > logs/uploaded_files.txt
       
-          find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+          find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
-            relative_path=$(realpath --relative-to=./syriacadata "$html_file")
-            s3_key="${relative_path%.html}"
       
+            # Extract the part of the path after "syriacadata/"
+            s3_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
+      
+            # Map top-level dir if needed
             top_dir=$(echo "$s3_key" | cut -d/ -f1)
             case "$top_dir" in
               bibl) mapped_dir="cbss" ;;
