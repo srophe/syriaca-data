@@ -231,7 +231,7 @@ jobs:
       
           find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
-            relative_path=$(realpath --relative-to=./data-html "$html_file")
+            relative_path=$(realpath --relative-to=./syriacadata "$html_file")
             s3_key="${relative_path%.html}"
       
             top_dir=$(echo "$s3_key" | cut -d/ -f1)
