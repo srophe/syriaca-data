@@ -26,7 +26,8 @@
     <!-- ================================================================== 
        bibliography.xsl
        
-       This XSLT provides templates for output of bibliographic material. 
+       THIS IS THE ACTIVE COPY FOR DATA TRANSFORMATIONS
+        This XSLT provides templates for output of bibliographic material. 
        
        parameters:
        
