@@ -49,20 +49,12 @@ jobs:
       # Step 3: Identify XML files for processing: Decide which subset of the data you want to process
       - name: Identify XML files
         run: |
+          # Find each section of data for processing one at a time, or target files
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          # find ./data/places/tei -name '*.xml' > xml_files.txt
-          # find ./data/bibl/tei/F67YHBCA.xml -name '*.xml' > xml_files.txt
-          find ./data/places/tei/5622.xml > xml_files.txt
-          # find ./data/places/tei/ -name '*.xml'  > xml_files.txt
+          find ./data/places/tei -name '*.xml' > xml_files.txt
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # find ./data/persons/tei/1012.xml -name '*.xml' > xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | tail -n +25000 | head -n 5000 > xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | tail -n +20000 | head -n 5000 > xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | tail -n +15000 | head -n 5000 > xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | tail -n +10000 | head -n 5000 > xml_files.txt
-          # find ./data/bibl/tei -name '*.xml' | tail -n +8500 | head -n 1500 > xml_files.txt
-          # find ./data/bibl/tei -name '*.xml'  head -n 5000 > xml_files.txt
-          
+
           # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
