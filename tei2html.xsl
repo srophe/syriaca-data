@@ -96,6 +96,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
+ <xsl:param name="idno"/>
     <!-- Repository Title -->
     <xsl:variable name="repository-title">
         <xsl:choose>
@@ -128,6 +129,9 @@
     <!-- Resource id -->
     <xsl:variable name="resource-id">
         <xsl:choose>
+                     <xsl:when test="$idno != ''">
+                <xsl:value-of select="$idno"/>
+            </xsl:when>
             <xsl:when test="string(/*/@id)">
                 <xsl:value-of select="string(/*/@id)"/>
             </xsl:when>
@@ -365,6 +369,7 @@
     
     <!-- C -->
     <xsl:template name="citationInfo">
+     <xsl:param name="idno"/>
         <div class="citationinfo">
             <h3>How to Cite This Entry</h3>
             <div id="citation-note" class="content-block indent">
@@ -1369,13 +1374,16 @@
     
     <!-- T -->
     <xsl:template match="t:TEI">
+     <xsl:param name="idno"/>
         <xsl:choose>
             <xsl:when test="contains($resource-id,'cbss')">
                 <xsl:apply-templates select="descendant::t:biblStruct"/>
             </xsl:when>
             <xsl:otherwise>
                 <!-- Header -->
-                <xsl:call-template name="h1"/>
+                <xsl:call-template name="h1">
+                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                </xsl:call-template>
                 <xsl:apply-templates select="descendant::t:sourceDesc/t:msDesc"/>
                 <!-- MSS display -->
                 <xsl:if test="descendant::t:sourceDesc/t:msDesc">
@@ -1384,12 +1392,15 @@
                 <!-- Body -->
                 <xsl:apply-templates select="descendant::t:body"/>
                 <!-- Citation Information -->
-                <xsl:apply-templates select="t:teiHeader" mode="citation"/>
+                <xsl:apply-templates select="t:teiHeader" mode="citation">
+                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
         
     </xsl:template>
     <xsl:template match="t:teiHeader" mode="#all">
+     <xsl:param name="idno"/>
         <xsl:choose>
             <xsl:when test="contains($resource-id,'/bibl/') or contains($resource-id,'/cbss/')">
                 <!--
@@ -1411,11 +1422,15 @@
                 <div class="citationinfo">
                     <h3>How to Cite This Entry</h3>
                     <div id="citation-note" class="content-block indent">
-                        <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-foot"/>
-                        <div class="collapse" id="showcit">
+                        <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-foot">
+                            <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                        </xsl:apply-templates>
+                     <div class="collapse" id="showcit">
                             <div id="citation-bibliography">
                                 <h4>Bibliography:</h4>
-                                <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-biblist"/>
+                                <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-biblist">
+                                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                                </xsl:apply-templates>
                             </div>
                             <xsl:call-template name="aboutEntry"/>
                             <div id="license">
@@ -1444,9 +1459,19 @@
 
     <!-- Template for page titles -->
     <xsl:template match="t:srophe-title | t:titleStmt">
-        <xsl:call-template name="h1"/>
+        <xsl:param name="idno"/>
+        <xsl:call-template name="h1">
+            <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
     <xsl:template name="h1">
+       <xsl:param name="idno"/>
+        <xsl:variable name="id">
+            <xsl:choose>
+                <xsl:when test="$idno"><xsl:value-of select="$idno"/></xsl:when>
+                <xsl:otherwise><xsl:value-of select="$resource-id"/></xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <div class="title">
             <h1>
                 <!-- Format title, calls template in place-title-std.xsl -->
@@ -1459,7 +1484,7 @@
         <!-- emit record URI and associated help links -->
         <div class="idno seriesStmt" style="margin:0; margin-top:.25em; margin-bottom: 1em; padding:1em; color: #999999;">
             <xsl:variable name="current-id">
-                <xsl:variable name="idString" select="tokenize($resource-id,'/')[last()]"/>
+                <xsl:variable name="idString" select="tokenize($id,'/')[last()]"/>
                 <xsl:variable name="idSubstring">
                     <xsl:choose>
                         <xsl:when test="contains($idString,'-')">
@@ -1479,8 +1504,8 @@
             </xsl:variable>
             <xsl:variable name="next-id" select="$current-id + 1"/>
             <xsl:variable name="prev-id" select="$current-id - 1"/>
-            <xsl:variable name="next-uri" select="replace($resource-id,$current-id,string($next-id))"/>
-            <xsl:variable name="prev-uri" select="replace($resource-id,$current-id,string($prev-id))"/>                
+            <xsl:variable name="next-uri" select="replace($id,$current-id,string($next-id))"/>
+            <xsl:variable name="prev-uri" select="replace($id,$current-id,string($prev-id))"/>                
             <small>
                 <span class="uri">
                     <xsl:if test="starts-with($nav-base,'/exist/apps')">
@@ -1494,7 +1519,7 @@
                     </button>
                     <xsl:text> </xsl:text>
                     <span id="syriaca-id">
-                        <xsl:value-of select="$resource-id"/>
+                        <xsl:value-of select="$id"/>
                     </span>
                     <script>
                         var clipboard = new Clipboard('#idnoBtn');
