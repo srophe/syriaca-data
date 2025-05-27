@@ -9,6 +9,8 @@
     xmlns:local="http://syriaca.org/ns" 
     exclude-result-prefixes="xs t x saxon local" version="3.0">
     
+    <xsl:output name="html" encoding="UTF-8" method="xhtml" indent="no" omit-xml-declaration="yes"/>
+    
 <!-- XSLT to generate leaflet maps -->
     <xsl:template name="leafletMap">
         <xsl:param name="nodes"/>
@@ -108,14 +110,8 @@
             <xsl:apply-templates select="normalize-space(string-join($nodes/descendant-or-self::t:titleStmt/t:title[1],''))"/>
         </xsl:variable>
         <xsl:variable name="desc">
-            <xsl:choose>
-                <xsl:when test="$nodes/descendant::t:desc[1]/t:quote">
-                    <xsl:value-of select="normalize-space(string-join($nodes/descendant::t:desc[1]/t:quote))"/>
-                </xsl:when>
-                <xsl:when test="$nodes/descendant::t:desc">
-                    <xsl:value-of select="normalize-space(string-join($nodes/descendant::t:desc[1]))"/>
-                </xsl:when>
-            </xsl:choose>
+
+             <xsl:if test="$nodes/descendant::t:desc"><xsl:value-of select="normalize-space(string-join($nodes/descendant::t:desc[1],' '))"/></xsl:if>
         </xsl:variable>
         <xsl:variable name="type">
             <xsl:choose>
@@ -147,7 +143,7 @@
                             <map key="properties">
                                 <string key="name"><xsl:value-of select="$title"/></string>
                                 <xsl:if test="$desc != ''">
-                                    <string key="desc" xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$desc"/></string>    
+                                    <string key="desc" xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="replace($desc, '[\t\p{Zs}]', '&#160;')"/></string>     
                                 </xsl:if>
                                 <xsl:if test="$type != ''">
                                     <string key="type" xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$type"/></string>    
