@@ -52,8 +52,8 @@ jobs:
           # Find each section of data for processing one at a time, or target files
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
-          # find ./data/persons/tei -name '*.xml' > xml_files.txt
-          find ./data/places/tei/5622.xml -name '*.xml' > xml_files.txt
+          find ./data/persons/tei -name '*.xml' > xml_files.txt
+          # find ./data/places/tei/5622.xml -name '*.xml' > xml_files.txt
 
           # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
@@ -129,50 +129,49 @@ jobs:
       #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
 
       # Step 7: Convert XML to HTML in Parallel For Website pages
-      - name: Convert XML to HTML in Parallel (with syriacadata path)
-        run: |
-          mkdir -p logs
-      
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename "${file%.xml}")
-      
-            # Get full relative path inside data (e.g., johnofephesus/places/5577)
-            # by trimming ./data/{type}/tei/
-            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-            relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
-      
-            [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
-            [ "$type" = "subject" ] && mapped_type="taxonomy" || true
-      
-            # Final output path
-            out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
-            mkdir -p "$out_dir"
-      
-            echo "Converting $file → $out_dir/$filename.html"
-            if ! java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
-              echo "::warning:: HTML transformation failed for $file"
-              echo "Error processing $file" >> logs/errors.log
-            fi
-          ' sh {}
-
-      # - name: Convert XML to HTML (John of Ephesus only)
+      # - name: Convert XML to HTML in Parallel (with syriacadata path)
       #   run: |
-      #     mkdir -p logs data-html/johnofephesus/persons
-
+      #     mkdir -p logs
+      
       #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
       #       file="$1"
-      #       filename=$(basename ${file%.xml})
-
-      #       echo "Converting $file to HTML"
-      #       if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
+      #       filename=$(basename "${file%.xml}")
+      
+      #       # Get full relative path inside data (e.g., johnofephesus/places/5577)
+      #       # by trimming ./data/{type}/tei/
+      #       type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+      #       relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
+      
+      #       [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
+      #       [ "$type" = "subject" ] && mapped_type="taxonomy" || true
+      
+      #       # Final output path
+      #       out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
+      #       mkdir -p "$out_dir"
+      
+      #       echo "Converting $file → $out_dir/$filename.html"
+      #       if ! java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
       #         echo "::warning:: HTML transformation failed for $file"
-      #         echo "Failed: $file" >> logs/errors.log
+      #         echo "Error processing $file" >> logs/errors.log
       #       fi
       #     ' sh {}
+
+      - name: Convert XML to HTML (John of Ephesus only)
+        run: |
+          mkdir -p logs data-html/johnofephesus/persons
+
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename ${file%.xml})
+
+            echo "Converting $file to HTML"
+            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
+              echo "::warning:: HTML transformation failed for $file"
+              echo "Failed: $file" >> logs/errors.log
+            fi
+          ' sh {}
           
       # Step 8: Upload HTML files to S3 
-      # For multi-hour runs, it is necessary refresh credentials, as the eariler credentials will expire
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
