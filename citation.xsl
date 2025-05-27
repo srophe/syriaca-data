@@ -26,6 +26,7 @@
      generate a footnote for the matched titleStmt element
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <xsl:template match="t:titleStmt" mode="cite-foot">
+        <xsl:param name="idno"/>
         <!-- creator(s) of the entry -->
         <!-- Process editors/authors using local function in helper-functions.xsl local:emit-responsible-persons -->
         <xsl:if test="t:editor[@role='creator']">
@@ -67,9 +68,14 @@
         <xsl:text>,</xsl:text>
         
         <xsl:text> </xsl:text>
-        <a href="{$uri}">
-            <xsl:value-of select="$uri"/>
-        </a>
+        <xsl:choose>
+            <xsl:when test="$idno != ''">
+                <a href="{$idno}"><xsl:value-of select="$idno"/></a>
+            </xsl:when>
+            <xsl:otherwise>
+                <a href="{$uri}"><xsl:value-of select="$uri"/></a>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:text>.</xsl:text>
     </xsl:template>
     
@@ -77,6 +83,7 @@
      generate a bibliographic entry for the matched titleStmt element
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <xsl:template match="t:titleStmt" mode="cite-biblist">
+        <xsl:param name="idno"/>
         <!-- creator(s) of the entry -->
         <!-- Process editors/authors using local function in helper-functions.xsl local:emit-responsible-persons -->
         <xsl:if test="t:editor[@role='creator']">
@@ -149,9 +156,14 @@
         <xsl:text>.</xsl:text>
         
         <xsl:text> </xsl:text>
-        <a href="{$uri}">
-            <xsl:value-of select="$uri"/>
-        </a>
+        <xsl:choose>
+            <xsl:when test="$idno != ''">
+                <a href="{$idno}"><xsl:value-of select="$idno"/></a>
+            </xsl:when>
+            <xsl:otherwise>
+                <a href="{$uri}"><xsl:value-of select="$uri"/></a>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:text>.</xsl:text>
     </xsl:template>
     
