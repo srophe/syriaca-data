@@ -553,12 +553,40 @@
             </string>    
         </xsl:if>
     </xsl:template>
+     <xsl:template match="*:fields[@function = 'editor']">Add commentMore actions
+        <xsl:param name="doc"/>
+        <xsl:if test="$doc/descendant::tei:body/tei:bibl/tei:editor[descendant::text() != ''] or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:editor[descendant::text() != '']">
+            <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
+                        <xsl:for-each-group select="$doc/descendant::tei:body/tei:bibl/tei:editor[descendant::text() != '']  
+                            | $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:editor[descendant::text() != '']" group-by=".">
+                            <xsl:variable name="lastNameFirst">
+                                <xsl:choose>
+                                    <xsl:when test="tei:surname">
+                                        <xsl:value-of select="concat(tei:surname, ' ', tei:forename)"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="normalize-space(string-join(descendant-or-self::text(),' '))"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:variable>
+                            <string xmlns="http://www.w3.org/2005/xpath-functions">
+                                <xsl:choose>
+                                    <xsl:when test="starts-with(@xml:lang,'sy')">
+                                        &lt;span lang="syr" dir="rtl"&gt;<xsl:value-of select="$lastNameFirst"/>&lt;/span&gt;
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$lastNameFirst"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </string>
+                        </xsl:for-each-group>
+            </array>
+        </xsl:if>
+    </xsl:template>
     <xsl:template match="*:fields[@function = 'author']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:body/tei:bibl/tei:author[descendant::text() != ''] 
-            or $doc/descendant::tei:body/tei:bibl/tei:editor[descendant::text() != ''] 
-            or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:author[descendant::text() != ''] 
-            or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:editor[descendant::text() != '']">
+        <xsl:if test="$doc/descendant::tei:body/tei:bibl/tei:author[descendant::text() != '']  Add commentMore actions
+            or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:author[descendant::text() != '']">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
                 <xsl:choose>
                     <xsl:when test="$doc/descendant::tei:body/tei:bibl/tei:author[descendant::text() != ''] 
@@ -575,14 +603,21 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
-                            <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$lastNameFirst"/></string>
+                            <string xmlns="http://www.w3.org/2005/xpath-functions">Add commentMore actions
+                                <xsl:choose>
+                                    <xsl:when test="starts-with(@xml:lang,'sy')">
+                                        &lt;span lang="syr" dir="rtl"&gt;<xsl:value-of select="$lastNameFirst"/>&lt;/span&gt;
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$lastNameFirst"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </string>               
                         </xsl:for-each-group>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:for-each-group select="$doc/descendant::tei:body/tei:bibl/tei:author[descendant::text() != ''] 
-                            | $doc/descendant::tei:body/tei:bibl/tei:editor[descendant::text() != ''] 
-                            | $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:author[descendant::text() != ''] 
-                            | $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:editor[descendant::text() != '']" group-by=".">
+                            | $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:author[descendant::text() != '']" group-by=".">
                             <xsl:variable name="lastNameFirst">
                                 <xsl:choose>
                                     <xsl:when test="tei:surname">
@@ -593,7 +628,16 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
-                            <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$lastNameFirst"/></string>
+                             <string xmlns="http://www.w3.org/2005/xpath-functions">Add commentMore actions
+                                <xsl:choose>
+                                    <xsl:when test="starts-with(@xml:lang,'sy')">
+                                        &lt;span lang="syr" dir="rtl"&gt;<xsl:value-of select="$lastNameFirst"/>&lt;/span&gt;
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$lastNameFirst"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </string>       
                         </xsl:for-each-group>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -1317,7 +1361,7 @@
     <!-- Match everything, output lang tags.  -->
     <xsl:template match="*" mode="xmlLang">
         <xsl:choose>
-            <xsl:when test="@xml:lang = ('syr','syc','syr-Syrj')"> &lt;span lang="syr" dir="rtl"&gt;<xsl:apply-templates mode="xmlLang"/>&lt;/span&gt;</xsl:when>
+            <xsl:when test="starts-with(@xml:lang, 'sy)"> &lt;span lang="syr" dir="rtl"&gt;<xsl:apply-templates mode="xmlLang"/>&lt;/span&gt;</xsl:when>
             <xsl:otherwise><xsl:text> </xsl:text><xsl:apply-templates mode="xmlLang"/><xsl:text> </xsl:text></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
