@@ -2,7 +2,7 @@
 <?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:syriaca="http://syriaca.org" xmlns:srophe="https://srophe.app" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xmlns:svg="http://www.w3.org/2000/svg" xml:lang="en">
   <teiHeader>
     <fileDesc>
       <titleStmt>
@@ -17,17 +17,17 @@
         </respStmt>
       </titleStmt>
       <editionStmt>
-        <edition n="2.0"/>
-      </editionStmt>
+                <edition n="2.0"/>
+            </editionStmt>
       <publicationStmt>
         <authority>Syriaca.org: The Syriac Reference Portal</authority>
         <idno type="URI">http://syriaca.org/place/5623/tei</idno>
         <availability>
-          <licence target="http://creativecommons.org/licenses/by/4.0/">
-            <p>Distributed under a Creative Commons Attribution 4.0 International License.</p>
-          </licence>
-        </availability>
-        <date>2024-02-16-06:00</date>
+                    <licence target="http://creativecommons.org/licenses/by/4.0/">
+                        <p>Distributed under a Creative Commons Attribution 4.0 International License.</p>
+                    </licence>
+                </availability>
+        <date>2025-06-12-05:00</date>
       </publicationStmt>
       <seriesStmt>
         <title level="s" xml:lang="en">The Syriac Gazetteer</title>
@@ -35,8 +35,6 @@
           <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
         <editor role="general" ref="http://syriaca.org/documentation/editors.xml#wpotter">
           <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
-        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">
-          <persName>Daniel L. Schwartz</persName>, <date from="2020">2020-present</date>.</editor>
         <editor role="past-general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">
           <persName>Thomas A. Carlson</persName>, <date from="2014" to="2018">2014-2018</date>
         </editor>
@@ -49,51 +47,53 @@
         <idno type="URI">http://syriaca.org/geo</idno>
       </seriesStmt>
       <seriesStmt>
-        <title level="s" xml:lang="en">A Guide to John of Ephesus</title>
-        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
-          <persName>Silvio Roggo</persName>,<date from="2023">2023-present</date>.</editor>
-        <idno type="URI">http://syriaca.org/johnofephesus</idno>
-      </seriesStmt>
+                <title level="s" xml:lang="en">A Guide to John of Ephesus</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
+                    <persName>Silvio Roggo</persName>, <date from="2023">2023-present</date>.</editor>
+                <idno type="URI">http://syriaca.org/johnofephesus</idno>
+            </seriesStmt>
       <seriesStmt>
-        <title level="m" xml:lang="en">Gazetteer to John of Ephesus’s Ecclesiastical History</title>
-        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
-          <persName>Silvio Roggo</persName>,<date from="2023">2023-present</date>.</editor>
-        <biblScope unit="volume" n="2">II</biblScope>
-        <idno type="URI">http://syriaca.org/johnofephesus/places</idno>
-      </seriesStmt>
+                <title level="m" xml:lang="en">Gazetteer to John of Ephesus’s Ecclesiastical History</title>
+                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
+                    <persName>Silvio Roggo</persName>, <date from="2023">2023-present</date>.</editor>
+                <biblScope unit="volume" n="2">II</biblScope>
+                <idno type="URI">http://syriaca.org/johnofephesus/places</idno>
+            </seriesStmt>
       <sourceDesc>
-        <p>Born digital.</p>
-      </sourceDesc>
+                <p>Born digital.</p>
+            </sourceDesc>
     </fileDesc>
     <encodingDesc>
-      <editorialDecl>
+            <editorialDecl>
         <!-- WLP: are all the editorialDecl paragraphs going to be the same for every place record? -->
-        <p>This record has been created following the Syriaca.org editorial guidelines. Documentation is available at:<ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.<title>The Syriac Gazetteer</title>was encoded using both the general editorial guidelines for all publications of Syriaca.org and an encoding schema specific to<title>The Syriac Gazetteer</title>.</p>
-        <p>Approximate dates described in terms of centuries or partial centuries have been interpreted into quantitative values as documented in the Syriaca.org guidelines for normalization of dates. See<ref target="http://syriaca.org/documentation/dates.html">Syriaca.org Guidelines for Approximate Dates</ref>.</p>
-        <p>The<gi>state</gi>element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  While it is possible to indicate a source for this date, this date is usually based on the estimate of the editors and provided as an aid to searching. As a practice, attested dates for a place based on historical sources have instead been encoded more precisely using<gi>event</gi>of @type="attestation". Natural features which have always existed have no date on the<gi>state</gi>element of @type="existence" since they are are presumed to have always existed throughout recorded history.</p>
-        <p>In some cases, maps from print publications have been used as the basis for coordinate data in<title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to<title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>(<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) or to<title>The Syriac World</title>(<ref target="http://syriaca.org/cbss/QW5BYJ6X">http://syriaca.org/cbss/QW5BYJ6X</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the<title>The Syriac Gazetteer</title>are grateful to the editors of<title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>and<title>The Syriac World</title>for providing these coordinate files.</p>
+        <p>This record has been created following the Syriaca.org editorial guidelines. Documentation is available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>. <title>The Syriac Gazetteer</title> was encoded using both the general editorial guidelines for all publications of Syriaca.org and an encoding schema specific to <title>The Syriac Gazetteer</title>.</p>
+        <p>Approximate dates described in terms of centuries or partial centuries have been interpreted into quantitative values as documented in the Syriaca.org guidelines for normalization of dates. See <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org Guidelines for Approximate Dates</ref>.</p>
+        <p>The <gi>state</gi> element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  While it is possible to indicate a source for this date, this date is usually based on the estimate of the editors and provided as an aid to searching. As a practice, attested dates for a place based on historical sources have instead been encoded more precisely using <gi>event</gi> of @type="attestation". Natural features which have always existed have no date on the <gi>state</gi> element of @type="existence" since they are are presumed to have always existed throughout recorded history.</p>
+        <p>In some cases, maps from print publications have been used as the basis for coordinate data in <title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) or to <title>The Syriac World</title> (<ref target="http://syriaca.org/bibl/PUTG99V4">http://syriaca.org/bibl/PUTG99V4</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the <title>The Syriac Gazetteer</title> are grateful to the editors of <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> and <title>The Syriac World</title> for providing these coordinate files.</p>
         <p>The editors have silently normalized data from other sources in some cases. The primary instances are listed below.</p>
-        <p>The capitalization of names from<title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>(<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
-        <p>The unchanging parts of alternate names from the editions and translations of Barsoum,<title>The Scattered Pearls: A History of Syriac Literature and Sciences</title>(<ref target="http://syriaca.org/cbss/T3RMVYM7">http://syriaca.org/cbss/T3RMVYM7</ref>,<ref target="http://syriaca.org/cbss/SGBVKKGH">http://syriaca.org/cbss/SGBVKKGH</ref>, or<ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) have been supplied silently.</p>
-        <p>Names from the English translation of Barsoum,<title>The Scattered Pearls: A History of Syriac Literature and Sciences</title>(<ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
+        <p>The capitalization of names from <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
+        <p>The unchanging parts of alternate names from the editions and translations of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/2">http://syriaca.org/bibl/2</ref>, <ref target="http://syriaca.org/bibl/3">http://syriaca.org/bibl/3</ref>, or <ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) have been supplied silently.</p>
+        <p>Names from the English translation of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
       </editorialDecl>
-      <classDecl>
+            <classDecl>
         <!-- WLP: Will this be in every place record? -->
-        <taxonomy>
-          <category xml:id="syriaca-headword">
-            <catDesc>The name used by Syriaca.org for document titles, citation, and disambiguation. These names have been created according to the Syriac.org guidelines for headwords:<ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
-          </category>
-        </taxonomy>
-      </classDecl>
-    </encodingDesc>
+                <taxonomy>
+                    <category xml:id="syriaca-headword">
+                        <catDesc>The name used by Syriaca.org for document titles, citation, and disambiguation. These names have been created according to the Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
     <profileDesc>
-      <langUsage>
-        <p>Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at:<ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+            <langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
         </p>
       </langUsage>
-    </profileDesc>
+        </profileDesc>
     <revisionDesc status="draft">
-      <change when="2024-02-16-06:00" who="http://syriaca.org/documentation/editors.xml#sroggo">CREATED: place</change>
+      <change when="2025-06-12-05:00" who="http://syriaca.org/documentation/editors.xml#sroggo">CREATED: place</change>
     </revisionDesc>
   </teiHeader>
   <text>
@@ -127,9 +127,8 @@
             <citedRange unit="p">32-40</citedRange>
           </bibl>
           <bibl xml:id="bib5623-4">
-            <title>https://pleiades.stoa.org/places/307220778/imagery-location</title>
             <ptr target="http://syriaca.org/cbss/NAA6P8IX"/>
-            <citedRange unit="entry" target="https://pleiades.stoa.org/places/307220778/imagery-location">https://pleiades.stoa.org/places/307220778/imagery-location</citedRange>
+            <citedRange unit="entry">https://pleiades.stoa.org/places/307220778</citedRange>
           </bibl>
         </place>
         <listRelation>
