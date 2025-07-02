@@ -53,15 +53,15 @@ jobs:
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
-          # find ./data/places/tei/5622.xml -name '*.xml' > xml_files.txt
+          echo "./data/places/tei/5622.xml" > xml_files.txt
 
-          find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
+          # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 25000 all_files.txt | tail -n 5000 > xml_files.txt
-          head -n 27000 all_files.txt | tail -n 5000 > xml_files_batch_01.txt
+          # head -n 27000 all_files.txt | tail -n 5000 > xml_files_batch_01.txt
 
           # find ./data/taxonomy -name '*.rdf' > xml_files.txt
 
@@ -181,36 +181,43 @@ jobs:
           role-session-name: GitHub-OIDC-data
           role-duration-seconds: 14400
           
-      
-      - name: Upload HTML files to S3 in parallel(Strip before syriacadata, Map Prefixes, Strip .html)
+      - name: Upload HTML and XML files to S3 in parallel (preserve path, map prefixes)
         run: |
           mkdir -p logs
           > logs/uploaded_files.txt
-      
+
           find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
-      
-            # Extract the part of the path after "syriacadata/"
-            s3_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
-      
-            # Map top-level dir if needed
-            top_dir=$(echo "$s3_key" | cut -d/ -f1)
+
+            # Strip everything before "syriacadata/" and remove the .html extension
+            relative_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
+            
+            # Map top-level directory name if needed (e.g., bibl → cbss)
+            top_dir=$(echo "$relative_key" | cut -d/ -f1)
+            rest_of_path=$(echo "$relative_key" | cut -d/ -f2-)
+
             case "$top_dir" in
               bibl) mapped_dir="cbss" ;;
               subject) mapped_dir="taxonomy" ;;
               *) mapped_dir="$top_dir" ;;
             esac
-      
-            rest_of_path=$(echo "$s3_key" | cut -d/ -f2-)
-            if [ "$rest_of_path" = "$s3_key" ]; then
-              new_key="$mapped_dir"
+
+            final_key="${mapped_dir}/${rest_of_path}"
+
+            # Upload HTML
+            html_s3_path="s3://srophe-syriaca-front-end/${final_key}"
+            echo "Uploading HTML: $html_file → $html_s3_path"
+            aws s3 cp "$html_file" "$html_s3_path" && echo "$html_s3_path" >> logs/uploaded_files.txt
+
+            # Reconstruct original XML file path
+            xml_file="./data/${top_dir}/tei/${rest_of_path}.xml"
+            if [ -f "$xml_file" ]; then
+              xml_s3_path="${html_s3_path}.xml"
+              echo "Uploading XML: $xml_file → $xml_s3_path"
+              aws s3 cp "$xml_file" "$xml_s3_path" && echo "$xml_s3_path" >> logs/uploaded_files.txt
             else
-              new_key="${mapped_dir}/${rest_of_path}"
+              echo "::warning:: XML source file not found for $html_file → $xml_file" >> logs/errors.log
             fi
-      
-            s3_path="s3://srophe-syriaca-front-end/${new_key}"
-            echo "Uploading $html_file to $s3_path"
-            aws s3 cp "$html_file" "$s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
           ' sh {}
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
