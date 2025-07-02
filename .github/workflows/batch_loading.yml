@@ -181,46 +181,51 @@ jobs:
           role-session-name: GitHub-OIDC-data
           role-duration-seconds: 14400
           
-      - name: Upload HTML and XML files to S3 in parallel (preserve original source path)
+      - name: Upload HTML and original XML files to S3
         run: |
           mkdir -p logs
           > logs/uploaded_files.txt
       
-          find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} bash -c '
-            html_file="$1"
+          cat xml_files.txt | xargs -P $(nproc) -I {} bash -c '
+            xml_file="$1"
+            filename=$(basename "$xml_file" .xml)
       
-            # Extract the path after "syriacadata/" and strip ".html"
-            relative_html_path=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
-      
-            # Determine S3 upload prefix from the first path component
-            s3_type=$(echo "$relative_html_path" | cut -d/ -f1)
-            case "$s3_type" in
-              bibl) s3_prefix="cbss" ;;
-              subject) s3_prefix="taxonomy" ;;
-              *) s3_prefix="$s3_type" ;;
-            esac
-      
-            # Final S3 key for HTML
-            s3_key="${s3_prefix}/$(echo "$relative_html_path" | cut -d/ -f2-)"
-            html_s3_path="s3://srophe-syriaca-front-end/${s3_key}"
-      
-            echo "Uploading HTML: $html_file → $html_s3_path"
-            aws s3 cp "$html_file" "$html_s3_path" && echo "$html_s3_path" >> logs/uploaded_files.txt
-      
-            # Now reconstruct original XML path — only change: prefix with ./ and add .xml
-            xml_path="./${relative_html_path}.xml"
-            if [ -f "$xml_path" ]; then
-              xml_s3_path="${html_s3_path}.xml"
-              echo "Uploading XML: $xml_path → $xml_s3_path"
-              aws s3 cp "$xml_path" "$xml_s3_path" && echo "$xml_s3_path" >> logs/uploaded_files.txt
+            # Determine type from the XML path (bibl, places, persons, etc.)
+            if echo "$xml_file" | grep -q "/places/"; then
+              plural_type="places"; s3_type="place"
+            elif echo "$xml_file" | grep -q "/persons/"; then
+              plural_type="persons"; s3_type="person"
+            elif echo "$xml_file" | grep -q "/works/"; then
+              plural_type="works"; s3_type="work"
+            elif echo "$xml_file" | grep -q "/bibl/"; then
+              plural_type="bibl"; s3_type="cbss"
+            elif echo "$xml_file" | grep -q "/subject/"; then
+              plural_type="subject"; s3_type="taxonomy"
             else
-              echo "::warning:: XML source file not found → $xml_path" >> logs/errors.log
+              echo "::warning:: Unknown type for $xml_file" >> logs/errors.log
+              exit 1
             fi
+      
+            # Determine output HTML path
+            html_path="./data-html/${s3_type}/syriacadata/${plural_type}/${filename}.html"
+      
+            if [ ! -f "$html_path" ]; then
+              echo "::warning:: HTML file missing for $xml_file → $html_path" >> logs/errors.log
+              exit 0
+            fi
+      
+            # S3 key path (strip .html, map type)
+            s3_key="${s3_type}/${plural_type}/${filename}"
+      
+            echo "Uploading HTML → s3://${s3_key}"
+            aws s3 cp "$html_path" "s3://srophe-syriaca-front-end/${s3_key}" && echo "$s3_key.html" >> logs/uploaded_files.txt
+      
+            echo "Uploading XML → s3://${s3_key}.xml"
+            aws s3 cp "$xml_file" "s3://srophe-syriaca-front-end/${s3_key}.xml" && echo "$s3_key.xml" >> logs/uploaded_files.txt
           ' bash {}
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-
 
 
 
