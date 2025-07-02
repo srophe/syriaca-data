@@ -250,16 +250,16 @@ jobs:
               echo "::warning:: Unknown type for $xml_file" >> logs/errors.log
               exit 1
             fi
-            relative=$(echo "$xml_file" | sed -E "s|^\.\/data\/${xml_type}\/tei\/||" | sed "s/\.xml$//")
-            echo "Relative path: $relative"
-                  
-            out_dir="syriacadata/$(dirname "$relative")"
+            
+            relative=$(echo "$file" | sed -E "s|^\.\/data\/${s3_type}\/tei\/||" | sed "s/\.xml$//")
+
+            out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
             mkdir -p "$out_dir"
       
-            html_file="$out_dir/$filename"
+            html_file="${out_dir}/${filename}.html"
             echo "Converting $xml_file → $html_file"
-            if java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$html_file" 2>> logs/errors.log; then
-              s3_key="${relative}/${s3_type}/${filename}"
+            if java -jar saxon.jar -s:"$xml_file" -xsl:html-stylesheet.xsl -o:"$html_file" 2>> logs/errors.log; then
+              s3_key="${s3_type}/${filename}"
       
               echo "Uploading HTML: $html_file → s3://${s3_key}"
               aws s3 cp "$html_file" "s3://srophe-syriaca-front-end/${s3_key}" >> logs/uploaded_files.txt
