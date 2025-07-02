@@ -185,32 +185,32 @@ jobs:
         run: |
           mkdir -p logs
           > logs/uploaded_files.txt
-
-          find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+      
+          find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} bash -c '
             html_file="$1"
-
+      
             # Strip everything before "syriacadata/" and remove the .html extension
             relative_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
-            
-            # Map top-level directory name if needed (e.g., bibl → cbss)
+      
+            # Map top-level directory name if needed
             top_dir=$(echo "$relative_key" | cut -d/ -f1)
             rest_of_path=$(echo "$relative_key" | cut -d/ -f2-)
-
+      
             case "$top_dir" in
-              bibl) mapped_dir="cbss" ;;
-              subject) mapped_dir="taxonomy" ;;
-              *) mapped_dir="$top_dir" ;;
+              bibl) mapped_dir="cbss"; original_dir="bibl" ;;
+              subject) mapped_dir="taxonomy"; original_dir="subject" ;;
+              *) mapped_dir="$top_dir"; original_dir="$top_dir" ;;
             esac
-
+      
             final_key="${mapped_dir}/${rest_of_path}"
-
+      
             # Upload HTML
             html_s3_path="s3://srophe-syriaca-front-end/${final_key}"
             echo "Uploading HTML: $html_file → $html_s3_path"
             aws s3 cp "$html_file" "$html_s3_path" && echo "$html_s3_path" >> logs/uploaded_files.txt
-
-            # Reconstruct original XML file path
-            xml_file="./data/${top_dir}/tei/${rest_of_path}.xml"
+      
+            # Construct XML file path using original_dir and rest_of_path
+            xml_file="./data/${original_dir}/tei/${rest_of_path}.xml"
             if [ -f "$xml_file" ]; then
               xml_s3_path="${html_s3_path}.xml"
               echo "Uploading XML: $xml_file → $xml_s3_path"
@@ -218,10 +218,11 @@ jobs:
             else
               echo "::warning:: XML source file not found for $html_file → $xml_file" >> logs/errors.log
             fi
-          ' sh {}
+          ' bash {}
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+
 
 
       # Step 9: Upload error logs as an artifact for debugging
