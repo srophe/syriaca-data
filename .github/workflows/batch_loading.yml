@@ -251,9 +251,9 @@ jobs:
               exit 1
             fi
             
-            relative=$(echo "$file" | sed -E "s|^\.\/data\/${s3_type}\/tei\/||" | sed "s/\.xml$//")
+            relative=$(echo "$xml_file" | sed -E "s|^\.\/data\/${s3_type}\/tei\/||" | sed "s/\.xml$//")
 
-            out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
+            out_dir="data-html/${s3_type}/syriacadata/$(dirname "$relative")"
             mkdir -p "$out_dir"
       
             html_file="${out_dir}/${filename}.html"
@@ -261,14 +261,14 @@ jobs:
             if java -jar saxon.jar -s:"$xml_file" -xsl:html-stylesheet.xsl -o:"$html_file" 2>> logs/errors.log; then
               s3_key="${s3_type}/${filename}"
       
-              echo "Uploading HTML: $html_file → s3://${s3_key}"
+              echo "Uploading HTML: $html_file → s3://srophe-syriaca-front-end/${s3_key}"
               aws s3 cp "$html_file" "s3://srophe-syriaca-front-end/${s3_key}" >> logs/uploaded_files.txt
       
-              echo "Uploading XML: $xml_file → s3://${s3_key}.tei"
-              aws s3 cp "$xml_file" "s3://srophe-syriaca-front-end/${s3_key}.tei" >> logs/uploaded_files.txt
+              echo "Uploading XML: $xml_file → s3://srophe-syriaca-front-end/${s3_key}.xml"
+              aws s3 cp "$xml_file" "s3://srophe-syriaca-front-end/${s3_key}.xml" >> logs/uploaded_files.txt
             else
-              echo "::warning:: HTML transformation failed for $file"
-              echo "Error processing $file" >> logs/errors.log
+              echo "::warning:: HTML transformation failed for $filename"
+              echo "Error processing $filename" >> logs/errors.log
             fi
           ' sh {}
         env:
