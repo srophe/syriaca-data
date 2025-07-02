@@ -235,15 +235,17 @@ jobs:
             file="$1"
             echo "Processing $file"
             filename=$(basename "${file%.xml}")
-      
+            echo "Processing $filename"
+            
             # Determine type
             type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
             relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
-      
+            echo "Relative path: $relative"
+            
             [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
             [ "$type" = "subject" ] && mapped_type="taxonomy" || true
       
-            out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
+            out_dir="$(dirname "$relative")"
             mkdir -p "$out_dir"
       
             html_file="$out_dir/$filename.html"
@@ -255,7 +257,7 @@ jobs:
               aws s3 cp "$html_file" "s3://srophe-syriaca-front-end/${s3_key}" >> logs/uploaded_files.txt
       
               echo "Uploading XML: $file → s3://${s3_key}.tei"
-              aws s3 cp "$file" "s3://gaddel-syriaca-site/${s3_key}.tei" >> logs/uploaded_files.txt
+              aws s3 cp "$file" "s3://srophe-syriaca-front-end/${s3_key}.tei" >> logs/uploaded_files.txt
             else
               echo "::warning:: HTML transformation failed for $file"
               echo "Error processing $file" >> logs/errors.log
