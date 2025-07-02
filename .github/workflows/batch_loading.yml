@@ -232,32 +232,40 @@ jobs:
           mkdir -p logs
       
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            echo "Processing $file"
-            filename=$(basename "${file%.xml}")
-            echo "Processing $filename"
+            xml_file="$1"
+            echo "Processing $xml_file"
+            filename=$(basename "${xml_file%.xml}")
+            echo "Processing filename: $filename"
             
-            # Determine type
-            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-            relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
+            # Determine type from the XML path (bibl, places, persons, etc.)
+            if echo "$xml_file" | grep -q "/places/"; then
+              xml_type="places"; s3_type="place"
+            elif echo "$xml_file" | grep -q "/persons/"; then
+              xml_type="persons"; s3_type="person"
+            elif echo "$xml_file" | grep -q "/works/"; then
+              xml_type="works"; s3_type="work"
+            elif echo "$xml_file" | grep -q "/bibl/"; then
+              xml_type="bibl"; s3_type="cbss"
+            else
+              echo "::warning:: Unknown type for $xml_file" >> logs/errors.log
+              exit 1
+            fi
+            relative=$(echo "$xml_file" | sed -E "s|^\.\/data\/${xml_type}\/tei\/||" | sed "s/\.xml$//")
             echo "Relative path: $relative"
-            
-            [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
-            [ "$type" = "subject" ] && mapped_type="taxonomy" || true
-      
-            out_dir="$(dirname "$relative")"
+                  
+            out_dir="syriacadata/$(dirname "$relative")"
             mkdir -p "$out_dir"
       
-            html_file="$out_dir/$filename.html"
-            echo "Converting $file → $html_file"
+            html_file="$out_dir/$filename"
+            echo "Converting $xml_file → $html_file"
             if java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$html_file" 2>> logs/errors.log; then
-              s3_key="${mapped_type}/${relative}"
+              s3_key="${relative}/${s3_type}/${filename}"
       
               echo "Uploading HTML: $html_file → s3://${s3_key}"
               aws s3 cp "$html_file" "s3://srophe-syriaca-front-end/${s3_key}" >> logs/uploaded_files.txt
       
-              echo "Uploading XML: $file → s3://${s3_key}.tei"
-              aws s3 cp "$file" "s3://srophe-syriaca-front-end/${s3_key}.tei" >> logs/uploaded_files.txt
+              echo "Uploading XML: $xml_file → s3://${s3_key}.tei"
+              aws s3 cp "$xml_file" "s3://srophe-syriaca-front-end/${s3_key}.tei" >> logs/uploaded_files.txt
             else
               echo "::warning:: HTML transformation failed for $file"
               echo "Error processing $file" >> logs/errors.log
