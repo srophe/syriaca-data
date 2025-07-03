@@ -760,39 +760,39 @@
                 <xsl:for-each select="tokenize($formats,',')">
                     <xsl:choose>
                         <xsl:when test=". = 'geojson'">
-                            <a href="{concat($dataPath,'.geojson')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
+                            <a href="{concat($dataPath,'.geojson')}" class="btn btn-default btn-xs" id="geojsonBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> GeoJSON
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'json'">
-                            <a href="{concat($dataPath,'.json')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
+                            <a href="{concat($dataPath,'.json')}" class="btn btn-default btn-xs" id="jsonBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> JSON-LD
                             </a><xsl:text>&#160;</xsl:text> 
                         </xsl:when>
                         <xsl:when test=". = 'kml'">
                             <xsl:if test="$node/descendant::t:location/t:geo">
-                                <a href="{concat($dataPath,'.kml')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the KML data for this record." >
+                                <a href="{concat($dataPath,'.kml')}" class="btn btn-default btn-xs" id="kmmlBtn" data-toggle="tooltip" title="Click to view the KML data for this record." >
                                     <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> KML
                                 </a><xsl:text>&#160;</xsl:text>
                             </xsl:if>
                         </xsl:when>
                         <xsl:when test=". = 'print'">
-                            <a href="javascript:window.print();" type="button" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to send this page to the printer." >
+                            <a href="javascript:window.print();" type="button" class="btn btn-default btn-xs" id="printBtn" data-toggle="tooltip" title="Click to send this page to the printer." >
                                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'rdf'">
-                            <a href="{concat($idno,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
+                            <a href="{concat($idno,'.rdf')}" class="btn btn-default btn-xs" id="rdfBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> RDF/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'tei'">
-                            <a href="{concat($idno,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >  
+                            <a href="{concat($idno,'.xml')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >  
                               <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> TEI/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'text'">
-                            <a href="{concat($dataPath,'.txt')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the plain text data for this record." >
+                            <a href="{concat($dataPath,'.txt')}" class="btn btn-default btn-xs" id="txtBtn" data-toggle="tooltip" title="Click to view the plain text data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Text
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
