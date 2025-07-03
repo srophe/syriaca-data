@@ -111,7 +111,7 @@ jobs:
       
       #     set -e  # Re-enable stopping on error
 
-      # Step 5: Configure AWS credentials
+      # # Step 5: Configure AWS credentials
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v2
       #   with:
@@ -129,49 +129,34 @@ jobs:
       #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
 
       # Step 7: Convert XML to HTML in Parallel For Website pages
-      # - name: Convert XML to HTML in Parallel (with syriacadata path)
-      #   run: |
-      #     mkdir -p logs
-      
-      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-      #       file="$1"
-      #       filename=$(basename "${file%.xml}")
-      
-      #       # Get full relative path inside data (e.g., johnofephesus/places/5577)
-      #       # by trimming ./data/{type}/tei/
-      #       type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-      #       relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
-      
-      #       [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
-      #       [ "$type" = "subject" ] && mapped_type="taxonomy" || true
-      
-      #       # Final output path
-      #       out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
-      #       mkdir -p "$out_dir"
-      
-      #       echo "Converting $file → $out_dir/$filename.html"
-      #       if ! java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
-      #         echo "::warning:: HTML transformation failed for $file"
-      #         echo "Error processing $file" >> logs/errors.log
-      #       fi
-      #     ' sh {}
-
-      # - name: Convert XML to HTML (John of Ephesus only)
-      #   run: |
-      #     mkdir -p logs data-html/johnofephesus/persons
-
-      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-      #       file="$1"
-      #       filename=$(basename ${file%.xml})
-
-      #       echo "Converting $file to HTML"
-      #       if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/johnofephesus/persons/${filename}.html 2>> logs/errors.log; then
-      #         echo "::warning:: HTML transformation failed for $file"
-      #         echo "Failed: $file" >> logs/errors.log
-      #       fi
-      #     ' sh {}
+      - name: Convert XML to HTML in Parallel (with syriacadata path)
+        run: |
+          mkdir -p logs
+          > html_xml_map.csv
           
-      # # Step 8: Upload HTML files to S3 
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename "${file%.xml}")
+      
+            # Get full relative path inside data (e.g., johnofephesus/places/5577)
+            # by trimming ./data/{type}/tei/
+            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+            relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
+      
+            [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
+            [ "$type" = "subject" ] && mapped_type="taxonomy" || true
+      
+            # Final output path
+            out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
+            mkdir -p "$out_dir"
+      
+            echo "Converting $file → $out_dir/$filename.html"
+            if java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
+              echo "$s3_key,$file,$out_dir" >> html_xml_map.csv
+            fi
+          ' sh {}
+          
+      # Step 8: Upload HTML files to S3 
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -181,95 +166,36 @@ jobs:
           role-session-name: GitHub-OIDC-data
           role-duration-seconds: 14400
           
-      # - name: Upload HTML and original XML files to S3
-      #   run: |
-      #     mkdir -p logs
-      #     > logs/uploaded_files.txt
       
-      #     cat xml_files.txt | xargs -P $(nproc) -I {} bash -c '
-      #       xml_file="$1"
-      #       filename=$(basename "$xml_file" .xml)
-      
-      #       # Determine type from the XML path (bibl, places, persons, etc.)
-      #       if echo "$xml_file" | grep -q "/places/"; then
-      #         plural_type="places"; s3_type="place"
-      #       elif echo "$xml_file" | grep -q "/persons/"; then
-      #         plural_type="persons"; s3_type="person"
-      #       elif echo "$xml_file" | grep -q "/works/"; then
-      #         plural_type="works"; s3_type="work"
-      #       elif echo "$xml_file" | grep -q "/bibl/"; then
-      #         plural_type="bibl"; s3_type="cbss"
-      #       elif echo "$xml_file" | grep -q "/subject/"; then
-      #         plural_type="subject"; s3_type="taxonomy"
-      #       else
-      #         echo "::warning:: Unknown type for $xml_file" >> logs/errors.log
-      #         exit 1
-      #       fi
-      
-      #       # Determine output HTML path
-      #       html_path="./data-html/${s3_type}/syriacadata/${plural_type}/${filename}.html"
-      
-      #       if [ ! -f "$html_path" ]; then
-      #         echo "::warning:: HTML file missing for $xml_file → $html_path" >> logs/errors.log
-      #         exit 0
-      #       fi
-      
-      #       # S3 key path (strip .html, map type)
-      #       s3_key="${s3_type}/${plural_type}/${filename}"
-      
-      #       echo "Uploading HTML → s3://${s3_key}"
-      #       aws s3 cp "$html_path" "s3://srophe-syriaca-front-end/${s3_key}" && echo "$s3_key.html" >> logs/uploaded_files.txt
-      
-      #       echo "Uploading XML → s3://${s3_key}.xml"
-      #       aws s3 cp "$xml_file" "s3://srophe-syriaca-front-end/${s3_key}.xml" && echo "$s3_key.xml" >> logs/uploaded_files.txt
-      #     ' bash {}
-      #   env:
-      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}
-
-      - name: Convert XML to HTML in Parallel and upload both to S3
+      - name: Upload HTML files to S3 in parallel(Strip before syriacadata, Map Prefixes, Strip .html)
         run: |
           mkdir -p logs
+          > logs/uploaded_files.txt
       
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            xml_file="$1"
-            echo "Processing $xml_file"
-            filename=$(basename "${xml_file%.xml}")
-            echo "Processing filename: $filename"
-            
-            # Determine type from the XML path (bibl, places, persons, etc.)
-            if echo "$xml_file" | grep -q "/places/"; then
-              xml_type="places"; s3_type="place"
-            elif echo "$xml_file" | grep -q "/persons/"; then
-              xml_type="persons"; s3_type="person"
-            elif echo "$xml_file" | grep -q "/works/"; then
-              xml_type="works"; s3_type="work"
-            elif echo "$xml_file" | grep -q "/bibl/"; then
-              xml_type="bibl"; s3_type="cbss"
+          find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+            html_file="$1"
+      
+            # Extract the part of the path after "syriacadata/"
+            s3_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
+      
+            # Map top-level dir if needed
+            top_dir=$(echo "$s3_key" | cut -d/ -f1)
+            case "$top_dir" in
+              bibl) mapped_dir="cbss" ;;
+              subject) mapped_dir="taxonomy" ;;
+              *) mapped_dir="$top_dir" ;;
+            esac
+      
+            rest_of_path=$(echo "$s3_key" | cut -d/ -f2-)
+            if [ "$rest_of_path" = "$s3_key" ]; then
+              new_key="$mapped_dir"
             else
-              echo "::warning:: Unknown type for $xml_file" >> logs/errors.log
-              exit 1
+              new_key="${mapped_dir}/${rest_of_path}"
             fi
-            
-            relative=$(echo "$xml_file" | sed -E "s|^\.\/data\/${s3_type}\/tei\/||" | sed "s/\.xml$//")
-
-            out_dir="data-html/${s3_type}/syriacadata/$(dirname "$relative")"
-            mkdir -p "$out_dir"
       
-            html_file="${out_dir}/${filename}.html"
-            echo "Converting $xml_file → $html_file"
-            if java -jar saxon.jar -s:"$xml_file" -xsl:html-stylesheet.xsl -o:"$html_file" 2>> logs/errors.log; then
-              s3_key="${s3_type}/${filename}"
-      
-              echo "Uploading HTML: $html_file → s3://srophe-syriaca-front-end/${s3_key}"
-              aws s3 cp "$html_file" "s3://srophe-syriaca-front-end/${s3_key}" >> logs/uploaded_files.txt
-      
-              echo "Uploading XML: $xml_file → s3://srophe-syriaca-front-end/${s3_key}.xml"
-              aws s3 cp "$xml_file" "s3://srophe-syriaca-front-end/${s3_key}.xml" >> logs/uploaded_files.txt
-            else
-              echo "::warning:: HTML transformation failed for $filename"
-              echo "Error processing $filename" >> logs/errors.log
-            fi
+            s3_path="s3://srophe-syriaca-front-end/${new_key}"
+            echo "Uploading $html_file to $s3_path"
+            aws s3 cp "$html_file" "$s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
           ' sh {}
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
