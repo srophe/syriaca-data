@@ -195,7 +195,7 @@ jobs:
 
             # Get the filename (last segment, like "2")
             filename=$(basename "$s3_key")
-          
+            echo "filename: ${filename}"
             # Get the type (first segment after johnofephesus/ if present, or first overall)
             if echo "$s3_key" | grep -q "^johnofephesus/"; then
               type=$(echo "$html_file" | sed -E "s|^.*data-html/([^/]+)/syriacadata/.*|\1|")
@@ -205,7 +205,7 @@ jobs:
           
             # Determine path to original XML (always from canonical path)
             xml_path = "./data/${type}s/tei/${filename}.xml"
-        
+            echo "xml_path: ${xml_path}"
             s3_path="s3://srophe-syriaca-front-end/${new_key}"
             tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
 
