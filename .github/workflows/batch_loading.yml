@@ -198,7 +198,7 @@ jobs:
           
             # Get the type (first segment after johnofephesus/ if present, or first overall)
             if echo "$s3_key" | grep -q "^johnofephesus/"; then
-              type=$(echo "$s3_key" | cut -d/ -f2)  # second segment: places, persons, etc.
+              type=$(echo "$html_file" | sed -E 's|^.*data-html/([^/]+)/syriacadata/.*|\1|')
             else
               type=$(echo "$s3_key" | cut -d/ -f1)  # first segment: places, persons, etc.
             fi
