@@ -314,14 +314,14 @@
                     <xsl:variable name="syr" select="string-join($doc/descendant::*[contains(@srophe:tags,'#syriaca-headword')][matches(@xml:lang,'^syr')][1],' ')"/>
                     <xsl:value-of select="$en"/><xsl:if test="$syr != ''"> -  &lt;span lang="syr" dir="rtl"&gt;<xsl:value-of select="$syr"/>&lt;/span&gt;</xsl:if>
                 </xsl:when>
+                <xsl:when test="$doc/descendant::tei:biblStruct">
+                    <xsl:value-of select="string-join($doc/descendant::tei:biblStruct/child::*[tei:title[not(empty(node()))]][1]/tei:title[not(empty(node()))][1]//text(),' ')"/>
+                </xsl:when>
                 <xsl:when test="$doc/descendant::tei:body/tei:bibl/tei:title">
                     <xsl:value-of select="string-join($doc/descendant::tei:body/tei:bibl/tei:title[not(empty(node()))][1]//text(),' ')"/>
                 </xsl:when>
-                <xsl:when test="$doc/descendant::tei:biblStruct">
-                    <xsl:value-of select="string-join($doc/descendant::tei:biblStruct/descendant::tei:title[not(empty(node()))][1]//text(),' ')"/>
-                </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="string-join($doc/descendant::tei:titleStmt/descendant::tei:title[not(empty(node()))][1]//text(),' ')"/>
+                    t1<xsl:value-of select="string-join($doc/descendant::tei:titleStmt/descendant::tei:title[not(empty(node()))][1]//text(),' ')"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
