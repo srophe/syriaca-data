@@ -203,12 +203,17 @@ jobs:
             # Get the type (first segment after johnofephesus/ if present, or first overall)
             if echo "$s3_key" | grep -q "^johnofephesus/"; then
               type=$(echo "$html_file" | sed -E "s|^.*data-html/([^/]+)/syriacadata/.*|\1|")
+              type="${type}s"
+
+            else if echo "$s3_key" | grep -q "^cbss/"; then
+              type="bibl" 
             else
               type=$(echo "$s3_key" | cut -d/ -f1)  # first segment: places, persons, etc.
+              type="${type}s"
             fi
           
             # Determine path to original XML (always from canonical path)
-            xml_path="./data/${type}s/tei/${filename}.xml"
+            xml_path="./data/${type}/tei/${filename}.xml"
             echo "xml_path: ${xml_path}"
             s3_path="s3://srophe-syriaca-front-end/${new_key}"
             tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
