@@ -132,8 +132,7 @@ jobs:
       - name: Convert XML to HTML in Parallel (with syriacadata path)
         run: |
           mkdir -p logs
-          > html_xml_map.csv
-          
+      
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
             filename=$(basename "${file%.xml}")
@@ -151,8 +150,9 @@ jobs:
             mkdir -p "$out_dir"
       
             echo "Converting $file → $out_dir/$filename.html"
-            if java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
-              echo "$s3_key,$file,$out_dir" >> html_xml_map.csv
+            if ! java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
+              echo "::warning:: HTML transformation failed for $file"
+              echo "Error processing $file" >> logs/errors.log
             fi
           ' sh {}
           
@@ -174,10 +174,10 @@ jobs:
       
           find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
             html_file="$1"
-      
+            echo "html_file: ${html_file}"
             # Extract the part of the path after "syriacadata/"
             s3_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
-      
+            echo "s3_key: ${s3_key}"
             # Map top-level dir if needed
             top_dir=$(echo "$s3_key" | cut -d/ -f1)
             case "$top_dir" in
@@ -192,10 +192,17 @@ jobs:
             else
               new_key="${mapped_dir}/${rest_of_path}"
             fi
-      
+
+            xml_file=$(echo "$html_file" | sed -E 's|^.*?/syriacadata/||' | sed 's/\.html$//')
+            xml_file="./data/tei/${xml_file}.xml"
+
             s3_path="s3://srophe-syriaca-front-end/${new_key}"
+            tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
+
             echo "Uploading $html_file to $s3_path"
             aws s3 cp "$html_file" "$s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
+            echo "Uploading $xml_file to $tei_s3_path"
+            aws s3 cp "$xml_file" "$tei_s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
           ' sh {}
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
