@@ -200,8 +200,7 @@ jobs:
             echo "filename: ${filename}"
             # Get the type (first segment after johnofephesus/ if present, or first overall)
             if echo "$s3_key" | grep -q "^johnofephesus/"; then
-              type=$(echo "$html_file" | sed -E "s|^.*data-html/([^/]+)/syriacadata/.*|\1|")
-              type="${type}s"
+              type=$(echo "$s3_key" | sed -E "s|^johnofephesus/([^/]+).*|\1|")
             elif echo "$s3_key" | grep -q "^cbss/"; then
               type="bibl"
             else
