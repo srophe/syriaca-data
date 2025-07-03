@@ -141,16 +141,14 @@ jobs:
             file="$1"
             filename=$(basename "${file%.xml}")
       
-            # Get full relative path inside data (e.g., johnofephesus/places/5577)
-            # by trimming ./data/{type}/tei/
-            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-            relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
-            echo "Relative: ${relative}"
-            [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
-            [ "$type" = "subject" ] && mapped_type="taxonomy" || true
+            # type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+            # relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
+            # echo "Relative: ${relative}"
+            # [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
+            # [ "$type" = "subject" ] && mapped_type="taxonomy" || true
       
             # Final output path
-            out_dir="data-html/${type}/syriacadata/$(dirname "$relative")"
+            out_dir="data-html/syriacadata/$(dirname "$filename")"
             mkdir -p "$out_dir"
       
             echo "Converting $file → $out_dir/$filename.html"
