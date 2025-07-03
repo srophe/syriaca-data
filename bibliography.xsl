@@ -591,8 +591,13 @@
         </xsl:choose>
         <xsl:choose>
             <xsl:when test="preceding-sibling::*[1][self::t:analytic]">
-                <xsl:text>, </xsl:text>
-                <xsl:call-template name="persons-bibliography"/>
+                <xsl:variable name="persons">
+                    <xsl:call-template name="persons-bibliography"/>
+                </xsl:variable>
+                <xsl:if test="$persons != ''">
+                        <xsl:text>, </xsl:text>   
+                        <xsl:call-template name="persons-bibliography"/>
+                </xsl:if>
                 <xsl:if test="t:title[@level='m'] and t:biblScope[(@unit != 'vol' and @unit != 'series') or not(@unit)]">
                     <xsl:for-each select="t:biblScope[(@unit != 'vol' and @unit != 'series') or not(@unit)]">
                         <xsl:text>, </xsl:text>
