@@ -193,16 +193,15 @@ jobs:
               new_key="${mapped_dir}/${rest_of_path}"
             fi
 
-            xml_file=$(echo "$html_file" | sed -E 's|^.*?/syriacadata/||' | sed 's/\.html$//')
-            xml_file="./data/tei/${xml_file}.xml"
-
+            xml_file="./data/tei/${s3_key}.xml"
+        
             s3_path="s3://srophe-syriaca-front-end/${new_key}"
             tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
 
             echo "Uploading $html_file to $s3_path"
             aws s3 cp "$html_file" "$s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
             echo "Uploading $xml_file to $tei_s3_path"
-            aws s3 cp "$xml_file" "$tei_s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
+            aws s3 cp "$xml_file_with_path" "$tei_s3_path" && echo "$tei_s3_path" >> logs/uploaded_files.txt
           ' sh {}
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
