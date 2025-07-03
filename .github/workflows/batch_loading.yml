@@ -141,7 +141,7 @@ jobs:
             # by trimming ./data/{type}/tei/
             type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
             relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
-      
+            echo "Relative: ${relative}"
             [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
             [ "$type" = "subject" ] && mapped_type="taxonomy" || true
       
@@ -193,7 +193,18 @@ jobs:
               new_key="${mapped_dir}/${rest_of_path}"
             fi
 
-            xml_file="./data/tei/${s3_key}.xml"
+            # Get the filename (last segment, like "2")
+            filename=$(basename "$s3_key")
+          
+            # Get the type (first segment after johnofephesus/ if present, or first overall)
+            if echo "$s3_key" | grep -q "^johnofephesus/"; then
+              type=$(echo "$s3_key" | cut -d/ -f2)  # second segment: places, persons, etc.
+            else
+              type=$(echo "$s3_key" | cut -d/ -f1)  # first segment: places, persons, etc.
+            fi
+          
+            # Determine path to original XML (always from canonical path)
+            xml_path="./data/tei/${type}/${filename}.xml"
         
             s3_path="s3://srophe-syriaca-front-end/${new_key}"
             tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
@@ -201,7 +212,7 @@ jobs:
             echo "Uploading $html_file to $s3_path"
             aws s3 cp "$html_file" "$s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
             echo "Uploading $xml_file to $tei_s3_path"
-            aws s3 cp "$xml_file_with_path" "$tei_s3_path" && echo "$tei_s3_path" >> logs/uploaded_files.txt
+            aws s3 cp "$xml_path" "$tei_s3_path" && echo "$tei_s3_path" >> logs/uploaded_files.txt
           ' sh {}
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
