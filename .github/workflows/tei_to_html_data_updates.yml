@@ -107,17 +107,12 @@ jobs:
           find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
             set +e
             html_file="$1"
-            echo "HTML file: $html_file"
             # Get the filename (last segment, like "5622")
             filename=$(basename ${html_file%.html})
-            echo "filename: ${filename}"
-
+            # Necessary for JoE files
             relative_path=$(echo "$html_file" | sed "s|^.*syriacadata/||" | sed "s|\.html$||")
-            echo "relative_path: $relative_path"
-
             # Determine S3 path
-            s3_path_relative="s3://srophe-syriaca-front-end/${relative_path}"
-            echo "Will upload to $s3_path_relative"
+            s3_path="s3://srophe-syriaca-front-end/${relative_path}"
             # Determine type from the path
             # This assumes the type is the last segment before the filename
             # e.g., "data-html/works/5622.html" -> "works"
@@ -127,12 +122,10 @@ jobs:
             [ "$type" = "place" ] && xml_type="places"
 
             xml_path="./data/${xml_type}/tei/${filename}.xml"
-            echo "xml path: $xml_path"
 
             [ "$type" = "bibl" ] && type="cbss"
             # Determine path to original XML (always from canonical path)
             
-            s3_path="s3://srophe-syriaca-front-end/${type}/$(basename "${html_file%.html}")"
             echo "Uploading $html_file to $s3_path"
             if ! aws s3 cp "$html_file" "$s3_path"; then
               echo "::warning:: Failed to upload $html_file to $s3_path" | tee -a "$log_file"
