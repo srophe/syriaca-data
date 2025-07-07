@@ -1,4 +1,4 @@
-name: Process XML to HTML
+name: Process Persons XML to HTML
 
 on:
   push:
@@ -109,10 +109,10 @@ jobs:
             html_file="$1"
             echo "HTML file: $html_file"
             # Get the filename (last segment, like "5622")
-            filename=$(basename "$html_file")
+            filename=$(basename ${html_file%.html})
             echo "filename: ${filename}"
 
-            relative_path=$(echo "$html_file" | sed "s|^.*data-html/||" | sed "s|\.html$||")
+            relative_path=$(echo "$html_file" | sed "s|^.*syriacadata/||" | sed "s|\.html$||")
             echo "relative_path: $relative_path"
 
             # Determine S3 path
@@ -127,6 +127,7 @@ jobs:
             [ "$type" = "place" ] && xml_type="places"
 
             xml_path="./data/${xml_type}/tei/${filename}.xml"
+            echo "xml path: $xml_path"
 
             [ "$type" = "bibl" ] && type="cbss"
             # Determine path to original XML (always from canonical path)
