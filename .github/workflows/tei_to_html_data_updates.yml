@@ -1,0 +1,159 @@
+name: Process XML to HTML
+
+on:
+  push:
+    branches:
+      - 'gaddel_development'  # current data branch
+    paths:
+      - 'data/persons/tei/**'  # Any file inside persons
+      
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  process_and_transform:
+    runs-on: ubuntu-latest
+    steps:
+    
+      # Step 1: Checkout repositories
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Checkout Gaddel repository (production code repo)
+        uses: actions/checkout@v3
+        with:
+          repository: srophe/Gaddel
+          ref: main
+          path: syriaca
+
+      # Step 2: Install Java and Saxon for XSLT
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Cache Saxon JAR
+        id: cache-saxon
+        uses: actions/cache@v3
+        with:
+          path: saxon.jar
+          key: saxon-10.6
+
+      - name: Download Saxon if not cached
+        if: steps.cache-saxon.outputs.cache-hit != 'true'
+        run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
+        
+      # Step 3: Find updated XML files
+      - name: Identify updated XML files
+        id: files
+        run: |
+          echo "Fetching commit history..."
+          git fetch --unshallow || echo "Repository is already fully cloned."
+      
+          echo "Checking for updated and XML files..."
+      
+          # Capture newly added or modified files
+          UPDATED_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '\.xml$' || true)
+      
+      
+          # If no files were updated, exit
+          if [ -z "$UPDATED_FILES" ] ; then
+            echo "No XML files were updated."
+            exit 0
+          fi
+      
+          # Save updated file lists
+          echo "$UPDATED_FILES" > xml_files.txt
+            
+          echo "Updated files:"
+          cat xml_files.txt
+
+
+      # Step 4: Convert XML to HTML in Parallel
+      - name: Convert XML to HTML in Parallel
+        run: |
+          mkdir -p logs data-html
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename ${file%.xml})
+            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+            [ -z "$type" ] && type="unknown"
+            mkdir -p data-html/$type
+            
+            echo "Processing $filename for HTML"
+            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
+              echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
+            fi
+          ' sh {}
+          
+
+      # Step 5: Upload HTML files to S3 
+      # For multi-hour (more than 6) runs see batch_loading.yml
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          role-duration-seconds: 28800
+
+      - name: Upload HTML files to S3 
+        run: |        
+          echo "Uploading $(find ./data-html -name '*.html' | wc -l) HTML files to S3..."
+      
+          find ./data-html -name "*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+            set +e
+            html_file="$1"
+            echo "HTML file: $html_file"
+            # Get the filename (last segment, like "5622")
+            filename=$(basename "$html_file")
+            echo "filename: ${filename}"
+
+            relative_path=$(echo "$html_file" | sed "s|^.*data-html/||" | sed "s|\.html$||")
+            echo "relative_path: $relative_path"
+
+            # Determine S3 path
+            s3_path_relative="s3://srophe-syriaca-front-end/${relative_path}"
+            echo "Will upload to $s3_path_relative"
+            # Determine type from the path
+            # This assumes the type is the last segment before the filename
+            # e.g., "data-html/works/5622.html" -> "works"
+            type=$(echo "$html_file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+            [ "$type" = "person" ] && xml_type="persons" || xml_type="$type"
+            [ "$type" = "work" ] && xml_type="works"
+            [ "$type" = "place" ] && xml_type="places"
+
+            xml_path="./data/${xml_type}/tei/${filename}.xml"
+
+            [ "$type" = "bibl" ] && type="cbss"
+            # Determine path to original XML (always from canonical path)
+            
+            s3_path="s3://srophe-syriaca-front-end/${type}/$(basename "${html_file%.html}")"
+            echo "Uploading $html_file to $s3_path"
+            if ! aws s3 cp "$html_file" "$s3_path"; then
+              echo "::warning:: Failed to upload $html_file to $s3_path" | tee -a "$log_file"
+            fi
+            if [ -f "$xml_path" ]; then
+              if ! aws s3 cp "$xml_path" "${s3_path}.xml"; then
+                echo "::warning:: Failed to upload $xml_path to ${s3_path}.xml" | tee -a "$log_file"
+              fi
+            else
+              echo "::warning:: Missing XML file: $xml_path for $html_file" | tee -a "$log_file"
+            fi
+            set -e
+          ' _ {}
+          
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+
+      # Step 6: Upload error logs as an artifact for debugging
+      - name: Upload Logs to GitHub Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-logs
+          path: logs/errors.log
