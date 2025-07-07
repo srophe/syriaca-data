@@ -1797,7 +1797,6 @@
                 <ul>
                     <!-- Bibliography elements are processed by bibliography.xsl -->
                     <xsl:for-each select="t:bibl">
-                       <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>
                         <xsl:sort select="
                         if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
                         then number(substring-after(@xml:id, '-')) 
