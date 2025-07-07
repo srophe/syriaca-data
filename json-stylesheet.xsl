@@ -553,7 +553,7 @@
             </string>    
         </xsl:if>
     </xsl:template>
-     <xsl:template match="*:fields[@function = 'editor']">Add commentMore actions
+     <xsl:template match="*:fields[@function = 'editor']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:body/tei:bibl/tei:editor[descendant::text() != ''] or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:editor[descendant::text() != '']">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
@@ -585,7 +585,7 @@
     </xsl:template>
     <xsl:template match="*:fields[@function = 'author']">
         <xsl:param name="doc"/>
-        <xsl:if test="$doc/descendant::tei:body/tei:bibl/tei:author[descendant::text() != '']  Add commentMore actions
+        <xsl:if test="$doc/descendant::tei:body/tei:bibl/tei:author[descendant::text() != '']
             or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:author[descendant::text() != '']">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
                 <xsl:choose>
@@ -603,7 +603,7 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
-                            <string xmlns="http://www.w3.org/2005/xpath-functions">Add commentMore actions
+                            <string xmlns="http://www.w3.org/2005/xpath-functions">
                                 <xsl:choose>
                                     <xsl:when test="starts-with(@xml:lang,'sy')">
                                         &lt;span lang="syr" dir="rtl"&gt;<xsl:value-of select="$lastNameFirst"/>&lt;/span&gt;
@@ -628,7 +628,7 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
-                             <string xmlns="http://www.w3.org/2005/xpath-functions">Add commentMore actions
+                             <string xmlns="http://www.w3.org/2005/xpath-functions">
                                 <xsl:choose>
                                     <xsl:when test="starts-with(@xml:lang,'sy')">
                                         &lt;span lang="syr" dir="rtl"&gt;<xsl:value-of select="$lastNameFirst"/>&lt;/span&gt;
