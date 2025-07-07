@@ -1,4 +1,4 @@
-name: Process XML to JSON and/or HTML For Full Data Set in Batches
+name: Process XML to JSON and/or HTML For Full Data Set in Batches including JoE HTML and TEI
 
 on:
   push:
@@ -52,7 +52,7 @@ jobs:
           # Find each section of data for processing one at a time, or target files
           # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
-          # find ./data/persons/tei -name '*.xml' > xml_files.txt
+          find ./data/persons/tei -name '*.xml' > xml_files.txt
 
           # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
@@ -65,16 +65,16 @@ jobs:
           # find ./data/taxonomy -name '*.rdf' > xml_files.txt
 
           # test cases
-          #JoE
+          # JoE
           # echo "./data/places/tei/5622.xml" > xml_files.txt
-          echo "./data/persons/tei/5146.xml" > xml_files.txt
-          echo "./data/persons/tei/5159.xml" >> xml_files.txt
-          echo "./data/persons/tei/5044.xml" >> xml_files.txt
-          echo "./data/persons/tei/5144.xml" >> xml_files.txt
-          echo "./data/places/tei/58.xml" >> xml_files.txt
-          echo "./data/places/tei/2758.xml" >> xml_files.txt
-          echo "./data/places/tei/5609.xml" >> xml_files.txt
-          #All data types
+          # echo "./data/persons/tei/5146.xml" > xml_files.txt
+          # echo "./data/persons/tei/5159.xml" >> xml_files.txt
+          # echo "./data/persons/tei/5044.xml" >> xml_files.txt
+          # echo "./data/persons/tei/5144.xml" >> xml_files.txt
+          # echo "./data/places/tei/58.xml" >> xml_files.txt
+          # echo "./data/places/tei/2758.xml" >> xml_files.txt
+          # echo "./data/places/tei/5609.xml" >> xml_files.txt
+          # All data types
           # find ./data/persons/tei -name '*.xml' | head -n 5 > xml_files.txt
           # find ./data/bibl/tei -name '*.xml' | head -n 5 >> xml_files.txt
           # find ./data/places/tei -name '*.xml' | head -n 5 >> xml_files.txt
