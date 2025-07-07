@@ -1361,7 +1361,7 @@
     <!-- Match everything, output lang tags.  -->
     <xsl:template match="*" mode="xmlLang">
         <xsl:choose>
-            <xsl:when test="starts-with(@xml:lang, 'sy)"> &lt;span lang="syr" dir="rtl"&gt;<xsl:apply-templates mode="xmlLang"/>&lt;/span&gt;</xsl:when>
+            <xsl:when test="starts-with(@xml:lang, 'sy')"> &lt;span lang="syr" dir="rtl"&gt;<xsl:apply-templates mode="xmlLang"/>&lt;/span&gt;</xsl:when>
             <xsl:otherwise><xsl:text> </xsl:text><xsl:apply-templates mode="xmlLang"/><xsl:text> </xsl:text></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
