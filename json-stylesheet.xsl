@@ -434,17 +434,6 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-<!--    winona's version  -->
-    <xsl:template match="tei:title" mode="citation">
-        <xsl:choose>
-            <xsl:when test="@level = 'a'"> "<xsl:value-of select="replace(normalize-space(.),'“|”','')"/>" </xsl:when>
-            <xsl:otherwise> &lt;i&gt;<xsl:value-of select="replace(normalize-space(.),'“|”','')"/>&lt;/i&gt; </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    <xsl:template match="text()" mode="citation">
-        <xsl:text> </xsl:text><xsl:value-of select="normalize-space(.)"/><xsl:text> </xsl:text>
-    </xsl:template>
-
     <xsl:template match="*:fields[@function = 'titleSyriac']">
         <xsl:param name="doc"/>
         <xsl:variable name="field">
