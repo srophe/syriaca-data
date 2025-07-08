@@ -157,18 +157,9 @@ jobs:
             filename=$(basename "${file%.xml}")
       
             # type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-            relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
+            # relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
             # [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
             # [ "$type" = "subject" ] && mapped_type="taxonomy" || true
-            relative_path=$(echo "$file" | sed -E "s|^\.\/data\/[^/]+/tei/||")
-            filename_alt=$(basename "$relative_path" .xml)
-            echo "Alt filename $filename_alt "
-            subdir=$(dirname "$relative_path")
-            echo "Subdir: $subdir"
-            echo "file: $file"
-            echo "relative: $relative"
-            out_dir_alt="data-html/syriacadata/$subdir"
-            echo "out_dir_alt: $out_dir_alt"
       
             # Final output path
             out_dir="data-html/syriacadata/$(dirname "$filename")"
@@ -253,8 +244,8 @@ jobs:
             fi
             set -e
           ' sh {}
-            echo "HTML files created: $(cat logs/html_created_count.log)" >> logs/errors.log
-            echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)" >> logs/errors.log
+            echo "HTML files created: $(cat logs/html_created_count.log)" 
+            echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)" 
 
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
