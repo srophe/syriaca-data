@@ -3,6 +3,7 @@
        
        Transform TEI data as json
        Uses repo-config.xml to build fields. If fields are not specified in repo-config.xml it will not be found in resulting json. 
+        Note: dates conversion to integers must be preserved for OpenSearch Index 12 mappings , except CBSS publication dates
           
        ================================================================== -->
     
@@ -33,7 +34,7 @@
     </xsl:variable>
     
     <xsl:function name="local:format-date" as="xs:integer">
-        <xsl:param name="date" as="xs:string"/>
+        <xsl:param name="date" as="xs:string"/> 
         <xsl:message select="concat('Formatting date: ', $date)"/>
         <xsl:choose>
             <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}-\d{2}-\d{2}$')">
@@ -1246,7 +1247,9 @@
                             <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                    <number xmlns="http://www.w3.org/2005/xpath-functions">
+                      <xsl:value-of select="local:format-date($startDate)"/>
+                    </number>
                 </xsl:for-each>
             </array>
                 <array key="stateDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
@@ -1262,7 +1265,9 @@
                             <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                    <number xmlns="http://www.w3.org/2005/xpath-functions">
+                      <xsl:value-of select="local:format-date($endDate)"/>
+                    </number>
                 </xsl:for-each>
             </array>
         </xsl:if>
@@ -1284,7 +1289,9 @@
                             <xsl:when test="@srophe:computed-end"><xsl:value-of select="@srophe:computed-end"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$startDate"/></string>
+                    <number xmlns="http://www.w3.org/2005/xpath-functions">
+                      <xsl:value-of select="local:format-date($startDate)"/>
+                    </number>
                 </xsl:for-each>
             </array>
             <array key="floruitDatesEnd" xmlns="http://www.w3.org/2005/xpath-functions">
@@ -1300,7 +1307,9 @@
                             <xsl:when test="@srophe:computed-start"><xsl:value-of select="@srophe:computed-start"/></xsl:when>
                         </xsl:choose>
                     </xsl:variable>
-                    <string xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$endDate"/></string>
+                    <number xmlns="http://www.w3.org/2005/xpath-functions">
+                      <xsl:value-of select="local:format-date($endDate)"/>
+                    </number>
                 </xsl:for-each>
             </array>
         </xsl:if>
