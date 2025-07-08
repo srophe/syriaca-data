@@ -112,13 +112,14 @@ jobs:
             echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
       
             # Run transformation, ensuring single-line output
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
+            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" 2>&1 | tee /dev/stderr | tr -d "\n" >> json_output/$filename.json; then
               echo "::warning:: JSON transformation failed for $file"
               echo "Skipping $type $file due to transformation error." >> logs/errors.log
             fi
-      
+
             echo "" >> json_output/$filename.json  # Ensure newline between entries
           ' sh {}
+          
 
           # Verify all files added
           echo "Files being added to bulk_data.json:"
