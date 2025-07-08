@@ -57,8 +57,8 @@ jobs:
           find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
-          head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
-          # head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
+          # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
+          head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 25000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 27000 all_files.txt | tail -n 5000 > xml_files_batch_01.txt
 
@@ -120,6 +120,11 @@ jobs:
       
             echo "" >> json_output/$filename.json  # Ensure newline between entries
           ' sh {}
+
+          # Verify all files added
+          echo "Files being added to bulk_data.json:"
+          ls json_output/
+          echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)"
       
           # Merge all JSON files into a single bulk file
           cat json_output/*.json > bulk_data.json
@@ -185,7 +190,9 @@ jobs:
       #     mkdir -p logs
       #     > logs/uploaded_files.txt
       
-      #     find ./data-html -path "*/syriacadata/*.html" -print0 | xargs -0 -P $(nproc) -I {} sh -c '
+      # find ./data-html -path "*/syriacadata/*.html" -print0 | tee >(wc -l > logs/html_created_count.log) | \
+      # xargs -0 -P $(nproc) -I {} sh -c '
+              # set e
       #       html_file="$1"
       #       echo "html_file: ${html_file}"
       #       # Extract the part of the path after "syriacadata/"
@@ -229,6 +236,9 @@ jobs:
       #       aws s3 cp "$html_file" "$s3_path" && echo "$s3_path" >> logs/uploaded_files.txt
       #       echo "Uploading $xml_file to $tei_s3_path"
       #       aws s3 cp "$xml_path" "$tei_s3_path" && echo "$tei_s3_path" >> logs/uploaded_files.txt
+      #       echo "HTML files created: $(cat logs/html_created_count.log)"
+      #       echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
+            # set -e
       #     ' sh {}
       #   env:
       #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
