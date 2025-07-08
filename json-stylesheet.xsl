@@ -34,6 +34,7 @@
     
     <xsl:function name="local:format-date" as="xs:integer">
         <xsl:param name="date" as="xs:string"/>
+        <xsl:message select="concat('Formatting date: ', $date)"/>
         <xsl:choose>
             <xsl:when test="starts-with($date, '-') and matches($date, '^-\d{4}-\d{2}-\d{2}$')">
                 <xsl:sequence select="xs:integer(concat('-', replace(substring($date, 2), '-', '')))"/>
