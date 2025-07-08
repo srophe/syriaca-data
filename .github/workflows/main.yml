@@ -160,7 +160,7 @@ jobs:
             relative=$(echo "$file" | sed -E "s|^\.\/data\/${type}\/tei\/||" | sed "s/\.xml$//")
             # [ "$type" = "bibl" ] && mapped_type="cbss" || mapped_type="$type"
             # [ "$type" = "subject" ] && mapped_type="taxonomy" || true
-            relative_path=$(echo "$file" | sed -E 's|^\.\/data\/[^/]+/tei/||')
+            relative_path=$(echo "$file" | sed -E "s|^\.\/data\/[^/]+/tei/||")
             filename_alt=$(basename "$relative_path" .xml)
             echo "Alt filename $filename_alt "
             subdir=$(dirname "$relative_path")
