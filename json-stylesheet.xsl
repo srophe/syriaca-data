@@ -72,6 +72,7 @@
     </xsl:function>
     <xsl:function name="local:buildDate">
         <xsl:param name="element" as="node()"/>
+        <xsl:message select="concat('Building date ', $element)"/>
         <xsl:if test="$element/@when or $element/@notBefore or $element/@notAfter or $element/@from or $element/@to">
             <xsl:choose>
                 <!-- Formats to and from dates -->
