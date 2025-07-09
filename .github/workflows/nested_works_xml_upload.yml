@@ -1,0 +1,40 @@
+name: Upload Works TEI Files to S3
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+    paths:
+      - 'works/tei/**/tei/*.xml'  # Only run when TEI XML files in the works dir change
+      - '.github/workflows/nested_works_xml_upload.yml'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  upload-works:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          role-duration-seconds: 14400
+
+      - name: Find and upload XML files to S3
+        run: |
+          for filepath in works/tei/*/tei/*.xml; do
+            filename=$(basename "$filepath")
+            echo "Uploading $filepath to /work/$filename"
+            aws s3 cp "$filepath" "s3://srophe-syriaca-front-end/work/$filename"
+          done
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
