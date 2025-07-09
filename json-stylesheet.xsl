@@ -53,6 +53,11 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
+    <xsl:function name="local:clean" as="xs:string">
+      <xsl:param name="input" as="xs:string?"/>
+      <xsl:sequence select="normalize-space($input)"/>
+    </xsl:function>
+
 
     <xsl:function name="local:sortStringEn">
         <xsl:param name="string"/>
@@ -639,10 +644,9 @@
         <xsl:if test="$doc/descendant::tei:relation[@ref='dc:subject']/tei:desc[. != '']">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
                 <xsl:for-each select="$doc/descendant::tei:relation[@ref='dc:subject']/tei:desc[. != '']">
-                    <string xmlns="http://www.w3.org/2005/xpath-functions">
-                        <!--<xsl:value-of select="normalize-space(string-join(.,' '))"/>-->
-                        <xsl:apply-templates select="." mode="xmlLang"/>
-                    </string>
+                  <string xmlns="http://www.w3.org/2005/xpath-functions">
+                    <xsl:value-of select="normalize-space(.)"/>
+                  </string>
                 </xsl:for-each>
             </array>
         </xsl:if>
@@ -1385,7 +1389,7 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="text()" mode="xmlLang">
-        <xsl:value-of select="normalize-space(string-join(.,' '))"/>
+      <xsl:value-of select="normalize-space(.)"/>
     </xsl:template>
     <!-- Output Data as json for OpenSearch  -->
     <!-- Indexes, use facet-config files -->
