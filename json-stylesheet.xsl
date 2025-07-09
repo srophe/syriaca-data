@@ -1382,6 +1382,7 @@
         </xsl:choose>
     </xsl:template>
     <!-- Match everything, output lang tags.  -->
+
     <xsl:template match="*" mode="xmlLang">
         <xsl:choose>
             <xsl:when test="starts-with(@xml:lang, 'sy')"> &lt;span lang="syr" dir="rtl"&gt;<xsl:apply-templates mode="xmlLang"/>&lt;/span&gt;</xsl:when>
