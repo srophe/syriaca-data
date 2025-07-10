@@ -54,8 +54,8 @@ jobs:
           # find ./data/places/tei -name '*.xml' > xml_files.txt
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # Bibl records must be done in batches or it will exceed the time limitations of GH Actions
-          # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
-          # head -n 5000 all_files.txt > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
+            head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
           
@@ -75,7 +75,7 @@ jobs:
           # echo "./data/places/tei/5609.xml" >> xml_files.txt
           # echo "./data/bibl/tei/2236ZXRU.xml" > xml_files.txt
           # echo "./data/works/tei/270.xml" >> xml_files.txt
-          echo "./data/works/tei/nhsl/tei/2500.xml" > xml_files.txt
+          # echo "./data/works/tei/nhsl/tei/2500.xml" > xml_files.txt
 
           # All data types samples
           # find ./data/persons/tei -name '*.xml' | head -n 5 > xml_files.txt
@@ -85,171 +85,171 @@ jobs:
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
           
-      # # Step 4: Run XSLT Transformations in Parallel for JSON: FOR OPENSEARCH INDEX UPDATES
-      # - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
-      #   run: |
-      #     if [ ! -s xml_files.txt ]; then
-      #       echo "No XML files to process."
-      #       exit 0
-      #     fi
-      
-      #     set +e  # Allow errors without stopping execution
-      #     mkdir -p logs json_output  # Create log and JSON directories
-      #     > bulk_data.json  # Clear existing bulk JSON file
-      
-      #     # Process each XML file in parallel
-      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-      #       file="$1"
-      #       filename=$(basename "${file%.xml}")
-      #       type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-      
-      #       # Fix bible/subject conflict using POSIX-compliant `test`
-      #       if [ "$type" = "subject" ]; then
-      #         type="subject"
-      #       elif [ "$type" = "bibl" ]; then
-      #         type="cbss"
-      #       fi
-      
-      #       echo "Processing $filename for $type JSON"
-      
-      #       # Write index metadata to a separate temp file
-      #       echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
-      
-      #       # Run transformation, ensuring single-line output
-      #       if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" 2>&1 | tee /dev/stderr | tr -d "\n" >> json_output/$filename.json; then
-      #         echo "::warning:: JSON transformation failed for $file"
-      #         echo "Skipping $type $file due to transformation error." >> logs/errors.log
-      #       fi
-
-      #       echo "" >> json_output/$filename.json  # Ensure newline between entries
-      #     ' sh {}
-          
-
-      #     # Verify all files added
-      #     ls json_output/
-      #     echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)" 
-      
-      #     # Merge all JSON files into a single bulk file
-      #     cat json_output/*.json > bulk_data.json
-      
-      #     set -e  # Re-enable stopping on error
-
-      # # Step 5: Configure AWS credentials
-      # - name: Configure AWS credentials
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-      #     aws-region: us-east-1
-      #     role-session-name: GitHub-OIDC-data    
-
-      # # Step 6: Upload JSON file to S3 OPENSEARCH UPDATE
-      # - name: Upload JSON to S3
-      #   env:
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}
-      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-      #   run: |
-      #     TIMESTAMP=$(date +%Y%m%d%H%M%S)
-      #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
-
-      # Step 7: Convert XML to HTML in Parallel For Website pages
-      - name: Convert XML to HTML in Parallel (with syriacadata path)
+      # Step 4: Run XSLT Transformations in Parallel for JSON: FOR OPENSEARCH INDEX UPDATES
+      - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
         run: |
-          mkdir -p logs
+          if [ ! -s xml_files.txt ]; then
+            echo "No XML files to process."
+            exit 0
+          fi
       
+          set +e  # Allow errors without stopping execution
+          mkdir -p logs json_output  # Create log and JSON directories
+          > bulk_data.json  # Clear existing bulk JSON file
+      
+          # Process each XML file in parallel
           cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
             file="$1"
             filename=$(basename "${file%.xml}")
+            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
       
-      
-            # Final output path
-            out_dir="data-html/syriacadata/$(dirname "$filename")"
-            mkdir -p "$out_dir"
-            echo "Converting $file → $out_dir/$filename.html"
-            if ! java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
-              echo "::warning:: HTML transformation failed for $file"
-              echo "Error processing $file" >> logs/errors.log
+            # Fix bible/subject conflict using POSIX-compliant `test`
+            if [ "$type" = "subject" ]; then
+              type="subject"
+            elif [ "$type" = "bibl" ]; then
+              type="cbss"
             fi
+      
+            echo "Processing $filename for $type JSON"
+      
+            # Write index metadata to a separate temp file
+            echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
+      
+            # Run transformation, ensuring single-line output
+            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" 2>&1 | tee /dev/stderr | tr -d "\n" >> json_output/$filename.json; then
+              echo "::warning:: JSON transformation failed for $file"
+              echo "Skipping $type $file due to transformation error." >> logs/errors.log
+            fi
+
+            echo "" >> json_output/$filename.json  # Ensure newline between entries
           ' sh {}
           
-      # Step 8: Upload HTML files to S3 
+
+          # Verify all files added
+          ls json_output/
+          echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)" 
       
+          # Merge all JSON files into a single bulk file
+          cat json_output/*.json > bulk_data.json
+      
+          set -e  # Re-enable stopping on error
+
+      # Step 5: Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
           aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data
-          role-duration-seconds: 14400
-          
-      
-      - name: Upload HTML and XML files to S3 in parallel(From syriacadata directory, Map Prefixes, Strip .html)
-        run: |
-          mkdir -p logs
-          > logs/uploaded_files.txt
-      
-          html_count=$(find ./data-html -path "*/syriacadata/*.html" | wc -l)
-          echo "$html_count" > logs/html_created_count.log
-          
-          find ./data-html -path "*/syriacadata/*.html" -print0 | \
-          xargs -0 -P $(nproc) -I {} sh -c '
-            set +e
-            html_file="$1"
-            # Extract the part of the path after "syriacadata/"
-            s3_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
-            # Map top-level dir if needed
-            top_dir=$(echo "$s3_key" | cut -d/ -f1)
-            case "$top_dir" in
-              bibl) mapped_dir="cbss" ;;
-              subject) mapped_dir="taxonomy" ;;
-              *) mapped_dir="$top_dir" ;;
-            esac
-      
-            rest_of_path=$(echo "$s3_key" | cut -d/ -f2-)
-            if [ "$rest_of_path" = "$s3_key" ]; then
-              new_key="$mapped_dir"
-            else
-              new_key="${mapped_dir}/${rest_of_path}"
-            fi
+          role-session-name: GitHub-OIDC-data    
 
-            # Get the filename (last segment, like "2")
-            filename=$(basename "$s3_key")
-            
-            # Get the type (first segment after johnofephesus/ if present, or first overall)
-            if echo "$s3_key" | grep -q "^johnofephesus/"; then
-              type=$(echo "$s3_key" | sed -E "s|^johnofephesus/([^/]+).*|\1|")
-            elif echo "$s3_key" | grep -q "^cbss/"; then
-              type="bibl"
-            else
-              type=$(echo "$s3_key" | cut -d/ -f1)
-              type="${type}s"
-            fi
-
-            # # Determine path to original XML (always from canonical path)
-            # xml_path="./data/${type}/tei/${filename}.xml"
-            # s3_path="s3://srophe-syriaca-front-end/${new_key}"
-            # tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
-
-            echo "Uploading $html_file to $s3_path"
-            if aws s3 cp "$html_file" "$s3_path"; then
-              echo "$s3_path" >> logs/uploaded_files.txt
-            else
-              echo "::warning:: Failed to upload $html_file to $s3_path" >> logs/errors.log
-            fi
-            # echo "Uploading $xml_path to $tei_s3_path"
-            # if aws s3 cp "$xml_path" "$tei_s3_path"; then
-            #   echo "$tei_s3_path" >> logs/uploaded_files.txt
-            # else
-            #   echo "::warning:: Failed to upload $xml_path to $tei_s3_path" >> logs/errors.log
-            # fi
-            set -e
-          ' sh {}
-            echo "HTML files created: $(cat logs/html_created_count.log)" 
-            echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)" 
-            echo "Total uploaded: $(grep -v '\.html$' logs/uploaded_files.txt | wc -l)" 
-
+      # Step 6: Upload JSON file to S3 OPENSEARCH UPDATE
+      - name: Upload JSON to S3
         env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+        run: |
+          TIMESTAMP=$(date +%Y%m%d%H%M%S)
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_$TIMESTAMP.json
+
+      # # Step 7: Convert XML to HTML in Parallel For Website pages
+      # - name: Convert XML to HTML in Parallel (with syriacadata path)
+      #   run: |
+      #     mkdir -p logs
+      
+      #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+      #       file="$1"
+      #       filename=$(basename "${file%.xml}")
+      
+      
+      #       # Final output path
+      #       out_dir="data-html/syriacadata/$(dirname "$filename")"
+      #       mkdir -p "$out_dir"
+      #       echo "Converting $file → $out_dir/$filename.html"
+      #       if ! java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
+      #         echo "::warning:: HTML transformation failed for $file"
+      #         echo "Error processing $file" >> logs/errors.log
+      #       fi
+      #     ' sh {}
+          
+      # # Step 8: Upload HTML files to S3 
+      
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+      #     aws-region: us-east-1
+      #     role-session-name: GitHub-OIDC-data
+      #     role-duration-seconds: 14400
+          
+      
+      # - name: Upload HTML and XML files to S3 in parallel(From syriacadata directory, Map Prefixes, Strip .html)
+      #   run: |
+      #     mkdir -p logs
+      #     > logs/uploaded_files.txt
+      
+      #     html_count=$(find ./data-html -path "*/syriacadata/*.html" | wc -l)
+      #     echo "$html_count" > logs/html_created_count.log
+          
+      #     find ./data-html -path "*/syriacadata/*.html" -print0 | \
+      #     xargs -0 -P $(nproc) -I {} sh -c '
+      #       set +e
+      #       html_file="$1"
+      #       # Extract the part of the path after "syriacadata/"
+      #       s3_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
+      #       # Map top-level dir if needed
+      #       top_dir=$(echo "$s3_key" | cut -d/ -f1)
+      #       case "$top_dir" in
+      #         bibl) mapped_dir="cbss" ;;
+      #         subject) mapped_dir="taxonomy" ;;
+      #         *) mapped_dir="$top_dir" ;;
+      #       esac
+      
+      #       rest_of_path=$(echo "$s3_key" | cut -d/ -f2-)
+      #       if [ "$rest_of_path" = "$s3_key" ]; then
+      #         new_key="$mapped_dir"
+      #       else
+      #         new_key="${mapped_dir}/${rest_of_path}"
+      #       fi
+
+      #       # Get the filename (last segment, like "2")
+      #       filename=$(basename "$s3_key")
+            
+      #       # Get the type (first segment after johnofephesus/ if present, or first overall)
+      #       if echo "$s3_key" | grep -q "^johnofephesus/"; then
+      #         type=$(echo "$s3_key" | sed -E "s|^johnofephesus/([^/]+).*|\1|")
+      #       elif echo "$s3_key" | grep -q "^cbss/"; then
+      #         type="bibl"
+      #       else
+      #         type=$(echo "$s3_key" | cut -d/ -f1)
+      #         type="${type}s"
+      #       fi
+
+      #       # # Determine path to original XML (always from canonical path)
+      #       # xml_path="./data/${type}/tei/${filename}.xml"
+      #       # s3_path="s3://srophe-syriaca-front-end/${new_key}"
+      #       # tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
+
+      #       echo "Uploading $html_file to $s3_path"
+      #       if aws s3 cp "$html_file" "$s3_path"; then
+      #         echo "$s3_path" >> logs/uploaded_files.txt
+      #       else
+      #         echo "::warning:: Failed to upload $html_file to $s3_path" >> logs/errors.log
+      #       fi
+      #       # echo "Uploading $xml_path to $tei_s3_path"
+      #       # if aws s3 cp "$xml_path" "$tei_s3_path"; then
+      #       #   echo "$tei_s3_path" >> logs/uploaded_files.txt
+      #       # else
+      #       #   echo "::warning:: Failed to upload $xml_path to $tei_s3_path" >> logs/errors.log
+      #       # fi
+      #       set -e
+      #     ' sh {}
+      #       echo "HTML files created: $(cat logs/html_created_count.log)" 
+      #       echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)" 
+      #       echo "Total uploaded: $(grep -v '\.html$' logs/uploaded_files.txt | wc -l)" 
+
+      #   env:
+      #     AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
 
 
       # Step 9: Upload logs as an artifact for debugging
