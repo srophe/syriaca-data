@@ -5,7 +5,7 @@ on:
     branches:
       - 'gaddel_development'
     paths:
-      - 'works/tei/*/tei/*.xml'
+      - 'works/tei/**/tei/*.xml'
       - '.github/workflows/nested_works_xml_upload.yml'
 
 permissions:
@@ -31,12 +31,24 @@ jobs:
           role-duration-seconds: 14400
 
       - name: Identify XML files
+        # run: |
+        #   mkdir -p logs
+        #   find works/tei/*/tei -name '*.xml' > logs/xml_files.txt
+        #   echo "Processing $(wc -l < logs/xml_files.txt) XML files"
+        #     - name: Identify XML files
         run: |
           mkdir -p logs
-          find works/tei/*/tei -name '*.xml' > logs/xml_files.txt
-          echo "Processing $(wc -l < logs/xml_files.txt) XML files"
 
-      - name: Find and upload XML files to S3
+          # Enable nullglob so the for loop doesn't break if no matches exist
+          shopt -s nullglob
+          for dir in works/tei/*/tei; do
+            find "$dir" -type f -name '*.xml'
+          done > logs/xml_files.txt
+
+          count=$(wc -l < logs/xml_files.txt)
+          echo "Found $count XML file(s) to upload."
+    
+      - name: Upload XML files to S3
         run: |
           uploaded=0
           while IFS= read -r file; do
