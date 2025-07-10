@@ -38,7 +38,7 @@ jobs:
         #     - name: Identify XML files
         run: |
           mkdir -p logs
-          find works/tei -type f -path '*/tei/*.xml' > logs/xml_files.txt
+          find ./data/works/tei -type f -path '*/tei/*.xml' > logs/xml_files.txt
           count=$(wc -l < logs/xml_files.txt)
           echo "Found $count XML file(s) to upload."
     
