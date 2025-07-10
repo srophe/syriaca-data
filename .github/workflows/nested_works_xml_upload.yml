@@ -38,13 +38,7 @@ jobs:
         #     - name: Identify XML files
         run: |
           mkdir -p logs
-
-          # Enable nullglob so the for loop doesn't break if no matches exist
-          shopt -s nullglob
-          for dir in works/tei/*/tei; do
-            find "$dir" -type f -name '*.xml'
-          done > logs/xml_files.txt
-
+          find works/tei -type f -path '*/tei/*.xml' > logs/xml_files.txt
           count=$(wc -l < logs/xml_files.txt)
           echo "Found $count XML file(s) to upload."
     
