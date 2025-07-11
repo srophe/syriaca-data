@@ -1071,7 +1071,83 @@
         </xsl:choose>    
     </xsl:template>
     <!-- DATES start and end  -->
-    <xsl:template match="*:fields[@function = 'cbssPubDate']">
+    
+    <!-- Named template to normalize a date string -->
+<xsl:template name="normalizeDate">
+  <xsl:param name="dateString"/>
+  <xsl:param name="position" select="'start'"/>
+
+  <xsl:choose>
+    <!-- Exact ISO date (yyyy-MM-dd) -->
+    <xsl:when test="matches($dateString, '^\d{4}-\d{2}-\d{2}$')">
+      <xsl:value-of select="$dateString"/>
+    </xsl:when>
+
+    <!-- Year range -->
+    <xsl:when test="matches($dateString, '^\d{4}-\d{4}$')">
+      <xsl:choose>
+        <xsl:when test="$position = 'start'">
+          <xsl:value-of select="substring-before($dateString, '-')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring-after($dateString, '-')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+
+    <!-- Comma-separated year list -->
+    <xsl:when test="matches($dateString, '^\d{4}(,\s*\d{4})+$')">
+      <xsl:variable name="tokens" select="tokenize($dateString, ',\s*')"/>
+      <xsl:choose>
+        <xsl:when test="$position = 'start'">
+          <xsl:value-of select="$tokens[1]"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$tokens[last()]"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+
+    <!-- Just a 4-digit year -->
+    <xsl:when test="matches($dateString, '^\d{4}$')">
+      <xsl:value-of select="$dateString"/>
+    </xsl:when>
+
+    <!-- Any text with a 4-digit year -->
+    <xsl:when test="matches($dateString, '\d{4}')">
+      <xsl:value-of select="replace($dateString, '.*?(\d{4}).*', '$1')"/>
+    </xsl:when>
+
+    <!-- Unrecognized format -->
+    <xsl:otherwise>
+      <xsl:message select="concat('Unrecognized date format: ', $dateString)"/>
+      <xsl:text/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="*:fields[@function = 'cbssPubDate']">
+  <xsl:param name="doc"/>
+  <xsl:if test="$doc//tei:imprint/tei:date">
+    <xsl:variable name="rawDate" select="normalize-space(string($doc//tei:imprint/tei:date[1]))"/>
+
+    <string key="cbssPubDateStart" xmlns="http://www.w3.org/2005/xpath-functions">
+      <xsl:call-template name="normalizeDate">
+        <xsl:with-param name="dateString" select="$rawDate"/>
+        <xsl:with-param name="position" select="'start'"/>
+      </xsl:call-template>
+    </string>
+
+\    <string key="cbssPubDateEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+      <xsl:call-template name="normalizeDate">
+        <xsl:with-param name="dateString" select="$rawDate"/>
+        <xsl:with-param name="position" select="'end'"/>
+      </xsl:call-template>
+    </string>
+  </xsl:if>
+</xsl:template>
+
+<!--     <xsl:template match="*:fields[@function = 'cbssPubDate']">
         <xsl:param name="doc"/>
         <xsl:if test="$doc/descendant::tei:imprint/tei:date">  
             <array key="cbssPubDateStart" xmlns="http://www.w3.org/2005/xpath-functions">
@@ -1103,7 +1179,8 @@
                 </xsl:for-each>
             </array>
         </xsl:if>
-    </xsl:template>
+    </xsl:template> -->
+    
     <xsl:template match="*:fields[@function = 'eventDates']">
     <xsl:param name="doc"/>
     <xsl:param name="id"/>
