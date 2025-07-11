@@ -1,7 +1,11 @@
 name: Process CBSS Batches to JSON and HTML
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - 'gaddel_development'  # current data branch
+    paths:
+      - '.github/workflows/cbss_batch_load.yml'  # Trigger action only on changes to this file 
 
 permissions:
   id-token: write
@@ -51,9 +55,9 @@ jobs:
             filename=$(basename "${file%.xml}")
             echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"cbss-$filename\"}}" > json_output/$filename.json
             
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="cbss"  | tr -d "\n" >> json_output/$filename.json; then
+            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl doc="cbss"  | tr -d "\n" >> json_output/$filename.json; then
               echo "::warning:: JSON transformation failed for $file"
-              echo "Skipping $type $file due to transformation error." >> logs/errors.log
+              echo "Skipping $file due to transformation error." >> logs/errors.log
             fi
       
             echo "" >> json_output/$filename.json  # Ensure newline between entries
@@ -108,4 +112,12 @@ jobs:
 
       #     echo "HTML files created: $(cat logs/html_created_count.log)" 
       #     echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
+
+      - name: Upload error log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-logs-${{ matrix.batch_start }}
+          path: logs/errors.log
+
 
