@@ -97,8 +97,10 @@ jobs:
           # find ./data/works/tei -name '*.xml' | head -n 5 >> xml_files.txt
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
-          
+
+          # XML TO JSON
           - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
+            shell: bash
             run: |
               if [ ! -s xml_files.txt ]; then
                 echo "No XML files to process."
@@ -109,7 +111,7 @@ jobs:
               mkdir -p logs json_output
               > bulk_data.json
           
-              cat xml_files.txt | xargs -P $(nproc) -I{} bash -c '
+              cat xml_files.txt | xargs -P "$(nproc)" -I{} bash -c '
                 file="{}"
                 filename=$(basename "${file%.xml}")
                 type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
@@ -120,15 +122,13 @@ jobs:
           
                 echo "Processing $filename for $type JSON"
           
-                # Write index line
-                echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
+                echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > "json_output/$filename.json"
           
-                # Append transformed content
-                if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" >> json_output/$filename.json 2>> logs/errors.log; then
+                if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" >> "json_output/$filename.json" 2>> logs/errors.log; then
                   echo "::warning:: JSON transformation failed for $file"
                 fi
           
-                echo "" >> json_output/$filename.json
+                echo "" >> "json_output/$filename.json"
               '
           
               echo "Expected: $(wc -l < xml_files.txt) | Actual: $(ls json_output/ | wc -l)"
