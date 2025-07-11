@@ -98,54 +98,44 @@ jobs:
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
           
-      # Step 4: Run XSLT Transformations in Parallel for JSON: FOR OPENSEARCH INDEX UPDATES
-      - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
-        run: |
-          if [ ! -s xml_files.txt ]; then
-            echo "No XML files to process."
-            exit 0
-          fi
-      
-          set +e  # Allow errors without stopping execution
-          mkdir -p logs json_output  # Create log and JSON directories
-          > bulk_data.json  # Clear existing bulk JSON file
-      
-          # Process each XML file in parallel
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename "${file%.xml}")
-            type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
-      
-            # Fix bible/subject conflict using POSIX-compliant `test`
-            if [ "$type" = "subject" ]; then
-              type="subject"
-            elif [ "$type" = "bibl" ]; then
-              type="cbss"
-            fi
-      
-            echo "Processing $filename for $type JSON"
-      
-            # Write index metadata to a separate temp file
-            echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
-      
-            # Run transformation, ensuring single-line output
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" > "json_output/$filename.json" 2> >(tee -a logs/errors.log >&2); then
-              echo "::warning:: JSON transformation failed for $file"
-            fi
-
-
-            echo "" >> json_output/$filename.json  # Ensure newline between entries
-          ' sh {}
+          - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
+            run: |
+              if [ ! -s xml_files.txt ]; then
+                echo "No XML files to process."
+                exit 0
+              fi
           
+              set +e
+              mkdir -p logs json_output
+              > bulk_data.json
+          
+              cat xml_files.txt | xargs -P $(nproc) -I{} bash -c '
+                file="{}"
+                filename=$(basename "${file%.xml}")
+                type=$(echo "$file" | grep -o -E "taxonomy|work|subject|person|place|bibl" | tail -n 1)
+          
+                if [ "$type" = "bibl" ]; then
+                  type="cbss"
+                fi
+          
+                echo "Processing $filename for $type JSON"
+          
+                # Write index line
+                echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
+          
+                # Append transformed content
+                if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" >> json_output/$filename.json 2>> logs/errors.log; then
+                  echo "::warning:: JSON transformation failed for $file"
+                fi
+          
+                echo "" >> json_output/$filename.json
+              '
+          
+              echo "Expected: $(wc -l < xml_files.txt) | Actual: $(ls json_output/ | wc -l)"
+              cat json_output/*.json > bulk_data.json
+          
+              set -e
 
-          # Verify all files added
-          ls json_output/
-          echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)" 
-      
-          # Merge all JSON files into a single bulk file
-          cat json_output/*.json > bulk_data.json
-      
-          set -e  # Re-enable stopping on error
 
       # Step 5: Configure AWS credentials
       - name: Configure AWS credentials
