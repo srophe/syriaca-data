@@ -81,11 +81,11 @@ jobs:
           echo "./data/bibl/tei/MLJDPLBA.xml" > xml_files.txt
           echo "./data/bibl/tei/MQ7XZCAE.xml" >> xml_files.txt
           echo "./data/bibl/tei/MSEZA5A.xml" >> xml_files.txt
-          echo "./data/bibl/tei/MN6N8Q7F9.xml" >> xml_files.txt
+          echo "./data/bibl/tei/N6N8Q7F9.xml" >> xml_files.txt
           
           echo "./data/bibl/tei/NHY5TKPI.xml" >> xml_files.txt
           echo "./data/bibl/tei/NS3SCJLY.xml" >> xml_files.txt
-          echo "./data/bibl/tei/MNZZP9CTH.xml" >> xml_files.txt
+          echo "./data/bibl/tei/NZZP9CTH.xml" >> xml_files.txt
           
           # echo "./data/works/tei/270.xml" >> xml_files.txt
           # echo "./data/works/tei/nhsl/tei/2500.xml" > xml_files.txt
@@ -129,10 +129,10 @@ jobs:
             echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
       
             # Run transformation, ensuring single-line output
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" 2>&1 | tee /dev/stderr | tr -d "\n" >> json_output/$filename.json; then
+            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" > "json_output/$filename.json" 2> >(tee -a logs/errors.log >&2); then
               echo "::warning:: JSON transformation failed for $file"
-              echo "Skipping $type $file due to transformation error." >> logs/errors.log
             fi
+
 
             echo "" >> json_output/$filename.json  # Ensure newline between entries
           ' sh {}
