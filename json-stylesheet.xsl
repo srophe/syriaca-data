@@ -1073,31 +1073,34 @@
     <!-- DATES start and end  -->
     
     <!-- Named template to normalize a date string -->
+<!-- Normalize various publication date formats -->
 <xsl:template name="normalizeDate">
   <xsl:param name="dateString"/>
   <xsl:param name="position" select="'start'"/>
 
+  <xsl:variable name="date" select="normalize-space($dateString)"/>
+
   <xsl:choose>
-    <!-- Exact ISO date (yyyy-MM-dd) -->
-    <xsl:when test="matches($dateString, '^\d{4}-\d{2}-\d{2}$')">
-      <xsl:value-of select="$dateString"/>
+    <!-- ISO date: yyyy-MM-dd -->
+    <xsl:when test="matches($date, '^\d{4}-\d{2}-\d{2}$')">
+      <xsl:value-of select="$date"/>
     </xsl:when>
 
-    <!-- Year range -->
-    <xsl:when test="matches($dateString, '^\d{4}-\d{4}$')">
+    <!-- Year range: 1980-1984 -->
+    <xsl:when test="matches($date, '^\d{4}-\d{4}$')">
       <xsl:choose>
         <xsl:when test="$position = 'start'">
-          <xsl:value-of select="substring-before($dateString, '-')"/>
+          <xsl:value-of select="substring-before($date, '-')"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="substring-after($dateString, '-')"/>
+          <xsl:value-of select="substring-after($date, '-')"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
 
-    <!-- Comma-separated year list -->
-    <xsl:when test="matches($dateString, '^\d{4}(,\s*\d{4})+$')">
-      <xsl:variable name="tokens" select="tokenize($dateString, ',\s*')"/>
+    <!-- Comma-separated years: 1949, 1951, 1956 -->
+    <xsl:when test="matches($date, '^\d{4}(,\s*\d{4})+$')">
+      <xsl:variable name="tokens" select="tokenize($date, ',\s*')"/>
       <xsl:choose>
         <xsl:when test="$position = 'start'">
           <xsl:value-of select="$tokens[1]"/>
@@ -1108,44 +1111,54 @@
       </xsl:choose>
     </xsl:when>
 
-    <!-- Just a 4-digit year -->
-    <xsl:when test="matches($dateString, '^\d{4}$')">
-      <xsl:value-of select="$dateString"/>
+    <!-- Single 4-digit year -->
+    <xsl:when test="matches($date, '^\d{4}$')">
+      <xsl:value-of select="$date"/>
     </xsl:when>
 
-    <!-- Any text with a 4-digit year -->
-    <xsl:when test="matches($dateString, '\d{4}')">
-      <xsl:value-of select="replace($dateString, '.*?(\d{4}).*', '$1')"/>
+    <!-- Extract any embedded 4-digit year -->
+    <xsl:when test="matches($date, '\d{4}')">
+      <xsl:value-of select="replace($date, '.*?(\d{4}).*', '$1')"/>
     </xsl:when>
 
-    <!-- Unrecognized format -->
+    <!-- Invalid or non-date input -->
     <xsl:otherwise>
-      <xsl:message select="concat('Unrecognized date format: ', $dateString)"/>
+      <xsl:message select="concat('Skipping invalid date: ', $date)"/>
       <xsl:text/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
+
 <xsl:template match="*:fields[@function = 'cbssPubDate']">
   <xsl:param name="doc"/>
   <xsl:if test="$doc//tei:imprint/tei:date">
     <xsl:variable name="rawDate" select="normalize-space(string($doc//tei:imprint/tei:date[1]))"/>
-
-    <string key="cbssPubDateStart" xmlns="http://www.w3.org/2005/xpath-functions">
+    <xsl:variable name="start">
       <xsl:call-template name="normalizeDate">
         <xsl:with-param name="dateString" select="$rawDate"/>
         <xsl:with-param name="position" select="'start'"/>
       </xsl:call-template>
-    </string>
-
-\    <string key="cbssPubDateEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+    </xsl:variable>
+    <xsl:variable name="end">
       <xsl:call-template name="normalizeDate">
         <xsl:with-param name="dateString" select="$rawDate"/>
         <xsl:with-param name="position" select="'end'"/>
       </xsl:call-template>
-    </string>
+    </xsl:variable>
+    <xsl:if test="normalize-space($start) != ''">
+      <string key="cbssPubDateStart" xmlns="http://www.w3.org/2005/xpath-functions">
+        <xsl:value-of select="$start"/>
+      </string>
+    </xsl:if>
+    <xsl:if test="normalize-space($end) != ''">
+      <string key="cbssPubDateEnd" xmlns="http://www.w3.org/2005/xpath-functions">
+        <xsl:value-of select="$end"/>
+      </string>
+    </xsl:if>
   </xsl:if>
 </xsl:template>
+
 
 <!--     <xsl:template match="*:fields[@function = 'cbssPubDate']">
         <xsl:param name="doc"/>
