@@ -59,7 +59,9 @@ jobs:
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
-          head -n 25000 all_files.txt | tail -n 5000 > xml_files.txt
+          # head -n 25000 all_files.txt | tail -n 5000 > xml_files.txt
+          head -n 30000 all_files.txt | tail -n 5000 > xml_files.txt
+
 
           # find ./data/taxonomy -name '*.rdf' > xml_files.txt
 
@@ -236,10 +238,10 @@ jobs:
             else
               echo "::warning:: Failed to upload $xml_path to $tei_s3_path" >> logs/errors.log
             fi
-            echo "HTML files created: $(cat logs/html_created_count.log)"
-            echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
             set -e
           ' sh {}
+            echo "HTML files created: $(cat logs/html_created_count.log)"
+            echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
