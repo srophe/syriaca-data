@@ -55,7 +55,7 @@ jobs:
             filename=$(basename "${file%.xml}")
             echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"cbss-$filename\"}}" > json_output/$filename.json
             
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl doc="cbss"  | tr -d "\n" >> json_output/$filename.json; then
+            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="cbss"  | tr -d "\n" >> json_output/$filename.json; then
               echo "::warning:: JSON transformation failed for $file"
               echo "Skipping $file due to transformation error." >> logs/errors.log
             fi
