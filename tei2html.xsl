@@ -27,12 +27,14 @@
        tei2html.xsl
        
        This XSLT transforms tei.xml to html.
+       This file needs to be updated separately from version in code repo for proper transformation.
        
        parameters:
             
         
-       code by: 
+       code based on code by: 
         + Winona Salesky (wsalesky@gmail.com)
+          https://github.com/srophe/Gaddel/blob/main/siteGenerator/xsl/tei2html.xsl
         + Tom Elliott (http://www.paregorios.org) 
           for the Institute for the Study of the Ancient World, New York
           University, under contract to Vanderbilt University for the
@@ -94,6 +96,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
+ <xsl:param name="idno"/>
     <!-- Repository Title -->
     <xsl:variable name="repository-title">
         <xsl:choose>
@@ -126,6 +129,9 @@
     <!-- Resource id -->
     <xsl:variable name="resource-id">
         <xsl:choose>
+                     <xsl:when test="$idno != ''">
+                <xsl:value-of select="$idno"/>
+            </xsl:when>
             <xsl:when test="string(/*/@id)">
                 <xsl:value-of select="string(/*/@id)"/>
             </xsl:when>
@@ -328,7 +334,7 @@
                 <div class="content-block preferred-citation">
                     <h2>Preferred Citation</h2>
                     <div class="indent citation">
-                        <xsl:apply-templates select="self::*" mode="bibliography"/>.
+                        <xsl:apply-templates select="parent::t:body/t:bibl[@subtype='citation']" mode="preferredCitation"/>
                     </div>
                 </div>
                 <h3>Full Citation Information</h3>
@@ -363,6 +369,7 @@
     
     <!-- C -->
     <xsl:template name="citationInfo">
+     <xsl:param name="idno"/>
         <div class="citationinfo">
             <h3>How to Cite This Entry</h3>
             <div id="citation-note" class="content-block indent">
@@ -465,7 +472,7 @@
                     <xsl:for-each select="//t:idno[contains(.,'pleiades')]">
                         <li>
                             <a href="{normalize-space(.)}">
-                                <img src="/resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
+                                <img src="../../resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
                         </li>
                     </xsl:for-each>
                     <!-- Google map links -->
@@ -478,7 +485,7 @@
                                 <xsl:value-of select="$coords[2]"/>
                             </xsl:variable>
                             <a href="https://maps.google.com/maps?q={$geoRef}+(name)&amp;z=10&amp;ll={$geoRef}">
-                                <img src="/resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
+                                <img src="../../resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
                             </a>
                         </li>
                     </xsl:for-each>
@@ -618,7 +625,7 @@
     
     <!-- P -->
     <!-- Main page modules for syriaca.org display -->
-    <xsl:template match="t:person">
+    <xsl:template match="t:person | t:personGrp">
         <xsl:if test="t:desc[@type='abstract'] | t:desc[starts-with(@xml:id, 'abstract-en')] | t:note[@type='abstract']">
             <xsl:choose>
                 <xsl:when test="$collection = 'johnofephesusPersons'">
@@ -660,7 +667,7 @@
                 </xsl:apply-templates> 
             </ul>   
         </xsl:if>
-        <xsl:apply-templates select="t:sex | t:death | t:birth | t:floruit"/>
+        <xsl:apply-templates select="t:sex | t:gender| t:death  | t:birth | t:floruit"/>
         <!-- Work in progress
         <xsl:if test="t:state">
             <xsl:for-each-group select="//t:state[not(@when) and not(@notBefore) and not(@notAfter) and not(@to) and not(@from)]" group-by="@type">
@@ -1006,7 +1013,7 @@
             <xsl:if test="@ana">
                 <xsl:for-each select="tokenize(@ana,' ')">
                     <xsl:variable name="filepath">
-                        <xsl:value-of select="concat('xmldb:exist://',substring-before(replace(.,$base-uri,$nav-base),'#'))"/>
+                      <xsl:value-of select="substring-before(replace(.,$base-uri,$nav-base),'#')"/>                    
                     </xsl:variable>
                     <xsl:variable name="ana-id" select="substring-after(.,'#')"/>
                     <xsl:if test="doc-available($filepath)">
@@ -1367,13 +1374,16 @@
     
     <!-- T -->
     <xsl:template match="t:TEI">
+     <xsl:param name="idno"/>
         <xsl:choose>
             <xsl:when test="contains($resource-id,'cbss')">
                 <xsl:apply-templates select="descendant::t:biblStruct"/>
             </xsl:when>
             <xsl:otherwise>
                 <!-- Header -->
-                <xsl:call-template name="h1"/>
+                <xsl:call-template name="h1">
+                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                </xsl:call-template>
                 <xsl:apply-templates select="descendant::t:sourceDesc/t:msDesc"/>
                 <!-- MSS display -->
                 <xsl:if test="descendant::t:sourceDesc/t:msDesc">
@@ -1382,12 +1392,15 @@
                 <!-- Body -->
                 <xsl:apply-templates select="descendant::t:body"/>
                 <!-- Citation Information -->
-                <xsl:apply-templates select="t:teiHeader" mode="citation"/>
+                <xsl:apply-templates select="t:teiHeader" mode="citation">
+                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
         
     </xsl:template>
     <xsl:template match="t:teiHeader" mode="#all">
+     <xsl:param name="idno"/>
         <xsl:choose>
             <xsl:when test="contains($resource-id,'/bibl/') or contains($resource-id,'/cbss/')">
                 <!--
@@ -1409,11 +1422,15 @@
                 <div class="citationinfo">
                     <h3>How to Cite This Entry</h3>
                     <div id="citation-note" class="content-block indent">
-                        <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-foot"/>
-                        <div class="collapse" id="showcit">
+                        <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-foot">
+                            <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                        </xsl:apply-templates>
+                     <div class="collapse" id="showcit">
                             <div id="citation-bibliography">
                                 <h4>Bibliography:</h4>
-                                <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-biblist"/>
+                                <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-biblist">
+                                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+                                </xsl:apply-templates>
                             </div>
                             <xsl:call-template name="aboutEntry"/>
                             <div id="license">
@@ -1442,9 +1459,19 @@
 
     <!-- Template for page titles -->
     <xsl:template match="t:srophe-title | t:titleStmt">
-        <xsl:call-template name="h1"/>
+        <xsl:param name="idno"/>
+        <xsl:call-template name="h1">
+            <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
     <xsl:template name="h1">
+       <xsl:param name="idno"/>
+        <xsl:variable name="id">
+            <xsl:choose>
+                <xsl:when test="$idno"><xsl:value-of select="$idno"/></xsl:when>
+                <xsl:otherwise><xsl:value-of select="$resource-id"/></xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <div class="title">
             <h1>
                 <!-- Format title, calls template in place-title-std.xsl -->
@@ -1457,7 +1484,7 @@
         <!-- emit record URI and associated help links -->
         <div class="idno seriesStmt" style="margin:0; margin-top:.25em; margin-bottom: 1em; padding:1em; color: #999999;">
             <xsl:variable name="current-id">
-                <xsl:variable name="idString" select="tokenize($resource-id,'/')[last()]"/>
+                <xsl:variable name="idString" select="tokenize($id,'/')[last()]"/>
                 <xsl:variable name="idSubstring">
                     <xsl:choose>
                         <xsl:when test="contains($idString,'-')">
@@ -1477,8 +1504,8 @@
             </xsl:variable>
             <xsl:variable name="next-id" select="$current-id + 1"/>
             <xsl:variable name="prev-id" select="$current-id - 1"/>
-            <xsl:variable name="next-uri" select="replace($resource-id,$current-id,string($next-id))"/>
-            <xsl:variable name="prev-uri" select="replace($resource-id,$current-id,string($prev-id))"/>                
+            <xsl:variable name="next-uri" select="replace($id,$current-id,string($next-id))"/>
+            <xsl:variable name="prev-uri" select="replace($id,$current-id,string($prev-id))"/>                
             <small>
                 <span class="uri">
                     <xsl:if test="starts-with($nav-base,'/exist/apps')">
@@ -1492,7 +1519,7 @@
                     </button>
                     <xsl:text> </xsl:text>
                     <span id="syriaca-id">
-                        <xsl:value-of select="$resource-id"/>
+                        <xsl:value-of select="$id"/>
                     </span>
                     <script>
                         var clipboard = new Clipboard('#idnoBtn');
@@ -1719,7 +1746,7 @@
             </li>  
         </xsl:if>
     </xsl:template>
-    <xsl:template match="t:state | t:birth | t:death | t:floruit | t:sex | t:langKnowledge">
+    <xsl:template match="t:state | t:birth | t:death | t:floruit | t:sex | t:gender | t:langKnowledge">
        <div class="person-details">
            <h3>
                <xsl:choose>
@@ -1727,6 +1754,7 @@
                    <xsl:when test="self::t:death">Death</xsl:when>
                    <xsl:when test="self::t:floruit">Floruit</xsl:when>
                    <xsl:when test="self::t:sex">Sex</xsl:when>
+                   <xsl:when test="self::t:gender">Sex</xsl:when>
                    <xsl:when test="self::t:langKnowledge">Language Knowledge</xsl:when>
                    <xsl:when test="@role">
                        <xsl:value-of select="concat(upper-case(substring(@role,1,1)),substring(@role,2))"/>
@@ -1769,7 +1797,7 @@
                 <ul>
                     <!-- Bibliography elements are processed by bibliography.xsl -->
                     <xsl:for-each select="t:bibl">
-                    <xsl:sort select="
+                        <xsl:sort select="
                         if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
                         then number(substring-after(@xml:id, '-')) 
                         else 0"/>
@@ -1819,7 +1847,7 @@
         <!-- Variable to store the value of the confessions of current place-->
         <xsl:variable name="current-confessions">
             <xsl:for-each select="//t:state[@type='confession']">
-                <xsl:variable name="id" select="substring-after(@ref,'#')"/>
+                <xsl:variable name="id" select="substring-after(@ref,'http://syriaca.org/taxonomy/')"/>
                 <!-- outputs current confessions as a space seperated list -->
                 <xsl:value-of select="concat($id,' ')"/>
             </xsl:for-each>

@@ -44,7 +44,7 @@
         transform HTML
         Add Footer
         
-        Add dynamic (javascript calls to RDF or other related items)
+        Add dynamic (javascript calls to other related items)
         
         -->
  
@@ -202,24 +202,40 @@
                     <!--<path idno=""><xsl:value-of select="concat($staticSitePath,replace($resource-path,$applicationPath,''))"/></path>-->
                     <path><xsl:value-of select="concat($staticSitePath,$filename)"/></path>
                 </xsl:when>
+                
                 <xsl:when test="$fileType = 'TEI'">
-                    <xsl:variable name="idno" select="replace(descendant::t:publicationStmt/t:idno[@type='URI'],'/tei','')"/>
-                    <!-- Output a version for JoE and Syriaca.org -->
-                    <xsl:if test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons'] or descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
-                        <xsl:variable name="altIdno">
-                            <xsl:choose>
-                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons']">
-                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/persons/')]"/>
-                                </xsl:when>
-                                <xsl:when test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
-                                    <xsl:value-of select="descendant::t:idno[starts-with(.,'http://syriaca.org/johnofephesus/places/')]"/>
-                                </xsl:when>
-                            </xsl:choose>
-                        </xsl:variable>
-                        <path idno="{$altIdno}"><xsl:value-of select="concat(replace($altIdno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
-                    </xsl:if>
-                    <path idno="{$idno}"><xsl:value-of select="concat(replace($idno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
+
+
+                <xsl:variable name="idno" select="replace((descendant::t:idno[@type='URI' and (starts-with(., 'http://syriaca.org/person/') or starts-with(., 'http://syriaca.org/place/') or starts-with(., 'http://syriaca.org/work/') or starts-with(., 'http://syriaca.org/cbss/') or starts-with(., 'http://syriaca.org/manuscript/'))])[1], '/tei', '')"/>
+                    <xsl:message>DEBUG: idno = <xsl:value-of select="$idno"/></xsl:message>
+
+                    <!-- New: John of Ephesus alternate idno -->
+                  <xsl:variable name="altIdno">
+                    <xsl:choose>
+                      <xsl:when test="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/persons/')]">
+                        <xsl:value-of select="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/persons/')][1]"/>
+                      </xsl:when>
+                      <xsl:when test="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/places/')]">
+                        <xsl:value-of select="descendant::t:idno[starts-with(., 'http://syriaca.org/johnofephesus/places/')][1]"/>
+                      </xsl:when>
+                      <xsl:otherwise/>
+                    </xsl:choose>
+                  </xsl:variable>
+                <xsl:message>DEBUG: altidno = <xsl:value-of select="$altIdno"/></xsl:message>
+
+                  <!-- Always emit standard path -->
+                  <path idno="{$idno}">
+                    <xsl:value-of select="concat(replace($idno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
+                  </path>
+                
+                  <!-- Emit alternate path for JoE pages if exists -->
+                  <xsl:if test="string-length($altIdno) &gt; 0">
+                    <path idno="{$altIdno}">
+                      <xsl:value-of select="concat(replace($altIdno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
+                    </path>
+                  </xsl:if>
                 </xsl:when>
+                
                 <xsl:when test="$fileType = 'RDF'">
                     <!-- Output a page for each rdf:Description (with http://syriaca.org/taxonomy/) -->
                     <xsl:for-each select="//rdf:Description[starts-with(@rdf:about,'http://syriaca.org/taxonomy/')]">
@@ -284,6 +300,8 @@
                 </xsl:for-each>
             </xsl:if>
         </xsl:variable>
+        <xsl:message>DEBUG: collectionURIPattern = <xsl:value-of select="$collectionURIPattern"/></xsl:message>
+
         <xsl:variable name="collectionValues" select="$config/descendant::*:collection[@record-URI-pattern = $collectionURIPattern][1]"/>        
         <xsl:variable name="collectionTemplate">
             <xsl:choose>
@@ -327,6 +345,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+        
         <xsl:variable name="collection" select="$collectionValues/@name"/>
         <!-- <xsl:apply-templates/> -->
         <html xmlns="http://www.w3.org/1999/xhtml">
@@ -363,7 +382,37 @@
                     <xsl:when test="$template/descendant::*:head">
                         <xsl:choose>
                             <xsl:when test="$template/descendant::*:head">
-                                <xsl:copy-of select="$template/descendant::*:head"/>
+                                <xsl:choose>
+                                     <xsl:when test="$pageType = 'TEI'">
+                                             <!--<xsl:sequence select="$collectionTemplate"/>-->
+                                             <head xmlns="http://www.w3.org/1999/xhtml">
+                                                 <!--<xsl:sequence select="$collectionTemplate"/>-->
+                                                 <xsl:for-each select="$collectionTemplate/descendant::*:head/child::*">
+                                                     <xsl:choose>
+                                                         <xsl:when test="local-name() = 'title'">
+                                                            <title xmlns="http://www.w3.org/1999/xhtml">
+                                                                 <xsl:choose>
+                                                                     <xsl:when test="$nodes/descendant::t:body[descendant::*[@srophe:tags = '#syriaca-headword']]">
+                                                                         <xsl:value-of select="$nodes/descendant::t:body/descendant::*[@srophe:tags = '#syriaca-headword'][@xml:lang = 'en']"/>
+                                                                     </xsl:when>
+                                                                     <xsl:otherwise>
+                                                                        <xsl:value-of select="$nodes/descendant-or-self::t:titleStmt/t:title[1]"/>                
+                                                                     </xsl:otherwise>            
+                                                                 </xsl:choose> 
+                                                             </title> 
+                                                         </xsl:when>
+                                                         <xsl:otherwise>
+                                                             <xsl:copy-of select="."/>
+                                                         </xsl:otherwise>
+                                                     </xsl:choose>
+                                                 </xsl:for-each>
+                                             </head> 
+                                         
+                                     </xsl:when>
+                                     <xsl:otherwise>
+                                         <xsl:copy-of select="$template/descendant::*:head"/>
+                                     </xsl:otherwise>
+                                 </xsl:choose>
                             </xsl:when>
                             <xsl:otherwise><xsl:message>Error in template, check template for html:head </xsl:message></xsl:otherwise>
                         </xsl:choose>
@@ -407,9 +456,10 @@
                                         </xsl:call-template>
                                         <div class="row">
                                             <div class="col-md-7 col-lg-8">
-                                        <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
-                                            <xsl:with-param name="collection" select="$collection"/>
-                                        </xsl:apply-templates>
+                                                <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
+                                                    <xsl:with-param name="collection" select="$collection"/>
+                                                    <xsl:with-param name="idno" select="$idno"/>
+                                                </xsl:apply-templates>
                                             </div>
                                             <div class="col-md-5 col-lg-4 right-menu">
                                                 <!-- Make dynamic -->
@@ -567,10 +617,6 @@
                             <a href="javascript:window.print();" type="button" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to send this page to the printer." >
                                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                             </a><xsl:text>&#160;</xsl:text>
-                            <!-- WS:NOTE needs work on the link.  -->
-                            <a href="{concat($dataPath,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
-                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> RDF/XML
-                            </a><xsl:text>&#160;</xsl:text>
                             
                         </div>
                         <div class="row">
@@ -702,47 +748,25 @@
         <xsl:param name="node"/>
         <xsl:param name="formats"/>
         <xsl:param name="idno"/>
-        <!-- WS: Needs work -->
+        
         <xsl:variable name="teiRec" select="document-uri(root($node))"/>
         <xsl:variable name="dataPath" select="substring-before(concat($staticSitePath,'/data/',replace($resource-path,$dataPath,'')),'.xml')"></xsl:variable>
         <xsl:if test="$formats != ''">
             <div class="container otherFormats" xmlns="http://www.w3.org/1999/xhtml">
                 <xsl:for-each select="tokenize($formats,',')">
                     <xsl:choose>
-                        <xsl:when test=". = 'geojson'">
-                            <a href="{concat($dataPath,'.geojson')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
-                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> GeoJSON
-                            </a><xsl:text>&#160;</xsl:text>
-                        </xsl:when>
-                        <xsl:when test=". = 'json'">
-                            <a href="{concat($dataPath,'.json')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the GeoJSON data for this record." >
-                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> JSON-LD
-                            </a><xsl:text>&#160;</xsl:text> 
-                        </xsl:when>
-                        <xsl:when test=". = 'kml'">
-                            <xsl:if test="$node/descendant::t:location/t:geo">
-                                <a href="{concat($dataPath,'.kml')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the KML data for this record." >
-                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> KML
-                                </a><xsl:text>&#160;</xsl:text>
-                            </xsl:if>
-                        </xsl:when>
                         <xsl:when test=". = 'print'">
-                            <a href="javascript:window.print();" type="button" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to send this page to the printer." >
+                            <a href="javascript:window.print();" type="button" class="btn btn-default btn-xs" id="printBtn" data-toggle="tooltip" title="Click to send this page to the printer." >
                                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
-                        <xsl:when test=". = 'rdf'">
-                            <a href="{concat($idno,'.rdf')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the RDF-XML data for this record." >
-                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> RDF/XML
-                            </a><xsl:text>&#160;</xsl:text>
-                        </xsl:when>
                         <xsl:when test=". = 'tei'">
-                            <a href="{concat($idno,'.tei')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >  
+                            <a href="{concat($idno,'.xml')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the TEI XML data for this record." >  
                               <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> TEI/XML
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>
                         <xsl:when test=". = 'text'">
-                            <a href="{concat($dataPath,'.txt')}" class="btn btn-default btn-xs" id="teiBtn" data-toggle="tooltip" title="Click to view the plain text data for this record." >
+                            <a href="{concat($dataPath,'.txt')}" class="btn btn-default btn-xs" id="txtBtn" data-toggle="tooltip" title="Click to view the plain text data for this record." >
                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Text
                             </a><xsl:text>&#160;</xsl:text>
                         </xsl:when>

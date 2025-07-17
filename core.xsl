@@ -161,40 +161,21 @@
     
     <!-- Q -->
     <xsl:template match="t:quote">
-        <span class="tei-quote" dir="ltr" lang="en">
-            <xsl:choose>
+        <span class="tei-quote" dir="ltr" lang="en"><xsl:choose>
                 <xsl:when test="@xml:lang">
-                    <span dir="ltr">
-                        <xsl:text> “</xsl:text>
-                    </span>
-                    <span>
-                        <xsl:sequence select="local:attributes(.)"/>
-                        <xsl:call-template name="rend"/>
-                    </span>
-                    <span dir="ltr">
-                        <xsl:text>”  </xsl:text>
-                    </span>
+                    <span dir="ltr"><xsl:text>“</xsl:text></span><span><xsl:sequence select="local:attributes(.)"/><xsl:call-template name="rend"/></span><span dir="ltr"><xsl:text>”</xsl:text></span>
                 </xsl:when>
                 <xsl:when test="parent::*/@xml:lang">
-                    <!-- Quotes need to be outside langattr for Syriac and arabic characters to render correctly.  -->
-                    <span dir="ltr">
-                        <xsl:text> “</xsl:text>
-                    </span>
-                    <span class="langattr">
-                        <xsl:sequence select="local:attributes(parent::*[@xml:lang])"/>
-                        <xsl:call-template name="rend"/>
-                    </span>
-                    <span dir="ltr">
-                        <xsl:text>”  </xsl:text>
-                    </span>
+                    <span dir="ltr"><xsl:text>“</xsl:text></span><span class="langattr"><xsl:sequence select="local:attributes(parent::*[@xml:lang])"/><xsl:call-template name="rend"/></span><span dir="ltr"><xsl:text>”</xsl:text></span>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:text> “</xsl:text>
-                    <xsl:apply-templates/>
-                    <xsl:text>” </xsl:text>
+                    <xsl:text>“</xsl:text><xsl:apply-templates/><xsl:text>”</xsl:text>
                 </xsl:otherwise>
+            </xsl:choose><!--<xsl:sequence select="local:add-footnotes(@source,ancestor::t:*[@xml:lang][1])"/>-->
+            <xsl:choose>
+                <xsl:when test="@source"><xsl:sequence select="local:add-footnotes(@source,ancestor::t:*[@xml:lang][1])"/></xsl:when>
+                <xsl:when test="parent::*[1]/@source"><xsl:sequence select="local:add-footnotes(parent::*[1]/@source,ancestor::t:*[@xml:lang][1])"/></xsl:when>
             </xsl:choose>
-            <xsl:sequence select="local:add-footnotes(@source,ancestor::t:*[@xml:lang][1])"/> 
         </span>
     </xsl:template>
     
@@ -252,7 +233,7 @@
     <xsl:template match="t:*" mode="text-normal">
         <xsl:value-of select="normalize-space(normalize-unicode(., $normalization))"/>
     </xsl:template>
-    <xsl:template match="text()" mode="text-normal">
+    <xsl:template match="text()" mode="text-normal #default">
         <xsl:variable name="prefix">
             <xsl:if test="(preceding-sibling::t:* or preceding-sibling::text()[normalize-space()!='']) and string-length(.) &gt; 0 and substring(., 1, 1)=' '">
                 <xsl:text> </xsl:text>
@@ -264,7 +245,8 @@
             </xsl:if>
         </xsl:variable>
         <xsl:value-of select="$prefix"/>
-        <xsl:value-of select="normalize-space(normalize-unicode(., $normalization))"/>
+        <!--<xsl:value-of select="normalize-space(normalize-unicode(., $normalization))"/>-->
+        <xsl:value-of select="." disable-output-escaping="yes"/>
         <xsl:value-of select="$suffix"/>
     </xsl:template>
     

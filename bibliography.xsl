@@ -26,7 +26,8 @@
     <!-- ================================================================== 
        bibliography.xsl
        
-       This XSLT provides templates for output of bibliographic material. 
+       THIS IS THE ACTIVE COPY FOR DATA TRANSFORMATIONS
+        This XSLT provides templates for output of bibliographic material. 
        
        parameters:
        
@@ -590,8 +591,13 @@
         </xsl:choose>
         <xsl:choose>
             <xsl:when test="preceding-sibling::*[1][self::t:analytic]">
-                <xsl:text>, </xsl:text>
-                <xsl:call-template name="persons-bibliography"/>
+                <xsl:variable name="persons">
+                    <xsl:call-template name="persons-bibliography"/>
+                </xsl:variable>
+                <xsl:if test="$persons != ''">
+                        <xsl:text>, </xsl:text>   
+                        <xsl:call-template name="persons-bibliography"/>
+                </xsl:if>
                 <xsl:if test="t:title[@level='m'] and t:biblScope[(@unit != 'vol' and @unit != 'series') or not(@unit)]">
                     <xsl:for-each select="t:biblScope[(@unit != 'vol' and @unit != 'series') or not(@unit)]">
                         <xsl:text>, </xsl:text>
@@ -1177,7 +1183,7 @@
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      handle bibliographic titles in the context of a footnote
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <xsl:template match="t:title" mode="footnote biblist allbib" priority="1">
+    <xsl:template match="t:title" mode="footnote biblist allbib preferredCitation" priority="1">
         <xsl:if test="not(contains(@xml:lang,'Latn-'))">
             <span>
                 <xsl:attribute name="class">
@@ -1437,6 +1443,15 @@
                 <xsl:value-of select="$footnote-number"/>
             </a>
         </span>
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+     preferredCitation for display
+     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    </xsl:template>
+        <xsl:template match="t:bibl" mode="preferredCitation">
+        <xsl:apply-templates mode="preferredCitation"/>
+    </xsl:template>
+    <xsl:template match="text()" mode="preferredCitation">
+        <xsl:copy-of select="."/>
     </xsl:template>
    
 </xsl:stylesheet>

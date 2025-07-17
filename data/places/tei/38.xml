@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/syriaca/2023_SchemaWork/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -10,8 +10,34 @@
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#wpotter">William L. Potter</editor>
+        <editor role="contributor" ref="http://syriaca.org/documentation/editors.xml#dwilmshurst">David Wilmshurst</editor>
       <respStmt>
+          <resp>Data merging for <title>Syriac World</title> maps data by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#wpotter">William L. Potter</name>
+        </respStmt>
+        <respStmt>
+          <resp>
+            <title>Syriac World</title> maps edited by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+        </respStmt>
+        <respStmt>
+          <resp>
+            <title>Syriac World</title> maps data revised by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#wpotter">William L. Potter</name>
+        </respStmt>
+        <respStmt>
+          <resp>
+            <title>Syriac World</title> maps cartography by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#imladjov">Ian Mladjov</name>
+        </respStmt>
+        <respStmt>
+          <resp>Connection to the <title>Syriac World</title> identified by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#dwilmshurst">David Wilmshurst</name>
+        </respStmt>
+        <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
           <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
         </respStmt>
@@ -39,7 +65,7 @@
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
                     </licence>
                 </availability>
-                <date>2014-01-14-05:00</date>
+                <date>2025-07-11-05:00</date>
             </publicationStmt>
       <seriesStmt>
         <title level="s" xml:lang="en">The Syriac Gazetteer</title>
@@ -47,6 +73,8 @@
           <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
         <editor role="general" ref="http://syriaca.org/documentation/editors.xml#wpotter">
           <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">
+          <persName>Daniel L. Schwartz</persName>, <date from="2020">2020-present</date>.</editor>
         <editor role="past-general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">
           <persName>Thomas A. Carlson</persName>, <date from="2014" to="2018">2014-2018</date>
         </editor>
@@ -90,6 +118,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="published">
+      <change who="http://syriaca.org/documentation/editors.xml#wpotter" when="2025-07-11-05:00">ADDED: Data from <title>Syriac World</title> maps</change>
       <change who="http://syriaca.org/documentation/editors.xml#wpotter" when="2020-06-16-05:00">CHANGED: Implemented May 2019 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes">https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes</ref>. The issues labeled were #742, #743, #746, #747, #749, #752, #754, #757, #759, #761, #763, #765, #766, #767, #768, #769, #770, #771, #772, #773, #774, #792, #793, #794, #797, #802, #803, #804, #806, #807, #815, #816, #817, #818, #819, #820, #821, #822, #823, #824, #825, #826, #827, #829, #831, #832, #833, #834, #836, #843, #847, #848, #849, #850, #851, #852, #853</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-01-14">ADDED: syriaca-computed-start and syriaca-computed-end attributes for searching</change>
             <change who="http://syriaca.org/documentation/editors.xml#tcarlson" when="2013-12-18-05:00">CREATED: place</change>
@@ -98,9 +127,13 @@
     <text>
         <body>
             <listPlace>
-                <place type="diocese">
-                    <placeName xml:id="name38-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib38-1">Beth Raziqaye</placeName>
+                <place type="diocese" ana="http://syriaca.org/taxonomy/dioceses">
+                    <placeName source="#bib38-1 #bib38-2 #bib38-3" xml:id="name38-1" xml:lang="en" srophe:tags="#syriaca-headword">Beth Raziqaye</placeName>
+          <placeName xml:id="name38-2" xml:lang="en" source="#bib38-2 #bib38-4">Rai</placeName>
                     <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A diocese of the Church of the East, south of the <placeName ref="http://syriaca.org/place/61">Caspian Sea</placeName>.</desc>
+          <location subtype="preferred" type="gps" source="#bib38-2">
+            <geo>35.5964083000 51.4369476000</geo>
+          </location>
                     <state resp="http://syriaca.org" type="existence" from="0410" to="1075" srophe:computed-end="1075-01-01" srophe:computed-start="0410-01-01">
                         <precision match="@from" notAfter="0410" srophe:computed-end="0410-01-01"/>
                         <precision match="@to" notAfter="2013" notBefore="1075" srophe:computed-end="2013-01-01" srophe:computed-start="1075-01-01"/>
@@ -108,11 +141,29 @@
                     <idno type="URI">http://syriaca.org/place/38</idno>
                     <idno type="URI">http://en.wikipedia.org/wiki/Rai_(East_Syrian_Ecclesiastical_Province)</idno>
                     <idno type="URI">http://dbpedia.org/resource/Rai_(East_Syrian_Ecclesiastical_Province)</idno>
+          <idno type="URI">https://en.wikipedia.org/wiki/Rai_(East_Syrian_Ecclesiastical_Province)</idno>
+          <idno type="URI">Eccl Province</idno>
                     <bibl xml:id="bib38-1">
                         <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
                         <ptr target="http://syriaca.org/cbss/P8KQJ7AE"/>
                         <citedRange unit="map">Map I D1</citedRange>
                     </bibl>
+          <bibl xml:id="bib38-2">
+            <ptr target="http://syriaca.org/cbss/RUENEDMU"/>
+            <citedRange unit="map">9</citedRange>
+          </bibl>
+          <bibl xml:id="bib38-3">
+            <ptr target="http://syriaca.org/cbss/SYM5C6P5"/>
+            <citedRange unit="p">826</citedRange>
+          </bibl>
+          <bibl xml:id="bib38-4">
+            <ptr target="http://syriaca.org/cbss/SYM5C6P5"/>
+            <citedRange unit="p">832</citedRange>
+          </bibl>
+          <bibl xml:id="bib38-5">
+            <ptr target="http://syriaca.org/cbss/B5J3B95F"/>
+            <citedRange unit="p">189-201</citedRange>
+          </bibl>
                 </place>
             </listPlace>
         </body>
