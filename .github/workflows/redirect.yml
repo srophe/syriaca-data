@@ -1,0 +1,44 @@
+name: Upload Redirects CSV Updates to S3
+
+on:
+  push:
+    branches:
+      - 'gaddel_development'  # Trigger only on changes to redirects file  
+    paths:
+      - 'redirects.csv'  # Ensure only changes to this file trigger the action  
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  upload_redirects:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Fetch only the redirects.csv file instead of checking out the whole repo
+      - name: Checkout only redirects.csv
+        uses: actions/checkout@v3
+        with:
+          sparse-checkout: redirects.csv  # Fetch only this file
+          fetch-depth: 1  # Get only the latest commit
+
+      # Step 2: Ensure redirects.csv exists
+      - name: Check for redirects.csv
+        run: |
+          if [ ! -f redirects.csv ]; then
+            echo "::warning file=redirects.csv::Redirects CSV not found. Skipping upload."
+            exit 0
+          fi
+
+      # Step 3: Configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data    
+
+      # Step 4: Upload file to S3
+      - name: Upload redirects.csv to S3
+        run: |
+          aws s3 cp redirects.csv s3://srophe-syriaca-front-end/redirects/redirects.csv

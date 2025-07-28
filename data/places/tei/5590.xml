@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:syriaca="http://syriaca.org" xmlns:srophe="https://srophe.app" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title level="a" xml:lang="en">Chalkoprateion, Church of the blessed Theotokos of the - <foreign xml:lang="syr">ܥܕܬܐ ܕܛܘܒܢܝܬܐ ܝܠܕܬ ܐܠܗܐ ܕܟܠܩܦܪܛܝܘܢ</foreign>
+        </title>
+        <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+        <funder>Deutsche Forschungsgemeinschaft</funder>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#sroggo">Silvio Roggo</editor>
+        <respStmt>
+          <resp>URI minted and initial data collected by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#sroggo">Silvio Roggo</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="2.0"/>
+      </editionStmt>
+      <publicationStmt>
+        <authority>Syriaca.org: The Syriac Reference Portal</authority>
+        <idno type="URI">http://syriaca.org/place/5590/tei</idno>
+        <availability>
+          <licence target="http://creativecommons.org/licenses/by/4.0/">
+            <p>Distributed under a Creative Commons Attribution 4.0 International License.</p>
+          </licence>
+        </availability>
+        <date>2024-02-16-06:00</date>
+      </publicationStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">The Syriac Gazetteer</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">
+          <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#wpotter">
+          <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">
+          <persName>Daniel L. Schwartz</persName>, <date from="2020">2020-present</date>.</editor>
+        <editor role="past-general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">
+          <persName>Thomas A. Carlson</persName>, <date from="2014" to="2018">2014-2018</date>
+        </editor>
+        <editor role="technical" ref="http://syriaca.org/documentation/editors.xml#dmichelson">
+          <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
+        <editor role="technical" ref="http://syriaca.org/documentation/editors.xml#dschwartz">
+          <persName>Daniel L. Schwartz</persName>, <date from="2019">2019-present</date>.</editor>
+        <editor role="technical" ref="http://syriaca.org/documentation/editors.xml#wpotter">
+          <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
+        <idno type="URI">http://syriaca.org/geo</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">A Guide to John of Ephesus</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
+          <persName>Silvio Roggo</persName>,<date from="2023">2023-present</date>.</editor>
+        <idno type="URI">http://syriaca.org/johnofephesus</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m" xml:lang="en">Gazetteer to John of Ephesus’s Ecclesiastical History</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#sroggo">
+          <persName>Silvio Roggo</persName>,<date from="2023">2023-present</date>.</editor>
+        <biblScope unit="volume" n="2">II</biblScope>
+        <idno type="URI">http://syriaca.org/johnofephesus/places</idno>
+      </seriesStmt>
+      <sourceDesc>
+        <p>Born digital.</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <editorialDecl>
+        <!-- WLP: are all the editorialDecl paragraphs going to be the same for every place record? -->
+        <p>This record has been created following the Syriaca.org editorial guidelines. Documentation is available at:<ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.<title>The Syriac Gazetteer</title>was encoded using both the general editorial guidelines for all publications of Syriaca.org and an encoding schema specific to<title>The Syriac Gazetteer</title>.</p>
+        <p>Approximate dates described in terms of centuries or partial centuries have been interpreted into quantitative values as documented in the Syriaca.org guidelines for normalization of dates. See<ref target="http://syriaca.org/documentation/dates.html">Syriaca.org Guidelines for Approximate Dates</ref>.</p>
+        <p>The<gi>state</gi>element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  While it is possible to indicate a source for this date, this date is usually based on the estimate of the editors and provided as an aid to searching. As a practice, attested dates for a place based on historical sources have instead been encoded more precisely using<gi>event</gi>of @type="attestation". Natural features which have always existed have no date on the<gi>state</gi>element of @type="existence" since they are are presumed to have always existed throughout recorded history.</p>
+        <p>In some cases, maps from print publications have been used as the basis for coordinate data in<title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to<title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>(<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) or to<title>The Syriac World</title>(<ref target="http://syriaca.org/cbss/QW5BYJ6X">http://syriaca.org/cbss/QW5BYJ6X</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the<title>The Syriac Gazetteer</title>are grateful to the editors of<title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>and<title>The Syriac World</title>for providing these coordinate files.</p>
+        <p>The editors have silently normalized data from other sources in some cases. The primary instances are listed below.</p>
+        <p>The capitalization of names from<title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>(<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
+        <p>The unchanging parts of alternate names from the editions and translations of Barsoum,<title>The Scattered Pearls: A History of Syriac Literature and Sciences</title>(<ref target="http://syriaca.org/cbss/T3RMVYM7">http://syriaca.org/cbss/T3RMVYM7</ref>,<ref target="http://syriaca.org/cbss/SGBVKKGH">http://syriaca.org/cbss/SGBVKKGH</ref>, or<ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) have been supplied silently.</p>
+        <p>Names from the English translation of Barsoum,<title>The Scattered Pearls: A History of Syriac Literature and Sciences</title>(<ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
+      </editorialDecl>
+      <classDecl>
+        <!-- WLP: Will this be in every place record? -->
+        <taxonomy>
+          <category xml:id="syriaca-headword">
+            <catDesc>The name used by Syriaca.org for document titles, citation, and disambiguation. These names have been created according to the Syriac.org guidelines for headwords:<ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <p>Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at:<ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
+    </profileDesc>
+    <revisionDesc status="draft">
+      <change when="2024-02-16-06:00" who="http://syriaca.org/documentation/editors.xml#sroggo">CREATED: place</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <listPlace>
+        <place type="church" ana="http://syriaca.org/taxonomy/churches">
+          <placeName xml:lang="en" xml:id="name5590-1" srophe:tags="#syriaca-headword" resp="http://syriaca.org">Chalkoprateion, Church of the blessed Theotokos of the</placeName>
+          <placeName xml:lang="syr" xml:id="name5590-2" srophe:tags="#syriaca-headword" resp="http://syriaca.org">ܥܕܬܐ ܕܛܘܒܢܝܬܐ ܝܠܕܬ ܐܠܗܐ ܕܟܠܩܦܪܛܝܘܢ</placeName>
+          <placeName xml:lang="en" xml:id="name5590-3" source="#bib5590-1">Church of the Virgin in the Coppermarket</placeName>
+          <placeName xml:lang="syr" xml:id="name5590-4" source="#bib5590-2">ܥܕܬܐ ܕܛܘܒܢܝܬܐ ܝܠܕܬ ܐܠܗܐ ܕܟܠܩܦܪܛܝܘܢ</placeName>
+          <placeName xml:lang="grc" xml:id="name5590-5" source="#bib5590-3">Θεοτόκος τῶν Χαλκοπρατείων</placeName>
+          <placeName xml:lang="fr" xml:id="name5590-6" source="#bib5590-4">Théotocos des Chalkoproateia</placeName>
+          <desc type="abstract" xml:lang="en" corresp="http://syriaca.org/geo http://syriaca.org/johnofephesus http://syriaca.org/johnofephesus/places">
+            <quote source="#bib5590-1">Built in the late fifth century, this church was located close to Hagia Sophia and was one of the four patriarchal churches of Constantinople. It housed one of the most important relics, the girdle of the Virgin Mary.</quote>
+          </desc>
+          <idno type="URI">http://syriaca.org/place/5590</idno>
+          <idno type="URI">http://syriaca.org/johnofephesus/places/5590</idno>
+          <bibl xml:id="bib5590-1">
+            <ptr target="http://syriaca.org/cbss/N42AM4Q2"/>
+            <citedRange unit="p">397</citedRange>
+          </bibl>
+          <bibl xml:id="bib5590-2">
+            <ptr target="http://syriaca.org/cbss/9KL93RUC"/>
+            <citedRange unit="p">144</citedRange>
+            <citedRange unit="chapter">3.3.17</citedRange>
+          </bibl>
+          <bibl xml:id="bib5590-3">
+            <ptr target="http://syriaca.org/cbss/B4PXYLJC"/>
+            <citedRange unit="p">246</citedRange>
+          </bibl>
+          <bibl xml:id="bib5590-4">
+            <ptr target="http://syriaca.org/cbss/B4PXYLJC"/>
+            <citedRange unit="p">246-251</citedRange>
+          </bibl>
+        </place>
+        <listRelation>
+          <relation ref="http://syriaca.org/taxonomy/broader" type="contained-within" active="http://syriaca.org/place/5590" passive="http://syriaca.org/place/586" resp="http://syriaca.org">
+            <desc xml:lang="en">
+              <placeName ref="http://syriaca.org/place/586">Constantinople</placeName>
+            </desc>
+          </relation>
+        </listRelation>
+      </listPlace>
+    </body>
+  </text>
+</TEI>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
     <teiHeader>
         <fileDesc>
@@ -8,14 +10,31 @@
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The National Endowment for the Humanities</funder>
                 <funder>The International Balzan Prize Foundation</funder>
-                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
-                <respStmt>
-                    <resp>Data merging, Pleiades and Wikipedia linking, and XML by</resp>
-                    <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
-                </respStmt>
-            <respStmt>
-          <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#wpotter">William L. Potter</editor>
+      <respStmt>
+          <resp>Data merging for <title>Syriac World</title> maps data by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#wpotter">William L. Potter</name>
+        </respStmt>
+        <respStmt>
+          <resp>
+            <title>Syriac World</title> maps edited by</resp>
           <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+        </respStmt>
+        <respStmt>
+          <resp>
+            <title>Syriac World</title> maps data revised by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#wpotter">William L. Potter</name>
+        </respStmt>
+        <respStmt>
+          <resp>
+            <title>Syriac World</title> maps cartography by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#imladjov">Ian Mladjov</name>
+        </respStmt>
+        <respStmt>
+          <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
         </respStmt>
         <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
@@ -23,8 +42,12 @@
         </respStmt>
         <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
-          <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
+          <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
         </respStmt>
+        <respStmt>
+                    <resp>Data merging, Pleiades and Wikipedia linking, and XML by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#tcarlson">Thomas A. Carlson</name>
+                </respStmt>
       </titleStmt>
             <editionStmt>
                 <edition n="2.0"/>
@@ -37,7 +60,7 @@
                         <p>Distributed under a Creative Commons Attribution 3.0 Unported License.</p>
                     </licence>
                 </availability>
-                <date>2014-06-30-04:00</date>
+                <date>2025-07-11-05:00</date>
             </publicationStmt>
       <seriesStmt>
         <title level="s" xml:lang="en">The Syriac Gazetteer</title>
@@ -45,6 +68,8 @@
           <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
         <editor role="general" ref="http://syriaca.org/documentation/editors.xml#wpotter">
           <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">
+          <persName>Daniel L. Schwartz</persName>, <date from="2020">2020-present</date>.</editor>
         <editor role="past-general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">
           <persName>Thomas A. Carlson</persName>, <date from="2014" to="2018">2014-2018</date>
         </editor>
@@ -65,11 +90,11 @@
         <p>This record has been created following the Syriaca.org editorial guidelines. Documentation is available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>. <title>The Syriac Gazetteer</title> was encoded using both the general editorial guidelines for all publications of Syriaca.org and an encoding schema specific to <title>The Syriac Gazetteer</title>.</p>
         <p>Approximate dates described in terms of centuries or partial centuries have been interpreted into quantitative values as documented in the Syriaca.org guidelines for normalization of dates. See <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org Guidelines for Approximate Dates</ref>.</p>
         <p>The <gi>state</gi> element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  While it is possible to indicate a source for this date, this date is usually based on the estimate of the editors and provided as an aid to searching. As a practice, attested dates for a place based on historical sources have instead been encoded more precisely using <gi>event</gi> of @type="attestation". Natural features which have always existed have no date on the <gi>state</gi> element of @type="existence" since they are are presumed to have always existed throughout recorded history.</p>
-        <p>In some cases, maps from print publications have been used as the basis for coordinate data in <title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) or to <title>The Syriac World</title> (<ref target="http://syriaca.org/bibl/PUTG99V4">http://syriaca.org/bibl/PUTG99V4</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the <title>The Syriac Gazetteer</title> are grateful to the editors of <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> and <title>The Syriac World</title> for providing these coordinate files.</p>
+        <p>In some cases, maps from print publications have been used as the basis for coordinate data in <title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) or to <title>The Syriac World</title> (<ref target="http://syriaca.org/cbss/QW5BYJ6X">http://syriaca.org/cbss/QW5BYJ6X</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the <title>The Syriac Gazetteer</title> are grateful to the editors of <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> and <title>The Syriac World</title> for providing these coordinate files.</p>
         <p>The editors have silently normalized data from other sources in some cases. The primary instances are listed below.</p>
-        <p>The capitalization of names from <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
-        <p>The unchanging parts of alternate names from the editions and translations of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/2">http://syriaca.org/bibl/2</ref>, <ref target="http://syriaca.org/bibl/3">http://syriaca.org/bibl/3</ref>, or <ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) have been supplied silently.</p>
-        <p>Names from the English translation of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
+        <p>The capitalization of names from <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
+        <p>The unchanging parts of alternate names from the editions and translations of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/cbss/T3RMVYM7">http://syriaca.org/cbss/T3RMVYM7</ref>, <ref target="http://syriaca.org/cbss/SGBVKKGH">http://syriaca.org/cbss/SGBVKKGH</ref>, or <ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) have been supplied silently.</p>
+        <p>Names from the English translation of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
       </editorialDecl>
             <classDecl>
                 <taxonomy>
@@ -88,6 +113,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="published">
+      <change who="http://syriaca.org/documentation/editors.xml#wpotter" when="2025-07-11-05:00">ADDED: Data from <title>Syriac World</title> maps</change>
       <change who="http://syriaca.org/documentation/editors.xml#wpotter" when="2020-06-16-05:00">CHANGED: Implemented May 2019 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes">https://github.com/srophe/srophe-app-data/issues?q=is%3Aissue+label%3A2019-May-Batch-Changes</ref>. The issues labeled were #742, #743, #746, #747, #749, #752, #754, #757, #759, #761, #763, #765, #766, #767, #768, #769, #770, #771, #772, #773, #774, #792, #793, #794, #797, #802, #803, #804, #806, #807, #815, #816, #817, #818, #819, #820, #821, #822, #823, #824, #825, #826, #827, #829, #831, #832, #833, #834, #836, #843, #847, #848, #849, #850, #851, #852, #853</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2014-06-30-04:00">CHANGED tei:author element to tei:persName under tei:event element.</change>
             <change who="http://syriaca.org/documentation/editors.xml#tcarlson" when="2014-06-12-05:00">ADDED: Yaqut citation and attestation</change>
@@ -98,18 +124,21 @@
     <text>
         <body>
             <listPlace>
-                <place type="settlement">
-                    <placeName xml:id="name119-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib119-1">Larissa</placeName>
+                <place type="settlement" ana="http://syriaca.org/taxonomy/settlements">
+                    <placeName source="#bib119-1 #bib119-3 #bib119-4" xml:id="name119-1" xml:lang="en" srophe:tags="#syriaca-headword">Larissa</placeName>
                     <placeName xml:id="name119-2" xml:lang="ar" source="#bib119-2">شَيزر</placeName>
-                    <desc type="abstract" xml:id="abstract119-1" xml:lang="en">A town on the <placeName ref="http://syriaca.org/place/147">Orontes</placeName> northwest of <placeName ref="http://syriaca.org/place/91">Ḥama</placeName>.</desc>
-                    <location type="gps" source="#bib119-1">
+                    <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">A town on the <placeName ref="http://syriaca.org/place/147">Orontes</placeName> northwest of <placeName ref="http://syriaca.org/place/91">Ḥama</placeName>.</desc>
+                    <location subtype="preferred" type="gps" source="#bib119-1">
                         <geo>35.26778 36.56667</geo>
                     </location>
+          <location subtype="alternate" type="gps" source="#bib119-3">
+            <geo>35.2654475 36.5665555</geo>
+          </location>
                     <event type="attestation" xml:id="attestation119-1" notBefore="1224" notAfter="1228" source="#bib119-2" srophe:computed-start="1224-01-01" srophe:computed-end="1228-01-01">
-                        <p xml:lang="en">Attestation of name <foreign xml:lang="ar">شَيزر</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</p>
+                        <desc xml:lang="en">Attestation of name <foreign xml:lang="ar">شَيزر</foreign> in the <title xml:lang="en" level="m">Muʿjam al-buldān</title> of <persName>Yāqūt al-Ḥamawī</persName>.</desc>
                         <link target="#name119-2 #attestation119-1"/>
                     </event>
-          <state resp="http://syriaca.org" type="existence" from="-1330" to="1260" srophe:computed-end="1260-01-01">
+                    <state resp="http://syriaca.org" type="existence" from="-1330" to="1260" srophe:computed-end="1260-01-01">
                         <precision match="@from" notAfter="-1330"/>
                         <precision match="@to" notAfter="2013" notBefore="1260" srophe:computed-end="2013-01-01" srophe:computed-start="1260-01-01"/>
                     </state>
@@ -119,15 +148,25 @@
                     <idno type="URI">http://dbpedia.org/resource/Shaizar</idno>
                     <bibl xml:id="bib119-1">
                         <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
-                        <ptr target="http://syriaca.org/bibl/1"/>
+                        <ptr target="http://syriaca.org/cbss/P8KQJ7AE"/>
                         <citedRange unit="map">Map I A2</citedRange>
                     </bibl>
                     <bibl xml:id="bib119-2">
                         <title xml:lang="en" level="m">Muʿjam al-buldān</title>
-                        <author>Yāqūt al-Ḥamawī</author>
-                        <ptr target="http://syriaca.org/bibl/636"/>
+                        <author>
+              <persName>Yāqūt al-Ḥamawī</persName>
+            </author>
+                        <ptr target="http://syriaca.org/cbss/HR6Q8B9F"/>
                         <citedRange unit="p">III:434</citedRange>
                     </bibl>
+          <bibl xml:id="bib119-3">
+            <ptr target="http://syriaca.org/cbss/RUENEDMU"/>
+            <citedRange unit="map">3</citedRange>
+          </bibl>
+          <bibl xml:id="bib119-4">
+            <ptr target="http://syriaca.org/cbss/SYM5C6P5"/>
+            <citedRange unit="p">829</citedRange>
+          </bibl>
                 </place>
             </listPlace>
         </body>

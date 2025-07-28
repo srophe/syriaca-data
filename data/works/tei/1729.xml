@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title level="a" xml:lang="en">The Ḥimyarite Martyrs (text)</title>
+                <title level="a" xml:lang="en">Book of Ecclesiastical [History on The Ḥimyarite Martyrs] — <foreign xml:lang="syr">ܟܬܒܐ ܕܐܘܩܠܣܣܛܝܩܐ</foreign>
+        </title>
                 <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
                 <title level="s">Gateway to the Syriac Saints</title>
                 <title level="s">New Handbook of Syriac Literature</title>
@@ -62,7 +64,7 @@
                         <p>This entry incorporates copyrighted material from the following
                                 work(s): <listBibl>
                                 <bibl>
-                                    <ptr target="http://syriaca.org/bibl/649"/>
+                                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
                                 </bibl>
                             </listBibl>
                             <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
@@ -145,6 +147,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+            <change who="http://syriaca.org/documentation/editors.xml#dmichelson" when="2023-7">Added bibliographic clarification based on work of M. Debié</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
@@ -161,9 +164,12 @@
     <text>
         <body>
             <bibl xml:id="work-1729" ana="#hagiographic">
-                <title xml:id="name1729-3" xml:lang="fr" source="#bib1729-1">Martyrs Himyarites (texte)</title>
-                <title xml:id="name1729-4" xml:lang="en" source="#bib1729-1" srophe:tags="#syriaca-headword">The Ḥimyarite Martyrs (text)</title>
-                <author xml:lang="fr" source="#bib1729-1">Bar Sahdé</author>
+                <title xml:id="name1729-1" xml:lang="en" srophe:tags="#syriaca-headword" resp="syriaca.org">Book of Ecclesiastical [History on The Ḥimyarite Martyrs]</title>
+                <title xml:id="name1729-2" xml:lang="syr" source="#bib1729-2" srophe:tags="#syriaca-headword">ܟܬܒܐ ܕܐܘܩܠܣܣܛܝܩܐ</title>
+                <title xml:id="name1729-3" xml:lang="en" source="#bib1729-1">The Ḥimyarite Martyrs (text)</title>
+                <title xml:id="name1729-4" xml:lang="fr" source="#bib1729-2">Livre d'histoire de l'Église</title>
+                <title xml:id="name1729-5" xml:lang="fr" source="#bib1729-1">Martyrs Himyarites (texte)</title>
+                <author xml:lang="fr" source="#bib1729-1" ref="http://syriaca.org/person/2802">Bar Sahde of Karka d-Beth Slokh</author>
                 <note xml:lang="fr" type="prologue" source="#bib1729-1">
                     <quote>Il me faut donc aussi placer dans cette histoire ce qui s’est passé à Samaran.</quote>
                 </note>
@@ -178,9 +184,16 @@
                 <bibl xml:id="bib1729-1">
                     <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/bibl/649"/>
+                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
                     <citedRange unit="entry">1660</citedRange>
                 </bibl>
+                <bibl xml:id="bib1729-3">
+                    <title xml:lang="fr">L’écriture de l’histoire en syriaque: transmissions interculturelles et constructions identitaires entre hellénisme et islam</title>
+                    <ptr target="http://syriaca.org/cbss/D4YBR3SV"/>
+                    <citedRange unit="entry">E14</citedRange>
+                    <citedRange unit="p">616-617</citedRange>
+                </bibl>
+                https://www.zotero.org/groups/4861694/items/D4YBR3SV
                 <listRelation>
                     <relation name="syriaca:commemorated" active="http://syriaca.org/work/1729" passive="http://syriaca.org/person/1907" source="#bib1729-1"/>
                     <relation name="syriaca:commemorated" active="http://syriaca.org/work/1729" passive="http://syriaca.org/person/2802" source="#bib1729-1"/>

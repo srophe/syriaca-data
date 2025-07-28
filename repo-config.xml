@@ -1,0 +1,191 @@
+<meta xmlns="http://exist-db.org/xquery/repo">
+    <!-- 
+        Application configuration file for the Gaddel application. Active independent file analogous to https://github.com/srophe/Gaddel/blob/main/siteGenerator/components/repo-config.xml
+    -->
+    <config>
+        <!-- Application title -->
+        <title>Syriaca.org web application</title>
+        <!-- App description -->
+        <description>A collaborative research project publishling online reference works concerning the
+            culture, history, and literature of Syriac communities from antiquity to the present.</description>
+        <!-- Contact email -->
+        <contact>info@syriaca.app</contact>
+        <!-- Logo name (assumes path to logo is $app-root/resources/images/) -->
+        <logo>srophe.svg</logo>
+        <!-- Web Site URL -->
+        <url>http://syriaca.org/</url>
+        <!-- Root of app for building dynamic links. Default is eXist app root  /exist/apps/srophe -->
+        <nav-base></nav-base>
+        <!-- eXist app root for app deployment-->
+        <app-root>syriaca</app-root>
+        <!-- eXist data app root for TEI application.  -->
+        <data-root>syriaca-data</data-root>
+        <!-- Base URI for identifiers in app data -->
+        <base_uri>http://syriaca.org</base_uri>
+        <!-- 
+            Path to ODD file. Can be used in XSLT or XQuery transformations for controlled values. 
+            Path to ODD file from app-root, or as an absolute path. 
+            May be left blank. 
+        -->
+        <odd>/documentation/syriaca-tei-main.odd</odd>
+        <!-- 
+            xpath to unique identifier for record, syriaca.org uses tei:idno[@type='URL'], this is the default value 
+            To use documnet location instead of URIs change to: 
+            <document-ids type="document-url">document-url</document-ids>
+            URI example: <id-path type="URI">tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type='URL']</id-path>
+        -->
+        <document-ids type="URI">tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type='URL']</document-ids>
+        <!--<html-render type="xquery"></html-render>-->
+        <html-render type="xslt"/>
+        <!-- Map rendering -->
+        <maps>
+            <!--  <option selected="true" api-key="API_KEY_HERE">google</option> -->
+            <option>google</option>
+            <option selected="true">leaflet</option>
+        </maps>
+        <!-- 
+            Javascript Keyboard options 
+            If adding additional keyboards you will need to make sure to add the link to the 
+            keyboard javascript file in the HTML header of templates/page.html
+            See resources/keyboard/layouts for more options. 
+        -->
+        <keyboard-options>
+            <option id="syriac-phonetic">Syriac Phonetic</option>
+            <option id="syriac-standard">Syriac Standard</option>
+            <option id="ms-Arabic (101)">Arabic Mod. Standard</option>
+            <option id="ms-Hebrew">Hebrew</option>
+            <option id="ms-Russian">Russian</option>
+            <option id="ms-Greek">Greek</option>
+            <option id="qwerty">English QWERTY</option>
+        </keyboard-options>
+        
+        <!-- Configure Collections. Optional -->
+        <collections>
+            <!--<collection name="Short-name used in html pages to reference collection, module name" 
+                series="Series name used in TEI biblScope @depreciated, use collection-URI" 
+                collection-URI="Series id used in TEI biblScope. Only needed for subcollection filtering"
+                record-URI-pattern="URI for building links to record views."
+                app-root="folder name in app"
+                data-root="folder name in data"/> -->
+            <collection template="geo" name="places" title="The Syriac Gazetteer" app-root="/geo/" data-root="places" record-URI-pattern="http://syriaca.org/place/"/>
+            <collection template="persons" name="sbd" title="The Syriac Biographical Dictionary" series="The Syriac Biographical Dictionary" app-root="/persons/" data-root="persons" record-URI-pattern="http://syriaca.org/person/"/>
+            <collection template="persons" name="authors" title="A Guide to Syriac Authors" collection-URI="http://syriaca.org/authors" series="The Syriac Biographical Dictionary" app-root="/authors/" data-root="persons" record-URI-pattern="http://syriaca.org/person/"/>
+            <collection template="persons" name="q" title="Qadishe: A Guide to the Syriac Saints" collection-URI="http://syriaca.org/q" series="The Syriac Biographical Dictionary" app-root="/q/" data-root="persons" record-URI-pattern="http://syriaca.org/person/"/>
+            <collection template="bhse" name="bhse" title="Bibliotheca Hagiographica Syriaca Electronica" collection-URI="http://syriaca.org/q" series="New Handbook of Syriac Literature" app-root="/bhse/" data-root="works" record-URI-pattern="http://syriaca.org/work/"/>
+            <collection template="bhse" name="nhsl" title="New Handbook of Syriac Literature" collection-URI="http://syriaca.org/nhsl" series="New Handbook of Syriac Literature" app-root="/nhsl/" data-root="works" record-URI-pattern="http://syriaca.org/work/"/>
+            <collection template="bible" name="bible" title="A Guide to the Bible in Syriac" collection-URI="http://syriaca.org/bible" series="New Handbook of Syriac Literature" app-root="/bible/" data-root="works" record-URI-pattern="http://syriaca.org/work/"/>
+            <collection template="bibl" name="bibl" title="Comprehensive Bibliography on Syriac Studies" app-root="/cbss/" data-root="bibl" record-URI-pattern="http://syriaca.org/cbss/"/>            <collection template="manuscripts" name="bl" title="A Digital Catalogue of Syriac Manuscripts in the British Library: A Linked Data Encoding of the Catalogue of William Wright" collection-URI="http://syriaca.org/bl" app-root="/bl/" data-root="manuscripts" record-URI-pattern="http://syriaca.org/manuscript/"/>
+            <collection template="subjects" name="subjects" title="A Taxonomy of Syriac Studies" app-root="/taxonomy/" data-root="subjects" record-URI-pattern="http://syriaca.org/keyword/"/>
+            <collection template="taxonomy" name="taxonomy" title="A Taxonomy of Syriac Studies" app-root="/taxonomy/" data-root="taxonomy" record-URI-pattern="http://syriaca.org/taxonomy/"/>
+            <collection template="spear" name="spear" title="SPEAR: Syriac Persons Events and Relations [Beta]" app-root="/spear/" data-root="spear" record-URI-pattern="http://syriaca.org/spear/"/>
+            <collection template="johnofephesus" name="johnofephesus" title="A Guide to John of Ephesus [Beta]" app-root="/johnofephesus/" data-root="" record-URI-pattern="http://syriaca.org/johnofephesus/"/>
+            <collection template="johnofephesusPersons" name="johnofephesusPersons" title="Prosopography to John of Ephesus’s Ecclesiastical History" series="Prosopography to John of Ephesus’s Ecclesiastical History" app-root="/johnofephesus/persons/" collection-URI="http://syriaca.org/johnofephesus/persons" data-root="persons" record-URI-pattern="http://syriaca.org/johnofephesus/persons/"/>
+            <collection template="johnofephesusPlaces" name="johnofephesusPlaces" title="Gazetteer to John of Ephesus’s Ecclesiastical History" series="Gazetteer to John of Ephesus’s Ecclesiastical History" app-root="/johnofephesus/places/" collection-URI="http://syriaca.org/johnofephesus/places" data-root="places" record-URI-pattern="http://syriaca.org/johnofephesus/places/"/>
+        </collections>
+        <!-- Configure Search fields for the whole app. 
+            Sort fields are used for sorting in browse and search: 
+            title, author, titleSyriac, titleArabic
+            
+            If the field is a straight xpath, include it below (see publicationDate for an example), 
+            If there is logic required in creating your field you will need to add a custom function
+            in the facets.xql file with a corresponding name here (see title for an example). 
+            
+            You must have a title, titleSyriac, titleArabic, and an author field as they are hard coded into the application. 
+            If you do not have applicable data, that is fine, the fields will be empty, but they must be defined. 
+            
+            <sortFields>
+                <fields function="title">title</fields>
+                <fields function="titleSyriac">titleSyriac</fields>
+                <fields function="titleArabic">titleArabic</fields>
+                <fields function="author">author</fields>
+            </sortFields>
+        
+            Available types: 
+                text
+                keyword (for sorting and faster whole term queries)
+                date
+                integer
+        -->
+        <!-- Need to add seriesStmts anything else?  -->
+        <!-- Need to add a path name? or can use idno?  -->
+        <searchFields>
+            <!-- Needed fields -->
+            <fields function="fullText">fullText</fields>
+            <fields function="title" boost="10">title</fields>
+            
+            <fields function="series">series</fields>
+            <fields function="idno">idno</fields>
+            <fields function="BHO" xpath="tei:bibl/tei:idno[@type='BHO']">BHO</fields>
+            <fields function="BHS" xpath="tei:bibl/tei:idno[@type='BHS']">BHS</fields>
+            <fields function="CPG" xpath="tei:bibl/tei:idno[@type='CPG']">CPG</fields>
+            <!-- Syriaca.org specific fields` -->
+            <fields function="titleSyriac">titleSyriac</fields>
+            <fields function="titleArabic">titleArabic</fields>
+            <fields function="titleFrench">titleFrench</fields>
+            <fields function="titleTransliteration">titleTransliteration</fields>
+            <fields function="author" boost="8">author</fields>
+            <fields function="editor" boost="8">editor</fields>
+            <fields function="cbssPublicationDate">cbssPublicationDate</fields>
+            <fields function="cbssPubDate">cbssPubDate</fields>
+            <fields function="cbssPubPlace">cbssPubPlace</fields>
+            <fields function="cbssPubLang">cbssPubLang</fields>
+            
+            <fields function="publisher">publisher</fields>
+            <fields function="persName">persName</fields>
+            <fields function="placeName">placeName</fields>
+            <fields function="type">type</fields>
+            <fields function="gender" xpath="tei:gender">gender</fields>
+
+<!--             Display fields -->
+            <fields function="displayTitleEnglish">displayTitleEnglish</fields>
+            <fields function="displayTitleSyriac">displayTitleSyriac</fields>
+            
+            <!-- Gazetteer fields --> 
+            
+<!--             <fields function="location" xpath="tei:location">location</fields> -->
+            
+            <fields function="event" xpath="tei:event[@type != 'attestation']">event</fields> 
+            <fields function="eventDates" xpath="tei:event[@type != 'attestation'][@syriaca-computed-start or @syriaca-computed-end]">eventDates</fields>
+            <fields function="attestations" xpath="tei:event[@type = 'attestation']">attestations</fields>
+            <fields function="attestationDates" xpath="tei:event[@type = 'attestation'][@syriaca-computed-start or @syriaca-computed-end]">attestationDates</fields>
+<!--             <fields function="religiousCommunities" xpath="tei:state[@type = 'confession']">religiousCommunities</fields>
+            <fields function="religiousCommunitiesDates" xpath="tei:state[@type = 'confession'][@syriaca-computed-start or @syriaca-computed-end]">religiousCommunitiesDates</fields> -->
+            
+            <fields function="existenceDates" xpath="tei:state[@type = 'existence'][@syriaca-computed-start or @syriaca-computed-end]">existenceDates</fields> 
+
+<!--             <fields function="related" xpath="tei:listRelation/tei:relation[@passive or @mutual]">related</fields>
+             -->
+            <!-- Persons -->
+<!--        <fields function="birth" xpath="tei:birth">birth</fields>
+            <fields function="death" xpath="tei:death">death</fields> -->
+            
+<!--             <fields function="birthPlace" xpath="tei:birth/tei:placeName">birthPlace</fields> -->
+            <fields function="birthDate" xpath="tei:birth/tei:date" >birthDate</fields>  
+            <fields function="deathDate" xpath="tei:death/tei:date" >deathDate</fields> 
+            
+            
+            <fields function="stateType" xpath="tei:state/@type">stateType</fields>
+            <fields function="state" xpath="tei:state">state</fields>
+            <fields function="stateDates" xpath="tei:state/@type">stateDates</fields>
+            <fields function="floruitDates" xpath="tei:floruit/tei:date">floruitDates</fields>
+
+            <!-- BHSE -->
+            <fields function="prologue" xpath="tei:bibl/tei:note[@type='prologue']">prologue</fields>
+            <fields function="incipit" xpath="tei:bibl/tei:note[@type='incipit']">incipit</fields>
+            <fields function="explicit" xpath="tei:bibl/tei:note[@type='explicit']">explicit</fields>
+            
+<!--             <fields function="editions" xpath="tei:bibl/tei:bibl[@type='lawd:Edition']">editions</fields>
+            <fields function="modernTranslations" xpath="tei:bibl/tei:bibl[@type='syriaca:ModernTranslation']">modernTranslations</fields>
+            <fields function="ancientVersion" xpath="tei:bibl/tei:bibl[@type='syriaca:AncientVersion']">ancientVersion</fields>
+            <fields function="manuscripts" xpath="tei:bibl/tei:bibl[@type='syriaca:Manuscript']">manuscripts</fields>
+            <fields function="reference" xpath="tei:bibl/tei:bibl">reference</fields> -->
+
+            <!-- CBSS --> 
+            <fields function="subject" xpath="tei:relation[@ref='dc:subject']/tei:desc">subject</fields>
+            <fields function="cbssCitation" xpath="tei:bibl[@type='formatted'][@subtype='citation']">citation</fields>
+
+            <fields function="abstract" xpath="descendant::*[starts-with(@xml:id,'abstract')]">abstract</fields>
+            <fields function="coordinates" xpath="descendant::tei:geo">coordinates</fields>
+        </searchFields>
+    </config>
+</meta>

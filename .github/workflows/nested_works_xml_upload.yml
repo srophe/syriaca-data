@@ -1,0 +1,73 @@
+name: Upload Works TEI Files to S3
+
+on:
+  push:
+    branches:
+      - 'gaddel_development'
+    paths:
+      - 'works/tei/**/tei/*.xml'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  upload-works:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          role-duration-seconds: 14400
+          
+      # Optional: for full data upload
+      # - name: Identify XML files
+        # run: |
+        #   mkdir -p logs
+        #   find ./data/works/tei -type f -path '*/tei/*.xml' > logs/xml_files.txt
+        #   count=$(wc -l < logs/xml_files.txt)
+        #   echo "Found $count XML file(s) to upload."
+        
+      - name: Identify updated XML files
+        id: files
+        run: |
+          echo "Fetching full commit history..."
+          git fetch --unshallow || echo "Already unshallowed."
+      
+          echo "Looking for added/modified XML files under .data/works/tei/**/tei/"
+          UPDATED_FILES=$(git diff --name-only --diff-filter=AM origin/${{ github.event.before }} HEAD | grep '^\.data/works/tei/.*/tei/.*\.xml$' || true)
+      
+          if [ -z "$UPDATED_FILES" ]; then
+            echo "No updated XML files in .data/works/tei/**/tei/"
+            exit 0
+          fi
+      
+          mkdir -p logs
+          echo "$UPDATED_FILES" > xml_files.txt
+      
+          COUNT=$(wc -l < logs/xml_files.txt)
+          echo "Found $COUNT updated XML files"
+  
+      - name: Upload XML files to S3
+        run: |
+          uploaded=0
+          while IFS= read -r file; do
+            filename=$(basename "$file")
+            echo "Uploading $file to s3://srophe-syriaca-front-end/work/$filename"
+            if aws s3 cp "$file" "s3://srophe-syriaca-front-end/work/$filename"; then
+              uploaded=$((uploaded + 1))
+            else
+              echo "Failed to upload: $file"
+            fi
+          done < xml_files.txt
+
+          echo "Total files uploaded: $uploaded"

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaPlaces.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:srophe="https://srophe.app" xmlns:syriaca="http://syriaca.org" xml:lang="en">
    <teiHeader>
       <fileDesc>
@@ -10,13 +12,9 @@
             <funder>The National Endowment for the Humanities</funder>
             <funder>The International Balzan Prize Foundation</funder>
             <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</editor>
-            <respStmt>
-               <resp>URI minted and initial data collected by</resp>
-               <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
-            </respStmt>
-         <respStmt>
+      <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
-          <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+          <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
         </respStmt>
         <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
@@ -24,8 +22,12 @@
         </respStmt>
         <respStmt>
           <resp>Record validation, normalization, and revisions for the second edition (2.0) by</resp>
-          <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
+          <name ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
         </respStmt>
+        <respStmt>
+               <resp>URI minted and initial data collected by</resp>
+               <name ref="http://syriaca.org/documentation/editors.xml#dschwartz">Daniel L. Schwartz</name>
+            </respStmt>
       </titleStmt>
          <editionStmt>
             <edition n="2.0"/>
@@ -47,6 +49,8 @@
           <persName>David A. Michelson</persName>, <date from="2014">2014-present</date>.</editor>
         <editor role="general" ref="http://syriaca.org/documentation/editors.xml#wpotter">
           <persName>William L. Potter</persName>, <date from="2020">2020-present</date>.</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dschwartz">
+          <persName>Daniel L. Schwartz</persName>, <date from="2020">2020-present</date>.</editor>
         <editor role="past-general" ref="http://syriaca.org/documentation/editors.xml#tcarlson">
           <persName>Thomas A. Carlson</persName>, <date from="2014" to="2018">2014-2018</date>
         </editor>
@@ -67,11 +71,11 @@
         <p>This record has been created following the Syriaca.org editorial guidelines. Documentation is available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>. <title>The Syriac Gazetteer</title> was encoded using both the general editorial guidelines for all publications of Syriaca.org and an encoding schema specific to <title>The Syriac Gazetteer</title>.</p>
         <p>Approximate dates described in terms of centuries or partial centuries have been interpreted into quantitative values as documented in the Syriaca.org guidelines for normalization of dates. See <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org Guidelines for Approximate Dates</ref>.</p>
         <p>The <gi>state</gi> element of @type="existence" indicates the period for which this place was in use as a place of its indicated type (e.g. an inhabited settlement, a functioning monastery or church, an administrative province).  While it is possible to indicate a source for this date, this date is usually based on the estimate of the editors and provided as an aid to searching. As a practice, attested dates for a place based on historical sources have instead been encoded more precisely using <gi>event</gi> of @type="attestation". Natural features which have always existed have no date on the <gi>state</gi> element of @type="existence" since they are are presumed to have always existed throughout recorded history.</p>
-        <p>In some cases, maps from print publications have been used as the basis for coordinate data in <title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) or to <title>The Syriac World</title> (<ref target="http://syriaca.org/bibl/PUTG99V4">http://syriaca.org/bibl/PUTG99V4</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the <title>The Syriac Gazetteer</title> are grateful to the editors of <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> and <title>The Syriac World</title> for providing these coordinate files.</p>
+        <p>In some cases, maps from print publications have been used as the basis for coordinate data in <title>The Syriac Gazetteer</title>. In two instances, the editors of such print maps provided the digital coordinate data used to prepare the print maps. Specifically, coordinates which are attributed to <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) or to <title>The Syriac World</title> (<ref target="http://syriaca.org/cbss/QW5BYJ6X">http://syriaca.org/cbss/QW5BYJ6X</ref>) were extracted from the KML files used to create the print maps for those volumes. Because only the print maps were published, the citation for these coordinates refers to the print source. The editors of the <title>The Syriac Gazetteer</title> are grateful to the editors of <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> and <title>The Syriac World</title> for providing these coordinate files.</p>
         <p>The editors have silently normalized data from other sources in some cases. The primary instances are listed below.</p>
-        <p>The capitalization of names from <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/bibl/1">http://syriaca.org/bibl/1</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
-        <p>The unchanging parts of alternate names from the editions and translations of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/2">http://syriaca.org/bibl/2</ref>, <ref target="http://syriaca.org/bibl/3">http://syriaca.org/bibl/3</ref>, or <ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) have been supplied silently.</p>
-        <p>Names from the English translation of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/bibl/4">http://syriaca.org/bibl/4</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
+        <p>The capitalization of names from <title>The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title> (<ref target="http://syriaca.org/cbss/P8KQJ7AE">http://syriaca.org/cbss/P8KQJ7AE</ref>) was normalized silently (i.e. names in ALL-CAPS were replaced by Proper-noun capitalization).</p>
+        <p>The unchanging parts of alternate names from the editions and translations of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/cbss/T3RMVYM7">http://syriaca.org/cbss/T3RMVYM7</ref>, <ref target="http://syriaca.org/cbss/SGBVKKGH">http://syriaca.org/cbss/SGBVKKGH</ref>, or <ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) have been supplied silently.</p>
+        <p>Names from the English translation of Barsoum, <title>The Scattered Pearls: A History of Syriac Literature and Sciences</title> (<ref target="http://syriaca.org/cbss/7PN78IZN">http://syriaca.org/cbss/7PN78IZN</ref>) were silently transformed into sentence word order rather than the headword alphabetization used by Barsoum.  Commas were silently removed.</p>
       </editorialDecl>
          <classDecl>
             <taxonomy>
@@ -104,59 +108,70 @@
    </teiHeader>
    <text>
       <body>
-         <listPlace>
-            <place type="region">
-               <placeName resp="http://syriaca.org" xml:id="name2775-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib2775-1">Edessa</placeName>
-              <placeName resp="http://syriaca.org" xml:id="name2775-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib2775-3">ܐܘܪܗܝ</placeName>
-              <desc type="abstract" xml:id="abstract2775-1" xml:lang="en">The region around <placeName ref="http://syriaca.org/place/78">the city of Edessa</placeName>
-                    </desc>
-          <state resp="http://syriaca.org" type="existence"/>
-               <idno type="URI">http://syriaca.org/place/2775</idno>
-              <bibl xml:id="bib2775-1">
-                <author>A. Harrak</author>
-                <title level="a" xml:lang="en">183. Edessa</title>
-                <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
-                <ptr target="http://syriaca.org/bibl/192"/>
-                <citedRange unit="p">138-139</citedRange>
-              </bibl>
-              <bibl xml:id="bib2775-2">
-                <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
-                <ptr target="http://syriaca.org/bibl/1"/>
-                <citedRange unit="p">1, 4, 5–6 (with fig. 1), 9–10, 13, 15–16, 18, 26, 29, 31, 33–34, 36, 37–38, 41, 46, 54, 56, 60, 64, 69, 71, 74, 84, 86, 90, 97–98, 99, 102, 107–108, 126, 127, 128, 132–133, 138–139 (with fig. 47), 145, 153, 155, 162, 163, 164, 178, 191–192, 195–196, 197, 199, 201–202, 209, 213, 220, 229, 237, 249, 252, 260–261, 262, 266, 267, 268, 270, 271–272, 273, 284, 287, 288, 303–304, 314, 316, 317, 322, 327–328, 332, 335, 343, 346, 348, 350, 351, 352, 356, 361, 363, 367, 376, 377, 384, 390, 392, 398, 401, 403, 407, 410–411, 419, 431, 432, 433, 438–439, 444, 446, 448</citedRange>
-                <citedRange unit="map">Map I B1, II B1, III</citedRange>
-              </bibl>
-              <bibl xml:id="bib2775-3">
-                <title xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
-                <ptr target="http://syriaca.org/bibl/3"/>
-                <citedRange unit="p">556</citedRange>
-              </bibl>
-              <bibl xml:id="bib2775-4">
-                <title xml:lang="ar">كتاب اللؤلؤ المنثور في تاريخ العلوم والأداب السريانية</title>
-                <ptr target="http://syriaca.org/bibl/2"/>
-                <citedRange unit="p">516</citedRange>
-              </bibl>
-              <bibl xml:id="bib2775-5">
-                <title xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
-                <ptr target="http://syriaca.org/bibl/4"/>
-                <citedRange unit="p">553</citedRange>
-              </bibl>
-              <bibl xml:id="bib2775-6">
-                <title xml:lang="en">The Comprehensive Bibliography on Syriac Christianity</title>
-                <ptr target="http://syriaca.org/bibl/5"/>
-                <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=E&amp;sK=Edessa&amp;sT=keywords">Edessa</citedRange>
-              </bibl>
-              <bibl xml:id="bib2775-7">
-                <author>David Wilmshurst</author>
-                <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
-                <citedRange unit="p">53, 65, 361, 362</citedRange>
-                <ptr target="http://syriaca.org/bibl/9"/>
-              </bibl>
-            </place>
-           <listRelation>
-             <relation mutual="http://syriaca.org/place/78 http://syriaca.org/place/2775" name="see-also"/>
-             <relation mutual="http://syriaca.org/place/78 http://syriaca.org/place/2775" name="share-a-name"/>
-           </listRelation>
-         </listPlace>
+        <listPlace>
+          <place type="region" ana="http://syriaca.org/taxonomy/regions">
+            <placeName xml:id="name2775-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib2775-1">Edessa</placeName>
+            <placeName xml:id="name2775-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib2775-3">ܐܘܪܗܝ</placeName>
+            <desc type="abstract" xml:lang="en" resp="http://syriaca.org" corresp="http://syriaca.org/geo">The region around <placeName ref="http://syriaca.org/place/78">the city of Edessa</placeName>
+            </desc>
+            <state resp="http://syriaca.org" type="existence"/>
+            <idno type="URI">http://syriaca.org/place/2775</idno>
+            <bibl xml:id="bib2775-1">
+              <author>
+              <persName>A. Harrak</persName>
+            </author>
+              <title level="a" xml:lang="en">183. Edessa</title>
+              <title level="m" xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
+              <ptr target="http://syriaca.org/cbss/C5T777C3"/>
+              <citedRange unit="p">138-139</citedRange>
+            </bibl>
+            <bibl xml:id="bib2775-2">
+              <title xml:lang="en">The Gorgias Encyclopedic Dictionary of the Syriac Heritage</title>
+              <ptr target="http://syriaca.org/cbss/P8KQJ7AE"/>
+              <citedRange unit="p">1, 4, 5–6 (with fig. 1), 9–10, 13, 15–16, 18, 26, 29, 31, 33–34, 36, 37–38, 41, 46, 54, 56, 60, 64, 69, 71, 74, 84, 86, 90, 97–98, 99, 102, 107–108, 126, 127, 128, 132–133, 138–139 (with fig. 47), 145, 153, 155, 162, 163, 164, 178, 191–192, 195–196, 197, 199, 201–202, 209, 213, 220, 229, 237, 249, 252, 260–261, 262, 266, 267, 268, 270, 271–272, 273, 284, 287, 288, 303–304, 314, 316, 317, 322, 327–328, 332, 335, 343, 346, 348, 350, 351, 352, 356, 361, 363, 367, 376, 377, 384, 390, 392, 398, 401, 403, 407, 410–411, 419, 431, 432, 433, 438–439, 444, 446, 448</citedRange>
+              <citedRange unit="map">Map I B1, II B1, III</citedRange>
+            </bibl>
+            <bibl xml:id="bib2775-3">
+              <title xml:lang="syr">ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ</title>
+              <ptr target="http://syriaca.org/cbss/SGBVKKGH"/>
+              <citedRange unit="p">556</citedRange>
+            </bibl>
+            <bibl xml:id="bib2775-4">
+              <title xml:lang="ar">كتاب اللؤلؤ المنثور في تاريخ العلوم والأداب السريانية</title>
+              <ptr target="http://syriaca.org/cbss/T3RMVYM7"/>
+              <citedRange unit="p">516</citedRange>
+            </bibl>
+            <bibl xml:id="bib2775-5">
+              <title xml:lang="en">The Scattered Pearls: A History of Syriac Literature and Sciences</title>
+              <ptr target="http://syriaca.org/cbss/7PN78IZN"/>
+              <citedRange unit="p">553</citedRange>
+            </bibl>
+            <bibl xml:id="bib2775-6">
+              <title xml:lang="en">The Comprehensive Bibliography on Syriac Christianity</title>
+              <ptr target="http://syriaca.org/cbss/M2B53VFA"/>
+              <citedRange unit="entry" target="http://www.csc.org.il/db/browse.aspx?db=SB&amp;sL=E&amp;sK=Edessa&amp;sT=keywords">Edessa</citedRange>
+            </bibl>
+            <bibl xml:id="bib2775-7">
+              <author>
+              <persName>David Wilmshurst</persName>
+            </author>
+              <title xml:lang="en">The Ecclesiastical Organisation of the Church of the East, 1318-1913</title>
+              <citedRange unit="p">53, 65, 361, 362</citedRange>
+              <ptr target="http://syriaca.org/cbss/LBS5EGWD"/>
+            </bibl>
+          </place>
+          <listRelation>
+            <relation type="disambiguation" ref="http://syriaca.org/taxonomy/share-a-name" mutual="http://syriaca.org/place/78 http://syriaca.org/place/2775" resp="http://syriaca.org">
+                <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+            </relation>
+            <relation type="disambiguation" ref="http://syriaca.org/taxonomy/co-located" mutual="http://syriaca.org/place/78 http://syriaca.org/place/2775" resp="http://syriaca.org">
+                <desc xml:lang="en">This place shares a location with one or more distinct places that should not be confused with one another.</desc>
+            </relation>
+            <relation type="disambiguation" ref="http://syriaca.org/taxonomy/share-a-name" mutual="http://syriaca.org/place/78 http://syriaca.org/place/2775" resp="http://syriaca.org">
+              <desc xml:lang="en">This place shares a name with one or more distinct places.</desc>
+            </relation>
+          </listRelation>
+        </listPlace>
       </body>
    </text>
 </TEI>
