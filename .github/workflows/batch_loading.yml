@@ -50,7 +50,7 @@ jobs:
       - name: Identify XML files
         run: |
           # Find each section of data for processing one at a time, or target files
-          # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
           # find ./data/places/tei -name '*.xml' > xml_files.txt
           # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # Bibliographic records should be run in batches of 5000
@@ -81,7 +81,7 @@ jobs:
           # find ./data/works/tei -name '*.xml' | head -n 5 >> xml_files.txt
 
           # Weird publication date tests
-          echo "./data/bibl/tei/MLJDPLBA.xml" > xml_files.txt
+          # echo "./data/bibl/tei/MLJDPLBA.xml" > xml_files.txt
           # echo "./data/bibl/tei/MQ7XZCAE.xml" >> xml_files.txt
           # echo "./data/bibl/tei/MSEZA5AJ.xml" >> xml_files.txt
           # echo "./data/bibl/tei/N6N8Q7F9.xml" >> xml_files.txt
