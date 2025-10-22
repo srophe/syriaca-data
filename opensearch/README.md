@@ -11,11 +11,11 @@ This guide walks you through the full process of resetting and re-ingesting the 
 The indices are backed by newline-delimited JSON (`.ndjson`) or (`.json`) files in S3 and loaded via a Lambda function that performs bulk indexing.
 ---
 
-## 📥 Step 1: Upload New JSON Data to S3
+## 📥 Step 1: Upload New JSON Data to S3 (AWS)
 
 1. Prepare your JSON files:
 
-Run the github workflow "batch_loading.yaml" file for each file type and also the cbss batch loading workflow file. They can be run from Actions or by commiting changes to the files.
+Run the github workflow "batch_loading.yaml" file for each file type and also the cbss batch loading workflow file. They can be run from Actions or by commiting changes to the files. Error logs are uploaded to GitHub Artifacts.
 
 ---
 
@@ -33,7 +33,7 @@ These values may be stored in plaintext in the Lambda config or injected via sec
 
 ---
 
-## 🏗️ Step 4: Trigger the Lambda
+## 🏗️ Step 4: Trigger the Lambda (in AWS)
 
 Trigger the Lambda by uploading the file to the S3 `json-data` prefix (if set up as S3 event source), or manually via test event:
 
