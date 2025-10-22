@@ -1,0 +1,246 @@
+PUT /syriaca-index-12
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "analysis": {
+      "analyzer": {
+        "multilingual_analyzer": {
+          "tokenizer": "icu_tokenizer",
+          "filter": [
+            "icu_normalizer",
+            "icu_folding"
+          ]
+        },
+        "custom_case_diacritic_insensitive": {
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "abstract": {
+        "type": "keyword",
+        "index": false
+      },
+      "attestations": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer"
+      },
+      "attestationDatesStart": {
+        "type": "integer"
+      },
+      "attestationDatesEnd": {
+        "type": "integer"
+      },
+      "author": {
+        "type": "text",
+        "analyzer": "custom_case_diacritic_insensitive",
+        "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+        }
+      },
+      "birthDate": {
+        "type": "integer"
+      },
+      "cbssPubDateStart": {
+        "type": "date",
+        "format": "yyyy-MM-dd||yyyy||epoch_millis"
+      },
+      "cbssPubDateEnd": {
+        "type": "date",
+        "format": "yyyy-MM-dd||yyyy||epoch_millis"
+      },
+      "cbssPubPlace": {
+        "type": "text",
+        "analyzer": "custom_case_diacritic_insensitive"
+      },
+      "cbssPubLang": {
+        "type": "keyword"
+      },
+      "citation": {
+        "type": "keyword",
+        "index": false
+      },
+      "coordinates": {
+        "type": "keyword",
+        "index": false
+      },
+      "deathDate": {
+        "type": "integer"
+      },
+      "docType": {
+        "type": "keyword"
+      },
+      "event": {
+        "type": "text",
+        "analyzer": "custom_case_diacritic_insensitive"
+      },
+      "eventDatesStart": {
+        "type": "integer"
+      },
+      "eventDatesEnd": {
+        "type": "integer"     
+      },
+      "existenceDatesStart": {
+        "type": "integer"
+      },
+      "existenceDatesEnd": {
+        "type": "integer"
+      },
+      "explicit": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer"
+      },
+      "floruitDatesStart": {
+        "type": "integer"
+      },
+      "floruitDatesEnd": {
+        "type": "integer"
+      },
+      "fullText": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer"
+      },
+      "gender": {
+        "type": "keyword"
+      },
+      "idno": {
+        "type": "keyword"
+      },
+      "BHO": {
+        "type": "keyword"
+      },
+      "BHS": {
+        "type": "keyword"
+      },
+      "CPG": {
+        "type": "keyword"
+      },
+      "incipit": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer"
+      },
+      "persName": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer"
+      },
+      "placeName": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer"
+      },
+      "prologue": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer"
+      },
+      "publisher": {
+        "type": "text",
+        "analyzer": "custom_case_diacritic_insensitive"
+      },
+      "series": {
+        "type": "keyword"
+      },
+      "state": {
+        "type": "keyword"
+      },
+      "stateDatesStart": {
+        "type": "integer"
+      },
+      "stateDatesEnd": {
+        "type": "integer"
+      },
+      "stateType": {
+        "type": "keyword"
+      },
+      "subject": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        },
+        "analyzer": "custom_case_diacritic_insensitive"
+      },
+      "title": {
+        "type": "text",
+        "analyzer": "custom_case_diacritic_insensitive",
+        "fields": {
+            "sort": {
+              "type": "keyword"
+            }
+          }
+      },
+      "titleArabic": {
+        "type": "text",
+        "analyzer": "arabic",
+        "fields": {
+          "sort": {
+            "type": "icu_collation_keyword",
+            "index": false,
+            "language": "ar",
+            "strength": "tertiary"
+          },
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "titleFrench": {
+        "type": "text",
+        "analyzer": "french",
+        "fields": {
+            "sort": {  
+                "type": "icu_collation_keyword",
+                "index": false,
+                "language": "fr",
+                "strength": "tertiary"
+              },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+        }
+      },
+      "titleSyriac": {
+        "type": "text",
+        "analyzer": "multilingual_analyzer",
+        "fields": {
+          "sort": {
+            "type": "icu_collation_keyword",
+            "index": false,
+            "language": "syr",
+            "strength": "tertiary"
+          },
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "titleTransliteration": {
+        "type": "keyword"
+      },
+      "displayTitleEnglish": {
+        "type": "keyword",
+        "index": false
+      },
+      "displayTitleSyriac": {
+        "type": "keyword",
+        "index": false
+        },
+      "type": {
+        "type": "keyword"
+      }
+    }
+  }
+}
