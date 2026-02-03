@@ -458,7 +458,7 @@
                                             <div class="col-md-7 col-lg-8">
                                                 <xsl:apply-templates select="$nodes/ancestor-or-self::t:TEI">
                                                     <xsl:with-param name="collection" select="$collection"/>
-                                                    <xsl:with-param name="idno" select="$idno"/>
+                                                    <xsl:with-param name="idno" select="$idno" tunnel="yes"/>
                                                 </xsl:apply-templates>
                                             </div>
                                             <div class="col-md-5 col-lg-4 right-menu">
