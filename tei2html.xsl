@@ -626,9 +626,10 @@
     <!-- P -->
     <!-- Main page modules for syriaca.org display -->
     <xsl:template match="t:person | t:personGrp">
+     <xsl:param name="idno" tunnel="yes"/>
         <xsl:if test="t:desc[@type='abstract'] | t:desc[starts-with(@xml:id, 'abstract-en')] | t:note[@type='abstract']">
             <xsl:choose>
-                <xsl:when test="$collection = 'johnofephesusPersons'">
+               <xsl:when test="contains($idno, 'johnofephesus') or $collection = 'johnofephesusPersons' or $collection-title = 'Prosopography to John of Ephesus’s Ecclesiastical History'">
                     <xsl:if test="t:note[@type='abstract'][contains(@corresp,'http://syriaca.org/johnofephesus/persons')]">
                         <div class="tei-desc text abstract">
                             <xsl:apply-templates select="t:note[@type='abstract'][contains(@corresp,'http://syriaca.org/johnofephesus/persons')]"/>
@@ -768,9 +769,10 @@
         <xsl:call-template name="sources"/>
     </xsl:template>
     <xsl:template match="t:place">
+     <xsl:param name="idno" tunnel="yes"/>
         <xsl:if test="t:desc[@type='abstract'] | t:desc[starts-with(@xml:id, 'abstract-en')] | t:note[@type='abstract']">
             <xsl:choose>
-                <xsl:when test="$collection = 'johnofephesusPlace'">
+                <xsl:when test="contains($idno, 'johnofephesus') or $collection = 'johnofephesusPlace' or $collection-title = 'Gazetteer to John of Ephesus’s Ecclesiastical History'">
                     <xsl:if test="t:note[@type='abstract'][contains(@corresp,'http://syriaca.org/johnofephesus/places')]">
                         <div class="tei-desc text abstract">
                             <xsl:apply-templates select="t:note[@type='abstract'][contains(@corresp,'http://syriaca.org/johnofephesus/places')]"/>
@@ -881,24 +883,6 @@
             </div>
         </xsl:if>
         
-        <xsl:if test="not(empty(t:note[not(@type='description')][1]))">
-            <xsl:choose>
-                <xsl:when test="$collection = 'johnofephesusPlace'">
-                    <xsl:if test="t:note[not(@type='abstract')][not(@type='description')][contains(@corresp,'http://syriaca.org/johnofephesus/places')]">
-                        <h3>Notes</h3>
-                        <xsl:apply-templates select="t:note[not(@type='abstract')][not(@type='description')][not(contains(@corresp,'http://syriaca.org/johnofephesus/places'))]"/>
-                    </xsl:if>
-                </xsl:when>
-                <xsl:when test="t:note[not(@type='abstract')][not(@type='description')][contains(@corresp,'http://syriaca.org/places')]">
-                    <h3>Notes</h3>
-                    <xsl:apply-templates select="t:note[not(@type='abstract')][not(@type='description')][not(contains(@corresp,'http://syriaca.org/places'))]"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <h3>Notes</h3>
-                    <xsl:apply-templates select="t:note[not(@type='abstract')][not(@type='description')]"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:if>
         <!-- Confessions/Religious Communities -->
         <xsl:if test="t:state[@type='confession'][parent::t:place]">
             <div>
@@ -1374,7 +1358,7 @@
     
     <!-- T -->
     <xsl:template match="t:TEI">
-     <xsl:param name="idno"/>
+     <xsl:param name="idno" tunnel="yes"/>
         <xsl:choose>
             <xsl:when test="contains($resource-id,'cbss')">
                 <xsl:apply-templates select="descendant::t:biblStruct"/>
@@ -1393,7 +1377,6 @@
                 <xsl:apply-templates select="descendant::t:body"/>
                 <!-- Citation Information -->
                 <xsl:apply-templates select="t:teiHeader" mode="citation">
-                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
                 </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
