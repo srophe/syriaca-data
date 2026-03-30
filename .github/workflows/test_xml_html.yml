@@ -1,0 +1,160 @@
+name: Process XML to JSON and/or HTML For Full Data Set in Batches including JoE HTML and TEI
+
+on:
+  push:
+    branches:
+      - 'gaddel_development'  # current data branch
+    paths:
+      - '.github/workflows/test_xml_html.yml'  # Trigger action only on changes to this file 
+      
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  process_and_transform:
+    runs-on: ubuntu-latest
+    steps:
+    
+      # Step 1: Checkout repositories
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Checkout Gaddel repository (production code repo)
+        uses: actions/checkout@v3
+        with:
+          repository: srophe/Gaddel
+          ref: main
+          path: syriaca
+
+      # Step 2: Install Java and Saxon for XSLT
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Check cache for Saxon JAR
+        id: cache-saxon
+        uses: actions/cache@v3
+        with:
+          path: saxon.jar
+          key: saxon-10.6
+
+      - name: Download Saxon if not cached
+        if: steps.cache-saxon.outputs.cache-hit != 'true'
+        run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
+
+      # Step 3: Identify XML files for processing: Decide which subset of the data you want to process
+      - name: Identify XML files
+        run: |
+          # Find each section of data for processing one at a time, or target files
+          # Example test case: echo "./data/persons/tei/2449.xml" > xml_files.txt    
+          echo "./data/persons/tei/2449.xml" > xml_files.txt
+          echo "Processing $(wc -l < xml_files.txt) XML files"
+
+      # Step 7: Convert XML to HTML in Parallel For Website pages
+      - name: Convert XML to HTML in Parallel (with syriacadata path)
+        run: |
+          mkdir -p logs
+      
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename "${file%.xml}")
+      
+            # Final output path
+            out_dir="data-html/syriacadata/$(dirname "$filename")"
+            mkdir -p "$out_dir"
+      
+            echo "Converting $file → $out_dir/$filename.html"
+            if ! java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html" 2>> logs/errors.log; then
+              echo "::warning:: HTML transformation failed for $file"
+              echo "Error processing $file" >> logs/errors.log
+            fi
+          ' sh {}
+          
+      # Step 8: Upload HTML files to S3 
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          role-duration-seconds: 14400
+          
+      
+      - name: Upload HTML files to S3 in parallel(Strip before syriacadata, Map Prefixes, Strip .html)
+        run: |
+          mkdir -p logs
+          > logs/uploaded_files.txt
+          html_count=$(find ./data-html -path "*/syriacadata/*.html" | wc -l)
+          echo "$html_count" > logs/html_created_count.log
+          
+          find ./data-html -path "*/syriacadata/*.html" -print0 | \
+          xargs -0 -P $(nproc) -I {} sh -c '
+            set +e
+            html_file="$1"
+            # Extract the part of the path after "syriacadata/"
+            s3_key=$(echo "$html_file" | sed -E "s|^.*?/syriacadata/||" | sed "s/\.html$//")
+            # Map top-level dir if needed, for joe files
+            top_dir=$(echo "$s3_key" | cut -d/ -f1)
+            case "$top_dir" in
+              bibl) mapped_dir="cbss" ;;
+              subject) mapped_dir="taxonomy" ;;
+              *) mapped_dir="$top_dir" ;;
+            esac
+      
+            rest_of_path=$(echo "$s3_key" | cut -d/ -f2-)
+            if [ "$rest_of_path" = "$s3_key" ]; then
+              new_key="$mapped_dir"
+            else
+              new_key="${mapped_dir}/${rest_of_path}"
+            fi
+
+            # Get the filename (last segment, like "2")
+            filename=$(basename "$s3_key")
+            echo "filename: ${filename}"
+            # Get the type (first segment after johnofephesus/ if present)
+            if echo "$s3_key" | grep -q "^johnofephesus/"; then
+              type=$(echo "$s3_key" | sed -E "s|^johnofephesus/([^/]+).*|\1|")
+            elif echo "$s3_key" | grep -q "^cbss/"; then
+              type="bibl"
+            else
+              type=$(echo "$s3_key" | cut -d/ -f1)
+              type="${type}s"
+            fi
+
+          # Determine path to original XML (always from canonical path)
+            xml_path="./data/${type}/tei/${filename}.xml"
+            s3_path="s3://srophe-syriaca-front-end/${new_key}"
+            tei_s3_path="s3://srophe-syriaca-front-end/${new_key}.xml"
+
+            echo "Uploading $html_file to $s3_path"
+            if aws s3 cp "$html_file" "$s3_path"; then
+              echo "$s3_path" >> logs/uploaded_files.txt
+            else
+              echo "::warning:: Failed to upload $html_file to $s3_path" >> logs/errors.log
+            fi
+            echo "Uploading $xml_path to $tei_s3_path"
+            if aws s3 cp "$xml_path" "$tei_s3_path"; then
+              echo "$tei_s3_path" >> logs/uploaded_files.txt
+            else
+              echo "::warning:: Failed to upload $xml_path to $tei_s3_path" >> logs/errors.log
+            fi
+            set -e
+          ' sh {}
+            echo "HTML files created: $(cat logs/html_created_count.log)"
+            echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+
+
+      # Step 9: Upload error logs as an artifact for debugging
+      - name: Upload Logs to GitHub Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-logs
+          path: logs/errors.log
