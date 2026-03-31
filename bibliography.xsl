@@ -26,8 +26,7 @@
     <!-- ================================================================== 
        bibliography.xsl
        
-       THIS IS THE ACTIVE COPY FOR DATA TRANSFORMATIONS
-        This XSLT provides templates for output of bibliographic material. 
+       This XSLT provides templates for output of bibliographic material. 
        
        parameters:
        
@@ -211,26 +210,24 @@
         </xsl:variable>
         <span class="footnote-content">
             <xsl:choose>
-
                 <xsl:when test="descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/bibl/')) or starts-with(@target, concat($base-uri,'/cbss/'))]">
-
                     <xsl:variable name="target" select="descendant::t:ptr[@target and starts-with(@target, concat($base-uri,'/bibl/')) or starts-with(@target, concat($base-uri,'/cbss/'))]/@target"/>
-
                     <xsl:variable name="currentLocation" select="document-uri(root(.))"/>
-
                     <xsl:variable name="relativePath" select="substring-before($currentLocation,'/data/')"/>
                     <xsl:variable name="file" select="tokenize($target,'/')[last()]"/>
                     <xsl:variable name="dataFilePath">
-                            <xsl:value-of select="concat($relativePath,'/data/bibl/tei/')"/>
+                        <xsl:value-of select="concat($relativePath,'/data/bibl/tei/')"/>
                     </xsl:variable>
                     <xsl:variable name="biblfilepath">
                         <xsl:value-of select="concat($dataFilePath,$file,'.xml')"/>
                     </xsl:variable>
                     <xsl:choose>
                         <xsl:when test="doc-available($biblfilepath)">
+<!--                            <xsl:message>Doc available</xsl:message>-->
                             <xsl:variable name="rec" select="document($biblfilepath)"/>
-                            <xsl:for-each select="$rec/descendant::t:biblStruct">
-                                <xsl:apply-templates mode="footnote"/>
+                            <xsl:for-each select="$rec/descendant::t:body">
+                                <xsl:apply-templates select="descendant::t:bibl[@type='formatted'][@subtype='citation']" mode="formattedCitation"/>
+                                <!-- bibl type="formatted" subtype="citation" -->
                                 <xsl:sequence select="$passThrough"/>
                                 <xsl:if test="descendant::t:idno[@type='URI']">
                                     <span class="footnote-links">
@@ -240,85 +237,49 @@
                                 </xsl:if>
                             </xsl:for-each>
                         </xsl:when>
-                        <xsl:otherwise> 
-
-
-                            <xsl:variable name="redirects" select="document('redirects.xml')"/>
-
+                        <xsl:otherwise>
+<!--                            <xsl:message>look for redirect</xsl:message>-->
+                            <!-- Look for redirect -->
+                            <xsl:variable name="redirectFile" select="concat($relativePath,'/redirects.xml')"/>
+                            <xsl:variable name="redirects" select="document($redirectFile)"/>
                             <xsl:variable name="newTarget" select="$redirects/descendant::*[*:Deprecated_URI[. = $target]]/*:Redirect_URI[1]"/>
-
                             <xsl:variable name="newFile" select="tokenize($target,'/')[last()]"/>
-
                             <xsl:variable name="newBiblfilepath">
-
                                 <xsl:value-of select="concat($dataFilePath,$newFile,'.xml')"/>
-
                             </xsl:variable>
-
                             <xsl:choose>
-
                                 <xsl:when test="$redirects//*:Deprecated_URI[. = $target]">
-
-
+<!--                                    <xsl:message>redirect url <xsl:value-of select="$redirects//*:Deprecated_URI[. = $target]"/></xsl:message>-->
                                     <xsl:choose>
-
                                         <xsl:when test="doc-available($newBiblfilepath)">
-
                                             <xsl:variable name="rec" select="document($newBiblfilepath)"/>
-
                                             <xsl:for-each select="$rec/descendant::t:biblStruct">
-
                                                 <xsl:apply-templates mode="footnote"/>
-
                                                 <xsl:sequence select="$passThrough"/>
-
                                                 <xsl:if test="descendant::t:idno[@type='URI']">
-
                                                     <span class="footnote-links">
-
                                                         <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
-
                                                         <xsl:apply-templates select="descendant::t:ref[not(ancestor::note)]" mode="links"/>
-
                                                     </span>
-
                                                 </xsl:if>
-
                                             </xsl:for-each>
-
                                         </xsl:when>
-
                                         <xsl:otherwise>
-
                                             <xsl:message>Bibl redirect item not found. the value of biblfilepath is ' <xsl:value-of select="$newBiblfilepath"/>'</xsl:message>
-
                                         </xsl:otherwise>
-
                                     </xsl:choose>
-
                                 </xsl:when>
-
                                 <xsl:otherwise>
-
-
+<!--                                    <xsl:message>Bibl item not found. the value of biblfilepath is ' <xsl:value-of select="$newBiblfilepath"/>'</xsl:message>-->
                                     <xsl:apply-templates mode="footnote"/>
-
                                     <xsl:sequence select="$passThrough"/>
-
                                     <xsl:if test="descendant::t:idno[@type='URI']">
-
                                         <span class="footnote-links">
-
                                             <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
-
                                             <xsl:apply-templates select="descendant::t:ref[not(ancestor::note)]" mode="links"/>
-
                                         </span>
-
                                     </xsl:if>
-
                                 </xsl:otherwise>
-
                             </xsl:choose>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -354,7 +315,18 @@
             </xsl:choose>
         </span>
     </xsl:template>
-
+    <!-- Removes final '.'  -->
+    <xsl:template match="t:bibl" mode="formattedCitation">
+        <xsl:apply-templates mode="formattedCitation"/>
+    </xsl:template>
+    <xsl:template match="text()" mode="formattedCitation">
+        <xsl:choose>
+            <xsl:when test="not(following-sibling::*)">
+                <xsl:value-of select="replace(., '\.\s*$', '')"/>        
+            </xsl:when>
+            <xsl:otherwise><xsl:value-of select="normalize-space(.)"/></xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      Main footnote templates for bibl records. 
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -1269,20 +1241,20 @@
         <xsl:param name="ref"/>
         <xsl:choose>
             <xsl:when test="@type='zotero' or contains($ref,'zotero.org/')">
-                <img src="../resources/images/zotero.png" alt="Link to Zotero Bibliographic Record" height="18px"/>
+                <img src="/resources/images/zotero.png" alt="Link to Zotero Bibliographic Record" height="18px"/>
             </xsl:when>
             <xsl:when test="starts-with($ref,$base-uri)">
-                <img src="../resources/images/icons-syriaca-sm.png" alt="{concat('Link to ',$repository-title,' Bibliographic Record.')}" height="18px"/>
+                <img src="/resources/images/icons-syriaca-sm.png" alt="{concat('Link to ',$repository-title,' Bibliographic Record.')}" height="18px"/>
             </xsl:when>
             <!-- glyphicon glyphicon-book -->
             <xsl:when test="contains($ref,'worldcat.org/')">
-                <img src="../resources/images/worldCat-logo.png" alt="Link to Worldcat Bibliographic record" height="18px"/>
+                <img src="/resources/images/worldCat-logo.png" alt="Link to Worldcat Bibliographic record" height="18px"/>
             </xsl:when>
             <xsl:when test="contains($ref,'hathitrust.org/')">
-                <img src="../resources/images/htrc_logo.png" alt="Link to HathiTrust Bibliographic record" height="18px"/>
+                <img src="/resources/images/htrc_logo.png" alt="Link to HathiTrust Bibliographic record" height="18px"/>
             </xsl:when>
             <xsl:when test="contains($ref,'archive.org')">
-                <img src="../resources/images/ialogo.jpg" alt="Link to Archive.org Bibliographic record" height="18px"/>
+                <img src="/resources/images/ialogo.jpg" alt="Link to Archive.org Bibliographic record" height="18px"/>
             </xsl:when>
             <xsl:otherwise>
                 <span class="glyphicon glyphicon-book"/>
@@ -1436,6 +1408,14 @@
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      emit the footnote number for a bibl
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    
+    <xsl:template match="t:bibl" mode="preferredCitation">
+        <xsl:apply-templates mode="preferredCitation"/>
+    </xsl:template>
+    <xsl:template match="text()" mode="preferredCitation">
+        <xsl:copy-of select="."/>
+    </xsl:template>
+   
     <xsl:template match="t:bibl" mode="footnote-ref">
         <xsl:param name="footnote-number">1</xsl:param>
         <span class="tei-footnote-ref">
@@ -1443,15 +1423,6 @@
                 <xsl:value-of select="$footnote-number"/>
             </a>
         </span>
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-     preferredCitation for display
-     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    </xsl:template>
-        <xsl:template match="t:bibl" mode="preferredCitation">
-        <xsl:apply-templates mode="preferredCitation"/>
-    </xsl:template>
-    <xsl:template match="text()" mode="preferredCitation">
-        <xsl:copy-of select="."/>
     </xsl:template>
    
 </xsl:stylesheet>

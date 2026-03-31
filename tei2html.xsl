@@ -1,4 +1,7 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:t="http://www.tei-c.org/ns/1.0" xmlns:x="http://www.w3.org/1999/xhtml" xmlns:srophe="https://srophe.app" xmlns:saxon="http://saxon.sf.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="http://syriaca.org/ns" exclude-result-prefixes="xs t x saxon local" version="2.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:t="http://www.tei-c.org/ns/1.0" xmlns:x="http://www.w3.org/1999/xhtml" 
+    xmlns:srophe="https://srophe.app" xmlns:saxon="http://saxon.sf.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="http://syriaca.org/ns" exclude-result-prefixes="xs t x saxon local" version="2.0">
 
  <!-- ================================================================== 
        Copyright 2013 New York University  
@@ -27,14 +30,13 @@
        tei2html.xsl
        
        This XSLT transforms tei.xml to html.
-       This file needs to be updated separately from version in code repo for proper transformation.
        
        parameters:
             
         
-       code based on code by: 
+       code by: 
         + Winona Salesky (wsalesky@gmail.com)
-          https://github.com/srophe/Gaddel/blob/main/siteGenerator/xsl/tei2html.xsl
+          for use with eXist-db
         + Tom Elliott (http://www.paregorios.org) 
           for the Institute for the Study of the Ancient World, New York
           University, under contract to Vanderbilt University for the
@@ -57,10 +59,6 @@
     <!-- Helper functions and templates -->
     <xsl:import href="helper-functions.xsl"/>
     <xsl:import href="collations.xsl"/>
-    <!-- Syriaca.org stylesheets -->
-<!--    <xsl:import href="link-icons.xsl"/>-->
-    <!-- SPEAR -->
-    <xsl:import href="spear.xsl"/>
     
  <!-- =================================================================== -->
  <!-- set output so we get (mostly) indented HTML -->
@@ -72,71 +70,35 @@
  <!-- =================================================================== -->
     
     <!-- Parameters passed from global.xqm (set in config.xml) default values if params are empty -->
-    <xsl:param name="data-root" select="'/data'"/>
+    <!-- WS:Note, only used in bibliography.xsl -->
+    <xsl:param name="data-root" select="'/db/apps/srophe-data'"/>
     <!-- eXist app root for app deployment-->
-    <xsl:param name="app-root" select="'/syriaca'"/>
+    <xsl:param name="app-root" select="'/db/apps/srophe'"/>
     <!-- Root of app for building dynamic links. Default is eXist app root -->
-    <xsl:param name="nav-base" select="''"/>
+    <xsl:param name="nav-base" select="'/exist/apps/srophe'"/>
     <!-- Base URI for identifiers in app data -->
     <xsl:param name="base-uri" select="'http://syriaca.org'"/>
     <!-- Add a collection parameter to make it possible to switch XSLT stylesheets, or views via collections -->
     <xsl:param name="collection"/>
     <!-- Hard coded values-->
     <xsl:param name="normalization">NFKC</xsl:param>
-    <!-- Repo-config -->
-    <xsl:variable name="config">
-        <xsl:choose>
-            <xsl:when test="doc-available('/repo-config.xml')">
-                <xsl:message>repo-config found</xsl:message>
-                <xsl:sequence select="document('/repo-config.xml')"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:message>Warning: repo-config not found</xsl:message>
-                <xsl:sequence select="()" />
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
- <xsl:param name="idno"/>
-    <!-- Repository Title -->
-    <xsl:variable name="repository-title">
-        <xsl:choose>
-            <xsl:when test="not(empty($config))">
-                <xsl:value-of select="$config//*:title[1]"/>
-            </xsl:when>
-            <xsl:otherwise>The Gaddel Application</xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
-    <xsl:variable name="collection-title">
-        <xsl:choose>
-            <xsl:when test="not(empty($config))">
-                <xsl:choose>
-                    <xsl:when test="$config//*:collection[@name=$collection]">
-                        <xsl:value-of select="$config//*:collection[@name=$collection]/@title"/>
-                    </xsl:when>
-                    <xsl:when test="$config//*:collection[@title=$collection]">
-                        <xsl:value-of select="$config//*:collection[@title=$collection]/@title"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="$repository-title"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="$repository-title"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
+    <!-- Repo-config passed from staticHTML-->
+    <xsl:param name="config"/>
+    <xsl:param name="idno"/>
+    <xsl:param name="repository-title"/>
+    <xsl:param name="collection-title"/>
+    
     <!-- Resource id -->
     <xsl:variable name="resource-id">
         <xsl:choose>
-                     <xsl:when test="$idno != ''">
+            <xsl:when test="$idno != ''">
                 <xsl:value-of select="$idno"/>
             </xsl:when>
             <xsl:when test="string(/*/@id)">
                 <xsl:value-of select="string(/*/@id)"/>
             </xsl:when>
             <xsl:when test="/descendant::t:publicationStmt/t:idno[@type='URI'][starts-with(.,$base-uri)]">
-               <xsl:value-of select="replace(replace(/descendant::t:publicationStmt[1]/t:idno[@type='URI'][starts-with(.,$base-uri)][1],'/tei',''),'/source','')"/>
+                <xsl:value-of select="replace(replace(/descendant::t:publicationStmt[1]/t:idno[@type='URI'][starts-with(.,$base-uri)][1],'/tei',''),'/source','')"/>
             </xsl:when>
             <xsl:when test="/descendant::t:publicationStmt/t:idno[@type='URI']">
                 <xsl:value-of select="replace(replace(/descendant::t:publicationStmt[1]/t:idno[@type='URI'][1],'/tei',''),'/source','')"/>
@@ -335,6 +297,7 @@
                     <h2>Preferred Citation</h2>
                     <div class="indent citation">
                         <xsl:apply-templates select="parent::t:body/t:bibl[@subtype='citation']" mode="preferredCitation"/>
+<!--                        <xsl:apply-templates select="self::*" mode="bibliography"/>.-->
                     </div>
                 </div>
                 <h3>Full Citation Information</h3>
@@ -369,7 +332,7 @@
     
     <!-- C -->
     <xsl:template name="citationInfo">
-     <xsl:param name="idno"/>
+        <xsl:param name="idno"/>
         <div class="citationinfo">
             <h3>How to Cite This Entry</h3>
             <div id="citation-note" class="content-block indent">
@@ -408,9 +371,7 @@
                 <li>
                     <xsl:choose>
                         <xsl:when test="@subtype='quote'">"<xsl:apply-templates/>"</xsl:when>
-                        <xsl:otherwise>
-                            <xsl:apply-templates/>
-                        </xsl:otherwise>
+                        <xsl:otherwise><xsl:apply-templates/></xsl:otherwise>
                     </xsl:choose>
                     <xsl:sequence select="local:add-footnotes(@source,.)"/>
                 </li>
@@ -450,29 +411,29 @@
             <div id="see-also" class="see-also content-block">
                 <h3>See Also</h3>
                 <ul>
-                    <xsl:for-each select="//t:idno[contains(.,'csc.org.il')]">
+                    <xsl:for-each select="//t:idno[contains(.,'csc.org.il')][not(@subtype='deprecated')]">
                         <li>
                             <a href="{normalize-space(.)}"> "
                                 <xsl:value-of select="substring-before(substring-after(normalize-space(.),'sK='),'&amp;sT=')"/>" in the Comprehensive Bibliography on Syriac Christianity</a>
                         </li>
                     </xsl:for-each>
                     <!-- WorldCat Identities -->
-                    <xsl:for-each select="//t:idno[contains(.,'http://worldcat.org/identities')]">
+                    <xsl:for-each select="//t:idno[contains(.,'http://worldcat.org/identities')][not(@subtype='deprecated')]">
                         <li>
                             <a href="{normalize-space(.)}"> "<xsl:value-of select="substring-after(.,'http://worldcat.org/identities/')"/>" in WorldCat Identities</a>
                         </li>
                     </xsl:for-each>
                     <!-- VIAF -->
-                    <xsl:for-each select="//t:idno[contains(.,'http://viaf.org/')]">
+                    <xsl:for-each select="//t:idno[contains(.,'http://viaf.org/')][not(@subtype='deprecated')]">
                         <li>
                             <a href="{normalize-space(.)}">VIAF</a>
                         </li>
                     </xsl:for-each>
                     <!-- Pleiades links -->
-                    <xsl:for-each select="//t:idno[contains(.,'pleiades')]">
+                    <xsl:for-each select="//t:idno[contains(.,'pleiades')][not(@subtype='deprecated')]">
                         <li>
                             <a href="{normalize-space(.)}">
-                                <img src="../../resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
+                                <img src="/resources/images/circle-pi-25.png" alt="Image of the Greek letter pi in blue; small icon of the Pleiades project" title="click to view {$title} in Pleiades"/> View in Pleiades</a>
                         </li>
                     </xsl:for-each>
                     <!-- Google map links -->
@@ -485,19 +446,19 @@
                                 <xsl:value-of select="$coords[2]"/>
                             </xsl:variable>
                             <a href="https://maps.google.com/maps?q={$geoRef}+(name)&amp;z=10&amp;ll={$geoRef}">
-                                <img src="../../resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
+                                <img src="/resources/images/gmaps-25.png" alt="The Google Maps icon" title="click to view {$title} on Google Maps"/> View in Google Maps
                             </a>
                         </li>
                     </xsl:for-each>
                     
                     <!-- Wikipedia links -->
-                    <xsl:for-each select="//t:idno[contains(.,'wikipedia')]">
+                    <xsl:for-each select="//t:idno[contains(.,'wikipedia')][not(@subtype='deprecated')]">
                         <xsl:variable name="get-title">
                             <xsl:value-of select="replace(tokenize(.,'/')[last()],'_',' ')"/>
                         </xsl:variable>
                         <li>
                             <a href="{.}">
-                                <img src="../resources/images/Wikipedia-25.png" alt="The Wikipedia icon" title="click to view {$get-title} in Wikipedia"/> "<xsl:value-of select="$get-title"/>" in Wikipedia</a>
+                                <img src="/resources/images/Wikipedia-25.png" alt="The Wikipedia icon" title="click to view {$get-title} in Wikipedia"/> "<xsl:value-of select="$get-title"/>" in Wikipedia</a>
                         </li>
                     </xsl:for-each>
                 </ul>
@@ -507,6 +468,7 @@
     
     <!-- N -->
     <xsl:template match="t:note">
+        <xsl:param name="idno" tunnel="yes"/>
         <xsl:variable name="xmlid" select="@xml:id"/>
         <xsl:choose>
             <xsl:when test="ancestor::t:choice">
@@ -517,6 +479,27 @@
                 </span>
                 <xsl:text>) </xsl:text>
                 <xsl:sequence select="local:add-footnotes(@source,.)"/>
+            </xsl:when>
+            <!-- Filter abstracts -->
+            <xsl:when test="@type = 'abstract'">
+                <xsl:choose>
+                    <xsl:when test="$collection-title = 'The Syriac Biographical Dictionary' and @coresp[contains(.,'http://syriaca.org/persons')]"/>
+                    <xsl:when test="$collection-title = 'The Syriac Gazetteer' and @coresp[contains(.,'http://syriaca.org/geo')]"/>
+                    <xsl:when test="$collection-title = 'Prosopography to John of Ephesus’s Ecclesiastical History' and @coresp[contains(.,'http://syriaca.org/johnofephesus/persons')]"/>
+                    <xsl:when test="$collection-title = 'Gazetteer to John of Ephesus’s Ecclesiastical History' and @coresp[contains(.,'http://syriaca.org/johnofephesus/places')]"/>
+                    <xsl:when test="$collection = 'sbd' and @coresp[contains(.,'http://syriaca.org/johnofephesus/persons')]"/>
+                    <xsl:when test="$collection = 'places' and @coresp[contains(.,'http://syriaca.org/geo')]"/>
+                    <xsl:when test="$collection = 'johnofephesusPersons' and @coresp[contains(.,'http://syriaca.org/johnofephesus/persons')]"/>
+                    <xsl:when test="$collection = 'johnofephesusPlaces' and @coresp[contains(.,'http://syriaca.org/johnofephesus/places')]"/>
+                    <xsl:otherwise>
+                        <div class="tei-note">
+                            <xsl:choose>
+                                <xsl:when test="t:quote"><xsl:apply-templates/></xsl:when>
+                                <xsl:otherwise><span><xsl:sequence select="local:attributes(.)"/><xsl:apply-templates/></span><xsl:sequence select="local:add-footnotes(@source,.)"/></xsl:otherwise>
+                            </xsl:choose>
+                        </div>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:when>
             <!-- Adds definition list for depreciated names -->
             <xsl:when test="@type='deprecation'">
@@ -605,19 +588,9 @@
             <xsl:otherwise>
                 <div class="tei-note">  
                     <xsl:choose>
-                        <xsl:when test="t:quote">
-                            <xsl:apply-templates/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <span>
-                                <xsl:sequence select="local:attributes(.)"/>
-                                <xsl:apply-templates/>
-                                <!-- Check for ending punctuation, if none, add . -->
-                                <!-- Do not have this working -->
-                            </span>
-                        </xsl:otherwise>
+                        <xsl:when test="t:quote"><xsl:apply-templates/></xsl:when>
+                        <xsl:otherwise><span><xsl:sequence select="local:attributes(.)"/><xsl:apply-templates/></span><xsl:sequence select="local:add-footnotes(@source,.)"/></xsl:otherwise>
                     </xsl:choose>
-                    <xsl:sequence select="local:add-footnotes(@source,.)"/>
                 </div>
             </xsl:otherwise>
         </xsl:choose>
@@ -625,11 +598,12 @@
     
     <!-- P -->
     <!-- Main page modules for syriaca.org display -->
+   
     <xsl:template match="t:person | t:personGrp">
-     <xsl:param name="idno" tunnel="yes"/>
-        <xsl:if test="t:desc[@type='abstract'] | t:desc[starts-with(@xml:id, 'abstract-en')] | t:note[@type='abstract']">
+        <xsl:param name="idno" tunnel="yes"/>
+        <xsl:if test="t:note[@type='abstract'] | t:note[starts-with(@xml:id, 'abstract-en')]">
             <xsl:choose>
-               <xsl:when test="contains($idno, 'johnofephesus') or $collection = 'johnofephesusPersons' or $collection-title = 'Prosopography to John of Ephesus’s Ecclesiastical History'">
+                <xsl:when test="contains($idno, 'johnofephesus') or $collection = 'johnofephesusPersons' or $collection-title = 'Prosopography to John of Ephesus’s Ecclesiastical History'">
                     <xsl:if test="t:note[@type='abstract'][contains(@corresp,'http://syriaca.org/johnofephesus/persons')]">
                         <div class="tei-desc text abstract">
                             <xsl:apply-templates select="t:note[@type='abstract'][contains(@corresp,'http://syriaca.org/johnofephesus/persons')]"/>
@@ -668,7 +642,7 @@
                 </xsl:apply-templates> 
             </ul>   
         </xsl:if>
-        <xsl:apply-templates select="t:sex | t:gender| t:death  | t:birth | t:floruit"/>
+        <xsl:apply-templates select="t:sex | t:gender | t:death | t:birth | t:floruit"/>
         <!-- Work in progress
         <xsl:if test="t:state">
             <xsl:for-each-group select="//t:state[not(@when) and not(@notBefore) and not(@notAfter) and not(@to) and not(@from)]" group-by="@type">
@@ -686,6 +660,7 @@
             </xsl:for-each-group>
         </xsl:if>
         -->
+        <!--
         <xsl:if test="not(empty(t:desc[not(starts-with(@xml:id,'abstract'))][1])) or not(empty(t:note[@type='description'][1]))">
             <h3>Descriptions</h3>
             <xsl:for-each-group select="t:desc[not(starts-with(@xml:id,'abstract'))] | t:note[@type='description']" group-by="if (contains(@xml:lang, '-')=true()) then substring-before(@xml:lang, '-') else @xml:lang">
@@ -698,6 +673,7 @@
                 </xsl:for-each>
             </xsl:for-each-group>
         </xsl:if> 
+        -->
         <!-- Events -->
         <xsl:if test="t:event[not(@type='attestation')]">
             <div id="event">
@@ -730,23 +706,12 @@
             </div>
         </xsl:if>
         
-        <xsl:if test="not(empty(t:note[not(@type='description')][1]))">
-            <xsl:choose>
-                <xsl:when test="$collection = 'johnofephesusPersons'">
-                    <xsl:if test="t:note[not(@type='abstract')][not(@type='description')][contains(@corresp,'http://syriaca.org/johnofephesus/persons')]">
-                        <h3>Notes</h3>
-                        <xsl:apply-templates select="t:note[not(@type='abstract')][not(@type='description')][not(contains(@corresp,'http://syriaca.org/johnofephesus/persons'))]"/>
-                    </xsl:if>
-                </xsl:when>
-                <xsl:when test="t:note[not(@type='abstract')][contains(@corresp,'http://syriaca.org/persons')]">
-                    <h3>Notes</h3>
-                    <xsl:apply-templates select="t:note[not(@type='abstract')][not(@type='description')][not(contains(@corresp,'http://syriaca.org/persons'))]"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <h3>Notes</h3>
-                    <xsl:apply-templates select="t:note[not(@type='abstract')][not(@type='description')]"/>
-                </xsl:otherwise>
-            </xsl:choose>
+        <xsl:if test="not(empty(t:note))">
+            <h3>Notes</h3>
+            <xsl:for-each select="t:note">
+                <xsl:sort select="@type"/>
+                <xsl:apply-templates select="."/>
+            </xsl:for-each>
         </xsl:if>
         
         <div class="info-btns">  
@@ -769,7 +734,7 @@
         <xsl:call-template name="sources"/>
     </xsl:template>
     <xsl:template match="t:place">
-     <xsl:param name="idno" tunnel="yes"/>
+        <xsl:param name="idno" tunnel="yes"/>
         <xsl:if test="t:desc[@type='abstract'] | t:desc[starts-with(@xml:id, 'abstract-en')] | t:note[@type='abstract']">
             <xsl:choose>
                 <xsl:when test="contains($idno, 'johnofephesus') or $collection = 'johnofephesusPlace' or $collection-title = 'Gazetteer to John of Ephesus’s Ecclesiastical History'">
@@ -827,6 +792,7 @@
                 </ul>
             </div>
         </xsl:if>
+        <!--
         <xsl:if test="not(empty(t:desc[not(starts-with(@xml:id,'abstract'))][1])) or not(empty(t:note[@type='description'][1]))">
             <h3>Descriptions</h3>
             <xsl:for-each-group select="t:desc[not(starts-with(@xml:id,'abstract'))] | t:note[@type='description']" group-by="if (contains(@xml:lang, '-')=true()) then substring-before(@xml:lang, '-') else @xml:lang">
@@ -839,6 +805,7 @@
                 </xsl:for-each>
             </xsl:for-each-group>
         </xsl:if> 
+        -->
         <xsl:if test="t:state[. != '']">
             <xsl:for-each-group select="//t:state[not(@when) and not(@notBefore) and not(@notAfter) and not(@to) and not(@from)]" group-by="@type">
                 <h3><xsl:value-of select="concat(upper-case(substring(current-grouping-key(),1,1)),substring(current-grouping-key(),2))"/></h3>
@@ -883,6 +850,14 @@
             </div>
         </xsl:if>
         
+        <xsl:if test="not(empty(t:note))">
+            <h3>Notes</h3>
+            <xsl:for-each select="t:note">
+                <xsl:sort select="@type"/>
+                <xsl:apply-templates select="."/>
+            </xsl:for-each>
+        </xsl:if>
+        
         <!-- Confessions/Religious Communities -->
         <xsl:if test="t:state[@type='confession'][parent::t:place]">
             <div>
@@ -891,9 +866,9 @@
                     <em>This list is not necessarily exhaustive, and the order does not represent importance or proportion of the population. Dates do not represent starting or ending dates of a group's presence, but rather when they are attested. Instead, the list only represents groups for which Syriaca.org has source(s) and dates.</em>
                 </p>
                 <xsl:choose>
-                    <xsl:when test="doc-available(concat($app-root,'/documentation/confessions.xml'))">
+                    <xsl:when test="doc-available(concat($applicationPath,'/documentation/confessions.xml'))">
                         <xsl:call-template name="confessions">
-                            <xsl:with-param name="confessionsDoc" select="doc(concat($app-root,'/documentation/confessions.xml'))"/>
+                            <xsl:with-param name="confessionsDoc" select="document(concat($applicationPath,'/documentation/confessions.xml'))"/>
                         </xsl:call-template>
                     </xsl:when>
                     <xsl:otherwise>
@@ -929,7 +904,6 @@
         </xsl:call-template>
         <xsl:call-template name="sources"/>
         
-        <!-- WS: Note, this was constructed by XQuery, will need to pull it in another way -->
         <!--
         <xsl:if test="t:nested-place">
             <div id="contents">
@@ -997,7 +971,9 @@
             <xsl:if test="@ana">
                 <xsl:for-each select="tokenize(@ana,' ')">
                     <xsl:variable name="filepath">
-                      <xsl:value-of select="substring-before(replace(.,$base-uri,$nav-base),'#')"/>                    
+                        <!-- WS:NOTE need to resolve -->
+<!--                        <xsl:value-of select="concat('xmldb:exist://',substring-before(replace(.,$base-uri,$nav-base),'#'))"/>-->
+                        <xsl:value-of select="substring-before(replace(.,$base-uri,$nav-base),'#')"/>
                     </xsl:variable>
                     <xsl:variable name="ana-id" select="substring-after(.,'#')"/>
                     <xsl:if test="doc-available($filepath)">
@@ -1358,7 +1334,7 @@
     
     <!-- T -->
     <xsl:template match="t:TEI">
-     <xsl:param name="idno" tunnel="yes"/>
+        <xsl:param name="idno" tunnel="yes"/>
         <xsl:choose>
             <xsl:when test="contains($resource-id,'cbss')">
                 <xsl:apply-templates select="descendant::t:biblStruct"/>
@@ -1377,13 +1353,14 @@
                 <xsl:apply-templates select="descendant::t:body"/>
                 <!-- Citation Information -->
                 <xsl:apply-templates select="t:teiHeader" mode="citation">
+<!--                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>-->
                 </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
         
     </xsl:template>
     <xsl:template match="t:teiHeader" mode="#all">
-     <xsl:param name="idno"/>
+        <xsl:param name="idno"/>
         <xsl:choose>
             <xsl:when test="contains($resource-id,'/bibl/') or contains($resource-id,'/cbss/')">
                 <!--
@@ -1408,7 +1385,7 @@
                         <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-foot">
                             <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
                         </xsl:apply-templates>
-                     <div class="collapse" id="showcit">
+                        <div class="collapse" id="showcit">
                             <div id="citation-bibliography">
                                 <h4>Bibliography:</h4>
                                 <xsl:apply-templates select="t:fileDesc/t:titleStmt" mode="cite-biblist">
@@ -1448,11 +1425,12 @@
         </xsl:call-template>
     </xsl:template>
     <xsl:template name="h1">
-       <xsl:param name="idno"/>
+        <xsl:param name="idno" tunnel="yes"/>
         <xsl:variable name="id">
             <xsl:choose>
                 <xsl:when test="$idno"><xsl:value-of select="$idno"/></xsl:when>
-                <xsl:otherwise><xsl:value-of select="$resource-id"/></xsl:otherwise>
+                <xsl:when test="$resource-id"><xsl:value-of select="$resource-id"/></xsl:when>
+                <xsl:otherwise><xsl:value-of select="/descendant::t:publicationStmt/t:idno[@type='URI'][1]"/></xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
         <div class="title">
@@ -1529,7 +1507,7 @@
                                 <xsl:when test=". = 'The Syriac Biographical Dictionary'"/>
                                 <xsl:when test=". = 'A Guide to Syriac Authors'">
                                     <xsl:text> </xsl:text>
-                                    <a href="{$nav-base}/authors/index.html">
+                                    <a href="/authors/index.html">
                                         <span class="syriaca-icon syriaca-authors" style="font-size:1.35em; vertical-align: middle;">
                                             <span class="path1"/>
                                             <span class="path2"/>
@@ -1541,7 +1519,7 @@
                                 </xsl:when>
                                 <xsl:when test=". = 'Qadishe: A Guide to the Syriac Saints'">
                                     <xsl:text> </xsl:text>
-                                    <a href="{$nav-base}/q/index.html">
+                                    <a href="/q/index.html">
                                         <span class="syriaca-icon syriaca-q" style="font-size:1.35em; vertical-align: middle;">
                                             <span class="path1"/>
                                             <span class="path2"/>
@@ -1553,7 +1531,7 @@
                                 </xsl:when>
                                 <xsl:when test=". = 'Bibliotheca Hagiographica Syriaca Electronica'">
                                     <xsl:text> </xsl:text>
-                                    <a href="{$nav-base}/bhse/index.html">
+                                    <a href="/bhse/index.html">
                                         <span class="syriaca-icon syriaca-bhse" style="font-size:1.35em; vertical-align: middle;">
                                             <span class="path1"/>
                                             <span class="path2"/>
@@ -1565,7 +1543,7 @@
                                 </xsl:when>
                                 <xsl:when test=". = 'New Handbook of Syriac Literature'">
                                     <xsl:text> </xsl:text>
-                                    <a href="{$nav-base}/nhsl/index.html">
+                                    <a href="/nhsl/index.html">
                                         <span class="syriaca-icon syriaca-nhsl" style="font-size:1.35em; vertical-align: middle;">
                                             <span class="path1"/>
                                             <span class="path2"/>
@@ -1717,9 +1695,30 @@
     <!-- S -->
     <!-- Template to print out confession section -->
     <xsl:template match="t:state[@type='confession']">
-        <xsl:if test="doc-available(concat('xmldb:exist://',$nav-base,'/documentation/confessions.xml'))">
-            <!-- Get all ancesors of current confession (but only once) -->
-            <xsl:variable name="confessions" select="document(concat('xmldb:exist://',$nav-base,'/documentation/confessions.xml'))//t:body/t:list"/>
+        <!-- WS:NOTE should probably change to static site for long term use, then don't have to keep old site around. -->
+        <!--
+        <xsl:choose>
+            <xsl:when test="doc-available(concat($applicationPath,'/documentation/confessions.xml'))">
+                <xsl:message>Confessions available</xsl:message>
+                <xsl:variable name="confessions" select="document(concat($applicationPath,'/documentation/confessions.xml'))/descendant::t:body/t:list"/>
+                <xsl:variable name="id" select="substring-after(@ref,'http://syriaca.org/taxonomy/')"/>
+                <li>
+                    <xsl:value-of select="$id"/>: 
+                    <xsl:for-each select="$confessions//t:item[@xml:id = $id]/ancestor-or-self::*/t:label">
+                        <xsl:value-of select="."/>
+                    </xsl:for-each>
+                </li> 
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:message>Confessions NOT available</xsl:message>
+            </xsl:otherwise>
+        </xsl:choose>
+        -->
+        <!-- 
+            <xsl:when test="doc-available($biblfilepath)">
+            
+        <xsl:if test="doc-available(concat($applicationPath,'/documentation/confessions.xml'))">
+            <xsl:variable name="confessions" select="document(concat($applicationPath,'/documentation/confessions.xml'))//t:body/t:list"/>
             <xsl:variable name="id" select="substring-after(@ref,'#')"/>
             <li>
                 <xsl:value-of select="$id"/>: 
@@ -1728,6 +1727,7 @@
                 </xsl:for-each>
             </li>  
         </xsl:if>
+        -->
     </xsl:template>
     <xsl:template match="t:state | t:birth | t:death | t:floruit | t:sex | t:gender | t:langKnowledge">
        <div class="person-details">
@@ -1779,7 +1779,18 @@
                 </p>
                 <ul>
                     <!-- Bibliography elements are processed by bibliography.xsl -->
+                    <!-- Old works model 
+                    <xsl:choose>
+                        <xsl:when test="t:bibl[@type='lawd:Citation']">
+                            <xsl:apply-templates select="t:bibl[@type='lawd:Citation']" mode="footnote"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates select="t:bibl" mode="footnote"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    -->
                     <xsl:for-each select="t:bibl">
+<!--                       <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>-->
                         <xsl:sort select="
                         if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
                         then number(substring-after(@xml:id, '-')) 
@@ -1790,7 +1801,6 @@
             </div>
         </div>
     </xsl:template>
-
     
     <!-- W -->
     <xsl:template match="t:work-toc">
