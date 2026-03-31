@@ -110,7 +110,6 @@
             <xsl:apply-templates select="normalize-space(string-join($nodes/descendant-or-self::t:titleStmt/t:title[1],''))"/>
         </xsl:variable>
         <xsl:variable name="desc">
-
              <xsl:if test="$nodes/descendant::t:desc"><xsl:value-of select="normalize-space(string-join($nodes/descendant::t:desc[1],' '))"/></xsl:if>
         </xsl:variable>
         <xsl:variable name="type">
@@ -143,7 +142,7 @@
                             <map key="properties">
                                 <string key="name"><xsl:value-of select="$title"/></string>
                                 <xsl:if test="$desc != ''">
-                                    <string key="desc" xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="replace($desc, '[\t\p{Zs}]', '&#160;')"/></string>     
+                                    <string key="desc" xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="replace($desc, '[\t\p{Zs}]', '&#160;')"/></string>    
                                 </xsl:if>
                                 <xsl:if test="$type != ''">
                                     <string key="type" xmlns="http://www.w3.org/2005/xpath-functions"><xsl:value-of select="$type"/></string>    

@@ -4,8 +4,8 @@
     <!-- Helper Functions  -->
     <!-- =================================================================== -->
     <xsl:variable name="odd">
-        <xsl:if test="doc-available(concat('xmldb:exist://',$app-root,'/documentation/syriaca-tei-main.odd'))">
-            <xsl:sequence select="doc(concat('xmldb:exist://',$app-root,'/documentation/syriaca-tei-main.odd'))"/>
+        <xsl:if test="doc-available(concat($applicationPath,'/documentation/syriaca-tei-main.odd'))">
+            <xsl:sequence select="doc(concat($applicationPath,'/documentation/syriaca-tei-main.odd'))"/>
         </xsl:if>
     </xsl:variable>
     
@@ -431,7 +431,7 @@
         <xsl:variable name="file">
             <xsl:choose>
                 <xsl:when test="contains($file-name,$base-uri)">
-                    <xsl:value-of select="replace($file-name,$base-uri,concat('xmldb:exist://',$nav-base))"/>
+                    <xsl:value-of select="replace($file-name,$base-uri,$nav-base)"/>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:value-of select="doc($ref)"/>
@@ -472,51 +472,23 @@
         <xsl:choose>
             <xsl:when test="@rend">
                 <xsl:choose>
-                    <xsl:when test="@rend = 'bold'">
-                        <b>
-                            <xsl:call-template name="ref"/>
-                        </b>
-                    </xsl:when>
-                    <xsl:when test="@rend = 'italic'">
-                        <i>
-                            <xsl:call-template name="ref"/>
-                        </i>
-                    </xsl:when>
-                    <xsl:when test="@rend = ('superscript','sup')">
-                        <sup>
-                            <xsl:call-template name="ref"/>
-                        </sup>
-                    </xsl:when>
-                    <xsl:when test="@rend = ('subscript','sub')">
-                        <sub>
-                            <xsl:call-template name="ref"/>
-                        </sub>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <span class="tei-rend-{string(@rend)}">
-                            <xsl:call-template name="ref"/>
-                        </span>
-                    </xsl:otherwise>
+                    <xsl:when test="@rend = 'bold'"><b><xsl:call-template name="ref"/></b></xsl:when>
+                    <xsl:when test="@rend = 'italic'"><i><xsl:call-template name="ref"/></i></xsl:when>
+                    <xsl:when test="@rend = ('superscript','sup')"><sup><xsl:call-template name="ref"/></sup></xsl:when>
+                    <xsl:when test="@rend = ('subscript','sub')"><sub><xsl:call-template name="ref"/></sub></xsl:when>
+                    <xsl:otherwise><span class="tei-rend-{string(@rend)}"><xsl:call-template name="ref"/></span></xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:otherwise>
-                <xsl:call-template name="ref"/> 
-            </xsl:otherwise>
+            <xsl:otherwise><xsl:call-template name="ref"/></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template name="ref">
         <xsl:choose>
-            <xsl:when test="parent::t:ref or parent::t:ptr or parent::*[1]/@ref">
-                <xsl:apply-templates/>
-            </xsl:when>
+            <xsl:when test="parent::t:ref or parent::t:ptr or parent::*[1]/@ref"><xsl:apply-templates/></xsl:when>
             <xsl:when test="@ref">
-                <a href="{@ref}">
-                    <xsl:apply-templates/>
-                </a>
+                <a href="{@ref}"><xsl:apply-templates/></a>
             </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates/>
-            </xsl:otherwise>
+            <xsl:otherwise><xsl:apply-templates/></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
