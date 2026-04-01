@@ -437,6 +437,7 @@
                     <xsl:otherwise><xsl:message>No template found for html:head element</xsl:message></xsl:otherwise>
                 </xsl:choose>
             <body id="body">
+                <div class="hidden test ws"></div>
                 <xsl:choose>
                     <xsl:when test="not(empty($template))">
                         <xsl:choose>
