@@ -1342,7 +1342,7 @@
             <xsl:otherwise>
                 <!-- Header -->
                 <xsl:call-template name="h1">
-                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+<!--                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>-->
                 </xsl:call-template>
                 <xsl:apply-templates select="descendant::t:sourceDesc/t:msDesc"/>
                 <!-- MSS display -->
@@ -1421,7 +1421,7 @@
     <xsl:template match="t:srophe-title | t:titleStmt">
         <xsl:param name="idno"/>
         <xsl:call-template name="h1">
-            <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>
+<!--            <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>-->
         </xsl:call-template>
     </xsl:template>
     <xsl:template name="h1">
