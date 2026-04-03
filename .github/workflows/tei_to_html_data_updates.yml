@@ -148,6 +148,15 @@ jobs:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.GADDEL_CLOUDFRONT_DISTRIBUTION_ID}} \
+            --paths "/*"
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}           
+
       # Step 6: Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
         if: always()
