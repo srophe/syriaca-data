@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Gregory of Nyssa (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -159,96 +137,111 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1546" ana="#hagiographic">
-                <title xml:id="name1546-3" xml:lang="fr" source="#bib1546-1">Grégoire de Nysse (texte)</title>
-                <title xml:id="name1546-4" xml:lang="en" source="#bib1546-1" srophe:tags="#syriaca-headword">Gregory of Nyssa (text)</title>
-                <author xml:lang="fr" source="#bib1546-1" ref="http://syriaca.org/person/511">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Gregory</forename>
-                        <addName type="untagged-title" sort="2">of Nazianzus</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܓܪܝܓܘܪܝܘܣ</forename>
-                        <addName type="untagged-title" sort="2">ܕܐܢܙܝܢܙܘ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Grégoire</forename>
-                        <addName type="untagged-title">de Nazianze</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1546-1">
-                    <quote>ܕܪܚܡܐ ܡܗܝܡܢܐ ܠܝܬ ܬܚܠܘܦܐ ܡܢ ܗܠܝܢ ܕܐܝܬܝܗܝܢ ܘܠܐ ܡܕܡ ܐܦܠܐ ܡܬܩܠܐ ܡܕܡ ܠܝܐܝܘܬܗ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1546-1">
-                    <quote>Il n’est pas possible de remplacer un ami fidèle par quoi que ce soit qui existe et rien ne fait le poids congre sa beauté.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1546-1">
-                    <quote>ܘܠܟܘܢ ܢܓܡܘܪ ܒܟܘܠ ܥܒܕܐ ܛܒܐ ܘܢܦܝܣ ܕܪܘܚܢܐܝܬ ܬܚܓܘܢ ܠܣ̈ܗܕܐ ܘܠܒܘܣܡܐ ܕܡܢ ܬܡܢ ܢܫܬܘܐ ܐܝܟܐ ܕܡܥܡܪܐ ܕܟܠܗܘܢ ܗܿܢܘܢ ܕܚܿܕܝܢ ܘܟܕ ܡܬܚܙܝܢ ܐܢܬܘܢ ܒܙܕܝܩܘܬܐ ܡܢ ܬܫܒܘܚܬܗ ܢܣܒܥܟܘܢ ܡܐ ܕܐܬܚܙܝܬ ܒܡܫܝܚܐ ܝܫܘܥ... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1546-1">
-                    <quote>Et qu’il vous achève par toute oeuvre bonne et qu’il vous persuade de fêter spirituellement les martyrs et qu’il vous juge dignes de la douceur de là-bas où est la demeure de tous ceux qui se réjouissent, et que, vus dans la justice, il vous rassasie de sa gloire vue dans le Christ Jésus… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1546-1">
-                    <bibl xml:id="bib1546-2">ms Londres, British Library, Add. 14548, f. 45-47</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1546-1">
-                    <bibl xml:id="bib1546-3">ms Londres, British Library, Add. 12153, f. 37-39</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1546-1">
-                    <bibl xml:id="bib1546-4">ms Londres, British Library, Or. 8730, f. 47-49v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1546-1">
-                    <bibl xml:id="bib1546-5">ms Londres, British Library, Add. 14547, f. 54v-57</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1546-1">
-                    <bibl xml:id="bib1546-6">ms Londres, British Library, Rich. 7187, f. 39-41v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1546-1">
-                    <bibl xml:id="bib1546-7">ms Londres, British Library, Add. 14601, f. 42v-44</bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1546-1">
-                    <bibl xml:id="bib1546-8">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1546-1">
-                    <bibl xml:id="bib1546-9">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1546-1">
-                    <bibl xml:id="bib1546-10">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1546-1">
-                    <bibl xml:id="bib1546-11">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1546-1">
-                    <bibl xml:id="bib1546-12">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1546-1">
-                    <bibl xml:id="bib1546-13">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1546</idno>
-                <idno type="BHS">1454</idno>
-                <idno type="CPG">3010</idno>
-                <bibl xml:id="bib1546-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1546" ana="#syriaca-hagiographic">
+        <title xml:id="name1546-3" xml:lang="fr" source="#bib1546-1">Grégoire de Nysse (texte)</title>
+        <title xml:id="name1546-4" xml:lang="en" source="#bib1546-1" srophe:tags="#syriaca-headword">Gregory of Nyssa (text)</title>
+        <author ref="http://syriaca.org/person/511" source="#bib1546-1" xml:lang="en">Gregory Nazianzen — <foreign xml:lang="syr">ܓܪܝܓܘܪܝܘܣ ܕܐܢܙܝܢܙܘ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1546</idno>
+        <idno type="number" subtype="BHS">1454</idno>
+        <idno type="number" subtype="CPG">3010</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1546-1">ܕܪܚܡܐ ܡܗܝܡܢܐ ܠܝܬ ܬܚܠܘܦܐ ܡܢ ܗܠܝܢ ܕܐܝܬܝܗܝܢ ܘܠܐ ܡܕܡ ܐܦܠܐ ܡܬܩܠܐ ܡܕܡ ܠܝܐܝܘܬܗ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1546-1">Il n’est pas possible de remplacer un ami fidèle par quoi que ce soit qui existe et rien ne fait le poids congre sa beauté.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1546-1">ܘܠܟܘܢ ܢܓܡܘܪ ܒܟܘܠ ܥܒܕܐ ܛܒܐ ܘܢܦܝܣ ܕܪܘܚܢܐܝܬ ܬܚܓܘܢ ܠܣ̈ܗܕܐ ܘܠܒܘܣܡܐ ܕܡܢ ܬܡܢ ܢܫܬܘܐ ܐܝܟܐ ܕܡܥܡܪܐ ܕܟܠܗܘܢ ܗܿܢܘܢ ܕܚܿܕܝܢ ܘܟܕ ܡܬܚܙܝܢ ܐܢܬܘܢ ܒܙܕܝܩܘܬܐ ܡܢ ܬܫܒܘܚܬܗ ܢܣܒܥܟܘܢ ܡܐ ܕܐܬܚܙܝܬ ܒܡܫܝܚܐ ܝܫܘܥ... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1546-1">Et qu’il vous achève par toute oeuvre bonne et qu’il vous persuade de fêter spirituellement les martyrs et qu’il vous juge dignes de la douceur de là-bas où est la demeure de tous ceux qui se réjouissent, et que, vus dans la justice, il vous rassasie de sa gloire vue dans le Christ Jésus… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1546-2" source="#bib1546-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14548</idno>
+            </label>
+            <biblScope unit="fol">f. 45-47</biblScope>
+          </bibl>
+          <bibl xml:id="bib1546-3" source="#bib1546-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12153</idno>
+            </label>
+            <biblScope unit="fol">f. 37-39</biblScope>
+          </bibl>
+          <bibl xml:id="bib1546-4" source="#bib1546-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Or. 8730</idno>
+            </label>
+            <biblScope unit="fol">f. 47-49v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1546-5" source="#bib1546-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14547</idno>
+            </label>
+            <biblScope unit="fol">f. 54v-57</biblScope>
+          </bibl>
+          <bibl xml:id="bib1546-6" source="#bib1546-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Rich. 7187</idno>
+            </label>
+            <biblScope unit="fol">f. 39-41v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1546-7" source="#bib1546-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14601</idno>
+            </label>
+            <biblScope unit="fol">f. 42v-44</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="ancientVersions">
+          <head>Ancient Versions</head>
+          <desc xml:lang="en">This is not a comprehensive list of ancient versions related to this work.</desc>
+          <bibl xml:id="bib1546-8" source="#bib1546-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="la"/>
+          </bibl>
+          <bibl xml:id="bib1546-9" source="#bib1546-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ar"/>
+          </bibl>
+          <bibl xml:id="bib1546-10" source="#bib1546-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="hy"/>
+          </bibl>
+          <bibl xml:id="bib1546-11" source="#bib1546-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ka"/>
+          </bibl>
+          <bibl xml:id="bib1546-12" source="#bib1546-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="cu"/>
+          </bibl>
+          <bibl xml:id="bib1546-13" source="#bib1546-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="cop"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1546-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1454</citedRange>
-                </bibl>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1454</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

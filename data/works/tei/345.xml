@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Nicholas of Myra (text) — <foreign xml:lang="syr">ܢܝܩܠܐܘܣ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,78 +142,102 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-345" ana="#hagiographic">
-                <title xml:id="name345-1" xml:lang="syr" source="#bib345-1" srophe:tags="#syriaca-headword">ܢܝܩܠܐܘܣ</title>
-                <title xml:id="name345-2" xml:lang="fr-x-bhs" source="#bib345-1">Nīqālēʾōs</title>
-                <title xml:id="name345-3" xml:lang="fr" source="#bib345-1">Nicolas de Myre (texte)</title>
-                <title xml:id="name345-4" xml:lang="en" source="#bib345-1" srophe:tags="#syriaca-headword">Nicholas of Myra (text)</title>
-                <note xml:lang="syr" type="incipit" source="#bib345-1">
-                    <quote>ܒܝܘ̈ܡܝ ܡܠܟܘܬܗ ܕܩܘܣܛܢܛܝܢܘܣ ܡܗܝܡܢܐ ܘܡܠܟܐ ܙܟܝܐ: ܡܪܕܘ ܗܘ̣ܘ ܐܢܫܝ̈ܢ ܡܢ ܐܬܪܐ ܕܦܪܘܓܝܐ: ܘܥܒܕܘ ܫܓܘܫܝܐ ܣܓܝܐܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib345-1">
-                    <quote>Aux jours du règne de Constantin, empereur croyant et victorieux, des gens de la région de Phrygie se révoltèrent et firent un grand tumulte.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib345-1">
-                    <quote>ܗܠܝܢ ܟܠܗܝܢ: ܠܝܬ ܠܫܢܐ ܕܣܦܩ ܕܢܫܬܥܐ ܐܢܝܢ: ܘܥܕܡܐ ܠܫܘܠܡܐ ܠܐ ܫܠܐ ܡܢ ܕܡܬܟܫܦ ܥܠ ܥܕܬܗ ܐܠܗܐ. ܗܘܐ ܕܝܢ ܥܘܢܕܢܗ ܒܫܬܐ ܒܟܢܘܢ ܩܕܡ. ܕܒܝܕ ܨ̈ܠܘܬܗ ܢܗܘܐ ܠܗ ܟܠܢ ܫܘ̈ܬܦܐ: ܘܡܦܝܣܝܢܢ... ܥܠ ܟܠܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib345-1">
-                    <quote>Il n’y a pas de langue capable de raconter tout cela; et jusqu’à la fin Dieu ne cessera pas d’intercéder pour son Église. Sa mort eut lieu le 6 Kanôn I; par ses prières puissions-nous tous lui être associés. Et nous supplions… sur nous tous.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib345-1" xml:id="bib345-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 4</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>p. 290-302</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib345-1">
-                    <bibl xml:id="bib345-4">ms Paris, Bibliothèque nationale, syr. 234, f. 138</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib345-1">
-                    <bibl xml:id="bib345-5">ms Londres, British Library, Add. 12174, f. 138v-140v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib345-1">
-                    <bibl xml:id="bib345-6">ms Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales, fonds oriental ancien 13 (Pigulevskaya 52)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib345-1">
-                    <bibl xml:id="bib345-7">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 33v-35</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib345-1">
-                    <bibl xml:id="bib345-8">
-                        <editor>P. Kokovcov</editor>
-                        <title>©udesa sv. Nikolaja, episkopa
-                goroda Mir, dans Zapiski Vosto?nago Otdelenija Imperatorskago Russkago
-                Arxeologi?eskago ob¯?estva, 9 (1895)</title>
-                        <ptr target="http://syriaca.org/cbss/YEQ5PAGD"/>
-                        <citedRange unit="pp">79-86</citedRange>
-                        <lang>ru</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/345</idno>
-                <idno type="BHS">125</idno>
-                <idno type="BHO">810</idno>
-                <bibl xml:id="bib345-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-345" ana="#syriaca-hagiographic">
+        <title xml:id="name345-1" xml:lang="syr" source="#bib345-1" srophe:tags="#syriaca-headword">ܢܝܩܠܐܘܣ</title>
+        <title xml:id="name345-2" xml:lang="fr-x-bhs" source="#bib345-1">Nīqālēʾōs</title>
+        <title xml:id="name345-3" xml:lang="fr" source="#bib345-1">Nicolas de Myre (texte)</title>
+        <title xml:id="name345-4" xml:lang="en" source="#bib345-1" srophe:tags="#syriaca-headword">Nicholas of Myra (text)</title>
+        <idno type="URI">http://syriaca.org/work/345</idno>
+        <idno type="number" subtype="BHS">125</idno>
+        <idno type="number" subtype="BHO">810</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib345-1">ܒܝܘ̈ܡܝ ܡܠܟܘܬܗ ܕܩܘܣܛܢܛܝܢܘܣ ܡܗܝܡܢܐ ܘܡܠܟܐ ܙܟܝܐ: ܡܪܕܘ ܗܘ̣ܘ ܐܢܫܝ̈ܢ ܡܢ ܐܬܪܐ ܕܦܪܘܓܝܐ: ܘܥܒܕܘ ܫܓܘܫܝܐ ܣܓܝܐܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib345-1">Aux jours du règne de Constantin, empereur croyant et victorieux, des gens de la région de Phrygie se révoltèrent et firent un grand tumulte.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib345-1">ܗܠܝܢ ܟܠܗܝܢ: ܠܝܬ ܠܫܢܐ ܕܣܦܩ ܕܢܫܬܥܐ ܐܢܝܢ: ܘܥܕܡܐ ܠܫܘܠܡܐ ܠܐ ܫܠܐ ܡܢ ܕܡܬܟܫܦ ܥܠ ܥܕܬܗ ܐܠܗܐ. ܗܘܐ ܕܝܢ ܥܘܢܕܢܗ ܒܫܬܐ ܒܟܢܘܢ ܩܕܡ. ܕܒܝܕ ܨ̈ܠܘܬܗ ܢܗܘܐ ܠܗ ܟܠܢ ܫܘ̈ܬܦܐ: ܘܡܦܝܣܝܢܢ... ܥܠ ܟܠܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib345-1">Il n’y a pas de langue capable de raconter tout cela; et jusqu’à la fin Dieu ne cessera pas d’intercéder pour son Église. Sa mort eut lieu le 6 Kanôn I; par ses prières puissions-nous tous lui être associés. Et nous supplions… sur nous tous.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/345" source="#bib345-1" passive="http://syriaca.org/person/1946">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1946">Nicholas of Myra</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib345-1" xml:id="bib345-3" type="lawd:Edition">
+            <title xml:lang="la">AMS 4</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">4</citedRange>
+            <citedRange unit="p">p. 290-302</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib345-4" source="#bib345-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 234</idno>
+            </label>
+            <biblScope unit="fol">f. 138</biblScope>
+          </bibl>
+          <bibl xml:id="bib345-5" source="#bib345-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12174</idno>
+            </label>
+            <biblScope unit="fol">f. 138v-140v</biblScope>
+          </bibl>
+          <bibl xml:id="bib345-6" source="#bib345-1" type="syriaca:Manuscript">
+            <label>Saint-Pétersbourg, Académie des Sciences, Institut d’Études orientales <idno type="shelfmark">fonds oriental ancien 13</idno>
+            </label>
+            <label>Pigulevskaya <idno type="catalog-number">52</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib345-7" source="#bib345-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 33v-35</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib345-8" source="#bib345-1" type="syriaca:ModernTranslation">
+              <title xml:lang="ru">Чудеса св. Николая, епископа города Миръ (Перевод съ сирiйскаго)</title>
+            <editor>P. Kokovcov</editor>
+            <ptr target="http://syriaca.org/cbss/YEQ5PAGD"/>
+            <citedRange unit="p">79-86</citedRange>
+            <textLang mainLang="ru"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib345-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">125</citedRange>
-                </bibl>
-                <bibl xml:id="bib345-2">
-                    <title level="a" xml:lang="ru-Latn-iso9r95">Sv. Nikolaj i Artemida Èfesskaâ</title>
-                    <title level="a" xml:lang="ru">Св. Николай и Артемида Эфесская</title>
-                    <title level="j" xml:lang="ru-Latn-iso9r95">Zapiski Vostočnogo otdeleniâ
-                     Imperatorskogo Russkogo Arheologičeskogo obŝestva</title>
-                    <title level="j" xml:lang="ru">Записки Восточного отделения Императорского
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">125</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib345-2">
+            <title level="a" xml:lang="ru">Св. Николай и Артемида Эфесская</title>
+            <title level="j" xml:lang="ru">Записки Восточного отделения Императорского
                      Русского Археологического общества</title>
-                    <ptr target="http://syriaca.org/cbss/57JVD433"/>
-                    <citedRange from="69" to="77" unit="pp">69-77</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/345" passive="http://syriaca.org/person/1946" source="#bib345-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/57JVD433"/>
+            <citedRange from="69" to="77" unit="p">69-77</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

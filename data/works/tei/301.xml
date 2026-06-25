@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ignatius of Antioch (text) — <foreign xml:lang="syr">ܐܓܢܛܝܣ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -163,96 +141,149 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-301" ana="#hagiographic">
-                <title xml:id="name301-1" xml:lang="syr" source="#bib301-1" srophe:tags="#syriaca-headword">ܐܓܢܛܝܣ</title>
-                <title xml:id="name301-2" xml:lang="fr-x-bhs" source="#bib301-1">ʾAǥnāṭīs</title>
-                <title xml:id="name301-3" xml:lang="fr" source="#bib301-1">Ignace d’Antioche (texte)</title>
-                <title xml:id="name301-4" xml:lang="en" source="#bib301-1" srophe:tags="#syriaca-headword">Ignatius of Antioch (text)</title>
-                <note xml:lang="syr" type="incipit" source="#bib301-1">
-                    <quote>ܒܗ ܕܝܢ ܒܙܒܢܐ ܗܘܿ: ܟܕ ܩܒܠ ܪܫܢܘܬܐ ܕܪ̈ܗܘܡܝܐ ܛܪܝܢܘܣ ܡܠܟܐ ܪܫܝܥܐ: ܐܓܢܛܝܘܣ: ܬܠܡܝܕܗ ܕܝܘܚܢܢ ܫܠܝܚܐ ܐܘܢܓܠܣܛܐ: ܓܒܪܐ ܗܘܐ ܕܒܟܠܗܘܢ ܣܘܥܪ̈ܢܐ ܕܫܠܝܚ̈ܐ ܡܬܕܒܪ ܗܘ̣ܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib301-1">
-                    <quote>À l’époque même où l’empereur impie Trajan prenait la tête des Romains, Ignace, disciple de l’apôtre et évangéliste Jean, était un homme qui se comportait de façon tout à fait apostolique.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib301-1">
-                    <quote>ܘܟܕ ܗܠܝܢ ܕܝܢ ܚܙܘ ܘܦܚܡܘ ܡܢ ܐܝܠܝܢ ܕܚܙܘ ܒܚܠܡܝ̈ܗܘܢ: ܟܕ ܡܙܡܪܝܢ ܘܡܫܒܚܝܢ ܠܐܠܗܐ ܝܗܘܒܐ ܕܛܒ̈ܬܐ: ܝܗܿܒܝܢ ܗܘ̣ܘ ܛܘܒܐ ܠܩܕܝܫܐ ܘܣܗܕܐ ܕܐܠܗܐ ܐܓܢܛܝܣ. ܗܐ ܐܘܕܥܬܟܘܢ ܗܟܝܠ ܐܦ ܝܘܡܐ ܘܙܒܢܐ ܕܒܗ ܣܗܕܘܬܗ ܐܫܬܠܡܬ: ܕܒܗ ܒܙܒܢܐ ܗܘܿ ܗܘܝܬܘܢ ܡܫܬܘܬܦܝܢ ܠܗ ܠܐܬܠܝܛܐ: ܗܘܿ ܕܕܫܗ ܠܪܫܗ ܕܬܢܝܢܐ ܒܝܕ ܪܓܬܐ ܕܪܚܡܬܗ ܕܡܫܝܚܐ: ܘܫܠܡ ܪܗܛܗ ܕܒܝܫܘܥ ܡܫܝܚܐ ܡܪܢ. ܗܘܿ ܕܠܗ ܘܒܐܝܕܗ ܠܐܠܗܐ ܐܒܐ... ܐܡܝܢܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib301-1">
-                    <quote>Et quand ils virent cela et le comparèrent avec ce qu’ils avaient vu dans leurs songes, en psalmodiant et en louant Dieu donateur des biens, ils déclarèrent bienheureux le saint martyr de Dieu Ignace. Voilà donc que je vous ai appris le jour et le moment où a été achevé son martyre, moment où vous étiez associés à cet athlète qui a foulé la tête du dragon par le désir de l’amour du Christ, et a achevé sa course dans le Christ Jésus notre Seigneur.À lui et par lui à Dieu le Père… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib301-1" corresp="#bib301-5" n="1" xml:id="bib301-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 3</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">3</citedRange>
-                        <citedRange>p. 199-214</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib301-1" corresp="#bib301-6" n="2" xml:id="bib301-4">
-                        <author>Wright, W. dans Lightfoot, J.B.</author>
-                        <title>The Apostolic Fathers. Part II. Vol. III</title>
-                        <ptr target="http://syriaca.org/cbss/W2R4JJ32"/>
-                        <citedRange>p. 103-124</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-5">ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v + collation de mss du Vatican</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-6">ms Berlin, British Library, Rich. 7200, f. 98-101 (mutilé de la fin) + mss Vatican, Borg. 91, f. 45-49v + Vat. Syr. 160, f. 231v-234v (mutilé de la fin) + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-7">extrait de Cureton: ms Londres, British Library, Add. 7200, f. 103v-105v (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-8">ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 15, p. 10 - cah. 16, p. 3</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-9">ms Dawra, Monastère chaldéen, cod. 622, f. 194-201</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-10">ms Paris, Bibliothèque nationale, syr. 295, f. 98-111v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-11">ms Cambridge (Mass.), Harvard University Library, Syr. 107, f. 6v-11v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-12">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 598, f. 158v-165v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 210v-212v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib301-1">
-                    <bibl xml:id="bib301-14">ms Istanbul, Maryemana, Yeni 196 (Palmer) (olim cod. 7 (Vööbus), olim coll. P. Fehim, cod. 1 (Dolabany)), f. 13-18</bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib301-1">
-                    <bibl xml:id="bib301-15">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/301</idno>
-                <idno type="BHS">80</idno>
-                <idno type="BHO">452</idno>
-                <idno type="CPG">1036</idno>
-                <bibl xml:id="bib301-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-301" ana="#syriaca-hagiographic">
+        <title xml:id="name301-1" xml:lang="syr" source="#bib301-1" srophe:tags="#syriaca-headword">ܐܓܢܛܝܣ</title>
+        <title xml:id="name301-2" xml:lang="fr-x-bhs" source="#bib301-1">ʾAǥnāṭīs</title>
+        <title xml:id="name301-3" xml:lang="fr" source="#bib301-1">Ignace d’Antioche (texte)</title>
+        <title xml:id="name301-4" xml:lang="en" source="#bib301-1" srophe:tags="#syriaca-headword">Ignatius of Antioch (text)</title>
+        <idno type="URI">http://syriaca.org/work/301</idno>
+        <idno type="number" subtype="BHS">80</idno>
+        <idno type="number" subtype="BHO">452</idno>
+        <idno type="number" subtype="CPG">1036</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib301-1">ܒܗ ܕܝܢ ܒܙܒܢܐ ܗܘܿ: ܟܕ ܩܒܠ ܪܫܢܘܬܐ ܕܪ̈ܗܘܡܝܐ ܛܪܝܢܘܣ ܡܠܟܐ ܪܫܝܥܐ: ܐܓܢܛܝܘܣ: ܬܠܡܝܕܗ ܕܝܘܚܢܢ ܫܠܝܚܐ ܐܘܢܓܠܣܛܐ: ܓܒܪܐ ܗܘܐ ܕܒܟܠܗܘܢ ܣܘܥܪ̈ܢܐ ܕܫܠܝܚ̈ܐ ܡܬܕܒܪ ܗܘ̣ܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib301-1">À l’époque même où l’empereur impie Trajan prenait la tête des Romains, Ignace, disciple de l’apôtre et évangéliste Jean, était un homme qui se comportait de façon tout à fait apostolique.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib301-1">ܘܟܕ ܗܠܝܢ ܕܝܢ ܚܙܘ ܘܦܚܡܘ ܡܢ ܐܝܠܝܢ ܕܚܙܘ ܒܚܠܡܝ̈ܗܘܢ: ܟܕ ܡܙܡܪܝܢ ܘܡܫܒܚܝܢ ܠܐܠܗܐ ܝܗܘܒܐ ܕܛܒ̈ܬܐ: ܝܗܿܒܝܢ ܗܘ̣ܘ ܛܘܒܐ ܠܩܕܝܫܐ ܘܣܗܕܐ ܕܐܠܗܐ ܐܓܢܛܝܣ. ܗܐ ܐܘܕܥܬܟܘܢ ܗܟܝܠ ܐܦ ܝܘܡܐ ܘܙܒܢܐ ܕܒܗ ܣܗܕܘܬܗ ܐܫܬܠܡܬ: ܕܒܗ ܒܙܒܢܐ ܗܘܿ ܗܘܝܬܘܢ ܡܫܬܘܬܦܝܢ ܠܗ ܠܐܬܠܝܛܐ: ܗܘܿ ܕܕܫܗ ܠܪܫܗ ܕܬܢܝܢܐ ܒܝܕ ܪܓܬܐ ܕܪܚܡܬܗ ܕܡܫܝܚܐ: ܘܫܠܡ ܪܗܛܗ ܕܒܝܫܘܥ ܡܫܝܚܐ ܡܪܢ. ܗܘܿ ܕܠܗ ܘܒܐܝܕܗ ܠܐܠܗܐ ܐܒܐ... ܐܡܝܢܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib301-1">Et quand ils virent cela et le comparèrent avec ce qu’ils avaient vu dans leurs songes, en psalmodiant et en louant Dieu donateur des biens, ils déclarèrent bienheureux le saint martyr de Dieu Ignace. Voilà donc que je vous ai appris le jour et le moment où a été achevé son martyre, moment où vous étiez associés à cet athlète qui a foulé la tête du dragon par le désir de l’amour du Christ, et a achevé sa course dans le Christ Jésus notre Seigneur.À lui et par lui à Dieu le Père… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/301" source="#bib301-1" passive="http://syriaca.org/person/544">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/544">Ignatius of Antioch</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib301-1" n="1" xml:id="bib301-3" type="lawd:Edition">
+            <title xml:lang="la">AMS 3</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">3</citedRange>
+            <citedRange unit="p">p. 199-214</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib301-3" source="#bib301-1" passive="#bib301-5">
+                <desc xml:lang="en">
+                  <label>ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v + collation de mss du Vatican</label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib301-1" n="2" xml:id="bib301-4" type="lawd:Edition">
+            <title xml:lang="en">The Apostolic Fathers. Part II. Vol. III</title>
+            <author>Wright, W. dans Lightfoot, J.B.</author>
+            <ptr target="http://syriaca.org/cbss/W2R4JJ32"/>
+            <citedRange unit="p">p. 103-124</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib301-4" source="#bib301-1" passive="#bib301-6">
+                <desc xml:lang="en">
+                  <label>ms Berlin, British Library, Rich. 7200, f. 98-101 (mutilé de la fin) + mss Vatican, Borg. 91, f. 45-49v + Vat. Syr. 160, f. 231v-234v (mutilé de la fin) + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v</label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib301-5" source="#bib301-1" type="syriaca:Manuscript">
+            <label>ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v + collation de mss du Vatican</label>
+          </bibl>
+          <bibl xml:id="bib301-6" source="#bib301-1" type="syriaca:Manuscript">
+            <label>ms Berlin, British Library, Rich. 7200, f. 98-101 (mutilé de la fin) + mss Vatican, Borg. 91, f. 45-49v + Vat. Syr. 160, f. 231v-234v (mutilé de la fin) + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 123-129v</label>
+          </bibl>
+          <bibl xml:id="bib301-7" source="#bib301-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 7200</idno>
+            </label>
+            <biblScope unit="fol">f. 103v-105v</biblScope>
+            <note xml:lang="en" source="#bib301-1">(mutilé de la fin)</note>
+          </bibl>
+          <bibl xml:id="bib301-8" source="#bib301-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 621 (olim Alqosh, Monastère N.-D. des Semences, cod. 212 Vosté), cah. 15, p. 10 - cah. 16, p. 3</label>
+          </bibl>
+          <bibl xml:id="bib301-9" source="#bib301-1" type="syriaca:Manuscript">
+            <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 622</idno>
+            </label>
+            <biblScope unit="fol">f. 194-201</biblScope>
+          </bibl>
+          <bibl xml:id="bib301-10" source="#bib301-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 295</idno>
+            </label>
+            <biblScope unit="fol">f. 98-111v</biblScope>
+          </bibl>
+          <bibl xml:id="bib301-11" source="#bib301-1" type="syriaca:Manuscript">
+            <label>Cambridge (Massachusetts), Harvard University Library <idno type="shelfmark">Syr. 107</idno>
+            </label>
+            <biblScope unit="fol">f. 6v-11v</biblScope>
+          </bibl>
+          <bibl xml:id="bib301-12" source="#bib301-1" type="syriaca:Manuscript">
+            <label>Birmingham, Selly Oak College Library <idno type="shelfmark" subtype="Mingana">Mingana, Syr. 598</idno>
+            </label>
+            <biblScope unit="fol">f. 158v-165v</biblScope>
+          </bibl>
+          <bibl xml:id="bib301-13" source="#bib301-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 210v-212v</label>
+          </bibl>
+          <bibl xml:id="bib301-14" source="#bib301-1" type="syriaca:Manuscript">
+            <label>Istanbul, Maryemana <idno type="shelfmark">Yeni 196</idno>
+            </label>
+            <label>Palmer</label>
+            <label>olim Vööbus <idno type="shelfmark">cod. 7</idno>
+            </label>
+            <label>olim coll. P. Fehim (Dolabany) <idno type="shelfmark">cod. 1</idno>
+            </label>
+            <biblScope unit="fol">f. 13-18</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="ancientVersions">
+          <head>Ancient Versions</head>
+          <desc xml:lang="en">This is not a comprehensive list of ancient versions related to this work.</desc>
+          <bibl xml:id="bib301-15" source="#bib301-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ar"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib301-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">80</citedRange>
-                </bibl>
-                <bibl xml:id="bib301-2">
-                    <title level="m" xml:lang="la">Corpus Ignatianum</title>
-                    <ptr target="http://syriaca.org/cbss/QDI2IT8J"/>
-                    <citedRange from="222" to="225" unit="pp">222-225 <note xml:lang="fr">extrait</note>
-                    </citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/301" passive="http://syriaca.org/person/544" source="#bib301-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">80</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib301-2">
+            <title level="m" xml:lang="la">Corpus Ignatianum</title>
+            <ptr target="http://syriaca.org/cbss/QDI2IT8J"/>
+            <citedRange from="222" to="225" unit="p">222-225</citedRange>
+            <note xml:lang="fr" source="#bib301-1">extrait</note>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

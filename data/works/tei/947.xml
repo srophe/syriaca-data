@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Confessors and Martyrs (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -163,97 +141,123 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-947" ana="#hagiographic">
-                <title xml:id="name947-3" xml:lang="fr" source="#bib947-1">Confesseurs et Martyrs (texte)</title>
-                <title xml:id="name947-4" xml:lang="en" source="#bib947-1" srophe:tags="#syriaca-headword">Confessors and Martyrs (text)</title>
-                <author xml:lang="fr" source="#bib947-1" ref="http://syriaca.org/person/42">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Yaʿqub</forename>
-                        <addName type="untagged-title" sort="2">of Serugh</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܝܥܩܘܒ</forename>
-                        <addName type="untagged-title" sort="2">ܕܣܪܘܓ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Jacques</forename>
-                        <addName type="untagged-title">de Serugh</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib947-1">
-                    <quote>ܚܝܠܐ ܕܢܚܬ ܥܡ ܐܬܠܝ̈ܛܐ ܒܐܓܘܢܝ̈ܗܘܢ: ܒܟ ܐܬܚܝܠ ܘܐܬܢܐ ܫܘܦܪܐ ܕܢܨܚܢܝ̈ܗܘܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib947-1">
-                    <quote>Force qui es descendue avec les athlètes dans leurs combats, puissé-je être renforcé par toi et raconter la beauté de leurs victoires.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib947-1">
-                    <quote>ܡܝܬܘ ܥܠ ܣܒܪܐ ܘܗܘܘ ܣܗ̈ܕܐ ܕܐܝܬ ܢܘܚܡܐ: ܒܪܝܟ ܗܘ ܙܩܝܦܐ ܕܟܠܠ ܣܗ̈ܕܐ ܒܐܓܘܢܝ̈ܗܘܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib947-1">
-                    <quote>Ils sont morts avec espoir et ils sont devenus témoins de l’existence de la résurrection; bénie soit la croix qui a couronné les martyrs dans leurs combats.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib947-1" corresp="#bib947-4" n="1" xml:id="bib947-2">
-                        <author>Bedjan, P.</author>
-                        <title>HSMJS 2</title>
-                        <ptr target="http://syriaca.org/cbss/XQPJMUDP"/>
-                        <citedRange>p. 636-649</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib947-1" corresp="#bib947-5 bib947-16" n="2" xml:id="bib947-3">
-                        <author>Manna, J.E.</author>
-                        <title>MCLA 1</title>
-                        <ptr target="http://syriaca.org/cbss/65DIMGTP"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 227-235</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-4">ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 269v-271 + ms Paris, Bibliothèque nationale, syr. 196, f. 438-440v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-5">ms Vatican, Syr. 115, f. 102-106v + Syr. 594, f. 38-39v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-6">ms Londres, British Library, Add. 14515, f. 303-307</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-7">ms Londres, British Library, Add. 14516, f. 204v-207 (mutilé)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-8">ms Londres, British Library, Add. 14588, f. 108-114</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-9">ms Londres, British Library, Add. 12165, f. 343v-346v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-10">ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-11">ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-12">ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-13">ms Pampakuda, Coll. Konat, cod. 52</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-14">ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib947-1">
-                    <bibl xml:id="bib947-15">ms Mardin, Évêché syrien orthodoxe, cod. 135 (olim ms Dayr az-Za‘faran, cod. pap. 62 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib947-16">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/947</idno>
-                <idno type="BHS">750</idno>
-                <bibl xml:id="bib947-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-947" ana="#syriaca-hagiographic">
+        <title xml:id="name947-3" xml:lang="fr" source="#bib947-1">Confesseurs et Martyrs (texte)</title>
+        <title xml:id="name947-4" xml:lang="en" source="#bib947-1" srophe:tags="#syriaca-headword">Confessors and Martyrs (text)</title>
+        <author ref="http://syriaca.org/person/42" source="#bib947-1" xml:lang="en">Jacob of Serugh — <foreign xml:lang="syr">ܝܥܩܘܒ ܕܣܪܘܓ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/947</idno>
+        <idno type="number" subtype="BHS">750</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib947-1">ܚܝܠܐ ܕܢܚܬ ܥܡ ܐܬܠܝ̈ܛܐ ܒܐܓܘܢܝ̈ܗܘܢ: ܒܟ ܐܬܚܝܠ ܘܐܬܢܐ ܫܘܦܪܐ ܕܢܨܚܢܝ̈ܗܘܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib947-1">Force qui es descendue avec les athlètes dans leurs combats, puissé-je être renforcé par toi et raconter la beauté de leurs victoires.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib947-1">ܡܝܬܘ ܥܠ ܣܒܪܐ ܘܗܘܘ ܣܗ̈ܕܐ ܕܐܝܬ ܢܘܚܡܐ: ܒܪܝܟ ܗܘ ܙܩܝܦܐ ܕܟܠܠ ܣܗ̈ܕܐ ܒܐܓܘܢܝ̈ܗܘܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib947-1">Ils sont morts avec espoir et ils sont devenus témoins de l’existence de la résurrection; bénie soit la croix qui a couronné les martyrs dans leurs combats.</quote>
+          </note>
+        </noteGrp>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib947-1" n="1" xml:id="bib947-2" type="lawd:Edition">
+            <title xml:lang="la">HSMJS 2</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/XQPJMUDP"/>
+            <citedRange unit="p">p. 636-649</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib947-2" source="#bib947-1" passive="#bib947-4">
+                <desc xml:lang="en">
+                  <label>ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 269v-271 + ms Paris, Bibliothèque nationale, syr. 196, f. 438-440v</label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib947-1" n="2" xml:id="bib947-3" type="lawd:Edition">
+            <title xml:lang="fr">MCLA 1</title>
+            <author>Manna, J.E.</author>
+            <ptr target="http://syriaca.org/cbss/65DIMGTP"/>
+            <citedRange unit="vol">1</citedRange>
+            <citedRange unit="p">p. 227-235</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib947-3" source="#bib947-1" passive="#bib947-5">
+                <desc xml:lang="en">
+                  <label>ms Vatican, Syr. 115, f. 102-106v + Syr. 594, f. 38-39v</label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib947-4" source="#bib947-1" type="syriaca:Manuscript">
+            <label>ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 269v-271 + ms Paris, Bibliothèque nationale, syr. 196, f. 438-440v</label>
+          </bibl>
+          <bibl xml:id="bib947-5" source="#bib947-1" type="syriaca:Manuscript">
+            <label>ms Vatican, Syr. 115, f. 102-106v + Syr. 594, f. 38-39v</label>
+          </bibl>
+          <bibl xml:id="bib947-6" source="#bib947-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14515</idno>
+            </label>
+            <biblScope unit="fol">f. 303-307</biblScope>
+          </bibl>
+          <bibl xml:id="bib947-7" source="#bib947-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14516</idno>
+            </label>
+            <biblScope unit="fol">f. 204v-207</biblScope>
+            <note xml:lang="en" source="#bib947-1">(mutilé)</note>
+          </bibl>
+          <bibl xml:id="bib947-8" source="#bib947-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14588</idno>
+            </label>
+            <biblScope unit="fol">f. 108-114</biblScope>
+          </bibl>
+          <bibl xml:id="bib947-9" source="#bib947-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12165</idno>
+            </label>
+            <biblScope unit="fol">f. 343v-346v</biblScope>
+          </bibl>
+          <bibl xml:id="bib947-10" source="#bib947-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/15 (olim ms Dayr az-Za‘faran, cod. parch. 13 (Dolabany))</label>
+          </bibl>
+          <bibl xml:id="bib947-11" source="#bib947-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/13 (olim ms Dayr az-Za‘faran, cod. parch. 14 (Dolabany))</label>
+          </bibl>
+          <bibl xml:id="bib947-12" source="#bib947-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany))</label>
+          </bibl>
+          <bibl xml:id="bib947-13" source="#bib947-1" type="syriaca:Manuscript">
+            <label>Pampakuda, Coll. Konat <idno type="shelfmark">cod. 52</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib947-14" source="#bib947-1" type="syriaca:Manuscript">
+            <label>ms Mardin, Évêché syrien orthodoxe, cod. 131 (olim ms Dayr az-Za‘faran, cod. pap. 58 (Dolabany))</label>
+          </bibl>
+          <bibl xml:id="bib947-15" source="#bib947-1" type="syriaca:Manuscript">
+            <label>ms Mardin, Évêché syrien orthodoxe, cod. 135 (olim ms Dayr az-Za‘faran, cod. pap. 62 (Dolabany))</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib947-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">750</citedRange>
-                </bibl>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">750</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

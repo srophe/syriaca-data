@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Simeon Salos (text) — <foreign xml:lang="syr">ܫܡܥܘܢ ܣܠܘܣܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,9 +124,10 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
-            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologs with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -162,90 +140,114 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1495" ana="#hagiographic">
-                <title xml:id="name1495-1" xml:lang="syr" source="#bib1495-1" srophe:tags="#syriaca-headword">ܫܡܥܘܢ ܣܠܘܣܐ</title>
-                <title xml:id="name1495-2" xml:lang="fr-x-bhs" source="#bib1495-1">Šemʿōn Salōsā</title>
-                <title xml:id="name1495-3" xml:lang="fr" source="#bib1495-1">Syméon Salos (texte)</title>
-                <title xml:id="name1495-4" xml:lang="en" source="#bib1495-1" srophe:tags="#syriaca-headword">Simeon Salos (text)</title>
-                <author source="#bib1495-1" ref="http://syriaca.org/person/2797">
-                    <persName xml:lang="en">
-                        <forename>Leontius</forename>
-                        <addName type="untagged-title">of <placeName>Neapolis</placeName>
-                        </addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename>ܠܐܘܢܛܝܘܣ</forename>
-                        <addName type="untagged-title">ܕ<placeName>ܢܐܦܘܠܝܣ</placeName>
-                        </addName>
-                    </persName> (<persName xml:lang="fr">Léonce de Néapolis</persName>)
-                </author>
-                <note xml:lang="fr" type="prologue" source="#bib1495-1">
-                    <quote>Ceux qui s’appliquent à raconter aux autres la vie divine doivent tout d’abord l’imiter et devenir exemple pour les autres, selon la parole divine qui dit: «Que votre lumière brille devant les hommes de sorte qu’ils voient vos bonnes actions et louent votre Père qui est au ciel.»</quote>
-                </note>
-                <note xml:lang="syr" type="prologue" source="#bib1495-1">
-                    <quote>ܐܝܠܝܢ ܕܕܘܒ̈ܪܐ ܐܠܗ̈ܝܐ ܠܐܚܪ̈ܢܐ ܡܚܦܛܝܢ ܠܡܫܬܥܝܘ: ܙܕܿܩ ܠܗܘܢ ܕܗܢܘܢ ܩܕܡܝܐܝܬ ܢܡܪܘܢ ܒܗܘܢ. ܘܕܡܘܬܐ ܠܐܚܪ̈ܢܐ ܢܗܘܘܢ. ܐܝܟ ܡܠܬܐ ܐܠܗܝܬܐ ܕܐܡܪܐ ܕܗܟܢܐ ܢܢܗܪ ܢܘܗܪܟܘܢ ܩܕܡ ܒܢܝ̈ܢܫܐ ܐܝܟܢܐ ܕܢܚܙܘܢ ܥܒ̈ܕܝܟܘܢ ܛ̈ܒܐ ܘܢܫܒܚܘܢ ܠܐܒܘܟܘܢ ܕܒܫܡܝܐ.</quote>
-                </note>
-                <note xml:lang="syr" type="incipit" source="#bib1495-1">
-                    <quote>ܗܘܐ ܕܝܢ ܒܝ̈ܘܡܝ ܝܘܣܛܝܢܘܣ ܡܠܟܐ ܙܟܝܐ ܐܬܘܥܕܘ ܡܗܝ̈ܡܢܐ ܡܢ ܟܠ ܦܢ̈ܝܢ ܕܢܣܓܕܘܢ ܒܕܘ̈ܟܝܬܐ ܩܕܝܫ̈ܬܐ ܕܡܫܝܚܐ ܒܐܘܪܫܠܡ ܡܕܝܢܬܐ ܒܥܕܥܐܕܐ ܪܒܐ ܘܩܕܝܫܐ ܕܪܘܡܪܡܗ ܕܨܠܝܒܐ ܙܟܝܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1495-1">
-                    <quote>Et il advint aux jours de l’empereur victorieux Justin que furent désignés de toutes les parties du monde des fidèles pour adorer dans les lieux saints du Christ dans la ville de Jérusalem, lors de la grande et sainte fête de l’exaltation de la Croix victorieuse.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1495-1">
-                    <quote>ܘܡܟܝܠ ܚܒ̈ܝܒܝ ܠܐ ܢܗܘܐ ܕܝܢܝܢܢ ܠܐܢܫ ܥܕܡܐ ܕܐܬܐ ܡܪܢ ܕܗܘ ܥܬܝܕ ܢܓܠܐ ܟܣܝ̈ܬܗܘܢ ܕܒܢܝ̈ܢܫܐ. ܐܠܐ ܟܠܢܫ ܢܚܘܪ ܒܩܢܘܡܗ ܘܢܚܘܕ ܢܦܫܗ. ܘܗܘ ܠܗ ܢܕܘܢ ܒܠܚܘܕ. ܡܛܠ ܕܟܠܢܫ ܐܝܟ ܥܡܠܗ ܡܩܒܠ ܐܓܪܐ. ܘܗܘ ܛܥܢ ܠܡܘܒܠܗ ܥܠ ܟܬܦܗ ܘܐܝܟ ܥܡܠܗ ܗܟܢܐ ܡܩܒܠ ܦܘܪܥܢܐ ܡܢ ܡܠܟܐ ܫܡܝܢܐ ܡܪܢ ܘܦܪܘܩܢ ܘܡܐܚܝܢܢ ܐܠܗܢ... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1495-1">
-                    <quote>Ainsi donc, mes bien-aimés, ne jugeons personne jusqu’à ce que vienne notre Seigneur qui révélera les secrets des hommes. Mais que chacun regarde en lui-même et ??? lui-même et qu’il ne juge que cela, car chacun recevra salaire selon sa peine et il porte sa charge sur son épaule et recevra payement selon sa peine du Roi céleste, notre Seigneur, notre Sauveur et notre vivificateur, notre Dieu… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1495-1">
-                    <bibl xml:id="bib1495-3">ms Londres, British Library, Add. 14645, f. 83-106v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1495-1">
-                    <bibl xml:id="bib1495-4">ms Londres, British Library, Add. 12174, f. 110-124</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1495-1">
-                    <bibl xml:id="bib1495-5">ms Cambridge, University Library, Add. 2016, f. 141-163v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1495-1">
-                    <bibl xml:id="bib1495-6">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 116v-126</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1495-1">
-                    <bibl xml:id="bib1495-7">ms Dayr az-Za‘faran, cod. pap. 116 (Dolabany)</bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1495-1">
-                    <bibl xml:id="bib1495-8">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib1495-1">
-                    <bibl xml:id="bib1495-9">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1495</idno>
-                <idno type="BHS">1385</idno>
-                <idno type="CPG">7883</idno>
-                <bibl xml:id="bib1495-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1495" ana="#syriaca-hagiographic">
+        <title xml:id="name1495-1" xml:lang="syr" source="#bib1495-1" srophe:tags="#syriaca-headword">ܫܡܥܘܢ ܣܠܘܣܐ</title>
+        <title xml:id="name1495-2" xml:lang="fr-x-bhs" source="#bib1495-1">Šemʿōn Salōsā</title>
+        <title xml:id="name1495-3" xml:lang="fr" source="#bib1495-1">Syméon Salos (texte)</title>
+        <title xml:id="name1495-4" xml:lang="en" source="#bib1495-1" srophe:tags="#syriaca-headword">Simeon Salos (text)</title>
+        <author ref="http://syriaca.org/person/2797" source="#bib1495-1" xml:lang="en">Leontius of Neapolis — <foreign xml:lang="syr">ܠܐܘܢܛܝܘܣ ܕ ܢܐܦܘܠܝܣ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1495</idno>
+        <idno type="number" subtype="BHS">1385</idno>
+        <idno type="number" subtype="CPG">7883</idno>
+        <noteGrp type="prologue">
+          <desc xml:lang="en">Prologue</desc>
+          <note xml:lang="fr" type="prologue">
+            <quote source="#bib1495-1">Ceux qui s’appliquent à raconter aux autres la vie divine doivent tout d’abord l’imiter et devenir exemple pour les autres, selon la parole divine qui dit: «Que votre lumière brille devant les hommes de sorte qu’ils voient vos bonnes actions et louent votre Père qui est au ciel.»</quote>
+          </note>
+          <note xml:lang="syr" type="prologue">
+            <quote source="#bib1495-1">ܐܝܠܝܢ ܕܕܘܒ̈ܪܐ ܐܠܗ̈ܝܐ ܠܐܚܪ̈ܢܐ ܡܚܦܛܝܢ ܠܡܫܬܥܝܘ: ܙܕܿܩ ܠܗܘܢ ܕܗܢܘܢ ܩܕܡܝܐܝܬ ܢܡܪܘܢ ܒܗܘܢ. ܘܕܡܘܬܐ ܠܐܚܪ̈ܢܐ ܢܗܘܘܢ. ܐܝܟ ܡܠܬܐ ܐܠܗܝܬܐ ܕܐܡܪܐ ܕܗܟܢܐ ܢܢܗܪ ܢܘܗܪܟܘܢ ܩܕܡ ܒܢܝ̈ܢܫܐ ܐܝܟܢܐ ܕܢܚܙܘܢ ܥܒ̈ܕܝܟܘܢ ܛ̈ܒܐ ܘܢܫܒܚܘܢ ܠܐܒܘܟܘܢ ܕܒܫܡܝܐ.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1495-1">ܗܘܐ ܕܝܢ ܒܝ̈ܘܡܝ ܝܘܣܛܝܢܘܣ ܡܠܟܐ ܙܟܝܐ ܐܬܘܥܕܘ ܡܗܝ̈ܡܢܐ ܡܢ ܟܠ ܦܢ̈ܝܢ ܕܢܣܓܕܘܢ ܒܕܘ̈ܟܝܬܐ ܩܕܝܫ̈ܬܐ ܕܡܫܝܚܐ ܒܐܘܪܫܠܡ ܡܕܝܢܬܐ ܒܥܕܥܐܕܐ ܪܒܐ ܘܩܕܝܫܐ ܕܪܘܡܪܡܗ ܕܨܠܝܒܐ ܙܟܝܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1495-1">Et il advint aux jours de l’empereur victorieux Justin que furent désignés de toutes les parties du monde des fidèles pour adorer dans les lieux saints du Christ dans la ville de Jérusalem, lors de la grande et sainte fête de l’exaltation de la Croix victorieuse.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1495-1">ܘܡܟܝܠ ܚܒ̈ܝܒܝ ܠܐ ܢܗܘܐ ܕܝܢܝܢܢ ܠܐܢܫ ܥܕܡܐ ܕܐܬܐ ܡܪܢ ܕܗܘ ܥܬܝܕ ܢܓܠܐ ܟܣܝ̈ܬܗܘܢ ܕܒܢܝ̈ܢܫܐ. ܐܠܐ ܟܠܢܫ ܢܚܘܪ ܒܩܢܘܡܗ ܘܢܚܘܕ ܢܦܫܗ. ܘܗܘ ܠܗ ܢܕܘܢ ܒܠܚܘܕ. ܡܛܠ ܕܟܠܢܫ ܐܝܟ ܥܡܠܗ ܡܩܒܠ ܐܓܪܐ. ܘܗܘ ܛܥܢ ܠܡܘܒܠܗ ܥܠ ܟܬܦܗ ܘܐܝܟ ܥܡܠܗ ܗܟܢܐ ܡܩܒܠ ܦܘܪܥܢܐ ܡܢ ܡܠܟܐ ܫܡܝܢܐ ܡܪܢ ܘܦܪܘܩܢ ܘܡܐܚܝܢܢ ܐܠܗܢ... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1495-1">Ainsi donc, mes bien-aimés, ne jugeons personne jusqu’à ce que vienne notre Seigneur qui révélera les secrets des hommes. Mais que chacun regarde en lui-même et ??? lui-même et qu’il ne juge que cela, car chacun recevra salaire selon sa peine et il porte sa charge sur son épaule et recevra payement selon sa peine du Roi céleste, notre Seigneur, notre Sauveur et notre vivificateur, notre Dieu… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1495" source="#bib1495-1" passive="http://syriaca.org/person/2101">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/2101">Simeon Salos</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1495" source="#bib1495-1" passive="http://syriaca.org/person/2797">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/2797">Leontius of Neapolis</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1495-3" source="#bib1495-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14645</idno>
+            </label>
+            <biblScope unit="fol">f. 83-106v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1495-4" source="#bib1495-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12174</idno>
+            </label>
+            <biblScope unit="fol">f. 110-124</biblScope>
+          </bibl>
+          <bibl xml:id="bib1495-5" source="#bib1495-1" type="syriaca:Manuscript">
+            <label>Cambridge, University Library <idno type="shelfmark" subtype="Cambridge">Add. 2016</idno>
+            </label>
+            <biblScope unit="fol">f. 141-163v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1495-6" source="#bib1495-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. 116v-126</label>
+          </bibl>
+          <bibl xml:id="bib1495-7" source="#bib1495-1" type="syriaca:Manuscript">
+            <label>ms Dayr az-Za‘faran, cod. pap. 116 (Dolabany)</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="ancientVersions">
+          <head>Ancient Versions</head>
+          <desc xml:lang="en">This is not a comprehensive list of ancient versions related to this work.</desc>
+          <bibl xml:id="bib1495-8" source="#bib1495-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ar"/>
+          </bibl>
+          <bibl xml:id="bib1495-9" source="#bib1495-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ka"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1495-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1385</citedRange>
-                </bibl>
-                <bibl xml:id="bib1495-2">
-                    <title xml:lang="en" level="a">The Syriac Version of the “Life of Symeon Salos”.
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1385</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1495-2">
+            <title xml:lang="en" level="a">The Syriac Version of the “Life of Symeon Salos”.
                      First Soundings</title>
-                    <title level="m" xml:lang="la">Philohistôr. Miscellanea in honorem Caroli Laga
+            <title level="m" xml:lang="la">Philohistôr. Miscellanea in honorem Caroli Laga
                      septuagenarii</title>
-                    <title level="s" xml:lang="la">Orientalia Lovaniensia analecta</title>
-                    <ptr target="http://syriaca.org/cbss/G464BGR3"/>
-                    <citedRange from="381" to="398" unit="pp">381-398</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1495" passive="http://syriaca.org/person/2101" source="#bib1495-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1495" passive="http://syriaca.org/person/2797" source="#bib1495-1"/>
-                </listRelation>
-            </bibl>
+            <title level="s" xml:lang="la">Orientalia Lovaniensia analecta</title>
+            <ptr target="http://syriaca.org/cbss/G464BGR3"/>
+            <citedRange from="381" to="398" unit="p">381-398</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

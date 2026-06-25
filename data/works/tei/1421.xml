@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">John the Baptist (text) — <foreign xml:lang="syr">ܝܘܚܢܢ ܡܥܡܕܢܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -161,56 +139,71 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1421" ana="#hagiographic">
-                <title xml:id="name1421-1" xml:lang="syr" source="#bib1421-1" srophe:tags="#syriaca-headword">ܝܘܚܢܢ ܡܥܡܕܢܐ</title>
-                <title xml:id="name1421-2" xml:lang="fr-x-bhs" source="#bib1421-1">Yōḥanān maʿməḏānā</title>
-                <title xml:id="name1421-3" xml:lang="fr" source="#bib1421-1">Jean Baptiste (texte)</title>
-                <title xml:id="name1421-4" xml:lang="en" source="#bib1421-1" srophe:tags="#syriaca-headword">John the Baptist (text)</title>
-                <author xml:lang="fr" source="#bib1421-1" ref="http://syriaca.org/person/573">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">John</forename>
-                        <addName type="untagged-title" sort="2">Chrysostom</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܝܘܐܢܝܣ</forename>
-                        <addName type="untagged-title" sort="2">ܟܪܘܣܘܣܛܘܡܘܣ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Jean</forename>
-                        <addName type="untagged-title">Chrysostome</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1421-1">
-                    <quote>ܝܘܚܢܢ ܡܢ ܗܟܝܠ ܗܘ ܪܒܐ: ܗܘ ܕܝܬܝܪܐ ܐܝܬ ܠܗ ܡܢ ܢܒ̈ܝܐ: ܟܠ ܓܝܪ ܢܒܝܐ ܟܕ ܒܩܢܝܘܬܐ ܡܫܡܠܝܬܐ ܕܩܘܡܬܐ ܗܘܐ ܗܘܐ: ܠܛܝܒܘܬܐ ܢܒܝܝܬܐ ܡܫܬܘܐ ܗܘܐ...</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1421-1">
-                    <quote>Jean donc le grand, lui qui a plus que les prophètes, car tout prophète, étant dans la possession parfaite de la vérité, était jugé digne de la grâce prophétique…</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1421-1">
-                    <quote>ܗܕܐ ܗܟܝܠ ܒܨܝܢܢ ܘܥܩܒܢܢ ܐܠܨܐܝܬ ܐܝܟܢܐ ܕܒܬܘܢܝܗܿ ܕܬܫܥܝܬܐ ܠܥܝ̈ܢܐ ܢܫܝܓ ܕܗܿܢܘܢ ܪ̈ܚܡܝ ܚ̈ܙܘܢܐ ܘܢܦܝܣ ܐܢܘܢ ܕܢܗܦܟܘܢ ܐܦܝ̈ܗܘܢ ܡܢ ܚ̈ܙܘܢܐ ܕܕܐܝܟ ܗܠܝܢ ܘܠܘܬ ܛܢܢܐ ܕܩܕ̈ܝܫܐ ܠܕܘܒܪܐ ܕܚܝ̈ܝܗܘܢ ܢܠܚܡܘܢ ܐܝܟܢܐ ܕܥܡܗܘܢ ܒ̈ܛܒܬܐ ܕܡ̈ܠܝܟܢ ܢܬܒܣܡܘܢ ܒܛܝܒܘܬܗ... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1421-1">
-                    <quote>C’est elle que nous avons recherchée et poursuivie nécessairement pour laver par le récit de l’histoire les yeux des amis des spectacles et les convaincre de détourner leurs faces de tels spectacles et de conformer leur façon de vivre au zèle des saints, pour profiter avec eux des biens promis, par la grâce… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1421-1">
-                    <bibl xml:id="bib1421-2">ms Londres, British Library, Add. 14515, f. 150v-154</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1421-1">
-                    <bibl xml:id="bib1421-3">ms Londres, British Library, Add. 14516, f. 67v-70</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1421-1">
-                    <bibl xml:id="bib1421-4">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 545, f. 132-135v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1421</idno>
-                <idno type="BHS">1294</idno>
-                <idno type="CPG">4578</idno>
-                <bibl xml:id="bib1421-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1421" ana="#syriaca-hagiographic">
+        <title xml:id="name1421-1" xml:lang="syr" source="#bib1421-1" srophe:tags="#syriaca-headword">ܝܘܚܢܢ ܡܥܡܕܢܐ</title>
+        <title xml:id="name1421-2" xml:lang="fr-x-bhs" source="#bib1421-1">Yōḥanān maʿməḏānā</title>
+        <title xml:id="name1421-3" xml:lang="fr" source="#bib1421-1">Jean Baptiste (texte)</title>
+        <title xml:id="name1421-4" xml:lang="en" source="#bib1421-1" srophe:tags="#syriaca-headword">John the Baptist (text)</title>
+        <author ref="http://syriaca.org/person/573" source="#bib1421-1" xml:lang="en">John Chrysostom — <foreign xml:lang="syr">ܝܘܐܢܝܣ ܟܪܘܣܘܣܛܘܡܘܣ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1421</idno>
+        <idno type="number" subtype="BHS">1294</idno>
+        <idno type="number" subtype="CPG">4578</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1421-1">ܝܘܚܢܢ ܡܢ ܗܟܝܠ ܗܘ ܪܒܐ: ܗܘ ܕܝܬܝܪܐ ܐܝܬ ܠܗ ܡܢ ܢܒ̈ܝܐ: ܟܠ ܓܝܪ ܢܒܝܐ ܟܕ ܒܩܢܝܘܬܐ ܡܫܡܠܝܬܐ ܕܩܘܡܬܐ ܗܘܐ ܗܘܐ: ܠܛܝܒܘܬܐ ܢܒܝܝܬܐ ܡܫܬܘܐ ܗܘܐ...</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1421-1">Jean donc le grand, lui qui a plus que les prophètes, car tout prophète, étant dans la possession parfaite de la vérité, était jugé digne de la grâce prophétique…</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1421-1">ܗܕܐ ܗܟܝܠ ܒܨܝܢܢ ܘܥܩܒܢܢ ܐܠܨܐܝܬ ܐܝܟܢܐ ܕܒܬܘܢܝܗܿ ܕܬܫܥܝܬܐ ܠܥܝ̈ܢܐ ܢܫܝܓ ܕܗܿܢܘܢ ܪ̈ܚܡܝ ܚ̈ܙܘܢܐ ܘܢܦܝܣ ܐܢܘܢ ܕܢܗܦܟܘܢ ܐܦܝ̈ܗܘܢ ܡܢ ܚ̈ܙܘܢܐ ܕܕܐܝܟ ܗܠܝܢ ܘܠܘܬ ܛܢܢܐ ܕܩܕ̈ܝܫܐ ܠܕܘܒܪܐ ܕܚܝ̈ܝܗܘܢ ܢܠܚܡܘܢ ܐܝܟܢܐ ܕܥܡܗܘܢ ܒ̈ܛܒܬܐ ܕܡ̈ܠܝܟܢ ܢܬܒܣܡܘܢ ܒܛܝܒܘܬܗ... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1421-1">C’est elle que nous avons recherchée et poursuivie nécessairement pour laver par le récit de l’histoire les yeux des amis des spectacles et les convaincre de détourner leurs faces de tels spectacles et de conformer leur façon de vivre au zèle des saints, pour profiter avec eux des biens promis, par la grâce… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1421" source="#bib1421-1" passive="http://syriaca.org/person/1808">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1808">John the Baptist</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1421-2" source="#bib1421-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14515</idno>
+            </label>
+            <biblScope unit="fol">f. 150v-154</biblScope>
+          </bibl>
+          <bibl xml:id="bib1421-3" source="#bib1421-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14516</idno>
+            </label>
+            <biblScope unit="fol">f. 67v-70</biblScope>
+          </bibl>
+          <bibl xml:id="bib1421-4" source="#bib1421-1" type="syriaca:Manuscript">
+            <label>Birmingham, Selly Oak College Library <idno type="shelfmark" subtype="Mingana">Mingana, Syr. 545</idno>
+            </label>
+            <biblScope unit="fol">f. 132-135v</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1421-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1294</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1421" passive="http://syriaca.org/person/1808" source="#bib1421-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1294</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

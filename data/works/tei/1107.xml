@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Cross (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -163,72 +141,99 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1107" ana="#hagiographic">
-                <title xml:id="name1107-3" xml:lang="fr" source="#bib1107-1">Croix (texte)</title>
-                <title xml:id="name1107-4" xml:lang="en" source="#bib1107-1" srophe:tags="#syriaca-headword">The Cross (text)</title>
-                <author xml:lang="fr" source="#bib1107-1" ref="http://syriaca.org/person/650">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Narsai</forename>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܢܪܣܝ</forename>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Narsaï</forename>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1107-1">
-                    <quote>ܒܓܒܪܐ ܨܠܝܒܐ ܓܠܐ ܒܪܘܝܐ ܠܥܠܡܐ ܟܠܗ: ܫܡ ܐܝܬܘܬܗ ܘܚܝܠܐ ܪܒܐ ܕܐܠܗܘܬܗ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1107-1">
-                    <quote>En un homme le créateur a manifesté la croix au monde entier, nom de son essence et grande force de sa divinité.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1107-1">
-                    <quote>ܬܘ ܢܘܕܐ ܠܗ ܚܕܐ ܬܘܕܝܬܐ ܥܡ ܪ̈ܘܚܢܐ: ܠܗܘܿ ܕܒܨܠܝܒܗ ܪܡܪܡ ܓܢܣܢ ܠܗ ܬܫܒܘܚܬܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1107-1">
-                    <quote>Venez, rendons unanimement grâces avec les êtres spirituels à celui qui par sa croix à exalté notre race; à lui la gloire.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1107-1" xml:id="bib1107-2">
-                        <author>Mingana, A.</author>
-                        <title>Narsai doctoris Syri Homiliae et Carmina 2</title>
-                        <ptr target="http://syriaca.org/cbss/LEYYQKXA"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>Mossoul, 1905, p. 114-130</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1107-1">
-                    <bibl xml:id="bib1107-3">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 55, f. 194v-204v + ms Mossoul + ms Ourmiah</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1107-1">
-                    <bibl xml:id="bib1107-4">ms Saint-Pétersbourg, Institud d’études orientales, Diettrich 5 (Pigulevskaja 29), f. 10v-16</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1107-1">
-                    <bibl xml:id="bib1107-5">ms Londres, British Library, Or. 5463, f. 194-199v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1107-1">
-                    <bibl xml:id="bib1107-6">ms Londres, British Library, Or. 9367, f. 184v-195v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1107-1">
-                    <bibl xml:id="bib1107-7">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 70, 2e partie, f. 143v-155</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1107-1">
-                    <bibl xml:id="bib1107-8">ms Téhéran, Archevêché chaldéen, Neesan 1, f. 225-232</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1107-1">
-                    <bibl xml:id="bib1107-9">ms Dawra, Monastère chaldéen, cod. 491 (olim Alqosh, Monastère N.-D. des Semences, 161 Vosté), f. 143v-155</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1107</idno>
-                <idno type="BHS">937</idno>
-                <idno type="BHO">226</idno>
-                <bibl xml:id="bib1107-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1107" ana="#syriaca-hagiographic">
+        <title xml:id="name1107-3" xml:lang="fr" source="#bib1107-1">Croix (texte)</title>
+        <title xml:id="name1107-4" xml:lang="en" source="#bib1107-1" srophe:tags="#syriaca-headword">The Cross (text)</title>
+        <author ref="http://syriaca.org/person/650" source="#bib1107-1" xml:lang="en">Narsai — <foreign xml:lang="syr">ܢܪܣܝ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1107</idno>
+        <idno type="number" subtype="BHS">937</idno>
+        <idno type="number" subtype="BHO">226</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1107-1">ܒܓܒܪܐ ܨܠܝܒܐ ܓܠܐ ܒܪܘܝܐ ܠܥܠܡܐ ܟܠܗ: ܫܡ ܐܝܬܘܬܗ ܘܚܝܠܐ ܪܒܐ ܕܐܠܗܘܬܗ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1107-1">En un homme le créateur a manifesté la croix au monde entier, nom de son essence et grande force de sa divinité.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1107-1">ܬܘ ܢܘܕܐ ܠܗ ܚܕܐ ܬܘܕܝܬܐ ܥܡ ܪ̈ܘܚܢܐ: ܠܗܘܿ ܕܒܨܠܝܒܗ ܪܡܪܡ ܓܢܣܢ ܠܗ ܬܫܒܘܚܬܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1107-1">Venez, rendons unanimement grâces avec les êtres spirituels à celui qui par sa croix à exalté notre race; à lui la gloire.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1107" source="#bib1107-1" passive="http://syriaca.org/person/1661">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1661">The Cross</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib1107-1" xml:id="bib1107-2" type="lawd:Edition">
+            <title xml:lang="la">Narsai doctoris Syri Homiliae et Carmina 2</title>
+            <author>Mingana, A.</author>
+            <ptr target="http://syriaca.org/cbss/LEYYQKXA"/>
+            <citedRange unit="vol">2</citedRange>
+            <citedRange unit="p">Mossoul, 1905, p. 114-130</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1107-3" source="#bib1107-1" type="syriaca:Manuscript">
+            <label>ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 55, f. 194v-204v + ms Mossoul + ms Ourmiah</label>
+          </bibl>
+          <bibl xml:id="bib1107-4" source="#bib1107-1" type="syriaca:Manuscript">
+            <label>Saint-Pétersbourg, Institut des études orientales <idno type="shelfmark">Diettrich 5</idno>
+            </label>
+            <label>Pigulevskaya <idno type="catalog-number">29</idno>
+            </label>
+            <biblScope unit="fol">f. 10v-16</biblScope>
+          </bibl>
+          <bibl xml:id="bib1107-5" source="#bib1107-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Or. 5463</idno>
+            </label>
+            <biblScope unit="fol">f. 194-199v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1107-6" source="#bib1107-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Or. 9367</idno>
+            </label>
+            <biblScope unit="fol">f. 184v-195v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1107-7" source="#bib1107-1" type="syriaca:Manuscript">
+            <label>Bagdad, Patriarcat chaldéen catholique</label>
+            <label>olim Mossoul, Patriarcat chaldéen <idno type="shelfmark">cod. 70, 2e partie</idno>
+            </label>
+            <biblScope unit="fol">f. 143v-155</biblScope>
+          </bibl>
+          <bibl xml:id="bib1107-8" source="#bib1107-1" type="syriaca:Manuscript">
+            <label>Téhéran, Archevêché chaldéen <idno type="shelfmark">Neesan 1</idno>
+            </label>
+            <biblScope unit="fol">f. 225-232</biblScope>
+          </bibl>
+          <bibl xml:id="bib1107-9" source="#bib1107-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 491 (olim Alqosh, Monastère N.-D. des Semences, 161 Vosté), f. 143v-155</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1107-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">937</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1107" passive="http://syriaca.org/person/1661" source="#bib1107-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">937</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

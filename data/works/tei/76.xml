@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title level="a" xml:lang="en">Acts (Peshitta version) — <foreign xml:lang="syr">ܦܪܟܣܣ ܕܫܠܝ̈ܚܐ</foreign>
+        </title>
+        <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+        <funder>The International Balzan Prize Foundation</funder>
+        <funder>The National Endowment for the Humanities</funder>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</editor>
+        <respStmt>
+          <resp>Editing, data entry, and reconciling by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+        </respStmt>
+        <respStmt>
+          <resp>Editing, proofreading, data architecture, and encoding by</resp>
+          <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+        </respStmt>
+        <respStmt>
+          <resp>Data entry by</resp>
+          <name type="person" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="2.0"/>
+      </editionStmt>
+      <publicationStmt>
+        <authority>Syriaca.org: The Syriac Reference Portal</authority>
+        <idno type="URI">http://syriaca.org/work/76/tei</idno>
+        <availability>
+          <licence target="http://creativecommons.org/licenses/by/3.0/">
+            <p>Distributed under a Creative Commons Attribution 3.0 Unported
+              License.</p>
+          </licence>
+        </availability>
+        <date>2017-03-23+01:00</date>
+      </publicationStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+          Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m" xml:lang="en">A Guide to the Bible in Syriac</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+          Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+        <biblScope unit="vol" n="2"/>
+        <idno type="URI">http://syriaca.org/bible</idno>
+      </seriesStmt>
+      <sourceDesc>
+        <p>Born digital.</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <editorialDecl>
+        <p>This record created following the Syriaca.org guidelines. Documentation
+          available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
+        <interpretation>
+          <p>Approximate dates described in terms of centuries or partial centuries
+            have been interpreted as documented in <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org
+              Dates</ref>.</p>
+        </interpretation>
+      </editorialDecl>
+      <classDecl>
+        <taxonomy>
+          <category xml:id="syriaca-headword">
+            <catDesc>The name used by Syriaca.org for document titles, citation, and
+              disambiguation. These names have been created according to the
+              Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+          </category>
+          <category xml:id="syriaca-anglicized">
+            <catDesc>An anglicized version of a name, included to facilitate
+              searching.</catDesc>
+          </category>
+          <category xml:id="canonical">
+            <catDesc>Indicates the content is canonical, i.e., widely agreed upon. Abbreviations of work titles are primarily in view.</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <p>
+          Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+          <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
+    </profileDesc>
+    <revisionDesc status="uncorrected-draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
+      <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change76-2">Merged in data from [duplicate record with same URI].</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change76-1">Merged in data from [duplicate record with same URI].</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work [duplicate record with same URI]</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <bibl xml:id="work-76" type="lawd:ConceptualWork" ana="#syriaca-biblical">
+        <title xml:id="name76-1" xml:lang="en" srophe:tags="#syriaca-headword" resp="http://syriaca.org">Acts (Peshitta version)</title>
+        <title xml:id="name76-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib76-1">ܦܪܟܣܣ ܕܫܠܝ̈ܚܐ</title>
+        <title xml:id="name76-3" xml:lang="syr" source="#bib76-1">ܦܪܟܣܣ ܕܬܪܥܣܪ ܫܠܝ̈ܚܐ ܛܘܒ̈ܢܐ</title>
+        <title xml:id="name76-4" xml:lang="syr" source="#bib76-2">ܦܪܟܣܝܣ ܕܫܠܝܚ̈ܐ</title>
+        <title xml:id="name76-5" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib76-5 #bib76-47">Acts</title>
+        <title xml:id="name76-24" xml:lang="en" source="#bib76-5 #bib76-47">Acts</title>
+        <title xml:id="name76-7" xml:lang="syr-Syrj" source="#bib76-4">ܟܬܳܒܳܐ ܕܰܦܪܰܟܣܺܝܣ</title>
+        <title xml:lang="en" xml:id="name76-8" source="#bib76-21 #bib76-43">The Acts of the Apostles</title>
+        <title xml:lang="syr" xml:id="name76-9" source="#bib76-21">ܟܬܒܐ ܕܦܪܟܣܝܣ ܕܬܪ̈ܥܣܪ ܫ̈ܠܝܚܐ ܛܘܒ̈ܢܐ</title>
+        <title xml:lang="en" xml:id="name76-10" source="#bib76-23 #bib76-27 #bib76-29 #bib76-35 #bib76-37 #bib76-41 #bib76-49">The Acts of the Apostles, according to the Peshitta version</title>
+        <title xml:lang="syr" xml:id="name76-11" source="#bib76-23">ܬܘܒ ܟܬܒܐ ܕܦܪܟܣܝܣ ܕܬܪ̈ܥܣܪ ܫ̈ܠܝܚܐ. ܕܡܬܦܫܩ̣ ܬܫܥܝܬܐ</title>
+        <title xml:lang="en" xml:id="name76-12" source="#bib76-25">The Acts of the Apostles, ch. vii. 30— 39, according to the Peshitta version.</title>
+        <title xml:lang="syr" xml:id="name76-13" source="#bib76-25">ܦܪܟܣܝܣ ܕܫ̈ܠܝܚܐ ܩ̈ܕܝܫܐ. ܩܪܝܢܐ ܕܡܝܟܝܐܝܠ ܡܠܐܟܐ</title>
+        <title xml:lang="syr" xml:id="name76-14" source="#bib76-27">ܦܪܟܣܣ܀ ܕܬܪܥܣܪ̈: ܫ̈ܠܝܚܐ܀ ܛܘ̈ܒܢܐ</title>
+        <title xml:lang="syr" xml:id="name76-15" source="#bib76-29">ܦܪܟܣܣ ܕܬܪܥܣܪ ܫܠܝ̈ܚܐ</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name76-16" source="#bib76-29">ܫܠܡܬ. ܦܪܟܣܣ. ܕܫܠܝܚ̈ܐ. ܛܘܒ̈ܢܐ. ܡܟܪ̈ܙܝ. ܚ̈ܝܐ</title>
+        <title xml:lang="en" xml:id="name76-17" source="#bib76-31">Acts of the Apostles</title>
+        <title xml:lang="en" xml:id="name76-18" source="#bib76-33">Acts of the Apostles, according to the Peshitta version</title>
+        <title xml:lang="syr" xml:id="name76-19" source="#bib76-37">ܦܪܟܣܝܣ ܕܬܪ̈ܥܣܪ ܫ̈ܠܝܚܐ ܛܘ̈ܒܢܐ</title>
+        <title xml:lang="en" xml:id="name76-20" source="#bib76-39">The Acts of the Apostles, from ch. xxiii. 15 to the end.</title>
+        <title xml:lang="syr" xml:id="name76-21" source="#bib76-41">ܦܪܟܣܣ: ܕܬܪ̈ܥܣܪ: ܫ̈ܠܝܚܐ</title>
+        <title xml:lang="en" xml:id="name76-22" source="#bib76-45">The Acts of the Apostles, ch. xii. 20— xiii. 5, according to the Peshitta version.</title>
+        <title xml:lang="syr" xml:id="name76-23" source="#bib76-49">ܦܪܟܣܣ ܕܬܪ̈ܥܣܪ ܫ̈ܠܝܚܐ ܛ̈ܘܒܢܐ</title>
+        <idno type="URI">http://syriaca.org/work/76</idno>
+        <idno type="URI">https://en.wikipedia.org/wiki/Acts_of_the_Apostles</idno>
+        <idno type="URI">https://www.wikidata.org/wiki/Q40309</idno>
+        <textLang mainLang="syr"/>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib76-3">ܟܿܬܼܒܼܐ ܩܕܼܡܝܐ ܟܿܬܼܒܿܬܼ ܐܘ ܬܿܐܘܦܼܝܠܐ܃ ܥܠ ܟܿܠܗܝܢ ܐܝܠܝܢ ܕܿܫܪܝ ܡܪܢ ܝܫܘܼܥ ܡܫܝܚܐ ܠܡܥܒܿܕܼ ܘܠܡܠܦܼܘܼ܃</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="skos:broader" active="http://syriaca.org/work/76" passive="http://syriaca.org/work/9593">
+            <desc xml:lang="en">
+              <title ref="http://syriaca.org/work/9593">Acts (literary tradition)</title>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/76" passive="http://syriaca.org/work/70" source="#bib76-27 #bib76-37 #bib76-49 #bib76-31 #bib76-47 #bib76-33 #bib76-35 #bib76-41">
+            <desc xml:lang="en">
+              <label type="order" subtype="collection" n="2">collection 2</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/76" passive="http://syriaca.org/work/70" source="#bib76-27 #bib76-37 #bib76-49">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="1" source="#bib76-27 #bib76-37 #bib76-49">part 1</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/76" passive="http://syriaca.org/work/70" source="#bib76-31 #bib76-47">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="3" source="#bib76-31 #bib76-47">part 3</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/76" passive="http://syriaca.org/work/70" source="#bib76-33 #bib76-35 #bib76-41">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="2" source="#bib76-33 #bib76-35 #bib76-41">part 2</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/76" passive="http://syriaca.org/work/10513" source="#bib76-53">
+            <desc xml:lang="en">
+              <label type="order" subtype="book" n="1" source="#bib76-53">1</label>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib76-1" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+            <ptr target="http://syriaca.org/cbss/QYTHVWYZ"/>
+            <citedRange unit="p">154-202</citedRange>
+          </bibl>
+          <bibl xml:id="bib76-2" type="lawd:Edition">
+            <title xml:lang="en" level="m">The Syriac Peshiṭta Bible with English Translation: Acts</title>
+            <title xml:lang="en" level="s">Surath Kthob</title>
+            <ptr target="http://syriaca.org/cbss/NAP578EA"/>
+          </bibl>
+          <bibl xml:id="bib76-3" type="lawd:Edition">
+            <title xml:lang="en" level="m">Comprehensive Aramaic Lexicon</title>
+            <ptr target="http://syriaca.org/cbss/DV6ZMDAF"/>
+            <citedRange unit="entry" target="http://cal1.cn.huc.edu/showsubtexts.php?subtext=62044&amp;cset=USyriac">62044</citedRange>
+            <citedRange unit="entry">P Acts</citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/DV6ZMDAF" ref="dcterms:source" passive="http://syriaca.org/cbss/QYTHVWYZ">
+                <desc xml:lang="en">
+                  <title ref="http://syriaca.org/cbss/QYTHVWYZ">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib76-4" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܵܒܸ̈ܐ ܩܲܕܹ̈ܝܫܸܐ ܗ̅ ܟܬܵܒܸ̈ܐ ܕܕܹܝܲܬܹܝܩܹܐ ܥܲܛܹܝܩܵܐ ܘܚܕܲܬܵܐ</title>
+            <ptr target="http://syriaca.org/cbss/CF2GFLRP"/>
+            <citedRange unit="p">159-210</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-6" source="#bib76-21 #bib76-22">
+            <label>London, British Library, Add MS 14680</label>
+            <ptr target="http://syriaca.org/manuscript/536"/>
+            <biblScope unit="fol" from="1b" to="60">Foll. 1b-60</biblScope>
+            <date notBefore="1100" notAfter="1300">12th or 13th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-7" source="#bib76-23 #bib76-24">
+            <label>London, British Library, Add MS 14474</label>
+            <ptr target="http://syriaca.org/manuscript/159"/>
+            <biblScope unit="fol" from="62a" to="98">Foll. 62a-98</biblScope>
+            <date notBefore="0800" notAfter="0900">9th cent.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-8" source="#bib76-25 #bib76-26">
+            <label>London, British Library, Add MS 17115</label>
+            <ptr target="http://syriaca.org/manuscript/744"/>
+            <biblScope unit="fol" from="88b" to="88b">Foll. 88b</biblScope>
+            <date from="0500" to="0600">6th cent.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-9" source="#bib76-27 #bib76-28">
+            <label>London, British Library, Add MS 17120</label>
+            <ptr target="http://syriaca.org/manuscript/749"/>
+            <biblScope unit="fol" from="1b" to="40">Foll. 1b-40</biblScope>
+            <date notBefore="0500" notAfter="0600">6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-10" source="#bib76-29 #bib76-30">
+            <label>London, British Library, Add MS 14473</label>
+            <ptr target="http://syriaca.org/manuscript/157"/>
+            <biblScope unit="fol" from="1b" to="108">Foll. 1b-108</biblScope>
+            <date notBefore="0500" notAfter="0600">6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-11" source="#bib76-31 #bib76-32">
+            <label>London, British Library, Add MS 14470</label>
+            <ptr target="http://syriaca.org/manuscript/153"/>
+            <biblScope unit="fol" from="143a" to="168">Foll. 143a-168</biblScope>
+            <date notBefore="0400" notAfter="0600">5th or 6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-12" source="#bib76-33 #bib76-34">
+            <label>London, British Library, Add MS 17124</label>
+            <ptr target="http://syriaca.org/manuscript/753"/>
+            <biblScope unit="fol" from="68b" to="98">Foll. 68b-98</biblScope>
+            <date when="1234" calendar="Gregorian">A.D. 1234</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-13" source="#bib76-35 #bib76-36">
+            <label>London, British Library, Add MS 14448</label>
+            <ptr target="http://syriaca.org/manuscript/120"/>
+            <biblScope unit="fol" from="116a" to="153">Foll. 116a-153</biblScope>
+            <date notBefore="0699" notAfter="0700" calendar="Gregorian">A.D. 699-700</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-14" source="#bib76-37 #bib76-38">
+            <label>London, British Library, Add MS 18812</label>
+            <ptr target="http://syriaca.org/manuscript/1118"/>
+            <biblScope unit="fol" from="1b" to="47">Foll. 1b-47</biblScope>
+            <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-15" source="#bib76-39 #bib76-40">
+            <label>London, British Library, Add MS 17226</label>
+            <ptr target="http://syriaca.org/manuscript/1003"/>
+            <biblScope unit="fol" from="1a" to="12">Foll. 1a-12</biblScope>
+            <date notBefore="1200" notAfter="1400">13th or 14th century</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-16" source="#bib76-41 #bib76-42">
+            <label>London, British Library, Add MS 17121</label>
+            <ptr target="http://syriaca.org/manuscript/750"/>
+            <biblScope unit="fol" from="3b" to="82">Foll. 3b-82</biblScope>
+            <date notBefore="0500" notAfter="0600">6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-17" source="#bib76-43 #bib76-44">
+            <label>London, British Library, Add MS 14681</label>
+            <ptr target="http://syriaca.org/manuscript/537"/>
+            <biblScope unit="fol" from="1a" to="52">Foll. 1a-52</biblScope>
+            <date notBefore="1100" notAfter="1300">12th or 13th century</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-18" source="#bib76-45 #bib76-46">
+            <label>London, British Library, Add MS 14738</label>
+            <ptr target="http://syriaca.org/manuscript/696"/>
+            <biblScope unit="fol" from="6" to="7">Foll. 6-7</biblScope>
+            <date from="1200" to="1300">13th cent.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-19" source="#bib76-47 #bib76-48">
+            <label>New York, Columbia University Library <idno type="shelfmark">X893.4-B473.</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1265"/>
+            <date notBefore="1150" notAfter="1350">c. XIII</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-20" source="#bib76-49 #bib76-50">
+            <label>London, British Library, Add MS 14472</label>
+            <ptr target="http://syriaca.org/manuscript/155"/>
+            <biblScope unit="fol" from="1b" to="55">Foll. 1b-55</biblScope>
+            <date notBefore="0500" notAfter="0700">6th or 7th cent.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-51">
+            <label>Manchester, John Rylands University Library <idno type="shelfmark">Syriac 2</idno>
+            </label>
+            <label>Crawford <idno type="catalog-number" subtype="Crawford">Syriac 2</idno>
+            </label>
+            <biblScope unit="fol">134a-168</biblScope>
+            <date notBefore="1050" notAfter="1250">12th cent.?</date>
+            <note xml:lang="en" resp="http://syriaca.org">Missing much of 8:11-10:12</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib76-52">
+            <label>Manchester, John Rylands University Library <idno type="shelfmark">Syriac 11</idno>
+            </label>
+            <label>Harris <idno type="catalog-number" subtype="Harris">Syriac 137</idno>
+            </label>
+            <biblScope unit="fol">1b-38b</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib76-5" type="lawd:Citation">
+            <title xml:lang="en" level="m">The SBL Handbook of Style: For Biblical Studies and Related Disciplines</title>
+            <ptr target="http://syriaca.org/cbss/4LF563BK"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-21">
+            <title level="a" xml:lang="en">BL Add MS 14680</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/536"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/536">The Acts of the Apostles</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-22">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXII</citedRange>
+            <citedRange unit="p">I:77-78</citedRange>
+            <citedRange unit="entry">BL Add MS 14680</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-23">
+            <title level="a" xml:lang="en">BL Add MS 14474</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/159"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/159">The Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-24">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXI</citedRange>
+            <citedRange unit="p">I:76-77</citedRange>
+            <citedRange unit="entry">BL Add MS 14474</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-25">
+            <title level="a" xml:lang="en">BL Add MS 17115</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/744"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/744">The Acts of the Apostles, ch. vii. 30— 39, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-26">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">XCVI</citedRange>
+            <citedRange unit="p">I:66</citedRange>
+            <citedRange unit="entry">BL Add MS 17115</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-27">
+            <title level="a" xml:lang="en">BL Add MS 17120</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/749"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/749">The Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-28">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXVI</citedRange>
+            <citedRange unit="p">I:80</citedRange>
+            <citedRange unit="entry">BL Add MS 17120</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-29">
+            <title level="a" xml:lang="en">BL Add MS 14473</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/157"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/157">The Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-30">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXV</citedRange>
+            <citedRange unit="p">I:79-80</citedRange>
+            <citedRange unit="entry">BL Add MS 14473</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-31">
+            <title level="a" xml:lang="en">BL Add MS 14470</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/153"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/153">Acts of the Apostles</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-32">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXIII</citedRange>
+            <citedRange unit="p">I:40-41</citedRange>
+            <citedRange unit="entry">BL Add MS 14470</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-33">
+            <title level="a" xml:lang="en">BL Add MS 17124</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/753"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/753">Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-34">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXV</citedRange>
+            <citedRange unit="p">I:42-44</citedRange>
+            <citedRange unit="entry">BL Add MS 17124</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-35">
+            <title level="a" xml:lang="en">BL Add MS 14448</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/120"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/120">The Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-36">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXIV</citedRange>
+            <citedRange unit="p">I:41-42</citedRange>
+            <citedRange unit="entry">BL Add MS 14448</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-37">
+            <title level="a" xml:lang="en">BL Add MS 18812</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1118"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1118">The Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-38">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXIX</citedRange>
+            <citedRange unit="p">I:83</citedRange>
+            <citedRange unit="entry">BL Add MS 18812</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-39">
+            <title level="a" xml:lang="en">BL Add MS 17226</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1003"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1003">The Acts of the Apostles, from ch. xxiii. 15 to the end</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-40">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXIV</citedRange>
+            <citedRange unit="p">I:79</citedRange>
+            <citedRange unit="entry">BL Add MS 17226</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-41">
+            <title level="a" xml:lang="en">BL Add MS 17121</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/750"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/750">The Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-42">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXVII</citedRange>
+            <citedRange unit="p">I:80-81</citedRange>
+            <citedRange unit="entry">BL Add MS 17121</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-43">
+            <title level="a" xml:lang="en">BL Add MS 14681</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/537"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/537">The Acts of the Apostles</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-44">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXIII</citedRange>
+            <citedRange unit="p">I:78-79</citedRange>
+            <citedRange unit="entry">BL Add MS 14681</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-45">
+            <title level="a" xml:lang="en">BL Add MS 14738</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/696"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/696">The Acts of the Apostles, ch. xii. 20— xiii. 5, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-46">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXX</citedRange>
+            <citedRange unit="p">1:83</citedRange>
+            <citedRange unit="entry">BL Add MS 14738</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-47">
+            <title level="a" xml:lang="en">Columbia University X893.4-B473</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1265"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1265">Acts</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-48">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Columbia University X893.4-B473</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-49">
+            <title level="a" xml:lang="en">BL Add MS 14472</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/155"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/155">The Acts of the Apostles, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-50">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXVIII</citedRange>
+            <citedRange unit="p">I:81-82</citedRange>
+            <citedRange unit="entry">BL Add MS 14472</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib76-53">
+            <title xml:lang="en" level="a">A Catalogue of the Syriac Manuscripts in the John Rylands Library</title>
+            <title xml:lang="en" level="j">Bulletin of the John Rylands Library</title>
+            <ptr target="http://syriaca.org/cbss/WR7JUILF"/>
+            <citedRange unit="p">118-119, 130-131</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
+    </body>
+  </text>
+</TEI>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Eustathius (text) — <foreign xml:lang="syr">ܐܘܣܛܬܝܘܣ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,169 +142,195 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-467" ana="#hagiographic">
-                <title xml:id="name467-1" xml:lang="syr" source="#bib467-1" srophe:tags="#syriaca-headword">ܐܘܣܛܬܝܘܣ</title>
-                <title xml:id="name467-2" xml:lang="fr-x-bhs" source="#bib467-1">ʾĒwsṭāṯīyōs</title>
-                <title xml:id="name467-3" xml:lang="fr" source="#bib467-1">Eustathe (texte)</title>
-                <title xml:id="name467-4" xml:lang="en" source="#bib467-1" srophe:tags="#syriaca-headword">Eustathius (text)</title>
-                <author xml:lang="fr" source="#bib467-1" ref="http://syriaca.org/person/474">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">ʿEnanishoʿ</forename>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܥܢܢܝܫܘܥ</forename>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Enanicho</forename>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib467-1">
-                    <quote>ܐܘܣܛܬܝܣ ܐܚܘܗܝ ܕܗܠܦܝܕܝܣ ܗܢܐ ܕܡܢ ܠܥܠ: ܒܬܪ ܕܐܝܟ ܗܕܐ ܠܐ ܚܫܘܫܘܬܐ ܪܕܦ ܠܡܩܢܐ...</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib467-1">
-                    <quote>Eustathe, frère d’Elpidios dont nous venons de parler, poursuivit (l’acquisition d’)une telle impassibilité…</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib467-1">
-                    <quote>ܐܦܠܐ ܟܘ̈ܟܒܐ ܗܠܝܢ ܕܡܬܚܙܝܢ ܒܦܢܝܬܐ ܡܥܪܒܝܬܐ ܚܙܐ: ܙܒܢܐ ܕܥܣܪܝܢ ܘܚܡܫ ܫܢܝ̈ܢ: ܗܘܿ ܕܡܢ ܕܥܠ ܠܡܥܪܬܐ ܗܝܿ ܕܥܡܿܪ ܗܘ̣ܐ ܒܗܿ: ܠܐ ܢܚܬ ܡܢ ܛܘܪܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib467-1">
-                    <quote>Et il ne vit pas non plus ces étoiles qui apparaissent du côté de l’occident; pendant vingt-cinq ans après qu’il fut entré dans cette grotte où il demeurait, il ne descendit pas de la montagne.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib467-1" corresp="#bib467-19" n="1" xml:id="bib467-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 7</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">7</citedRange>
-                        <citedRange>p. 181-182</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib467-1" corresp="#bib467-7 bib467-20" n="2" xml:id="bib467-4">
-                        <author>Draguet, R.</author>
-                        <title>FSMHL 2</title>
-                        <ptr target="http://syriaca.org/cbss/ILJ2T2SB"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 317-318</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib467-1" corresp="#bib467-6 bib467-8" n="3" xml:id="bib467-5">
-                        <author>Budge, E. A. W.</author>
-                        <title>BP 2</title>
-                        <ptr target="http://syriaca.org/cbss/NV8KZX7S"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 229 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib467-1">
-                    <bibl xml:id="bib467-6">ms lady Meux 6 (?)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib467-1">
-                    <bibl xml:id="bib467-7">ms Vatican, Syr. 126, f. 36v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib467-1">
-                    <bibl xml:id="bib467-8">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 577, f. 55v-56</bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-9">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-10">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-11">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>hy</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-12">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-13">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>sog</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-14">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>cu</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-15">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib467-1">
-                    <bibl xml:id="bib467-16">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib467-1">
-                    <bibl xml:id="bib467-17">
-                        <editor>R. Draguet</editor>
-                        <ptr target="http://syriaca.org/cbss/J4J8SHAJ"/>
-                        <title>CSCO 399 Script. Syri
+            <bibl xml:id="work-467" ana="#syriaca-hagiographic">
+        <title xml:id="name467-1" xml:lang="syr" source="#bib467-1" srophe:tags="#syriaca-headword">ܐܘܣܛܬܝܘܣ</title>
+        <title xml:id="name467-2" xml:lang="fr-x-bhs" source="#bib467-1">ʾĒwsṭāṯīyōs</title>
+        <title xml:id="name467-3" xml:lang="fr" source="#bib467-1">Eustathe (texte)</title>
+        <title xml:id="name467-4" xml:lang="en" source="#bib467-1" srophe:tags="#syriaca-headword">Eustathius (text)</title>
+        <author ref="http://syriaca.org/person/474" source="#bib467-1" xml:lang="en">ʿEnanishoʿ — <foreign xml:lang="syr">ܥܢܢܝܫܘܥ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/467</idno>
+        <idno type="number" subtype="BHS">247</idno>
+        <idno type="number" subtype="BHO">849</idno>
+        <idno type="number" subtype="CPG">6036</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib467-1">ܐܘܣܛܬܝܣ ܐܚܘܗܝ ܕܗܠܦܝܕܝܣ ܗܢܐ ܕܡܢ ܠܥܠ: ܒܬܪ ܕܐܝܟ ܗܕܐ ܠܐ ܚܫܘܫܘܬܐ ܪܕܦ ܠܡܩܢܐ...</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib467-1">Eustathe, frère d’Elpidios dont nous venons de parler, poursuivit (l’acquisition d’)une telle impassibilité…</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib467-1">ܐܦܠܐ ܟܘ̈ܟܒܐ ܗܠܝܢ ܕܡܬܚܙܝܢ ܒܦܢܝܬܐ ܡܥܪܒܝܬܐ ܚܙܐ: ܙܒܢܐ ܕܥܣܪܝܢ ܘܚܡܫ ܫܢܝ̈ܢ: ܗܘܿ ܕܡܢ ܕܥܠ ܠܡܥܪܬܐ ܗܝܿ ܕܥܡܿܪ ܗܘ̣ܐ ܒܗܿ: ܠܐ ܢܚܬ ܡܢ ܛܘܪܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib467-1">Et il ne vit pas non plus ces étoiles qui apparaissent du côté de l’occident; pendant vingt-cinq ans après qu’il fut entré dans cette grotte où il demeurait, il ne descendit pas de la montagne.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/467" source="#bib467-1" passive="http://syriaca.org/person/1724">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1724">Eustathius the Monk</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib467-1" n="1" xml:id="bib467-3" type="lawd:Edition">
+            <title xml:lang="la">AMS 7</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">7</citedRange>
+            <citedRange unit="p">p. 181-182</citedRange>
+          
+          </bibl>
+          <bibl source="#bib467-1" n="2" xml:id="bib467-4" type="lawd:Edition">
+            <title xml:lang="fr">FSMHL 2</title>
+            <author>Draguet, R.</author>
+            <ptr target="http://syriaca.org/cbss/ILJ2T2SB"/>
+            <citedRange unit="vol">2</citedRange>
+            <citedRange unit="p">p. 317-318</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib467-4" source="#bib467-1" passive="#bib467-7">
+                <desc xml:lang="en">
+                  <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 126</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib467-1" n="3" xml:id="bib467-5" type="lawd:Edition">
+            <title xml:lang="en">BP 2</title>
+            <author>Budge, E. A. W.</author>
+            <ptr target="http://syriaca.org/cbss/NV8KZX7S"/>
+            <citedRange unit="vol">2</citedRange>
+            <citedRange unit="p">p. 229 (syr.)</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib467-5" source="#bib467-1" passive="#bib467-6">
+                <desc xml:lang="en">
+                  <label>ms lady Meux 6 (?)</label>
+                </desc>
+              </relation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib467-5" source="#bib467-1" passive="#bib467-8">
+                <desc xml:lang="en">
+                  <label>Birmingham, Selly Oak College Library <idno type="shelfmark" subtype="Mingana">Mingana, Syr. 577</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib467-6" source="#bib467-1" type="syriaca:Manuscript">
+            <label>ms lady Meux 6 (?)</label>
+          </bibl>
+          <bibl xml:id="bib467-7" source="#bib467-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 126</idno>
+            </label>
+            <biblScope unit="fol">f. 36v</biblScope>
+          </bibl>
+          <bibl xml:id="bib467-8" source="#bib467-1" type="syriaca:Manuscript">
+            <label>Birmingham, Selly Oak College Library <idno type="shelfmark" subtype="Mingana">Mingana, Syr. 577</idno>
+            </label>
+            <biblScope unit="fol">f. 55v-56</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib467-17" source="#bib467-1" type="syriaca:ModernTranslation">
+            <title xml:lang="la">CSCO 399 Script. Syri
                 174</title>
-                        <citedRange unit="pp">206</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib467-1">
-                    <bibl xml:id="bib467-18">
-                        <editor>E.A.W. Budge</editor>
-                        <title>BP 1</title>
-                        <ptr target="http://syriaca.org/cbss/NV8KZX7S"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange unit="pp">283</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib467-19">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib467-20">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/467</idno>
-                <idno type="BHS">247</idno>
-                <idno type="BHO">849</idno>
-                <idno type="CPG">6036</idno>
-                <bibl xml:id="bib467-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <editor>R. Draguet</editor>
+            <ptr target="http://syriaca.org/cbss/J4J8SHAJ"/>
+            <citedRange unit="p">206</citedRange>
+            <textLang mainLang="fr"/>
+          </bibl>
+          <bibl xml:id="bib467-18" source="#bib467-1" type="syriaca:ModernTranslation">
+            <title xml:lang="en">BP 1</title>
+            <editor>E.A.W. Budge</editor>
+            <ptr target="http://syriaca.org/cbss/NV8KZX7S"/>
+            <citedRange unit="vol">1</citedRange>
+            <citedRange unit="p">283</citedRange>
+            <textLang mainLang="en"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="ancientVersions">
+          <head>Ancient Versions</head>
+          <desc xml:lang="en">This is not a comprehensive list of ancient versions related to this work.</desc>
+          <bibl xml:id="bib467-9" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="la"/>
+          </bibl>
+          <bibl xml:id="bib467-10" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ar"/>
+          </bibl>
+          <bibl xml:id="bib467-11" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="hy"/>
+          </bibl>
+          <bibl xml:id="bib467-12" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ka"/>
+          </bibl>
+          <bibl xml:id="bib467-13" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="sog"/>
+          </bibl>
+          <bibl xml:id="bib467-14" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="cu"/>
+          </bibl>
+          <bibl xml:id="bib467-15" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="cop"/>
+          </bibl>
+          <bibl xml:id="bib467-16" source="#bib467-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="gez"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib467-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">247</citedRange>
-                </bibl>
-                <bibl xml:id="bib467-2">
-                    <title xml:lang="en" level="m">A Critical Discussion together with Notes on Early Egyptian Monachism</title>
-                    <title xml:lang="en" level="s">Texts and Studies</title>
-                    <title xml:lang="en" level="m">The Lausiac History of Palladius</title>
-                    <ptr target="http://syriaca.org/cbss/632NY5QG"/>
-                    <citedRange from="77" to="96" unit="pp">77-96</citedRange>
-                </bibl>
-                <bibl xml:id="bib467-2b">
-                    <title xml:lang="en" level="m">The Greek Text Edited with Introduction and Notes</title>
-                    <title xml:lang="en" level="s">Texts and Studies</title>
-                    <title xml:lang="en" level="m">The Lausiac History of Palladius</title>
-                    <ptr target="http://syriaca.org/cbss/M5T6X262"/>
-                    <citedRange unit="pp">lxxvii-lxxx</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/467" passive="http://syriaca.org/person/1724" source="#bib467-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">247</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib467-2">
+            <title xml:lang="en" level="m">A Critical Discussion together with Notes on Early Egyptian Monachism</title>
+            <title xml:lang="en" level="s">Texts and Studies</title>
+            <title xml:lang="en" level="m">The Lausiac History of Palladius</title>
+            <ptr target="http://syriaca.org/cbss/632NY5QG"/>
+            <citedRange from="77" to="96" unit="p">77-96</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib467-2b">
+            <title xml:lang="en" level="m">The Greek Text Edited with Introduction and Notes</title>
+            <title xml:lang="en" level="s">Texts and Studies</title>
+            <title xml:lang="en" level="m">The Lausiac History of Palladius</title>
+            <ptr target="http://syriaca.org/cbss/M5T6X262"/>
+            <citedRange unit="p">lxxvii-lxxx</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

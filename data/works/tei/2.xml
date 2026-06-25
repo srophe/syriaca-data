@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" xml:lang="en">Exodus (Peshitta version) — <foreign xml:lang="syr">ܣܦܪܐ ܕܡܦܩܢܐ</foreign>
+        </title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The International Balzan Prize Foundation</funder>
+                <funder>The National Endowment for the Humanities</funder>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</editor>
+                <respStmt>
+                    <resp>Editing, data entry, and reconciling by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, proofreading, data architecture, and encoding by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="2.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/work/2/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported
+                                License.</p>
+                    </licence>
+                </availability>
+                <date>2017-03-23+01:00</date>
+            </publicationStmt>
+            <seriesStmt>
+        <title level="s" xml:lang="en">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+                    Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                    Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m" xml:lang="en">A Guide to the Bible in Syriac</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+                    Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                    Michelson</editor>
+        <biblScope unit="vol" n="2"/>
+        <idno type="URI">http://syriaca.org/bible</idno>
+      </seriesStmt>
+            <sourceDesc>
+                <p>Born digital.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>This record created following the Syriaca.org guidelines. Documentation
+                        available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
+                <interpretation>
+                    <p>Approximate dates described in terms of centuries or partial centuries
+                            have been interpreted as documented in <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org
+                                Dates</ref>.</p>
+                </interpretation>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="syriaca-headword">
+                        <catDesc>The name used by Syriaca.org for document titles, citation, and
+                                disambiguation. These names have been created according to the
+                                Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+                    </category>
+                    <category xml:id="syriaca-anglicized">
+                        <catDesc>An anglicized version of a name, included to facilitate
+                                searching.</catDesc>
+                    </category>
+                    <category xml:id="canonical">
+                        <catDesc>Indicates the content is canonical, i.e., widely agreed upon. Abbreviations of work titles are primarily in view.</catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
+        </profileDesc>
+        <revisionDesc status="uncorrected-draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change2-1">Merged in data from [duplicate record with same URI].</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work [duplicate record with same URI]</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <bibl xml:id="work-2" type="lawd:ConceptualWork" ana="#syriaca-biblical">
+        <title xml:id="name2-1" xml:lang="en" srophe:tags="#syriaca-headword" resp="http://syriaca.org">Exodus (Peshitta version)</title>
+        <title xml:id="name2-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib2-1">ܣܦܪܐ ܕܡܦܩܢܐ</title>
+        <title xml:id="name2-3" xml:lang="syr" source="#bib2-1">ܣܦܪܐ ܕܬܪܝܢ ܪܐܘܪܝܬܐ ܪܡܫܬܡ̇ܗ ܡ̇ܦܩܢܐ</title>
+        <title xml:id="name2-4" xml:lang="syr" source="#bib2-2">ܟܬܒܐ ܕܡܦܩܢܐ</title>
+        <title xml:id="name2-5" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib2-10">Exod</title>
+        <title xml:id="name2-6" xml:lang="en" source="#bib2-10 #bib2-17 #bib2-21">Exodus</title>
+        <title xml:lang="syr" xml:id="name2-7" source="#bib2-17">ܟܬܒܐ ܫܠ݁ܡܠܡ̣ܢܝܐ ܕܡܬ̣ܝܕܥ ܦ̣̇ܐܢܛܩܛܝ̣ܣ ܕܒܗ ܬܪ̈ܬܝܗܝܢ ܕܝܐܬܝܩܐܣ ܕܥܬܝܩܬܐ ܘܕܚܿܕܬܐ 22b</title>
+        <title xml:lang="en" xml:id="name2-8" source="#bib2-19">The book of Exodus, according to the Peshitta version.</title>
+        <title xml:lang="syr" xml:id="name2-9" source="#bib2-19">ܡܦܩܢܐ̇ ܣܦܪܐ ܕܬܪ̈ܝܼܢ ܕܐܘܪܝܬܐ</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name2-10" source="#bib2-19">ܫܠܡ ܡܦܩܢܐ̇ ܣ̣ܦܪܐ ܕܬܪ̈ܝܼܢ ܕܐܘܪܝܬܐ;</title>
+        <title xml:lang="en" xml:id="name2-11" source="#bib2-23">Exodus, according to the Peshitta version.</title>
+        <title xml:lang="syr" xml:id="name2-12" source="#bib2-23">ܡܦܩܢܐ. ܣܦܪܐ ܕܬܪ̈ܝܢ ܕܐܘܪܝܬܐ</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name2-13" source="#bib2-23">ܫܠܡ ܡܦܩܢܐ ܣܦܪܐ ܕܬܪ̈ܝܢ ܕܐܘܪܝܬܐ</title>
+        <idno type="URI">http://syriaca.org/work/2</idno>
+        <idno type="URI">https://en.wikipedia.org/wiki/Book_of_Exodus</idno>
+        <idno type="URI">https://www.wikidata.org/wiki/Q9190</idno>
+        <textLang mainLang="syr"/>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib2-4">ܘܗܠܝܢ ܫܡ̈ܗܐ ܕܒܢ̈ܝ ܐܝܣܪܝܠ ܕܥܠܘ ܠܡܨܪܝܢ ܥܡ ܝܥܩܘܒ܂ ܓܒܪ ܘܒܝܬܗ ܥܠܘ܂</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="skos:broader" active="http://syriaca.org/work/2" passive="http://syriaca.org/work/9632">
+            <desc xml:lang="en">
+              <title ref="http://syriaca.org/work/9632">Exodus (literary tradition)</title>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/2" passive="http://syriaca.org/work/68" source="#bib2-17 #bib2-21 #bib2-23">
+            <desc xml:lang="en">
+              <label type="order" subtype="book" n="2">book 2</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/2" passive="http://syriaca.org/work/68" source="#bib2-17 #bib2-21 #bib2-23">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="2" source="#bib2-17 #bib2-21 #bib2-23">part 2</label>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib2-1" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+            <ptr target="http://syriaca.org/cbss/QYTHVWYZ"/>
+            <citedRange unit="p">42-76</citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/QYTHVWYZ" ref="dcterms:source" passive="http://syriaca.org/cbss/DNJX7VYN">
+                <desc xml:lang="en">
+                  <title ref="http://syriaca.org/cbss/DNJX7VYN">ܟܬܵܒܵܐ ܕܕܹܝܲܬܹܝܩܹܐ ܥܲܛܹܝܩܵܐ</title>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib2-2" type="lawd:Edition">
+            <title xml:lang="en" level="m">The Syriac Peshiṭta Bible with English Translation: Exodus</title>
+            <title xml:lang="en" level="s">Surath Kthob</title>
+            <ptr target="http://syriaca.org/cbss/GUK869R6"/>
+          </bibl>
+          <bibl xml:id="bib2-3" type="lawd:Edition">
+            <title xml:lang="en" level="m">The Peshitta [Peshitta Electronic Text]</title>
+            <ptr target="http://syriaca.org/cbss/TB6F26NB"/>
+            <citedRange unit="entry">Exodus</citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/TB6F26NB" ref="dcterms:source" passive="#bib2-9">
+                <desc xml:lang="en">
+                  <label>Milan, Ambrosian Library <idno type="shelfmark">B. 21. Inf.</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib2-4" type="lawd:Edition">
+            <title xml:lang="en" level="m">Comprehensive Aramaic Lexicon</title>
+            <ptr target="http://syriaca.org/cbss/DV6ZMDAF"/>
+            <citedRange unit="entry" target="http://cal1.cn.huc.edu/showsubtexts.php?subtext=62002&amp;cset=USyriac">62002</citedRange>
+            <citedRange unit="entry">P Ex</citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/DV6ZMDAF" ref="dcterms:source" passive="http://syriaca.org/cbss/TB6F26NB">
+                <desc xml:lang="en">
+                  <title ref="http://syriaca.org/cbss/TB6F26NB">Electronic Peshitta Text</title>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib2-5" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+            <ptr target="http://syriaca.org/cbss/DNJX7VYN"/>
+            <citedRange unit="p">42-76</citedRange>
+          </bibl>
+          <bibl xml:id="bib2-6" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܵܒܸ̈ܐ ܩܲܕܹ̈ܝܫܸܐ ܗ̅ ܟܬܵܒܸ̈ܐ ܕܕܹܝܲܬܹܝܩܹܐ ܥܲܛܹܝܩܵܐ ܘܚܕܲܬܵܐ</title>
+            <ptr target="http://syriaca.org/cbss/CF2GFLRP"/>
+            <citedRange unit="p">42-76</citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/CF2GFLRP" ref="dcterms:source" passive="http://syriaca.org/cbss/DNJX7VYN">
+                <desc xml:lang="en">
+                  <title ref="http://syriaca.org/cbss/DNJX7VYN">ܟܬܵܒܵܐ ܕܕܹܝܲܬܹܝܩܹܐ ܥܲܛܹܝܩܵܐ</title>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib2-7" type="lawd:Edition">
+            <title xml:lang="la" level="m">Biblia sacra iuxta versionem simplicem quae dicitur Pschitta</title>
+            <ptr target="http://syriaca.org/cbss/IWY3E4RL"/>
+            <citedRange unit="vol">1</citedRange>
+          </bibl>
+          <bibl xml:id="bib2-8" type="lawd:Edition">
+            <title xml:lang="en" level="a">Exodus</title>
+            <title xml:lang="en" level="m">Preface ; Genesis ; Exodus = Praefatio ; Liber Genesis ; Liber Exodi</title>
+            <title xml:lang="en" level="s">The Old Testament in Syriac according to the Peshiṭta version = Vetus Testamentum syriace iuxta simplicem syrorum versionem</title>
+            <ptr target="http://syriaca.org/cbss/PSTVR4XR"/>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/PSTVR4XR" ref="dcterms:source" passive="#bib2-9">
+                <desc xml:lang="en">
+                  <label>Milan, Ambrosian Library <idno type="shelfmark">B. 21. Inf.</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib2-9" type="syriaca:Manuscript">
+            <label>Milan, Ambrosian Library <idno type="shelfmark">B. 21. Inf.</idno>
+            </label>
+            <label>Leiden <idno type="number" subtype="Leiden">7a1</idno>
+            </label>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib2-13" source="#bib2-17 #bib2-18">
+            <label>London, British Library, Egerton MS 704</label>
+            <ptr target="http://syriaca.org/manuscript/1153"/>
+            <biblScope unit="fol" from="21a" to="37">ff. 21a-37</biblScope>
+            <date calendar="Gregorian" notBefore="1600" notAfter="1700">17th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib2-14" source="#bib2-19 #bib2-20">
+            <label>London, British Library, Add MS 12133</label>
+            <ptr target="http://syriaca.org/manuscript/2"/>
+            <biblScope unit="fol" from="3b" to="107b">Foll. 3b-107b</biblScope>
+            <date notBefore="0700" notAfter="0750">The earlier half of the 8th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib2-15" source="#bib2-21 #bib2-22">
+            <label>London, British Library, Add MS 14671</label>
+            <ptr target="http://syriaca.org/manuscript/523"/>
+            <biblScope unit="fol" from="42b" to="101">Foll. 42b to 101</biblScope>
+            <date notBefore="1200" notAfter="1300">13th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib2-16" source="#bib2-23 #bib2-24">
+            <label>London, British Library, Add MS 14425</label>
+            <ptr target="http://syriaca.org/manuscript/81"/>
+            <biblScope unit="fol" from="60a" to="116">Foll. 60a-116</biblScope>
+            <date when="0464" calendar="Gregorian">A.D. 464</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib2-10" type="lawd:Citation">
+            <title xml:lang="en" level="m">The SBL Handbook of Style: For Biblical Studies and Related Disciplines</title>
+            <ptr target="http://syriaca.org/cbss/4LF563BK"/>
+          </bibl>
+          <bibl xml:id="bib2-11" type="lawd:Citation">
+            <title xml:lang="en" level="m">General preface = Introductio generalis</title>
+            <title xml:lang="en" level="s">The Old Testament in Syriac according to the Peshiṭta version = Vetus Testamentum syriace iuxta simplicem syrorum versionem</title>
+            <ptr target="http://syriaca.org/cbss/Z5LIHCMM"/>
+          </bibl>
+          <bibl xml:id="bib2-12" type="lawd:Citation">
+            <title xml:lang="en" level="m">List of Old Testament Peshitta Manuscripts: Preliminary Issue</title>
+            <ptr target="http://syriaca.org/cbss/5H55KGXN"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-17">
+            <title xml:lang="en" level="a">BL Egerton MS 704</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1153"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1153">Exodus</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-18">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">I</citedRange>
+            <citedRange unit="p">I:1-3</citedRange>
+            <citedRange unit="entry">BL Egerton MS 704</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-19">
+            <title level="a" xml:lang="en">BL Add MS 12133</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/2"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/2">The book of Exodus, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-20">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">IX</citedRange>
+            <citedRange unit="p">I:7-8</citedRange>
+            <citedRange unit="entry">BL Add MS 12133</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-21">
+            <title xml:lang="en" level="a">BL Add MS 14671</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/523"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/523">Exodus</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-22">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">II</citedRange>
+            <citedRange unit="p">I:3</citedRange>
+            <citedRange unit="entry">BL Add MS 14671</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-23">
+            <title level="a" xml:lang="en">BL Add Ms 14425</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/81"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/81">Exodus, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib2-24">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">III</citedRange>
+            <citedRange unit="p">I:3-5</citedRange>
+            <citedRange unit="entry">BL Add Ms 14425</citedRange>
+            <date>1870</date>
+          </bibl>
+        </listBibl>
+      </bibl>
+        </body>
+    </text>
+</TEI>

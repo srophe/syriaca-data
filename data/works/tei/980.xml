@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Jacob of Serugh (text) — <foreign xml:lang="syr">ܝܥܩܘܒ ܕܒܛܢܢ ܕܣܪܘܓ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,9 +124,10 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
-            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologs with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -164,162 +142,210 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-980" ana="#hagiographic">
-                <title xml:id="name980-1" xml:lang="syr" source="#bib980-1" srophe:tags="#syriaca-headword">ܝܥܩܘܒ ܕܒܛܢܢ ܕܣܪܘܓ</title>
-                <title xml:id="name980-2" xml:lang="fr-x-bhs" source="#bib980-1">Yaʿqōḇ d-Ḇatnān da-Srūǥ</title>
-                <title xml:id="name980-3" xml:lang="fr" source="#bib980-1">Jacques de Serugh (texte)</title>
-                <title xml:id="name980-4" xml:lang="en" source="#bib980-1" srophe:tags="#syriaca-headword">Jacob of Serugh (text)</title>
-                <author xml:lang="fr" source="#bib980-1" ref="http://syriaca.org/person/978">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Gewargis</forename>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܓܘܪܓܝܣ</forename>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Georges</forename>
-                    </persName>)</author>
-                <note xml:lang="fr" type="prologue" source="#bib980-1">
-                    <quote>Jésus lumière, toi qui fais briller partout ton apparition, fais briller la lumière de ta grâce sur mes pensées.</quote>
-                </note>
-                <note xml:lang="syr" type="prologue" source="#bib980-1">
-                    <quote>ܝܫܘܥ ܢܘܗܪܐ ܕܠܟܠ ܣܘ̈ܦܝܢ ܕܢܚܗ ܡܦܨܚ. ܐܕܢܚ ܢܘܗܪܐ ܡܢ ܛܝܒܘܬܟ ܥܠ ܚܘ̈ܫܒܝ.</quote>
-                </note>
-                <note xml:lang="syr" type="incipit" source="#bib980-1">
-                    <quote>ܡܛܠ ܝܥܩܘܒ ܗܿܘ ܡܠܦܢܐ ܕܫܪ̈ܝܪܬܐ. ܕܠ ܒܝ ܡܐܡܪܐ ܠܡܬܡܠܠܘ ܒܚܘܒܐ ܪܒܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib980-1">
-                    <quote>Il m’est venu un discours pour parler avec grand amour de Jacques, ce maître de vérité.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib980-1">
-                    <quote>ܒܪܝܟܘ ܕܝܗܒܠܢ ܡܪܓܢܝܬܐ ܡܢ ܗܕ̈ܡܘܗܝ ܕܒܗ ܘܒܡܐܡܪ̈ܘܗܝ ܗܐ ܡܬܒܣܡܐ ܥܕܬ ܩܘܕܫܐ ܒܪܝܟܘ ܕܐܫܦܥ ܡܠܦܢܘܬܐ ܡܢ ܣܦܘ̈ܬܗ ܘܢܨܚ ܘܐܘܪܒ ܝܘܡ ܕܘܟܪܢܗ ܒܐܪ̈ܒܥܦܢܝܢ. ܠܡܪܗ ܘܫܘܒܚܐ ܘܠܗ ܪܘܡܪܡܐ ܘܠܝ ܫܘܒܩܢܐ ܡܫܝܚܐ ܕܦܪܩܢ ܒܕܒܚܢܘܬܗ ܬܫܒܘܚܬܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib980-1">
-                    <quote>Béni soit celui qui nous a donné la perle de ses membres; en lui et en ses discours voici que se réjouit la sainte Église. Béni soit celui qui a répandu l’enseignement de ses lèvres et a fait briller et exalté le jour de sa mémoire aux quatre coins du monde. Gloire à son Seigneur; à lui l’exaltation et à moi le pardon. Christ qui nous a sauvés par ton sacrifice louange à toi.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib980-1" corresp="#bib980-11" n="1" xml:id="bib980-8">
-                        <author>Abbeloos, J. B.</author>
-                        <title>De vita et scriptis sancti Jacobi Batnarum Sarugi in Mesopotamia episcopi</title>
-                        <ptr target="http://syriaca.org/cbss/YMGH99IE"/>
-                        <citedRange>Louvain, 1867, p. 24-84</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib980-1" corresp="#bib980-21" n="2" xml:id="bib980-9">
-                        <author>Assemani, J. S.</author>
-                        <title>BO 1</title>
-                        <ptr target="http://syriaca.org/cbss/Y4UYWAUR"/>
-                        <citedRange>p. 286-288</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib980-1" corresp="#bib980-12 bib980-13" n="3" xml:id="bib980-10">
-                        <author>Krüger, P.</author>
-                        <title>Ein bislang unbekannter sermo über Leben und Werk des Jakob ovn Serugh</title>
-                        <ptr target="http://syriaca.org/cbss/X85NV47V"/>
-                        <citedRange>56 (1972),p. 82-96</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-11">ms Vatican, Syr. 117, f. 110-114</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-12">ms Paris, Bibliothèque nationale, syr. 177, f. 136-145v + ms Vatican, Syr. 117, f. 110-114v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-13">ms Mardin, Évêché syrien orthodoxe, cod. 130, f. 204v-209v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-14">ms Mardin, Évêché syrien orthodoxe, cod. 132 (olim ms Dayr az-Za‘faran, cod. pap. 59 (Dolabany))</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-15">ms Mardin, Évêché syrien orthodoxe, cod. 144, f. 216v-234v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-16">ms Berlin, Königliche Bibliothek, syr. 201 (Sachau 165), f. 7r-v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-17">ms Damas, Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, cod. 156 (Baumstark Litur. 43)), f. 67v-69v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib980-1">
-                    <bibl xml:id="bib980-18">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 146v-154v</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib980-1">
-                    <bibl xml:id="bib980-19">
-                        <editor>J. B. Abbeloos</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/cbss/YMGH99IE"/>
-                        <citedRange>Louvain, 1867, p. 24-84</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib980-1">
-                    <bibl xml:id="bib980-20">
-                        <editor>P. Krüger</editor>
-                        <ptr target="http://syriaca.org/cbss/X85NV47V"/>
-                        <citedRange unit="pp">97-111</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib980-21">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/980</idno>
-                <idno type="BHS">790</idno>
-                <idno type="BHO">413</idno>
-                <bibl xml:id="bib980-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-980" ana="#syriaca-hagiographic">
+        <title xml:id="name980-1" xml:lang="syr" source="#bib980-1" srophe:tags="#syriaca-headword">ܝܥܩܘܒ ܕܒܛܢܢ ܕܣܪܘܓ</title>
+        <title xml:id="name980-2" xml:lang="fr-x-bhs" source="#bib980-1">Yaʿqōḇ d-Ḇatnān da-Srūǥ</title>
+        <title xml:id="name980-3" xml:lang="fr" source="#bib980-1">Jacques de Serugh (texte)</title>
+        <title xml:id="name980-4" xml:lang="en" source="#bib980-1" srophe:tags="#syriaca-headword">Jacob of Serugh (text)</title>
+        <author ref="http://syriaca.org/person/978" source="#bib980-1" xml:lang="en">George , the disciple of Jacob of Serugh — <foreign xml:lang="syr">ܓܘܪܓܝܣ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/980</idno>
+        <idno type="number" subtype="BHS">790</idno>
+        <idno type="number" subtype="BHO">413</idno>
+        <noteGrp type="prologue">
+          <desc xml:lang="en">Prologue</desc>
+          <note xml:lang="fr" type="prologue">
+            <quote source="#bib980-1">Jésus lumière, toi qui fais briller partout ton apparition, fais briller la lumière de ta grâce sur mes pensées.</quote>
+          </note>
+          <note xml:lang="syr" type="prologue">
+            <quote source="#bib980-1">ܝܫܘܥ ܢܘܗܪܐ ܕܠܟܠ ܣܘ̈ܦܝܢ ܕܢܚܗ ܡܦܨܚ. ܐܕܢܚ ܢܘܗܪܐ ܡܢ ܛܝܒܘܬܟ ܥܠ ܚܘ̈ܫܒܝ.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib980-1">ܡܛܠ ܝܥܩܘܒ ܗܿܘ ܡܠܦܢܐ ܕܫܪ̈ܝܪܬܐ. ܕܠ ܒܝ ܡܐܡܪܐ ܠܡܬܡܠܠܘ ܒܚܘܒܐ ܪܒܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib980-1">Il m’est venu un discours pour parler avec grand amour de Jacques, ce maître de vérité.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib980-1">ܒܪܝܟܘ ܕܝܗܒܠܢ ܡܪܓܢܝܬܐ ܡܢ ܗܕ̈ܡܘܗܝ ܕܒܗ ܘܒܡܐܡܪ̈ܘܗܝ ܗܐ ܡܬܒܣܡܐ ܥܕܬ ܩܘܕܫܐ ܒܪܝܟܘ ܕܐܫܦܥ ܡܠܦܢܘܬܐ ܡܢ ܣܦܘ̈ܬܗ ܘܢܨܚ ܘܐܘܪܒ ܝܘܡ ܕܘܟܪܢܗ ܒܐܪ̈ܒܥܦܢܝܢ. ܠܡܪܗ ܘܫܘܒܚܐ ܘܠܗ ܪܘܡܪܡܐ ܘܠܝ ܫܘܒܩܢܐ ܡܫܝܚܐ ܕܦܪܩܢ ܒܕܒܚܢܘܬܗ ܬܫܒܘܚܬܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib980-1">Béni soit celui qui nous a donné la perle de ses membres; en lui et en ses discours voici que se réjouit la sainte Église. Béni soit celui qui a répandu l’enseignement de ses lèvres et a fait briller et exalté le jour de sa mémoire aux quatre coins du monde. Gloire à son Seigneur; à lui l’exaltation et à moi le pardon. Christ qui nous a sauvés par ton sacrifice louange à toi.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/980" source="#bib980-1" passive="http://syriaca.org/person/42">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/42">Jacob of Serugh</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib980-1" n="1" xml:id="bib980-8" type="lawd:Edition">
+            <title xml:lang="la">De vita et scriptis sancti Jacobi Batnarum Sarugi in Mesopotamia episcopi</title>
+            <author>Abbeloos, J. B.</author>
+            <ptr target="http://syriaca.org/cbss/YMGH99IE"/>
+            <citedRange unit="p">Louvain, 1867, p. 24-84</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib980-8" source="#bib980-1" passive="#bib980-11">
+                <desc xml:lang="en">
+                  <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 117</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib980-1" n="2" xml:id="bib980-9" type="lawd:Edition">
+            <title xml:lang="la">BO 1</title>
+            <author>Assemani, J. S.</author>
+            <ptr target="http://syriaca.org/cbss/Y4UYWAUR"/>
+            <citedRange unit="p">p. 286-288</citedRange>
+          
+          </bibl>
+          <bibl source="#bib980-1" n="3" xml:id="bib980-10" type="lawd:Edition">
+            <title xml:lang="de">Ein bislang unbekannter sermo über Leben und Werk des Jakob ovn Serugh</title>
+            <author>Krüger, P.</author>
+            <ptr target="http://syriaca.org/cbss/X85NV47V"/>
+            <citedRange unit="p">56 (1972),p. 82-96</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib980-10" source="#bib980-1" passive="#bib980-12">
+                <desc xml:lang="en">
+                  <label>ms Paris, Bibliothèque nationale, syr. 177, f. 136-145v + ms Vatican, Syr. 117, f. 110-114v</label>
+                </desc>
+              </relation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib980-10" source="#bib980-1" passive="#bib980-13">
+                <desc xml:lang="en">
+                  <label>Mardin, Évêché syrien orthodoxe <idno type="shelfmark">cod. 130</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib980-11" source="#bib980-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 117</idno>
+            </label>
+            <biblScope unit="fol">f. 110-114</biblScope>
+          </bibl>
+          <bibl xml:id="bib980-12" source="#bib980-1" type="syriaca:Manuscript">
+            <label>ms Paris, Bibliothèque nationale, syr. 177, f. 136-145v + ms Vatican, Syr. 117, f. 110-114v</label>
+          </bibl>
+          <bibl xml:id="bib980-13" source="#bib980-1" type="syriaca:Manuscript">
+            <label>Mardin, Évêché syrien orthodoxe <idno type="shelfmark">cod. 130</idno>
+            </label>
+            <biblScope unit="fol">f. 204v-209v</biblScope>
+          </bibl>
+          <bibl xml:id="bib980-14" source="#bib980-1" type="syriaca:Manuscript">
+            <label>ms Mardin, Évêché syrien orthodoxe, cod. 132 (olim ms Dayr az-Za‘faran, cod. pap. 59 (Dolabany))</label>
+          </bibl>
+          <bibl xml:id="bib980-15" source="#bib980-1" type="syriaca:Manuscript">
+            <label>Mardin, Évêché syrien orthodoxe <idno type="shelfmark">cod. 144</idno>
+            </label>
+            <biblScope unit="fol">f. 216v-234v</biblScope>
+          </bibl>
+          <bibl xml:id="bib980-16" source="#bib980-1" type="syriaca:Manuscript">
+            <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">syr. 201</idno>
+            </label>
+            <label>Sachau <idno type="catalog-number" subtype="Sachau">165</idno>
+            </label>
+            <biblScope unit="fol">f. 7r-v</biblScope>
+          </bibl>
+          <bibl xml:id="bib980-17" source="#bib980-1" type="syriaca:Manuscript">
+            <label>Damas, Patriarcat syrien orthodoxe <idno type="shelfmark">cod. 12/16</idno>
+            </label>
+            <label>olim Jérusalem, Monastère syrien orthodoxe Saint-Marc <idno type="shelfmark">cod. 156</idno>
+            </label>
+            <label>Baumstark Litur. <idno type="number">43</idno>
+            </label>
+            <biblScope unit="fol">f. 67v-69v</biblScope>
+          </bibl>
+          <bibl xml:id="bib980-18" source="#bib980-1" type="syriaca:Manuscript">
+            <label>Birmingham, Selly Oak College Library <idno type="shelfmark" subtype="Mingana">Mingana, Syr. 146v-154v</idno>
+            </label>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib980-19" source="#bib980-1" type="syriaca:ModernTranslation">
+            <title xml:lang="la">De vita et scriptis sancti Jacobi Batnarum Sarugi in Mesopotamia episcopi</title>
+            <editor>J. B. Abbeloos</editor>
+            <ptr target="http://syriaca.org/cbss/YMGH99IE"/>
+            <citedRange unit="p">Louvain, 1867, p. 24-84</citedRange>
+            <textLang mainLang="la"/>
+          </bibl>
+          <bibl xml:id="bib980-20" source="#bib980-1" type="syriaca:ModernTranslation">
+            <editor>P. Krüger</editor>
+            <ptr target="http://syriaca.org/cbss/X85NV47V"/>
+            <citedRange unit="p">97-111</citedRange>
+            <textLang mainLang="de"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib980-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">790</citedRange>
-                </bibl>
-                <bibl xml:id="bib980-2">
-                    <title xml:lang="de" level="a">Die kirchliche Zugehörigkeit Jakobs von Serugh im
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">790</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib980-2">
+            <title xml:lang="de" level="a">Die kirchliche Zugehörigkeit Jakobs von Serugh im
                      Lichte der handschriftlichen Überlieferung seiner Vita unter besonderer
                      Berücksichtigung der Pariser Handschrift 177</title>
-                    <title xml:lang="de" level="j">Ostkirchliche Studien</title>
-                    <ptr target="http://syriaca.org/cbss/5B66S7XK"/>
-                    <citedRange from="15" to="32" unit="pp">15-32</citedRange>
-                </bibl>
-                <bibl xml:id="bib980-3">
-                    <title level="a" xml:lang="de">Eine unbekannte Biographie des Ja’qōb von Serūg</title>
-                    <title xml:lang="de" level="j">Zeitschrift für Kirchengeschichte</title>
-                    <ptr target="http://syriaca.org/cbss/IMP3GXNE"/>
-                    <citedRange from="399" to="405" unit="pp">399-405</citedRange>
-                </bibl>
-                <bibl xml:id="bib980-4">
-                    <title level="a" xml:lang="fr">Jacques de Saroug appartient-il à la secte monophysite?</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/LFW69V4X"/>
-                    <citedRange from="134" to="198" unit="pp">134-198</citedRange>
-                </bibl>
-                <bibl xml:id="bib980-5">
-                    <title level="m" xml:lang="en-x-gedsh">Mār Yaʿqūb Usquf Sarūj al-Malfān,
+            <title xml:lang="de" level="j">Ostkirchliche Studien</title>
+            <ptr target="http://syriaca.org/cbss/5B66S7XK"/>
+            <citedRange from="15" to="32" unit="p">15-32</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib980-3">
+            <title level="a" xml:lang="de">Eine unbekannte Biographie des Ja’qōb von Serūg</title>
+            <title xml:lang="de" level="j">Zeitschrift für Kirchengeschichte</title>
+            <ptr target="http://syriaca.org/cbss/IMP3GXNE"/>
+            <citedRange from="399" to="405" unit="p">399-405</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib980-4">
+            <title level="a" xml:lang="fr">Jacques de Saroug appartient-il à la secte monophysite?</title>
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/LFW69V4X"/>
+            <citedRange from="134" to="198" unit="p">134-198</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib980-5">
+            <title level="m" xml:lang="en-x-gedsh">Mār Yaʿqūb Usquf Sarūj al-Malfān,
                      baḥth intiqādī tārīkhī dīnī</title>
-                    <title level="m" xml:lang="ar">مار يعقوب أسقف سروج الملفان : بحث إنتقادي تاريخي
+            <title level="m" xml:lang="ar">مار يعقوب أسقف سروج الملفان : بحث إنتقادي تاريخي
                      ديني</title>
-                    <ptr target="http://syriaca.org/cbss/GMXSEKT4"/>
-                </bibl>
-                <bibl xml:id="bib980-6">
-                    <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
-                    <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
-                    <ptr target="http://syriaca.org/cbss/Y4UYWAUR"/>
-                    <citedRange from="286" to="289" unit="pp">286-289 <note xml:lang="fr">dans note</note>
-                    </citedRange>
-                    <citedRange from="340" to="340" unit="pp">340</citedRange>
-                </bibl>
-                <bibl xml:id="bib980-7">
-                    <title xml:lang="de" level="m">Sammlungen: die Handschriften</title>
-                    <title level="s" xml:lang="la">Corpus Scriptorum Christianorum Orientalium</title>
-                    <title level="s" xml:lang="la">Corpus Scriptorum Christianorum Orientalium, Subsidia</title>
-                    <title xml:lang="de" level="m">Handschriftliche Überlieferung der Mēmrē-Dichtung
+            <ptr target="http://syriaca.org/cbss/GMXSEKT4"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib980-6">
+            <title level="m" xml:lang="la">De scriptoribus Syris orthodoxis</title>
+            <title level="m" xml:lang="la">Bibliotheca orientalis Clementino-Vaticana</title>
+            <ptr target="http://syriaca.org/cbss/Y4UYWAUR"/>
+            <citedRange from="286" to="289" unit="p">286-289, dans note</citedRange>
+            <citedRange from="340" to="340" unit="p">340</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib980-7">
+            <title xml:lang="de" level="m">Sammlungen: die Handschriften</title>
+            <title level="s" xml:lang="la">Corpus Scriptorum Christianorum Orientalium</title>
+            <title level="s" xml:lang="la">Corpus Scriptorum Christianorum Orientalium, Subsidia</title>
+            <title xml:lang="de" level="m">Handschriftliche Überlieferung der Mēmrē-Dichtung
                      des Ja'qōb von Serūg</title>
-                    <ptr target="http://syriaca.org/cbss/XXIRIGPN"/>
-                    <citedRange from="8" to="13" unit="pp">8-13</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/980" passive="http://syriaca.org/person/42" source="#bib980-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/XXIRIGPN"/>
+            <citedRange from="8" to="13" unit="p">8-13</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Thomas, the Apostle (text) — <foreign xml:lang="syr">ܬܐܘܡܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,91 +142,114 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1040" ana="#hagiographic">
-                <title xml:id="name1040-1" xml:lang="syr" source="#bib1040-1" srophe:tags="#syriaca-headword">ܬܐܘܡܐ</title>
-                <title xml:id="name1040-2" xml:lang="fr-x-bhs" source="#bib1040-1">Tōmā</title>
-                <title xml:id="name1040-3" xml:lang="fr" source="#bib1040-1">Thomas, apôtre (vente à Habban) (texte)</title>
-                <title xml:id="name1040-4" xml:lang="en" source="#bib1040-1" srophe:tags="#syriaca-headword">Thomas, the Apostle (text)</title>
-                <author xml:lang="fr" source="#bib1040-1" ref="http://syriaca.org/person/42">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Yaʿqub</forename>
-                        <addName type="untagged-title" sort="2">of Serugh</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܝܥܩܘܒ</forename>
-                        <addName type="untagged-title" sort="2">ܕܣܪܘܓ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Jacques</forename>
-                        <addName type="untagged-title">de Serugh</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1040-1">
-                    <quote>ܐܘܣܦ ܠܝ ܡܪܝ ܡܢ ܡܘܗܒܬܟ ܐܝܟ ܕܡܥܕ ܐܢܬ: ܕܐܨܘܪ ܫܘܦܪܗ ܕܗܿܘ ܕܐܙܕܒܢ ܡܛܠ ܚܘܒܟ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1040-1">
-                    <quote>Augmente en moi, Seigneur, ta grâce selon ton habitude, pour que je dépeigne la beauté de celui qui a été vendu à cause de ton amour.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1040-1">
-                    <quote>Béni soit celui qui a confirmé les paroles de son serviteur par le signe qu’il a accompli et qui par son enseignement a converti les païens à la pénitence.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1040-1" xml:id="bib1040-5">
-                        <author>Strothmann, W.</author>
-                        <title>Jakob von Sarug. Drei Gedichte über den Apostel Thomas in Indien</title>
-                        <ptr target="http://syriaca.org/cbss/53AI2PL3"/>
-                        <citedRange>Wiesbaden, 1976, p. 165-288</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1040-1">
-                    <bibl xml:id="bib1040-6">ms Damas, Patriarcat syrien orthodoxe, cod. 12/16 (olim Jérusalem, Couvent syrien orthodoxe Saint-Marc, 156 (Baumstark Litur. 43)), f. 46v-49r</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1040-1">
-                    <bibl xml:id="bib1040-7">ms Damas, Patriarcat syrien orthodoxe, cod. 9/15, f. 66v-86</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1040-1">
-                    <bibl xml:id="bib1040-8">ms Diyarbakir, Coll. T.H. Tuma Baçaranlar, cod. 41, cah. 14, f. 6 - cah. 17, f. 8</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib1040-1">
-                    <bibl xml:id="bib1040-9">
-                        <editor>W. Strothmann</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/cbss/53AI2PL3"/>
-                        <citedRange>Wiesbaden, 1976, p. 165-288</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1040</idno>
-                <idno type="BHS">858</idno>
-                <bibl xml:id="bib1040-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1040" ana="#syriaca-hagiographic">
+        <title xml:id="name1040-1" xml:lang="syr" source="#bib1040-1" srophe:tags="#syriaca-headword">ܬܐܘܡܐ</title>
+        <title xml:id="name1040-2" xml:lang="fr-x-bhs" source="#bib1040-1">Tōmā</title>
+        <title xml:id="name1040-3" xml:lang="fr" source="#bib1040-1">Thomas, apôtre (vente à Habban) (texte)</title>
+        <title xml:id="name1040-4" xml:lang="en" source="#bib1040-1" srophe:tags="#syriaca-headword">Thomas, the Apostle (text)</title>
+        <author ref="http://syriaca.org/person/42" source="#bib1040-1" xml:lang="en">Jacob of Serugh — <foreign xml:lang="syr">ܝܥܩܘܒ ܕܣܪܘܓ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1040</idno>
+        <idno type="number" subtype="BHS">858</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1040-1">ܐܘܣܦ ܠܝ ܡܪܝ ܡܢ ܡܘܗܒܬܟ ܐܝܟ ܕܡܥܕ ܐܢܬ: ܕܐܨܘܪ ܫܘܦܪܗ ܕܗܿܘ ܕܐܙܕܒܢ ܡܛܠ ܚܘܒܟ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1040-1">Augmente en moi, Seigneur, ta grâce selon ton habitude, pour que je dépeigne la beauté de celui qui a été vendu à cause de ton amour.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1040-1">Béni soit celui qui a confirmé les paroles de son serviteur par le signe qu’il a accompli et qui par son enseignement a converti les païens à la pénitence.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1040" source="#bib1040-1" passive="http://syriaca.org/person/2123">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/2123">Thomas</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib1040-1" xml:id="bib1040-5" type="lawd:Edition">
+            <title xml:lang="de">Jakob von Sarug. Drei Gedichte über den Apostel Thomas in Indien</title>
+            <author>Strothmann, W.</author>
+            <ptr target="http://syriaca.org/cbss/53AI2PL3"/>
+            <citedRange unit="p">Wiesbaden, 1976, p. 165-288</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1040-6" source="#bib1040-1" type="syriaca:Manuscript">
+            <label>Damas, Patriarcat syrien orthodoxe <idno type="shelfmark">cod. 12/16</idno>
+            </label>
+            <label>olim Jérusalem, Monastère syrien orthodoxe Saint-Marc <idno type="shelfmark">156</idno>
+            </label>
+            <label>Baumstark Litur. <idno type="number">43</idno>
+            </label>
+            <biblScope unit="fol">f. 46v-49r</biblScope>
+          </bibl>
+          <bibl xml:id="bib1040-7" source="#bib1040-1" type="syriaca:Manuscript">
+            <label>Damas, Patriarcat syrien orthodoxe <idno type="shelfmark">cod. 9/15</idno>
+            </label>
+            <biblScope unit="fol">f. 66v-86</biblScope>
+          </bibl>
+          <bibl xml:id="bib1040-8" source="#bib1040-1" type="syriaca:Manuscript">
+            <label>Diyarbakir, Coll. T.H. Tuma Baçaranlar <idno type="shelfmark">cod. 41</idno>
+            </label>
+            <biblScope unit="fol">cah. 14, f. 6 - cah. 17, f. 8</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib1040-9" source="#bib1040-1" type="syriaca:ModernTranslation">
+            <title xml:lang="de">Jakob von Sarug. Drei Gedichte über den Apostel Thomas in Indien</title>
+            <editor>W. Strothmann</editor>
+            <ptr target="http://syriaca.org/cbss/53AI2PL3"/>
+            <citedRange unit="p">Wiesbaden, 1976, p. 165-288</citedRange>
+            <textLang mainLang="de"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1040-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">858</citedRange>
-                </bibl>
-                <bibl xml:id="bib1040-2">
-                    <title xml:lang="fr" level="a">CR de l’éd. de Strothmann</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/EEYLAYT8"/>
-                    <citedRange from="434" to="435" unit="pp">434-435</citedRange>
-                </bibl>
-                <bibl xml:id="bib1040-3">
-                    <title xml:lang="en" level="a">St. Thomas in India According to Jacob of
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">858</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1040-2">
+            <title xml:lang="fr" level="a">CR de l’éd. de Strothmann</title>
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/EEYLAYT8"/>
+            <citedRange from="434" to="435" unit="p">434-435</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1040-3">
+            <title xml:lang="en" level="a">St. Thomas in India According to Jacob of
                      Sarug</title>
-                    <title level="j" xml:lang="en">Harp</title>
-                    <ptr target="http://syriaca.org/cbss/VM8MUNXE"/>
-                    <citedRange from="59" to="64" unit="pp">59-64</citedRange>
-                </bibl>
-                <bibl xml:id="bib1040-4">
-                    <title xml:lang="de" level="a">Die Thomasgedichte des Jakob von Sarug</title>
-                    <title level="m" xml:lang="de">XVII. deutscher Orientalistentag vom 21. bis 27. Juli 1968 in
+            <title level="j" xml:lang="en">Harp</title>
+            <ptr target="http://syriaca.org/cbss/VM8MUNXE"/>
+            <citedRange from="59" to="64" unit="p">59-64</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1040-4">
+            <title xml:lang="de" level="a">Die Thomasgedichte des Jakob von Sarug</title>
+            <title level="m" xml:lang="de">XVII. deutscher Orientalistentag vom 21. bis 27. Juli 1968 in
                      Würzburg. Vorträge</title>
-                    <title xml:lang="de" level="s">Zeitschrift der Deutschen Morgenländischen
+            <title xml:lang="de" level="s">Zeitschrift der Deutschen Morgenländischen
                      Gesellschaft Supplement</title>
-                    <ptr target="http://syriaca.org/cbss/R4BR5BLG"/>
-                    <citedRange from="363" to="367" unit="pp">363-367</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1040" passive="http://syriaca.org/person/2123" source="#bib1040-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/R4BR5BLG"/>
+            <citedRange from="363" to="367" unit="p">363-367</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

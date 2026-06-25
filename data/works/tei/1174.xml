@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Ḥimyarite Martyrs (text) — <foreign xml:lang="syr">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,134 +142,143 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1174" ana="#hagiographic">
-                <title xml:id="name1174-1" xml:lang="syr" source="#bib1174-1" srophe:tags="#syriaca-headword">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</title>
-                <title xml:id="name1174-2" xml:lang="fr-x-bhs" source="#bib1174-1">Sāhdē Ḥmīrāyē</title>
-                <title xml:id="name1174-3" xml:lang="fr" source="#bib1174-1">Martyrs Himyarites (texte)</title>
-                <title xml:id="name1174-4" xml:lang="en" source="#bib1174-1" srophe:tags="#syriaca-headword">Ḥimyarite Martyrs (text)</title>
-                <author xml:lang="fr" source="#bib1174-1" ref="http://syriaca.org/person/53">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Shemʿun</forename>
-                        <addName type="family" sort="2">of <placeName ref="http://syriaca.org/place/305">Beth Arsham</placeName>
-                        </addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܫܡܥܘܢ</forename>
-                        <addName type="family" sort="2">ܕܒܝܬ ܐܪܫܡ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Syméon</forename>
-                        <addName type="untagged-title">de Beth Arsham</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1174-1">
-                    <quote>ܐܫܬܥܝܘ ܕܝܢ ܗܠܝܢ ܕܐܬܘ ܡܢ ܢܝܓܪܢ. ܕܩܕܡܐܝܬ ܠܡ ܟܕ ܐܡܠܟ ܗܘܐ ܗܢܐ ܪܫܝܥܐ ܝܘܕܝܐ. ܫܕܪ ܠܚܨܪܡܘܬ ܘܠܫܒܐ ܘܠܚܙܒܐ. ܘܠܕܝܪܝܕܢ. ܘܠܬܝܡܢܬ ܘܠܢܝܓܪܢ. ܘܠܫܪܟܐ ܕܐܬܪ̈ܘܬܐ ܕܫܘܠܛܢܗ: ܕܢܐܬܘܢ ܠܘܬܗ ܠܕܝܐܪܝܪܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1174-1">
-                    <quote>Ceux qui vinrent de Najran racontèrent que dès que ce juif impie devint roi, il envoya à Hadramaout, à Shabâ, à Hazabâ, à Du-Raydan, à Taymant, à Najran et dans les autres pays de son empire pour qu’on vienne chez lui à Du-Raydan.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1174-1">
-                    <quote>ܟܬܒܢܢ ܕܝܢ ܐܓܪܬܐ ܗܕܐ ܠܐܒܗܘܬܟܘܢ. ܡܢ ܚܝܪܬܐ ܕܓܒܐܠܐ ܡܠܟܐ ܕܥܣܢܝ̈ܐ. ܒܕܘܟܬܐ ܕܡܬܩܪܝܐ ܓܒܝܬܐ ܒܐܝܪܚ ܬܡܘܙ ܕܗܕܐ ܫܢܬ ܬܡܢܡ̈ܐܐ ܘܬܠܬܝܢ ܕܐܠܟܣܢܕܪܘܣ. ܫܡ̈ܗܐ ܕܪ̈ܝܫܝ ܩܫܝ̈ܫܐ ܕܝܩܕܘ ܒܥܕܬܐ ܕܢܝܓܪܢ... ܘܡܢ ܦܘܡܢ ܟܠܢ ܬܘܕܝܬܐ ܬܬܩܪܒܝ ܠܗ. ܘܠܐܒܘܗܝ ܘܠܪܘܚܗ ܩܕܝܫܐ... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1174-1">
-                    <quote>Nous vous avons écrit cette lettre, Père, depuis le camp de Jabâlâ, roi des Ghassanides, à l’endroit appelé al-Jabiya, au mois de juillet de cette année 830 d’Alexandre. Noms des archiprêtres qui furent brûlés dans l’église de Najran… et de notre bouche à tous que l’action de grâces lui soit afferte à lui, à son Père et à son Esprit Saint… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1174-1" xml:id="bib1174-10">
-                        <author>Shahid, I.</author>
-                        <title>The Martyrs of Najrân. New Documents</title>
-                        <ptr target="http://syriaca.org/cbss/UT8WYD5L"/>
-                        <citedRange>Bruxelles, 1971, p. III-XXXII (entre p. 40 et 43)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1174-1">
-                    <bibl xml:id="bib1174-11">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 110-114 ?</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib1174-1">
-                    <bibl xml:id="bib1174-12">
-                        <editor>I. Shahid</editor>
-                        <ptr target="http://syriaca.org/cbss/UT8WYD5L"/>
-                        <citedRange unit="pp">44-64</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib1174-1">
-                    <bibl xml:id="bib1174-13">
-                        <editor>Patriarche Ignace Jacques III</editor>
-                        <title>A¯-¯uhad‹Æ
-                al-¿imyar¬yºn al-æArab f¬ Æl-wa‡‹Æiq as-sury‹n¬ya, Damas, 1966</title>
-                        <ptr target="http://syriaca.org/cbss/VWBVI39J"/>
-                        <citedRange unit="pp">24-42</citedRange>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1174</idno>
-                <idno type="BHS">1014</idno>
-                <bibl xml:id="bib1174-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1174" ana="#syriaca-hagiographic">
+        <title xml:id="name1174-1" xml:lang="syr" source="#bib1174-1" srophe:tags="#syriaca-headword">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</title>
+        <title xml:id="name1174-2" xml:lang="fr-x-bhs" source="#bib1174-1">Sāhdē Ḥmīrāyē</title>
+        <title xml:id="name1174-3" xml:lang="fr" source="#bib1174-1">Martyrs Himyarites (texte)</title>
+        <title xml:id="name1174-4" xml:lang="en" source="#bib1174-1" srophe:tags="#syriaca-headword">Ḥimyarite Martyrs (text)</title>
+        <author ref="http://syriaca.org/person/53" source="#bib1174-1" xml:lang="en">Simeon of Beth Arsham — <foreign xml:lang="syr">ܫܡܥܘܢ ܕܒܝܬ ܐܪܫܡ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1174</idno>
+        <idno type="number" subtype="BHS">1014</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1174-1">ܐܫܬܥܝܘ ܕܝܢ ܗܠܝܢ ܕܐܬܘ ܡܢ ܢܝܓܪܢ. ܕܩܕܡܐܝܬ ܠܡ ܟܕ ܐܡܠܟ ܗܘܐ ܗܢܐ ܪܫܝܥܐ ܝܘܕܝܐ. ܫܕܪ ܠܚܨܪܡܘܬ ܘܠܫܒܐ ܘܠܚܙܒܐ. ܘܠܕܝܪܝܕܢ. ܘܠܬܝܡܢܬ ܘܠܢܝܓܪܢ. ܘܠܫܪܟܐ ܕܐܬܪ̈ܘܬܐ ܕܫܘܠܛܢܗ: ܕܢܐܬܘܢ ܠܘܬܗ ܠܕܝܐܪܝܪܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1174-1">Ceux qui vinrent de Najran racontèrent que dès que ce juif impie devint roi, il envoya à Hadramaout, à Shabâ, à Hazabâ, à Du-Raydan, à Taymant, à Najran et dans les autres pays de son empire pour qu’on vienne chez lui à Du-Raydan.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1174-1">ܟܬܒܢܢ ܕܝܢ ܐܓܪܬܐ ܗܕܐ ܠܐܒܗܘܬܟܘܢ. ܡܢ ܚܝܪܬܐ ܕܓܒܐܠܐ ܡܠܟܐ ܕܥܣܢܝ̈ܐ. ܒܕܘܟܬܐ ܕܡܬܩܪܝܐ ܓܒܝܬܐ ܒܐܝܪܚ ܬܡܘܙ ܕܗܕܐ ܫܢܬ ܬܡܢܡ̈ܐܐ ܘܬܠܬܝܢ ܕܐܠܟܣܢܕܪܘܣ. ܫܡ̈ܗܐ ܕܪ̈ܝܫܝ ܩܫܝ̈ܫܐ ܕܝܩܕܘ ܒܥܕܬܐ ܕܢܝܓܪܢ... ܘܡܢ ܦܘܡܢ ܟܠܢ ܬܘܕܝܬܐ ܬܬܩܪܒܝ ܠܗ. ܘܠܐܒܘܗܝ ܘܠܪܘܚܗ ܩܕܝܫܐ... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1174-1">Nous vous avons écrit cette lettre, Père, depuis le camp de Jabâlâ, roi des Ghassanides, à l’endroit appelé al-Jabiya, au mois de juillet de cette année 830 d’Alexandre. Noms des archiprêtres qui furent brûlés dans l’église de Najran… et de notre bouche à tous que l’action de grâces lui soit afferte à lui, à son Père et à son Esprit Saint… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1174" source="#bib1174-1" passive="http://syriaca.org/person/1907">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1907">Anonymi 1907</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib1174-1" xml:id="bib1174-10" type="lawd:Edition">
+            <title xml:lang="fr">The Martyrs of Najrân. New Documents</title>
+            <author>Shahid, I.</author>
+            <ptr target="http://syriaca.org/cbss/UT8WYD5L"/>
+            <citedRange unit="p">Bruxelles, 1971, p. III-XXXII (entre p. 40 et 43)</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1174-11" source="#bib1174-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 110-114 ?</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib1174-12" source="#bib1174-1" type="syriaca:ModernTranslation">
+            <editor>I. Shahid</editor>
+            <ptr target="http://syriaca.org/cbss/UT8WYD5L"/>
+            <citedRange unit="p">44-64</citedRange>
+            <textLang mainLang="en"/>
+          </bibl>
+          <bibl xml:id="bib1174-13" source="#bib1174-1" type="syriaca:ModernTranslation">
+            <title xml:lang="ar">الشهداء الحميريون العرب في الوثائق السريانية</title>
+            <editor>Patriarche Ignace Jacques III</editor>
+            <ptr target="http://syriaca.org/cbss/VWBVI39J"/>
+            <citedRange unit="p">24-42</citedRange>
+            <textLang mainLang="ar"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1174-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1014</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-2">
-                    <title xml:lang="en" level="a">The Martyrs of Najran: Miscellaneous
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1014</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-2">
+            <title xml:lang="en" level="a">The Martyrs of Najran: Miscellaneous
                      Reflexions</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/LV9LTY5X"/>
-                    <citedRange from="149" to="161" unit="pp">149-161</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-3">
-                    <title xml:lang="fr" level="a">Les Rapports de dépendance entre les récits
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/LV9LTY5X"/>
+            <citedRange from="149" to="161" unit="p">149-161</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-3">
+            <title xml:lang="fr" level="a">Les Rapports de dépendance entre les récits
                      hagiographiques relatifs à la persécution des Himyarites</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/WQGHMZLJ"/>
-                    <citedRange from="297" to="305" unit="pp">297-305</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-4">
-                    <title xml:lang="en" level="a">The Martyrs of Najran: Further Reflections</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/KC66ZW74"/>
-                    <citedRange from="151" to="153" unit="pp">151-153</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-5">
-                    <title xml:lang="fr" level="a">Quelques aspects de la nouvelle lettre, récemment
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/WQGHMZLJ"/>
+            <citedRange from="297" to="305" unit="p">297-305</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-4">
+            <title xml:lang="en" level="a">The Martyrs of Najran: Further Reflections</title>
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/KC66ZW74"/>
+            <citedRange from="151" to="153" unit="p">151-153</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-5">
+            <title xml:lang="fr" level="a">Quelques aspects de la nouvelle lettre, récemment
                      découverte, de Siméon de Bêth-Aršâm sur les martyrs ḥimyarites</title>
-                    <title xml:lang="it" level="m">IV Congresso Internazionale di Studi Etiopici
+            <title xml:lang="it" level="m">IV Congresso Internazionale di Studi Etiopici
                      (Roma, 10-15 aprile 1972). Tomo I. Sezione storica</title>
-                    <title xml:lang="it" level="s">Problemi attuali di scienza e di cultura</title>
-                    <ptr target="http://syriaca.org/cbss/8UGIYT33"/>
-                    <citedRange from="107" to="116" unit="pp">107-116</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-6">
-                    <title xml:lang="fr" level="a">CR de l’éd. de Shahid</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/TBZHRL68"/>
-                    <citedRange from="219" to="222" unit="pp">219-222</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-7">
-                    <title xml:lang="fr" level="a">Note sur le Martyrium Arethae § 20: Date de la
+            <title xml:lang="it" level="s">Problemi attuali di scienza e di cultura</title>
+            <ptr target="http://syriaca.org/cbss/8UGIYT33"/>
+            <citedRange from="107" to="116" unit="p">107-116</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-6">
+            <title xml:lang="fr" level="a">CR de l’éd. de Shahid</title>
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/TBZHRL68"/>
+            <citedRange from="219" to="222" unit="p">219-222</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-7">
+            <title xml:lang="fr" level="a">Note sur le Martyrium Arethae § 20: Date de la
                      persécution de Naǧrān</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/5852EJ5Z"/>
-                    <citedRange from="315" to="321" unit="pp">315-321</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-8">
-                    <title xml:lang="fr" level="a">La persécution de Nagran: réexamen des dates
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/5852EJ5Z"/>
+            <citedRange from="315" to="321" unit="p">315-321</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-8">
+            <title xml:lang="fr" level="a">La persécution de Nagran: réexamen des dates
                      figurant dans le Martyrium Arethae</title>
-                    <title level="j">Orient</title>
-                    <ptr target="http://syriaca.org/cbss/8XU45YH9"/>
-                    <citedRange from="71" to="83" unit="pp">71-83</citedRange>
-                </bibl>
-                <bibl xml:id="bib1174-9">
-                    <title xml:lang="en" level="a">The Martyrs of Najran, Some Remarks on the Nature
+            <title xml:lang="en" level="j">Orient</title>
+            <ptr target="http://syriaca.org/cbss/8XU45YH9"/>
+            <citedRange from="71" to="83" unit="p">71-83</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1174-9">
+            <title xml:lang="en" level="a">The Martyrs of Najran, Some Remarks on the Nature
                      of the Sources</title>
-                    <title level="m" xml:lang="la">Orientalia antiqua</title>
-                    <title level="m" xml:lang="la">Studia Paulo Naster oblata</title>
-                    <title level="s" xml:lang="la">Orientalia Lovaniensia analecta</title>
-                    <ptr target="http://syriaca.org/cbss/ZEUT6IJX"/>
-                    <citedRange from="301" to="309" unit="pp">301-309</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1174" passive="http://syriaca.org/person/1907" source="#bib1174-1"/>
-                </listRelation>
-            </bibl>
+            <title level="m" xml:lang="la">Orientalia antiqua</title>
+            <title level="m" xml:lang="la">Studia Paulo Naster oblata</title>
+            <title level="s" xml:lang="la">Orientalia Lovaniensia analecta</title>
+            <ptr target="http://syriaca.org/cbss/ZEUT6IJX"/>
+            <citedRange from="301" to="309" unit="p">301-309</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

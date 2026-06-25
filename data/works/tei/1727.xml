@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Founder Fathers (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -163,86 +141,102 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1727" ana="#hagiographic">
-                <title xml:id="name1727-3" xml:lang="fr" source="#bib1727-1">Pères fondateurs de monastères en Perse et Arabie (texte)</title>
-                <title xml:id="name1727-4" xml:lang="en" source="#bib1727-1" srophe:tags="#syriaca-headword">Founder Fathers (text)</title>
-                <author xml:lang="fr" source="#bib1727-1" ref="http://syriaca.org/person/556">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Ishoʿdnaḥ</forename>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܝܫܘܥܕܢܚ</forename>
-                        <addName type="untagged-title" sort="2">ܕܒܨܪܐ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Isho‘dnah</forename>
-                        <addName type="untagged-title">de Basra</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1727-1">
-                    <quote>ܥܠ ܩܕܝܫܐ ܡܪܝ ܐܘܓܝܢ ܕܢܨܒ ܥܘܡܪ̈ܐ ܒܛܘܪ̈ܐ ܕܐܝܙܠܐ. ܕܒܫܒܒܘܬ ܢܨܝܒܝܢ ܡܕܝܢܬܐ: ܐܝܬܘܗܝ ܗܘܐ ܒܓܢܣܐ ܒܣܪܢܝܐ ܡܢ ܐܬܪܐ ܕܐܓܒܛܘܣ̣. ܡܢ ܩܠܘܣܡܐ ܓܙܪܬܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1727-1">
-                    <quote>Sur saint Mar Eugène qui établit des monastères dans les monts Izla dans les environs de la ville de Nisibe; il était par la race charnelle du pays d’Égypte, de l’île de Clysma.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1727-1">
-                    <quote>ܘܫܢܝ ܠܘܬ ܡܪܢ ܒܪ ܬܫܥܝܢ ܫܢ̈ܝܢ. ܘܐܬܬܣܝܡ ܒܒܝܬ ܣܗܕ̈ܐ: ܥܠ ܓܢܒ ܪ̈ܓܠܘܗܝ ܕܡܪܝ ܝܫܘܥܝܗܒ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1727-1">
-                    <quote>Et il partit vers notre Seigneur à l’âge de 80 ans et il fut placé dans le martyrion à côté des pieds de Mâr Îshô‘yahb.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1727-1" corresp="#" n="1" xml:id="bib1727-3">
-                        <author>Chabot, J.-B.</author>
-                        <title>Le Livre de la chasteté composé par Jésusdenah, évêque de Baçrah</title>
-                        <ptr target="http://syriaca.org/cbss/6VPUEHQR"/>
-                        <citedRange>16 (1896), p. 1-71 (syriaque entre les p. 292 et 293)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1727-1" corresp="#" n="2" xml:id="bib1727-4">
-                        <author>Bedjan, P.</author>
-                        <title>Liber superiorum seu historia monastica auctore Thoma, episcopo Margensi…</title>
-                        <ptr target="http://syriaca.org/cbss/FHR8D52V"/>
-                        <citedRange>Paris-Leipzig, 1901, p. 440-517</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1727-1">
-                    <bibl xml:id="bib1727-5">ms de Samuel Gi</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1727-1">
-                    <bibl xml:id="bib1727-6">ms Mossoul + ms Strasbourg</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1727-1">
-                    <bibl xml:id="bib1727-7">ms Berlin, Königliche Bibliothek, or. quart. 1168 (Assfalg 19), p. 445-483</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1727-1">
-                    <bibl xml:id="bib1727-8">ms Beyrouth, Université Saint-Joseph, Bibliothèque orientale, syr. 24</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1727-1">
-                    <bibl xml:id="bib1727-9">ms Ourmia, Sarau-Shedd 226</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib1727-1">
-                    <bibl xml:id="bib1727-10">
-                        <editor>J.-B. Chabot</editor>
-                        <ptr target="http://syriaca.org/cbss/6VPUEHQR"/>
-                        <citedRange unit="pp">228-283</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1727</idno>
-                <idno type="BHS">1658</idno>
-                <idno type="BHO">871</idno>
-                <bibl xml:id="bib1727-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1727" ana="#syriaca-hagiographic">
+        <title xml:id="name1727-3" xml:lang="fr" source="#bib1727-1">Pères fondateurs de monastères en Perse et Arabie (texte)</title>
+        <title xml:id="name1727-4" xml:lang="en" source="#bib1727-1" srophe:tags="#syriaca-headword">Founder Fathers (text)</title>
+        <author ref="http://syriaca.org/person/556" source="#bib1727-1" xml:lang="en">Ishoʿdnah of Basra — <foreign xml:lang="syr">ܝܫܘܥܕܢܚ ܕܒܨܪܐ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1727</idno>
+        <idno type="number" subtype="BHS">1658</idno>
+        <idno type="number" subtype="BHO">871</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1727-1">ܥܠ ܩܕܝܫܐ ܡܪܝ ܐܘܓܝܢ ܕܢܨܒ ܥܘܡܪ̈ܐ ܒܛܘܪ̈ܐ ܕܐܝܙܠܐ. ܕܒܫܒܒܘܬ ܢܨܝܒܝܢ ܡܕܝܢܬܐ: ܐܝܬܘܗܝ ܗܘܐ ܒܓܢܣܐ ܒܣܪܢܝܐ ܡܢ ܐܬܪܐ ܕܐܓܒܛܘܣ̣. ܡܢ ܩܠܘܣܡܐ ܓܙܪܬܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1727-1">Sur saint Mar Eugène qui établit des monastères dans les monts Izla dans les environs de la ville de Nisibe; il était par la race charnelle du pays d’Égypte, de l’île de Clysma.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1727-1">ܘܫܢܝ ܠܘܬ ܡܪܢ ܒܪ ܬܫܥܝܢ ܫܢ̈ܝܢ. ܘܐܬܬܣܝܡ ܒܒܝܬ ܣܗܕ̈ܐ: ܥܠ ܓܢܒ ܪ̈ܓܠܘܗܝ ܕܡܪܝ ܝܫܘܥܝܗܒ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1727-1">Et il partit vers notre Seigneur à l’âge de 80 ans et il fut placé dans le martyrion à côté des pieds de Mâr Îshô‘yahb.</quote>
+          </note>
+        </noteGrp>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib1727-1" n="1" xml:id="bib1727-3" type="lawd:Edition">
+            <title xml:lang="fr">Le Livre de la chasteté composé par Jésusdenah, évêque de Baçrah</title>
+            <author>Chabot, J.-B.</author>
+            <ptr target="http://syriaca.org/cbss/6VPUEHQR"/>
+            <citedRange unit="p">16 (1896), p. 1-71 (syriaque entre les p. 292 et 293)</citedRange>
+          
+          </bibl>
+          <bibl source="#bib1727-1" n="2" xml:id="bib1727-4" type="lawd:Edition">
+            <title xml:lang="la">Liber superiorum seu historia monastica auctore Thoma, episcopo Margensi…</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/FHR8D52V"/>
+            <citedRange unit="p">Paris-Leipzig, 1901, p. 440-517</citedRange>
+          
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1727-5" source="#bib1727-1" type="syriaca:Manuscript">
+            <label>ms de Samuel Gi</label>
+          </bibl>
+          <bibl xml:id="bib1727-6" source="#bib1727-1" type="syriaca:Manuscript">
+            <label>ms Mossoul + ms Strasbourg</label>
+          </bibl>
+          <bibl xml:id="bib1727-7" source="#bib1727-1" type="syriaca:Manuscript">
+            <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">or. quart. 1168</idno>
+            </label>
+            <label>Assfalg <idno type="catalog-number">19</idno>
+            </label>
+            <biblScope unit="p">p. 445-483</biblScope>
+          </bibl>
+          <bibl xml:id="bib1727-8" source="#bib1727-1" type="syriaca:Manuscript">
+            <label>Beyrouth, Université Saint-Joseph, Bibliothèque orientale <idno type="shelfmark">syr. 24</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1727-9" source="#bib1727-1" type="syriaca:Manuscript">
+            <label>Ourmia <idno type="shelfmark">Sarau-Shedd 226</idno>
+            </label>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib1727-10" source="#bib1727-1" type="syriaca:ModernTranslation">
+            <editor>J.-B. Chabot</editor>
+            <ptr target="http://syriaca.org/cbss/6VPUEHQR"/>
+            <citedRange unit="p">228-283</citedRange>
+            <textLang mainLang="fr"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1727-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1658</citedRange>
-                </bibl>
-                <bibl xml:id="bib1727-2">
-                    <title level="a" xml:lang="fr">Îchô‘dnah, métropolite de Basra, et son oeuvre</title>
-                    <title xml:lang="fr" level="j">L'Orient syrien</title>
-                    <ptr target="http://syriaca.org/cbss/4TLMIRLQ"/>
-                    <citedRange from="431" to="450" unit="pp">431-450</citedRange>
-                </bibl>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1658</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib1727-2">
+            <title level="a" xml:lang="fr">Îchô‘dnah, métropolite de Basra, et son oeuvre</title>
+            <title xml:lang="fr" level="j">L'Orient syrien</title>
+            <ptr target="http://syriaca.org/cbss/4TLMIRLQ"/>
+            <citedRange from="431" to="450" unit="p">431-450</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title level="a" xml:lang="en">2 John — <foreign xml:lang="syr">ܐܓܪܬܐ ܕܬܪܬܝܢ ܕܝܘܚܢܢ</foreign>
+        </title>
+        <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+        <funder>The International Balzan Prize Foundation</funder>
+        <funder>The National Endowment for the Humanities</funder>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</editor>
+        <respStmt>
+          <resp>Editing, data entry, and reconciling by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+        </respStmt>
+        <respStmt>
+          <resp>Editing, proofreading, data architecture, and encoding by</resp>
+          <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+        </respStmt>
+        <respStmt>
+          <resp>Data entry by</resp>
+          <name type="person" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="2.0"/>
+      </editionStmt>
+      <publicationStmt>
+        <authority>Syriaca.org: The Syriac Reference Portal</authority>
+        <idno type="URI">http://syriaca.org/work/95/tei</idno>
+        <availability>
+          <licence target="http://creativecommons.org/licenses/by/3.0/">
+            <p>Distributed under a Creative Commons Attribution 3.0 Unported
+              License.</p>
+          </licence>
+        </availability>
+        <date>2017-03-23+01:00</date>
+      </publicationStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+          Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m" xml:lang="en">A Guide to the Bible in Syriac</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+          Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+        <biblScope unit="vol" n="2"/>
+        <idno type="URI">http://syriaca.org/bible</idno>
+      </seriesStmt>
+      <sourceDesc>
+        <p>Born digital.</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <editorialDecl>
+        <p>This record created following the Syriaca.org guidelines. Documentation
+          available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
+        <interpretation>
+          <p>Approximate dates described in terms of centuries or partial centuries
+            have been interpreted as documented in <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org
+              Dates</ref>.</p>
+        </interpretation>
+      </editorialDecl>
+      <classDecl>
+        <taxonomy>
+          <category xml:id="syriaca-headword">
+            <catDesc>The name used by Syriaca.org for document titles, citation, and
+              disambiguation. These names have been created according to the
+              Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+          </category>
+          <category xml:id="syriaca-anglicized">
+            <catDesc>An anglicized version of a name, included to facilitate
+              searching.</catDesc>
+          </category>
+          <category xml:id="canonical">
+            <catDesc>Indicates the content is canonical, i.e., widely agreed upon. Abbreviations of work titles are primarily in view.</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <p>
+          Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+          <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
+    </profileDesc>
+    <revisionDesc status="uncorrected-draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
+      <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change95-3">Merged in data from [duplicate record with same URI].</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change95-2">Merged in data from [duplicate record with same URI].</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-17+02:00">CREATED: work [duplicate record with same URI]</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change95-1">Merged in data from [duplicate record with same URI].</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work [duplicate record with same URI]</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <bibl xml:id="work-95" type="lawd:ConceptualWork" ana="#syriaca-biblical">
+        <title xml:id="name95-1" xml:lang="en" srophe:tags="#syriaca-headword" resp="http://syriaca.org">2 John</title>
+        <title xml:id="name95-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib95-1">ܐܓܪܬܐ ܕܬܪܬܝܢ ܕܝܘܚܢܢ</title>
+        <title xml:id="name95-3" xml:lang="syr" source="#bib95-1">ܐܓܪܬܐ ܕܬܪ̈ܬܝܢ ܕܝܘܚܢܢ ܫܠܝܚܐ</title>
+        <title xml:id="name95-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib95-5">2 John</title>
+        <title xml:id="name95-12" xml:lang="en" source="#bib95-5">2 John</title>
+        <title xml:id="name95-6" xml:lang="syr-Syrj" source="#bib95-4">ܐܶܓܰܪܬܳܐ ܕܬܰܪܬܶܝܢ ܕܝܘܽܚܰܢܳܢ</title>
+        <title xml:lang="en" xml:id="name95-7" source="#bib95-10">The second Epistle of S. John, according to the Peshitta version</title>
+        <title xml:lang="en" xml:id="name95-8" source="#bib95-12 #bib95-14 #bib95-16">The second Epistle of S. John</title>
+        <title xml:lang="syr" xml:id="name95-9" source="#bib95-12">ܐܓܪܬܐ ܕܬܪ̈ܬܝܢ ܕܝܘܚܢܢ</title>
+        <title xml:lang="syr" xml:id="name95-10" source="#bib95-2">ܐܓ݁ܪܬ݁ܐ ܕ݁ܬ݁ܪ̈ܬ݁ܝܢ ܕ݂ܝܘܚܢܢ ܫܠܝܚܐ</title>
+        <title xml:lang="syr-Syrj" xml:id="name95-11" source="#bib95-2">ܐܶܓ݁ܰܪܬ݁ܳܐ ܕ݁ܬ݁ܰܪ̈ܬ݁ܶܝܢ ܕ݂ܝܽܘܚܰܢܳܢ ܫܠܺܝܚܳܐ</title>
+        <idno type="URI">http://syriaca.org/work/95</idno>
+        <idno type="URI">https://en.wikipedia.org/wiki/Second_Epistle_of_John</idno>
+        <idno type="URI">https://www.wikidata.org/wiki/Q131453</idno>
+        <textLang mainLang="syr"/>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib95-3">ܩܫܝܫܐ܂ ܠܓܼܒܼܝܬܼܐ ܩܘܼܪܝܐ ܘܠܒܼܢܝܗ̈܃ ܐܝܠܝܢ ܕܿܐܢܐ ܡܚܒܼ ܐ̱ܢܐ ܒܿܫܪܪܐ܂ ܠܐ ܗ̱ܘܐ ܕܿܝܢ ܐܢܐ ܒܿܠܚܘܼܕܼܝ܃ ܐܠܐ ܟܿܠܗܘܼܢ ܐܝܠܝܢ ܕܿܝܕܼܥܘܼܗ̱ܝ ܠܫܪܪܐ܃</quote>
+          </note>
+          <note xml:lang="syr-Syrj" type="incipit">
+            <quote source="#bib95-18">ܩܰܫܺܝܫܳܐ ܠܰܓܒܺܝܬܳܐ ܩܽܘܪܺܝܐ ܘܠܰܒ̈ܢܶܝܗ. ܐܰܝܠܶܝܢ ܕܶܐܢܳܐ ܡܰܚܶܒ ܐ̱ܢܳܐ ܒܰܫܪܳܪܳܐ. ܠܳܐ ܗ̱ܘܳܐ ܕܶܝܢ ܐܶܢܳܐ ܒܰܠܚܽܘܕܰܝ: ܐܶܠܳܐ ܟܽܘܠܗܽܘܢ ܐܰܝܠܶܝܢ ܕܝܰܕܥܽܘܗ̱ܝ ܠܰܫܪܳܪܳܐ:</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="skos:broader" active="http://syriaca.org/work/95" passive="http://syriaca.org/work/9612">
+            <desc xml:lang="en">
+              <title ref="http://syriaca.org/work/9612">2 John (literary tradition)</title>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/94" passive="http://syriaca.org/work/209" source="#bib95-10 #bib95-12 #bib95-14 #bib95-16">
+            <desc xml:lang="en">
+              <label type="order" subtype="book" n="2">book 2</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/94" passive="http://syriaca.org/work/209" source="#bib95-10">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="4" source="#bib95-10">part 4</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/94" passive="http://syriaca.org/work/209" source="#bib95-12 #bib95-14">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="2" source="#bib95-12 #bib95-14">part 2</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/94" passive="http://syriaca.org/work/209" source="#bib95-16">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="1" source="#bib95-16">part 1</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/95" passive="http://syriaca.org/work/10513" source="#bib95-21">
+            <desc xml:lang="en">
+              <label type="order" subtype="book" n="6" source="#bib95-21">6</label>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib95-1" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+            <ptr target="http://syriaca.org/cbss/QYTHVWYZ"/>
+            <citedRange unit="p">322-323</citedRange>
+          </bibl>
+          <bibl xml:id="bib95-2" type="lawd:Edition">
+            <title xml:lang="en" level="m">The Syriac Peshiṭta Bible with English Translation: Hebrews and the General Catholic Epistles</title>
+            <title xml:lang="en" level="s">Surath Kthob</title>
+            <ptr target="http://syriaca.org/cbss/PVCUZSH2"/>
+          </bibl>
+          <bibl xml:id="bib95-3" type="lawd:Edition">
+            <title xml:lang="en" level="m">Comprehensive Aramaic Lexicon</title>
+            <ptr target="http://syriaca.org/cbss/DV6ZMDAF"/>
+            <citedRange unit="entry" target="http://cal1.cn.huc.edu/get_a_chapter.php?file=63063&amp;cset=U">63063</citedRange>
+            <citedRange unit="entry">2Jn</citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/DV6ZMDAF" ref="dcterms:source" passive="http://syriaca.org/cbss/QYTHVWYZ">
+                <desc xml:lang="en">
+                  <title ref="http://syriaca.org/cbss/QYTHVWYZ">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib95-4" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܵܒܸ̈ܐ ܩܲܕܹ̈ܝܫܸܐ ܗ̅ ܟܬܵܒܸ̈ܐ ܕܕܹܝܲܬܹܝܩܹܐ ܥܲܛܹܝܩܵܐ ܘܚܕܲܬܵܐ</title>
+            <ptr target="http://syriaca.org/cbss/CF2GFLRP"/>
+            <citedRange unit="p">334-335</citedRange>
+          </bibl>
+          <bibl type="lawd:Edition" xml:id="bib95-18">
+            <title xml:lang="en" level="m">Remnants of the Later Syriac Versions of the Bible</title>
+            <ptr target="http://syriaca.org/cbss/5U9WATI2"/>
+            <citedRange unit="p">23-26</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl type="syriaca:Manuscript" xml:id="bib95-6" source="#bib95-10 #bib95-11">
+            <label>London, British Library, Add MS 14474</label>
+            <ptr target="http://syriaca.org/manuscript/159"/>
+            <biblScope unit="fol" from="109a" to="110">Foll. 109a-110</biblScope>
+            <date notBefore="0800" notAfter="0900">9th cent.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib95-7" source="#bib95-12 #bib95-13">
+            <label>London, British Library, Add MS 14473</label>
+            <ptr target="http://syriaca.org/manuscript/158"/>
+            <biblScope unit="fol" from="145a" to="145">Foll. 145a-145</biblScope>
+            <date notBefore="1000" notAfter="1100">11th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib95-8" source="#bib95-14 #bib95-15">
+            <label>London, British Library, Add MS 17226</label>
+            <ptr target="http://syriaca.org/manuscript/1003"/>
+            <biblScope unit="fol" from="18b" to="27">Foll. 18b-27</biblScope>
+            <date notBefore="1200" notAfter="1400">13th or 14th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib95-9" source="#bib95-16 #bib95-17">
+            <label>London, British Library, Add MS 14681</label>
+            <ptr target="http://syriaca.org/manuscript/537"/>
+            <biblScope unit="fol" from="68a" to="68b">Foll. 68a-68b</biblScope>
+            <date notBefore="1100" notAfter="1300">12th or 13th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib95-19">
+            <label>Manchester, John Rylands University Library <idno type="shelfmark">Syriac 2</idno>
+            </label>
+            <label>Crawford <idno type="catalog-number" subtype="Crawford">Syriac 2</idno>
+            </label>
+            <biblScope unit="fol">181a-182</biblScope>
+            <date notBefore="1050" notAfter="1250">12th cent.?</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib95-20">
+            <label>Manchester, John Rylands University Library <idno type="shelfmark">Syriac 11</idno>
+            </label>
+            <label>Harris <idno type="catalog-number" subtype="Harris">Syriac 137</idno>
+            </label>
+            <biblScope unit="fol">52b-53</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib95-5" type="lawd:Citation">
+            <title xml:lang="en" level="m">The SBL Handbook of Style: For Biblical Studies and Related Disciplines</title>
+            <ptr target="http://syriaca.org/cbss/4LF563BK"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-10">
+            <title level="a" xml:lang="en">BL Add MS 14474</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/159"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/159">The second Epistle of S. John, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-11">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXI</citedRange>
+            <citedRange unit="p">I:76-77</citedRange>
+            <citedRange unit="entry">BL Add MS 14474</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-12">
+            <title level="a" xml:lang="en">BL Add MS 14473</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/158"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/158">The second Epistle of S. John</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-13">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXII</citedRange>
+            <citedRange unit="p">I:83-84</citedRange>
+            <citedRange unit="entry">BL Add MS 14473</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-14">
+            <title level="a" xml:lang="en">BL Add MS 17226</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1003"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1003">The second Epistle of S. John</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-15">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXIV</citedRange>
+            <citedRange unit="p">I:79</citedRange>
+            <citedRange unit="entry">BL Add MS 17226</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-16">
+            <title level="a" xml:lang="en">BL Add MS 14681</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/537"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/537">The second Epistle of S. John</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-17">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXIII</citedRange>
+            <citedRange unit="p">I:78-79</citedRange>
+            <citedRange unit="entry">BL Add MS 14681</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib95-21">
+            <title xml:lang="en" level="a">A Catalogue of the Syriac Manuscripts in the John Rylands Library</title>
+            <title xml:lang="en" level="j">Bulletin of the John Rylands Library</title>
+            <ptr target="http://syriaca.org/cbss/WR7JUILF"/>
+            <citedRange unit="p">118-119, 130-131</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
+    </body>
+  </text>
+</TEI>

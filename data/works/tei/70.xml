@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title level="a" xml:lang="en">New Testament (Peshitta version) — <foreign xml:lang="syr">ܟܬܒܐ ܕܕܝܬܩܐ ܚ̇ܕܬܐ</foreign>
+        </title>
+        <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+        <funder>The International Balzan Prize Foundation</funder>
+        <funder>The National Endowment for the Humanities</funder>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</editor>
+        <respStmt>
+          <resp>Editing, data entry, and reconciling by</resp>
+          <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+        </respStmt>
+        <respStmt>
+          <resp>Editing, proofreading, data architecture, and encoding by</resp>
+          <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+        </respStmt>
+        <respStmt>
+          <resp>Data entry by</resp>
+          <name type="person" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="2.0"/>
+      </editionStmt>
+      <publicationStmt>
+        <authority>Syriaca.org: The Syriac Reference Portal</authority>
+        <idno type="URI">http://syriaca.org/work/70/tei</idno>
+        <availability>
+          <licence target="http://creativecommons.org/licenses/by/3.0/">
+            <p>Distributed under a Creative Commons Attribution 3.0 Unported
+              License.</p>
+          </licence>
+        </availability>
+        <date>2017-03-23+01:00</date>
+      </publicationStmt>
+      <seriesStmt>
+        <title level="s" xml:lang="en">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+          Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m" xml:lang="en">A Guide to the Bible in Syriac</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+          Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+          Michelson</editor>
+        <biblScope unit="vol" n="2"/>
+        <idno type="URI">http://syriaca.org/bible</idno>
+      </seriesStmt>
+      <sourceDesc>
+        <p>Born digital.</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <editorialDecl>
+        <p>This record created following the Syriaca.org guidelines. Documentation
+          available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
+        <interpretation>
+          <p>Approximate dates described in terms of centuries or partial centuries
+            have been interpreted as documented in <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org
+              Dates</ref>.</p>
+        </interpretation>
+      </editorialDecl>
+      <classDecl>
+        <taxonomy>
+          <category xml:id="syriaca-headword">
+            <catDesc>The name used by Syriaca.org for document titles, citation, and
+              disambiguation. These names have been created according to the
+              Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+          </category>
+          <category xml:id="syriaca-anglicized">
+            <catDesc>An anglicized version of a name, included to facilitate
+              searching.</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <p>
+          Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+          <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
+    </profileDesc>
+    <revisionDesc status="uncorrected-draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
+      <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change70-2">Merged in data from [duplicate record with same URI].</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change70-1">Merged in data from [duplicate record with same URI].</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
+      <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work [duplicate record with same URI]</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <bibl xml:id="work-70" type="lawd:ConceptualWork" ana="#syriaca-biblical">
+        <title xml:id="name70-1" xml:lang="en" srophe:tags="#syriaca-headword" resp="http://syriaca.org">New Testament (Peshitta version)</title>
+        <title xml:id="name70-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib70-1">ܟܬܒܐ ܕܕܝܬܩܐ ܚ̇ܕܬܐ</title>
+        <title xml:id="name70-3" xml:lang="syr" source="#bib70-1">ܟܬܒܐ ܕܐܘܢܓܠܝܘܢ ܩܕܝܫܐ</title>
+        <title xml:id="name70-4" xml:lang="en" source="#bib70-2 #bib70-25">New Testament</title>
+        <title xml:lang="en" xml:id="name70-5" resp="http://syriaca.org">The Peshitta New Testament (Peshitta version)</title>
+        <title xml:lang="en" xml:id="name70-6" source="#bib70-21">New Testament. Selections. Peshitta.</title>
+        <title xml:lang="en" xml:id="name70-7" source="#bib70-23 #bib70-53">New Testament. Peshitta</title>
+        <title xml:lang="en" xml:id="name70-8" source="#bib70-27 #bib70-31 #bib70-35 #bib70-39 #bib70-41 #bib70-45 #bib70-47 #bib70-49 #bib70-51 #bib70-55">New Testament. Peshitta.</title>
+        <title xml:lang="en" xml:id="name70-9" source="#bib70-29 #bib70-43">The New Testament, according to the Peshitta version</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name70-10" source="#bib70-29">ܫܠܡ ܠܡܟܬܒ ܐܘܢܓܠܝܘܢ ܩܕܝܫܐ: ܘܫܠܝܚܐ: ܘܦܪܟܣܣ: ܘܐܓܪ̈ܬܐ ܬܠܬ ܩܬܘ̈ܠܝܩܣ܆ ܕܝܥܩܘܒ ܚܕܐ܆ ܘܕܦܛܪܘܣ ܚܕܐ܆ ܘܕܝܘܚܢܢ ܚܕܐ.܀</title>
+        <title xml:lang="en" xml:id="name70-11" source="#bib70-33">The New Testament</title>
+        <title xml:lang="en" xml:id="name70-12" source="#bib70-37">New Testament. Common canon .</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name70-13" source="#bib70-43">.ܫܘܒܚܐ ܠܚܕ ܟܝܢܐ ܐܠܗܝܐ ܕܠܐ ܥܒܝܕ ܠܥܠܡ ܥܠܡܝܢ ܐܡܝܢ. ܕܟܝܪܝܢ ܟܠܗܘܢ ܐܝܠܝܢ ܕܕܡܫܝܚܐ ܐܢܘܢ ܘܚܢܢ ܢܬܥܕܪ ܒܨܠܘܬܗܘܢ ܐܝܢ ܘܐܡܢ (SIC). ܫܘܒܫܚܐ ܠܗ̇ܘ ܕܥܠ ܚܝܠܗ ܫܪܝܢ ܘܒܥܘܕܪܢܗ ܫܠܡܢ.</title>
+        <idno type="URI">http://syriaca.org/work/70</idno>
+        <idno type="URI">https://en.wikipedia.org/wiki/New_Testament</idno>
+        <idno type="URI">https://www.wikidata.org/wiki/Q18813</idno>
+        <idno type="URI">https://viaf.org/viaf/185488588</idno>
+        <textLang mainLang="syr"/>
+        <listRelation>
+          <relation ref="skos:broader" active="http://syriaca.org/work/70" passive="http://syriaca.org/work/9587">
+            <desc xml:lang="en">
+              <title ref="http://syriaca.org/work/9587">New Testament (literary tradition)</title>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib70-1" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+            <ptr target="http://syriaca.org/cbss/QYTHVWYZ"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-3" source="#bib70-21 #bib70-22">
+            <label>Chicago, University Library, Oriental Institute <idno type="shelfmark">BS1911.A2-800</idno>
+            </label>
+            <label>Chicago, University Library, Oriental Institute <idno type="shelfmark">Goodspeed MS Sy 31.</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1221"/>
+            <biblScope unit="fol" from="1" to="4">foll. 1-4</biblScope>
+            <date notBefore="0800" notAfter="0900" calendar="Gregorian">XIII</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-4" source="#bib70-23 #bib70-24">
+            <label>New York, Aramaic Bible Society, Inc., New Testament. Peshitta.</label>
+            <ptr target="http://syriaca.org/manuscript/1214"/>
+            <date/>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-5" source="#bib70-25 #bib70-26">
+            <label>New York, Aramaic Bible Society, Inc., New Testament.</label>
+            <ptr target="http://syriaca.org/manuscript/1213"/>
+            <date/>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-6" source="#bib70-27 #bib70-28">
+            <label>New York, Union Theological Seminary <idno type="shelfmark">Cage CB42.7 n.d.</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1343"/>
+            <date when="1180" calendar="Gregorian">1180</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-7" source="#bib70-29 #bib70-30">
+            <label>London, British Library, Add MS 14470</label>
+            <ptr target="http://syriaca.org/manuscript/153"/>
+            <biblScope unit="fol" from="2b" to="176b">Foll. 2b-176b</biblScope>
+            <date notBefore="0400" notAfter="0600">5th or 6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-8" source="#bib70-31 #bib70-32">
+            <label>Washington, D.C., Smithsonian Institution Freer Gallery of Art <idno type="shelfmark">37.41</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1393"/>
+            <biblScope unit="fol" from="1" to="324">Foll. 1-324</biblScope>
+            <date notBefore="1213" notAfter="1214" calendar="Gregorian">1213-1214</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-9" source="#bib70-33 #bib70-34">
+            <label>London, British Library, Add MS 17124</label>
+            <ptr target="http://syriaca.org/manuscript/753"/>
+            <biblScope unit="fol" from="4" to="172b">Foll. 4-172b</biblScope>
+            <date when="1234" calendar="Gregorian">A.D. 1234</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-10" source="#bib70-35 #bib70-36">
+            <label>New Haven, Yale University, Beinecke Library <idno type="shelfmark" subtype="Yale">Syr. 6</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1317"/>
+            <date notBefore="0917" notAfter="0918" calendar="Gregorian">917/918</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-11" source="#bib70-37 #bib70-38">
+            <label>The Yonan Manuscript</label>
+            <ptr target="http://syriaca.org/manuscript/1270"/>
+            <biblScope unit="fol" from="1" to="227">Foll. 1-227</biblScope>
+            <date notBefore="0950" notAfter="1150" calendar="Gregorian">XI (?)</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-12" source="#bib70-39 #bib70-40">
+            <label>New York, The Pierpont Morgan Library <idno type="shelfmark">M. 236</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1261"/>
+            <biblScope unit="fol" from="1" to="200">Foll. 1-200</biblScope>
+            <date notBefore="0700" notAfter="0800">VIII.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-13" source="#bib70-41 #bib70-42">
+            <label>New York City, The Episcopal Church Center. New Testament</label>
+            <ptr target="http://syriaca.org/manuscript/1237"/>
+            <biblScope unit="fol" from="1" to="273">Foll. 1-273</biblScope>
+            <date when="1207" calendar="Gregorian">1207</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-14" source="#bib70-43 #bib70-44">
+            <label>London, British Library, Add MS 14448</label>
+            <ptr target="http://syriaca.org/manuscript/120"/>
+            <biblScope unit="fol" from="1a" to="209b">Foll. 1a-209b</biblScope>
+            <date notBefore="0699" notAfter="0700" calendar="Gregorian">A.D. 699-700</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-15" source="#bib70-45 #bib70-46">
+            <label>Princeton, The Scheide Library <idno type="shelfmark">M. 75</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1367"/>
+            <biblScope unit="fol" from="1" to="255">Foll. 1-255</biblScope>
+            <date when="1221" calendar="Gregorian">1221</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-16" source="#bib70-47 #bib70-48">
+            <label>Cambridge (Massachusetts), Harvard University Library <idno type="accession-number">1077. 503.</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1284"/>
+            <biblScope unit="fol" from="1" to="143">Foll. 1-143</biblScope>
+            <date notBefore="1200" notAfter="1300" calendar="Gregorian">XIII</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-17" source="#bib70-49 #bib70-50">
+            <label>Cambridge (Massachusetts), Harvard University Library <idno type="accession-number">1077. 503.</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1285"/>
+            <biblScope unit="fol" from="144" to="175">Foll. 144-175</biblScope>
+            <date notBefore="1200" notAfter="1300" calendar="Gregorian">XIII</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-18" source="#bib70-51 #bib70-52">
+            <label>Cambridge (Massachusetts), Harvard University Library <idno type="shelfmark">Har. Syr. Ms. 4</idno>
+            </label>
+            <label>Cambridge (Massachusetts), Harvard University Library <idno type="accession-number">42M-753</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1274"/>
+            <date notBefore="1190" notAfter="1200" calendar="Gregorian">1190/1200</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-19" source="#bib70-53 #bib70-54">
+            <label>New York, The Pierpont Morgan Library <idno type="shelfmark">M. 235</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1260"/>
+            <biblScope unit="fol" from="1" to="322">Foll. 1-322</biblScope>
+            <date notBefore="1200" notAfter="1300">XIII</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-20" source="#bib70-55 #bib70-56">
+            <label>Cambridge (Massachusetts), Harvard University Library <idno type="shelfmark">A-H Syr. Ms. 1.</idno>
+            </label>
+            <ptr target="http://syriaca.org/manuscript/1233"/>
+            <date when="1198" calendar="Gregorian">1198</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib70-57">
+            <label>Manchester, John Rylands University Library <idno type="shelfmark">Syriac 2</idno>
+            </label>
+            <label>Crawford <idno type="catalog-number" subtype="Crawford">Syriac 2</idno>
+            </label>
+            <date notBefore="1050" notAfter="1250">12th cent.?</date>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib70-2" type="lawd:Citation">
+            <title xml:lang="en" level="m">The SBL Handbook of Style: For Biblical Studies and Related Disciplines</title>
+            <ptr target="http://syriaca.org/cbss/4LF563BK"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-21">
+            <title level="a" xml:lang="en">University of Chicago BS1911.A2-800</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1221"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1221">New Testament. Selections. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-22">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">University of Chicago BS1911.A2-800</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-23">
+            <title level="a" xml:lang="en">Aramaic Bible Society, Inc. 252</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1214"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1214">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-24">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Aramaic Bible Society, Inc. 252</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-25">
+            <title level="a" xml:lang="en">Aramaic Bible Society, Inc. 251</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1213"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1213">New Testament</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-26">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Aramaic Bible Society, Inc. 251</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-27">
+            <title level="a" xml:lang="en">Union Theological Seminary Cage CB42.7 n.d.</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1343"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1343">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-28">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Union Theological Seminary Cage CB42.7 n.d.</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-29">
+            <title level="a" xml:lang="en">BL Add MS 14470</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/153"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/153">The New Testament, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-30">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXIII</citedRange>
+            <citedRange unit="p">I:40-41</citedRange>
+            <citedRange unit="entry">BL Add MS 14470</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-31">
+            <title level="a" xml:lang="en">Smithsonian Institution Freer Gallery of Art 37.41</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1393"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1393">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-32">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Smithsonian Institution Freer Gallery of Art 37.41</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-33">
+            <title level="a" xml:lang="en">BL Add MS 17124</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/753"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/753">The New Testament</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-34">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXV</citedRange>
+            <citedRange unit="p">I:42-44</citedRange>
+            <citedRange unit="entry">BL Add MS 17124</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-35">
+            <title level="a" xml:lang="en">Yale University Syriac 6</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1317"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1317">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-36">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Yale University Syriac 6</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-37">
+            <title level="a" xml:lang="en">Yonan Codex Foundation, Inc. Yon-4</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1270"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1270">New Testament. Common canon </citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-38">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Yonan Codex Foundation, Inc. Yon-4</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-39">
+            <title level="a" xml:lang="en">The Pierpont Morgan Library PML-236</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1261"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1261">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-40">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">The Pierpont Morgan Library PML-236</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-41">
+            <title level="a" xml:lang="en">The Episcopal Church Center ECC-260</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1237"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1237">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-42">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">The Episcopal Church Center ECC-260</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-43">
+            <title level="a" xml:lang="en">BL Add MS 14448</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/120"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/120">The New Testament, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-44">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXIV</citedRange>
+            <citedRange unit="p">I:41-42</citedRange>
+            <citedRange unit="entry">BL Add MS 14448</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-45">
+            <title level="a" xml:lang="en">The Scheide Library Scheide M. 75</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1367"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1367">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-46">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">The Scheide Library Scheide M. 75</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-47">
+            <title level="a" xml:lang="en">Houghton Library 1077-503</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1284"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1284">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-48">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Houghton Library 1077-503</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-49">
+            <title level="a" xml:lang="en">Houghton Library 1077-503</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1285"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1285">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-50">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Houghton Library 1077-503</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-51">
+            <title level="a" xml:lang="en">Houghton Library Har-Syr-Ms-4</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1274"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1274">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-52">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Houghton Library Har-Syr-Ms-4</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-53">
+            <title level="a" xml:lang="en">The Pierpont Morgan Library PML-235</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1260"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1260">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-54">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">The Pierpont Morgan Library PML-235</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-55">
+            <title level="a" xml:lang="en">Andover-Harvard Theological Library A-H Syr. Ms. 1.</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1233"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1233">New Testament. Peshitta</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-56">
+            <title xml:lang="en" level="a">A Checklist of Syriac Manuscripts in the United States and Canada.</title>
+            <author>James T. Clemons</author>
+            <ptr target="http://syriaca.org/cbss/7XF7GDAJ"/>
+            <citedRange unit="p">508</citedRange>
+            <citedRange unit="entry">Andover-Harvard Theological Library A-H Syr. Ms. 1.</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib70-58">
+            <title xml:lang="en" level="a">A Catalogue of the Syriac Manuscripts in the John Rylands Library</title>
+            <title xml:lang="en" level="j">Bulletin of the John Rylands Library</title>
+            <ptr target="http://syriaca.org/cbss/WR7JUILF"/>
+            <citedRange unit="p">118-119</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
+    </body>
+  </text>
+</TEI>

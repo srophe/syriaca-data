@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Evangelists (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -159,83 +137,128 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1337" ana="#hagiographic">
-                <title xml:id="name1337-3" xml:lang="fr" source="#bib1337-1">Évangélistes (texte)</title>
-                <title xml:id="name1337-4" xml:lang="en" source="#bib1337-1" srophe:tags="#syriaca-headword">Evangelists (text)</title>
-                <author xml:lang="fr" source="#bib1337-1" ref="http://syriaca.org/person/650">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Narsai</forename>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܢܪܣܝ</forename>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Narsaï</forename>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1337-1">
-                    <quote>ܡܠܟܐ ܕܪܘܡܐ ܥܒܕ ܡܫܬܘܬܐ ܪܘܚܢܝܬܐ: ܘܫܕܪ ܥܒܕܘ̈ܗܝ ܕܢܩܪܘܢ ܟܠܐ ܠܚܠܘܠ ܚܘܒܗ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1337-1">
-                    <quote>Le roi d’en-haut a fait un banquet spirituel et il a envoyé ses serviteurs pour qu’ils appellent tout le monde aux noces de son amour.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1337-1">
-                    <quote>ܒܟܪܡܗ ܦܠܚܬܘܢ ܡܢ ܫܘܪܝܐ ܕܟܪܘܙܘܬܐ: ܘܗܘ ܡܦܢܐ ܠܟܘܢ ܕܝܢܪ ܚܝ̈ܐ ܕܠܐ ܡܬܚܒܠ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1337-1">
-                    <quote>Vous avez travaillé dans sa vigne depuis le début de la prédication; et lui vous payera le denier de la vie qui est incorruptible.</quote>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-2">ms Vatican, Syr. 498, f. 102v-112</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-3">ms Vatican, Syr. 588, f. 22-27</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-4">ms Vatican, Borg. Syr. 79, f. 82v-90</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-5">ms Vatican, Borg. Syr. 83, f. 74-80v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-6">ms Berlin, Königliche Bibliothek, syr. 57 (Sachau 174-176), f. 98v-107v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-7">ms Saint-Pétersbourg, Institut des études orientales, Diettrich 6 (Pigulevskaya 28), f. 107v-117v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-8">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 71, f. 161-177</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-9">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 72, f. 183-200</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-10">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 60, f. 103v-113</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-11">ms Diyarbakir, Archevêché chaldéen, cod. 70 (maintenant à Mardin, Archevêché chaldéen, Mardin-Diyarbakir 60.19), cah. 9, f. 4 - cah. 10, f. 2v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-12">ms Dawra (Bagdad), Monastère chaldéen, cod. 490 (olim Alqosh, Monastère N.-D. des Semences, 160 Vosté), f. 96-104v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-13">ms Kirkuk, Archevêché chaldéen, cod. 49, f. 97v-106</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-14">ms Londres, British Library, Or. 9368, f. 92-100v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-15">ms Londres, British Library, Or. 5463, f. 51-55</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1337-1">
-                    <bibl xml:id="bib1337-16">ms Téhéran, Archevêché chaldéen, Neesan 1, f. 55-60</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1337</idno>
-                <idno type="BHS">1200</idno>
-                <bibl xml:id="bib1337-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1337" ana="#syriaca-hagiographic">
+        <title xml:id="name1337-3" xml:lang="fr" source="#bib1337-1">Évangélistes (texte)</title>
+        <title xml:id="name1337-4" xml:lang="en" source="#bib1337-1" srophe:tags="#syriaca-headword">Evangelists (text)</title>
+        <author ref="http://syriaca.org/person/650" source="#bib1337-1" xml:lang="en">Narsai — <foreign xml:lang="syr">ܢܪܣܝ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1337</idno>
+        <idno type="number" subtype="BHS">1200</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1337-1">ܡܠܟܐ ܕܪܘܡܐ ܥܒܕ ܡܫܬܘܬܐ ܪܘܚܢܝܬܐ: ܘܫܕܪ ܥܒܕܘ̈ܗܝ ܕܢܩܪܘܢ ܟܠܐ ܠܚܠܘܠ ܚܘܒܗ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1337-1">Le roi d’en-haut a fait un banquet spirituel et il a envoyé ses serviteurs pour qu’ils appellent tout le monde aux noces de son amour.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1337-1">ܒܟܪܡܗ ܦܠܚܬܘܢ ܡܢ ܫܘܪܝܐ ܕܟܪܘܙܘܬܐ: ܘܗܘ ܡܦܢܐ ܠܟܘܢ ܕܝܢܪ ܚܝ̈ܐ ܕܠܐ ܡܬܚܒܠ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1337-1">Vous avez travaillé dans sa vigne depuis le début de la prédication; et lui vous payera le denier de la vie qui est incorruptible.</quote>
+          </note>
+        </noteGrp>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1337-2" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 498</idno>
+            </label>
+            <biblScope unit="fol">f. 102v-112</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-3" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 588</idno>
+            </label>
+            <biblScope unit="fol">f. 22-27</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-4" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Borg. Syr. 79</idno>
+            </label>
+            <biblScope unit="fol">f. 82v-90</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-5" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Borg. Syr. 83</idno>
+            </label>
+            <biblScope unit="fol">f. 74-80v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-6" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">syr. 57</idno>
+            </label>
+            <label>Sachau <idno type="catalog-number" subtype="Sachau">174-176</idno>
+            </label>
+            <biblScope unit="fol">f. 98v-107v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-7" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Saint-Pétersbourg, Institut des études orientales <idno type="shelfmark">Diettrich 6</idno>
+            </label>
+            <label>Pigulevskaya <idno type="catalog-number">28</idno>
+            </label>
+            <biblScope unit="fol">f. 107v-117v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-8" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Bagdad, Patriarcat chaldéen catholique</label>
+            <label>olim Mossoul, Patriarcat chaldéen <idno type="shelfmark">cod. 71</idno>
+            </label>
+            <biblScope unit="fol">f. 161-177</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-9" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Bagdad, Patriarcat chaldéen catholique</label>
+            <label>olim Mossoul, Patriarcat chaldéen <idno type="shelfmark">cod. 72</idno>
+            </label>
+            <biblScope unit="fol">f. 183-200</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-10" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Bagdad, Patriarcat chaldéen catholique</label>
+            <label>olim Mossoul, Patriarcat chaldéen <idno type="shelfmark">cod. 60</idno>
+            </label>
+            <biblScope unit="fol">f. 103v-113</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-11" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Diyarbakir, Archevêché chaldéen <idno type="shelfmark">cod. 70</idno>
+            </label>
+            <label>Mardin, Archevêché chaldéen, Mardin-Diyarbakir <idno type="shelfmark">60.19</idno>
+            </label>
+            <biblScope unit="fol">cah. 9, f. 4 - cah. 10, f. 2v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-12" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>ms Dawra (Bagdad), Monastère chaldéen, cod. 490 (olim Alqosh, Monastère N.-D. des Semences, 160 Vosté), f. 96-104v</label>
+          </bibl>
+          <bibl xml:id="bib1337-13" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Kirkuk, Archevêché chaldéen <idno type="shelfmark">cod. 49</idno>
+            </label>
+            <biblScope unit="fol">f. 97v-106</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-14" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Or. 9368</idno>
+            </label>
+            <biblScope unit="fol">f. 92-100v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-15" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Or. 5463</idno>
+            </label>
+            <biblScope unit="fol">f. 51-55</biblScope>
+          </bibl>
+          <bibl xml:id="bib1337-16" source="#bib1337-1" type="syriaca:Manuscript">
+            <label>Téhéran, Archevêché chaldéen <idno type="shelfmark">Neesan 1</idno>
+            </label>
+            <biblScope unit="fol">f. 55-60</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1337-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1200</citedRange>
-                </bibl>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1200</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Hilaria (text) — <foreign xml:lang="syr">ܐܠܐܪܝܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,9 +124,10 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
-            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologs with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -165,103 +143,129 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-920" ana="#hagiographic">
-                <title xml:id="name920-1" xml:lang="syr" source="#bib920-1" srophe:tags="#syriaca-headword">ܐܠܐܪܝܐ</title>
-                <title xml:id="name920-2" xml:lang="fr-x-bhs" source="#bib920-1">ʾIlārīyā</title>
-                <title xml:id="name920-3" xml:lang="fr" source="#bib920-1">Hilaria (texte)</title>
-                <title xml:id="name920-4" xml:lang="en" source="#bib920-1" srophe:tags="#syriaca-headword">Hilaria (text)</title>
-                <note xml:lang="fr" type="prologue" source="#bib920-1">
-                    <quote>En tout temps, mes bien-aimés, il est beau pour ceux qui craignent Dieu de s’occuper des saintes doctrines qui enseignent la crainte de Dieu et nous conduisent par des chemins droits qui plaisent à Dieu.</quote>
-                </note>
-                <note xml:lang="syr" type="prologue" source="#bib920-1">
-                    <quote>ܒܟܠܙܒܢ ܚܒܝܒܝ̈. ܫܦܝܪܐ ܗܝ ܠܕܚܠܝ̈ ܐܠܗܐ ܠܡܬܥܢܝܘ ܒܝ̈ܘܠܦܢܐ ܩܕܝ̈ܫܐ ܕܡܠܦܝܢ ܕܚܠܬ ܐܠܗܐ. ܘܡܗܕܝܢ ܠܢ ܒܐܘܪ̈ܚܬܐ ܬܪ̈ܝܨܬܐ ܕܫܦܪ̈ܢ ܠܐܠܗܐ.</quote>
-                </note>
-                <note xml:lang="syr" type="incipit" source="#bib920-1">
-                    <quote>ܢܫܪܐ ܕܝܢ ܡܢ ܗܐ ܡܟܐ. ܟܕ ܡܡܠܟ ܗܘܐ ܦܐܝܘܬ ܡܗܝܡܢܐܝܬ ܙܝܢܘܢ ܗܿܘ ܛܒܝܒܐ ܘܫܦܝܪ ܚܝ̈ܐ ܕܒܐܠܗܐ. ܗܿܘ ܫܘܐ ܒܗܝܡܢܘܬܐ ܘܒܪܚܡܬ ܡܫܝܚܐ ܠܙܟܝܐ ܘܪܒܐ ܩܘܣܛܢܛܝܢܘܣ̣. ܡܬܥܣܩ ܗܘܐ ܕܝܢ ܘܛܒ ܚܿܐܫ. ܒܕܠܐ ܐܝܬ ܗܘܐ ܠܗ ܒܪܐ ܗܿܘ ܕܠܟܘܪܣܝܐ ܕܡܠܟܘܬܐ ܥܬܝܕ ܕܢܐܩܒܠ ܡܢ ܒܬܪܗ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib920-1">
-                    <quote>Commençons donc par là, quand règnait avec une foi convenable Zénon, dont la vie en Dieu était célèbre et belle, lui qui était aussi croyant et ami de Dieu que le grand et victorieux Constantin, mais qui était tourmenté et souffrait de ne pas avoir de fils à qui transmettre le trône impérial.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib920-1">
-                    <quote>ܘܡܢ ܒܬܪ ܬܠܬܐ ܝܘܡܝ̈ܢ ܫܢܝܘ ܡܢ ܬܡܢ. ܘܐܬܘ ܘܐܫܬܥܝܘ ܠܐܒܗ̈ܬܐ ܡܕܡ ܕܚܙܘ܀ ܗܠܝܢ ܐܢܘܢ ܚܝ̈ܐ ܘܕܘܒܪ̈ܐ ܩܕܝ̈ܫܐ ܕܐܠܐܪܝܐ. ܚܢܢ ܕܝܢ ܐܚ̈ܐ ܢܟ̈ܦܐ ܘܐܚܘ̈ܬܐ ܡܗܝܡܢ̈ܬܐ̣. ܟܕ ܛܢܝܢܢ ܒܕܘܒܪ̈ܐ ܕܩܕܝ̈ܫܐ. ܢܡܪܐ ܒܫܦܝܪ̈ܬܐ ܘܢܦܠܘܚ ܥܒ̈ܕܐ ܛܒ̈ܐ ܕܢܕܪܟ ܚܝ̈ܐ ܕܠܥܠܡ. ܕܠܗܘܢ ܢܗܘܐ ܕܢܫܬܘܐ ܒܛܝܒܘܬܐ... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib920-1">
-                    <quote>Et trois jours plus tard, ils quittèrent cet endroit et vinrent raconter aux Pères ce qu’ils avaient vu. Telles sont la vie et les oeuvres saintes d’Hilaria. Quant à nous, frères chastes et soeurs croyantes, en jalousant les oeuvres des saints, imitons leurs qualités et travaillons aux bonnes actions pour parvenir à la vie éternelle; qu’il arrive que nous en soyons jugés dignes, par la grâce… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib920-1" xml:id="bib920-3">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <citedRange>Leiden, 1913, p. 3-31 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib920-1">
-                    <bibl xml:id="bib920-4">mss Londres, British Library, Add. 14649, f. 162-169v + Add. 14735, f. 136v-144 + Add. 12172, f. 38-48v + Add. 14650, f. 206-214 + Add. 14641, f. 165v-171v + Rich. 7190, f. 353v-364v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib920-1">
-                    <bibl xml:id="bib920-5">ms Diyarbakir, Archevêché chaldéen, cod. 98</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib920-1">
-                    <bibl xml:id="bib920-6">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 150v-153 (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib920-1">
-                    <bibl xml:id="bib920-7">ms Jérusalem, Monastère syrien orthodoxe Saint-Marc, cod. 202, p. 254-282</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib920-1">
-                    <bibl xml:id="bib920-8">ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)</bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib920-1">
-                    <bibl xml:id="bib920-9">
-                        <title>BHO</title>
-                        <ptr target="http://syriaca.org/cbss/2GQIEB8Y"/>
-                        <citedRange unit="entry">379</citedRange>
-                        <lang>cop</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib920-1">
-                    <bibl xml:id="bib920-10">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib920-1">
-                    <bibl xml:id="bib920-11">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <lang>syr-pal</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib920-1">
-                    <bibl xml:id="bib920-12">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <citedRange unit="pp">37-57</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/920</idno>
-                <idno type="BHS">716</idno>
-                <bibl xml:id="bib920-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-920" ana="#syriaca-hagiographic">
+        <title xml:id="name920-1" xml:lang="syr" source="#bib920-1" srophe:tags="#syriaca-headword">ܐܠܐܪܝܐ</title>
+        <title xml:id="name920-2" xml:lang="fr-x-bhs" source="#bib920-1">ʾIlārīyā</title>
+        <title xml:id="name920-3" xml:lang="fr" source="#bib920-1">Hilaria (texte)</title>
+        <title xml:id="name920-4" xml:lang="en" source="#bib920-1" srophe:tags="#syriaca-headword">Hilaria (text)</title>
+        <idno type="URI">http://syriaca.org/work/920</idno>
+        <idno type="number" subtype="BHS">716</idno>
+        <noteGrp type="prologue">
+          <desc xml:lang="en">Prologue</desc>
+          <note xml:lang="fr" type="prologue">
+            <quote source="#bib920-1">En tout temps, mes bien-aimés, il est beau pour ceux qui craignent Dieu de s’occuper des saintes doctrines qui enseignent la crainte de Dieu et nous conduisent par des chemins droits qui plaisent à Dieu.</quote>
+          </note>
+          <note xml:lang="syr" type="prologue">
+            <quote source="#bib920-1">ܒܟܠܙܒܢ ܚܒܝܒܝ̈. ܫܦܝܪܐ ܗܝ ܠܕܚܠܝ̈ ܐܠܗܐ ܠܡܬܥܢܝܘ ܒܝ̈ܘܠܦܢܐ ܩܕܝ̈ܫܐ ܕܡܠܦܝܢ ܕܚܠܬ ܐܠܗܐ. ܘܡܗܕܝܢ ܠܢ ܒܐܘܪ̈ܚܬܐ ܬܪ̈ܝܨܬܐ ܕܫܦܪ̈ܢ ܠܐܠܗܐ.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib920-1">ܢܫܪܐ ܕܝܢ ܡܢ ܗܐ ܡܟܐ. ܟܕ ܡܡܠܟ ܗܘܐ ܦܐܝܘܬ ܡܗܝܡܢܐܝܬ ܙܝܢܘܢ ܗܿܘ ܛܒܝܒܐ ܘܫܦܝܪ ܚܝ̈ܐ ܕܒܐܠܗܐ. ܗܿܘ ܫܘܐ ܒܗܝܡܢܘܬܐ ܘܒܪܚܡܬ ܡܫܝܚܐ ܠܙܟܝܐ ܘܪܒܐ ܩܘܣܛܢܛܝܢܘܣ̣. ܡܬܥܣܩ ܗܘܐ ܕܝܢ ܘܛܒ ܚܿܐܫ. ܒܕܠܐ ܐܝܬ ܗܘܐ ܠܗ ܒܪܐ ܗܿܘ ܕܠܟܘܪܣܝܐ ܕܡܠܟܘܬܐ ܥܬܝܕ ܕܢܐܩܒܠ ܡܢ ܒܬܪܗ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib920-1">Commençons donc par là, quand règnait avec une foi convenable Zénon, dont la vie en Dieu était célèbre et belle, lui qui était aussi croyant et ami de Dieu que le grand et victorieux Constantin, mais qui était tourmenté et souffrait de ne pas avoir de fils à qui transmettre le trône impérial.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib920-1">ܘܡܢ ܒܬܪ ܬܠܬܐ ܝܘܡܝ̈ܢ ܫܢܝܘ ܡܢ ܬܡܢ. ܘܐܬܘ ܘܐܫܬܥܝܘ ܠܐܒܗ̈ܬܐ ܡܕܡ ܕܚܙܘ܀ ܗܠܝܢ ܐܢܘܢ ܚܝ̈ܐ ܘܕܘܒܪ̈ܐ ܩܕܝ̈ܫܐ ܕܐܠܐܪܝܐ. ܚܢܢ ܕܝܢ ܐܚ̈ܐ ܢܟ̈ܦܐ ܘܐܚܘ̈ܬܐ ܡܗܝܡܢ̈ܬܐ̣. ܟܕ ܛܢܝܢܢ ܒܕܘܒܪ̈ܐ ܕܩܕܝ̈ܫܐ. ܢܡܪܐ ܒܫܦܝܪ̈ܬܐ ܘܢܦܠܘܚ ܥܒ̈ܕܐ ܛܒ̈ܐ ܕܢܕܪܟ ܚܝ̈ܐ ܕܠܥܠܡ. ܕܠܗܘܢ ܢܗܘܐ ܕܢܫܬܘܐ ܒܛܝܒܘܬܐ... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib920-1">Et trois jours plus tard, ils quittèrent cet endroit et vinrent raconter aux Pères ce qu’ils avaient vu. Telles sont la vie et les oeuvres saintes d’Hilaria. Quant à nous, frères chastes et soeurs croyantes, en jalousant les oeuvres des saints, imitons leurs qualités et travaillons aux bonnes actions pour parvenir à la vie éternelle; qu’il arrive que nous en soyons jugés dignes, par la grâce… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/920" source="#bib920-1" passive="http://syriaca.org/person/1268">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1268">Hilaria</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib920-1" xml:id="bib920-3" type="lawd:Edition">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <citedRange unit="p">Leiden, 1913, p. 3-31 (syr.)</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib920-4" source="#bib920-1" type="syriaca:Manuscript">
+            <label>mss Londres, British Library, Add. 14649, f. 162-169v + Add. 14735, f. 136v-144 + Add. 12172, f. 38-48v + Add. 14650, f. 206-214 + Add. 14641, f. 165v-171v + Rich. 7190, f. 353v-364v</label>
+          </bibl>
+          <bibl xml:id="bib920-5" source="#bib920-1" type="syriaca:Manuscript">
+            <label>Diyarbakir, Archevêché chaldéen <idno type="shelfmark">cod. 98</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib920-6" source="#bib920-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 150v-153 (mutilé de la fin)</label>
+          </bibl>
+          <bibl xml:id="bib920-7" source="#bib920-1" type="syriaca:Manuscript">
+            <label>Jérusalem, Monastère syrien orthodoxe Saint-Marc <idno type="shelfmark">cod. 202</idno>
+            </label>
+            <biblScope unit="p">p. 254-282</biblScope>
+          </bibl>
+          <bibl xml:id="bib920-8" source="#bib920-1" type="syriaca:Manuscript">
+            <label>ms Dayr az-Za‘faran, cod. pap. 121 (Dolabany)</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib920-12" source="#bib920-1" type="syriaca:ModernTranslation">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <citedRange unit="p">37-57</citedRange>
+            <textLang mainLang="en"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="ancientVersions">
+          <head>Ancient Versions</head>
+          <desc xml:lang="en">This is not a comprehensive list of ancient versions related to this work.</desc>
+          <bibl xml:id="bib920-9" source="#bib920-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">BHO</title>
+            <ptr target="http://syriaca.org/cbss/2GQIEB8Y"/>
+            <citedRange unit="entry">379</citedRange>
+            <textLang mainLang="cop"/>
+          </bibl>
+          <bibl xml:id="bib920-10" source="#bib920-1" type="syriaca:AncientVersion">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <textLang mainLang="gez"/>
+          </bibl>
+          <bibl xml:id="bib920-11" source="#bib920-1" type="syriaca:AncientVersion">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. II. The Legend of Hilaria</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <textLang mainLang="syr-pal"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib920-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">716</citedRange>
-                </bibl>
-                <bibl xml:id="bib920-2">
-                    <title xml:lang="fr" level="a">CR de l’éd. de Wensinck</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/JBP8BFUM"/>
-                    <citedRange from="72" to="74" unit="pp">72-74</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/920" passive="http://syriaca.org/person/1268" source="#bib920-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">716</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib920-2">
+            <title xml:lang="fr" level="a">CR de l’éd. de Wensinck</title>
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/JBP8BFUM"/>
+            <citedRange from="72" to="74" unit="p">72-74</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

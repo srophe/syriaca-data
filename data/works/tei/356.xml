@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Serapion (text) — <foreign xml:lang="syr">ܣܪܦܝܘܢ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,9 +124,10 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
-            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologs with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -165,92 +143,136 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-356" ana="#hagiographic">
-                <title xml:id="name356-1" xml:lang="syr" source="#bib356-1" srophe:tags="#syriaca-headword">ܣܪܦܝܘܢ</title>
-                <title xml:id="name356-2" xml:lang="fr-x-bhs" source="#bib356-1">Srāpīyōn</title>
-                <title xml:id="name356-3" xml:lang="fr" source="#bib356-1">Sérapion (texte)</title>
-                <title xml:id="name356-4" xml:lang="en" source="#bib356-1" srophe:tags="#syriaca-headword">Serapion (text)</title>
-                <note xml:lang="fr" type="prologue" source="#bib356-1">
-                    <quote>Mes frères, venez, rendons gloire au mystère de notre Dieu bon et aimable, lui qui, dans le trésor de sa tendresse, s’est souvenu de notre Père le premier Adam et s’est manifesté à ses enfants au temps de leurs souffrances.</quote>
-                </note>
-                <note xml:lang="syr" type="prologue" source="#bib356-1">
-                    <quote>ܐܚ̈ܝ ܬܘ ܢܣܩ ܠܗ ܬܫܒܘܚܬܐ ܠܓܢܝܙܘܬܗ ܕܐܠܗܢ ܛܒܐ ܘܒܣܝܡܐ܇ ܗܘ ܕܒܓܙܐ ܕܚܢܢܗ ܐܬܕܟܪ ܚܘܒܗ ܕܐܒܘܢ ܐܕܡ</quote>
-                </note>
-                <note xml:lang="syr" type="incipit" source="#bib356-1">
-                    <quote>ܒܗ ܕܝܢ ܒܙܒܢܐ ܗܘܿ: ܕܟܕ ܪܬܚܐ ܕܚܘܒܗ ܕܐܠܗܐ ܝܩܕ ܒܢ: ܕܢܦܘܩ ܢܬܒܪܟ ܡܢ ܐܢܫܐ ܩܕܝ̈ܫܐ ܕܐܝܬ ܒܡܕܒܪܐ: ܡܫܬܥܝܢ ܗܘ̣ܘ ܩܕܡܝܢ ܐܢܫܐ ܐܒܗ̈ܬܐ: ܥܠ ܕܘܒܪ̈ܘܗܝ ܚܠܝ̈ܨܐ ܕܣܪܦܝܘܢ ܐܒܝܠܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib356-1">
-                    <quote>Or en ce temps-là, alors que la ferveur de l’amour de Dieu avait brûlé en nous, pour que nous sortions pour être bénis par les saints hommes qui étaient au désert, des Pères nous racontèrent la vie vaillante de Sérapion l’ermite.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib356-1">
-                    <quote>ܘܫܒܚܘ ܘܐܘܕܝܘ ܠܐܠܗܐ: ܘܫܢܝܘ ܡܢ ܬܡܢ: ܟܕ ܥܒܿܕܝܢ ܠܗ ܕܘܟܪܢܐ ܕܡܘܬܗ ܒܟܠ ܫܢܐ. ܕܡܪܢ ܗܘܿ ܕܟܠܠܗ ܠܛܘܒܢܐ: ܢܣܓܐ ܫܝܢܗ ܘܫܠܡܗ... ܐܡܝܢ ܟܕ ܕܝܢ ܫܡܥ ܬܐܘܦܝܠܐ ܪܫ ܐܦܣ̈ܩܘܦܐ ܕܐܠܟܣܢܕܪܝܐ ܥܠ ܥܘܢܕܢܗ ܕܛܘܒܢܐ ܣܪܦܝܘܢ... ܘܢܗܪ ܠܡܦܝܕܗ ܒܡܫܚܐ ܕܕܘܒܪ̈ܘܗܝ. ܕܒܨ̈ܠܘܬܗ... ܐܡܝܢ. ܘܟܠ ܕܦܓܥܿ ܒܗܠܝܢ ܣܘܪ̈ܛܐ: ܢܣܪܚ ܫܘܒܩܢܐ ܠܕܘܝܐ ܕܟܬܒ... ܘܠܫܡܘܥܐ ܝܗܿܒ ܡܪܝܐ ܚܢܢܐ ܘܪ̈ܚܡܐ ܒܝܘܡ ܕܝܢܐ: ܒܐܡܝܢ ܕܥܠܝ̈ܐ ܘܕܬܚ̈ܬܝܐ: ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib356-1">
-                    <quote>Et ils louèrent et confessèrent Dieu; et ils quittèrent cet endroit en faisant chaque année mémoire de sa mort. Que le Seigneur qui a couronné le bienheureux fasse abonder sa prospérité et sa paix… Amen. Quand Théophile, archevêque d’Alexandrie, apprit la mort de Sérapion… et sa lampe luit à l’huile de sa vie; que par ses prières… Amen. Quiconque trouvera ces lettres, qu’il donne le pardon au misérable qui a écrit… et le Seigneur donne à l’auditeur tendresse et miséricorde au jour du jugement définitif de ceux d’en-haut et d’en-bas. Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib356-1" xml:id="bib356-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 5</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">5</citedRange>
-                        <citedRange>p. 263-341</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-4">ms Paris, Bibliothèque nationale, syr. 236, f. 194v-236v + ms Londres, British Library, Add. 14732, f. 132v-154</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-5">ms Londres, British Library, Add. 14597, f. 156-189v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-6">ms Londres, British Library, Add. 17172, f. 127-164</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-7">ms Londres, British Library, Add. 14646, f. 134v-178v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-8">ms Londres, British Library, Add. 14626, f. 1-9v (fgt)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-9">ms Londres, British Library, Add. 14609, f. 90v-119v (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-10">ms Londres, British Library, Add. 14582, f. 190v-255</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-11">ms Paris, Bibliothèque nationale, syr. 234, f. 95-104 (sans le prologue)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-12">ms Paris, Bibliothèque nationale, syr. 235, f. 175-204v (mutilé du début)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-13">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. -23</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib356-1">
-                    <bibl xml:id="bib356-14">ms Londres, British Library, Or. 3337, f. 177-202 (partie finale)</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/356</idno>
-                <idno type="BHS">136</idno>
-                <idno type="BHO">1047</idno>
-                <bibl xml:id="bib356-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-356" ana="#syriaca-hagiographic">
+        <title xml:id="name356-1" xml:lang="syr" source="#bib356-1" srophe:tags="#syriaca-headword">ܣܪܦܝܘܢ</title>
+        <title xml:id="name356-2" xml:lang="fr-x-bhs" source="#bib356-1">Srāpīyōn</title>
+        <title xml:id="name356-3" xml:lang="fr" source="#bib356-1">Sérapion (texte)</title>
+        <title xml:id="name356-4" xml:lang="en" source="#bib356-1" srophe:tags="#syriaca-headword">Serapion (text)</title>
+        <idno type="URI">http://syriaca.org/work/356</idno>
+        <idno type="number" subtype="BHS">136</idno>
+        <idno type="number" subtype="BHO">1047</idno>
+        <noteGrp type="prologue">
+          <desc xml:lang="en">Prologue</desc>
+          <note xml:lang="fr" type="prologue">
+            <quote source="#bib356-1">Mes frères, venez, rendons gloire au mystère de notre Dieu bon et aimable, lui qui, dans le trésor de sa tendresse, s’est souvenu de notre Père le premier Adam et s’est manifesté à ses enfants au temps de leurs souffrances.</quote>
+          </note>
+          <note xml:lang="syr" type="prologue">
+            <quote source="#bib356-1">ܐܚ̈ܝ ܬܘ ܢܣܩ ܠܗ ܬܫܒܘܚܬܐ ܠܓܢܝܙܘܬܗ ܕܐܠܗܢ ܛܒܐ ܘܒܣܝܡܐ܇ ܗܘ ܕܒܓܙܐ ܕܚܢܢܗ ܐܬܕܟܪ ܚܘܒܗ ܕܐܒܘܢ ܐܕܡ</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib356-1">ܒܗ ܕܝܢ ܒܙܒܢܐ ܗܘܿ: ܕܟܕ ܪܬܚܐ ܕܚܘܒܗ ܕܐܠܗܐ ܝܩܕ ܒܢ: ܕܢܦܘܩ ܢܬܒܪܟ ܡܢ ܐܢܫܐ ܩܕܝ̈ܫܐ ܕܐܝܬ ܒܡܕܒܪܐ: ܡܫܬܥܝܢ ܗܘ̣ܘ ܩܕܡܝܢ ܐܢܫܐ ܐܒܗ̈ܬܐ: ܥܠ ܕܘܒܪ̈ܘܗܝ ܚܠܝ̈ܨܐ ܕܣܪܦܝܘܢ ܐܒܝܠܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib356-1">Or en ce temps-là, alors que la ferveur de l’amour de Dieu avait brûlé en nous, pour que nous sortions pour être bénis par les saints hommes qui étaient au désert, des Pères nous racontèrent la vie vaillante de Sérapion l’ermite.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib356-1">ܘܫܒܚܘ ܘܐܘܕܝܘ ܠܐܠܗܐ: ܘܫܢܝܘ ܡܢ ܬܡܢ: ܟܕ ܥܒܿܕܝܢ ܠܗ ܕܘܟܪܢܐ ܕܡܘܬܗ ܒܟܠ ܫܢܐ. ܕܡܪܢ ܗܘܿ ܕܟܠܠܗ ܠܛܘܒܢܐ: ܢܣܓܐ ܫܝܢܗ ܘܫܠܡܗ... ܐܡܝܢ ܟܕ ܕܝܢ ܫܡܥ ܬܐܘܦܝܠܐ ܪܫ ܐܦܣ̈ܩܘܦܐ ܕܐܠܟܣܢܕܪܝܐ ܥܠ ܥܘܢܕܢܗ ܕܛܘܒܢܐ ܣܪܦܝܘܢ... ܘܢܗܪ ܠܡܦܝܕܗ ܒܡܫܚܐ ܕܕܘܒܪ̈ܘܗܝ. ܕܒܨ̈ܠܘܬܗ... ܐܡܝܢ. ܘܟܠ ܕܦܓܥܿ ܒܗܠܝܢ ܣܘܪ̈ܛܐ: ܢܣܪܚ ܫܘܒܩܢܐ ܠܕܘܝܐ ܕܟܬܒ... ܘܠܫܡܘܥܐ ܝܗܿܒ ܡܪܝܐ ܚܢܢܐ ܘܪ̈ܚܡܐ ܒܝܘܡ ܕܝܢܐ: ܒܐܡܝܢ ܕܥܠܝ̈ܐ ܘܕܬܚ̈ܬܝܐ: ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib356-1">Et ils louèrent et confessèrent Dieu; et ils quittèrent cet endroit en faisant chaque année mémoire de sa mort. Que le Seigneur qui a couronné le bienheureux fasse abonder sa prospérité et sa paix… Amen. Quand Théophile, archevêque d’Alexandrie, apprit la mort de Sérapion… et sa lampe luit à l’huile de sa vie; que par ses prières… Amen. Quiconque trouvera ces lettres, qu’il donne le pardon au misérable qui a écrit… et le Seigneur donne à l’auditeur tendresse et miséricorde au jour du jugement définitif de ceux d’en-haut et d’en-bas. Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/356" source="#bib356-1" passive="http://syriaca.org/person/2065">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/2065">Serapion</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib356-1" xml:id="bib356-3" type="lawd:Edition">
+            <title xml:lang="la">AMS 5</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">5</citedRange>
+            <citedRange unit="p">p. 263-341</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib356-4" source="#bib356-1" type="syriaca:Manuscript">
+            <label>ms Paris, Bibliothèque nationale, syr. 236, f. 194v-236v + ms Londres, British Library, Add. 14732, f. 132v-154</label>
+          </bibl>
+          <bibl xml:id="bib356-5" source="#bib356-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14597</idno>
+            </label>
+            <biblScope unit="fol">f. 156-189v</biblScope>
+          </bibl>
+          <bibl xml:id="bib356-6" source="#bib356-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17172</idno>
+            </label>
+            <biblScope unit="fol">f. 127-164</biblScope>
+          </bibl>
+          <bibl xml:id="bib356-7" source="#bib356-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14646</idno>
+            </label>
+            <biblScope unit="fol">f. 134v-178v</biblScope>
+          </bibl>
+          <bibl xml:id="bib356-8" source="#bib356-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14626</idno>
+            </label>
+            <biblScope unit="fol">f. 1-9v</biblScope>
+            <note xml:lang="en" source="#bib356-1">(fgt)</note>
+          </bibl>
+          <bibl xml:id="bib356-9" source="#bib356-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14609</idno>
+            </label>
+            <biblScope unit="fol">f. 90v-119v</biblScope>
+            <note xml:lang="en" source="#bib356-1">(mutilé de la fin)</note>
+          </bibl>
+          <bibl xml:id="bib356-10" source="#bib356-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14582</idno>
+            </label>
+            <biblScope unit="fol">f. 190v-255</biblScope>
+          </bibl>
+          <bibl xml:id="bib356-11" source="#bib356-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 234</idno>
+            </label>
+            <biblScope unit="fol">f. 95-104 (sans le prolog)</biblScope>
+          </bibl>
+          <bibl xml:id="bib356-12" source="#bib356-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 235</idno>
+            </label>
+            <biblScope unit="fol">f. 175-204v</biblScope>
+            <note xml:lang="en" source="#bib356-1">(mutilé du début)</note>
+          </bibl>
+          <bibl xml:id="bib356-13" source="#bib356-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. -23</label>
+          </bibl>
+          <bibl xml:id="bib356-14" source="#bib356-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Or. 3337</idno>
+            </label>
+            <biblScope unit="fol">f. 177-202 (partie finale)</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib356-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">136</citedRange>
-                </bibl>
-                <bibl xml:id="bib356-2">
-                    <title xml:lang="fr" level="a">Une Lettre de Théophile, patriarche d’Alexandrie,
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">136</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib356-2">
+            <title xml:lang="fr" level="a">Une Lettre de Théophile, patriarche d’Alexandrie,
                      d’après la légende de Sérapion le Sindonite</title>
-                    <title level="j" xml:lang="fr">Revue de l'Orient chrétien</title>
-                    <title level="s" xml:lang="fr">Revue de l'Orient chrétien</title>
-                    <ptr target="http://syriaca.org/cbss/7VU45L8I"/>
-                    <citedRange from="103" to="105" unit="pp">103-105</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/356" passive="http://syriaca.org/person/2065" source="#bib356-1"/>
-                </listRelation>
-            </bibl>
+            <title level="j" xml:lang="fr">Revue de l'Orient chrétien</title>
+            <title level="s" xml:lang="fr">Revue de l'Orient chrétien</title>
+            <ptr target="http://syriaca.org/cbss/7VU45L8I"/>
+            <citedRange from="103" to="105" unit="p">103-105</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

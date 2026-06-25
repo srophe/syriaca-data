@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="a" xml:lang="en">1 Corinthians (Peshitta version) — <foreign xml:lang="syr">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܩܘܪ̈ܝܢܬܝܐ ܩܕܡܝܬܐ</foreign>
+        </title>
+                <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+                <funder>The International Balzan Prize Foundation</funder>
+                <funder>The National Endowment for the Humanities</funder>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+                <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</editor>
+                <respStmt>
+                    <resp>Editing, data entry, and reconciling by</resp>
+                    <name ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editing, proofreading, data architecture, and encoding by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Data entry by</resp>
+                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#thannah">Tucker D. Hannah</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition n="2.0"/>
+            </editionStmt>
+            <publicationStmt>
+                <authority>Syriaca.org: The Syriac Reference Portal</authority>
+                <idno type="URI">http://syriaca.org/work/78/tei</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/3.0/">
+                        <p>Distributed under a Creative Commons Attribution 3.0 Unported
+                                License.</p>
+                    </licence>
+                </availability>
+                <date>2017-03-23+01:00</date>
+            </publicationStmt>
+            <seriesStmt>
+        <title level="s" xml:lang="en">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+                    Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                    Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m" xml:lang="en">A Guide to the Bible in Syriac</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
+                    Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
+                    Michelson</editor>
+        <biblScope unit="vol" n="2"/>
+        <idno type="URI">http://syriaca.org/bible</idno>
+      </seriesStmt>
+            <sourceDesc>
+                <p>Born digital.</p>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <p>This record created following the Syriaca.org guidelines. Documentation
+                        available at: <ref target="http://syriaca.org/documentation">http://syriaca.org/documentation</ref>.</p>
+                <interpretation>
+                    <p>Approximate dates described in terms of centuries or partial centuries
+                            have been interpreted as documented in <ref target="http://syriaca.org/documentation/dates.html">Syriaca.org
+                                Dates</ref>.</p>
+                </interpretation>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="syriaca-headword">
+                        <catDesc>The name used by Syriaca.org for document titles, citation, and
+                                disambiguation. These names have been created according to the
+                                Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+                    </category>
+                    <category xml:id="syriaca-anglicized">
+                        <catDesc>An anglicized version of a name, included to facilitate
+                                searching.</catDesc>
+                    </category>
+                    <category xml:id="canonical">
+                        <catDesc>Indicates the content is canonical, i.e., widely agreed upon. Abbreviations of work titles are primarily in view.</catDesc>
+                    </category>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+        <p>
+                    Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+                    <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
+        </p>
+      </langUsage>
+        </profileDesc>
+        <revisionDesc status="uncorrected-draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-19+02:00" xml:id="change78-3">Merged in data from [duplicate record with same URI].</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-19+02:00">CREATED: work [duplicate record with same URI]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-04-17+02:00" xml:id="change78-2">Merged in data from [duplicate record with same URI].</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-04-17+02:00">CREATED: work [duplicate record with same URI]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-03-27+02:00" xml:id="change78-1">Merged in data from [duplicate record with same URI].</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2017-03-23+01:00">CREATED: work</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2017-02-01+01:00">Added manuscript citation [duplicate record with same URI]</change>
+            <change who="http://syriaca.org/documentation/editors.xml#ngibson" n="1.0" when="2016-12-16+01:00">CREATED: work [duplicate record with same URI]</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <bibl xml:id="work-78" type="lawd:ConceptualWork" ana="#syriaca-biblical">
+        <title xml:id="name78-1" xml:lang="en" srophe:tags="#syriaca-headword" resp="http://syriaca.org">1 Corinthians (Peshitta version)</title>
+        <title xml:id="name78-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib78-1">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܩܘܪ̈ܝܢܬܝܐ ܩܕܡܝܬܐ</title>
+        <title xml:id="name78-3" xml:lang="syr" source="#bib78-1">ܐܓܪܬܐ ܕܠܘܬ ܩܘܪ̈ܢܬܝܐ ܩܕܡܝܬܐ</title>
+        <title xml:id="name78-4" xml:lang="en" type="abbreviation" srophe:tags="#canonical" source="#bib78-5">1 Cor</title>
+        <title xml:id="name78-5" xml:lang="en" source="#bib78-5 #bib78-23 #bib78-27 #bib78-29 #bib78-31 #bib78-33 #bib78-35 #bib78-37 #bib78-41 #bib78-43 #bib78-47 #bib78-49 #bib78-53 #bib78-55">1 Corinthians</title>
+        <title xml:id="name78-6" xml:lang="syr-Syrj" source="#bib78-4">ܐܶܓܰܪܬܳܐ ܕܦܰܘܠܳܘܣ ܕܰܠܘܳܬ ܩܘܽܪܺܝܢܬܳܝܶ̈ܐ ܩܰܕܡܳܝܬܳܐ</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name78-7" source="#bib78-23">ܫܠܡ̣ܬ ܐܓܪܬܐ ܕܠܘܬ ܩܘܪ̈ܢܬܝܐ ܩܕܡܝܬܐ ܕܐܬܟܬܒܬ ܡܢ ܦܝܠܝܦܘܣ ܡܕܝܢܬܐ. ܒܝܕ ܐܣܛܦܢܘܣ ܘܦܪܛܘܢܛܘܣ ܘܐܟܐܝܩܘܣ ܘܛܝܡܬܐܘܣ. ܕܐܝܬ ܒܗ̇ ܦܬ̈ܓܡܐ̇ ܐܠܦܐ ܘܡܐܬܝ̣ܢ ܘܫܒܥܐ.</title>
+        <title xml:lang="en" xml:id="name78-8" source="#bib78-25 #bib78-45">The Epistle of 1 Corinthians, according to the Peshitta version</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name78-9" source="#bib78-29">ܫܠܡܬ܀ ܕܠܘܬ. ܩܘܪ̈ܢܬܝܐ: ܩܕܡܝܬܐ. ܕܐܬܟܬܒܬ܀ ܡܢ. ܦܝܠܝܦܘܣ: ܕܡܩܕܘܢܝܐ. ܕܗܘܝܐ: ܬܫܥܡܐܐ. ܘܐܪ̈ܒܥܝܢ: ܘܫܬܐ. ܦ̈ܬܓܡܝܢ. . ܘ:ܘ</title>
+        <title xml:lang="syr" type="final-rubric" xml:id="name78-10" source="#bib78-35">ܫܠ̣ܡܬ ܐܓܪܬܐ ܕܠܘܬ ܩܘܪ̈ܢܬܝܐ ܩܕܡܝܬܐ ܕܐܬܟ̣ܬܒܬ ܡܢ ܦܝܠܝܦܘܣ ܕܡܩܕܘܢܝܐ ܘܐܫܬܕܪܬ ܒܝܕ ܛܝܡܬܐܘܣ</title>
+        <title xml:lang="en" xml:id="name78-11" source="#bib78-39">1 Corinthians, according to the Peshitta version</title>
+        <title xml:lang="en" xml:id="name78-12" source="#bib78-51">The Epistle of 1 Corinthians</title>
+        <title xml:lang="syr" xml:id="name78-13" source="#bib78-2">ܐܓ݁ܪܬ݁ܐ ܕ݂ܠܘܬ݂ ܩܘܪ̈ܢܬ݂ܝܐ ܩܕ݂ܡܝܬ݁ܐ</title>
+        <title xml:lang="syr-Syrj" xml:id="name78-14" source="#bib78-2">ܐܶܓ݁ܰܪܬ݁ܳܐ ܕ݂ܰܠܘܳܬ݂ ܩܘܪ̈ܢܬ݂ܳܝܶܐ ܩܰܕ݂ܡܳܝܬ݁ܳܐ</title>
+        <title xml:lang="en" xml:id="name78-15" resp="http://syriaca.org">The First Epistle to the Corinthians</title>
+        <idno type="URI">http://syriaca.org/work/78</idno>
+        <idno type="URI">https://en.wikipedia.org/wiki/First_Epistle_to_the_Corinthians</idno>
+        <idno type="URI">https://www.wikidata.org/wiki/Q80355</idno>
+        <textLang mainLang="syr"/>
+        <noteGrp type="abstract">
+          <desc xml:lang="en">Abstract</desc>
+          <note corresp="http://syriaca.org/nhsl http://syriaca.org/bible" xml:lang="en" type="abstract" resp="http://syriaca.org">
+          <title xml:lang="en" ref="http://syriaca.org/work/78">1 Corinthians (Peshitta version)</title> is extant as early as the 5th-6th century 
+                    and consistently circulates as one of the <title xml:lang="en" ref="http://syriaca.org/work/159">Pauline Epistles (Peshitta version)</title>.</note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib78-3">ܦܿܘܠܘܣ ܩܪܝܐ ܘܫܠܝܚܐ ܕܿܝܫܘܼܥ ܡܫܝܚܐ܂ ܒܿܨܒܼܝܢܗ ܕܿܐܠܗܐ܂ ܘܣܘܣܬܼܢܣ ܐܚܐ܃</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="skos:broader" active="http://syriaca.org/work/78" passive="http://syriaca.org/work/9595">
+            <desc xml:lang="en">
+              <title ref="http://syriaca.org/work/9595">1 Corinthians (literary tradition)</title>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/78" passive="http://syriaca.org/work/159" source="#bib78-23 #bib78-25 #bib78-27 #bib78-29 #bib78-31 #bib78-33 #bib78-35 #bib78-37 #bib78-39 #bib78-43 #bib78-45 #bib78-47 #bib78-49 #bib78-51 #bib78-53 #bib78-55">
+            <desc xml:lang="en">
+              <label type="order" subtype="book" n="2" source="#bib78-23 #bib78-25 #bib78-27 #bib78-29 #bib78-31 #bib78-33 #bib78-35 #bib78-37 #bib78-39 #bib78-43 #bib78-45 #bib78-47 #bib78-49 #bib78-51 #bib78-53 #bib78-55">2</label>
+            </desc>
+          </relation>
+          <relation type="part" ref="dcterms:isPartOf" active="http://syriaca.org/work/78" passive="http://syriaca.org/work/159" source="#bib78-41">
+            <desc xml:lang="en">
+              <label type="order" subtype="part" n="1" source="#bib78-41">1</label>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib78-63" type="lawd:Edition">
+            <title xml:lang="en" level="m">The Oxford-BYU Syriac
+                        Corpus</title>
+            <ptr target="http://syriaca.org/cbss/TJ36MCDR"/>
+            <citedRange unit="entry" target="http://wwwb.library.vanderbilt.edu/exist/apps/syriac-corpus/124">1 Corinthians (Peshitta Version) -
+                        <foreign xml:lang="syr">ܐܓܪܬܐ ܕܦܘܠܘܣ ܕܠܘܬ ܩܘܪ̈ܝܢܬܝܐ ܩܕܡܝܬܐ</foreign>
+          </citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/TJ36MCDR" ref="dcterms:source" passive="http://syriaca.org/cbss/GFV86PWS">
+                <desc xml:lang="en">
+                  <title ref="http://syriaca.org/cbss/GFV86PWS">The New Testament in Syriac [ܕܝܬܝܩܐ ܚܕܬܐ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ]</title>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib78-64" type="lawd:Edition">
+            <title xml:lang="en" level="m">The New Testament in Syriac [ܕܝܬܝܩܐ ܚܕܬܐ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ]</title>
+            <ptr target="http://syriaca.org/cbss/GFV86PWS"/>
+            <citedRange unit="p" from="83" to="101">83-101</citedRange>
+          </bibl>
+          <bibl xml:id="bib78-60" type="lawd:Edition">
+            <title level="a" xml:lang="de">Die paulinischen Briefe: Römer- und 1. Korintherbrief</title>
+            <title level="m" xml:lang="de">Das Neue Testament in syrischer Überlieferung</title>
+            <ptr target="http://syriaca.org/cbss/J5RX3CMZ"/>
+            <citedRange unit="p" from="279" to="499">279-499</citedRange>
+            <note xml:lang="en" resp="http://syriaca.org">Peshitta (P), Harqlean (H), and patristic quotations shown in parallel.</note>
+          </bibl>
+          <bibl xml:id="bib78-1" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+            <ptr target="http://syriaca.org/cbss/QYTHVWYZ"/>
+            <citedRange unit="p">221-239</citedRange>
+          </bibl>
+          <bibl xml:id="bib78-2" type="lawd:Edition">
+            <title xml:lang="en" level="m">The Syriac Peshiṭta Bible with English Translation: Romans–Corinthians</title>
+            <title xml:lang="en" level="s">Surath Kthob</title>
+            <ptr target="http://syriaca.org/cbss/S243SZQA"/>
+          </bibl>
+          <bibl xml:id="bib78-3" type="lawd:Edition">
+            <title xml:lang="en" level="m">Comprehensive Aramaic Lexicon</title>
+            <ptr target="http://syriaca.org/cbss/DV6ZMDAF"/>
+            <citedRange unit="entry" target="http://cal1.cn.huc.edu/showsubtexts.php?subtext=62046&amp;cset=USyriac">62046</citedRange>
+            <citedRange unit="entry">1Cor</citedRange>
+            <listRelation>
+              <relation active="http://syriaca.org/cbss/DV6ZMDAF" ref="dcterms:source" passive="http://syriaca.org/cbss/QYTHVWYZ">
+                <desc xml:lang="en">
+                  <title ref="http://syriaca.org/cbss/QYTHVWYZ">ܟܬܒܐ ܩܕܝ̈ܫܐ: ܟܬܒܐ ܕܕܝܬܩܐ ܥܛܝܼܩܬܐ ܘ ܚ̇ܕܬܐ</title>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl xml:id="bib78-4" type="lawd:Edition">
+            <title level="m" xml:lang="syr">ܟܬܵܒܸ̈ܐ ܩܲܕܹ̈ܝܫܸܐ ܗ̅ ܟܬܵܒܸ̈ܐ ܕܕܹܝܲܬܹܝܩܹܐ ܥܲܛܹܝܩܵܐ ܘܚܕܲܬܵܐ</title>
+            <ptr target="http://syriaca.org/cbss/CF2GFLRP"/>
+            <citedRange unit="p">229-247</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-6" source="#bib78-23 #bib78-24">
+            <label>London, British Library, Add MS 14477</label>
+            <ptr target="http://syriaca.org/manuscript/162"/>
+            <biblScope unit="fol" from="23a" to="44">Foll. 23a-44</biblScope>
+            <date notBefore="0500" notAfter="0700">6th or 7th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-7" source="#bib78-25 #bib78-26">
+            <label>London, British Library, Add MS 14474</label>
+            <ptr target="http://syriaca.org/manuscript/159"/>
+            <biblScope unit="fol" from="2a" to="12">Foll. 2a-12</biblScope>
+            <date notBefore="0800" notAfter="0900">9th cent.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-8" source="#bib78-27 #bib78-28">
+            <label>London, British Library, Add MS 17123</label>
+            <ptr target="http://syriaca.org/manuscript/752"/>
+            <biblScope unit="fol" from="14a" to="27">Foll. 14a-27</biblScope>
+            <date notBefore="0800" notAfter="1000">9th or 10th cent.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-9" source="#bib78-29 #bib78-30">
+            <label>London, British Library, Add MS 14480</label>
+            <ptr target="http://syriaca.org/manuscript/1179"/>
+            <biblScope unit="fol" from="25b" to="48">Foll. 25b-48</biblScope>
+            <date notBefore="0400" notAfter="0600">5th or 6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-10" source="#bib78-31 #bib78-32">
+            <label>London, British Library, Add MS 14476</label>
+            <ptr target="http://syriaca.org/manuscript/161"/>
+            <biblScope unit="fol" from="14a" to="35">Foll. 14a-35</biblScope>
+            <date notBefore="0400" notAfter="0600">5th or 6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-11" source="#bib78-33 #bib78-34">
+            <label>London, British Library, Add MS 14470</label>
+            <ptr target="http://syriaca.org/manuscript/153"/>
+            <biblScope unit="fol" from="98a" to="108">Foll. 98a-108</biblScope>
+            <date notBefore="0400" notAfter="0600">5th or 6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-12" source="#bib78-35 #bib78-36">
+            <label>London, British Library, Add MS 14468</label>
+            <ptr target="http://syriaca.org/manuscript/150"/>
+            <biblScope unit="fol" from="5b" to="16b">foll. 5b-16b</biblScope>
+            <date notBefore="0600" notAfter="0700">7th cent.</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-13" source="#bib78-37 #bib78-38">
+            <label>London, British Library, Add MS 17124</label>
+            <ptr target="http://syriaca.org/manuscript/753"/>
+            <biblScope unit="fol" from="118a" to="129">Foll. 118a-129</biblScope>
+            <date when="1234" calendar="Gregorian">A.D. 1234</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-14" source="#bib78-39 #bib78-40">
+            <label>London, British Library, Add MS 14448</label>
+            <ptr target="http://syriaca.org/manuscript/120"/>
+            <biblScope unit="fol" from="177b" to="191">Foll. 177b-191</biblScope>
+            <date notBefore="0699" notAfter="0700" calendar="Gregorian">A.D. 699-700</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-15" source="#bib78-41 #bib78-42">
+            <label>London, British Library, Add MS 17228</label>
+            <ptr target="http://syriaca.org/manuscript/1006"/>
+            <biblScope unit="fol" from="1a" to="6">Foll. 1a-6</biblScope>
+            <date notBefore="1200" notAfter="1300">13th century</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-16" source="#bib78-43 #bib78-44">
+            <label>London, British Library, Add MS 17227</label>
+            <ptr target="http://syriaca.org/manuscript/1004"/>
+            <biblScope unit="fol" from="28a" to="54">Foll. 28a-54</biblScope>
+            <date when="1254" calendar="Gregorian">It is dated A. Gr. 1565, A.D. 1254.</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-17" source="#bib78-45 #bib78-46">
+            <label>London, British Library, Add MS 14481</label>
+            <ptr target="http://syriaca.org/manuscript/166"/>
+            <biblScope unit="fol" from="13a" to="24">Foll. 13a-24</biblScope>
+            <date from="0500" to="0700">6th or 7th cent.</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-18" source="#bib78-47 #bib78-48">
+            <label>London, British Library, Add MS 14479</label>
+            <ptr target="http://syriaca.org/manuscript/164"/>
+            <biblScope unit="fol" from="21a" to="41">Foll. 21a-41</biblScope>
+            <date when="0534" calendar="Gregorian">A.D. 534</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-19" source="#bib78-49 #bib78-50">
+            <label>London, British Library, Add MS 17122</label>
+            <ptr target="http://syriaca.org/manuscript/751"/>
+            <biblScope unit="fol" from="27a" to="54">Foll. 27a-54</biblScope>
+            <date notBefore="0500" notAfter="0600">6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-20" source="#bib78-51 #bib78-52">
+            <label>London, British Library, Add MS 14478</label>
+            <ptr target="http://syriaca.org/manuscript/163"/>
+            <biblScope unit="fol" from="27b" to="54">Foll. 27b-54</biblScope>
+            <date when-custom="0622" datingMethod="Gregorian">A. D. 622</date>
+            <note xml:lang="en" resp="http://syriaca.org">defective</note>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-21" source="#bib78-53 #bib78-54">
+            <label>London, British Library, Add MS 14475</label>
+            <ptr target="http://syriaca.org/manuscript/160"/>
+            <biblScope unit="fol" from="38b" to="76">Foll. 38b-76</biblScope>
+            <date notBefore="0500" notAfter="0600">6th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-22" source="#bib78-55 #bib78-56">
+            <label>London, British Library, Add MS 14691</label>
+            <ptr target="http://syriaca.org/manuscript/551"/>
+            <biblScope unit="fol" from="111a" to="114">Foll. 111a-114</biblScope>
+            <date notBefore="1200" notAfter="1300">13th century</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-57">
+            <label>Manchester, John Rylands University Library <idno type="shelfmark">Syriac 2</idno>
+            </label>
+            <label>Crawford <idno type="catalog-number" subtype="Crawford">Syriac 2</idno>
+            </label>
+            <biblScope unit="fol">196a-208</biblScope>
+            <date notBefore="1050" notAfter="1250">12th cent.?</date>
+          </bibl>
+          <bibl type="syriaca:Manuscript" xml:id="bib78-58">
+            <label>Manchester, John Rylands University Library <idno type="shelfmark">Syriac 11</idno>
+            </label>
+            <label>Harris <idno type="catalog-number" subtype="Harris">Syriac 137</idno>
+            </label>
+            <biblScope unit="fol">79b-93</biblScope>
+            <note xml:lang="en" resp="http://syriaca.org">Includes introduction</note>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib78-5" type="lawd:Citation">
+            <title xml:lang="en" level="m">The SBL Handbook of Style: For Biblical Studies and Related Disciplines</title>
+            <ptr target="http://syriaca.org/cbss/4LF563BK"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-23">
+            <title level="a" xml:lang="en">BL Add MS 14477</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/162"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/162">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-24">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXVIII</citedRange>
+            <citedRange unit="p">I:88-89</citedRange>
+            <citedRange unit="entry">BL Add MS 14477</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-25">
+            <title level="a" xml:lang="en">BL Add MS 14474</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/159"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/159">The Epistle of 1 Corinthians, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-26">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXI</citedRange>
+            <citedRange unit="p">I:76-77</citedRange>
+            <citedRange unit="entry">BL Add MS 14474</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-27">
+            <title level="a" xml:lang="en">BL Add MS 17123</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/752"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/752">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-28">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXLV</citedRange>
+            <citedRange unit="p">I:93</citedRange>
+            <citedRange unit="entry">BL Add MS 17123</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-29">
+            <title level="a" xml:lang="en">BL Add MS 14480</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1179"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1179">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-30">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXIV</citedRange>
+            <citedRange unit="p">I:84-85</citedRange>
+            <citedRange unit="entry">BL Add MS 14480</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-31">
+            <title level="a" xml:lang="en">BL Add MS 14476</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/161"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/161">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-32">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXIII</citedRange>
+            <citedRange unit="p">I:84</citedRange>
+            <citedRange unit="entry">BL Add MS 14476</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-33">
+            <title level="a" xml:lang="en">BL Add MS 14470</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/153"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/153">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-34">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXIII</citedRange>
+            <citedRange unit="p">I:40-41</citedRange>
+            <citedRange unit="entry">BL Add MS 14470</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-35">
+            <title level="a" xml:lang="en">BL Add Ms 14468</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/150"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/150">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-36">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXLIII</citedRange>
+            <citedRange unit="p">I:92-93</citedRange>
+            <citedRange unit="entry">BL Add Ms 14468</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-37">
+            <title level="a" xml:lang="en">BL Add MS 17124</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/753"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/753">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-38">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXV</citedRange>
+            <citedRange unit="p">I:42-44</citedRange>
+            <citedRange unit="entry">BL Add MS 17124</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-39">
+            <title level="a" xml:lang="en">BL Add MS 14448</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/120"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/120">1 Corinthians, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-40">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">LXIV</citedRange>
+            <citedRange unit="p">I:41-42</citedRange>
+            <citedRange unit="entry">BL Add MS 14448</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-41">
+            <title level="a" xml:lang="en">BL Add MS 17228</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1006"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1006">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-42">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CLIII</citedRange>
+            <citedRange unit="p">I:96</citedRange>
+            <citedRange unit="entry">BL Add MS 17228</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-43">
+            <title level="a" xml:lang="en">BL Add MS 17227</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A.
+          Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/1004"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/1004">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-44">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired
+                  since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXLVII</citedRange>
+            <citedRange unit="p">1:94</citedRange>
+            <citedRange unit="entry">BL Add MS 17227</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-45">
+            <title level="a" xml:lang="en">BL Add MS 14481</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/166"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/166">The Epistle of 1 Corinthians, according to the Peshitta version</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-46">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXIX</citedRange>
+            <citedRange unit="p">I:90</citedRange>
+            <citedRange unit="entry">BL Add MS 14481</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-47">
+            <title level="a" xml:lang="en">BL Add MS 14479</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/164"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/164">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-48">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXV</citedRange>
+            <citedRange unit="p">I:86</citedRange>
+            <citedRange unit="entry">BL Add MS 14479</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-49">
+            <title level="a" xml:lang="en">BL Add MS 17122</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/751"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/751">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-50">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXVII</citedRange>
+            <citedRange unit="p">I:87-88</citedRange>
+            <citedRange unit="entry">BL Add MS 17122</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-51">
+            <title level="a" xml:lang="en">BL Add MS 14478</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/163"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/163">The Epistle of 1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-52">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXLI</citedRange>
+            <citedRange unit="p">I:90-92</citedRange>
+            <citedRange unit="entry">BL Add MS 14478</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-53">
+            <title level="a" xml:lang="en">BL Add MS 14475</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/160"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/160">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-54">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CXXXVI</citedRange>
+            <citedRange unit="p">I:86-87</citedRange>
+            <citedRange unit="entry">BL Add MS 14475</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-55">
+            <title level="a" xml:lang="en">BL Add MS 14691</title>
+            <title level="m" xml:lang="en">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+            <editor role="general">David A. Michelson</editor>
+            <ptr target="http://syriaca.org/manuscript/551"/>
+            <citedRange unit="entry" target="http://syriaca.org/manuscript/551">1 Corinthians</citedRange>
+            <date>forthcoming</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-56">
+            <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired since the Year 1838</title>
+            <author>William Wright</author>
+            <ptr target="http://syriaca.org/cbss/9HGARXCQ"/>
+            <citedRange unit="entry">CL</citedRange>
+            <citedRange unit="p">I:95</citedRange>
+            <citedRange unit="entry">BL Add MS 14691</citedRange>
+            <date>1870</date>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib78-59">
+            <title xml:lang="en" level="a">A Catalogue of the Syriac Manuscripts in the John Rylands Library</title>
+            <title xml:lang="en" level="j">Bulletin of the John Rylands Library</title>
+            <ptr target="http://syriaca.org/cbss/WR7JUILF"/>
+            <citedRange unit="p">118-119, 130-131</citedRange>
+          </bibl>
+          <bibl xml:id="bib78-61" type="lawd:Citation">
+            <title level="a" xml:lang="de">Die paulinischen Briefe: Römer- und 1. Korintherbrief</title>
+            <title level="m" xml:lang="de">Das Neue Testament in syrischer Überlieferung</title>
+            <ptr target="http://syriaca.org/cbss/J5RX3CMZ"/>
+            <citedRange unit="p" from="7" to="14">7-14</citedRange>
+            <citedRange unit="p" from="47" to="59">47-59</citedRange>
+          </bibl>
+          <bibl xml:id="bib78-62" type="lawd:Citation">
+            <title xml:lang="en" level="a">Bible, New Testament manuscripts</title>
+            <ptr target="http://syriaca.org/cbss/HSEVL2CE"/>
+          </bibl>
+        </listBibl>
+      </bibl>
+        </body>
+    </text>
+</TEI>

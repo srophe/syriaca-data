@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Himyarite Martyrs (text) — <foreign xml:lang="syr">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,254 +142,302 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-254" ana="#hagiographic">
-                <title xml:id="name254-1" xml:lang="syr" source="#bib254-1" srophe:tags="#syriaca-headword">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</title>
-                <title xml:id="name254-2" xml:lang="fr-x-bhs" source="#bib254-1">Sāhdē Ḥmīrāyē</title>
-                <title xml:id="name254-3" xml:lang="fr" source="#bib254-1">Martyrs Himyarites (texte)</title>
-                <title xml:id="name254-4" xml:lang="en" source="#bib254-1" srophe:tags="#syriaca-headword">The Himyarite Martyrs (text)</title>
-                <author xml:lang="fr" source="#bib254-1" ref="http://syriaca.org/person/53">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Shemʿun</forename>
-                        <addName type="family" sort="2">of <placeName ref="http://syriaca.org/place/305">Beth Arsham</placeName>
-                        </addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܫܡܥܘܢ</forename>
-                        <addName type="family" sort="2">ܕܒܝܬ ܐܪܫܡ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Syméon</forename>
-                        <addName type="untagged-title">de Beth Archam</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib254-1">
-                    <quote>ܬܘܒ ܕܝܢ ܡܘܕܥܝܢ ܚܢܢ ܠܚܘܒܟܘܢ: ܕܒܥܣܪܝܢ ܒܟܢܘܢ ܐܚܪܝ ܕܗܕܐ ܫܢܬܐ: ܕܐܝܬܝܗܿ ܫܢܬ ܬܡܢܡܐܐ ܘܬܠܬܝܢ ܘܚܡܫ ܕܝܘܢܝ̈ܐ: ܢܦܩܢܢ ܡܢ ܚܝܪܬܐ ܕܢܥܡܢ ܥܡ ܡܝܬܪܐ ܡܪܝ ܐܒܪܗܡ ܩܫܝܫܐ ܒܪ ܐܘܦܪܘܣ: ܗܢܐ ܕܐܫܬܕܪ ܡܢ ܝܘܣܛܝܢܝܢܐ ܡܠܟܐ ܕܪ̈ܗܘܡܝܐ: ܠܘܬ ܡܘܢܕܐܪ ܡܠܟܐ ܕܛܝܝ̈ܐ: ܕܢܥܒܕ ܫܝܢܐ ܥܡ ܪ̈ܗܘܡܝܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib254-1">
-                    <quote>Nous vous communiquons encore que le vingt Kanôn II de cette année, qui est l’année 835 des Grecs, nous sommes partis de Hîrtâ de Na‘man avec le vénérable prêtre Mâr Abraham, fils d’Euphrasios, envoyé par l’empereur romain Justinien à Moundâr roi des Arabes, pour qu’il fasse la paix avec les Romains.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib254-1">
-                    <quote>ܘܗܝܿ ܕܡܬܚܙܝܐ ܠܡܫܝܚܐ ܐܠܗܐ ܘܪܥܝܐ ܛܒܐ ܕܐܫܠܡ ܢܦܫܗ ܚܠܦ ܥܢܗ: ܘܗܝܿ ܕܥܕܪܐ ܢܣܥܘܪ ܠܡܪܥܝܬܗ ܙܒܝܢܬ ܒܕܡܗ ܝܩܝܪܐ: ܕܠܗ ܫܘܒܚܐ... ܐܡܝܢ. ܕܡܟܬܒܢܐ. ܗܠܝܢ ܐܫܟܚܬ ܘܐܦ ܐܢܐ ܥܩܒܬ ܘܝܠܦܬ ܡܢ ܐܢܫܐ ܕܐܙܠܝܢ ܗܘ̣ܘ ܘܐܬܝܢ ܠܦܢܝܬܐ ܗܝܿ... ܕܒܨ̈ܠܘܬܗܘܢ ܢܬܢܛܪ ܟܬܘܒܐ ܡܚܝܠܐ ܡܢ ܟܠ ܕܒܝܫ. ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib254-1">
-                    <quote>Et ce qui est apparu au Christ Dieu bon pasteur, qui s’est livré pour son troupeau, et ce qui est utile, qu’il le fasse à son troupeau racheté par son sang précieux; à lui gloire… Amen. Du scribe. Ces choses, je les ai trouvées, et j’ai aussi enquêté sur elles et je me suis informé aurprès de gens qui circulaient dans cette région… Que par leurs prières le faible scribe soit gardé de tout mal. Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib254-1" corresp="#bib254-24" n="1" xml:id="bib254-21">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 1</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 372-397 + variantes p. 537-541</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib254-1" corresp="#bib254-36" n="2" xml:id="bib254-22">
-                        <author>Zingerle, P.</author>
-                        <title>Chrestomathia Syriaca</title>
-                        <ptr target="http://syriaca.org/cbss/LP5XSJR6"/>
-                        <citedRange>Rome, 1871, p. 175-190</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib254-1" corresp="#bib254-25 bib254-26" n="3" xml:id="bib254-23">
-                        <author>Guidi, I.</author>
-                        <title>La lettera di Simeone vescovo di Bêth-Arsâm sopra i martiri Omeriti</title>
-                        <ptr target="http://syriaca.org/cbss/JRJ4EACH"/>
-                        <citedRange>7 (1881), p. 1-15 (syr. après p. 32 de l’extrait)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-24">variantes du ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 455-464</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-25">ms Londres, British Library, Add. 14650, f. 155v-161v + ms Vatican, Borg. Syr. 91, f. 49v-57</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-26">mss Dawra, Monastère chaldéen, cod. 622, f. 201-214 ?</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-27">mss Dawra, Monastère chaldéen, cod. 624, f. 216-248</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-28">mss Dawra, Monastère chaldéen, cod. 626, f. 104-109</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-29">mss Dawra, Monastère chaldéen, cod. 629 (olim Alqosh, Monastère N.-D. des Semences, cod. 216 Vosté), f. 210-227</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-30">mss Paris, Bibliothèque nationale, syr. 295, f. 111v-126v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-31">mss Paris, Bibliothèque nationale, syr. 309, f. 155v-174</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-32">ms Berlin, Königliche Bibliothek, or. quart. 1051 (Assfalg 25), f. 47-55v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib254-1">
-                    <bibl xml:id="bib254-33">ms Berlin, Königliche Bibliothek, or. oct. 1257 (Assfalg 27, olim Abbeloos, dein Bedjan), p. 357-393</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib254-1">
-                    <bibl xml:id="bib254-34">
-                        <editor>I. Guidi</editor>
-                        <note xml:lang="en">de l’extrait</note>
-                        <ptr target="http://syriaca.org/cbss/JRJ4EACH"/>
-                        <citedRange unit="pp">12-27</citedRange>
-                        <lang>it</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib254-1">
-                    <bibl xml:id="bib254-35">
-                        <editor>F. M. Esteves Pereira</editor>
-                        <title>Historia dos martyres
+            <bibl xml:id="work-254" ana="#syriaca-hagiographic">
+        <title xml:id="name254-1" xml:lang="syr" source="#bib254-1" srophe:tags="#syriaca-headword">ܣܗ̈ܕܐ ܚܡܝܪ̈ܝܐ</title>
+        <title xml:id="name254-2" xml:lang="fr-x-bhs" source="#bib254-1">Sāhdē Ḥmīrāyē</title>
+        <title xml:id="name254-3" xml:lang="fr" source="#bib254-1">Martyrs Himyarites (texte)</title>
+        <title xml:id="name254-4" xml:lang="en" source="#bib254-1" srophe:tags="#syriaca-headword">The Himyarite Martyrs (text)</title>
+        <author ref="http://syriaca.org/person/53" source="#bib254-1" xml:lang="en">Simeon of Beth Arsham — <foreign xml:lang="syr">ܫܡܥܘܢ ܕܒܝܬ ܐܪܫܡ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/254</idno>
+        <idno type="number" subtype="BHS">33</idno>
+        <idno type="number" subtype="BHO">100</idno>
+        <idno type="number" subtype="BHO">101</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib254-1">ܬܘܒ ܕܝܢ ܡܘܕܥܝܢ ܚܢܢ ܠܚܘܒܟܘܢ: ܕܒܥܣܪܝܢ ܒܟܢܘܢ ܐܚܪܝ ܕܗܕܐ ܫܢܬܐ: ܕܐܝܬܝܗܿ ܫܢܬ ܬܡܢܡܐܐ ܘܬܠܬܝܢ ܘܚܡܫ ܕܝܘܢܝ̈ܐ: ܢܦܩܢܢ ܡܢ ܚܝܪܬܐ ܕܢܥܡܢ ܥܡ ܡܝܬܪܐ ܡܪܝ ܐܒܪܗܡ ܩܫܝܫܐ ܒܪ ܐܘܦܪܘܣ: ܗܢܐ ܕܐܫܬܕܪ ܡܢ ܝܘܣܛܝܢܝܢܐ ܡܠܟܐ ܕܪ̈ܗܘܡܝܐ: ܠܘܬ ܡܘܢܕܐܪ ܡܠܟܐ ܕܛܝܝ̈ܐ: ܕܢܥܒܕ ܫܝܢܐ ܥܡ ܪ̈ܗܘܡܝܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib254-1">Nous vous communiquons encore que le vingt Kanôn II de cette année, qui est l’année 835 des Grecs, nous sommes partis de Hîrtâ de Na‘man avec le vénérable prêtre Mâr Abraham, fils d’Euphrasios, envoyé par l’empereur romain Justinien à Moundâr roi des Arabes, pour qu’il fasse la paix avec les Romains.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib254-1">ܘܗܝܿ ܕܡܬܚܙܝܐ ܠܡܫܝܚܐ ܐܠܗܐ ܘܪܥܝܐ ܛܒܐ ܕܐܫܠܡ ܢܦܫܗ ܚܠܦ ܥܢܗ: ܘܗܝܿ ܕܥܕܪܐ ܢܣܥܘܪ ܠܡܪܥܝܬܗ ܙܒܝܢܬ ܒܕܡܗ ܝܩܝܪܐ: ܕܠܗ ܫܘܒܚܐ... ܐܡܝܢ. ܕܡܟܬܒܢܐ. ܗܠܝܢ ܐܫܟܚܬ ܘܐܦ ܐܢܐ ܥܩܒܬ ܘܝܠܦܬ ܡܢ ܐܢܫܐ ܕܐܙܠܝܢ ܗܘ̣ܘ ܘܐܬܝܢ ܠܦܢܝܬܐ ܗܝܿ... ܕܒܨ̈ܠܘܬܗܘܢ ܢܬܢܛܪ ܟܬܘܒܐ ܡܚܝܠܐ ܡܢ ܟܠ ܕܒܝܫ. ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib254-1">Et ce qui est apparu au Christ Dieu bon pasteur, qui s’est livré pour son troupeau, et ce qui est utile, qu’il le fasse à son troupeau racheté par son sang précieux; à lui gloire… Amen. Du scribe. Ces choses, je les ai trouvées, et j’ai aussi enquêté sur elles et je me suis informé aurprès de gens qui circulaient dans cette région… Que par leurs prières le faible scribe soit gardé de tout mal. Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/254" source="#bib254-1" passive="http://syriaca.org/person/1907">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1907">Anonymi 1907</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib254-1" n="1" xml:id="bib254-21" type="lawd:Edition">
+            <title xml:lang="la">AMS 1</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">1</citedRange>
+            <citedRange unit="p">p. 372-397 + variantes p. 537-541</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib254-21" source="#bib254-1" passive="#bib254-24">
+                <desc xml:lang="en">
+                  <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">syr. 75</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib254-1" n="2" xml:id="bib254-22" type="lawd:Edition">
+            <title xml:lang="la">Chrestomathia Syriaca</title>
+            <author>Zingerle, P.</author>
+            <ptr target="http://syriaca.org/cbss/LP5XSJR6"/>
+            <citedRange unit="p">Rome, 1871, p. 175-190</citedRange>
+          
+          </bibl>
+          <bibl source="#bib254-1" n="3" xml:id="bib254-23" type="lawd:Edition">
+            <title xml:lang="it">La lettera di Simeone vescovo di Bêth-Arsâm sopra i martiri Omeriti</title>
+            <author>Guidi, I.</author>
+            <ptr target="http://syriaca.org/cbss/JRJ4EACH"/>
+            <citedRange unit="p">7 (1881), p. 1-15 (syr. après p. 32 de l’extrait)</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib254-23" source="#bib254-1" passive="#bib254-25">
+                <desc xml:lang="en">
+                  <label>ms Londres, British Library, Add. 14650, f. 155v-161v + ms Vatican, Borg. Syr. 91, f. 49v-57</label>
+                </desc>
+              </relation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib254-23" source="#bib254-1" passive="#bib254-26">
+                <desc xml:lang="en">
+                  <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 622</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib254-24" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">syr. 75</idno>
+            </label>
+            <label>Sachau <idno type="catalog-number" subtype="Sachau">222</idno>
+            </label>
+            <biblScope unit="fol">f. 455-464</biblScope>
+          </bibl>
+          <bibl xml:id="bib254-25" source="#bib254-1" type="syriaca:Manuscript">
+            <label>ms Londres, British Library, Add. 14650, f. 155v-161v + ms Vatican, Borg. Syr. 91, f. 49v-57</label>
+          </bibl>
+          <bibl xml:id="bib254-26" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 622</idno>
+            </label>
+            <biblScope unit="fol">f. 201-214?</biblScope>
+          </bibl>
+          <bibl xml:id="bib254-27" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 624</idno>
+            </label>
+            <biblScope unit="fol">f. 216-248</biblScope>
+          </bibl>
+          <bibl xml:id="bib254-28" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 626</idno>
+            </label>
+            <biblScope unit="fol">f. 104-109</biblScope>
+          </bibl>
+          <bibl xml:id="bib254-29" source="#bib254-1" type="syriaca:Manuscript">
+            <label>mss Dawra, Monastère chaldéen, cod. 629 (olim Alqosh, Monastère N.-D. des Semences, cod. 216 Vosté), f. 210-227</label>
+          </bibl>
+          <bibl xml:id="bib254-30" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 295</idno>
+            </label>
+            <biblScope unit="fol">f. 111v-126v</biblScope>
+          </bibl>
+          <bibl xml:id="bib254-31" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 309</idno>
+            </label>
+            <biblScope unit="fol">f. 155v-174</biblScope>
+          </bibl>
+          <bibl xml:id="bib254-32" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">or. quart. 1051</idno>
+            </label>
+            <label>Assfalg <idno type="catalog-number">25</idno>
+            </label>
+            <biblScope unit="fol">f. 47-55v</biblScope>
+          </bibl>
+          <bibl xml:id="bib254-33" source="#bib254-1" type="syriaca:Manuscript">
+            <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">or. oct. 1257</idno>
+            </label>
+            <label>Assfalg <idno type="catalog-number">27</idno>
+            </label>
+            <label>olim Abbeloos, dein Bedjan</label>
+            <biblScope unit="p">p. 357-393</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib254-34" source="#bib254-1" type="syriaca:ModernTranslation">
+            <editor>I. Guidi</editor>
+            <ptr target="http://syriaca.org/cbss/JRJ4EACH"/>
+            <citedRange unit="p">12-27</citedRange>
+            <textLang mainLang="it"/>
+            <note source="#bib254-1" xml:lang="fr">de l’extrait</note>
+          </bibl>
+          <bibl xml:id="bib254-35" source="#bib254-1" type="syriaca:ModernTranslation">
+            <title xml:lang="pt">Historia dos martyres
                 de Nagran, Lisbonne, 1899</title>
-                        <ptr target="http://syriaca.org/cbss/QLESYMHQ"/>
-                        <citedRange unit="pp">3-31</citedRange>
-                        <lang>pt</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib254-36">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/254</idno>
-                <idno type="BHS">33</idno>
-                <idno type="BHO">100</idno>
-                <idno type="BHO">101</idno>
-                <bibl xml:id="bib254-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <editor>F. M. Esteves Pereira</editor>
+            <ptr target="http://syriaca.org/cbss/QLESYMHQ"/>
+            <citedRange unit="p">3-31</citedRange>
+            <textLang mainLang="pt"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib254-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">33</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-2">
-                    <title level="m" xml:lang="pt">Historia dos martyres de Nagran</title>
-                    <ptr target="http://syriaca.org/cbss/QLESYMHQ"/>
-                    <citedRange unit="pp">XIII-XXV</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-3">
-                    <title xml:lang="en" level="a">The Martyrs of Najran: Miscellaneous
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">33</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-2">
+            <title level="m" xml:lang="pt">Historia dos martyres de Nagran</title>
+            <ptr target="http://syriaca.org/cbss/QLESYMHQ"/>
+            <citedRange unit="p">XIII-XXV</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-3">
+            <title xml:lang="en" level="a">The Martyrs of Najran: Miscellaneous
                      Reflexions</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/LV9LTY5X"/>
-                    <citedRange from="149" to="161" unit="pp">149-161</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-4">
-                    <title xml:lang="fr" level="a">Les Rapports de dépendance entre les récits
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/LV9LTY5X"/>
+            <citedRange from="149" to="161" unit="p">149-161</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-4">
+            <title xml:lang="fr" level="a">Les Rapports de dépendance entre les récits
                      hagiographiques relatifs à la persécution des Himyarites</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/WQGHMZLJ"/>
-                    <citedRange from="297" to="305" unit="pp">297-305</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-5">
-                    <title xml:lang="en" level="a">The Martyrs of Najran: Further Reflections</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/KC66ZW74"/>
-                    <citedRange from="151" to="153" unit="pp">151-153</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-6">
-                    <title level="m" xml:lang="en-x-gedsh">Al-šuhadāʾ al-ḥimyarīyūn al-ʿArab fī
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/WQGHMZLJ"/>
+            <citedRange from="297" to="305" unit="p">297-305</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-5">
+            <title xml:lang="en" level="a">The Martyrs of Najran: Further Reflections</title>
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/KC66ZW74"/>
+            <citedRange from="151" to="153" unit="p">151-153</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-6">
+            <title level="m" xml:lang="en-x-gedsh">Al-šuhadāʾ al-ḥimyarīyūn al-ʿArab fī
                      al-wathāʾiq al-suryānīya</title>
-                    <title level="m" xml:lang="ar">الشهداء الحميريون العرب في الوثائق
+            <title level="m" xml:lang="ar">الشهداء الحميريون العرب في الوثائق
                      السريانية</title>
-                    <ptr target="http://syriaca.org/cbss/EM9N2AM2"/>
-                </bibl>
-                <bibl xml:id="bib254-7">
-                    <title xml:lang="fr" level="a">Examen critique des sources relatives à la
+            <ptr target="http://syriaca.org/cbss/EM9N2AM2"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-7">
+            <title xml:lang="fr" level="a">Examen critique des sources relatives à la
                      persécution des Chrétiens de Nedjran par le roi juif des Himyarites</title>
-                    <title level="j" xml:lang="fr">Revue des Études Juives</title>
-                    <ptr target="http://syriaca.org/cbss/RU73X7D8"/>
-                    <citedRange from="16" to="42" unit="pp">16-42</citedRange>
-                    <citedRange from="161" to="178" unit="pp">161-178</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-8">
-                    <title xml:lang="fr" level="a">Un Dernier Mot sur la lettre de Siméon de
+            <title level="j" xml:lang="fr">Revue des Études Juives</title>
+            <ptr target="http://syriaca.org/cbss/RU73X7D8"/>
+            <citedRange from="16" to="42" unit="p">16-42</citedRange>
+            <citedRange from="161" to="178" unit="p">161-178</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-8">
+            <title xml:lang="fr" level="a">Un Dernier Mot sur la lettre de Siméon de
                      Beit-Arscham</title>
-                    <title xml:lang="fr" level="j">Revue sémitique</title>
-                    <ptr target="http://syriaca.org/cbss/JHR4CLHT"/>
-                    <citedRange from="88" to="95" unit="pp">88-95</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-9">
-                    <title xml:lang="fr" level="a">Remarque sur un point contesté touchant le
+            <title xml:lang="fr" level="j">Revue sémitique</title>
+            <ptr target="http://syriaca.org/cbss/JHR4CLHT"/>
+            <citedRange from="88" to="95" unit="p">88-95</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-9">
+            <title xml:lang="fr" level="a">Remarque sur un point contesté touchant le
                      persécution de Nedjran</title>
-                    <title level="j" xml:lang="fr">Revue des Études Juives</title>
-                    <ptr target="http://syriaca.org/cbss/QRJXTBZV"/>
-                    <citedRange from="73" to="79" unit="pp">73-79</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-10">
-                    <title xml:lang="fr" level="a">Note sur le massacre des Chrétiens himyarites au
+            <title level="j" xml:lang="fr">Revue des Études Juives</title>
+            <ptr target="http://syriaca.org/cbss/QRJXTBZV"/>
+            <citedRange from="73" to="79" unit="p">73-79</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-10">
+            <title xml:lang="fr" level="a">Note sur le massacre des Chrétiens himyarites au
                      temps de l’Empereur Justin</title>
-                    <title level="j" xml:lang="fr">Revue des Études Juives</title>
-                    <ptr target="http://syriaca.org/cbss/SQ3LCKE3"/>
-                    <citedRange from="220" to="224" unit="pp">220-224</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-11">
-                    <title xml:lang="fr" level="a">Les Martyrs de Nedjran au pays des Homérites en
+            <title level="j" xml:lang="fr">Revue des Études Juives</title>
+            <ptr target="http://syriaca.org/cbss/SQ3LCKE3"/>
+            <citedRange from="220" to="224" unit="p">220-224</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-11">
+            <title xml:lang="fr" level="a">Les Martyrs de Nedjran au pays des Homérites en
                      Arabie (522-525)</title>
-                    <title xml:lang="fr" level="j">Revue de l'histoire des religions</title>
-                    <ptr target="http://syriaca.org/cbss/HSLMPKWB"/>
-                    <citedRange from="14" to="42" unit="pp">14-42</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-12">
-                    <title level="m" xml:lang="fr">La Persécution des chrétiens himyarites au sixième siècle</title>
-                    <title level="s" xml:lang="nl">Uitgaven van het Nederlands historisch-archaeologisch Instituut
+            <title xml:lang="fr" level="j">Revue de l'histoire des religions</title>
+            <ptr target="http://syriaca.org/cbss/HSLMPKWB"/>
+            <citedRange from="14" to="42" unit="p">14-42</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-12">
+            <title level="m" xml:lang="fr">La Persécution des chrétiens himyarites au sixième siècle</title>
+            <title level="s" xml:lang="nl">Uitgaven van het Nederlands historisch-archaeologisch Instituut
                      te Istanbul</title>
-                    <ptr target="http://syriaca.org/cbss/9GFC5QRP"/>
-                </bibl>
-                <bibl xml:id="bib254-13">
-                    <title xml:lang="en" level="a">Events in Arabia in the 6th Century A.D.</title>
-                    <title xml:lang="en" level="j">Bulletin of the School of Oriental and African
+            <ptr target="http://syriaca.org/cbss/9GFC5QRP"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-13">
+            <title xml:lang="en" level="a">Events in Arabia in the 6th Century A.D.</title>
+            <title xml:lang="en" level="j">Bulletin of the School of Oriental and African
                      Studies</title>
-                    <ptr target="http://syriaca.org/cbss/6MNEE5GL"/>
-                    <citedRange from="425" to="468" unit="pp">425-468</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-14">
-                    <title level="a" xml:lang="fr">CR de Ryckmans-Smith</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/7RPLAUPQ"/>
-                    <citedRange from="247" to="250" unit="pp">247-250</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-15">
-                    <title xml:lang="en" level="m">On the Martyrs of Najrân</title>
-                    <ptr target="http://syriaca.org/cbss/9JUNNNBZ"/>
-                </bibl>
-                <bibl xml:id="bib254-16">
-                    <title xml:lang="en" level="a">The date of the ‘Martyrs of Najran’</title>
-                    <title xml:lang="en" level="m">Arabian Archaeology and Epigraphy, 1:2-3
+            <ptr target="http://syriaca.org/cbss/6MNEE5GL"/>
+            <citedRange from="425" to="468" unit="p">425-468</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-14">
+            <title level="a" xml:lang="fr">CR de Ryckmans-Smith</title>
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/7RPLAUPQ"/>
+            <citedRange from="247" to="250" unit="p">247-250</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-15">
+            <title xml:lang="en" level="m">On the Martyrs of Najrân</title>
+            <ptr target="http://syriaca.org/cbss/9JUNNNBZ"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-16">
+            <title xml:lang="en" level="a">The date of the ‘Martyrs of Najran’</title>
+            <title xml:lang="en" level="m">Arabian Archaeology and Epigraphy, 1:2-3
                      (1990)</title>
-                    <ptr target="http://syriaca.org/cbss/XHQMW97K"/>
-                    <citedRange from="110" to="127" unit="pp">110-127</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-17">
-                    <title xml:lang="it" level="a">Note di storia etiopica 3. Problemi cronologici
+            <ptr target="http://syriaca.org/cbss/XHQMW97K"/>
+            <citedRange from="110" to="127" unit="p">110-127</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-17">
+            <title xml:lang="it" level="a">Note di storia etiopica 3. Problemi cronologici
                      relativi ai fatti di Nagran</title>
-                    <title xml:lang="it" level="j">Egitto e Vicino Oriente</title>
-                    <ptr target="http://syriaca.org/cbss/LGLBL8UG"/>
-                    <citedRange from="179" to="196" unit="pp">179-196</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-18">
-                    <title xml:lang="en" level="a">Further reflections on the sources for the Najran
+            <title xml:lang="it" level="j">Egitto e Vicino Oriente</title>
+            <ptr target="http://syriaca.org/cbss/LGLBL8UG"/>
+            <citedRange from="179" to="196" unit="p">179-196</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-18">
+            <title xml:lang="en" level="a">Further reflections on the sources for the Najran
                      martyrs</title>
-                    <title xml:lang="en" level="m">Arabian Studies in Honour of Mahmoud Ghul</title>
-                    <ptr target="http://syriaca.org/cbss/X7SPX46K"/>
-                    <citedRange from="161" to="172" unit="pp">161-172</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-19">
-                    <title xml:lang="en" level="a">The Martyrs of Najran, Some Remarks on the Nature
+            <title xml:lang="en" level="m">Arabian Studies in Honour of Mahmoud Ghul</title>
+            <ptr target="http://syriaca.org/cbss/X7SPX46K"/>
+            <citedRange from="161" to="172" unit="p">161-172</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-19">
+            <title xml:lang="en" level="a">The Martyrs of Najran, Some Remarks on the Nature
                      of the Sources</title>
-                    <title level="m" xml:lang="la">Orientalia antiqua</title>
-                    <title level="m" xml:lang="la">Studia Paulo Naster oblata</title>
-                    <title level="s" xml:lang="la">Orientalia Lovaniensia analecta</title>
-                    <ptr target="http://syriaca.org/cbss/ZEUT6IJX"/>
-                    <citedRange from="301" to="309" unit="pp">301-309</citedRange>
-                </bibl>
-                <bibl xml:id="bib254-20">
-                    <title xml:lang="en" level="a">A confrontation of the main hagiographic accounts
+            <title level="m" xml:lang="la">Orientalia antiqua</title>
+            <title level="m" xml:lang="la">Studia Paulo Naster oblata</title>
+            <title level="s" xml:lang="la">Orientalia Lovaniensia analecta</title>
+            <ptr target="http://syriaca.org/cbss/ZEUT6IJX"/>
+            <citedRange from="301" to="309" unit="p">301-309</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib254-20">
+            <title xml:lang="en" level="a">A confrontation of the main hagiographic accounts
                      of the Najrān persecution</title>
-                    <title xml:lang="en" level="m">Arabian Studies in Honour of Mahmoud Ghul</title>
-                    <ptr target="http://syriaca.org/cbss/LB7ERVZ3"/>
-                    <citedRange from="113" to="133" unit="pp">113-133</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/254" passive="http://syriaca.org/person/1907" source="#bib254-1"/>
-                </listRelation>
-            </bibl>
+            <title xml:lang="en" level="m">Arabian Studies in Honour of Mahmoud Ghul</title>
+            <ptr target="http://syriaca.org/cbss/LB7ERVZ3"/>
+            <citedRange from="113" to="133" unit="p">113-133</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

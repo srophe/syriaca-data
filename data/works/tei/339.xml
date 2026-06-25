@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Saba (text) — <foreign xml:lang="syr">ܣܒܐ ܦܝܪܓܘܫܢܣܦ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,9 +124,10 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
-            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologs with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -165,84 +143,114 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-339" ana="#hagiographic">
-                <title xml:id="name339-1" xml:lang="syr" source="#bib339-1" srophe:tags="#syriaca-headword">ܣܒܐ ܦܝܪܓܘܫܢܣܦ</title>
-                <title xml:id="name339-2" xml:lang="fr-x-bhs" source="#bib339-1">Sāḇā Pīrgūšnasp</title>
-                <title xml:id="name339-3" xml:lang="fr" source="#bib339-1">Saba Pirgouchnasp (texte)</title>
-                <title xml:id="name339-4" xml:lang="en" source="#bib339-1" srophe:tags="#syriaca-headword">Saba (text)</title>
-                <note xml:lang="fr" type="prologue" source="#bib339-1">
-                    <quote>Ceux qui veulent fouler la mer agitée, ??? par un moyen imaginé par l’habileté matérielle humaine, prennent secours de leur faible volonté.</quote>
-                </note>
-                <note xml:lang="syr" type="prologue" source="#bib339-1">
-                    <quote>ܐܝܠܝܢ ܓܝܪ ܕܠܝܡܐ ܡܬܪܓܫܢܐ ܨܒܿܝܢ ܠܡܕܫ: ܥܠ ܝܘܬܪܢܐ ܕܩܢ̈ܝܢܐ: ܒܝܕ ܡܨܥܝܘܬܐ ܡܕܡ ܡܪܟܒܬ ܒܐܘܡܢܘܬܐ ܐܢܫܝܬܐ ܓܫܝܡܬܐ: ܬܥܕܝܪܐ ܠܨܒܝܢܐ ܕܡܚܝܠܘܬܗܘܢ ܢܣܒܝܢ.</quote>
-                </note>
-                <note xml:lang="syr" type="incipit" source="#bib339-1">
-                    <quote>ܘܒܫܢܬ ܫܬܡܐܐ ܘܫܒܥܝܢ ܘܐܪܒܥ ܠܡܠܟܘܬܗ ܕܝܘ̈ܢܝܐ: ܕܗܝ ܗ̣ܝ ܫܢܬ ܬܠܬܡܐܐ ܘܥܣܪܝܢ ܘܐܪܒܥ ܡܢ ܒܬܪ ܙܩܝܦܘܬܗ ܕܡܪܢ: ܘܒܫܢܬ ܚܡܫܝܢ ܘܬܠܬ ܕܡܠܟܘܬܗ ܕܫܒܘܪ ܡܠܟܐ ܥܘܠܐ ܒܪ ܗܘܪܡܙܕ: ܡܢ ܒܬܪ ܕܡܝܬ ܝܘܒܝܢܘܣ ܡܠܟܐ ܕܪ̈ܗܘܡܝܐ: ܣܠܩ ܫܒܘܪ ܡܠܟܐ ܥܠ ܬܚܘ̈ܡܐ ܘܚܣ̈ܢܐ ܕܪ̈ܗܘܡܝܐ: ܘܝܬܒ ܥܠ ܩܣܛܪܐ ܕ ܒܝܬ ܙܒܕܝ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib339-1">
-                    <quote>En l’an 674 du règne des Grecs, qui est l’an 324 après la crucifixion de notre Seigneur, et en l’an 53 du règne du roi impie Shabour fils de Hôrmezd, après la mort de Jovien, roi des Romains, le roi Shabour s’attaqua au territoire et aux forteresses des Romains et il s’établit dans la place forte de Beyt-Zabday</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib339-1">
-                    <quote>ܘܗܟܘܬ ܟܠ ܟܪ ܕܐܝܬ ܫܟܝܢܬܐ ܕܡܬܩܪܝܐ ܕܡܪܝ ܣܒܐ. ܡܢ ܗܕܐ ܕܝܪܐ ܕܐܝܬܝܗܿ ܘܡܢ ܗܠܝܢ ܡܪ̈ܓܢܝܬܐ ܕܗܠܝܢ ܣܗ̈ܕܐ ܕܐܬܟܠܠܘ ܒܗܿ ܐܬܢܣܒܬ. ܫܘܒܚܐ ܕܝܢ ܘܬܕܝܬܐ ܘܣܓܕܬܐ ܢܣܩ.... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib339-1">
-                    <quote>Et partout où il y a une shkîntâ au nom de Mâr Sabâ, elle a été prise à ce monastère et à ces perles de ces martyrs qui y ont été couronnés. Faisons monter la louange, l’action de grâce et l’adoration… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib339-1" xml:id="bib339-4">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 4</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">4</citedRange>
-                        <citedRange>p. 222-249</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib339-1">
-                    <bibl xml:id="bib339-5">ms Londres, British Library, Rich. 7200, f. 52v-61v (mutilé de la fin)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib339-1">
-                    <bibl xml:id="bib339-6">ms Vatican, Syr. 597, f. 145-160v (plus complet que l’édition)</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib339-1">
-                    <bibl xml:id="bib339-7">
-                        <editor>G. Hoffmann</editor>
-                        <title>Auszüge aus syrischen Akten
+            <bibl xml:id="work-339" ana="#syriaca-hagiographic">
+        <title xml:id="name339-1" xml:lang="syr" source="#bib339-1" srophe:tags="#syriaca-headword">ܣܒܐ ܦܝܪܓܘܫܢܣܦ</title>
+        <title xml:id="name339-2" xml:lang="fr-x-bhs" source="#bib339-1">Sāḇā Pīrgūšnasp</title>
+        <title xml:id="name339-3" xml:lang="fr" source="#bib339-1">Saba Pirgouchnasp (texte)</title>
+        <title xml:id="name339-4" xml:lang="en" source="#bib339-1" srophe:tags="#syriaca-headword">Saba (text)</title>
+        <idno type="URI">http://syriaca.org/work/339</idno>
+        <idno type="number" subtype="BHS">119</idno>
+        <idno type="number" subtype="BHO">1031</idno>
+        <noteGrp type="prologue">
+          <desc xml:lang="en">Prologue</desc>
+          <note xml:lang="fr" type="prologue">
+            <quote source="#bib339-1">Ceux qui veulent fouler la mer agitée, ??? par un moyen imaginé par l’habileté matérielle humaine, prennent secours de leur faible volonté.</quote>
+          </note>
+          <note xml:lang="syr" type="prologue">
+            <quote source="#bib339-1">ܐܝܠܝܢ ܓܝܪ ܕܠܝܡܐ ܡܬܪܓܫܢܐ ܨܒܿܝܢ ܠܡܕܫ: ܥܠ ܝܘܬܪܢܐ ܕܩܢ̈ܝܢܐ: ܒܝܕ ܡܨܥܝܘܬܐ ܡܕܡ ܡܪܟܒܬ ܒܐܘܡܢܘܬܐ ܐܢܫܝܬܐ ܓܫܝܡܬܐ: ܬܥܕܝܪܐ ܠܨܒܝܢܐ ܕܡܚܝܠܘܬܗܘܢ ܢܣܒܝܢ.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib339-1">ܘܒܫܢܬ ܫܬܡܐܐ ܘܫܒܥܝܢ ܘܐܪܒܥ ܠܡܠܟܘܬܗ ܕܝܘ̈ܢܝܐ: ܕܗܝ ܗ̣ܝ ܫܢܬ ܬܠܬܡܐܐ ܘܥܣܪܝܢ ܘܐܪܒܥ ܡܢ ܒܬܪ ܙܩܝܦܘܬܗ ܕܡܪܢ: ܘܒܫܢܬ ܚܡܫܝܢ ܘܬܠܬ ܕܡܠܟܘܬܗ ܕܫܒܘܪ ܡܠܟܐ ܥܘܠܐ ܒܪ ܗܘܪܡܙܕ: ܡܢ ܒܬܪ ܕܡܝܬ ܝܘܒܝܢܘܣ ܡܠܟܐ ܕܪ̈ܗܘܡܝܐ: ܣܠܩ ܫܒܘܪ ܡܠܟܐ ܥܠ ܬܚܘ̈ܡܐ ܘܚܣ̈ܢܐ ܕܪ̈ܗܘܡܝܐ: ܘܝܬܒ ܥܠ ܩܣܛܪܐ ܕ ܒܝܬ ܙܒܕܝ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib339-1">En l’an 674 du règne des Grecs, qui est l’an 324 après la crucifixion de notre Seigneur, et en l’an 53 du règne du roi impie Shabour fils de Hôrmezd, après la mort de Jovien, roi des Romains, le roi Shabour s’attaqua au territoire et aux forteresses des Romains et il s’établit dans la place forte de Beyt-Zabday</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib339-1">ܘܗܟܘܬ ܟܠ ܟܪ ܕܐܝܬ ܫܟܝܢܬܐ ܕܡܬܩܪܝܐ ܕܡܪܝ ܣܒܐ. ܡܢ ܗܕܐ ܕܝܪܐ ܕܐܝܬܝܗܿ ܘܡܢ ܗܠܝܢ ܡܪ̈ܓܢܝܬܐ ܕܗܠܝܢ ܣܗ̈ܕܐ ܕܐܬܟܠܠܘ ܒܗܿ ܐܬܢܣܒܬ. ܫܘܒܚܐ ܕܝܢ ܘܬܕܝܬܐ ܘܣܓܕܬܐ ܢܣܩ.... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib339-1">Et partout où il y a une shkîntâ au nom de Mâr Sabâ, elle a été prise à ce monastère et à ces perles de ces martyrs qui y ont été couronnés. Faisons monter la louange, l’action de grâce et l’adoration… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/339" source="#bib339-1" passive="http://syriaca.org/person/1436">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1436">Saba Pirgushnasp</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib339-1" xml:id="bib339-4" type="lawd:Edition">
+            <title xml:lang="la">AMS 4</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">4</citedRange>
+            <citedRange unit="p">p. 222-249</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib339-5" source="#bib339-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Rich. 7200</idno>
+            </label>
+            <biblScope unit="fol">f. 52v-61v</biblScope>
+            <note xml:lang="en" source="#bib339-1">(mutilé de la fin)</note>
+          </bibl>
+          <bibl xml:id="bib339-6" source="#bib339-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 597</idno>
+            </label>
+            <biblScope unit="fol">f. 145-160v (plus complet que l’édition)</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib339-7" source="#bib339-1" type="syriaca:ModernTranslation">
+            <title xml:lang="de">Auszüge aus syrischen Akten
             persischer Märtyrer (Abhandlungen für die Kunde des Morgenlandes, 7/3), Leipzig</title>
-                        <note xml:lang="fr">partielle</note>
-                        <ptr target="http://syriaca.org/cbss/X3SFHTJR"/>
-                        <citedRange unit="pp">22-28</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/339</idno>
-                <idno type="BHS">119</idno>
-                <idno type="BHO">1031</idno>
-                <bibl xml:id="bib339-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <editor>G. Hoffmann</editor>
+            <ptr target="http://syriaca.org/cbss/X3SFHTJR"/>
+            <citedRange unit="p">22-28</citedRange>
+            <textLang mainLang="de"/>
+            <note source="#bib339-1" xml:lang="fr">partielle</note>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib339-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">119</citedRange>
-                </bibl>
-                <bibl xml:id="bib339-2">
-                    <title xml:lang="fr" level="a">L’apport de Mgr Addaï Scher à l’hagiographie
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">119</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib339-2">
+            <title xml:lang="fr" level="a">L’apport de Mgr Addaï Scher à l’hagiographie
                      orientale</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/DXAF84BC"/>
-                    <citedRange from="121" to="142" unit="pp">121-142</citedRange>
-                </bibl>
-                <bibl xml:id="bib339-3">
-                    <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/DXAF84BC"/>
+            <citedRange from="121" to="142" unit="p">121-142</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib339-3">
+            <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
                      syriaques</title>
-                    <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
+            <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
                      greco-romano (Roma 11-14 aprile 1965)</title>
-                    <title xml:lang="it" level="s">Problemi attuali di scienza e di cultura</title>
-                    <ptr target="http://syriaca.org/cbss/LVMEY8Z9"/>
-                    <citedRange from="213" to="225" unit="pp">213-225</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/339" passive="http://syriaca.org/person/1436" source="#bib339-1"/>
-                </listRelation>
-            </bibl>
+            <title xml:lang="it" level="s">Problemi attuali di scienza e di cultura</title>
+            <ptr target="http://syriaca.org/cbss/LVMEY8Z9"/>
+            <citedRange from="213" to="225" unit="p">213-225</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Hosea (text) — <foreign xml:lang="syr">ܗܘܫܥ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,68 +142,81 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1745" ana="#hagiographic">
-                <title xml:id="name1745-1" xml:lang="syr" source="#bib1745-1" srophe:tags="#syriaca-headword">ܗܘܫܥ</title>
-                <title xml:id="name1745-2" xml:lang="fr-x-bhs" source="#bib1745-1">Hōšāʿ</title>
-                <title xml:id="name1745-3" xml:lang="fr" source="#bib1745-1">Osée (texte)</title>
-                <title xml:id="name1745-4" xml:lang="en" source="#bib1745-1" srophe:tags="#syriaca-headword">Hosea (text)</title>
-                <author xml:lang="fr" source="#bib1745-1" ref="http://syriaca.org/person/42">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Yaʿqub</forename>
-                        <addName type="untagged-title" sort="2">of Serugh</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܝܥܩܘܒ</forename>
-                        <addName type="untagged-title" sort="2">ܕܣܪܘܓ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Jacques</forename>
-                        <addName type="untagged-title">de Serugh</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1745-1">
-                    <quote>ܪܥܡܐ ܕܩ̈ܠܐ ܕܝܗܒ ܟܢܪܐ ܠܢܒܝܘܬܐ: ܐܢܬ ܡܠܠ ܒܝ ܫܘܒܚܐ ܒܩܠܐ ܥܬܝܪܐܝܬ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1745-1">
-                    <quote>Voix tonnante qui a donné la cithare à la prophétie, toi dis en moi la gloire d’une voix abondante.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1745-1">
-                    <quote>ܡܢ ܙܢܝܬܐ ܘܡܢ ܓܝܪܬܐ ܨܠܝܒ ܦܪܘܩܐ: ܒܪܝܟ ܕܒܗܘܫܥ ܨܪ ܠܗܿ ܨܠܡܐ ܠܡܠܝܬ ܡܘ̈ܡܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1745-1">
-                    <quote>Par la prostituée et par l’adultère le sauveur a été crucifié; béni soi celui qui en Osée a formé une image pleine de taches.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1745-1" xml:id="bib1745-2">
-                        <author>Strothmann, W.</author>
-                        <title>Jakob von Sarug. Der Prophet Hosea</title>
-                        <ptr target="http://syriaca.org/cbss/UM5CADVP"/>
-                        <citedRange>Wiesbaden, 1973, p. 2-78</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1745-1">
-                    <bibl xml:id="bib1745-3">ms Vatican, Syr. 114, f. 142v-146v + Syr. 252, f. 30-32 + Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany)) + Londres, British Library, Add. 17157, f. 1-5</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1745-1">
-                    <bibl xml:id="bib1745-4">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, cod. 312 + Mardin, Évêché syrien orthodoxe, cod. 137</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib1745-1">
-                    <bibl xml:id="bib1745-5">
-                        <editor>W. Strothmann</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/cbss/UM5CADVP"/>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1745</idno>
-                <idno type="BHS">1678</idno>
-                <bibl xml:id="bib1745-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1745" ana="#syriaca-hagiographic">
+        <title xml:id="name1745-1" xml:lang="syr" source="#bib1745-1" srophe:tags="#syriaca-headword">ܗܘܫܥ</title>
+        <title xml:id="name1745-2" xml:lang="fr-x-bhs" source="#bib1745-1">Hōšāʿ</title>
+        <title xml:id="name1745-3" xml:lang="fr" source="#bib1745-1">Osée (texte)</title>
+        <title xml:id="name1745-4" xml:lang="en" source="#bib1745-1" srophe:tags="#syriaca-headword">Hosea (text)</title>
+        <author ref="http://syriaca.org/person/42" source="#bib1745-1" xml:lang="en">Jacob of Serugh — <foreign xml:lang="syr">ܝܥܩܘܒ ܕܣܪܘܓ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1745</idno>
+        <idno type="number" subtype="BHS">1678</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1745-1">ܪܥܡܐ ܕܩ̈ܠܐ ܕܝܗܒ ܟܢܪܐ ܠܢܒܝܘܬܐ: ܐܢܬ ܡܠܠ ܒܝ ܫܘܒܚܐ ܒܩܠܐ ܥܬܝܪܐܝܬ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1745-1">Voix tonnante qui a donné la cithare à la prophétie, toi dis en moi la gloire d’une voix abondante.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1745-1">ܡܢ ܙܢܝܬܐ ܘܡܢ ܓܝܪܬܐ ܨܠܝܒ ܦܪܘܩܐ: ܒܪܝܟ ܕܒܗܘܫܥ ܨܪ ܠܗܿ ܨܠܡܐ ܠܡܠܝܬ ܡܘ̈ܡܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1745-1">Par la prostituée et par l’adultère le sauveur a été crucifié; béni soi celui qui en Osée a formé une image pleine de taches.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1745" source="#bib1745-1" passive="http://syriaca.org/person/1952">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1952">Hosea</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib1745-1" xml:id="bib1745-2" type="lawd:Edition">
+            <title xml:lang="de">Jakob von Sarug. Der Prophet Hosea</title>
+            <author>Strothmann, W.</author>
+            <ptr target="http://syriaca.org/cbss/UM5CADVP"/>
+            <citedRange unit="p">Wiesbaden, 1973, p. 2-78</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1745-3" source="#bib1745-1" type="syriaca:Manuscript">
+            <label>ms Vatican, Syr. 114, f. 142v-146v + Syr. 252, f. 30-32 + Damas, Patriarcat syrien orthodoxe, cod. 12/14 (olim ms Dayr az-Za‘faran, cod. parch. 15 (Dolabany)) + Londres, British Library, Add. 17157, f. 1-5</label>
+          </bibl>
+          <bibl xml:id="bib1745-4" source="#bib1745-1" type="syriaca:Manuscript">
+            <label>ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, cod. 312 + Mardin, Évêché syrien orthodoxe, cod. 137</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib1745-5" source="#bib1745-1" type="syriaca:ModernTranslation">
+            <title xml:lang="de">Jakob von Sarug. Der Prophet Hosea</title>
+            <editor>W. Strothmann</editor>
+            <ptr target="http://syriaca.org/cbss/UM5CADVP"/>
+            <textLang mainLang="de"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1745-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1678</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1745" passive="http://syriaca.org/person/1952" source="#bib1745-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1678</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

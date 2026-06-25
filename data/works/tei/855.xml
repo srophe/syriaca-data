@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Antony (text) — <foreign xml:lang="syr">ܐܢܛܘܢܝܘܣ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,74 +142,90 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-855" ana="#hagiographic">
-                <title xml:id="name855-1" xml:lang="syr" source="#bib855-1" srophe:tags="#syriaca-headword">ܐܢܛܘܢܝܘܣ</title>
-                <title xml:id="name855-2" xml:lang="fr-x-bhs" source="#bib855-1">ʾAnṭōnīyōs</title>
-                <title xml:id="name855-3" xml:lang="fr" source="#bib855-1">Antoine (texte)</title>
-                <title xml:id="name855-4" xml:lang="en" source="#bib855-1" srophe:tags="#syriaca-headword">Antony (text)</title>
-                <author xml:lang="fr" source="#bib855-1" ref="http://syriaca.org/person/51">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Severus</forename>
-                        <addName type="untagged-title" sort="2">of <placeName ref="http://syriaca.org/place/10">Antioch</placeName>
-                        </addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܣܘܝܪܝܘܣ</forename>
-                        <addName type="untagged-title" sort="2">ܕܐܢܛܝܘܟܝܐ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Sévère</forename>
-                        <addName type="untagged-title">d’Antioche</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib855-1">
-                    <quote>ܠܕܘܒܪܐ ܡܿܢ ܕܐܢܛܘܢܝܘܣ ܗܿܘ ܐܠܗܝܐ ܫܘܝܐܝܬ̣. ܐܬܢܣܝܘܣ ܗܿܘ ܪܒܐ. ܗܿܘ ܓܒܪܐ ܫܠܝܚܝܐ ܘܕܡܫܝܚܐ ܐܝܬ ܗܘܐ ܠܗ ܒܗ ܕܡܡܠܠ. ܪܕܘܝܐܝܬ ܐܟܚܕܐ ܘܬܫܥܝܬܢܐܝܬ ܐܟܬܒܗ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib855-1">
-                    <quote>La vie du divin Antoine, le grand Athanase, homme apostolique et qui avait le Christ parlant en lui, l’a écrite dignement de façon instructive et en même temps narrative.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib855-1">
-                    <quote>ܢܫܬܘܐ ܠܡܠܟܘܬܐ ܕܫܡܝܐܿ. ܘܠܐܘ̈ܢܐ ܗܿܢܘܢ ܕܠܥܠܡ ܘܡܫ̈ܚܠܦܐ ܕܒܗܿ. ܐܝܟ ܡܐ ܕܠܟܠܚܕ ܐܝܬ ܡܢ ܛܘܝܒܐ ܘܡܢ ܣܥܘܪܘܬܐ. ܠܗܿܝ ܕܬܗܘܐ ܕܟܠܢ ܢܫܬܘܐ̣. ܒܛܝܒܘܬܐ ܘܒܪܚܡܬ ܐܢܫܘܬܐ ܕܐܠܗܐ ܪܒܐ ܘܦܪܘܩܢ ܝܫܘܥ ܡܫܝܚܐ... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib855-1">
-                    <quote>Puissions-nous être jugés dignes du royaume des cieux et de ses demeures éternelles et variées, selon ce que chacun a de préparation et d’action; puissions-nous être jugés dignes que cela soit, par la grâce et l’amour pour les hommes du grand Dieu et notre Sauveur Jésus-Christ… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib855-1" xml:id="bib855-2">
-                        <author>Brière</author>
-                        <title>Les Homiliae cathedrales de Sévère d’Antioche, traduction syriaque de Jacques d’Édesse. Homélies LXXXIV à XC</title>
-                        <ptr target="http://syriaca.org/cbss/S6LV6I8R"/>
-                        <citedRange>Paris, 1932, p. 39 [307] - 71 [339]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib855-1">
-                    <bibl xml:id="bib855-3">ms Londres, British Library, Add. 12159, f. 187v-190 + ms Vatican, Syr. 141, f. 180v-189</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib855-1">
-                    <bibl xml:id="bib855-4">ms Vatican, Syr. 142, f. 55v-62v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib855-1">
-                    <bibl xml:id="bib855-5">ms Londres, British Library, Add. 14601, f. 132v-137v</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib855-1">
-                    <bibl xml:id="bib855-6">
-                        <editor>M. Brière</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/cbss/S6LV6I8R"/>
-                        <citedRange>Paris, 1932, p. 39 [307] - 71 [339]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/855</idno>
-                <idno type="BHS">648</idno>
-                <idno type="CPG">7035</idno>
-                <bibl xml:id="bib855-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-855" ana="#syriaca-hagiographic">
+        <title xml:id="name855-1" xml:lang="syr" source="#bib855-1" srophe:tags="#syriaca-headword">ܐܢܛܘܢܝܘܣ</title>
+        <title xml:id="name855-2" xml:lang="fr-x-bhs" source="#bib855-1">ʾAnṭōnīyōs</title>
+        <title xml:id="name855-3" xml:lang="fr" source="#bib855-1">Antoine (texte)</title>
+        <title xml:id="name855-4" xml:lang="en" source="#bib855-1" srophe:tags="#syriaca-headword">Antony (text)</title>
+        <author ref="http://syriaca.org/person/51" source="#bib855-1" xml:lang="en">Severus of Antioch — <foreign xml:lang="syr">ܣܘܝܪܝܘܣ ܕܐܢܛܝܘܟܝܐ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/855</idno>
+        <idno type="number" subtype="BHS">648</idno>
+        <idno type="number" subtype="CPG">7035</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib855-1">ܠܕܘܒܪܐ ܡܿܢ ܕܐܢܛܘܢܝܘܣ ܗܿܘ ܐܠܗܝܐ ܫܘܝܐܝܬ̣. ܐܬܢܣܝܘܣ ܗܿܘ ܪܒܐ. ܗܿܘ ܓܒܪܐ ܫܠܝܚܝܐ ܘܕܡܫܝܚܐ ܐܝܬ ܗܘܐ ܠܗ ܒܗ ܕܡܡܠܠ. ܪܕܘܝܐܝܬ ܐܟܚܕܐ ܘܬܫܥܝܬܢܐܝܬ ܐܟܬܒܗ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib855-1">La vie du divin Antoine, le grand Athanase, homme apostolique et qui avait le Christ parlant en lui, l’a écrite dignement de façon instructive et en même temps narrative.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib855-1">ܢܫܬܘܐ ܠܡܠܟܘܬܐ ܕܫܡܝܐܿ. ܘܠܐܘ̈ܢܐ ܗܿܢܘܢ ܕܠܥܠܡ ܘܡܫ̈ܚܠܦܐ ܕܒܗܿ. ܐܝܟ ܡܐ ܕܠܟܠܚܕ ܐܝܬ ܡܢ ܛܘܝܒܐ ܘܡܢ ܣܥܘܪܘܬܐ. ܠܗܿܝ ܕܬܗܘܐ ܕܟܠܢ ܢܫܬܘܐ̣. ܒܛܝܒܘܬܐ ܘܒܪܚܡܬ ܐܢܫܘܬܐ ܕܐܠܗܐ ܪܒܐ ܘܦܪܘܩܢ ܝܫܘܥ ܡܫܝܚܐ... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib855-1">Puissions-nous être jugés dignes du royaume des cieux et de ses demeures éternelles et variées, selon ce que chacun a de préparation et d’action; puissions-nous être jugés dignes que cela soit, par la grâce et l’amour pour les hommes du grand Dieu et notre Sauveur Jésus-Christ… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/855" source="#bib855-1" passive="http://syriaca.org/person/1594">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1594">Anthony</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib855-1" xml:id="bib855-2" type="lawd:Edition">
+            <title xml:lang="fr">Les Homiliae cathedrales de Sévère d’Antioche, traduction syriaque de Jacques d’Édesse. Homélies LXXXIV à XC</title>
+            <author>Brière</author>
+            <ptr target="http://syriaca.org/cbss/S6LV6I8R"/>
+            <citedRange unit="p">Paris, 1932, p. 39 [307] - 71 [339]</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib855-3" source="#bib855-1" type="syriaca:Manuscript">
+            <label>ms Londres, British Library, Add. 12159, f. 187v-190 + ms Vatican, Syr. 141, f. 180v-189</label>
+          </bibl>
+          <bibl xml:id="bib855-4" source="#bib855-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 142</idno>
+            </label>
+            <biblScope unit="fol">f. 55v-62v</biblScope>
+          </bibl>
+          <bibl xml:id="bib855-5" source="#bib855-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14601</idno>
+            </label>
+            <biblScope unit="fol">f. 132v-137v</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib855-6" source="#bib855-1" type="syriaca:ModernTranslation">
+            <title xml:lang="fr">Les Homiliae cathedrales de Sévère d’Antioche, traduction syriaque de Jacques d’Édesse. Homélies LXXXIV à XC</title>
+            <editor>M. Brière</editor>
+            <ptr target="http://syriaca.org/cbss/S6LV6I8R"/>
+            <citedRange unit="p">Paris, 1932, p. 39 [307] - 71 [339]</citedRange>
+            <textLang mainLang="fr"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib855-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">648</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/855" passive="http://syriaca.org/person/1594" source="#bib855-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">648</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

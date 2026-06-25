@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Severus of Antioch (text) — <foreign xml:lang="syr">ܣܐܘܝܪܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -163,66 +141,79 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-685" ana="#hagiographic">
-                <title xml:id="name685-1" xml:lang="syr" source="#bib685-1" srophe:tags="#syriaca-headword">ܣܐܘܝܪܐ</title>
-                <title xml:id="name685-2" xml:lang="fr-x-bhs" source="#bib685-1">Sēwērā</title>
-                <title xml:id="name685-3" xml:lang="fr" source="#bib685-1">Sévère d’Antioche (texte)</title>
-                <title xml:id="name685-4" xml:lang="en" source="#bib685-1" srophe:tags="#syriaca-headword">Severus of Antioch (text)</title>
-                <author xml:lang="fr" source="#bib685-1" ref="http://syriaca.org/person/52">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">John</forename>
-                        <addName type="family" sort="2">bar Aphtonia</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܝܘܚܢܢ</forename>
-                        <addName type="family" sort="2">ܒܪ ܐܦܬܘܢܝܐ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Jean</forename>
-                        <addName type="family">bar Aphtonya</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib685-1">
-                    <quote>ܠܡܝܬܪ̈ܬܐ ܘܢܨܚܢ̈ܐ ܕܚܣܝܐ ܣܐܘܝܪܐ ܗܿܘ ܪܝܫ ܟܗ̈ܢܐ̣. ܐܝܕܐ ܡܠܬܐ ܡܨܝܐ ܚܝܠܐ ܠܡܫܒܚܘ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib685-1">
-                    <quote>Quelle parole est capable de louer les vertus et les hauts faits du vénérable patriarche Sévère?</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib685-1">
-                    <quote>ܗܿܘ ܕܒܨܠܘ̈ܬܗ ܡܪܐ ܟܠ̣. ܠܗ̈ܕܡܐ ܡܒܕܪ̈ܐ ܕܥܕܬܐ ܟܢܫ̣. ܘܐܝܬܐ ܠܚܕܐ ܐܘܝܘܬܐ. ܘܫܘܙܒ ܠܢ ܒܪ̈ܚܡܝܟ. ܐܝܟ ܪܚܡ ܐܢܫܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib685-1">
-                    <quote>Par ses prères, Dieu tout-puissant, rassemble les membres dispersés de l’Église, ramène-les à la concorde et sauve nous dans ta miséricorde en tant qu’ami des hommes.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib685-1" xml:id="bib685-2">
-                        <author>Kugener, M.-A.</author>
-                        <title>Vie de Sévère par Jean supérieur du monastère de Beith-Aphthonia</title>
-                        <ptr target="http://syriaca.org/cbss/TTHLWFEU"/>
-                        <citedRange>Paris, 1904, p. 328 [244] - 329 [245]</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib685-1">
-                    <bibl xml:id="bib685-3">mss Londres, British Library, Add. 17134, f. 51r + Add. 18816, f. 71r-v</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib685-1">
-                    <bibl xml:id="bib685-4">
-                        <editor>M.-A. Kugener</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/cbss/TTHLWFEU"/>
-                        <citedRange>Paris, 1904, p. 328 [244] - 329 [245]</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/685</idno>
-                <idno type="BHS">470</idno>
-                <bibl xml:id="bib685-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-685" ana="#syriaca-hagiographic">
+        <title xml:id="name685-1" xml:lang="syr" source="#bib685-1" srophe:tags="#syriaca-headword">ܣܐܘܝܪܐ</title>
+        <title xml:id="name685-2" xml:lang="fr-x-bhs" source="#bib685-1">Sēwērā</title>
+        <title xml:id="name685-3" xml:lang="fr" source="#bib685-1">Sévère d’Antioche (texte)</title>
+        <title xml:id="name685-4" xml:lang="en" source="#bib685-1" srophe:tags="#syriaca-headword">Severus of Antioch (text)</title>
+        <author ref="http://syriaca.org/person/52" source="#bib685-1" xml:lang="en">John bar Aphtonia — <foreign xml:lang="syr">ܝܘܚܢܢ ܒܪ ܐܦܬܘܢܝܐ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/685</idno>
+        <idno type="number" subtype="BHS">470</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib685-1">ܠܡܝܬܪ̈ܬܐ ܘܢܨܚܢ̈ܐ ܕܚܣܝܐ ܣܐܘܝܪܐ ܗܿܘ ܪܝܫ ܟܗ̈ܢܐ̣. ܐܝܕܐ ܡܠܬܐ ܡܨܝܐ ܚܝܠܐ ܠܡܫܒܚܘ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib685-1">Quelle parole est capable de louer les vertus et les hauts faits du vénérable patriarche Sévère?</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib685-1">ܗܿܘ ܕܒܨܠܘ̈ܬܗ ܡܪܐ ܟܠ̣. ܠܗ̈ܕܡܐ ܡܒܕܪ̈ܐ ܕܥܕܬܐ ܟܢܫ̣. ܘܐܝܬܐ ܠܚܕܐ ܐܘܝܘܬܐ. ܘܫܘܙܒ ܠܢ ܒܪ̈ܚܡܝܟ. ܐܝܟ ܪܚܡ ܐܢܫܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib685-1">Par ses prères, Dieu tout-puissant, rassemble les membres dispersés de l’Église, ramène-les à la concorde et sauve nous dans ta miséricorde en tant qu’ami des hommes.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/685" source="#bib685-1" passive="http://syriaca.org/person/51">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/51">Severus of Antioch</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib685-1" xml:id="bib685-2" type="lawd:Edition">
+            <title xml:lang="fr">Vie de Sévère par Jean supérieur du monastère de Beith-Aphthonia</title>
+            <author>Kugener, M.-A.</author>
+            <ptr target="http://syriaca.org/cbss/TTHLWFEU"/>
+            <citedRange unit="p">Paris, 1904, p. 328 [244] - 329 [245]</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib685-3" source="#bib685-1" type="syriaca:Manuscript">
+            <label>mss Londres, British Library, Add. 17134, f. 51r + Add. 18816, f. 71r-v</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib685-4" source="#bib685-1" type="syriaca:ModernTranslation">
+            <title xml:lang="fr">Vie de Sévère par Jean supérieur du monastère de Beith-Aphthonia</title>
+            <editor>M.-A. Kugener</editor>
+            <ptr target="http://syriaca.org/cbss/TTHLWFEU"/>
+            <citedRange unit="p">Paris, 1904, p. 328 [244] - 329 [245]</citedRange>
+            <textLang mainLang="fr"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib685-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">470</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/685" passive="http://syriaca.org/person/51" source="#bib685-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">470</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Abḥai (text) — <foreign xml:lang="syr">ܐܒܚܝ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,9 +124,10 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
-            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologs with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -165,69 +143,101 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-399" ana="#hagiographic">
-                <title xml:id="name399-1" xml:lang="syr" source="#bib399-1" srophe:tags="#syriaca-headword">ܐܒܚܝ</title>
-                <title xml:id="name399-2" xml:lang="fr-x-bhs" source="#bib399-1">ʾAḇḥay</title>
-                <title xml:id="name399-3" xml:lang="fr" source="#bib399-1">Abhaï (texte)</title>
-                <title xml:id="name399-4" xml:lang="en" source="#bib399-1" srophe:tags="#syriaca-headword">Abḥai (text)</title>
-                <note xml:lang="fr" type="prologue" source="#bib399-1">
-                    <quote>Parce que les croyants aiment et chérissent la commémoration des saints et que l’oreille des amis du Christ ne se lasse pas d’écouter les beaux hauts faits des athlètes du Christ, le Seigneur lui-même apprécie l’éloge de ses serviteurs…</quote>
-                </note>
-                <note xml:lang="syr" type="prologue" source="#bib399-1">
-                    <quote>ܡܛܠ ܕܝܢ ܕܪܚܝܡ ܘܚܒܝܒ ܠܡܗܝ̈ܡܢܐ ܕܘܟܪܢܐ ܕܩܕܝܫܐ: ܘܠܐ ܣܒܥܐ ܐܕܢܐ ܕܪ̈ܚܡܝ ܠܡܫܝܚܐ ܠܡܫܡܥ ܢܨ̈ܚܢܐ ܛܒ̈ܐ ܕܐܬܠܝܛܘ̈ܗܝ ܕܡܫܝܚܐ: ܡܝܩܪ ܕܝܢ ܘܐܦ ܠܘܬܗ ܕܡܪܝܐ ܩܘܠܣܐ ܕܡܢܝܚܢܘ̈ܗܝ...</quote>
-                </note>
-                <note xml:lang="syr" type="incipit" source="#bib399-1">
-                    <quote>ܒܕܓܘܢ ܬܟܝܠܐܝܬ ܡܟܪܙܝܢܢ ܘܐܡܪܝܢܢ ܕܟܕ ܒܝܕܥܬܐ ܐܠܗܝܬܐ ܡܬܘܡܝܬ ܒܟܠ ܗܿܝ ܕܠܐܝܠܝܢ ܕܥ̈ܬܝܕܢ ܠܡܗܘܐ ܐܝܟ ܗܠܝܢ ܕܡܢ ܟܕܘ ܗܘ̈ܝ ܐܝܬ ܠܗܿ ܐܬܓܒܝ ܠܡܗܘܐ ܒܥܠܡܐ ܡܢ ܐܒ̈ܗܐ ܟܐܢ̈ܐ ܐܬܝܠܕ ܩܘܣܛܢܛܝܢܐ ܫܡܐ ܕܐܒܘܗܝ ܕܓܒܝܐ ܘܐܟܝܣܛܝܐ ܫܡܐ ܕܐܡܗ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib399-1">
-                    <quote>C’est pourquoi nous proclamons avec certitude et disions que quand il fut choisi par la science divine tout à fait éternelle, elle qui connaît les événements à venir comme les événements passés, pour être dans le monde, il naquit de parents justes. Le nom du père de l’élu était Constantin, celui de sa mère Euchistia.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib399-1">
-                    <quote>ܘܗܘܐ ܐܝܟ ܦܘܩܕܢܗ ܕܩܕܝܫܐ: ܘܩܒܠ ܡܕܒܪܢܘܬܐ ܕܝܠܗܿ ܕܕܘܟܬܐ ܟܠܗܘܢ ܝܘܡܝ̈ ܚܝܘ̈ܗܝ: ܘܢܨܒ ܒܗܿ ܙܝ̈ܬܐ ܠܡܫܚܐ ܕܢܗܝܪ̈ܐ ܕܕܝܪܐ. ܘܐܬܟܗܢܬ ܗܝ ܕܘܟܬܐ ܗܝܿ: ܘܐܬܩܪܝܬ ܥܘܡܪܐ ܕܩܕܝܫܐ ܡܪܝ ܐܒܚܝ: ܕܒܨ̈ܠܘܬܗ... ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib399-1">
-                    <quote>Et il advint selon l’ordre du saint; et il reçut l’administration de ce lieu tous les jours de sa vie; et il y planta des oliviers pour l’huile des lampes du monastère. Et ce lieu fut consacré et appelé monastère de saint Mâr Abhay. Que par ses prières… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib399-1" xml:id="bib399-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 6</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">6</citedRange>
-                        <citedRange>p. 557-614</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib399-1">
-                    <bibl xml:id="bib399-3">ms Londres, British Library, Add. 12174, f. 98v-110</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib399-1">
-                    <bibl xml:id="bib399-4">ms Vatican, Syr. 37, f. 156v-168</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib399-1">
-                    <bibl xml:id="bib399-5">ms Dawra, Monastère chaldéen, cod. 632 (olim Alqosh, Monastère N.-D. des Semences, cod. 219 Vosté), f. 2-49</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib399-1">
-                    <bibl xml:id="bib399-6">ms Oxford, Bodleian Library, syr. 163 (Marsh. 13), f. 1-61v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib399-1">
-                    <bibl xml:id="bib399-7">ms Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique, Fonds Rahmani, cod. 44</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib399-1">
-                    <bibl xml:id="bib399-8">ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 35-42v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/399</idno>
-                <idno type="BHS">179</idno>
-                <idno type="BHO">10</idno>
-                <bibl xml:id="bib399-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-399" ana="#syriaca-hagiographic">
+        <title xml:id="name399-1" xml:lang="syr" source="#bib399-1" srophe:tags="#syriaca-headword">ܐܒܚܝ</title>
+        <title xml:id="name399-2" xml:lang="fr-x-bhs" source="#bib399-1">ʾAḇḥay</title>
+        <title xml:id="name399-3" xml:lang="fr" source="#bib399-1">Abhaï (texte)</title>
+        <title xml:id="name399-4" xml:lang="en" source="#bib399-1" srophe:tags="#syriaca-headword">Abḥai (text)</title>
+        <idno type="URI">http://syriaca.org/work/399</idno>
+        <idno type="number" subtype="BHS">179</idno>
+        <idno type="number" subtype="BHO">10</idno>
+        <noteGrp type="prologue">
+          <desc xml:lang="en">Prologue</desc>
+          <note xml:lang="fr" type="prologue">
+            <quote source="#bib399-1">Parce que les croyants aiment et chérissent la commémoration des saints et que l’oreille des amis du Christ ne se lasse pas d’écouter les beaux hauts faits des athlètes du Christ, le Seigneur lui-même apprécie l’éloge de ses serviteurs…</quote>
+          </note>
+          <note xml:lang="syr" type="prologue">
+            <quote source="#bib399-1">ܡܛܠ ܕܝܢ ܕܪܚܝܡ ܘܚܒܝܒ ܠܡܗܝ̈ܡܢܐ ܕܘܟܪܢܐ ܕܩܕܝܫܐ: ܘܠܐ ܣܒܥܐ ܐܕܢܐ ܕܪ̈ܚܡܝ ܠܡܫܝܚܐ ܠܡܫܡܥ ܢܨ̈ܚܢܐ ܛܒ̈ܐ ܕܐܬܠܝܛܘ̈ܗܝ ܕܡܫܝܚܐ: ܡܝܩܪ ܕܝܢ ܘܐܦ ܠܘܬܗ ܕܡܪܝܐ ܩܘܠܣܐ ܕܡܢܝܚܢܘ̈ܗܝ...</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib399-1">ܒܕܓܘܢ ܬܟܝܠܐܝܬ ܡܟܪܙܝܢܢ ܘܐܡܪܝܢܢ ܕܟܕ ܒܝܕܥܬܐ ܐܠܗܝܬܐ ܡܬܘܡܝܬ ܒܟܠ ܗܿܝ ܕܠܐܝܠܝܢ ܕܥ̈ܬܝܕܢ ܠܡܗܘܐ ܐܝܟ ܗܠܝܢ ܕܡܢ ܟܕܘ ܗܘ̈ܝ ܐܝܬ ܠܗܿ ܐܬܓܒܝ ܠܡܗܘܐ ܒܥܠܡܐ ܡܢ ܐܒ̈ܗܐ ܟܐܢ̈ܐ ܐܬܝܠܕ ܩܘܣܛܢܛܝܢܐ ܫܡܐ ܕܐܒܘܗܝ ܕܓܒܝܐ ܘܐܟܝܣܛܝܐ ܫܡܐ ܕܐܡܗ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib399-1">C’est pourquoi nous proclamons avec certitude et disions que quand il fut choisi par la science divine tout à fait éternelle, elle qui connaît les événements à venir comme les événements passés, pour être dans le monde, il naquit de parents justes. Le nom du père de l’élu était Constantin, celui de sa mère Euchistia.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib399-1">ܘܗܘܐ ܐܝܟ ܦܘܩܕܢܗ ܕܩܕܝܫܐ: ܘܩܒܠ ܡܕܒܪܢܘܬܐ ܕܝܠܗܿ ܕܕܘܟܬܐ ܟܠܗܘܢ ܝܘܡܝ̈ ܚܝܘ̈ܗܝ: ܘܢܨܒ ܒܗܿ ܙܝ̈ܬܐ ܠܡܫܚܐ ܕܢܗܝܪ̈ܐ ܕܕܝܪܐ. ܘܐܬܟܗܢܬ ܗܝ ܕܘܟܬܐ ܗܝܿ: ܘܐܬܩܪܝܬ ܥܘܡܪܐ ܕܩܕܝܫܐ ܡܪܝ ܐܒܚܝ: ܕܒܨ̈ܠܘܬܗ... ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib399-1">Et il advint selon l’ordre du saint; et il reçut l’administration de ce lieu tous les jours de sa vie; et il y planta des oliviers pour l’huile des lampes du monastère. Et ce lieu fut consacré et appelé monastère de saint Mâr Abhay. Que par ses prières… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/399" source="#bib399-1" passive="http://syriaca.org/person/1105">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1105">Abhai</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib399-1" xml:id="bib399-2" type="lawd:Edition">
+            <title xml:lang="la">AMS 6</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">6</citedRange>
+            <citedRange unit="p">p. 557-614</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib399-3" source="#bib399-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12174</idno>
+            </label>
+            <biblScope unit="fol">f. 98v-110</biblScope>
+          </bibl>
+          <bibl xml:id="bib399-4" source="#bib399-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 37</idno>
+            </label>
+            <biblScope unit="fol">f. 156v-168</biblScope>
+          </bibl>
+          <bibl xml:id="bib399-5" source="#bib399-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 632 (olim Alqosh, Monastère N.-D. des Semences, cod. 219 Vosté), f. 2-49</label>
+          </bibl>
+          <bibl xml:id="bib399-6" source="#bib399-1" type="syriaca:Manuscript">
+            <label>Oxford, Bodleian Library <idno type="shelfmark">syr. 163</idno>
+            </label>
+            <label>Oxford, Bodleian Library <idno type="shelfmark">Marsh. 13</idno>
+            </label>
+            <biblScope unit="fol">f. 1-61v</biblScope>
+          </bibl>
+          <bibl xml:id="bib399-7" source="#bib399-1" type="syriaca:Manuscript">
+            <label>Dar‘un-Harissa, Dayr al-Sharfeh, Résidence patriarcale syrienne catholique <idno type="shelfmark">Fonds Rahmani, cod. 44</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib399-8" source="#bib399-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/18 (olim ms Dayr az-Za‘faran, cod. 19), f. 35-42v</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib399-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">179</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/399" passive="http://syriaca.org/person/1105" source="#bib399-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">179</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

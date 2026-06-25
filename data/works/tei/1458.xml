@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Fathers of Egypt (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
@@ -158,99 +136,150 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1458" ana="#hagiographic">
-                <title xml:id="name1458-3" xml:lang="fr" source="#bib1458-1">Pères d’Égypte (texte)</title>
-                <title xml:id="name1458-4" xml:lang="en" source="#bib1458-1" srophe:tags="#syriaca-headword">The Fathers of Egypt (text)</title>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-2">ms Londres, British Library, Add. 14579, f. 79v-190</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-3">ms Londres, British Library, Add. 12173 (incipits de Wright: BHO 865 [f. 2v], BHO 843 [f. 58v], 846 [f. 118])</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-4">ms Londres, British Library, Add. 17176 (incipits de Wright: BHO 843 [f. 2v], BHO 865 [f. 58]</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-5">ms Londres, British Library, Add. 17177 (1er texte incomplet, puis incipit hors BHO au f. 61)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-6">ms Londres, British Library, Add. 14676, f. 43-86</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-7">ms Londres, British Library, Add. 17174 (? Add. 12173)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-8">ms Londres, British Library, Add. 14583, f. 1v-151 (= Add. 17174)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-9">ms Londres, British Library, Add. 17264</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-10">ms Londres, British Library, Add. 17263 (= Add. 17264 et 14583)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-11">ms Londres, British Library, Add. 17175 (= abrégé de 17264 et 17263)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-12">ms Londres, British Library, Add. 14648 (incipits de Wright: BHO 865 [f. 2v], BHO 843 [f. 58v], mutilé)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-13">ms Londres, British Library, Add. 14650, f. 30-68v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-14">ms Londres, British Library, Or. 2311</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-15">ms Siirt, Évêché chaldéen, cod. 72</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-16">ms Dawra, Monastère chaldéen, cod. 695 (olim Alqosh Monastère N.-D. des Semences, cod. 248 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-17">ms Dawra, Monastère chaldéen, cod. 697 (olim Alqosh Monastère N.-D. des Semences, cod. 249 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-18">ms Dawra, Monastère chaldéen, cod. 698 (olim Alqosh Monastère N.-D. des Semences, cod. 250 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-19">ms Dawra, Monastère chaldéen, cod. 699 (olim Alqosh Monastère N.-D. des Semences, cod. 251 Vosté)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-20">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 94</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-21">ms Bagdad, Patriarcat chaldéen catholique, = olim Mossoul, Patriarcat chaldéen, cod. 95</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-22">ms Sinai, Monastère Sainte-Catherine, Syr. 16 (Kamil 71)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-23">ms Sinai, Monastère Sainte-Catherine, Syr. 23 (Kamil 72)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-24">ms Sinai, Monastère Sainte-Catherine, Syr. 46 (Kamil 75)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-25">ms Ourmia, Sarau-Shedd 193</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-26">ms Dayr az-Za‘faran, cod. pap. 111 (Dolabany)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1458-1">
-                    <bibl xml:id="bib1458-27">ms Dayr az-Za‘faran, cod. pap. 112 (Dolabany)</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1458</idno>
-                <idno type="BHS">1337</idno>
-                <bibl xml:id="bib1458-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1458" ana="#syriaca-hagiographic">
+        <title xml:id="name1458-3" xml:lang="fr" source="#bib1458-1">Pères d’Égypte (texte)</title>
+        <title xml:id="name1458-4" xml:lang="en" source="#bib1458-1" srophe:tags="#syriaca-headword">The Fathers of Egypt (text)</title>
+        <idno type="URI">http://syriaca.org/work/1458</idno>
+        <idno type="number" subtype="BHS">1337</idno>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1458" source="#bib1458-1" passive="http://syriaca.org/person/1994">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1994">Father of Egypt</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1458-2" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14579</idno>
+            </label>
+            <biblScope unit="fol">f. 79v-190</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-3" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12173</idno>
+            </label>
+            <biblScope unit="fol">(incipits de Wright: BHO 865 [f. 2v], BHO 843 [f. 58v], 846 [f. 118])</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-4" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17176</idno>
+            </label>
+            <biblScope unit="fol">(incipits de Wright: BHO 843 [f. 2v], BHO 865 [f. 58]</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-5" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17177</idno>
+            </label>
+            <biblScope unit="fol">(1er texte incomplet, puis incipit hors BHO au f. 61)</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-6" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14676</idno>
+            </label>
+            <biblScope unit="fol">f. 43-86</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-7" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17174</idno>
+            </label>
+            <note xml:lang="en" source="#bib1458-1">(? Add. 12173)</note>
+          </bibl>
+          <bibl xml:id="bib1458-8" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14583</idno>
+            </label>
+            <biblScope unit="fol">f. 1v-151 (= Add. 17174)</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-9" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17264</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-10" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17263</idno>
+            </label>
+            <note xml:lang="en" source="#bib1458-1">(= Add. 17264 et 14583)</note>
+          </bibl>
+          <bibl xml:id="bib1458-11" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17175</idno>
+            </label>
+            <note xml:lang="en" source="#bib1458-1">(= abrégé de 17264 et 17263)</note>
+          </bibl>
+          <bibl xml:id="bib1458-12" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14648</idno>
+            </label>
+            <biblScope unit="fol">(incipits de Wright: BHO 865 [f. 2v], BHO 843 [f. 58v], mutilé)</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-13" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14650</idno>
+            </label>
+            <biblScope unit="fol">f. 30-68v</biblScope>
+          </bibl>
+          <bibl xml:id="bib1458-14" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Or. 2311</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-15" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>Siirt, Évêché chaldéen <idno type="shelfmark">cod. 72</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-16" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 695 (olim Alqosh Monastère N.-D. des Semences, cod. 248 Vosté)</label>
+          </bibl>
+          <bibl xml:id="bib1458-17" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 697 (olim Alqosh Monastère N.-D. des Semences, cod. 249 Vosté)</label>
+          </bibl>
+          <bibl xml:id="bib1458-18" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 698 (olim Alqosh Monastère N.-D. des Semences, cod. 250 Vosté)</label>
+          </bibl>
+          <bibl xml:id="bib1458-19" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 699 (olim Alqosh Monastère N.-D. des Semences, cod. 251 Vosté)</label>
+          </bibl>
+          <bibl xml:id="bib1458-20" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>Bagdad, Patriarcat chaldéen catholique</label>
+            <label>olim Mossoul, Patriarcat chaldéen <idno type="shelfmark">cod. 94</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-21" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>Bagdad, Patriarcat chaldéen catholique</label>
+            <label>olim Mossoul, Patriarcat chaldéen <idno type="shelfmark">cod. 95</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-22" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>Sinai, Monastère Sainte-Catherine <idno type="shelfmark" subtype="Sinai">Syr. 16</idno>
+            </label>
+            <label>Kamil <idno type="catalog-number">71</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-23" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>Sinai, Monastère Sainte-Catherine <idno type="shelfmark" subtype="Sinai">Syr. 23</idno>
+            </label>
+            <label>Kamil <idno type="catalog-number">72</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-24" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>Sinai, Monastère Sainte-Catherine <idno type="shelfmark" subtype="Sinai">Syr. 46</idno>
+            </label>
+            <label>Kamil <idno type="catalog-number">75</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-25" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>Ourmia <idno type="shelfmark">Sarau-Shedd 193</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib1458-26" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>ms Dayr az-Za‘faran, cod. pap. 111 (Dolabany)</label>
+          </bibl>
+          <bibl xml:id="bib1458-27" source="#bib1458-1" type="syriaca:Manuscript">
+            <label>ms Dayr az-Za‘faran, cod. pap. 112 (Dolabany)</label>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1458-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1337</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1458" passive="http://syriaca.org/person/1994" source="#bib1458-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1337</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

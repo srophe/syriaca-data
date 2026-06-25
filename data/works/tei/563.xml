@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Children of Ephesus (or Sleepers) (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -162,101 +140,150 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-563" ana="#hagiographic">
-                <title xml:id="name563-3" xml:lang="fr" source="#bib563-1">Enfants d’Éphèse (texte)</title>
-                <title xml:id="name563-4" xml:lang="en" source="#bib563-1" srophe:tags="#syriaca-headword">The Children of Ephesus (or Sleepers) (text)</title>
-                <author xml:lang="fr" source="#bib563-1" ref="http://syriaca.org/person/58">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Zacharias</forename>
-                        <addName type="untagged-title" sort="2">Rhetor</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܙܟܪܝܐ</forename>
-                        <addName type="untagged-title" sort="2">ܡܠܝܠܐ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Zacharie</forename>
-                        <addName type="untagged-title">le Rhéteur</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib563-1">
-                    <quote>ܟܕ ܫܠܡ ܠܒܢܝܢܗܿ ܕܪܗܘܡܐ ܐܠܦ ܫ̈ܢܝܢ. ܘܐܓܘ̈ܢܐ ܕܫ̈ܢܝܢ ܐܠܦ ܐܫܬܡܫܘ ܒܗܿ ܘܐܬܩܛܠܘܢ ܚܝ̈ܘܬܐ ܣܓ̈ܝܐܬܐ ܒܬܐܛܪܘܢ ܒܝ̈ܘܡܝ ܦܝܠܝܦܘܣ ܡܠܟܐ ܘܒܢ̈ܘܗܝ. ܗܿܘ ܕܐܚܪܝܬ ܒܬܪ ܫܒ̈ܥ ܫ̈ܢܝܢ ܕܡܠܘܬܗ ܐܬܩܛܠ ܡܢ ܕܩܝܣ ܗܿܘ ܕܥܒܕ ܪܕܘܦܝܐ ܣܓܝܐܐ ܥܠ ܟܪ̈ܣܛܝܢܐ...</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib563-1">
-                    <quote>Quand mille ans eurent été achevés depuis la construction de Rome et que les jeux du millénaire eurent été célébrés et que beaucoup d’animaux eurent été tués au théâtre, aux jours de l’empereur Philippe et de ses fils, lui qui fut tué après sept ans de règne par Dèce, celui qui fit une grande persécution contre les chrétiens…</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib563-1">
-                    <quote>ܘܒܟܢܘܫܝܐ ܕܐ̈ܦܣܩܘܦܐ̣. ܗܘܐ ܥܐܕܐ ܪܒܐ ܠܕܘܟܪܢܗܘܢ. ܘܐܬܝܗܒܬ ܙܕܩܬܐ ܪܒܬܐ ܡܢ ܡܠܟܐ ܠܡܣ̈ܟܢܐ ܕܐܬܪܐ. ܘܐܫܬܪܝܘ ܟܗ̈ܢܐ ܕܐܣܝܪܝܢ ܗܘܘ. ܐܦ ܐܚ̈ܪܝܐ ܡܛܘܠ ܥܠܬܐ ܕܡܬܥܒܪܢܘܬܐ. ܘܒܚܕܘܬܐ ܠܘܝܘܗܝ ܠܡܠܟܐ ܠܩܘܣܛܢܛܝܢܐ ܦܘܠܝܣ. ܟܕ ܡܫܒܚܝܢ ܘܡܒܪܟܝܢ ܠܐܠܗܐ. ܐܡܝܢ ܘܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib563-1">
-                    <quote>Et lors du synode des évêques fut établie une grande fête à leur mémoire, et une grande aumône fut apportée par l’empereur aux pauvres de la région. Et les prêtres prisonniers furent libérés, et même les derniers condamnés pour transgression. Et avec joie ils escortèrent l’empereur à Constantinople en louant et bénissant Dieu. Amen et amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib563-1" corresp="#bib563-6" n="1" xml:id="bib563-4">
-                        <author>Brooks, E. W.</author>
-                        <title>Historia ecclesiastica Zachariae Rhetori vulgo adscripta I</title>
-                        <ptr target="http://syriaca.org/cbss/HPPSL3AR"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>Paris, 1919, p. 106-122</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib563-1" corresp="#bib563-7 bib563-10" n="2" xml:id="bib563-5">
-                        <author>Land, J. P. N.</author>
-                        <title>2) Zachariae episcopi Mitylenes aliorumque scripta historica</title>
-                        <ptr target="http://syriaca.org/cbss/3AYZ67V6"/>
-                        <citedRange>p. 87-99</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib563-1">
-                    <bibl xml:id="bib563-6"> et (2): ms Londres, British Library, Add. 17202, f. 50v-58</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib563-1">
-                    <bibl xml:id="bib563-7">ms Leiden, Rijksuniversiteit, or. 2356 (cod. 1640)</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib563-1">
-                    <bibl xml:id="bib563-8">ms Londres, British Library, Add. 14641, f. 150-157</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib563-1">
-                    <bibl xml:id="bib563-9">
-                        <editor>E. W. Brooks</editor>
-                        <title>CSCO 87 Script. Syri
+            <bibl xml:id="work-563" ana="#syriaca-hagiographic">
+        <title xml:id="name563-3" xml:lang="fr" source="#bib563-1">Enfants d’Éphèse (texte)</title>
+        <title xml:id="name563-4" xml:lang="en" source="#bib563-1" srophe:tags="#syriaca-headword">The Children of Ephesus (or Sleepers) (text)</title>
+        <author ref="http://syriaca.org/person/58" source="#bib563-1" xml:lang="en">Zechariah Rhetor — <foreign xml:lang="syr">ܙܟܪܝܐ ܡܠܝܠܐ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/563</idno>
+        <idno type="number" subtype="BHS">343</idno>
+        <idno type="number" subtype="BHO">1012</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib563-1">ܟܕ ܫܠܡ ܠܒܢܝܢܗܿ ܕܪܗܘܡܐ ܐܠܦ ܫ̈ܢܝܢ. ܘܐܓܘ̈ܢܐ ܕܫ̈ܢܝܢ ܐܠܦ ܐܫܬܡܫܘ ܒܗܿ ܘܐܬܩܛܠܘܢ ܚܝ̈ܘܬܐ ܣܓ̈ܝܐܬܐ ܒܬܐܛܪܘܢ ܒܝ̈ܘܡܝ ܦܝܠܝܦܘܣ ܡܠܟܐ ܘܒܢ̈ܘܗܝ. ܗܿܘ ܕܐܚܪܝܬ ܒܬܪ ܫܒ̈ܥ ܫ̈ܢܝܢ ܕܡܠܘܬܗ ܐܬܩܛܠ ܡܢ ܕܩܝܣ ܗܿܘ ܕܥܒܕ ܪܕܘܦܝܐ ܣܓܝܐܐ ܥܠ ܟܪ̈ܣܛܝܢܐ...</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib563-1">Quand mille ans eurent été achevés depuis la construction de Rome et que les jeux du millénaire eurent été célébrés et que beaucoup d’animaux eurent été tués au théâtre, aux jours de l’empereur Philippe et de ses fils, lui qui fut tué après sept ans de règne par Dèce, celui qui fit une grande persécution contre les chrétiens…</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib563-1">ܘܒܟܢܘܫܝܐ ܕܐ̈ܦܣܩܘܦܐ̣. ܗܘܐ ܥܐܕܐ ܪܒܐ ܠܕܘܟܪܢܗܘܢ. ܘܐܬܝܗܒܬ ܙܕܩܬܐ ܪܒܬܐ ܡܢ ܡܠܟܐ ܠܡܣ̈ܟܢܐ ܕܐܬܪܐ. ܘܐܫܬܪܝܘ ܟܗ̈ܢܐ ܕܐܣܝܪܝܢ ܗܘܘ. ܐܦ ܐܚ̈ܪܝܐ ܡܛܘܠ ܥܠܬܐ ܕܡܬܥܒܪܢܘܬܐ. ܘܒܚܕܘܬܐ ܠܘܝܘܗܝ ܠܡܠܟܐ ܠܩܘܣܛܢܛܝܢܐ ܦܘܠܝܣ. ܟܕ ܡܫܒܚܝܢ ܘܡܒܪܟܝܢ ܠܐܠܗܐ. ܐܡܝܢ ܘܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib563-1">Et lors du synode des évêques fut établie une grande fête à leur mémoire, et une grande aumône fut apportée par l’empereur aux pauvres de la région. Et les prêtres prisonniers furent libérés, et même les derniers condamnés pour transgression. Et avec joie ils escortèrent l’empereur à Constantinople en louant et bénissant Dieu. Amen et amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/563" source="#bib563-1" passive="http://syriaca.org/person/3018">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/3018">Qitmir, dog of the Sleepers of Ephesus</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/563" source="#bib563-1" passive="http://syriaca.org/person/1227">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1227">Sleepers of Ephesus</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/563" source="#bib563-1" passive="http://syriaca.org/person/3018">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/3018">Qitmir, dog of the Sleepers of Ephesus</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/563" source="#bib563-1" passive="http://syriaca.org/person/1227">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1227">Sleepers of Ephesus</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/563" source="#bib563-1" passive="http://syriaca.org/person/3018">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/3018">Qitmir, dog of the Sleepers of Ephesus</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib563-1" n="1" xml:id="bib563-4" type="lawd:Edition">
+            <title xml:lang="la">Historia ecclesiastica Zachariae Rhetori vulgo adscripta I</title>
+            <author>Brooks, E. W.</author>
+            <ptr target="http://syriaca.org/cbss/HPPSL3AR"/>
+            <citedRange unit="vol">1</citedRange>
+            <citedRange unit="p">Paris, 1919, p. 106-122</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib563-4" source="#bib563-1" passive="#bib563-6">
+                <desc xml:lang="en">
+                  <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17202</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib563-1" n="2" xml:id="bib563-5" type="lawd:Edition">
+            <title xml:lang="la">2) Zachariae episcopi Mitylenes aliorumque scripta historica</title>
+            <author>Land, J. P. N.</author>
+            <ptr target="http://syriaca.org/cbss/3AYZ67V6"/>
+            <citedRange unit="p">p. 87-99</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib563-5" source="#bib563-1" passive="#bib563-7">
+                <desc xml:lang="en">
+                  <label>Leiden, Rijksuniversiteit <idno type="shelfmark">or. 2356</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib563-6" source="#bib563-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 17202</idno>
+            </label>
+            <biblScope unit="fol">f. 50v-58</biblScope>
+          </bibl>
+          <bibl xml:id="bib563-7" source="#bib563-1" type="syriaca:Manuscript">
+            <label>Leiden, Rijksuniversiteit <idno type="shelfmark">or. 2356</idno>
+            </label>
+            <label>
+              <idno type="shelfmark">cod. 1640</idno>
+            </label>
+          </bibl>
+          <bibl xml:id="bib563-8" source="#bib563-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14641</idno>
+            </label>
+            <biblScope unit="fol">f. 150-157</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib563-9" source="#bib563-1" type="syriaca:ModernTranslation">
+            <title xml:lang="la">CSCO 87 Script. Syri
                 41</title>
-                        <ptr target="http://syriaca.org/cbss/HPPSL3AR"/>
-                        <citedRange unit="pp">74-85</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib563-10">The manuscript witnesses for edition 2 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/563</idno>
-                <idno type="BHS">343</idno>
-                <idno type="BHO">1012</idno>
-                <bibl xml:id="bib563-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <editor>E. W. Brooks</editor>
+            <ptr target="http://syriaca.org/cbss/HPPSL3AR"/>
+            <citedRange unit="p">74-85</citedRange>
+            <textLang mainLang="la"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib563-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">343</citedRange>
-                </bibl>
-                <bibl xml:id="bib563-2">
-                    <title xml:lang="de" level="m">Zur Überlieferungsgeschichte der
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">343</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib563-2">
+            <title xml:lang="de" level="m">Zur Überlieferungsgeschichte der
                      Legende. Die syrischen Texte mit besonderer Berücksichtigung ihrer Vertreter</title>
-                    <title xml:lang="de" level="m">Beitrag zur Siebenschläferlegende des Mittelalters.
+            <title xml:lang="de" level="m">Beitrag zur Siebenschläferlegende des Mittelalters.
                      Eine literargeschichtliche Untersuchung</title>
-                    <title xml:lang="de" level="s">Beilage zum Jahresbericht des humanistischen Gymnasiums Metten</title>
-                    <ptr target="http://syriaca.org/cbss/RHCDDJJS"/>
-                </bibl>
-                <bibl xml:id="bib563-3">
-                    <title level="a" xml:lang="fr">CR de Huber</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/FAGCUIPD"/>
-                    <citedRange from="118" to="119" unit="pp">118-119</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/563" passive="http://syriaca.org/person/3018 http://syriaca.org/person/1227" source="#bib563-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/563" passive="http://syriaca.org/person/3018" source="#bib563-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/563" passive="http://syriaca.org/person/1227" source="#bib563-1"/>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/563" passive="http://syriaca.org/person/3018" source="#bib563-1"/>
-                </listRelation>
-            </bibl>
+            <title xml:lang="de" level="s">Beilage zum Jahresbericht des humanistischen Gymnasiums Metten</title>
+            <ptr target="http://syriaca.org/cbss/RHCDDJJS"/>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib563-3">
+            <title level="a" xml:lang="fr">CR de Huber</title>
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/FAGCUIPD"/>
+            <citedRange from="118" to="119" unit="p">118-119</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

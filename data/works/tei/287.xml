@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Qardagh (text) — <foreign xml:lang="syr">ܩܪܕܓ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,9 +124,10 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
-            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologues with new BHSE data.</change>
+            <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2016-03-18-04:00">Update prologs with new BHSE data.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
                Added xml:id attributes to note/bibl elements and updated note/bib/corresp attributes to match new xml:ids.  
             </change>
@@ -165,156 +143,215 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-287" ana="#hagiographic">
-                <title xml:id="name287-1" xml:lang="syr" source="#bib287-1" srophe:tags="#syriaca-headword">ܩܪܕܓ</title>
-                <title xml:id="name287-2" xml:lang="fr-x-bhs" source="#bib287-1">Qardāǥ</title>
-                <title xml:id="name287-3" xml:lang="fr" source="#bib287-1">Qardag (texte)</title>
-                <title xml:id="name287-4" xml:lang="en" source="#bib287-1" srophe:tags="#syriaca-headword">Qardagh (text)</title>
-                <note xml:lang="fr" type="prologue" source="#bib287-1">
-                    <quote>Mes bien-aimés, les histoires des martyrs et des saints de notre Seigneur Jésus-Christ sont utiles à la sainte Église, elles sont une nourriture sirituelle pour les saintes assemblées de la Croix.</quote>
-                </note>
-                <note xml:lang="syr" type="prologue" source="#bib287-1">
-                    <quote>ܚܒܝ̈ܒܝ: ܝܘܬܪܢܐ ܐܢܝܢ ܠܥܕܬܐ ܩܕܝܫܬܐ ܬܫ̈ܥܝܬܐ ܕܣܗܕܘ̈ܗܝ ܘܩܕܝܫܘ̈ܗܝ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ: ܘܬܘܪܣܝܐ ܐܢܝܢ ܪܘܚܢܝܐ ܠܟܢܘ̈ܫܬܐ ܩܕܝ̈ܫܬܐ ܕܨܠܝܒܐ...</quote>
-                </note>
-                <note xml:lang="syr" type="incipit" source="#bib287-1">
-                    <quote>ܒܕܓܘܢ ܚܒܝ̈ܒܝ ܪܓܝܓ ܐܢܐ ܕܐܫܬܥܐ ܠܟܘܢ ܢܨܚܢܘ̈ܗܝ ܬܡܝ̈ܗܐ ܘܐܓܘܢܘ̈ܗܝ ܪܘܪ̈ܒܐ ܕܐܬܠܝܛܐ ܕܙܕܝܩܘܬܐ: ܣܗܕܐ ܩܕܝܫܐ ܡܪܝ ܩܪܕܓ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib287-1">
-                    <quote>Aussi, mes bien-aimés, je désire vous raconter les hauts faits admirables et les grands combats de l’athlète de la justice, le saint martyr Mâr Qardag.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib287-1">
-                    <quote>ܒܬܪܟܢ ܕܝܢ ܐܦ ܗܝܟܠܐ ܪܒܐ ܘܦܐܝܐ ܒܢܦ̈ܩܬܐ ܪܘܪ̈ܒܬܐ ܐܬܒܢܝ ܥܠ ܫܡܗ ܕܛܘܒܢܐ: ܡܢ ܐܢܫܐ ܡܗܝܡ̈ܢܐ ܘܫܘ̈ܝܝ ܠܕܘܟܪܢܐ ܛܒܐ: ܥܡܗ ܕܬܠܐ ܗܘܿ ܕܥܠܘܗܝ ܐܬܪܓܡ ܩܕܝܫܐ ܡܪܝ ܩܪܕܓ. ܕܚܢܢ ܢܫܬܘܐ ܕܒܨ̈ܠܘܬܗ... ܐܡܝܢ</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib287-1">
-                    <quote>Ensuite un temple grand et beau fut construit avec de grandes dépenses au nom du bienheureux, par des gens croyants et dignes de bonne mémoire, près du tertre sur lequel avait été lapidé saint Mâr Qardag. Puissions-nous à ses prières être jugés dignes… Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib287-1" corresp="#bib287-10" n="1" xml:id="bib287-7">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 2</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">2</citedRange>
-                        <citedRange>p. 442-506</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib287-1" corresp="#bib287-11" n="2" xml:id="bib287-8">
-                        <author>Abbeloos, J. B.</author>
-                        <title>Acta Mar Kardaghi Assyriae praefecti qui sub Sapore II martyr occubuit</title>
-                        <ptr target="http://syriaca.org/cbss/8VSKN4EE"/>
-                        <citedRange>Bruxelles-Leipzig, 1890, p. 11-103 = AB 9 (1890), p. 11-103</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib287-1" corresp="#bib287-12 bib287-22" n="3" xml:id="bib287-9">
-                        <author>Feige, H.</author>
-                        <title>Die Geschichte des Mâr æAbhdî¯ôæ und seines Jüngers Mâr Qardagh</title>
-                        <ptr target="http://syriaca.org/cbss/5PM24TFN"/>
-                        <citedRange>Kiel, 1890, p. 1-96 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-10">ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 690-731 + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 167-191 + ms de Perse</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-11">ms d’Abbeloos + ms de Mossoul ??</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-12">ms Dawra, Monastère chaldéen, cod. 622, f. 243-276</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-13">ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 24 p. 5 - cah. 27 p. 6</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-14">ms Dawra, Monastère chaldéen, cod. 633, f. 57-92</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-15">ms Vatican, Syr. 597, f. 160v-186</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-16">ms Berlin, Königliche Bibliothek, syr. 76 (orient. octav. 337), f. 1-61v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-17">mss Paris, Bibliothèque nationale, syr. 295, f. 168-212v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-18">mss Paris, Bibliothèque nationale, syr. 309, f. 194-240</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib287-1">
-                    <bibl xml:id="bib287-19">mss Paris, Bibliothèque nationale, syr. 326, f. 22-66</bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib287-1">
-                    <bibl xml:id="bib287-20">
-                        <editor>J. B. Abbeloos</editor>
-                        <title>ibid.</title>
-                        <ptr target="http://syriaca.org/cbss/8VSKN4EE"/>
-                        <citedRange>Bruxelles-Leipzig, 1890, p. 11-103 = AB 9 (1890), p. 11-103</citedRange>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib287-1">
-                    <bibl xml:id="bib287-21">
-                        <editor>H. Feige</editor>
-                        <title>Die Geschichte des Mâr æAbhdî¯ôæ
+            <bibl xml:id="work-287" ana="#syriaca-hagiographic">
+        <title xml:id="name287-1" xml:lang="syr" source="#bib287-1" srophe:tags="#syriaca-headword">ܩܪܕܓ</title>
+        <title xml:id="name287-2" xml:lang="fr-x-bhs" source="#bib287-1">Qardāǥ</title>
+        <title xml:id="name287-3" xml:lang="fr" source="#bib287-1">Qardag (texte)</title>
+        <title xml:id="name287-4" xml:lang="en" source="#bib287-1" srophe:tags="#syriaca-headword">Qardagh (text)</title>
+        <idno type="URI">http://syriaca.org/work/287</idno>
+        <idno type="number" subtype="BHS">66</idno>
+        <idno type="number" subtype="BHO">555</idno>
+        <noteGrp type="prologue">
+          <desc xml:lang="en">Prologue</desc>
+          <note xml:lang="fr" type="prologue">
+            <quote source="#bib287-1">Mes bien-aimés, les histoires des martyrs et des saints de notre Seigneur Jésus-Christ sont utiles à la sainte Église, elles sont une nourriture sirituelle pour les saintes assemblées de la Croix.</quote>
+          </note>
+          <note xml:lang="syr" type="prologue">
+            <quote source="#bib287-1">ܚܒܝ̈ܒܝ: ܝܘܬܪܢܐ ܐܢܝܢ ܠܥܕܬܐ ܩܕܝܫܬܐ ܬܫ̈ܥܝܬܐ ܕܣܗܕܘ̈ܗܝ ܘܩܕܝܫܘ̈ܗܝ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ: ܘܬܘܪܣܝܐ ܐܢܝܢ ܪܘܚܢܝܐ ܠܟܢܘ̈ܫܬܐ ܩܕܝ̈ܫܬܐ ܕܨܠܝܒܐ...</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib287-1">ܒܕܓܘܢ ܚܒܝ̈ܒܝ ܪܓܝܓ ܐܢܐ ܕܐܫܬܥܐ ܠܟܘܢ ܢܨܚܢܘ̈ܗܝ ܬܡܝ̈ܗܐ ܘܐܓܘܢܘ̈ܗܝ ܪܘܪ̈ܒܐ ܕܐܬܠܝܛܐ ܕܙܕܝܩܘܬܐ: ܣܗܕܐ ܩܕܝܫܐ ܡܪܝ ܩܪܕܓ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib287-1">Aussi, mes bien-aimés, je désire vous raconter les hauts faits admirables et les grands combats de l’athlète de la justice, le saint martyr Mâr Qardag.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib287-1">ܒܬܪܟܢ ܕܝܢ ܐܦ ܗܝܟܠܐ ܪܒܐ ܘܦܐܝܐ ܒܢܦ̈ܩܬܐ ܪܘܪ̈ܒܬܐ ܐܬܒܢܝ ܥܠ ܫܡܗ ܕܛܘܒܢܐ: ܡܢ ܐܢܫܐ ܡܗܝܡ̈ܢܐ ܘܫܘ̈ܝܝ ܠܕܘܟܪܢܐ ܛܒܐ: ܥܡܗ ܕܬܠܐ ܗܘܿ ܕܥܠܘܗܝ ܐܬܪܓܡ ܩܕܝܫܐ ܡܪܝ ܩܪܕܓ. ܕܚܢܢ ܢܫܬܘܐ ܕܒܨ̈ܠܘܬܗ... ܐܡܝܢ</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib287-1">Ensuite un temple grand et beau fut construit avec de grandes dépenses au nom du bienheureux, par des gens croyants et dignes de bonne mémoire, près du tertre sur lequel avait été lapidé saint Mâr Qardag. Puissions-nous à ses prières être jugés dignes… Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/287" source="#bib287-1" passive="http://syriaca.org/person/1420">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1420">Qardag</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/287" source="#bib287-1" passive="http://syriaca.org/person/3008">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/3008">ʿAbdishoʿ</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib287-1" n="1" xml:id="bib287-7" type="lawd:Edition">
+            <title xml:lang="la">AMS 2</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">2</citedRange>
+            <citedRange unit="p">p. 442-506</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib287-7" source="#bib287-1" passive="#bib287-10">
+                <desc xml:lang="en">
+                  <label>ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 690-731 + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 167-191 + ms de Perse</label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib287-1" n="2" xml:id="bib287-8" type="lawd:Edition">
+            <title xml:lang="la">Acta Mar Kardaghi Assyriae praefecti qui sub Sapore II martyr occubuit</title>
+            <author>Abbeloos, J. B.</author>
+            <ptr target="http://syriaca.org/cbss/8VSKN4EE"/>
+            <citedRange unit="p">Bruxelles-Leipzig, 1890, p. 11-103 = AB 9 (1890), p. 11-103</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib287-8" source="#bib287-1" passive="#bib287-11">
+                <desc xml:lang="en">
+                  <label>ms d’Abbeloos + ms de Mossoul ??</label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+          <bibl source="#bib287-1" n="3" xml:id="bib287-9" type="lawd:Edition">
+            <title xml:lang="de">Die Geschichte des Mâr æAbhdî¯ôæ und seines Jüngers Mâr Qardagh</title>
+            <author>Feige, H.</author>
+            <ptr target="http://syriaca.org/cbss/5PM24TFN"/>
+            <citedRange unit="p">Kiel, 1890, p. 1-96 (syr.)</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib287-9" source="#bib287-1" passive="#bib287-12">
+                <desc xml:lang="en">
+                  <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 622</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib287-10" source="#bib287-1" type="syriaca:Manuscript">
+            <label>ms Berlin, Königliche Bibliothek, or. oct. 1256 (Assfalg 26, olim Abbeloos, dein Bedjan, copié sur ms Diyarbakir, Archevêché chaldéen, cod. 96 [nunc Mardin, Évêché chaldéen, y vu en 1969]), p. 690-731 + ms Berlin, Königliche Bibliothek, syr. 75 (Sachau 222), f. 167-191 + ms de Perse</label>
+          </bibl>
+          <bibl xml:id="bib287-11" source="#bib287-1" type="syriaca:Manuscript">
+            <label>ms d’Abbeloos + ms de Mossoul ??</label>
+          </bibl>
+          <bibl xml:id="bib287-12" source="#bib287-1" type="syriaca:Manuscript">
+            <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 622</idno>
+            </label>
+            <biblScope unit="fol">f. 243-276</biblScope>
+          </bibl>
+          <bibl xml:id="bib287-13" source="#bib287-1" type="syriaca:Manuscript">
+            <label>ms Dawra, Monastère chaldéen, cod. 628 (olim Alqosh, Monastère N.-D. des Semences, cod. 214 Vosté), cah. 24 p. 5 - cah. 27 p. 6</label>
+          </bibl>
+          <bibl xml:id="bib287-14" source="#bib287-1" type="syriaca:Manuscript">
+            <label>Dawra (Bagdad), Monastère chaldéen <idno type="shelfmark">cod. 633</idno>
+            </label>
+            <biblScope unit="fol">f. 57-92</biblScope>
+          </bibl>
+          <bibl xml:id="bib287-15" source="#bib287-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 597</idno>
+            </label>
+            <biblScope unit="fol">f. 160v-186</biblScope>
+          </bibl>
+          <bibl xml:id="bib287-16" source="#bib287-1" type="syriaca:Manuscript">
+            <label>Berlin, Königliche Bibliothek <idno type="shelfmark" subtype="Berlin">syr. 76</idno>
+            </label>
+            <label>
+              <idno type="shelfmark">orient. octav. 337</idno>
+            </label>
+            <biblScope unit="fol">f. 1-61v</biblScope>
+          </bibl>
+          <bibl xml:id="bib287-17" source="#bib287-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 295</idno>
+            </label>
+            <biblScope unit="fol">f. 168-212v</biblScope>
+          </bibl>
+          <bibl xml:id="bib287-18" source="#bib287-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 309</idno>
+            </label>
+            <biblScope unit="fol">f. 194-240</biblScope>
+          </bibl>
+          <bibl xml:id="bib287-19" source="#bib287-1" type="syriaca:Manuscript">
+            <label>Paris, Bibliothèque nationale <idno type="shelfmark" subtype="BNF">syr. 326</idno>
+            </label>
+            <biblScope unit="fol">f. 22-66</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib287-20" source="#bib287-1" type="syriaca:ModernTranslation">
+            <title xml:lang="la">Acta Mar Kardaghi Assyriae praefecti qui sub Sapore II martyr occubuit</title>
+            <editor>J. B. Abbeloos</editor>
+            <ptr target="http://syriaca.org/cbss/8VSKN4EE"/>
+            <citedRange unit="p">Bruxelles-Leipzig, 1890, p. 11-103 = AB 9 (1890), p. 11-103</citedRange>
+            <textLang mainLang="la"/>
+          </bibl>
+          <bibl xml:id="bib287-21" source="#bib287-1" type="syriaca:ModernTranslation">
+            <title xml:lang="de">Die Geschichte des Mâr æAbhdî¯ôæ
                 und seines Jüngers Mâr Qardagh, Kiel, 1890</title>
-                        <ptr target="http://syriaca.org/cbss/5PM24TFN"/>
-                        <citedRange unit="pp">14-55</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib287-22">The manuscript witnesses for edition 3 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/287</idno>
-                <idno type="BHS">66</idno>
-                <idno type="BHO">555</idno>
-                <bibl xml:id="bib287-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <editor>H. Feige</editor>
+            <ptr target="http://syriaca.org/cbss/5PM24TFN"/>
+            <citedRange unit="p">14-55</citedRange>
+            <textLang mainLang="de"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib287-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">66</citedRange>
-                </bibl>
-                <bibl xml:id="bib287-2">
-                    <title level="m" xml:lang="fr">CR</title>
-                    <title xml:lang="fr" level="j">Le Muséon</title>
-                    <ptr target="http://syriaca.org/cbss/XCXNUXFH"/>
-                    <citedRange from="624" to="626" unit="pp">624-626 <note xml:lang="fr">compare
-                  Abbeloos et Feige</note>
-                    </citedRange>
-                </bibl>
-                <bibl xml:id="bib287-3">
-                    <title xml:lang="fr" level="a">Le “Passionnaire d’Adiabène”</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/WWMFWHLM"/>
-                    <citedRange from="261" to="304" unit="pp">261-304</citedRange>
-                </bibl>
-                <bibl xml:id="bib287-4">
-                    <title xml:lang="fr" level="a">L’apport de Mgr Addaï Scher à l’hagiographie
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">66</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib287-2">
+            <title level="m" xml:lang="fr">CR</title>
+            <title xml:lang="fr" level="j">Le Muséon</title>
+            <ptr target="http://syriaca.org/cbss/XCXNUXFH"/>
+            <citedRange from="624" to="626" unit="p">624-626</citedRange>
+            <note xml:lang="fr" source="#bib287-1">compare Abbeloos et Feige</note>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib287-3">
+            <title xml:lang="fr" level="a">Le “Passionnaire d’Adiabène”</title>
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/WWMFWHLM"/>
+            <citedRange from="261" to="304" unit="p">261-304</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib287-4">
+            <title xml:lang="fr" level="a">L’apport de Mgr Addaï Scher à l’hagiographie
                      orientale</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/DXAF84BC"/>
-                    <citedRange from="121" to="142" unit="pp">121-142</citedRange>
-                </bibl>
-                <bibl xml:id="bib287-5">
-                    <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/DXAF84BC"/>
+            <citedRange from="121" to="142" unit="p">121-142</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib287-5">
+            <title xml:lang="fr" level="a">Les Martyrs persans à travers leurs Actes
                      syriaques</title>
-                    <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
+            <title xml:lang="it" level="m">Atti del Convegno sul tema: La Persia e il mondo
                      greco-romano (Roma 11-14 aprile 1965)</title>
-                    <title xml:lang="it" level="s">Problemi attuali di scienza e di cultura</title>
-                    <ptr target="http://syriaca.org/cbss/LVMEY8Z9"/>
-                    <citedRange from="213" to="225" unit="pp">213-225</citedRange>
-                </bibl>
-                <bibl xml:id="bib287-6">
-                    <title xml:lang="de" level="a">Christlicher Heiligenkult im Umkreis eines
+            <title xml:lang="it" level="s">Problemi attuali di scienza e di cultura</title>
+            <ptr target="http://syriaca.org/cbss/LVMEY8Z9"/>
+            <citedRange from="213" to="225" unit="p">213-225</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib287-6">
+            <title xml:lang="de" level="a">Christlicher Heiligenkult im Umkreis eines
                      sassanidischen Grosskönigs</title>
-                    <title level="m" xml:lang="de">Festgabe deutscher Iranisten zur 2500 Jahrfeier Irans</title>
-                    <ptr target="http://syriaca.org/cbss/Y59ZM8TL"/>
-                    <citedRange from="141" to="155" unit="pp">141-155</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/287" passive="http://syriaca.org/person/1420 http://syriaca.org/person/3008" source="#bib287-1"/>
-                </listRelation>
-            </bibl>
+            <title level="m" xml:lang="de">Festgabe deutscher Iranisten zur 2500 Jahrfeier Irans</title>
+            <ptr target="http://syriaca.org/cbss/Y59ZM8TL"/>
+            <citedRange from="141" to="155" unit="p">141-155</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

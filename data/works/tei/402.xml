@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">The Martyrs of Sebaste (text)</title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -51,7 +46,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -64,51 +59,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -146,6 +123,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -162,76 +140,99 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-402" ana="#hagiographic">
-                <title xml:id="name402-3" xml:lang="fr" source="#bib402-1">Martyrs de Sébaste (40) (texte)</title>
-                <title xml:id="name402-4" xml:lang="en" source="#bib402-1" srophe:tags="#syriaca-headword">The Martyrs of Sebaste (text)</title>
-                <author xml:lang="fr" source="#bib402-1" ref="http://syriaca.org/person/42">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Yaʿqub</forename>
-                        <addName type="untagged-title" sort="2">of Serugh</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܝܥܩܘܒ</forename>
-                        <addName type="untagged-title" sort="2">ܕܣܪܘܓ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Jacques</forename>
-                        <addName type="untagged-title">de Serugh</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib402-1">
-                    <quote>ܒܪ ܐܠܗܐ ܕܕܪܫ ܐܘܪܚܐ ܠܒܝܬ ܡܠܟܘܬܐ: ܕܪܘܫ ܠܗܿ ܠܡܠܬܝ ܐܘܪܚܐ ܕܚܝ̈ܐ ܕܬܗܠܟ ܒܗܿ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib402-1">
-                    <quote>Fils de Dieu qui a ouvrert le chemin vers le royaume, ouvre à ma parole le chemin de la vie pour qu’elle y marche.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib402-1">
-                    <quote>ܕܝܠܢ ܐܢܘܢ ܐܪܒܥܝܢ ܝܘ̈ܡܝܢ ܘܐܪܒܥܝܢ ܣܗ̈ܕܐ: ܘܠܡܫܟܢܢܐ ܕܐܪܒܥܝܢ ܒܐܪܒܥܝܢ ܠܗ ܬܫܒܘܚܬܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib402-1">
-                    <quote>Nôtres sont les quarante jours et les quarante martyrs; et au donneur des quarante aux quarante, à lui la louange.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib402-1" xml:id="bib402-3">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 6</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">6</citedRange>
-                        <citedRange>p. 662-673</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib402-1">
-                    <bibl xml:id="bib402-4">ms Paris, Bibliothèque nationale, syr. 196, f. 154-157 + ms Londres, British Library, Add. 14515, f. 253v-257v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib402-1">
-                    <bibl xml:id="bib402-5">ms Vatican, Syr. 118, f. 169-171v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib402-1">
-                    <bibl xml:id="bib402-6">ms Londres, British Library, Add. 14516, f. 180-183v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib402-1">
-                    <bibl xml:id="bib402-7">ms Londres, British Library, Add. 12165, f. 105v-109v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib402-1">
-                    <bibl xml:id="bib402-8">ms Oxford, Bodleian Library, syr. 135 (Poc. 404), f. 93v-95v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib402-1">
-                    <bibl xml:id="bib402-9">ms Manchester, Joh, Rylands Library, Syr. 39, p. 355-363</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/402</idno>
-                <idno type="BHS">182</idno>
-                <idno type="BHO">714</idno>
-                <bibl xml:id="bib402-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-402" ana="#syriaca-hagiographic">
+        <title xml:id="name402-3" xml:lang="fr" source="#bib402-1">Martyrs de Sébaste (40) (texte)</title>
+        <title xml:id="name402-4" xml:lang="en" source="#bib402-1" srophe:tags="#syriaca-headword">The Martyrs of Sebaste (text)</title>
+        <author ref="http://syriaca.org/person/42" source="#bib402-1" xml:lang="en">Jacob of Serugh — <foreign xml:lang="syr">ܝܥܩܘܒ ܕܣܪܘܓ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/402</idno>
+        <idno type="number" subtype="BHS">182</idno>
+        <idno type="number" subtype="BHO">714</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib402-1">ܒܪ ܐܠܗܐ ܕܕܪܫ ܐܘܪܚܐ ܠܒܝܬ ܡܠܟܘܬܐ: ܕܪܘܫ ܠܗܿ ܠܡܠܬܝ ܐܘܪܚܐ ܕܚܝ̈ܐ ܕܬܗܠܟ ܒܗܿ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib402-1">Fils de Dieu qui a ouvrert le chemin vers le royaume, ouvre à ma parole le chemin de la vie pour qu’elle y marche.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib402-1">ܕܝܠܢ ܐܢܘܢ ܐܪܒܥܝܢ ܝܘ̈ܡܝܢ ܘܐܪܒܥܝܢ ܣܗ̈ܕܐ: ܘܠܡܫܟܢܢܐ ܕܐܪܒܥܝܢ ܒܐܪܒܥܝܢ ܠܗ ܬܫܒܘܚܬܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib402-1">Nôtres sont les quarante jours et les quarante martyrs; et au donneur des quarante aux quarante, à lui la louange.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/402" source="#bib402-1" passive="http://syriaca.org/person/1901">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1901">Forty Martyrs of Sebaste</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib402-1" xml:id="bib402-3" type="lawd:Edition">
+            <title xml:lang="la">AMS 6</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">6</citedRange>
+            <citedRange unit="p">p. 662-673</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib402-4" source="#bib402-1" type="syriaca:Manuscript">
+            <label>ms Paris, Bibliothèque nationale, syr. 196, f. 154-157 + ms Londres, British Library, Add. 14515, f. 253v-257v</label>
+          </bibl>
+          <bibl xml:id="bib402-5" source="#bib402-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Syr. 118</idno>
+            </label>
+            <biblScope unit="fol">f. 169-171v</biblScope>
+          </bibl>
+          <bibl xml:id="bib402-6" source="#bib402-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14516</idno>
+            </label>
+            <biblScope unit="fol">f. 180-183v</biblScope>
+          </bibl>
+          <bibl xml:id="bib402-7" source="#bib402-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12165</idno>
+            </label>
+            <biblScope unit="fol">f. 105v-109v</biblScope>
+          </bibl>
+          <bibl xml:id="bib402-8" source="#bib402-1" type="syriaca:Manuscript">
+            <label>Oxford, Bodleian Library <idno type="shelfmark">syr. 135</idno>
+            </label>
+            <label>Oxford, Bodleian Library <idno type="shelfmark">MS. Pococke 404</idno>
+            </label>
+            <biblScope unit="fol">f. 93v-95v</biblScope>
+          </bibl>
+          <bibl xml:id="bib402-9" source="#bib402-1" type="syriaca:Manuscript">
+            <label>Manchester, John Rylands Library <idno type="shelfmark">Syr. 39</idno>
+            </label>
+            <biblScope unit="p">p. 355-363</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib402-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">182</citedRange>
-                </bibl>
-                <bibl xml:id="bib402-2">
-                    <title xml:lang="en" level="m">The XL Martyrs in Syriac Tradition</title>
-                    <ptr target="http://syriaca.org/cbss/M7WEFSB7"/>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/402" passive="http://syriaca.org/person/1901" source="#bib402-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">182</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib402-2">
+            <title xml:lang="en" level="m">The XL Martyrs in Syriac Tradition</title>
+            <ptr target="http://syriaca.org/cbss/M7WEFSB7"/>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

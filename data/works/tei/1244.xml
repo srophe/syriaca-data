@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Thomas the Apostle (text) — <foreign xml:lang="syr">ܬܐܘܡܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -161,61 +139,76 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-1244" ana="#hagiographic">
-                <title xml:id="name1244-1" xml:lang="syr" source="#bib1244-1" srophe:tags="#syriaca-headword">ܬܐܘܡܐ</title>
-                <title xml:id="name1244-2" xml:lang="fr-x-bhs" source="#bib1244-1">Tōmā</title>
-                <title xml:id="name1244-3" xml:lang="fr" source="#bib1244-1">Thomas apôtre (texte)</title>
-                <title xml:id="name1244-4" xml:lang="en" source="#bib1244-1" srophe:tags="#syriaca-headword">Thomas the Apostle (text)</title>
-                <author xml:lang="fr" source="#bib1244-1" ref="http://syriaca.org/person/1050">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Gewargis</forename>
-                        <addName type="untagged-title" sort="2">of Alqosh</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܓܝܘܪܓܝܣ</forename>
-                        <addName type="untagged-title" sort="2">ܕܐܠܩܘܫ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Georges</forename>
-                        <addName type="untagged-title">d’Alqosh</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib1244-1">
-                    <quote>ܛܘܒܝܟ ܫܠܝܚܐ ܩܕܝܫܐ: ܐܘ ܡܪܝ ܬܐܘܡܐ ܢܨܝܚܐ. ܕܙܟܝܬܝܗܝ ܒܚܝܠܟ ܠܒܝܫܐ: ܘܢܨܚܬ ܒܫܡ ܡܪܝܐ ܡܫܝܚܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib1244-1">
-                    <quote>Heureux es-tu, saint apôtre, Mâr Thomas le vaillant, toi qui as vaincu le Mauvais par ta force et a triomphé au nom du Seigneur le Christ.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib1244-1">
-                    <quote>ܒܨܠܘܬܟ ܫܠܝܚܐ ܙܗܝܐ: ܢܬܦܪܩ ܡܢ ܝܕ ܫܒܝܐ. ܣܛܢܐ ܣܢܐ ܕܟܝ̈ܐ: ܘܢܫܬܘܐ ܒܛܝܒܘ ܕܝܠܗ ܡܪܝܐ. ܠܒܘܣܡ ܥܠܡܐ ܥܬܝܕܝܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1244-1">
-                    <quote>À ta prière, glorieux apôtre, puissions-nous être sauvés de la main du voleur Satan, ennemi des purs, et être jugés dignes par la grâce du Seigneur de la douceur du monde à venir.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1244-1" xml:id="bib1244-2">
-                        <author>Cardahi, G.</author>
-                        <title>Liber Thesauri de arte poetica Syrorum</title>
-                        <ptr target="http://syriaca.org/cbss/N9S62ID6"/>
-                        <citedRange>Rome, 1875, p. 130-135</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1244-1">
-                    <bibl xml:id="bib1244-3">ms Vatican, Borg. Syr. 22, f. 57v-66</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1244-1">
-                    <bibl xml:id="bib1244-4">ms Birmingham, Selly Oak College Library, Coll. Mingana, Syr. 130, f. 177v-179v</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1244</idno>
-                <idno type="BHS">1086</idno>
-                <idno type="BHO">1222</idno>
-                <bibl xml:id="bib1244-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-1244" ana="#syriaca-hagiographic">
+        <title xml:id="name1244-1" xml:lang="syr" source="#bib1244-1" srophe:tags="#syriaca-headword">ܬܐܘܡܐ</title>
+        <title xml:id="name1244-2" xml:lang="fr-x-bhs" source="#bib1244-1">Tōmā</title>
+        <title xml:id="name1244-3" xml:lang="fr" source="#bib1244-1">Thomas apôtre (texte)</title>
+        <title xml:id="name1244-4" xml:lang="en" source="#bib1244-1" srophe:tags="#syriaca-headword">Thomas the Apostle (text)</title>
+        <author ref="http://syriaca.org/person/1050" source="#bib1244-1" xml:lang="en">George of Alqosh — <foreign xml:lang="syr">ܓܝܘܪܓܝܣ ܕܐܠܩܘܫ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/1244</idno>
+        <idno type="number" subtype="BHS">1086</idno>
+        <idno type="number" subtype="BHO">1222</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib1244-1">ܛܘܒܝܟ ܫܠܝܚܐ ܩܕܝܫܐ: ܐܘ ܡܪܝ ܬܐܘܡܐ ܢܨܝܚܐ. ܕܙܟܝܬܝܗܝ ܒܚܝܠܟ ܠܒܝܫܐ: ܘܢܨܚܬ ܒܫܡ ܡܪܝܐ ܡܫܝܚܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib1244-1">Heureux es-tu, saint apôtre, Mâr Thomas le vaillant, toi qui as vaincu le Mauvais par ta force et a triomphé au nom du Seigneur le Christ.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib1244-1">ܒܨܠܘܬܟ ܫܠܝܚܐ ܙܗܝܐ: ܢܬܦܪܩ ܡܢ ܝܕ ܫܒܝܐ. ܣܛܢܐ ܣܢܐ ܕܟܝ̈ܐ: ܘܢܫܬܘܐ ܒܛܝܒܘ ܕܝܠܗ ܡܪܝܐ. ܠܒܘܣܡ ܥܠܡܐ ܥܬܝܕܝܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib1244-1">À ta prière, glorieux apôtre, puissions-nous être sauvés de la main du voleur Satan, ennemi des purs, et être jugés dignes par la grâce du Seigneur de la douceur du monde à venir.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/1244" source="#bib1244-1" passive="http://syriaca.org/person/2123">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/2123">Thomas</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib1244-1" xml:id="bib1244-2" type="lawd:Edition">
+            <title xml:lang="la">Liber Thesauri de arte poetica Syrorum</title>
+            <author>Cardahi, G.</author>
+            <ptr target="http://syriaca.org/cbss/N9S62ID6"/>
+            <citedRange unit="p">Rome, 1875, p. 130-135</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib1244-3" source="#bib1244-1" type="syriaca:Manuscript">
+            <label>Vatican <idno type="shelfmark" subtype="BAV">Borg. Syr. 22</idno>
+            </label>
+            <biblScope unit="fol">f. 57v-66</biblScope>
+          </bibl>
+          <bibl xml:id="bib1244-4" source="#bib1244-1" type="syriaca:Manuscript">
+            <label>Birmingham, Selly Oak College Library <idno type="shelfmark" subtype="Mingana">Mingana, Syr. 130</idno>
+            </label>
+            <biblScope unit="fol">f. 177v-179v</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib1244-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">1086</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1244" passive="http://syriaca.org/person/2123" source="#bib1244-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">1086</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

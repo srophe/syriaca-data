@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Archelides (text) — <foreign xml:lang="syr">ܐܪܟܠܝܕܘܣ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,83 +142,107 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-918" ana="#hagiographic">
-                <title xml:id="name918-1" xml:lang="syr" source="#bib918-1" srophe:tags="#syriaca-headword">ܐܪܟܠܝܕܘܣ</title>
-                <title xml:id="name918-2" xml:lang="fr-x-bhs" source="#bib918-1">ʾArḵelīḏōs</title>
-                <title xml:id="name918-3" xml:lang="fr" source="#bib918-1">Archélidès (texte)</title>
-                <title xml:id="name918-4" xml:lang="en" source="#bib918-1" srophe:tags="#syriaca-headword">Archelides (text)</title>
-                <note xml:lang="syr" type="incipit" source="#bib918-1">
-                    <quote>ܐܝܬ ܗܘܐ ܕܝܢ ܒܙܒܢ̈ܐ ܗܢܘܢ ܕܡܠܟ̈ܐ ܡܗ̈ܝܡܢܐ ܓܪܛܝܢܘܣ ܘܐܘܠܢܛܝܢܘܣ ܓܒܪܐ ܚܕ ܓܠܝܢܘܣ ܘܐܝܬܘܗܝ ܗܘܐ ܐܘܦܪܟܐ. ܘܡܠܟ ܡܠܟ̈ܘܗܝ ܕܡܠܟܐ. ܘܚܟܝܡ ܗܘܐ ܒܝܘܠܦܢܐ ܕܟܬܒ̈ܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib918-1">
-                    <quote>Au temps des rois croyants Gratien et Valentinien, il y avait un homme, Galien, qui était consul et à la tête des conseillers du roi et il était très savant dans la doctrine des Écritures.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib918-1">
-                    <quote>ܘܒܩܠܐ ܪܡܐ ܫܒܚܘ ܠܐܠܗܐ ܥܠ ܕܝ̈ܢܐ ܕܝܠܗ ܠܐ ܡܬܕܪ̈ܟܢܐ. ܘܐܟܡܐ ܕܦܐܐ ܠܗܘܢ ܠܘܝܘ ܐܢܘܢ. ܘܒܐܝܩܪܐ ܪܒܐ ܥܦܝܘ ܘܣܡܘ ܐܢܘܢ ܒܓܠܘܣܩܡܐ ܚܕ ܐܝܟ ܦܘܩܕܢܗ ܕܪܝܫ ܕܝܪܐ. ܕܒܨܠܘ̈ܬܗܘܢ ܘܕܟܠܗܘܢ ܩܕܝ̈ܫܐ ܢܫܘܐ ܠܟܠܢ ܡܫܝܚܐ. ܕܒܕܘܒܪ̈ܐ ܛܒ̈ܐ ܢܫܦܪ ܠܗ. ܘܢܫܟܚ ܪ̈ܚܡܐ ܩܕܡܘܗܝ. ܒܝܘܡܐ ܕܓܠܝܢܗ ܪܒܐ. ܘܢܚܕܐ ܒܗܝ ܒܡܠܟܘܬܐ ܪܒܬܐ ܘܫܒܝܚܬܐ. ܘܢܬܒܣܡ ܒܓܢܘܢܗ ܢܨܝܚܐ. ܘܢܘܕܐ ܘܢܫܒܚܝܘܗܝ ܥܡ ܟܠܗܘܢ ܩܕܝܫܘ̈ܗܝ ܠܥܠܡ ܥܠܡܝܢ. ܐܡܝܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib918-1">
-                    <quote>Et ils louèrent Dieu à haute voix pour ses jugements incompréhensibles; et comme il était convenable pour eux, ils les escortèrent et ils les enterrèrent avec grand honneur et les placèrent dans le même cercueil selon l’ordre de l’higoumène. Qu’à leurs prières et à celles de tous les saints le Seigneur nous juge tous dignes de lui plaire par une bonne vie, et de trouver miséricorde devant lui au jour de sa grande manifestation et de trouver notre joie dans son grand et glorieux royaume et de nous réjouir dans son illustre chambre nuptiale, et de lui rendre grâce et de le louer avec tous ses saints pour les siècles des siècles. Amen.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib918-1" xml:id="bib918-3">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <citedRange>Leiden, 1911, p. 21-45 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib918-1">
-                    <bibl xml:id="bib918-4">ms Londres, British Library, Add. 14.735, f. 127v-134 + ms Paris, Bibliothèque nationale, syr. 234, f. 156v-165</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib918-1">
-                    <bibl xml:id="bib918-5">ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. -28v</bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib918-1">
-                    <bibl xml:id="bib918-6">ms Londres, British Library, Add. 14655, f. 41-54v (ou autre version)</bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib918-1">
-                    <bibl xml:id="bib918-7">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <lang>ar</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib918-1">
-                    <bibl xml:id="bib918-8">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <lang>gez</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib918-1">
-                    <bibl xml:id="bib918-9">
-                        <author>Wensinck, A. J.</author>
-                        <title>Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
-                        <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
-                        <citedRange unit="pp">1-20</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/918</idno>
-                <idno type="BHS">714</idno>
-                <bibl xml:id="bib918-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-918" ana="#syriaca-hagiographic">
+        <title xml:id="name918-1" xml:lang="syr" source="#bib918-1" srophe:tags="#syriaca-headword">ܐܪܟܠܝܕܘܣ</title>
+        <title xml:id="name918-2" xml:lang="fr-x-bhs" source="#bib918-1">ʾArḵelīḏōs</title>
+        <title xml:id="name918-3" xml:lang="fr" source="#bib918-1">Archélidès (texte)</title>
+        <title xml:id="name918-4" xml:lang="en" source="#bib918-1" srophe:tags="#syriaca-headword">Archelides (text)</title>
+        <idno type="URI">http://syriaca.org/work/918</idno>
+        <idno type="number" subtype="BHS">714</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib918-1">ܐܝܬ ܗܘܐ ܕܝܢ ܒܙܒܢ̈ܐ ܗܢܘܢ ܕܡܠܟ̈ܐ ܡܗ̈ܝܡܢܐ ܓܪܛܝܢܘܣ ܘܐܘܠܢܛܝܢܘܣ ܓܒܪܐ ܚܕ ܓܠܝܢܘܣ ܘܐܝܬܘܗܝ ܗܘܐ ܐܘܦܪܟܐ. ܘܡܠܟ ܡܠܟ̈ܘܗܝ ܕܡܠܟܐ. ܘܚܟܝܡ ܗܘܐ ܒܝܘܠܦܢܐ ܕܟܬܒ̈ܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib918-1">Au temps des rois croyants Gratien et Valentinien, il y avait un homme, Galien, qui était consul et à la tête des conseillers du roi et il était très savant dans la doctrine des Écritures.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib918-1">ܘܒܩܠܐ ܪܡܐ ܫܒܚܘ ܠܐܠܗܐ ܥܠ ܕܝ̈ܢܐ ܕܝܠܗ ܠܐ ܡܬܕܪ̈ܟܢܐ. ܘܐܟܡܐ ܕܦܐܐ ܠܗܘܢ ܠܘܝܘ ܐܢܘܢ. ܘܒܐܝܩܪܐ ܪܒܐ ܥܦܝܘ ܘܣܡܘ ܐܢܘܢ ܒܓܠܘܣܩܡܐ ܚܕ ܐܝܟ ܦܘܩܕܢܗ ܕܪܝܫ ܕܝܪܐ. ܕܒܨܠܘ̈ܬܗܘܢ ܘܕܟܠܗܘܢ ܩܕܝ̈ܫܐ ܢܫܘܐ ܠܟܠܢ ܡܫܝܚܐ. ܕܒܕܘܒܪ̈ܐ ܛܒ̈ܐ ܢܫܦܪ ܠܗ. ܘܢܫܟܚ ܪ̈ܚܡܐ ܩܕܡܘܗܝ. ܒܝܘܡܐ ܕܓܠܝܢܗ ܪܒܐ. ܘܢܚܕܐ ܒܗܝ ܒܡܠܟܘܬܐ ܪܒܬܐ ܘܫܒܝܚܬܐ. ܘܢܬܒܣܡ ܒܓܢܘܢܗ ܢܨܝܚܐ. ܘܢܘܕܐ ܘܢܫܒܚܝܘܗܝ ܥܡ ܟܠܗܘܢ ܩܕܝܫܘ̈ܗܝ ܠܥܠܡ ܥܠܡܝܢ. ܐܡܝܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib918-1">Et ils louèrent Dieu à haute voix pour ses jugements incompréhensibles; et comme il était convenable pour eux, ils les escortèrent et ils les enterrèrent avec grand honneur et les placèrent dans le même cercueil selon l’ordre de l’higoumène. Qu’à leurs prières et à celles de tous les saints le Seigneur nous juge tous dignes de lui plaire par une bonne vie, et de trouver miséricorde devant lui au jour de sa grande manifestation et de trouver notre joie dans son grand et glorieux royaume et de nous réjouir dans son illustre chambre nuptiale, et de lui rendre grâce et de le louer avec tous ses saints pour les siècles des siècles. Amen.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/918" source="#bib918-1" passive="http://syriaca.org/person/1611">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1611">Archelides</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib918-1" xml:id="bib918-3" type="lawd:Edition">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <citedRange unit="p">Leiden, 1911, p. 21-45 (syr.)</citedRange>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib918-4" source="#bib918-1" type="syriaca:Manuscript">
+            <label>ms Londres, British Library, Add. 14.735, f. 127v-134 + ms Paris, Bibliothèque nationale, syr. 234, f. 156v-165</label>
+          </bibl>
+          <bibl xml:id="bib918-5" source="#bib918-1" type="syriaca:Manuscript">
+            <label>ms Damas, Patriarcat syrien orthodoxe, cod. 12/17 (olim ms Dayr az-Za‘faran, cod. parch. 18 (Dolabany)), f. -28v</label>
+          </bibl>
+          <bibl xml:id="bib918-6" source="#bib918-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 14655</idno>
+            </label>
+            <biblScope unit="fol">f. 41-54v (ou autre version)</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib918-9" source="#bib918-1" type="syriaca:ModernTranslation">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <citedRange unit="p">1-20</citedRange>
+            <textLang mainLang="en"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="ancientVersions">
+          <head>Ancient Versions</head>
+          <desc xml:lang="en">This is not a comprehensive list of ancient versions related to this work.</desc>
+          <bibl xml:id="bib918-7" source="#bib918-1" type="syriaca:AncientVersion">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <textLang mainLang="ar"/>
+          </bibl>
+          <bibl xml:id="bib918-8" source="#bib918-1" type="syriaca:AncientVersion">
+            <title xml:lang="en">Legends of Eastern Saints Chiefly from Syriac Sources. I. The Story of Archelides</title>
+            <author>Wensinck, A. J.</author>
+            <ptr target="http://syriaca.org/cbss/R2EAXCUE"/>
+            <textLang mainLang="gez"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib918-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">714</citedRange>
-                </bibl>
-                <bibl xml:id="bib918-2">
-                    <title xml:lang="fr" level="a">CR de l’éd. de Wensinck</title>
-                    <title level="j" xml:lang="la">Analecta Bollandiana</title>
-                    <ptr target="http://syriaca.org/cbss/UIJEM3DN"/>
-                    <citedRange from="477" to="478" unit="pp">477-478</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/918" passive="http://syriaca.org/person/1611" source="#bib918-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">714</citedRange>
+          </bibl>
+          <bibl type="lawd:Citation" xml:id="bib918-2">
+            <title xml:lang="fr" level="a">CR de l’éd. de Wensinck</title>
+            <title level="j" xml:lang="la">Analecta Bollandiana</title>
+            <ptr target="http://syriaca.org/cbss/UIJEM3DN"/>
+            <citedRange from="477" to="478" unit="p">477-478</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>

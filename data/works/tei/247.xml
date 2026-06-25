@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/documentation/schemas/out/syriacaAll.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:srophe="https://srophe.app" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title level="a" xml:lang="en">Paul, Nilus, Patrimytheas, and Elijah (text) — <foreign xml:lang="syr">ܦܘܠܘܣ ܘܢܝܠܘܣ ܘܦܛܪܝܡܝܬܐܣ ܘܐܠܝܐ</foreign>
-                </title>
-                <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <title level="s">New Handbook of Syriac Literature</title>
+        </title>
                 <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
                 <funder>The International Balzan Prize Foundation</funder>
                 <funder>The National Endowment for the Humanities</funder>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
                 <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
                         Michelson</editor>
@@ -52,7 +47,7 @@
                 </respStmt>
             </titleStmt>
             <editionStmt>
-                <edition n="1.0"/>
+                <edition n="2.0"/>
             </editionStmt>
             <publicationStmt>
                 <authority>Syriaca.org: The Syriac Reference Portal</authority>
@@ -65,51 +60,33 @@
                                 work(s): <listBibl>
                                 <bibl>
                                     <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                                </bibl>
-                            </listBibl>
-                            <note type="license">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
+                                <note xml:lang="en" type="licence">used under a Creative Commons Attribution license <ref target="http://creativecommons.org/licenses/by/3.0/"/>
                             </note>
+                </bibl>
+                            </listBibl>
                         </p>
                     </licence>
                 </availability>
                 <date>2015-11-05-06:00</date>
             </publicationStmt>
-            <seriesStmt>
-                <title level="s">Gateway to the Syriac Saints</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/q</idno>
-            </seriesStmt>
-            <seriesStmt>
-                <title level="s">New Handbook of Syriac Literature</title>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                        Gibson</editor>
-                <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                        Michelson</editor>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P.
-                            Gibson</name>
-                </respStmt>
-                <respStmt>
-                    <resp>Edited by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A.
-                            Michelson</name>
-                </respStmt>
-                <biblScope unit="vol">1</biblScope>
-                <idno type="URI">http://syriaca.org/works</idno>
-            </seriesStmt>
+      <seriesStmt>
+        <title level="s">A New Handbook of Syriac Literature</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#ngibson">Nathan P. Gibson</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <idno type="URI">http://syriaca.org/nhsl</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="s">Gateway to the Syriac Saints</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <idno type="URI">http://syriaca.org/saints</idno>
+      </seriesStmt>
+      <seriesStmt>
+        <title level="m">Bibliotheca Hagiographica Syriaca Electronica</title>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#jnsaint-laurent">Jeanne-Nicole Mellon Saint-Laurent</editor>
+        <editor role="general" ref="http://syriaca.org/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <biblScope unit="vol" n="1">1</biblScope>
+        <idno type="URI">http://syriaca.org/bhse</idno>
+      </seriesStmt>
             <sourceDesc>
                 <p>Born digital.</p>
             </sourceDesc>
@@ -147,6 +124,7 @@
       </langUsage>
         </profileDesc>
         <revisionDesc status="draft">
+      <change who="http://syriaca.org/documentation/editors.xml#dmichelson http://syriaca.org/documentation/editors.xml#dschwartz http://syriaca.org/documentation/editors.xml#wpotter" when="2026-06-24-05:00">CHANGED: Implemented revisions for the second edition, 2026.</change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2020-07-07-05:00">CHANGED: Implemented July 2020 batch changes, see <ref target="https://github.com/srophe/srophe-app-data/issues/878">https://github.com/srophe/srophe-app-data/issues/878</ref>.</change>
             <change who="http://syriaca.org/documentation/editors.xml#ngibson" when="2016-04-20+02:00">                 Replaced author element with ref to Syriaca person and headword names.               </change>
             <change who="http://syriaca.org/documentation/editors.xml#wsalesky" when="2015-11-05-06:00">
@@ -164,100 +142,134 @@
     </teiHeader>
     <text>
         <body>
-            <bibl xml:id="work-247" ana="#hagiographic">
-                <title xml:id="name247-1" xml:lang="syr" source="#bib247-1" srophe:tags="#syriaca-headword">ܦܘܠܘܣ ܘܢܝܠܘܣ ܘܦܛܪܝܡܝܬܐܣ ܘܐܠܝܐ</title>
-                <title xml:id="name247-2" xml:lang="fr-x-bhs" source="#bib247-1">Pawlōs w-Nīlōs w-Pāṭrīmītēʾās w-ʾĒlīyā</title>
-                <title xml:id="name247-3" xml:lang="fr" source="#bib247-1">Pélée, Nil, Patrimitéas et Élie (texte)</title>
-                <title xml:id="name247-4" xml:lang="en" source="#bib247-1" srophe:tags="#syriaca-headword">Paul, Nilus, Patrimytheas, and Elijah (text)</title>
-                <author xml:lang="fr" source="#bib247-1" ref="http://syriaca.org/person/480">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Eusebius</forename>
-                        <addName type="untagged-title" sort="2">of Caesarea</addName>
-                    </persName> — <persName xml:lang="syr">
-                        <forename sort="1">ܐܘܣܒܝܣ</forename>
-                        <addName type="untagged-title" sort="2">ܕܩܣܪܝܐ</addName>
-                    </persName> (<persName xml:lang="fr">
-                        <forename>Eusèbe</forename>
-                        <addName type="untagged-title">de Césarée</addName>
-                    </persName>)</author>
-                <note xml:lang="syr" type="incipit" source="#bib247-1">
-                    <quote>ܝܘܡܐ ܬܫܥܣܪܐ ܒܐܝܠܘܠ ܐܝܬܘܗܝ ܗܘ̣ܐ: ܘܒܗ ܒܗܢܐ ܐܓܘܢܐ ܬܡܝܗܐ ܕܣܗ̈ܕܐ ܕܐܠܗܐ: ܘܚܙܬܐ ܪܒܬܐ ܐܬܟܢܫܬ ܒܦܝܢܘ ܕܒܗܿ ܒܦܠܣܛܝܢܐ.</quote>
-                </note>
-                <note xml:lang="fr" type="incipit" source="#bib247-1">
-                    <quote>C’était le dix-neuf Éloul, et dans ce grand combat admirable des martyrs de Dieu un grand spectacle fut rassemblé à Phaynô dans la même Palestine.</quote>
-                </note>
-                <note xml:lang="syr" type="explicit" source="#bib247-1">
-                    <quote>ܗܘܿ ܕܝܢ ܡܿܢ ܕܝܗܿܒ ܚܝܠܐ ܠܡܚܝ̈ܠܐ ܘܠܡܟ̈ܐܒܝ ܟܐܒܐ ܐܣܓܝ ܥܘܫܢܐ: ܠܗܘܿ ܥܘܡܪܐ ܫܡܝܢܐ ܐܫܘܝ ܐܢܘܢ: ܘܥܡ ܟܢܫܐ ܕܡܠܐܟ̈ܐ ܚܠܛ̣ ܐܢܘܢ.</quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib247-1">
-                    <quote>Mais celui qui donne la force aux faibles et a multiplié la vigueur des affligés les a jugés dignes de cette vie céleste et les a joints à la foule des anges.</quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib247-1" corresp="#bib247-9" n="1" xml:id="bib247-2">
-                        <author>Bedjan, P.</author>
-                        <title>AMS 1</title>
-                        <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
-                        <citedRange unit="vol">1</citedRange>
-                        <citedRange>p. 272-274</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib247-1" corresp="#bib247-4" n="2" xml:id="bib247-3">
-                        <author>Cureton, W.</author>
-                        <title>HMP</title>
-                        <ptr target="http://syriaca.org/cbss/D9PKAUXB"/>
-                        <citedRange>p. 49-50 (syr.)</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib247-1">
-                    <bibl xml:id="bib247-4">ms Londres, British Library, Add. 12150, f. 250r-v</bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib247-1">
-                    <bibl xml:id="bib247-5">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>la</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="ancientVersion" source="#bib247-1">
-                    <bibl xml:id="bib247-6">cf. <title>CPG</title>
-                        <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
-                        <lang>ka</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib247-1">
-                    <bibl xml:id="bib247-7">
-                        <editor>B. Violet</editor>
-                        <title>PMEC</title>
-                        <ptr target="http://syriaca.org/cbss/23SKPINV"/>
-                        <citedRange unit="pp">105-107</citedRange>
-                        <lang>de</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib247-1">
-                    <bibl xml:id="bib247-8">
-                        <editor>W. Cureton</editor>
-                        <ptr target="http://syriaca.org/cbss/D9PKAUXB"/>
-                        <citedRange unit="pp">46-47</citedRange>
-                        <lang>en</lang>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib250-1">
-                    <bibl xml:id="bib247-9">The manuscript witnesses for edition 1 are undetermined.</bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/247</idno>
-                <idno type="BHS">26</idno>
-                <idno type="BHO">920</idno>
-                <idno type="CPG">3490</idno>
-                <bibl xml:id="bib247-1">
-                    <title level="m" xml:lang="la">Bibliotheca Hagiographica
+            <bibl xml:id="work-247" ana="#syriaca-hagiographic">
+        <title xml:id="name247-1" xml:lang="syr" source="#bib247-1" srophe:tags="#syriaca-headword">ܦܘܠܘܣ ܘܢܝܠܘܣ ܘܦܛܪܝܡܝܬܐܣ ܘܐܠܝܐ</title>
+        <title xml:id="name247-2" xml:lang="fr-x-bhs" source="#bib247-1">Pawlōs w-Nīlōs w-Pāṭrīmītēʾās w-ʾĒlīyā</title>
+        <title xml:id="name247-3" xml:lang="fr" source="#bib247-1">Pélée, Nil, Patrimitéas et Élie (texte)</title>
+        <title xml:id="name247-4" xml:lang="en" source="#bib247-1" srophe:tags="#syriaca-headword">Paul, Nilus, Patrimytheas, and Elijah (text)</title>
+        <author ref="http://syriaca.org/person/480" source="#bib247-1" xml:lang="en">Eusebius of Caesarea — <foreign xml:lang="syr">ܐܘܣܒܝܣ ܕܩܣܪܝܐ</foreign>
+        </author>
+        <idno type="URI">http://syriaca.org/work/247</idno>
+        <idno type="number" subtype="BHS">26</idno>
+        <idno type="number" subtype="BHO">920</idno>
+        <idno type="number" subtype="CPG">3490</idno>
+        <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib247-1">ܝܘܡܐ ܬܫܥܣܪܐ ܒܐܝܠܘܠ ܐܝܬܘܗܝ ܗܘ̣ܐ: ܘܒܗ ܒܗܢܐ ܐܓܘܢܐ ܬܡܝܗܐ ܕܣܗ̈ܕܐ ܕܐܠܗܐ: ܘܚܙܬܐ ܪܒܬܐ ܐܬܟܢܫܬ ܒܦܝܢܘ ܕܒܗܿ ܒܦܠܣܛܝܢܐ.</quote>
+          </note>
+          <note xml:lang="fr" type="incipit">
+            <quote source="#bib247-1">C’était le dix-neuf Éloul, et dans ce grand combat admirable des martyrs de Dieu un grand spectacle fut rassemblé à Phaynô dans la même Palestine.</quote>
+          </note>
+        </noteGrp>
+        <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib247-1">ܗܘܿ ܕܝܢ ܡܿܢ ܕܝܗܿܒ ܚܝܠܐ ܠܡܚܝ̈ܠܐ ܘܠܡܟ̈ܐܒܝ ܟܐܒܐ ܐܣܓܝ ܥܘܫܢܐ: ܠܗܘܿ ܥܘܡܪܐ ܫܡܝܢܐ ܐܫܘܝ ܐܢܘܢ: ܘܥܡ ܟܢܫܐ ܕܡܠܐܟ̈ܐ ܚܠܛ̣ ܐܢܘܢ.</quote>
+          </note>
+          <note xml:lang="fr" type="explicit">
+            <quote source="#bib247-1">Mais celui qui donne la force aux faibles et a multiplié la vigueur des affligés les a jugés dignes de cette vie céleste et les a joints à la foule des anges.</quote>
+          </note>
+        </noteGrp>
+        <listRelation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/247" source="#bib247-1" passive="http://syriaca.org/person/1990">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/1990">Paul</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/247" source="#bib247-1" passive="http://syriaca.org/person/3143">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/3143">Nilus</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/247" source="#bib247-1" passive="http://syriaca.org/person/3144">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/3144">Patrimytheas</persName>
+            </desc>
+          </relation>
+          <relation ref="syriaca:commemorates" active="http://syriaca.org/work/247" source="#bib247-1" passive="http://syriaca.org/person/3145">
+            <desc xml:lang="en">
+              <persName ref="http://syriaca.org/person/3145">Elijah</persName>
+            </desc>
+          </relation>
+        </listRelation>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl source="#bib247-1" n="1" xml:id="bib247-2" type="lawd:Edition">
+            <title xml:lang="la">AMS 1</title>
+            <author>Bedjan, P.</author>
+            <ptr target="http://syriaca.org/cbss/2J7UU3FY"/>
+            <citedRange unit="vol">1</citedRange>
+            <citedRange unit="p">p. 272-274</citedRange>
+          
+          </bibl>
+          <bibl source="#bib247-1" n="2" xml:id="bib247-3" type="lawd:Edition">
+            <title xml:lang="en">HMP</title>
+            <author>Cureton, W.</author>
+            <ptr target="http://syriaca.org/cbss/D9PKAUXB"/>
+            <citedRange unit="p">p. 49-50 (syr.)</citedRange>
+          <listRelation>
+              <relation type="mssWitnesses" ref="dcterms:source" active="#bib247-3" source="#bib247-1" passive="#bib247-4">
+                <desc xml:lang="en">
+                  <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12150</idno>
+            </label>
+                </desc>
+              </relation>
+            </listRelation>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
+          <bibl xml:id="bib247-4" source="#bib247-1" type="syriaca:Manuscript">
+            <label>London, British Library <idno type="shelfmark" subtype="BL">Add. 12150</idno>
+            </label>
+            <biblScope unit="fol">f. 250r-v</biblScope>
+          </bibl>
+        </listBibl>
+        <listBibl type="modernTranslations">
+          <head>Modern Translations</head>
+          <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl xml:id="bib247-7" source="#bib247-1" type="syriaca:ModernTranslation">
+            <title xml:lang="de">PMEC</title>
+            <editor>B. Violet</editor>
+            <ptr target="http://syriaca.org/cbss/23SKPINV"/>
+            <citedRange unit="p">105-107</citedRange>
+            <textLang mainLang="de"/>
+          </bibl>
+          <bibl xml:id="bib247-8" source="#bib247-1" type="syriaca:ModernTranslation">
+            <editor>W. Cureton</editor>
+            <ptr target="http://syriaca.org/cbss/D9PKAUXB"/>
+            <citedRange unit="p">46-47</citedRange>
+            <textLang mainLang="en"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="ancientVersions">
+          <head>Ancient Versions</head>
+          <desc xml:lang="en">This is not a comprehensive list of ancient versions related to this work.</desc>
+          <bibl xml:id="bib247-5" source="#bib247-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="la"/>
+          </bibl>
+          <bibl xml:id="bib247-6" source="#bib247-1" type="syriaca:AncientVersion">
+            <title xml:lang="la">CPG</title>
+            <ptr target="http://syriaca.org/cbss/JLMCGNS9"/>
+            <textLang mainLang="ka"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <bibl type="lawd:Citation" xml:id="bib247-1">
+            <title level="m" xml:lang="la">Bibliotheca Hagiographica
                                         Syriaca</title>
-                    <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
-                    <citedRange unit="entry">26</citedRange>
-                </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/247" passive="http://syriaca.org/person/1990 http://syriaca.org/person/3143 http://syriaca.org/person/3144 http://syriaca.org/person/3145" source="#bib247-1"/>
-                </listRelation>
-            </bibl>
+            <ptr target="http://syriaca.org/cbss/2KJEZZGS"/>
+            <citedRange unit="entry">26</citedRange>
+          </bibl>
+        </listBibl>
+      </bibl>
         </body>
     </text>
 </TEI>
