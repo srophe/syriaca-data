@@ -8,7 +8,7 @@
             <xsl:sequence select="doc(concat($applicationPath,'/documentation/syriaca-tei-main.odd'))"/>
         </xsl:if>
     </xsl:variable>
-    
+
     <!-- Add a lang attribute to HTML elements -->
     <xsl:function name="local:attributes">
         <xsl:param name="node"/>
@@ -290,8 +290,17 @@
             <xsl:when test="$lang='la'">
                 <xsl:text>Latin</xsl:text>
             </xsl:when>
+            <xsl:when test="$lang='de'">
+                <xsl:text>German</xsl:text>
+            </xsl:when>
             <xsl:when test="$lang='grc'">
-                <xsl:text>Greek</xsl:text>
+                <xsl:text>Ancient Greek</xsl:text>
+            </xsl:when>
+            <xsl:when test="$lang='gez'">
+                <xsl:text>Geʽez</xsl:text>
+            </xsl:when>
+            <xsl:when test="$lang='sog'">
+                <xsl:text>Sogdian</xsl:text>
             </xsl:when>
             <xsl:when test="$lang='ar'">
                 <xsl:text>Arabic</xsl:text>
@@ -306,7 +315,7 @@
                 <xsl:text>Soghdian</xsl:text>
             </xsl:when>
             <xsl:when test="$lang='cu'">
-                <xsl:text>Slavic</xsl:text>
+                <xsl:text>Old Church Slavonic</xsl:text>
             </xsl:when>
             <xsl:when test="$lang='cop'">
                 <xsl:text>Coptic</xsl:text>
@@ -315,7 +324,10 @@
                 <xsl:text>Ethiopic</xsl:text>
             </xsl:when>
             <xsl:when test="$lang='syr-pal'">
-                <xsl:text>Syro-Palestinian</xsl:text>
+                <xsl:text>Christian Palestinian Aramaic</xsl:text>
+            </xsl:when>
+            <xsl:when test="$lang='ar-Syrc'">
+                <xsl:text>Arabic in Syriac script (Garshuni)</xsl:text>
             </xsl:when>
             <xsl:when test="$lang='ar-syr'">
                 <xsl:text>Karshuni</xsl:text>
