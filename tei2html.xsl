@@ -492,18 +492,18 @@
                     <xsl:when test="$collection = 'johnofephesusPersons' and @coresp[contains(.,'http://syriaca.org/johnofephesus/persons')]"/>
                     <xsl:when test="$collection = 'johnofephesusPlaces' and @coresp[contains(.,'http://syriaca.org/johnofephesus/places')]"/>
                     <xsl:otherwise>
-                        <div class="tei-note">
+                        <span class="tei-note">
                             <xsl:choose>
                                 <xsl:when test="t:quote"><xsl:apply-templates/></xsl:when>
                                 <xsl:otherwise><span><xsl:sequence select="local:attributes(.)"/><xsl:apply-templates/></span><xsl:sequence select="local:add-footnotes(@source,.)"/></xsl:otherwise>
                             </xsl:choose>
-                        </div>
+                        </span>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <!-- Adds definition list for depreciated names -->
             <xsl:when test="@type='deprecation'">
-                <div class="tei-note">
+                <span class="tei-note">
                     <span>
                         <xsl:if test="../t:link[contains(@target,$xmlid)]">
                             <xsl:apply-templates select="../t:link[contains(@target,$xmlid)]"/>:
@@ -513,10 +513,10 @@
                         <!-- NOTE not working -->
                     </span>
                     <xsl:sequence select="local:add-footnotes(@source,.)"/>
-                </div>
+                </span>
             </xsl:when>
             <xsl:when test="@type='ancientVersion'">
-                <div class="tei-note">
+                <span class="tei-note">
                     <xsl:if test="descendant::t:lang/text()">
                         <span class="srp-label">
                             <xsl:value-of select="local:expand-lang(descendant::t:lang[1]/text(),'ancientVersion')"/>:
@@ -527,7 +527,7 @@
                         <xsl:apply-templates/>
                     </span>
                     <xsl:sequence select="local:add-footnotes(@source,.)"/>
-                </div>
+                </span>
             </xsl:when>
             <xsl:when test="@type='modernTranslation'">
                 <li>
@@ -544,7 +544,7 @@
                 </li>
             </xsl:when>
             <xsl:when test="@type='editions'">
-                <div class="tei-note">
+                <span class="tei-note">
                     <span>
                         <xsl:sequence select="local:attributes(.)"/>
                         <xsl:apply-templates/>
@@ -583,15 +583,15 @@
                         </xsl:if>
                     </span>
                     <xsl:sequence select="local:add-footnotes(@source,.)"/>
-                </div>
+                </span>
             </xsl:when>
             <xsl:otherwise>
-                <div class="tei-note">  
+                <span class="tei-note">  
                     <xsl:choose>
                         <xsl:when test="t:quote"><xsl:apply-templates/></xsl:when>
                         <xsl:otherwise><span><xsl:sequence select="local:attributes(.)"/><xsl:apply-templates/></span><xsl:sequence select="local:add-footnotes(@source,.)"/></xsl:otherwise>
                     </xsl:choose>
-                </div>
+                </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -925,209 +925,328 @@
 
     </xsl:template>
     <xsl:template match="t:bibl[starts-with(@xml:id,'work-')]">
-        <div class="content-block">
-            <h3>Titles</h3>
-            <ul>                
-                <xsl:for-each select="t:title[(not(@type) or not(@type=('initial-rubric','final-rubric','abbreviation'))) and not(@syriaca-tags='#syriaca-simplified-script')]">
-                    <xsl:apply-templates select=".[contains(@srophe:tags,'#syriaca-headword') and starts-with(@xml:lang,'en')]" mode="list">
-                        <xsl:sort collation="{$mixed}" select="."/>
-                    </xsl:apply-templates>
-                    <xsl:apply-templates select=".[contains(@srophe:tags,'#syriaca-headword') and starts-with(@xml:lang,'syr')]" mode="list">
-                        <xsl:sort lang="syr" select="."/>
-                    </xsl:apply-templates>
-                    <xsl:apply-templates select=".[(not(@srophe:tags) or not(contains(@srophe:tags,'#syriaca-headword'))) and starts-with(@xml:lang, 'syr')]" mode="list">
-                        <xsl:sort lang="syr" select="."/>
-                    </xsl:apply-templates>
-                    <xsl:apply-templates select=".[starts-with(@xml:lang, 'ar')]" mode="list">
-                        <xsl:sort lang="ar" select="."/>
-                    </xsl:apply-templates>
-                    <xsl:apply-templates select=".[(not(@srophe:tags) or not(contains(@srophe:tags,'#syriaca-headword'))) and not(starts-with(@xml:lang, 'syr') or starts-with(@xml:lang, 'ar'))]" mode="list">
-                        <xsl:sort collation="{$mixed}" select="."/>
-                    </xsl:apply-templates>
-                </xsl:for-each>
-            </ul>
-            <xsl:if test="t:title[@type='abbreviation']">
-                <h3>Abbreviations</h3>
-                <ul>
-                    <xsl:for-each select="t:title[@type='abbreviation']">
-                        <xsl:apply-templates select="." mode="list"/>
-                    </xsl:for-each>
-                </ul>
-            </xsl:if>
-            <xsl:if test="t:author | t:editor">
-                <h3>Authors</h3>
-                <ul>
-                    <xsl:for-each select="t:author | t:editor">
-                        <li>
-                            <xsl:apply-templates select="."/>
-                        </li>
-                    </xsl:for-each>
-                </ul>
-            </xsl:if>
-            <xsl:if test="not(empty(t:desc[@type='abstract' or starts-with(@xml:id, 'abstract-en')][1] | t:note[@type='abstract']))">
-                <h3>Abstract</h3>
-                <xsl:apply-templates select="t:desc[@type='abstract' or starts-with(@xml:id, 'abstract-en')][1] | t:note[@type='abstract']"/>
-            </xsl:if>
-            <xsl:if test="@ana">
-                <xsl:for-each select="tokenize(@ana,' ')">
-                    <xsl:variable name="filepath">
-                        <!-- WS:NOTE need to resolve -->
-<!--                        <xsl:value-of select="concat('xmldb:exist://',substring-before(replace(.,$base-uri,$nav-base),'#'))"/>-->
-                        <xsl:value-of select="substring-before(replace(.,$base-uri,$nav-base),'#')"/>
-                    </xsl:variable>
-                    <xsl:variable name="ana-id" select="substring-after(.,'#')"/>
-                    <xsl:if test="doc-available($filepath)">
+        <xsl:choose>
+            <!-- NHSL Display -->
+            <xsl:when test="/descendant::t:seriesStmt/t:idno[@type='URI'] = 'http://syriaca.org/nhsl'">
+                <div class="content-block">
+                    <h3>Titles</h3>
+                    <ul>                
+                        <xsl:for-each select="t:title[(not(@type) or not(@type=('initial-rubric','final-rubric','abbreviation'))) and not(@syriaca-tags='#syriaca-simplified-script')]">
+                            <xsl:apply-templates select=".[contains(@srophe:tags,'#syriaca-headword') and starts-with(@xml:lang,'en')]" mode="list">
+                                <xsl:sort collation="{$mixed}" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[contains(@srophe:tags,'#syriaca-headword') and starts-with(@xml:lang,'syr')]" mode="list">
+                                <xsl:sort lang="syr" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[(not(@srophe:tags) or not(contains(@srophe:tags,'#syriaca-headword'))) and starts-with(@xml:lang, 'syr')]" mode="list">
+                                <xsl:sort lang="syr" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[starts-with(@xml:lang, 'ar')]" mode="list">
+                                <xsl:sort lang="ar" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[(not(@srophe:tags) or not(contains(@srophe:tags,'#syriaca-headword'))) and not(starts-with(@xml:lang, 'syr') or starts-with(@xml:lang, 'ar'))]" mode="list">
+                                <xsl:sort collation="{$mixed}" select="."/>
+                            </xsl:apply-templates>
+                        </xsl:for-each>
+                    </ul>
+                    <xsl:if test="t:title[@type='abbreviation']">
+                        <h3>Abbreviations</h3>
+                        <ul>
+                            <xsl:for-each select="t:title[@type='abbreviation']">
+                                <xsl:apply-templates select="." mode="list"/>
+                            </xsl:for-each>
+                        </ul>
+                    </xsl:if>
+                    <xsl:if test="t:author | t:editor">
+                        <h3>Creators</h3>
+                        <ul>
+                            <xsl:for-each select="t:author | t:editor">
+                                <li>
+                                    <xsl:apply-templates select="."/>
+                                    <xsl:choose>
+                                        <xsl:when test="self::t:author">[author<xsl:if test="@role">; <xsl:value-of select="@role"/></xsl:if>]</xsl:when>
+                                        <xsl:when test="@role">[<xsl:value-of select="@role"/>]</xsl:when>
+                                    </xsl:choose>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                    </xsl:if>
+                    <xsl:if test="t:idno">
+                        <h3>Reference Numbers</h3>
+                        <xsl:for-each select="t:idno">
+                            <div class="indent">
+                                <xsl:choose>
+                                    <xsl:when test="@type='URI'">
+                                       URI: <a href="{.}"><xsl:value-of select="."/></a>
+                                    </xsl:when>
+                                    <xsl:when test="@type='number'">
+                                        <xsl:value-of select="concat(@subtype,': ',.)"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="concat(@type,': ',.)"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </div>
+                        </xsl:for-each>
+                    </xsl:if>
+                    <xsl:if test="t:date">
+                        <h3>Date</h3>
+                        <div class="indent"><xsl:apply-templates select="t:date"/></div>
+                    </xsl:if>
+                    <xsl:if test="t:noteGrp[@type='abstract']/t:desc[. != '']">
+                        <h3>Abstract</h3>
+                        <xsl:apply-templates select="t:noteGrp[@type='abstract']/t:note"/>
+                    </xsl:if>
+                    <!-- Relationships -->
+                    <!-- Needs testing and work -->
+                    <xsl:for-each-group select="t:listRelation/t:relation" group-by="@ref">
+                        <xsl:apply-templates select="."/>    
+                    </xsl:for-each-group>
+                    
+                    <xsl:for-each-group select="t:noteGrp[@type = ('incipit','exerpt','explicit')]" group-by="@type">
+                        <h3><xsl:value-of select="t:desc"/></h3>
+                        <xsl:apply-templates select="t:note"/>
+                    </xsl:for-each-group>
+                    
+                    <!-- Check how these are processing -->
+                    <xsl:for-each-group select="t:listBibl[@type !=' ']" group-by="@type">
+                        <h3><xsl:value-of select="t:head"/></h3>
+                        <p><xsl:apply-templates select="t:desc"></xsl:apply-templates></p>
+                        <ul>
+                            <xsl:for-each select="t:bibl">
+                                <li>
+                                    <xsl:if test="t:textLang[@mainLang != '']">
+                                        <xsl:value-of select="local:expand-lang(t:textLang/@mainLang,'')"/>: 
+                                    </xsl:if>
+                                    <xsl:apply-templates></xsl:apply-templates>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                    </xsl:for-each-group>  
+                    <xsl:if test="t:noteGrp[@type != ('abstract','incipit','exerpt','explicit')]">
+                        <h3>Notes</h3>
+                        <xsl:for-each-group select="t:noteGrp" group-by="@type">
+                            <xsl:choose>
+                                <xsl:when test="current-grouping-key() = ('abstract','incipit','exerpt','explicit')"/>
+                                <xsl:otherwise>
+                                    <h4><xsl:value-of select="t:desc"/></h4>
+                                    <xsl:apply-templates select="t:note"/>                                    
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:for-each-group>
+                    </xsl:if>
+                </div>
+                
+            </xsl:when>
+            <!-- BHSE -->
+            <xsl:otherwise>
+                <div class="content-block">
+                    <h3>Titles</h3>
+                    <ul>                
+                        <xsl:for-each select="t:title[(not(@type) or not(@type=('initial-rubric','final-rubric','abbreviation'))) and not(@syriaca-tags='#syriaca-simplified-script')]">
+                            <xsl:apply-templates select=".[contains(@srophe:tags,'#syriaca-headword') and starts-with(@xml:lang,'en')]" mode="list">
+                                <xsl:sort collation="{$mixed}" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[contains(@srophe:tags,'#syriaca-headword') and starts-with(@xml:lang,'syr')]" mode="list">
+                                <xsl:sort lang="syr" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[(not(@srophe:tags) or not(contains(@srophe:tags,'#syriaca-headword'))) and starts-with(@xml:lang, 'syr')]" mode="list">
+                                <xsl:sort lang="syr" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[starts-with(@xml:lang, 'ar')]" mode="list">
+                                <xsl:sort lang="ar" select="."/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select=".[(not(@srophe:tags) or not(contains(@srophe:tags,'#syriaca-headword'))) and not(starts-with(@xml:lang, 'syr') or starts-with(@xml:lang, 'ar'))]" mode="list">
+                                <xsl:sort collation="{$mixed}" select="."/>
+                            </xsl:apply-templates>
+                        </xsl:for-each>
+                    </ul>
+                    <xsl:if test="t:title[@type='abbreviation']">
+                        <h3>Abbreviations</h3>
+                        <ul>
+                            <xsl:for-each select="t:title[@type='abbreviation']">
+                                <xsl:apply-templates select="." mode="list"/>
+                            </xsl:for-each>
+                        </ul>
+                    </xsl:if>
+                    <xsl:if test="t:author | t:editor">
+                        <h3>Authors</h3>
+                        <ul>
+                            <xsl:for-each select="t:author | t:editor">
+                                <li>
+                                    <xsl:apply-templates select="."/>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                    </xsl:if>
+                    <xsl:if test="not(empty(t:desc[@type='abstract' or starts-with(@xml:id, 'abstract-en')][1] | t:note[@type='abstract']))">
+                        <h3>Abstract</h3>
+                        <xsl:apply-templates select="t:desc[@type='abstract' or starts-with(@xml:id, 'abstract-en')][1] | t:note[@type='abstract']"/>
+                    </xsl:if>
+                    <xsl:if test="@ana">
+                        <xsl:for-each select="tokenize(@ana,' ')">
+                            <xsl:variable name="filepath">
+                                <!-- WS:NOTE need to resolve -->
+                                <!--                        <xsl:value-of select="concat('xmldb:exist://',substring-before(replace(.,$base-uri,$nav-base),'#'))"/>-->
+                                <xsl:value-of select="substring-before(replace(.,$base-uri,$nav-base),'#')"/>
+                            </xsl:variable>
+                            <xsl:variable name="ana-id" select="substring-after(.,'#')"/>
+                            <xsl:if test="doc-available($filepath)">
+                                <p>
+                                    <strong>Subject: </strong>
+                                    <xsl:for-each select="document($filepath)/descendant::t:*[@xml:id = $ana-id]">
+                                        <xsl:value-of select="t:label"/>
+                                    </xsl:for-each>
+                                </p>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:if>
+                    <xsl:if test="t:date">
                         <p>
-                            <strong>Subject: </strong>
-                            <xsl:for-each select="document($filepath)/descendant::t:*[@xml:id = $ana-id]">
-                                <xsl:value-of select="t:label"/>
+                            <strong>Date: </strong>
+                            <xsl:apply-templates select="t:date"/>
+                        </p>
+                    </xsl:if>
+                    <xsl:if test="t:extent">
+                        <p>
+                            <strong>Extent: </strong>
+                            <xsl:apply-templates select="t:extent"/>
+                        </p>
+                    </xsl:if>
+                    <xsl:if test="t:idno">
+                        <h3>Reference Numbers</h3>
+                        <p class="indent">
+                            <xsl:for-each select="t:idno[contains(.,$base-uri)]">
+                                <xsl:choose>
+                                    <xsl:when test="@type='URI'">
+                                        <a href="{.}">
+                                            <xsl:value-of select="."/>
+                                        </a>
+                                    </xsl:when>
+                                    <xsl:when test="@type = 'BHSYRE'">
+                                        <xsl:value-of select="concat(replace(@type,'BHSYRE','BHS'),': ',.)"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="concat(@type,': ',.)"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                <xsl:if test="position() != last()"> = </xsl:if>
                             </xsl:for-each>
                         </p>
                     </xsl:if>
-                </xsl:for-each>
-            </xsl:if>
-            <xsl:if test="t:date">
-                <p>
-                    <strong>Date: </strong>
-                    <xsl:apply-templates select="t:date"/>
-                </p>
-            </xsl:if>
-            <xsl:if test="t:extent">
-                <p>
-                    <strong>Extent: </strong>
-                    <xsl:apply-templates select="t:extent"/>
-                </p>
-            </xsl:if>
-            <xsl:if test="t:idno">
-                <h3>Reference Numbers</h3>
-                <p class="indent">
-                    <xsl:for-each select="t:idno[contains(.,$base-uri)]">
-                        <xsl:choose>
-                            <xsl:when test="@type='URI'">
-                                <a href="{.}">
-                                    <xsl:value-of select="."/>
-                                </a>
-                            </xsl:when>
-                            <xsl:when test="@type = 'BHSYRE'">
-                                <xsl:value-of select="concat(replace(@type,'BHSYRE','BHS'),': ',.)"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="concat(@type,': ',.)"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                        <xsl:if test="position() != last()"> = </xsl:if>
-                    </xsl:for-each>
-                </p>
-            </xsl:if>
-        </div>
-        
-        <xsl:if test="t:title[@type='initial-rubric']">
-            <h3>Initial Rubrics</h3>
-            <ul>
-                <xsl:for-each select="t:title[@type='initial-rubric']">
-                    <xsl:apply-templates select="." mode="list"/>
-                </xsl:for-each>
-            </ul>
-        </xsl:if>
-        <xsl:if test="t:title[@type='final-rubric']">
-            <h3>Final Rubrics</h3>
-            <ul>
-                <xsl:for-each select="t:title[@type='final-rubric']">
-                    <xsl:apply-templates select="." mode="list"/>
-                </xsl:for-each>
-            </ul>
-        </xsl:if>
-        <xsl:if test="self::t:bibl[@type='lawd:Citation' or @type='lawd:ConceptualWork'] or parent::t:body">
-            <xsl:variable name="type-order"/>
-            <xsl:for-each-group select="t:bibl[exists(@type)][@type != 'lawd:Citation']" group-by="@type">
-                <xsl:sort select="local:bibl-type-order(current-grouping-key())" order="ascending"/>
-                <xsl:variable name="label">
-                    <xsl:variable name="l" select="local:translate-label(current-grouping-key(),count(current-group()))"/>
-                    <xsl:choose>
-                        <xsl:when test="$l != ''">
-                            <xsl:value-of select="$l"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="current-grouping-key()"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:variable>
-                <h3>
-                    <span class="anchor" id="bibl{$label}"/>
-                    <xsl:value-of select="concat(upper-case(substring($label,1,1)),substring($label,2))"/>
-                </h3>
-                <ol>
-                    <xsl:for-each select="current-group()[position() &lt; 9]">
-                        <xsl:apply-templates select="self::*"/>
-                    </xsl:for-each>
-                    <xsl:if test="count(current-group()) &gt; 8">
-                        <div class="collapse" id="showMore-{local:bibl-type-order(current-grouping-key())}">
-                            <xsl:for-each select="current-group()[position() &gt; 8]">
+                </div>
+                
+                <xsl:if test="t:title[@type='initial-rubric']">
+                    <h3>Initial Rubrics</h3>
+                    <ul>
+                        <xsl:for-each select="t:title[@type='initial-rubric']">
+                            <xsl:apply-templates select="." mode="list"/>
+                        </xsl:for-each>
+                    </ul>
+                </xsl:if>
+                <xsl:if test="t:title[@type='final-rubric']">
+                    <h3>Final Rubrics</h3>
+                    <ul>
+                        <xsl:for-each select="t:title[@type='final-rubric']">
+                            <xsl:apply-templates select="." mode="list"/>
+                        </xsl:for-each>
+                    </ul>
+                </xsl:if>
+                <xsl:if test="self::t:bibl[@type='lawd:Citation' or @type='lawd:ConceptualWork'] or parent::t:body">
+                    <xsl:variable name="type-order"/>
+                    <xsl:for-each-group select="t:bibl[exists(@type)][@type != 'lawd:Citation']" group-by="@type">
+                        <xsl:sort select="local:bibl-type-order(current-grouping-key())" order="ascending"/>
+                        <xsl:variable name="label">
+                            <xsl:variable name="l" select="local:translate-label(current-grouping-key(),count(current-group()))"/>
+                            <xsl:choose>
+                                <xsl:when test="$l != ''">
+                                    <xsl:value-of select="$l"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="current-grouping-key()"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <h3>
+                            <span class="anchor" id="bibl{$label}"/>
+                            <xsl:value-of select="concat(upper-case(substring($label,1,1)),substring($label,2))"/>
+                        </h3>
+                        <ol>
+                            <xsl:for-each select="current-group()[position() &lt; 9]">
                                 <xsl:apply-templates select="self::*"/>
-                            </xsl:for-each>                                    
+                            </xsl:for-each>
+                            <xsl:if test="count(current-group()) &gt; 8">
+                                <div class="collapse" id="showMore-{local:bibl-type-order(current-grouping-key())}">
+                                    <xsl:for-each select="current-group()[position() &gt; 8]">
+                                        <xsl:apply-templates select="self::*"/>
+                                    </xsl:for-each>                                    
+                                </div>
+                                <button class="btn btn-link bibl-show togglelink" data-toggle="collapse" data-target="#showMore-{local:bibl-type-order(current-grouping-key())}" data-text-swap="Hide">Show all <xsl:value-of select="count(current-group())"/>
+                                    <xsl:text> </xsl:text> <xsl:value-of select="$label"/>
+                                </button>
+                            </xsl:if>
+                        </ol>
+                    </xsl:for-each-group>
+                    <xsl:for-each select="t:note[not(exists(@type))]">
+                        <h3>Note</h3>
+                        <div class="left-padding bottom-padding">
+                            <xsl:apply-templates/>
                         </div>
-                        <button class="btn btn-link bibl-show togglelink" data-toggle="collapse" data-target="#showMore-{local:bibl-type-order(current-grouping-key())}" data-text-swap="Hide">Show all <xsl:value-of select="count(current-group())"/>
-                            <xsl:text> </xsl:text> <xsl:value-of select="$label"/>
-                        </button>
-                    </xsl:if>
-                </ol>
-            </xsl:for-each-group>
-            <xsl:for-each select="t:note[not(exists(@type))]">
-                <h3>Note</h3>
-                <div class="left-padding bottom-padding">
-                    <xsl:apply-templates/>
-                </div>
-            </xsl:for-each>
-        </xsl:if>
-        
-        <xsl:if test="not(empty(t:desc[not(starts-with(@xml:id,'abstract'))][1])) or not(empty(t:note[@type='description'][1]))">
-            <h3>Descriptions</h3>
-            <xsl:for-each-group select="t:desc[not(starts-with(@xml:id,'abstract'))] | t:note[@type='description']" group-by="if (contains(@xml:lang, '-')=true()) then substring-before(@xml:lang, '-') else @xml:lang">
-                <xsl:sort collation="{$languages}" select="if (contains(@xml:lang, '-')=true()) then substring-before(@xml:lang, '-') else @xml:lang"/>
-                <xsl:for-each select="current-group()">
-                    <xsl:sort lang="{current-grouping-key()}" select="normalize-space(.)"/>
-                    <div class="tei-desc text">
-                        <xsl:apply-templates select="."/>
-                    </div>
-                </xsl:for-each>
-            </xsl:for-each-group>
-        </xsl:if> 
-        
-        <xsl:if test="t:note[not(@type='abstract')]">
-            <xsl:variable name="rules" select="                 '&lt; prologue &lt; incipit &lt; explicit &lt;                  editions &lt; modernTranslation &lt;                  ancientVersion &lt; MSS'"/>
-            <xsl:for-each-group select="t:note[not(@type='abstract')][exists(@type)]" group-by="@type">
-                <xsl:sort select="current-grouping-key()" collation="http://saxon.sf.net/collation?rules={encode-for-uri($rules)};ignore-case=yes;ignore-modifiers=yes;ignore-symbols=yes)" order="ascending"/>
-                <!--<xsl:sort select="current-grouping-key()" order="descending"/>-->
-                <xsl:variable name="label">
-                    <xsl:choose>
-                        <xsl:when test="current-grouping-key() = 'MSS'">Syriac Manuscript Witnesses</xsl:when>
-                        <xsl:when test="current-grouping-key() = 'incipit'">Incipit (Opening Line)</xsl:when>
-                        <xsl:when test="current-grouping-key() = 'explicit'">Explicit (Closing Line)</xsl:when>
-                        <xsl:when test="current-grouping-key() = 'ancientVersion'">Ancient Versions</xsl:when>
-                        <xsl:when test="current-grouping-key() = 'modernTranslation'">Modern Translations</xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="current-grouping-key()"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:variable>
-                <h3>
-                    <xsl:value-of select="concat(upper-case(substring($label,1,1)),substring($label,2))"/>
-                </h3>
-                <div class="indent">
-                    <xsl:for-each select="current-group()">
-                        <xsl:sort select="if(current-grouping-key() = 'MSS') then substring-after(t:bibl[1]/@xml:id,'-') = '' else if(current-grouping-key() = 'editions') then substring-after(t:bibl/@corresp,'-') = '' else if(@xml:lang) then local:expand-lang(@xml:lang,$label) else ." order="ascending"/>
-                        <xsl:sort select="if(current-grouping-key() = 'MSS' and (substring-after(t:bibl[1]/@xml:id,'-') castable as xs:integer)) then xs:integer(substring-after(t:bibl/@xml:id,'-')) else if(@xml:lang) then local:expand-lang(@xml:lang,$label) else ()" order="ascending"/>
-                        <xsl:apply-templates select="self::*"/>
                     </xsl:for-each>
-                </div>
-            </xsl:for-each-group>
-            <xsl:for-each select="t:note[not(exists(@type))]">
-                <h3>Note</h3>
-                <div class="left-padding bottom-padding">
-                    <xsl:apply-templates/>
-                </div>
-            </xsl:for-each>
-        </xsl:if>
+                </xsl:if>
+                
+                <xsl:if test="not(empty(t:desc[not(starts-with(@xml:id,'abstract'))][1])) or not(empty(t:note[@type='description'][1]))">
+                    <h3>Descriptions</h3>
+                    <xsl:for-each-group select="t:desc[not(starts-with(@xml:id,'abstract'))] | t:note[@type='description']" group-by="if (contains(@xml:lang, '-')=true()) then substring-before(@xml:lang, '-') else @xml:lang">
+                        <xsl:sort collation="{$languages}" select="if (contains(@xml:lang, '-')=true()) then substring-before(@xml:lang, '-') else @xml:lang"/>
+                        <xsl:for-each select="current-group()">
+                            <xsl:sort lang="{current-grouping-key()}" select="normalize-space(.)"/>
+                            <div class="tei-desc text">
+                                <xsl:apply-templates select="."/>
+                            </div>
+                        </xsl:for-each>
+                    </xsl:for-each-group>
+                </xsl:if> 
+                
+                <xsl:if test="t:note[not(@type='abstract')]">
+                    <xsl:variable name="rules" select="                 '&lt; prologue &lt; incipit &lt; explicit &lt;                  editions &lt; modernTranslation &lt;                  ancientVersion &lt; MSS'"/>
+                    <xsl:for-each-group select="t:note[not(@type='abstract')][exists(@type)]" group-by="@type">
+                        <xsl:sort select="current-grouping-key()" collation="http://saxon.sf.net/collation?rules={encode-for-uri($rules)};ignore-case=yes;ignore-modifiers=yes;ignore-symbols=yes)" order="ascending"/>
+                        <!--<xsl:sort select="current-grouping-key()" order="descending"/>-->
+                        <xsl:variable name="label">
+                            <xsl:choose>
+                                <xsl:when test="current-grouping-key() = 'MSS'">Syriac Manuscript Witnesses</xsl:when>
+                                <xsl:when test="current-grouping-key() = 'incipit'">Incipit (Opening Line)</xsl:when>
+                                <xsl:when test="current-grouping-key() = 'explicit'">Explicit (Closing Line)</xsl:when>
+                                <xsl:when test="current-grouping-key() = 'ancientVersion'">Ancient Versions</xsl:when>
+                                <xsl:when test="current-grouping-key() = 'modernTranslation'">Modern Translations</xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="current-grouping-key()"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <h3>
+                            <xsl:value-of select="concat(upper-case(substring($label,1,1)),substring($label,2))"/>
+                        </h3>
+                        <div class="indent">
+                            <xsl:for-each select="current-group()">
+                                <xsl:sort select="if(current-grouping-key() = 'MSS') then substring-after(t:bibl[1]/@xml:id,'-') = '' else if(current-grouping-key() = 'editions') then substring-after(t:bibl/@corresp,'-') = '' else if(@xml:lang) then local:expand-lang(@xml:lang,$label) else ." order="ascending"/>
+                                <xsl:sort select="if(current-grouping-key() = 'MSS' and (substring-after(t:bibl[1]/@xml:id,'-') castable as xs:integer)) then xs:integer(substring-after(t:bibl/@xml:id,'-')) else if(@xml:lang) then local:expand-lang(@xml:lang,$label) else ()" order="ascending"/>
+                                <xsl:apply-templates select="self::*"/>
+                            </xsl:for-each>
+                        </div>
+                    </xsl:for-each-group>
+                    <xsl:for-each select="t:note[not(exists(@type))]">
+                        <h3>Note</h3>
+                        <div class="left-padding bottom-padding">
+                            <xsl:apply-templates/>
+                        </div>
+                    </xsl:for-each>
+                </xsl:if>
+                
+            </xsl:otherwise>
+        </xsl:choose>
+        
         
         <div class="info-btns">  
             <xsl:variable name="status" select="string(/descendant-or-self::t:revisionDesc/@status)"/>
@@ -1287,6 +1406,28 @@
     
     <!-- R -->
     <xsl:template match="t:relation">
+        <xsl:choose>
+            <xsl:when test="@ref = 'syriaca:commemorates'">
+                <div class="indent">
+                    This work commemorates <xsl:apply-templates select="t:desc"/>
+                </div> 
+            </xsl:when>
+            <xsl:when test="@ref = 'skos:broader'">
+                <div class="indent">
+                    This work is one version within <xsl:apply-templates select="t:desc"/>
+                </div> 
+            </xsl:when>
+            <xsl:when test="@ref = 'syriaca:different-from'">
+                <div class="indent">
+                    Not the same conceptual work as <xsl:apply-templates select="t:desc"/>
+                </div> 
+            </xsl:when>
+            <xsl:when test="@ref = 'dcterms:source'">
+                <div class="indent">
+                    Based on <xsl:apply-templates select="t:desc"/>
+                </div>
+            </xsl:when>
+        </xsl:choose>
         <!--
         <xsl:choose>
             <xsl:when test="ancestor::t:div[@uri]"/>
@@ -1342,7 +1483,7 @@
             <xsl:otherwise>
                 <!-- Header -->
                 <xsl:call-template name="h1">
-<!--                    <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>-->
+                   <!-- <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>-->
                 </xsl:call-template>
                 <xsl:apply-templates select="descendant::t:sourceDesc/t:msDesc"/>
                 <!-- MSS display -->
@@ -1421,7 +1562,7 @@
     <xsl:template match="t:srophe-title | t:titleStmt">
         <xsl:param name="idno"/>
         <xsl:call-template name="h1">
-<!--            <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>-->
+           <!-- <xsl:with-param name="idno"><xsl:value-of select="$idno"/></xsl:with-param>-->
         </xsl:call-template>
     </xsl:template>
     <xsl:template name="h1">

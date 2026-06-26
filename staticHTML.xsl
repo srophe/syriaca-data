@@ -437,12 +437,15 @@
                     <xsl:otherwise><xsl:message>No template found for html:head element</xsl:message></xsl:otherwise>
                 </xsl:choose>
             <body id="body">
-                <div class="hidden test ws"></div>
                 <xsl:choose>
                     <xsl:when test="not(empty($template))">
                         <xsl:choose>
                             <xsl:when test="$template/descendant::html:nav">
                                 <xsl:copy-of select="$template/descendant::html:nav"/>
+                            </xsl:when>
+                            <xsl:when test="$template/descendant::html:div[@id = 'navbar-container']">
+                                <xsl:copy-of select="$template/descendant::html:div[@id = 'navbar-container']/preceding-sibling::html:script[1]"/>
+                                <div id="navbar-container"></div>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:message>No template found for html:head element</xsl:message>

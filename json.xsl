@@ -877,9 +877,9 @@
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:if test="contains($id, '/work')">
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='prologue']">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:noteGrp/tei:note[@type='prologue']">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='prologue']">
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:noteGrp/tei:note[@type='prologue']">
                     <string xmlns="http://www.w3.org/2005/xpath-functions">
                         <!--<xsl:value-of select="normalize-space(string-join(descendant-or-self::text(),' '))"/>-->
                         <xsl:apply-templates select="." mode="xmlLang"/>
@@ -893,9 +893,9 @@
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:if test="contains($id, '/work')">
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='incipit']">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:noteGrp/tei:note[@type='incipit']">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='incipit']">
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:noteGrp/tei:note[@type='incipit']">
                     <string xmlns="http://www.w3.org/2005/xpath-functions">
                         <!--<xsl:value-of select="normalize-space(string-join(descendant-or-self::text(),' '))"/>-->
                         <xsl:apply-templates select="." mode="xmlLang"/>
@@ -909,9 +909,9 @@
         <xsl:param name="doc"/>
         <xsl:param name="id"/>
         <xsl:if test="contains($id, '/work')">
-        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='explicit']">
+        <xsl:if test="$doc/descendant::tei:body/descendant::tei:bibl/tei:noteGrp/tei:note[@type='explicit']">
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">     
-                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:note[@type='explicit']">
+                <xsl:for-each select="$doc/descendant::tei:body/descendant::tei:bibl/tei:noteGrp/tei:note[@type='explicit']">
                     <string xmlns="http://www.w3.org/2005/xpath-functions">
                         <!--<xsl:value-of select="normalize-space(string-join(descendant-or-self::text(),' '))"/>-->
                         <xsl:apply-templates select="." mode="xmlLang"/>
