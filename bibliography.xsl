@@ -299,6 +299,9 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:when>
+                <xsl:when test="child::t:label">
+                    <xsl:apply-templates select="*[not(self::t:note or self::t:listRelation)]"/><xsl:sequence select="$passThrough"/>
+                </xsl:when>
                 <xsl:otherwise>
                     <xsl:choose>
                         <xsl:when test="child::*">
@@ -435,14 +438,21 @@
     <xsl:template match="t:bibl" mode="formattedCitation">
         <xsl:apply-templates mode="formattedCitation"/>
     </xsl:template>
+    <xsl:template match="t:title" mode="formattedCitation">
+        <xsl:if test="ends-with(preceding-sibling::*[1]/text(),',')"><xsl:text> </xsl:text></xsl:if><xsl:apply-templates select="self::*" mode="footnote"/>
+    </xsl:template>
     <xsl:template match="text()" mode="formattedCitation">
         <xsl:choose>
             <xsl:when test="not(following-sibling::*)">
                 <xsl:value-of select="replace(., '\.\s*$', '')"/>        
             </xsl:when>
+            <xsl:when test="ends-with(.,',') and following-sibling::t:title">
+                <xsl:text> </xsl:text>
+            </xsl:when>
             <xsl:otherwise><xsl:value-of select="normalize-space(.)"/></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      Main footnote templates for bibl records. 
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
