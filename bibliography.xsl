@@ -373,6 +373,7 @@
                                 <xsl:apply-templates select="descendant::t:bibl[@type='formatted'][@subtype='citation']" mode="formattedCitation"/>
                                 <!-- bibl type="formatted" subtype="citation" -->
                                 <xsl:sequence select="$passThrough"/>
+                                <xsl:if test="not(ends-with($passThrough,'.'))"><xsl:text>. </xsl:text></xsl:if>
                                 <xsl:if test="descendant::t:idno[@type='URI']">
                                     <span class="footnote-links">
                                         <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
@@ -415,7 +416,7 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <!--                                    <xsl:message>Bibl item not found. the value of biblfilepath is ' <xsl:value-of select="$newBiblfilepath"/>'</xsl:message>-->
-                                    <xsl:apply-templates mode="footnote"/>
+                                   <xsl:apply-templates mode="footnote"/>
                                     <xsl:sequence select="$passThrough"/>
                                     <xsl:if test="descendant::t:idno[@type='URI']">
                                         <span class="footnote-links">
@@ -429,7 +430,7 @@
                     </xsl:choose>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:apply-templates select="*[not(self::t:note or self::t:listRelation)]"/><xsl:sequence select="$passThrough"/>
+                   <xsl:apply-templates select="*[not(self::t:note or self::t:listRelation)]"/><xsl:sequence select="$passThrough"/>
                 </xsl:otherwise>
             </xsl:choose>
         </span>
@@ -446,13 +447,10 @@
             <xsl:when test="not(following-sibling::*)">
                 <xsl:value-of select="replace(., '\.\s*$', '')"/>        
             </xsl:when>
-            <xsl:when test="ends-with(.,',') and following-sibling::t:title">
-                <xsl:text> </xsl:text>
-            </xsl:when>
-            <xsl:otherwise><xsl:value-of select="normalize-space(.)"/></xsl:otherwise>
+            <xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
      Main footnote templates for bibl records. 
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -1260,6 +1258,7 @@
             <xsl:value-of select="."/>
             <xsl:text>) </xsl:text>
         </xsl:for-each>
+        <!--
         <xsl:choose>
             <xsl:when test="following-sibling::*[not(self::t:ptr)]">, </xsl:when>
             <xsl:otherwise>
@@ -1268,6 +1267,7 @@
                 </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
+        -->
     </xsl:template>
     <xsl:template match="t:idno" mode="footnote">
         <!-- IDNO should use mode="links" not mode footnote. 
