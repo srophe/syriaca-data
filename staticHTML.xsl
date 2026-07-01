@@ -443,8 +443,8 @@
                             <xsl:when test="$template/descendant::html:nav">
                                 <xsl:copy-of select="$template/descendant::html:nav"/>
                             </xsl:when>
-                            <xsl:when test="$template/descendant::html:div[@id = 'navbar-container']">
-                                <xsl:copy-of select="$template/descendant::html:div[@id = 'navbar-container']/preceding-sibling::html:script[1]"/>
+                            <xsl:when test="$template/descendant::*:div[@id = 'navbar-container']">
+                                <xsl:copy-of select="$template/descendant::*:div[@id = 'navbar-container']/preceding-sibling::*:script[1]"/>
                                 <div id="navbar-container"></div>
                             </xsl:when>
                             <xsl:otherwise>
