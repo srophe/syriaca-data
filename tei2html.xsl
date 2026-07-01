@@ -1003,7 +1003,7 @@
                         <xsl:apply-templates select="."/>    
                     </xsl:for-each-group>
                     
-                    <xsl:for-each-group select="t:noteGrp[@type = ('incipit','exerpt','explicit')]" group-by="@type">
+                    <xsl:for-each-group select="t:noteGrp[@type = ('incipit','prologue','exerpt','excerpts','explicit')]" group-by="@type">
                         <h3><xsl:value-of select="t:desc"/></h3>
                         <xsl:apply-templates select="t:note"/>
                     </xsl:for-each-group>
@@ -1023,12 +1023,12 @@
                             </xsl:for-each>
                         </ul>
                     </xsl:for-each-group>  
-                    <xsl:if test="t:noteGrp[@type != ('abstract','incipit','exerpt','explicit')]">
+                    <xsl:if test="t:noteGrp[@type != ('abstract','prologue','incipit','exerpt','excerpts','explicit')]">
                         <h3>Notes</h3>
                         <xsl:for-each-group select="t:noteGrp" group-by="@type">
                             <div class="tei-noteGrp">
                                 <xsl:choose>
-                                    <xsl:when test="current-grouping-key() = ('abstract','incipit','exerpt','explicit')"/>
+                                    <xsl:when test="current-grouping-key() = ('abstract','prologue','incipit','exerpt','excerpts','explicit')"/>
                                     <xsl:otherwise>
                                         <h4><xsl:value-of select="t:desc"/></h4>
                                         <xsl:apply-templates select="t:note"/>                                    
@@ -1932,14 +1932,29 @@
                         </xsl:otherwise>
                     </xsl:choose>
                     -->
-                    <xsl:for-each select="t:bibl">
-<!--                       <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>-->
-                        <xsl:sort select="
-                        if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
-                        then number(substring-after(@xml:id, '-')) 
-                        else 0"/>
-                        <xsl:apply-templates select="." mode="footnote"/>
-                    </xsl:for-each>
+                    <xsl:choose>
+                        <xsl:when test="ancestor::t:TEI/descendant-or-self::t:body/t:bibl[starts-with(@xml:id,'work-')]">
+                            <xsl:for-each select="t:listBibl/t:bibl">
+                                <!--                       <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>-->
+                                <xsl:sort select="
+                                    if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
+                                    then number(substring-after(@xml:id, '-')) 
+                                    else 0"/>
+                                <xsl:apply-templates select="." mode="footnote"/>
+                            </xsl:for-each>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:for-each select="t:bibl">
+                                <!--                       <xsl:sort select="xs:integer(translate(substring-after(@xml:id,'-'),translate(substring-after(@xml:id,'-'), '0123456789', ''), ''))"/>-->
+                                <xsl:sort select="
+                                    if (contains(@xml:id, '-') and normalize-space(substring-after(@xml:id, '-')) != '') 
+                                    then number(substring-after(@xml:id, '-')) 
+                                    else 0"/>
+                                <xsl:apply-templates select="." mode="footnote"/>
+                            </xsl:for-each>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    
                 </ul>
             </div>
         </div>
