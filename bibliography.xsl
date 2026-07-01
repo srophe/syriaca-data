@@ -244,6 +244,7 @@
                                 <xsl:apply-templates select="descendant::t:bibl[@type='formatted'][@subtype='citation']" mode="formattedCitation"/>
                                 <!-- bibl type="formatted" subtype="citation" -->
                                 <xsl:sequence select="$passThrough"/>
+                                <xsl:if test="not(ends-with($passThrough//text(),'.'))"><xsl:text>. </xsl:text></xsl:if>
                                 <xsl:if test="descendant::t:idno[@type='URI']">
                                     <span class="footnote-links">
                                         <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
@@ -271,6 +272,7 @@
                                             <xsl:for-each select="$rec/descendant::t:biblStruct">
                                                 <xsl:apply-templates mode="footnote"/>
                                                 <xsl:sequence select="$passThrough"/>
+                                                <xsl:if test="not(ends-with($passThrough//text(),'.'))"><xsl:text>. </xsl:text></xsl:if>
                                                 <xsl:if test="descendant::t:idno[@type='URI']">
                                                     <span class="footnote-links">
                                                         <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
@@ -288,6 +290,7 @@
 <!--                                    <xsl:message>Bibl item not found. the value of biblfilepath is ' <xsl:value-of select="$newBiblfilepath"/>'</xsl:message>-->
                                     <xsl:apply-templates mode="footnote"/>
                                     <xsl:sequence select="$passThrough"/>
+                                    <xsl:if test="not(ends-with($passThrough//text(),'.'))"><xsl:text>. </xsl:text></xsl:if>
                                     <xsl:if test="descendant::t:idno[@type='URI']">
                                         <span class="footnote-links">
                                             <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
@@ -300,7 +303,7 @@
                     </xsl:choose>
                 </xsl:when>
                 <xsl:when test="child::t:label">
-                    <xsl:apply-templates select="*[not(self::t:note or self::t:listRelation)]"/><xsl:sequence select="$passThrough"/>
+                    <xsl:apply-templates select="*[not(self::t:note or self::t:listRelation)]"/><xsl:sequence select="$passThrough"/><xsl:if test="not(ends-with($passThrough//text(),'.'))"><xsl:text>. </xsl:text></xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:choose>
@@ -318,6 +321,7 @@
                             </xsl:for-each>
                             <xsl:apply-templates select="text()"/>
                             <xsl:sequence select="$passThrough"/>
+                            <xsl:if test="not(ends-with($passThrough//text(),'.'))"><xsl:text>. </xsl:text></xsl:if>
                             <xsl:if test="descendant::t:idno[@type='URI']">
                                 <span class="footnote-links">
                                     <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
@@ -373,7 +377,7 @@
                                 <xsl:apply-templates select="descendant::t:bibl[@type='formatted'][@subtype='citation']" mode="formattedCitation"/>
                                 <!-- bibl type="formatted" subtype="citation" -->
                                 <xsl:sequence select="$passThrough"/>
-                                <xsl:if test="not(ends-with($passThrough,'.'))"><xsl:text>. </xsl:text></xsl:if>
+                                <xsl:if test="not(ends-with($passThrough//text(),'.'))"><xsl:text>. </xsl:text></xsl:if>
                                 <xsl:if test="descendant::t:idno[@type='URI']">
                                     <span class="footnote-links">
                                         <xsl:apply-templates select="descendant::t:idno[@type='URI']" mode="links"/>
