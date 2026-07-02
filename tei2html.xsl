@@ -930,7 +930,7 @@
             <xsl:when test="/descendant::t:seriesStmt/t:idno[@type='URI'] = 'http://syriaca.org/nhsl'">
                 <div class="content-block">
                     <h3>Titles</h3>
-                    <ul>                
+                    <ul class="mainTitles">                
                         <xsl:for-each select="t:title[(not(@type) or not(@type=('initial-rubric','final-rubric','abbreviation'))) and not(@syriaca-tags='#syriaca-simplified-script')]">
                             <xsl:apply-templates select=".[contains(@srophe:tags,'#syriaca-headword') and starts-with(@xml:lang,'en')]" mode="list">
                                 <xsl:sort collation="{$mixed}" select="."/>
@@ -1000,7 +1000,58 @@
                     <!-- Relationships -->
                     <!-- Needs testing and work -->
                     <xsl:for-each-group select="t:listRelation/t:relation" group-by="@ref">
-                        <xsl:apply-templates select="."/>    
+                        <div class="tei-listRelation">
+                            <xsl:choose>
+                                <xsl:when test="current-grouping-key() = 'syriaca:commemorates'">
+                                    <span class="tei-relation">
+                                        This work commemorates: 
+                                        <ul>
+                                            <xsl:for-each select="current-group()">
+                                                <li><xsl:apply-templates/></li>
+                                                <!--
+                                                <xsl:choose>
+                                                    <xsl:when test="position() = ($total - 1)"><xsl:text>; and </xsl:text></xsl:when>
+                                                    <xsl:when test="position() = last()"/>
+                                                    <xsl:when test="position() != last()"><xsl:text>; </xsl:text></xsl:when>
+                                                </xsl:choose>
+                                                -->
+                                            </xsl:for-each> 
+                                        </ul>
+                                        
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="current-grouping-key() = 'skos:broader'">
+                                    <span class="tei-relation">
+                                        This work is one version within: 
+                                        <ul>
+                                            <xsl:for-each select="current-group()">
+                                                <li><xsl:apply-templates/></li>
+                                            </xsl:for-each>
+                                        </ul>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="current-grouping-key() = 'syriaca:different-from'">
+                                    <span class="tei-relation">
+                                        Not the same conceptual work as: 
+                                        <ul>
+                                            <xsl:for-each select="current-group()">
+                                                <li><xsl:apply-templates/></li>
+                                            </xsl:for-each>
+                                        </ul>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="current-grouping-key() = 'dcterms:source'">
+                                    <span class="tei-relation">
+                                        Based on: 
+                                        <ul>
+                                            <xsl:for-each select="current-group()">
+                                                <li><xsl:apply-templates/></li>
+                                            </xsl:for-each>
+                                        </ul>
+                                    </span>
+                                </xsl:when>
+                            </xsl:choose>
+                        </div>
                     </xsl:for-each-group>
                     
                     <xsl:for-each-group select="t:noteGrp[@type = ('incipit','prologue','exerpt','excerpts','explicit')]" group-by="@type">
@@ -1023,7 +1074,7 @@
                             </xsl:for-each>
                         </ul>
                     </xsl:for-each-group>  
-                    <xsl:if test="t:noteGrp[@type != ('abstract','prologue','incipit','exerpt','excerpts','explicit')]">
+                    <xsl:if test="t:noteGrp[not(@type = ('abstract','prologue','incipit','exerpt','excerpts','explicit'))]">
                         <h3>Notes</h3>
                         <xsl:for-each-group select="t:noteGrp" group-by="@type">
                             <div class="tei-noteGrp">
