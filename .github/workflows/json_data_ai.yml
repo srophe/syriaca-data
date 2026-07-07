@@ -52,11 +52,11 @@ jobs:
       - name: Identify XML files
         run: |
           # Find each section of data for processing one at a time, or target files
-          find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          find ./data/places/tei -name '*.xml' > xml_files.txt
-          find ./data/persons/tei -name '*.xml' > xml_files.txt
+          # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          # find ./data/places/tei -name '*.xml' > xml_files.txt
+          # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # Bibliographic records should be run in batches of 5000
-          # find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
+          find ./data/bibl/tei -name '*.xml' > xml_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
@@ -95,9 +95,6 @@ jobs:
       
             echo "Processing $filename for $type JSON"
       
-            # # Write index metadata to a separate temp file
-            # echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
-      
             # Run transformation, ensuring single-line output
             if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
               echo "::warning:: JSON transformation failed for $file"
@@ -121,11 +118,11 @@ jobs:
       - name: Commit index JSON to repo
         run: |
           mkdir -p json-data
-          cp bulk_data.json json-data/bulk_data.json
+          cp bulk_data.json json-data/bibl-bulk_data.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add json-data/bulk_data.json
-          git diff --cached --quiet || git commit -m "Update bulk_data.json"
+          git add json-data/bibl_bulk_data.json
+          git diff --cached --quiet || git commit -m "Update bibl_bulk_data.json"
           git push
 
 
