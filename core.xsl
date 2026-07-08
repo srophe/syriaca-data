@@ -196,7 +196,7 @@
                 <xsl:when test="parent::*/@xml:lang"><xsl:sequence select="local:attributes(parent::*[@xml:lang])"/></xsl:when>
                 <xsl:otherwise><xsl:sequence select="local:attributes(.)"/></xsl:otherwise>
             </xsl:choose>
-            <xsl:text>“</xsl:text><xsl:call-template name="rend"/><xsl:text>”</xsl:text>
+            <xsl:text>"</xsl:text><xsl:call-template name="rend"/><xsl:text>"</xsl:text>
             <xsl:choose>
                 <xsl:when test="@source"><xsl:sequence select="local:add-footnotes(@source,ancestor::t:*[@xml:lang][1])"/></xsl:when>
                 <xsl:when test="parent::*[1]/@source"><xsl:sequence select="local:add-footnotes(parent::*[1]/@source,ancestor::t:*[@xml:lang][1])"/></xsl:when>
