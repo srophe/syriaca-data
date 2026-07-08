@@ -443,21 +443,23 @@
                             <xsl:when test="$template/descendant::html:nav">
                                 <xsl:copy-of select="$template/descendant::html:nav"/>
                                 <div class="invisibleDiv0"></div>
+                                <xsl:message>DEBUG: Template with html:nav</xsl:message>
                             </xsl:when>
                             <xsl:when test="$template/descendant::*:div[@id = 'navbar-container']">
                                 <xsl:copy-of select="$template/descendant::*:div[@id = 'navbar-container']/preceding-sibling::*:script[1]"/>
                                 <div id="navbar-container"></div>
                                 <div class="invisibleDiv1"></div>
+                                <xsl:message>DEBUG: Template with navbar-container</xsl:message>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:message>No template found for html:head element</xsl:message>
+                                <xsl:message>DEBUG: No html:nav template found for html:head element, use generic nav</xsl:message>
                                 <xsl:call-template name="genericNav"/>
                                 <div class="invisibleDiv2"></div>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:message>No template found for html:head element</xsl:message>
+                        <xsl:message>DEBUG: No template found for html:head element</xsl:message>
                         <xsl:call-template name="genericNav"/>
                         <div class="invisibleDiv2"></div>
                     </xsl:otherwise>
