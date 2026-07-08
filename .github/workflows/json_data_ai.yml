@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      # Step 1: Checkout repositories
+      # Checkout repositories
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -30,7 +30,7 @@ jobs:
           ref: main
           path: syriaca
 
-      # Step 2: Install Java and Saxon for XSLT
+      # Install Java and Saxon for XSLT
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
@@ -48,17 +48,17 @@ jobs:
         if: steps.cache-saxon.outputs.cache-hit != 'true'
         run: wget https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar -O saxon.jar
 
-      # Step 3: Identify XML files for processing: Decide which subset of the data you want to process
+      # Identify XML files for processing: Decide which subset of the data you want to process
       - name: Identify XML files
         run: |
           # Find each section of data for processing one at a time, or target files
-          find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
-          find ./data/places/tei -name '*.xml' > xml_files.txt
-          find ./data/persons/tei -name '*.xml' > xml_files.txt
+          # find ./data/works/tei -name '*.xml' | head -n 5000 > xml_files.txt
+          # find ./data/places/tei -name '*.xml' > xml_files.txt
+          # find ./data/persons/tei -name '*.xml' > xml_files.txt
           # Bibliographic records should be run in batches of 5000
-          # find ./data/bibl/tei -name '*.xml' > xml_files.txt
-          # head -n 5000 all_files.txt > xml_files.txt
-          # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
+          find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
+          head -n 5000 all_files.txt > xml_files.txt
+          head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
           # head -n 25000 all_files.txt | tail -n 5000 > xml_files.txt
@@ -68,7 +68,7 @@ jobs:
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
           
-      # Step 4: Run XSLT Transformations in Parallel for JSON: FOR OPENSEARCH INDEX UPDATES
+      # Run XSLT Transformations in Parallel for JSON: FOR OPENSEARCH INDEX UPDATES
       - name: Run XSLT Transformations and Create Bulk JSON (Parallelized)
         run: |
           if [ ! -s xml_files.txt ]; then
@@ -118,18 +118,16 @@ jobs:
       - name: Commit index JSON to repo
         run: |
           mkdir -p json-data
-          cp bulk_data.json json-data/bulk_data_1.json
+          cp bulk_data.json json-data/bulk_data_bibl.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add json-data/bulk_data_1.json
-          git diff --cached --quiet || git commit -m "Update bulk_data_1.json"
+          git add json-data/bulk_data_bibl.json
+          git diff --cached --quiet || git commit -m "Update bulk_data_bibl.json"
           git pull --rebase origin gaddel_development
           git push
 
 
-
-
-      # Step 9: Upload error logs as an artifact for debugging
+      # Upload error logs as an artifact for debugging
       - name: Upload Logs to GitHub Artifacts
         if: always()
         uses: actions/upload-artifact@v4
