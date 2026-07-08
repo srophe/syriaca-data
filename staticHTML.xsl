@@ -325,7 +325,7 @@
         <xsl:variable name="collectionTemplate">
             <xsl:choose>
                 <xsl:when test="$idno != ''">
-                    <xsl:message> TEI record with an idno: <xsl:value-of select="$idno"/></xsl:message>
+                    <xsl:message>DEBUG: TEI record with an idno: <xsl:value-of select="$idno"/></xsl:message>
                     <xsl:variable name="templatePath" select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/>
                     <xsl:if test="doc-available(xs:anyURI($templatePath))">
                         <xsl:sequence select="document(xs:anyURI($templatePath))"/>
@@ -356,7 +356,7 @@
                     </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:message>Find generic page.html template</xsl:message>
+                    <xsl:message>DEBUG: Find generic page.html template</xsl:message>
                     <xsl:variable name="templatePath" select="replace(concat($staticSitePath,'/siteGenerator/components/page.html'),'//','/')"/>
                     <xsl:if test="doc-available(xs:anyURI($templatePath))">
                         <xsl:sequence select="document(xs:anyURI($templatePath))"/>
@@ -442,26 +442,22 @@
                         <xsl:choose>
                             <xsl:when test="$template/descendant::html:nav">
                                 <xsl:copy-of select="$template/descendant::html:nav"/>
-                                <div class="invisibleDiv0"></div>
                                 <xsl:message>DEBUG: Template with html:nav</xsl:message>
                             </xsl:when>
                             <xsl:when test="$template/descendant::*:div[@id = 'navbar-container']">
                                 <xsl:copy-of select="$template/descendant::*:div[@id = 'navbar-container']/preceding-sibling::*:script[1]"/>
                                 <div id="navbar-container"></div>
-                                <div class="invisibleDiv1"></div>
                                 <xsl:message>DEBUG: Template with navbar-container</xsl:message>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:message>DEBUG: No html:nav template found for html:head element, use generic nav</xsl:message>
+                                <xsl:message>DEBUG: No html:nav template found for html:nav element, use generic nav</xsl:message>
                                 <xsl:call-template name="genericNav"/>
-                                <div class="invisibleDiv2"></div>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:message>DEBUG: No template found for html:head element</xsl:message>
+                        <xsl:message>DEBUG: No template found for html:nav element</xsl:message>
                         <xsl:call-template name="genericNav"/>
-                        <div class="invisibleDiv2"></div>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:choose>
