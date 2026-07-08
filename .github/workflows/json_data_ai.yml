@@ -59,10 +59,10 @@ jobs:
           find ./data/bibl/tei -name '*.xml' | sort > all_files.txt
           # head -n 5000 all_files.txt > xml_files.txt
           # head -n 10000 all_files.txt | tail -n 5000 > xml_files.txt
-          head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
-          head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
-          # head -n 25000 all_files.txt | tail -n 5000 > xml_files.txt
-          # head -n 30000 all_files.txt | tail -n 5000 > xml_files.txt
+          # head -n 15000 all_files.txt | tail -n 5000 > xml_files.txt
+          # head -n 20000 all_files.txt | tail -n 5000 > xml_files.txt
+          head -n 25000 all_files.txt | tail -n 5000 > xml_files.txt
+          head -n 30000 all_files.txt | tail -n 5000 > xml_files.txt
 
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
@@ -117,11 +117,11 @@ jobs:
       - name: Commit index JSON to repo
         run: |
           mkdir -p json-data
-          cp bulk_data.json json-data/bulk_data_bibl_1.json
+          cp bulk_data.json json-data/bulk_data_bibl_2.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add json-data/bulk_data_bibl_1.json
-          git diff --cached --quiet || git commit -m "Update bulk_data_bibl_1.json"
+          git add json-data/bulk_data_bibl_2.json
+          git diff --cached --quiet || git commit -m "Update bulk_data_bibl_2.json"
           git pull --rebase origin gaddel_development
           git push
 
