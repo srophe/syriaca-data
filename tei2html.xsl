@@ -973,21 +973,24 @@
                     </xsl:if>
                     <xsl:if test="t:idno">
                         <h3>Reference Numbers</h3>
-                        <xsl:for-each select="t:idno">
-                            <div>
-                                <xsl:choose>
-                                    <xsl:when test="@type='URI'">
-                                       URI: <a href="{.}"><xsl:value-of select="."/></a>
-                                    </xsl:when>
-                                    <xsl:when test="@type='number'">
-                                        <xsl:value-of select="concat(@subtype,': ',.)"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="concat(@type,': ',.)"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </div>
-                        </xsl:for-each>
+                        <ul>
+                            <xsl:for-each select="t:idno">
+                                <li>
+                                    <xsl:choose>
+                                        <xsl:when test="@type='URI'">
+                                            URI: <a href="{.}"><xsl:value-of select="."/></a>
+                                        </xsl:when>
+                                        <xsl:when test="@type='number'">
+                                            <xsl:value-of select="concat(@subtype,': ',.)"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:value-of select="concat(@type,': ',.)"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </li>
+                            </xsl:for-each>  
+                        </ul>
+                        
                     </xsl:if>
                     <xsl:if test="t:date">
                         <h3>Date</h3>
@@ -1001,6 +1004,7 @@
                     <!-- Needs testing and work -->
                     <xsl:for-each-group select="t:listRelation/t:relation" group-by="@ref">
                         <div class="tei-listRelation">
+                            <h3>Related Entities</h3>
                             <xsl:choose>
                                 <xsl:when test="current-grouping-key() = 'syriaca:commemorates'">
                                     <span class="tei-relation">
