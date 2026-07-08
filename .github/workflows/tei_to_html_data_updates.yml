@@ -87,7 +87,7 @@ jobs:
             mkdir -p data-html/$type
             
             echo "Processing $filename for HTML"
-            if ! java -jar saxon.jar -s:$file -xsl:html-stylesheet.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
+            if ! java -jar saxon.jar -s:$file -xsl:staticHTML.xsl -o:data-html/${type}/${filename}.html 2>> logs/errors.log; then
               echo "::warning:: XSLT transformation failed for $file. Check logs/errors.log"
             fi
           ' sh {}
