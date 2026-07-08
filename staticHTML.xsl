@@ -79,10 +79,9 @@
     <xsl:param name="convert" select="'true'"/>
     -->
     
-    <xsl:param name="applicationPath" select="'/Users/wsalesky/syriaca/syriaca/Gaddel'"/>
-    <xsl:param name="staticSitePath" select="'/Users/wsalesky/syriaca/syriaca/Gaddel-temp'"/>
-    <xsl:param name="dataPath" select="'/Users/wsalesky/syriaca/syriaca/syriaca-data'"/>
-    <!-- <xsl:param name="dataPath" select="'/Users/wsalesky/syriaca/syriaca/syriaca-data/data/'"/> -->
+    <xsl:param name="applicationPath" select="'syriaca'"/>
+    <xsl:param name="staticSitePath" select="'syriaca'"/>
+    <xsl:param name="dataPath" select="'./data/'"/>
     
     <!-- Example: generate new index.html page for places collection -->
     <xsl:param name="convert" select="'false'"/>
@@ -228,7 +227,12 @@
                 <xsl:when test="$fileType = 'TEI'">
                     <xsl:variable name="idno" select="replace(descendant::t:publicationStmt/t:idno[@type='URI'],'/tei','')"/>
                     <xsl:message>DEBUG: idno = <xsl:value-of select="$idno"/></xsl:message>
-                    <!-- Output a version for JoE and Syriaca.org -->
+                    <!-- Always emit standard path -->
+                    <path idno="{$idno}">
+                        <xsl:value-of select="concat(replace($idno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
+                    </path>
+                    
+                    <!-- Emit alternate path for JoE pages if exists -->
                     <xsl:if test="descendant::t:idno[. = 'http://syriaca.org/johnofephesus/persons'] or descendant::t:idno[. = 'http://syriaca.org/johnofephesus/places']">
                         <xsl:variable name="altIdno">
                             <xsl:choose>
@@ -243,17 +247,6 @@
                         <xsl:message>DEBUG: altidno = <xsl:value-of select="$altIdno"/></xsl:message>
                         <path idno="{$altIdno}"><xsl:value-of select="concat(replace($altIdno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
                     </xsl:if>
-                    <path idno="{$idno}"><xsl:value-of select="concat(replace($idno,$base-uri,concat($staticSitePath,'data')),'.html')"/></path>
-                <path idno="{$idno}">
-                    <xsl:value-of select="concat(replace($idno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
-                  </path>
-                
-                  <!-- Emit alternate path for JoE pages if exists -->
-                  <xsl:if test="string-length($altIdno) &gt; 0">
-                    <path idno="{$altIdno}">
-                      <xsl:value-of select="concat(replace($altIdno, $base-uri, concat($staticSitePath, 'data')), '.html')"/>
-                    </path>
-                  </xsl:if>
                 </xsl:when>
                 <xsl:when test="$fileType = 'RDF'">
                     <!-- Output a page for each rdf:Description (with http://syriaca.org/taxonomy/) -->
