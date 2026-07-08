@@ -430,21 +430,26 @@
                     <xsl:otherwise><xsl:message>No template found for html:head element</xsl:message></xsl:otherwise>
                 </xsl:choose>
             <body id="body">
-                <div class="hidden test ws"></div>
                 <xsl:choose>
                     <xsl:when test="not(empty($template))">
                         <xsl:choose>
                             <xsl:when test="$template/descendant::html:nav">
                                 <xsl:copy-of select="$template/descendant::html:nav"/>
+                                <xsl:message>DEBUG: Template with html:nav</xsl:message>
+                            </xsl:when>
+                            <xsl:when test="$template/descendant::*:div[@id = 'navbar-container']">
+                                <xsl:copy-of select="$template/descendant::*:div[@id = 'navbar-container']/preceding-sibling::*:script[1]"/>
+                                <div id="navbar-container"></div>
+                                <xsl:message>DEBUG: Template with navbar-container</xsl:message>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:message>No template found for html:head element</xsl:message>
+                                <xsl:message>DEBUG: No html:nav template found for html:nav element, use generic nav</xsl:message>
                                 <xsl:call-template name="genericNav"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:message>No template found for html:head element</xsl:message>
+                        <xsl:message>DEBUG: No template found for html:nav element</xsl:message>
                         <xsl:call-template name="genericNav"/>
                     </xsl:otherwise>
                 </xsl:choose>
