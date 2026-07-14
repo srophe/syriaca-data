@@ -9,7 +9,7 @@ on:
       
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
   process_and_transform:
@@ -158,26 +158,18 @@ jobs:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_works.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_work-18.json
       
       # Step 6a: Save index data to repo
       - name: Commit index JSON to repo
         run: |
           mkdir -p json-data
-          cp bulk_data.json json-data/index_12_works.json
+          cp bulk_data.json json-data/index_12_work-18.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add json-data/index_12_works.json
-          git diff --cached --quiet || git commit -m "Update index_12_works.json"
+          git diff --cached --quiet || git commit -m "Update index_12_work-18.json"
           git push
-
-      # Step 6b: Upload JSON to S3
-      - name: Upload JSON to S3
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-        run: |
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_works.json
 
       # # Step 7: Convert XML to HTML in Parallel For Website pages
       # - name: Convert XML to HTML in Parallel (with syriacadata path)
