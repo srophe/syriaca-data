@@ -89,7 +89,7 @@ jobs:
           # echo "./data/bibl/tei/NS3SCJLY.xml" >> xml_files.txt
           # echo "./data/bibl/tei/NZZP9CTH.xml" >> xml_files.txt
 
-          echo "./data/works/tei/137.xml" > xml_files.txt
+          echo "./data/works/tei/1047.xml" > xml_files.txt
 
 
           echo "Processing $(wc -l < xml_files.txt) XML files"
@@ -158,17 +158,17 @@ jobs:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
         run: |
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/work-137.json
+          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/work-1047.json
       
       # Step 6a: Save index data to repo
       - name: Commit index JSON to repo
         run: |
           mkdir -p json-data
-          cp bulk_data.json json-data/index_12_work-137-stylesheet.json
+          cp bulk_data.json json-data/index_12_work-1047-stylesheet.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add json-data/index_12_work-137-stylesheet.json
-          git diff --cached --quiet || git commit -m "Update index_12_work-137-stylesheet.json"
+          git add json-data/index_12_work-1047-stylesheet.json
+          git diff --cached --quiet || git commit -m "Update index_12_work-1047-stylesheet.json"
           git push
 
       # # Step 7: Convert XML to HTML in Parallel For Website pages
