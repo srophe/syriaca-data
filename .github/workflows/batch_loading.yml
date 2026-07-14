@@ -125,7 +125,7 @@ jobs:
             echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"$type-$filename\"}}" > json_output/$filename.json
       
             # Run transformation, ensuring single-line output
-            if ! java -jar saxon.jar -s:"$file" -xsl:json.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
+            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="$type" | tr -d "\n" >> json_output/$filename.json; then
               echo "::warning:: JSON transformation failed for $file"
               echo "Skipping $type $file due to transformation error." >> logs/errors.log
             fi
@@ -161,15 +161,15 @@ jobs:
           aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/index_12_work-18.json
       
       # Step 6a: Save index data to repo
-      - name: Commit index JSON to repo
-        run: |
-          mkdir -p json-data
-          cp bulk_data.json json-data/index_12_work-18.json
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add json-data/index_12_work-18.json
-          git diff --cached --quiet || git commit -m "Update index_12_work-18.json"
-          git push
+      # - name: Commit index JSON to repo
+      #   run: |
+      #     mkdir -p json-data
+      #     cp bulk_data.json json-data/index_12_work-18.json
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+      #     git add json-data/index_12_work-18.json
+      #     git diff --cached --quiet || git commit -m "Update index_12_work-18.json"
+      #     git push
 
       # # Step 7: Convert XML to HTML in Parallel For Website pages
       # - name: Convert XML to HTML in Parallel (with syriacadata path)
