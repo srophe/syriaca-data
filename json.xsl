@@ -552,6 +552,13 @@
         <xsl:param name="id"/>
         <xsl:choose>
             <xsl:when test="contains($id, '/nhsl')">
+                <string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">NHSL</string>
+            </xsl:when>
+            <xsl:otherwise><string key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">Not NHSL</string></xsl:otherwise>
+        </xsl:choose>
+        <!--
+        <xsl:choose>
+            <xsl:when test="contains($id, '/nhsl')">
                 <xsl:if test="$doc/descendant::tei:body/tei:bibl/tei:author[descendant::text() != '']  
                     or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:author[descendant::text() != ''] or $doc/descendant::tei:body/tei:bibl/tei:editor[descendant::text() != ''] or $doc/descendant::tei:body/tei:biblStruct/descendant-or-self::tei:editor[descendant::text() != '']">
                     <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
@@ -678,6 +685,7 @@
                 </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
+        -->
     </xsl:template>
     <xsl:template match="*:fields[@function = 'subject']">
         <xsl:param name="doc"/>
@@ -685,7 +693,6 @@
             <array key="{.}" xmlns="http://www.w3.org/2005/xpath-functions">      
                 <xsl:for-each select="$doc/descendant::tei:relation[@ref='dc:subject']/tei:desc[. != '']">
                     <string xmlns="http://www.w3.org/2005/xpath-functions">
-                        <!--<xsl:value-of select="normalize-space(string-join(.,' '))"/>-->
                         <xsl:apply-templates select="." mode="xmlLang"/>
                     </string>
                 </xsl:for-each>
