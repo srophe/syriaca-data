@@ -300,6 +300,14 @@
 <!--                        <xsl:apply-templates select="self::*" mode="bibliography"/>.-->
                     </div>
                 </div>
+                <xsl:if test="parent::t:body/descendant::t:relation[@ref='dc:subject']">
+                    <h3>Subject</h3>
+                    <ul>
+                        <xsl:for-each select="parent::t:body/descendant::t:relation[@ref='dc:subject']">
+                            <li><a href="/cbss/search.html?subject={normalize-space(t:desc)}"><xsl:value-of select="t:desc"/></a></li>
+                        </xsl:for-each>
+                    </ul>
+                </xsl:if>
                 <h3>Full Citation Information</h3>
                 <div class="section indent">
                     <h4>Permanent Identifiers</h4>
