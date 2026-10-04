@@ -83,6 +83,7 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="uncorrected-draft">
+      <change who="http://syriaca.org/documentation/editors.xml#jwall" when="2026-10-03-04:00">CHANGED: Added languages of the work and of the Cowper Analecta Nicaena translation; added the Schulthess edition (Syriac text with German introduction and notes); sourced the English headword to Wright.</change>
       <change who="http://syriaca.org/documentation/editors.xml#jwall" when="2026-09-27-04:00">CHANGED: Revised English headword; added Syriac headword and English titles, abstract, manuscript, modern translation, and secondary literature.</change>
       <change who="http://syriaca.org/documentation/editors.xml#echrisanthus" when="2026-07-31-05:00">CREATED: Stub work record.</change>
     </revisionDesc>
@@ -90,18 +91,30 @@
   <text>
     <body>
       <bibl xml:id="work-5653" type="lawd:ConceptualWork">
-        <title xml:id="name5653-1" xml:lang="en" srophe:tags="#syriaca-headword" resp="http://syriaca.org">Edict of Constantine against the Arians</title>
+        <title xml:id="name5653-1" xml:lang="en" srophe:tags="#syriaca-headword" source="#bib5653-4">Edict of Constantine against the Arians</title>
         <title xml:id="name5653-2" xml:lang="syr" srophe:tags="#syriaca-headword" source="#bib5653-4">ܣܐܩܪܐ ܕܝܠܗ ܕܩܘܣܛܢܛܝܢܘܣ ܕܠܘܩܒܠ ܐܪ̈ܝܢܘ</title>
         <title xml:id="name5653-3" xml:lang="en" source="#bib5653-1">Injunction of the Same Constantine, against the Arians</title>
         <title xml:id="name5653-4" xml:lang="en" source="#bib5653-2">Letter of the same Constantine against the Arians</title>
+        <!-- Another English title, "Imperial edict against Arius and his followers", is used by Fourth Century Christianity (https://www.fourthcentury.com/urkunde-33/). That site is not in CBSS, so the title is not encoded. -->
         <author ref="http://syriaca.org/person/1655" source="#bib5653-1" xml:lang="en">Constantine the Great — <foreign xml:lang="syr">ܩܘܣܛܢܛܝܢܘܣ</foreign>
         </author>
         <idno type="URI">http://syriaca.org/work/5653</idno>
+        <textLang mainLang="syr"/>
         <noteGrp type="abstract">
           <desc xml:lang="en">Abstract</desc>
           <note xml:lang="en" type="abstract" corresp="http://syriaca.org/nhsl" source="#bib5653-2">This edict by Constantine I rebukes and rejects Arius and his followers, calling them "Porphyrians" after the name of a Neoplatonic philosopher well known for his anti-Christian polemics, Porphyry, and his followers. And just as Porphyry's writings were destroyed, Arius's writings are ordered to likewise be destroyed. In this way, the memory of both Arius and his doctrine is to be blotted out, and anyone found to be concealing his writings is to suffer capital punishment.</note>
         </noteGrp>
-        <!-- A critical Syriac edition exists but is not in CBSS, so it could not be encoded under Editions: Friedrich Schulthess, Die syrischen Kanones der Synoden von Nicaea bis Chalcedon nebst einigen zugehörigen Dokumenten (Abhandlungen der Königlichen Gesellschaft der Wissenschaften zu Göttingen, Phil.-hist. Kl., N.F. 10.2; Berlin, 1908; repr. Gorgias Press, Syriac Studies Library 17, 2010). -->
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+          <!-- Syriac text, with Schulthess's introduction and critical notes in German. Reprinted by Gorgias Press (Syriac Studies Library 17, 2010). -->
+          <bibl xml:id="bib5653-5" type="lawd:Edition">
+            <title xml:lang="de">Die syrischen Kanones der Synoden von Nicaea bis Chalcedon nebst einigen zugehörigen Dokumenten</title>
+            <editor>Friedrich Schulthess</editor>
+            <ptr target="http://syriaca.org/cbss/UPB7QVNB"/>
+            <textLang mainLang="syr" otherLangs="de"/>
+          </bibl>
+        </listBibl>
         <listBibl type="manuscripts">
           <head>Manuscripts</head>
           <desc xml:lang="en">This is not a comprehensive list of manuscripts related to this work.</desc>
@@ -117,12 +130,13 @@
           <head>Modern Translations</head>
           <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
           <!-- Cowper, Analecta Nicaena, p. iii, n. 1, identifies his manuscript as "Add. MSS. in the British Museum, No. 14528". -->
+          <!-- Cowper's Analecta Nicaena prints the Syriac text of the manuscript as well as the English translation. It is an edition of one manuscript, not a modern critical edition based on a collation of all witnesses. The CBSS identifier 6QTR6IKU denotes Cowper's book, not this edict. -->
           <bibl xml:id="bib5653-1" type="syriaca:ModernTranslation">
             <title xml:lang="en">Analecta Nicæna: Fragments Relating to the Council of Nice. The Syriac Text, from an Ancient Ms. in the British Museum</title>
             <editor>Benjamin Harris Cowper</editor>
             <ptr target="http://syriaca.org/cbss/6QTR6IKU"/>
             <citedRange unit="p">21-22</citedRange>
-            <textLang mainLang="en"/>
+            <textLang mainLang="en" otherLangs="syr"/>
             <listRelation>
               <relation active="#bib5653-1" ref="dcterms:source" passive="#bib5653-3">
                 <desc xml:lang="en">
