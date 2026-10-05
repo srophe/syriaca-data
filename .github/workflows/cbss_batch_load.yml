@@ -46,73 +46,73 @@ jobs:
           head -n $(( ${{ matrix.batch_start }} + 5000 )) all_files.txt | tail -n 5000 > xml_files.txt
           echo "Batch from ${{ matrix.batch_start }} processed, file count: $(wc -l < xml_files.txt)"
 
-      - name: Transform XML to JSON (Parallel)
-        run: |
-          mkdir -p logs json_output
-          > bulk_data.json
-          
-          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
-            file="$1"
-            filename=$(basename "${file%.xml}")
-            echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"cbss-$filename\"}}" > json_output/$filename.json
-            
-            if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="cbss"  | tr -d "\n" >> json_output/$filename.json; then
-              echo "::warning:: JSON transformation failed for $file"
-              echo "Skipping $file due to transformation error." >> logs/errors.log
-            fi
-      
-            echo "" >> json_output/$filename.json  # Ensure newline between entries
-          ' sh {}
-
-          cat json_output/*.json > bulk_data.json
-          # Verify all files added
-          ls json_output/
-          echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)" 
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data
-
-      - name: Upload JSON to S3
-        run: |
-          TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/cbss_batch_${{ matrix.batch_start }}_$TIMESTAMP.json
-
-      # - name: Transform XML to HTML (Parallel)
+      # - name: Transform XML to JSON (Parallel)
       #   run: |
-      #     mkdir -p data-html
+      #     mkdir -p logs json_output
+      #     > bulk_data.json
+          
       #     cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
       #       file="$1"
       #       filename=$(basename "${file%.xml}")
-      #       out_dir="data-html"
-      #       mkdir -p "$out_dir"
-      #       java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html"
+      #       echo "{\"index\":{\"_index\":\"syriaca-index-12\",\"_id\":\"cbss-$filename\"}}" > json_output/$filename.json
+            
+      #       if ! java -jar saxon.jar -s:"$file" -xsl:json-stylesheet.xsl docType="cbss"  | tr -d "\n" >> json_output/$filename.json; then
+      #         echo "::warning:: JSON transformation failed for $file"
+      #         echo "Skipping $file due to transformation error." >> logs/errors.log
+      #       fi
+      
+      #       echo "" >> json_output/$filename.json  # Ensure newline between entries
       #     ' sh {}
 
-      # - name: Upload HTML to S3
+      #     cat json_output/*.json > bulk_data.json
+      #     # Verify all files added
+      #     ls json_output/
+      #     echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)" 
+
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+      #     aws-region: us-east-1
+      #     role-session-name: GitHub-OIDC-data
+
+      # - name: Upload JSON to S3
       #   run: |
-      #     mkdir -p logs
-      #     > logs/uploaded_files.txt
+      #     TIMESTAMP=$(date +%Y%m%d%H%M%S)
+      #     aws s3 cp bulk_data.json s3://srophe-syriaca-front-end/json-data/advancedsearchfields/cbss_batch_${{ matrix.batch_start }}_$TIMESTAMP.json
 
-      #     html_count=$(find ./data-html -name '*.html' | wc -l)
-      #     echo "$html_count" > logs/html_created_count.log
+      - name: Transform XML to HTML (Parallel)
+        run: |
+          mkdir -p data-html
+          cat xml_files.txt | xargs -P $(nproc) -I {} sh -c '
+            file="$1"
+            filename=$(basename "${file%.xml}")
+            out_dir="data-html"
+            mkdir -p "$out_dir"
+            java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html"
+          ' sh {}
 
-      #     find data-html -name '*.html' | while read file; do
-      #       filename=$(basename "$file" .html)
-      #       s3_key="cbss/$filename"
-      #       echo "Uploading $file to s3://srophe-syriaca-front-end/$s3_key"
-      #       if aws s3 cp "$file" "s3://srophe-syriaca-front-end/$s3_key"; then
-      #         echo "$s3_key" >> logs/uploaded_files.txt
-      #       else
-      #         echo "::warning:: Failed to upload $file to s3://srophe-syriaca-front-end/$s3_key" >> logs/errors.log
-      #       fi
-      #     done
+      - name: Upload HTML to S3
+        run: |
+          mkdir -p logs
+          > logs/uploaded_files.txt
 
-      #     echo "HTML files created: $(cat logs/html_created_count.log)" 
-      #     echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
+          html_count=$(find ./data-html -name '*.html' | wc -l)
+          echo "$html_count" > logs/html_created_count.log
+
+          find data-html -name '*.html' | while read file; do
+            filename=$(basename "$file" .html)
+            s3_key="cbss/$filename"
+            echo "Uploading $file to s3://srophe-syriaca-front-end/$s3_key"
+            if aws s3 cp "$file" "s3://srophe-syriaca-front-end/$s3_key"; then
+              echo "$s3_key" >> logs/uploaded_files.txt
+            else
+              echo "::warning:: Failed to upload $file to s3://srophe-syriaca-front-end/$s3_key" >> logs/errors.log
+            fi
+          done
+
+          echo "HTML files created: $(cat logs/html_created_count.log)" 
+          echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
 
       - name: Upload error log
         if: always()
