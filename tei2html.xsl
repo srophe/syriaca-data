@@ -301,7 +301,7 @@
                     </div>
                 </div>
                 <xsl:if test="parent::t:body/descendant::t:relation[@ref='dc:subject']">
-                    <h3>Subject</h3>
+                    <h3>Subjects</h3>
                     <ul>
                         <xsl:for-each select="parent::t:body/descendant::t:relation[@ref='dc:subject']">
                             <li><a href="/cbss/search.html?subject={normalize-space(t:desc)}"><xsl:value-of select="t:desc"/></a></li>
