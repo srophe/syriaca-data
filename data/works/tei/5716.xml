@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -11,16 +11,10 @@
         <funder>The International Balzan Prize Foundation</funder>
         <funder>The National Endowment for the Humanities</funder>
         <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#echrisanthus">Evangelos Chrisanthus</editor>
-        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#">
-          <!--Name of Reviewing Editor-->
-        </editor>
+        <editor role="creator" ref="http://syriaca.org/documentation/editors.xml#adraper">Andrew Draper</editor>
         <respStmt>
-          <resp>
-            <!--Brief statement of responsibility-->
-          </resp>
-          <name type="person" ref="http://syriaca.org/documentation/editors.xml#">
-            <!--Name of Reviewing Editor-->
-          </name>
+          <resp>Research, editing, and revision by</resp>
+          <name type="person" ref="http://syriaca.org/documentation/editors.xml#adraper">Andrew Draper</name>
         </respStmt>
         <respStmt>
           <resp>Initial data collection for work record by</resp>
@@ -71,8 +65,7 @@
               Syriac.org guidelines for headwords: <ref target="http://syriaca.org/documentation/headwords.html">http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
           </category>
           <category xml:id="syriaca-anglicized">
-            <catDesc>An anglicized version of a name, included to facilitate
-              searching.</catDesc>
+            <catDesc>An anglicized version of a name, included to facilitate searching.</catDesc>
           </category>
           <category xml:id="canonical">
             <catDesc>Indicates the content is canonical, i.e., widely agreed upon. Abbreviations of work titles are primarily in view.</catDesc>
@@ -83,15 +76,14 @@
     <profileDesc>
       <langUsage>
         <p>
-          Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at: 
+          Languages codes used in this record follow the Syriaca.org guidelines. Documentation available at:
           <ref target="http://syriaca.org/documentation/langusage.xml">http://syriaca.org/documentation/langusage.xml</ref>
         </p>
       </langUsage>
     </profileDesc>
     <revisionDesc status="provisional">
-      <change who="http://syriaca.org/documentation/editors.xml#" when="">
-        <!--CHANGED: Brief statement of what was changed-->
-      </change>
+      <change who="http://syriaca.org/documentation/editors.xml#adraper" when="2026-10-01">ADDED: Secondary bibliography for the Bodleian manuscript evidence behind the Balai rogations and linked manuscript entries to those sources.</change>
+      <change who="http://syriaca.org/documentation/editors.xml#adraper" when="2026-10-01">CHANGED: Added title data where supported, text language, English abstract, editorial notes, and representative bibliography.</change>
       <change who="http://syriaca.org/documentation/editors.xml#echrisanthus" when="2026-07-31-05:00">CREATED: Stub work record.</change>
     </revisionDesc>
   </teiHeader>
@@ -102,14 +94,74 @@
         <author ref="http://syriaca.org/person/27" source="#bib5716-1" xml:lang="en">Balai, bishop of Balsh — <foreign xml:lang="syr">ܒܠܝ</foreign>
         </author>
         <idno type="URI">http://syriaca.org/work/5716</idno>
+        <textLang mainLang="syr"/>
+        <noteGrp type="abstract">
+          <desc xml:lang="en">Abstract</desc>
+          <note corresp="http://syriaca.org/nhsl" xml:lang="en" type="abstract" source="#bib5716-1 #bib5716-2 #bib5716-3">A Syriac liturgical supplication attributed to Balai for a deceased priest. The prayer asks that the departed priest find rest with Aaron the priest, using Aaron as the biblical exemplar of Christian priesthood. Though sharing the same name as another hymn, Connoley labels this as hymn I of the (Further) Rogations of Mar Balai</note>
+        </noteGrp>
+          <noteGrp type="incipit">
+          <desc xml:lang="en">Incipit</desc>
+          <note xml:lang="syr" type="incipit">
+            <quote source="#bib5675-2">ܕܟܗܢܐ ܒܗ ܟܗܢܐ ܡܪܝ ܕܫܡܫܘܟ</quote>
+          </note>
+          <note xml:lang="en" type="incipit">
+            <quote source="#bib5675-1">The Priests, Lord, who have ministered to Thee</quote>
+          </note>
+          </noteGrp>
+          <noteGrp type="explicit">
+          <desc xml:lang="en">Explicit</desc>
+          <note xml:lang="syr" type="explicit">
+            <quote source="#bib5675-2">ܒܓܒܗ ܕܝܡܝܢܐ ܒܓܢܘܢ ܚܝܘܬܐ</quote>
+          </note>
+          <note xml:lang="en" type="explicit">
+            <quote source="#bib5675-1">̄On the right hand in theBridechamber of Life.</quote>
+          </note>
+        </noteGrp>
+        <listBibl type="editions">
+          <head>Editions</head>
+          <desc xml:lang="en">This is not a comprehensive list of editions related to this work.</desc>
+          <bibl xml:id="bib5716-2" type="lawd:Edition">
+            <title level="m" xml:lang="la">S. Ephraemi Syri, Rabulae episcopi Edesseni, Balaei aliorumque opera selecta e codicibus syriacis manuscriptis in museo Britannico et bibliotheca Bodleiana asservatis primus edidit</title>
+            <ptr target="http://syriaca.org/cbss/P8WPZV2Z"/>
+            <citedRange unit="p">335</citedRange>
+            <textLang mainLang="syr"/>
+          </bibl>
+        </listBibl>
+        <listBibl type="manuscripts">
+          <head>Manuscripts</head>
+          <desc xml:lang="en">Manuscript witness directly identified with this individual rogation.</desc>
+          <bibl xml:id="bib5716-5" type="syriaca:Manuscript" source="#bib5716-2 #bib5716-3 #bib5716-6 #bib5716-7">
+            <label>Oxford, Bodleian Library, Hunt. 594</label>
+            <biblScope unit="fol">f. 293</biblScope>
+          </bibl>
+        </listBibl>
         <listBibl type="modernTranslations">
           <head>Modern Translations</head>
           <desc xml:lang="en">This is not a comprehensive list of modern translations related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
           <bibl xml:id="bib5716-1" type="syriaca:ModernTranslation">
-            <title xml:lang="en">Some Early Syriac Hymns</title>
+            <title level="a" xml:lang="en">Some Early Syriac Hymns</title>
             <ptr target="http://syriaca.org/cbss/FG5E62RI"/>
+            <citedRange unit="p">145</citedRange>
             <textLang mainLang="en"/>
           </bibl>
+        </listBibl>
+        <listBibl type="secondaryLiterature">
+          <head>Secondary Literature</head>
+          <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work.</desc>
+          <bibl xml:id="bib5716-3" type="lawd:Citation">
+            <title level="a" xml:lang="en">Approaching Penitential Poetry: Rhetoric and Exegesis in the Liturgical Hymns Attributed to Balai of Qenneshrin and the Supplications Attributed to Rabbula of Edessa</title>
+            <ptr target="http://syriaca.org/cbss/HW55L5NA"/>
+            <citedRange unit="p">315-328</citedRange>
+          </bibl>
+          <bibl xml:id="bib5716-4" type="lawd:Citation">
+            <title level="m" xml:lang="de">Beiträge zur Kenntnis der religiösen Dichtung Balai’s nach den syrischen Handschriften des Britischen Museums, der Bibliothèque Nationale zu Paris und der Königlichen Bibliothek zu Berlin</title>
+            <ptr target="http://syriaca.org/cbss/6ZMKSV6B"/>
+          </bibl>
+        <bibl xml:id="bib5716-6" type="lawd:Citation">
+          <title xml:lang="en" level="m">S. Ephraemi Syri, Rabulae episcopi Edesseni, Balaei aliorumque opera selecta e codicibus syriacis manuscriptis in museo Britannico et bibliotheca Bodleiana asservatis primus edidit</title>
+          <ptr target="http://syriaca.org/cbss/P8WPZV2Z"/>
+          <citedRange unit="p">xii-xxxiii</citedRange>
+        </bibl>
         </listBibl>
       </bibl>
     </body>
