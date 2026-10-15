@@ -69,12 +69,12 @@ jobs:
       #     ls json_output/
       #     echo "Expected: $(wc -l < xml_files.txt)  |  Actual: $(ls json_output/ | wc -l)" 
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
-          aws-region: us-east-1
-          role-session-name: GitHub-OIDC-data
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+      #     aws-region: us-east-1
+      #     role-session-name: GitHub-OIDC-data
 
       # - name: Upload JSON to S3
       #   run: |
@@ -91,7 +91,14 @@ jobs:
             mkdir -p "$out_dir"
             java -jar saxon.jar -s:"$file" -xsl:html-stylesheet.xsl -o:"$out_dir/$filename.html"
           ' sh {}
-
+          
+      - name: Reconfigure AWS credentials for HTML upload
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_SROPHE_ROLE }}
+          aws-region: us-east-1
+          role-session-name: GitHub-OIDC-data
+          
       - name: Upload HTML to S3
         run: |
           mkdir -p logs
