@@ -65,7 +65,7 @@
     <xsl:param name="outputFile" select="''"/>
     <xsl:param name="outputCollection" select="''"/>
     -->
-    
+    <!-- WS:Note no longer need configPath, use internal config values -->
     <!-- Find repo-config to find collection style values and page stubs  This can also point to the repo-config file in the root directory of the data repo-->
     <xsl:variable name="configPath">
         <xsl:choose>
@@ -77,12 +77,156 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    
+
     <!-- Get configuration file.  -->
+    <!-- WS:Note Update with series specific data including title, css and navbar informtion -->
     <xsl:variable name="config">
-        <xsl:if test="doc-available(xs:anyURI($configPath))">
-            <xsl:sequence select="document(xs:anyURI($configPath))"/>
-        </xsl:if>
+        <config>
+            <title>Syriaca.org web application</title>
+            <base_uri>http://syriaca.org</base_uri>
+            <collections>
+                <collection template="geo" name="places" title="The Syriac Gazetteer" app-root="/geo/" data-root="places" record-URI-pattern="http://syriaca.org/place/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/geo.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/geo-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="persons" name="sbd" title="The Syriac Biographical Dictionary" series="The Syriac Biographical Dictionary" app-root="/persons/" data-root="persons" record-URI-pattern="http://syriaca.org/person/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/persons.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/persons-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="persons" name="authors" title="A Guide to Syriac Authors" collection-URI="http://syriaca.org/authors" series="The Syriac Biographical Dictionary" app-root="/authors/" data-root="persons" record-URI-pattern="http://syriaca.org/person/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/authors.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/authors-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="persons" name="q" title="Qadishe: A Guide to the Syriac Saints" collection-URI="http://syriaca.org/q" series="The Syriac Biographical Dictionary" app-root="/q/" data-root="persons" record-URI-pattern="http://syriaca.org/person/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/saints.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/q-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="nhsl" name="nhsl" title="New Handbook of Syriac Literature" collection-URI="http://syriaca.org/nhsl" series="New Handbook of Syriac Literature" app-root="/nhsl/" data-root="works" record-URI-pattern="http://syriaca.org/work/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/nhsl.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/nhsl-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="bhse" name="bhse" title="Bibliotheca Hagiographica Syriaca Electronica" collection-URI="http://syriaca.org/q" series="New Handbook of Syriac Literature" app-root="/bhse/" data-root="works" record-URI-pattern="http://syriaca.org/work/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/saints.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/bhse-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="bible" name="bible" title="A Guide to the Bible in Syriac" collection-URI="http://syriaca.org/bible" series="New Handbook of Syriac Literature" app-root="/bible/" data-root="works" record-URI-pattern="http://syriaca.org/work/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/bible.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/bible-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="bibl" name="bibl" title="Comprehensive Bibliography on Syriac Studies" app-root="/cbss/" data-root="bibl" record-URI-pattern="http://syriaca.org/cbss/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/cbsc.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/bibl-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="johnofephesus" name="johnofephesus" title="A Guide to John of Ephesus [Beta]" app-root="/johnofephesus/" data-root="" record-URI-pattern="http://syriaca.org/johnofephesus/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/johnEphesus.css"/>
+                    </header>
+                    <navbar>
+                        <nav xmlns="http://www.w3.org/1999/xhtml" class="navbar navbar-default navbar-fixed-top" role="navigation">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"/>
+                                    <span class="icon-bar"/>
+                                    <span class="icon-bar"/>
+                                </button>
+                                <a class="navbar-brand banner-container" href="/johnofephesus/index.html"> 
+                                    <span class="syriaca-icon syriaca-geo banner-icon">
+                                        <img src="/resources/images/johnEphesus/logo3.png"/>
+                                    </span>
+                                    A Guide to John of Ephesus
+                                </a>
+                            </div>
+                            <div class="navbar-collapse collapse pull-right" id="navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="/johnofephesus/index.html" class="nav-text">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="/johnofephesus/persons/index.html" class="nav-text">Prosopography</a>
+                                    </li>
+                                    <li>
+                                        <a href="/johnofephesus/places/index.html" class="nav-text">Gazetteer</a>
+                                    </li>
+                                    <li>
+                                        <a href="/index.html" class="nav-text">Syriaca.org</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="johnofephesusPersons" name="johnofephesusPersons" title="Prosopography to John of Ephesus’s Ecclesiastical History" series="Prosopography to John of Ephesus’s Ecclesiastical History" app-root="/johnofephesus/persons/" collection-URI="http://syriaca.org/johnofephesus/persons" data-root="persons" record-URI-pattern="http://syriaca.org/johnofephesus/persons/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/johnEphesus.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/joePersons-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+                <collection template="johnofephesusPlaces" name="johnofephesusPlaces" title="Gazetteer to John of Ephesus’s Ecclesiastical History" series="Gazetteer to John of Ephesus’s Ecclesiastical History" app-root="/johnofephesus/places/" collection-URI="http://syriaca.org/johnofephesus/places" data-root="places" record-URI-pattern="http://syriaca.org/johnofephesus/places/">
+                    <header>
+                        <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/johnEphesus.css"/>
+                    </header>
+                    <navbar>
+                        <script xmlns="http://www.w3.org/1999/xhtml" src="/resources/js/joePlaces-navbar-search.js"></script>
+                        <div xmlns="http://www.w3.org/1999/xhtml" id="navbar-container"></div>
+                    </navbar>
+                    <footer></footer>
+                </collection>
+            </collections>
+        </config>
     </xsl:variable>
       
     <!-- Not needed? -->
@@ -155,7 +299,6 @@
     <!-- Resource id -->
     <xsl:variable name="resource-path" select="substring-after(document-uri(.),':')"/>
         
-    
     <!-- Figure out if document is HTML or TEI -->
     <xsl:template match="/">
         <xsl:variable name="documentURI" select="document-uri(.)"/>
@@ -360,85 +503,81 @@
         <!-- <xsl:apply-templates/> -->
         <html xmlns="http://www.w3.org/1999/xhtml">
             <!-- HTML Header, use templates as already estabilished, if no template exists, use generic 'page.html' -->
-            <xsl:variable name="template">
+            <head>
+                <!-- Collection specific title -->
+                <title>
+                    <xsl:choose>
+                        <xsl:when test="$nodes/descendant::t:body[descendant::*[@srophe:tags = '#syriaca-headword']]">
+                            <xsl:value-of select="$nodes/descendant::t:body/descendant::*[@srophe:tags = '#syriaca-headword'][@xml:lang = 'en']"/>
+                        </xsl:when>
+                        <xsl:when test="$nodes/descendant-or-self::t:titleStmt/t:title[1]">
+                            <xsl:value-of select="$nodes/descendant-or-self::t:titleStmt/t:title[1]"/>                
+                        </xsl:when>
+                        <xsl:otherwise><xsl:value-of select="$config/descendant-or-self::t:title[1]"/></xsl:otherwise>
+                    </xsl:choose> 
+                </title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <!-- Collection specific icon -->
                 <xsl:choose>
-                    <xsl:when test="$pageType = 'HTML'">
-                        <xsl:choose>
-                            <xsl:when test="$collectionTemplate/child::*">
-                                <xsl:sequence select="$collectionTemplate"/> 
-                            </xsl:when>
-                            <xsl:otherwise><xsl:message>Error Can not find matching template for HTML page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise>
-                        </xsl:choose>
+                    <xsl:when test="$collectionValues/descendant::*:link[@rel='shortcut icon']">
+                        <xsl:copy-of select="$collectionValues/descendant::*:link[@rel='shortcut icon']"/>
                     </xsl:when>
-                    <xsl:when test="$pageType = 'TEI'">
-                        <xsl:choose>
-                            <xsl:when test="$collectionTemplate/child::*">
-                                <xsl:sequence select="$collectionTemplate"/> 
-                            </xsl:when>
-                            <xsl:otherwise><xsl:message>Error Can not find matching template for TEI page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                    <xsl:when test="$pageType = 'RDF'">
-                        <xsl:choose>
-                            <xsl:when test="$collectionTemplate/child::*">
-                                <xsl:sequence select="$collectionTemplate"/> 
-                            </xsl:when>
-                            <xsl:otherwise><xsl:message>Error Can not find matching template for TEI page <xsl:value-of select="replace(concat($staticSitePath,'/siteGenerator/components/',string($collectionValues/@template),'.html'),'//','/')"/></xsl:message></xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                </xsl:choose>
-            </xsl:variable>
-                <xsl:choose>
-                    <xsl:when test="$template/descendant::*:head">
-                        <xsl:choose>
-                            <xsl:when test="$template/descendant::*:head">
-                                <xsl:choose>
-                                     <xsl:when test="$pageType = 'TEI'">
-                                             <!--<xsl:sequence select="$collectionTemplate"/>-->
-                                             <head xmlns="http://www.w3.org/1999/xhtml">
-                                                 <!--<xsl:sequence select="$collectionTemplate"/>-->
-                                                 <xsl:for-each select="$collectionTemplate/descendant::*:head/child::*">
-                                                     <xsl:choose>
-                                                         <xsl:when test="local-name() = 'title'">
-                                                            <title xmlns="http://www.w3.org/1999/xhtml">
-                                                                 <xsl:choose>
-                                                                     <xsl:when test="$nodes/descendant::t:body[descendant::*[@srophe:tags = '#syriaca-headword']]">
-                                                                         <xsl:value-of select="$nodes/descendant::t:body/descendant::*[@srophe:tags = '#syriaca-headword'][@xml:lang = 'en']"/>
-                                                                     </xsl:when>
-                                                                     <xsl:otherwise>
-                                                                        <xsl:value-of select="$nodes/descendant-or-self::t:titleStmt/t:title[1]"/>                
-                                                                     </xsl:otherwise>            
-                                                                 </xsl:choose> 
-                                                             </title> 
-                                                         </xsl:when>
-                                                         <xsl:otherwise>
-                                                             <xsl:copy-of select="."/>
-                                                         </xsl:otherwise>
-                                                     </xsl:choose>
-                                                 </xsl:for-each>
-                                             </head> 
-                                         
-                                     </xsl:when>
-                                     <xsl:otherwise>
-                                         <xsl:copy-of select="$template/descendant::*:head"/>
-                                     </xsl:otherwise>
-                                 </xsl:choose>
-                            </xsl:when>
-                            <xsl:otherwise><xsl:message>Error in template, check template for html:head </xsl:message></xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                    <xsl:otherwise><xsl:message>No template found for html:head element</xsl:message></xsl:otherwise>
-                </xsl:choose>
+                    <xsl:otherwise><link rel="shortcut icon" href="/resources/images/fav-icons/syriaca-favicon.ico"/></xsl:otherwise>
+                </xsl:choose> 
+                <!-- Bootstrap 3 -->
+                <link rel="stylesheet" type="text/css" href="/resources/bootstrap/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/resources/css/sm-core-css.css"/>
+                <!-- Srophe styles -->
+                <link rel="stylesheet" type="text/css" href="/resources/css/syr-icon-fonts.css"/>
+                <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+                <link rel="stylesheet" type="text/css" href="/resources/css/syriaca.css"/>
+                <!-- Collection specific css -->
+                <xsl:if test="$collectionValues/descendant::*:link[@rel='stylesheet']">
+                    <xsl:copy-of select="$collectionValues/descendant::*:link[@rel='stylesheet']"/>    
+                </xsl:if>
+                <link rel="stylesheet" type="text/css" href="/resources/css/slider.css"/>
+                <link rel="stylesheet" type="text/css" href="/resources/css/lightslider.css"/>
+                <link rel="stylesheet" type="text/css" media="print" href="/resources/css/print.css"/>
+                <!-- Leaflet -->
+                <link rel="stylesheet" href="/resources/leaflet/leaflet.css"/>
+                <link rel="stylesheet" href="/resources/leaflet/leaflet.awesome-markers.css"/>
+                <script defer="defer" data-domain="syriaca.org" src="https://plausible.io/js/plausible.js"/>
+                <!-- JQuery -->
+                <link href="/resources/jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
+                <script type="text/javascript" src="/resources/js/jquery.min.js"/>
+                <script type="text/javascript" src="/resources/jquery-ui/jquery-ui.min.js"/>
+                <script type="text/javascript" src="/resources/js/jquery.smartmenus.min.js"/>
+                <script type="text/javascript" src="/resources/js/clipboard.min.js"/>
+                <!-- Bootstrap -->
+                <script type="text/javascript" src="/resources/bootstrap/js/bootstrap.min.js"/>
+                <!-- ReCaptcha -->
+                <script src="https://www.google.com/recaptcha/api.js" type="text/javascript" async="async" defer="defer"/>
+                <!-- keyboard widget css & script -->
+                <link href="/resources/keyboard/css/keyboard.min.css" rel="stylesheet"/>
+                <link href="/resources/keyboard/css/keyboard-previewkeyset.min.css" rel="stylesheet"/>
+                <link href="/resources/keyboard/syr/syr.css" rel="stylesheet"/>
+                <script type="text/javascript" src="/resources/keyboard/syr/jquery.keyboard.js"/>
+                <script type="text/javascript" src="/resources/keyboard/js/jquery.keyboard.extension-mobile.min.js"/>
+                <script type="text/javascript" src="/resources/keyboard/js/jquery.keyboard.extension-navigation.min.js"/>
+                <script type="text/javascript" src="/resources/keyboard/syr/jquery.keyboard.extension-autocomplete.js"/>
+                <script type="text/javascript" src="/resources/keyboard/syr/keyboardSupport.js"/>
+                <script type="text/javascript" src="/resources/keyboard/syr/syr.js"/>
+                <script type="text/javascript" src="/resources/keyboard/layouts/ms-Greek.min.js"/>
+                <script type="text/javascript" src="/resources/keyboard/layouts/ms-Russian.min.js"/>
+                <script type="text/javascript" src="/resources/keyboard/layouts/ms-Arabic.min.js"/>
+                <script type="text/javascript" src="/resources/keyboard/layouts/ms-Hebrew.min.js"/>
+                <script type="text/javascript" src="/resources/js/keyboard.js"></script>
+            </head>
             <body id="body">
                 <xsl:choose>
-                    <xsl:when test="not(empty($template))">
+                    <xsl:when test="not(empty($collectionValues))">
                         <xsl:choose>
-                            <xsl:when test="$template/descendant::html:nav">
-                                <xsl:copy-of select="$template/descendant::html:nav"/>
+                            <xsl:when test="$collectionValues/descendant::*:navbar">
+                                <xsl:copy-of select="$collectionValues/descendant::*:navbar/child::*"/>
                                 <xsl:message>DEBUG: Template with html:nav</xsl:message>
                             </xsl:when>
-                            <xsl:when test="$template/descendant::*:div[@id = 'navbar-container']">
-                                <xsl:copy-of select="$template/descendant::*:div[@id = 'navbar-container']/preceding-sibling::*:script[1]"/>
+                            <xsl:when test="$collectionValues/descendant::*:div[@id = 'navbar-container']">
+                                <xsl:copy-of select="$collectionValues/descendant::*:div[@id = 'navbar-container']/preceding-sibling::*:script[1]"/>
                                 <div id="navbar-container"></div>
                                 <xsl:message>DEBUG: Template with navbar-container</xsl:message>
                             </xsl:when>
@@ -462,7 +601,7 @@
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:choose>
-                            <xsl:when test="$collectionTemplate">
+                            <xsl:when test="$collectionValues">
                                 <div class="main-content-block">
                                     <div class="interior-content">
                                         <xsl:call-template name="otherDataFormats">
@@ -504,13 +643,24 @@
                         </xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:if test="doc-available(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))">
-                    <xsl:copy-of select="document(xs:anyURI(concat($staticSitePath,'/siteGenerator/components/footer.html')))"/>
-                </xsl:if>
-            </body>
-            <xsl:if test="$template/child::*[1]/html:script">
-                <xsl:copy-of select="$template/child::*[1]/html:script"/>
-            </xsl:if>  
+                <footer>
+                    <div class="container">
+                        <a rel="license">
+                            <img alt="Creative Commons License" style="border-width:0" src="/resources/images/cc.svg" height="18px"/>
+                            <img alt="Creative Commons Attribution (CC-BY) License" style="border-width:0" src="/resources/images/by.svg" height="18px"/>
+                        </a> 
+                        This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 
+                            International License (CC BY 4.0)</a>.<br/>Copyright by the contributors. See "
+                            <a href="/how-to-cite.html">How to Cite</a>" for attribution information.          
+                    </div>
+                </footer>
+            </body> 
+            <!-- Additional Javascript -->
+            <script type="text/javascript" src="/resources/js/jquery.validate.min.js"/>
+            <script type="text/javascript" src="/resources/js/require.min.js"/>
+            <script type="text/javascript" src="/resources/js/srophe.js"/>
+            <script type="text/javascript" src="/resources/js/lightslider.min.js"/>
+            <script type="text/javascript" src="/resources/js/lightslider-functions.js"/>
         </html>
     </xsl:template>
      
