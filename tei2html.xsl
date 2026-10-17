@@ -304,7 +304,7 @@
                     <h3>Subjects</h3>
                     <ul>
                         <xsl:for-each select="parent::t:body/descendant::t:relation[@ref='dc:subject']">
-                            <li><a href="/cbss/search.html?subject={normalize-space(t:desc)}"><xsl:value-of select="t:desc"/></a></li>
+                            <li><a href="/cbss/search.html?series=Comprehensive+Bibliography+on+Syriac+Studies&amp;subject={normalize-space(t:desc)}"><xsl:value-of select="t:desc"/></a></li>
                         </xsl:for-each>
                     </ul>
                 </xsl:if>
