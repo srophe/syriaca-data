@@ -87,6 +87,7 @@
             <collections>
                 <collection template="geo" name="places" title="The Syriac Gazetteer" app-root="/geo/" data-root="places" record-URI-pattern="http://syriaca.org/place/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/geo-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/geo.css"/>
                     </header>
                     <navbar>
@@ -97,6 +98,7 @@
                 </collection>
                 <collection template="persons" name="sbd" title="The Syriac Biographical Dictionary" series="The Syriac Biographical Dictionary" app-root="/persons/" data-root="persons" record-URI-pattern="http://syriaca.org/person/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/sbd-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/persons.css"/>
                     </header>
                     <navbar>
@@ -107,6 +109,7 @@
                 </collection>
                 <collection template="persons" name="authors" title="A Guide to Syriac Authors" collection-URI="http://syriaca.org/authors" series="The Syriac Biographical Dictionary" app-root="/authors/" data-root="persons" record-URI-pattern="http://syriaca.org/person/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/authors-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/authors.css"/>
                     </header>
                     <navbar>
@@ -117,6 +120,7 @@
                 </collection>
                 <collection template="persons" name="q" title="Qadishe: A Guide to the Syriac Saints" collection-URI="http://syriaca.org/q" series="The Syriac Biographical Dictionary" app-root="/q/" data-root="persons" record-URI-pattern="http://syriaca.org/person/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/q-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/saints.css"/>
                     </header>
                     <navbar>
@@ -127,6 +131,7 @@
                 </collection>
                 <collection template="nhsl" name="nhsl" title="New Handbook of Syriac Literature" collection-URI="http://syriaca.org/nhsl" series="New Handbook of Syriac Literature" app-root="/nhsl/" data-root="works" record-URI-pattern="http://syriaca.org/work/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/nhsl-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/nhsl.css"/>
                     </header>
                     <navbar>
@@ -137,6 +142,7 @@
                 </collection>
                 <collection template="bhse" name="bhse" title="Bibliotheca Hagiographica Syriaca Electronica" collection-URI="http://syriaca.org/q" series="New Handbook of Syriac Literature" app-root="/bhse/" data-root="works" record-URI-pattern="http://syriaca.org/work/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/bhse-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/saints.css"/>
                     </header>
                     <navbar>
@@ -157,6 +163,7 @@
                 </collection>
                 <collection template="bibl" name="bibl" title="Comprehensive Bibliography on Syriac Studies" app-root="/cbss/" data-root="bibl" record-URI-pattern="http://syriaca.org/cbss/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/bibl-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/cbsc.css"/>
                     </header>
                     <navbar>
@@ -167,6 +174,7 @@
                 </collection>
                 <collection template="johnofephesus" name="johnofephesus" title="A Guide to John of Ephesus [Beta]" app-root="/johnofephesus/" data-root="" record-URI-pattern="http://syriaca.org/johnofephesus/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/joe-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/johnEphesus.css"/>
                     </header>
                     <navbar>
@@ -207,6 +215,7 @@
                 </collection>
                 <collection template="johnofephesusPersons" name="johnofephesusPersons" title="Prosopography to John of Ephesus’s Ecclesiastical History" series="Prosopography to John of Ephesus’s Ecclesiastical History" app-root="/johnofephesus/persons/" collection-URI="http://syriaca.org/johnofephesus/persons" data-root="persons" record-URI-pattern="http://syriaca.org/johnofephesus/persons/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/joe-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/johnEphesus.css"/>
                     </header>
                     <navbar>
@@ -217,6 +226,7 @@
                 </collection>
                 <collection template="johnofephesusPlaces" name="johnofephesusPlaces" title="Gazetteer to John of Ephesus’s Ecclesiastical History" series="Gazetteer to John of Ephesus’s Ecclesiastical History" app-root="/johnofephesus/places/" collection-URI="http://syriaca.org/johnofephesus/places" data-root="places" record-URI-pattern="http://syriaca.org/johnofephesus/places/">
                     <header>
+                        <link rel="shortcut icon" href="/resources/images/fav-icons/joe-favicon.ico"/>
                         <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="/resources/css/johnEphesus.css"/>
                     </header>
                     <navbar>
