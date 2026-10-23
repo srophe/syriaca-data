@@ -3,8 +3,6 @@
 <?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/out/syriacaWorks.compiled.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-model href="https://raw.githubusercontent.com/srophe/Gaddel/refs/heads/main/documentation/schemas/uniqueLangHW.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:lawd="http://lawd.info/ontology/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:srophe="https://srophe.app" xmlns:functx="http://www.functx.com" xmlns:saxon="http://saxon.sf.net/" xmlns:syriaca="http://syriaca.org" xml:lang="en">
-   <!-- START BY RE-NAMING THE FILE WITH THE NUMBER PORTION OF THE WORK URI, THEN DELETE THIS COMMENT. -->
-   <!-- N.B., this template document produces many error messages and comments. They are designed to help you complete the file.-->
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -82,8 +80,8 @@
          </langUsage>
       </profileDesc>
       <revisionDesc status="uncorrected-draft">
-         <change who="http://syriaca.org/documentation/editors.xml#msaunders http://syriaca.org/documentation/editors.xml#xji" when="2026-07-09">CREATED: file</change>
-         <!-- IS THIS HOW TO INCLUDE THE CHANGE ELEMENT? Please advise.-->
+         <change who="http://syriaca.org/documentation/editors.xml#msaunders" when="2026-07-09">CREATED: file (co-created)</change>
+         <change who="http://syriaca.org/documentation/editors.xml#xji" when="2026-07-09">CREATED: file (co-created)</change>
       </revisionDesc>
    </teiHeader>
    <text>
@@ -92,7 +90,7 @@
             <title xml:id="name5505-1" xml:lang="en" source="#bib5505-1" srophe:tags="#syriaca-headword">Book of the Dove</title>
             <author ref="http://syriaca.org/person/239" xml:lang="en" source="#bib5505-1">Gregory Bar Hebraeus<foreign xml:lang="syr">ܓܪܝܓܘܪܝܘܣܒܪ ܥܒܪܝܐ</foreign>
             </author>
-            <idno type="URI">http://syriaca.org/work/5505/</idno>
+            <idno type="URI">http://syriaca.org/work/5505</idno>
             <textLang mainLang="syr"/>
             <date notBefore="1200" notAfter="1300" source="#bib5505-2">13th cent. CE</date>
             <noteGrp type="abstract">
@@ -101,39 +99,26 @@
                   The Book of the Dove is a concise ascetic and mystical manual composed by the West Syrian maphrian Gregory Bar Hebraeus (13th cent. CE). Written as a practical distillation of his larger ethical encyclopedia, the Ethikon, it was specifically intended as a guidebook for monks and novices lacking extensive library access. According to Bedjan’s (1919) edition, the work is structurally divided into four parts: (1) on the bodily service in the monastery; (2) on the psychic service which is accomplished in the cell; (3) on the spiritual rest of the perfect; and (4) a tale of the author’s progress in teachings and some sentences communicated to him in revelations.
                </note>
             </noteGrp>
-            <!-- 
-               You can add multiple noteGrp elements. Options include: abstract, contents, disambiguation, 
-               exerpt, explicit, incipit, prologue, scope, and versions.
-            -->
-            <!-- 
-               You can add a listRelation if this work is part of a larger collection, is part of a literary tradition,
-               commemorates a person or place, or if it would be helpful to explicitly distinguish this work from
-               another work with a Syriaca.org URI. [If none of these is the case, you can delete this comment.]
-            -->
+            <listBibl type="editions">
+               <head>Editions</head>
+               <desc xml:lang="en">This is not a comprehensive list of editions related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
+               <bibl xml:id="bib5505-3" type="lawd:Edition">
+                  <title xml:lang="la">Liber columbae seu Directorium monachorum Gregorii Barhebraei</title>
+                  <ptr target="http://syriaca.org/cbss/4GQ5Y2HW"/>
+               </bibl>
+            </listBibl>
             <listBibl type="secondaryLiterature">
                <head>Secondary Literature</head>
                <desc xml:lang="en">This is not a comprehensive list of secondary literature related to this work. Further citations may be available through <ref target="http://syriaca.org/cbss">The Comprehensive Bibliography on Syriac Studies</ref>.</desc>
                <bibl xml:id="bib5505-1" type="lawd:Citation">
                   <title xml:lang="en">Christian Spiritual Sources in Barhebraeus’ Ethicon and the Book of the Dove</title>
                   <ptr target="http://syriaca.org/cbss/4ARYCKV2"/>
-                  <!-- 
-                     If this bibl has another bibl as its source, add listRelation/relation/@ref="dcterms:source".
-                     This is used to indicate that an edition of a text is based on a manuscript or if a translation
-                     of a text is based on an edition. [If none of this is the case, you can delete this comment.]
-                  -->
                </bibl>
                <bibl xml:id="bib5505-2" type="lawd:Citation">
                   <title xml:lang="en">Book of the Dove: Ascetic Instructions by Gregory Bar Hebraeus</title>
                   <ptr target="http://syriaca.org/cbss/6BWM53YZ"/>
                </bibl>
-               <!-- Replace this note with additional bibl elements as needed. -->
             </listBibl>
-            <!-- 
-               The data model requires at least one listBibl but you will likely want more than one.
-               Simply cut and paste the template above to add additional types of bibliographic material.
-               As a reminder, the options for listBibl/@type are: "ancientVersions", "editions", "manuscripts", "modernTranslations" and "secondaryLiterature".
-               You can delete this comment when you no longer need it.
-            -->
          </bibl>
       </body>
    </text>
