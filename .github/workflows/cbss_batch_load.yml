@@ -122,12 +122,10 @@ jobs:
           echo "HTML files uploaded: $(grep -v '\.xml$' logs/uploaded_files.txt | wc -l)"
           echo "CBSS HTML files uploaded"
 
-
       - name: Upload error log
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: error-logs-${{ matrix.batch_start }}
           path: logs/errors.log
-
 
