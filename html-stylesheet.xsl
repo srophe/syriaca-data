@@ -551,7 +551,6 @@
                 <!-- Leaflet -->
                 <link rel="stylesheet" href="/resources/leaflet/leaflet.css"/>
                 <link rel="stylesheet" href="/resources/leaflet/leaflet.awesome-markers.css"/>
-                <script defer="defer" data-domain="syriaca.org" src="https://plausible.io/js/plausible.js"/>
                 <!-- JQuery -->
                 <link href="/resources/jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
                 <script type="text/javascript" src="/resources/js/jquery.min.js"/>
@@ -1045,7 +1044,6 @@
             <!-- Leaflet -->
             <link rel="stylesheet" href="/resources/leaflet/leaflet.css"/>
             <link rel="stylesheet" href="/resources/leaflet/leaflet.awesome-markers.css"/>
-            <script defer="defer" data-domain="syriaca.org" src="https://plausible.io/js/plausible.js"/>
             <!-- JQuery -->
             <link href="/resources/jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
             <script type="text/javascript" src="/resources/js/jquery.min.js"/>
